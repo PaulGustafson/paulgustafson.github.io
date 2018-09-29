@@ -1,0 +1,250 @@
+% An introduction to Beamer created 6/8/2016
+\documentclass{beamer}
+\usetheme{Boadilla}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usepackage{hyperref}
+
+\title{A Brief Introduction to LaTeX}
+\author{Paul Gustafson (shamelessly stolen from Robert Williams)}
+\institute{Texas A\&M University}
+\date{June 2, 2017}
+
+\begin{document}
+	
+	\begin{frame}
+		\maketitle
+	\end{frame}
+	
+	\begin{frame}{What is \LaTeX?}
+		LaTeX (pronounced ``lay-tech'' or ``la-tech'') is type-setting software designed to satisfy technical and scientific needs.
+		
+		Why use it?
+		\pause
+		\begin{itemize}
+			\item Your math looks nice \pause
+			\item Customizable \pause
+			\item Outputs pdf's \pause
+			\item \alert<5>{The standard in scientific publication} \pause
+		\end{itemize}
+		
+		\begin{exampleblock}{Downloading and Installing LaTeX}
+			\url{http://latex-project.org/ftp.html}
+		\end{exampleblock}
+		\hyperlink{basic tex}{\beamerbutton{I'm new to LaTeX}}
+		\quad
+		\hyperlink{outline}{\beamerbutton{I'm familiar with LaTeX}}
+		\quad
+		\hyperlink{resources}{\beamerbutton{Take me to the resources
+slide}}
+	\end{frame}
+
+        \begin{frame}{Article example}
+          We'll go over two types of LaTeX files today: articles and beamer files.  The article document format is 
+          used for writing papers.  The beamer format is used for writing presentations.
+          
+          \vfill
+          
+          Let's look at an example of an article.
+
+          \vfill
+
+        \end{frame}
+
+	
+
+	\begin{frame}[fragile]{Outline of a beamer file} \label{outline}
+		\begin{verbatim}
+		\documentclass[handout]{beamer} %handout collapses frames into
+1 slide
+		\usetheme{theme}
+		\usecolortheme{color}
+		
+		\usepackage{amsmath, amsfonts, amssymb}
+		\usepackage{tikz}
+		
+		\title{My Informative Title}
+		\author{My Name}
+		\institute{My Institution}
+		\date{Date of presentation} or \date{\today}
+		\end{verbatim}
+	\end{frame}
+	
+	\begin{verbatim}
+	
+	
+	
+	
+		\begin{document}
+		
+			\begin{frame}
+				\maketitle
+			\end{frame}
+			
+			\begin{frame}{Frame Title}
+				Contents of paper or presentation
+			\end{frame}
+		
+		\end{document}
+	\end{verbatim}
+	
+	\begin{frame}{Beamer vs Article}
+		Inside of each frame, you can write as you would in a normal LaTeX file. There is also a little bit of extra functionality present in beamer:
+		\begin{itemize}
+			\item You can give individual frames titles \pause
+			\item You can segment frames into multiple slides using $\backslash$pause \pause
+			\item You can create blocks to sort information \pause
+			\item You can draw attention to points during some of these slides by using $\backslash$alert$\langle\#\rangle$\{text\}\pause
+			\item You can separate a slide into multiple columns using the columns environment \pause
+			\item You can create \hyperlink{outline}{\beamerbutton{hyperlinks}} to other parts of your presentation
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}{Beamer example}
+		The best way to learn beamer is to use it. Let's recreate the example beamer file.
+        \end{frame}
+                
+	
+	\begin{frame}{Basic Tex Reference} \label{basic tex}
+		Symbols for type-setting commands:
+		\begin{itemize}
+			\item \% is used for comments
+			\item $\backslash$ tells LaTeX you are writing a command
+			\begin{itemize}
+				\item some commands have \{inputs contained in curly brackets\} or [options contained in square braces]
+			\end{itemize}
+			\item \$ tells LaTeX to enter or exit math mode
+		\end{itemize}
+			
+		\pause
+			
+		Common unintuitive commands:
+		\begin{itemize}
+			\item $\backslash\backslash$ is a line return
+			\item \$\$ enters or exits display math mode
+			\begin{itemize}
+				\item Alternatively, $\backslash[ \text{ math goes here } \backslash]$ also uses display math mode
+			\end{itemize}
+		\end{itemize}		
+	\end{frame}
+	
+	\begin{frame}[fragile]
+		When in math mode, use \^~to write superscripts and \_ to write subscripts. Enclose the (super-)subscript in \{\} if it is more than 1 character long. \pause \\
+		\begin{verbatim} $\sum_{n=1}^\infty \frac{1}{2^n} = 1$
+\end{verbatim} $\sum_{n=1}^\infty \frac{1}{2^n} = 1$ \pause \\
+		\begin{verbatim} $$\sum_{n=1}^\infty \frac{1}{2^n} = 1$$
+\end{verbatim}
+		$$\sum_{n=1}^\infty \frac{1}{2^n} = 1$$
+	\end{frame}
+	
+	\begin{frame}[fragile]{Creating Lists}
+		\begin{columns}
+			\begin{column}{0.4\textwidth}
+				\begin{verbatim}
+					\begin{itemize}
+						\item Item 1
+						\item Item 2
+					\end{itemize}
+				\end{verbatim}
+				\begin{itemize}
+					\item Item 1
+					\item Item 2
+				\end{itemize}
+			\end{column}
+			\begin{column}{0.4\textwidth}
+				\begin{verbatim}
+					\begin{enumerate}
+						\item Item 1
+						\item Item 2
+					\end{enumerate}
+				\end{verbatim}
+				\begin{enumerate}
+					\item Item 1
+					\item Item 2
+				\end{enumerate}
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}[fragile]{Tables and Matrices}
+		\begin{columns}
+			\begin{column}{0.4\textwidth}
+				\begin{verbatim}
+					\begin{tabular}{c|cc}
+						a & b & c \\
+						\hline
+						d & e & f \\
+						g & h & i
+					\end{tabular}
+				\end{verbatim}
+				\begin{tabular}{c|cc}
+					a & b & c \\
+					\hline
+					d & e & f \\
+					g & h & i
+				\end{tabular}
+			\end{column}
+			\begin{column}{0.4\textwidth}
+				\begin{verbatim}
+					$
+					\begin{bmatrix}
+					a & b & c \\
+					d & e & f \\
+					g & h & i 
+					\end{bmatrix}
+					$
+				\end{verbatim}
+				$
+				\begin{bmatrix}
+				a & b & c \\
+				d & e & f \\
+				g & h & i 
+				\end{bmatrix}
+				$
+			\end{column}
+		\end{columns}
+	\end{frame}
+	
+	\begin{frame}[fragile]		
+		\begin{verbatim}
+		\begin{theorem}[Name/Attribution of Theorem]
+		X iff Y
+		\end{theorem}
+		\end{verbatim}
+		
+		\begin{theorem}[Name/Attribution of Theorem]
+			X iff Y
+		\end{theorem}
+		
+		\begin{verbatim}
+		\begin{proof}
+		This is trivial.
+		\end{proof}
+		\end{verbatim}
+		
+		\begin{proof}
+			This is trivial.
+		\end{proof}
+		
+		\hyperlink{outline}{\beamerbutton{back to beamer}}
+	\end{frame}
+	
+	% Resources Slide
+	\begin{frame}{Additional Resources} \label{resources}
+		LaTeX has an active community with many resources to help you along the way.
+		\begin{itemize}
+			\item LaTeX Wikibooks: \url{https://en.wikibooks.org/wiki/LaTeX}
+			\item TeX Stack Exchange: \url{http://tex.stackexchange.com}
+			\item The Not So Short Introduction to \LaTeXe:
+\url{http://tobi.oetiker.ch/lshort/lshort.pdf}
+			\item Detexify: \url{http://detexify.kirelabs.org/classify.html}
+			\item A collection of beamer themes and colors:
+\url{http://hartwork.org/beamer-theme-matrix/}
+		\end{itemize}
+	\end{frame}
+	
+\end{document}
