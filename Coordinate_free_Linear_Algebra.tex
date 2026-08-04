@@ -184,7 +184,9 @@ For $f\in\End(V)$, the \textbf{characteristic polynomial} is the polynomial $\la
     \end{itemize}
 \end{exercise}
 
-Let $\mathcal C$ be a $\mathbb C$-linear monoidal category with tensor product $\otimes$, tensor unit $1$, and finite direct sums. Write $\operatorname{Hom}_{\mathcal C}(x,y)$ for its complex vector space of morphisms from $x$ to $y$. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple, that there are finitely many isomorphism classes of simple objects, and that $\mathcal C$ is \textbf{rigid}: every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities \cite{etingof-tensor}.
+A $\mathbb C$-linear monoidal category generalizes finite-dimensional complex vector spaces: it has objects, complex vector spaces $\operatorname{Hom}_{\mathcal C}(x,y)$ of morphisms, identities and bilinear associative composition, together with a tensor product $\otimes$ that is bilinear on morphisms and is associative with tensor unit $1$, up to coherent natural isomorphism. Direct sums and duals generalize the corresponding vector-space constructions.
+
+Let $\mathcal C$ be such a category with finite direct sums. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple, that there are finitely many isomorphism classes of simple objects, and that $\mathcal C$ is \textbf{rigid}: every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities \cite{etingof-tensor}.
 
 The definitions of duality, trace, and dimension above extend verbatim to $\mathcal C$. Write $d_x=\trace(1_x)$. Then
 \[
@@ -1175,6 +1177,17 @@ P_n(2\cos\theta)
 \cup
 [4,\infty).
 \]
+\textit{For}
+\[
+[M:N]=4\cos^2\left(\frac{\pi}{k+2}\right),
+\qquad
+\delta=\sqrt{[M:N]},
+\]
+\textit{prove that the Jones projections determine a representation of the Temperley--Lieb algebra $\operatorname{TL}_n(\delta)$, and hence a braid-group representation. Show that the Markov trace of a braid closure satisfies the Jones skein relation. Relate the parameter}
+\[
+\delta=2\cos\left(\frac{\pi}{k+2}\right)
+\]
+\textit{to the $SU(2)_k$ fusion and braiding data from Algebra and to the Wilson-loop invariant of Chern--Simons theory from Geometry.}
 \end{exercise}
 
 \begin{thebibliography}{99}
