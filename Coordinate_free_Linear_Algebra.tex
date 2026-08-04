@@ -270,7 +270,7 @@ X_g(f)=\{f,g\}.
 \end{itemize}
 \end{exercise}
 
-On an oriented pseudo-Riemannian $n$-manifold, the metric induces a bilinear form $\langle\cdot,\cdot\rangle_g$ on differential forms. The \textbf{metric volume form} $\operatorname{vol}_g$ is the unique positive volume form satisfying
+A \textbf{pseudo-Riemannian metric} is a smooth nondegenerate symmetric section $g\in\Gamma(T^*M\otimes T^*M)$. On an oriented pseudo-Riemannian $n$-manifold, the metric induces a bilinear form $\langle\cdot,\cdot\rangle_g$ on differential forms. The \textbf{metric volume form} $\operatorname{vol}_g$ is the unique positive volume form satisfying
 \[
 \left|\langle\operatorname{vol}_g,\operatorname{vol}_g\rangle_g\right|=1.
 \]
@@ -312,8 +312,111 @@ For a closed form $A$, write $[A]$ for its de Rham cohomology class. The next ex
 \end{itemize}
 \end{exercise}
 
-An \textbf{affine connection} is a map $\nabla : \Gamma(TM) \times \Gamma(TM) \to \Gamma(TM)$ such that $\nabla_{fX} Y = f \nabla_X Y$ and
-$\nabla_X(fY) = (\partial_X f) Y + f \nabla_X Y$ for any scalar field $f$ on $M$.
+An \textbf{affine connection} is a map $\nabla : \Gamma(TM) \times \Gamma(TM) \to \Gamma(TM)$ such that
+\[
+\nabla_{fX}Y=f\nabla_XY,
+\qquad
+\nabla_X(fY)=X(f)Y+f\nabla_XY.
+\]
+For a covector field $\alpha$, set
+\[
+(\nabla_X\alpha)(Y)=X(\alpha(Y))-\alpha(\nabla_XY).
+\]
+The connection extends uniquely to all tensor fields by the product rule and by commuting with contractions; this defines the \textbf{covariant derivative} of a tensor field.
+
+The \textbf{Levi-Civita connection} of a pseudo-Riemannian metric is the unique affine connection satisfying
+\[
+\nabla_XY-\nabla_YX=[X,Y],
+\qquad
+\nabla g=0.
+\]
+An affinely parametrized curve $\gamma:I\to M$ is a \textbf{geodesic} if $\nabla_{\dot\gamma}\dot\gamma=0$. The Lie derivative of the metric is
+\[
+(\mathcal L_Xg)(Y,Z)
+=X(g(Y,Z))-g([X,Y],Z)-g(Y,[X,Z]),
+\]
+and $X$ is a \textbf{Killing vector field} if $\mathcal L_Xg=0$.
+
+Let $(M,g)$ be a pseudo-Riemannian manifold with Levi-Civita connection $\nabla$. Curvature governs the relative acceleration of geodesics, while symmetries of $g$ determine quantities preserved along them \cite{oneill,wald}.
+
+\begin{exercise}[Killing fields and conserved quantities]\leavevmode\par
+\textit{Let $X$ be a Killing vector field and let $\gamma$ be an affinely parametrized geodesic. Prove that}
+\[
+\frac{d}{dt}g(\dot\gamma,\dot\gamma)=0,
+\qquad
+\frac{d}{dt}g(X,\dot\gamma)=0.
+\]
+\textit{Deduce that $g(X,\dot\gamma)$ is constant along $\gamma$.}
+\end{exercise}
+
+The \textbf{curvature} of $\nabla$ is the map
+\[
+R(X,Y)Z
+=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
+\]
+
+\begin{exercise}[Curvature as a tensor]\leavevmode\par
+\textit{For $f\in C^\infty(M)$ and vector fields $X,Y,Z$, prove that}
+\[
+R(fX,Y)Z=fR(X,Y)Z,
+\qquad
+R(X,fY)Z=fR(X,Y)Z,
+\]
+\[
+R(X,Y)(fZ)=fR(X,Y)Z.
+\]
+\textit{Verify explicitly that every derivative of $f$ cancels. Prove that $R(X,Y)=-R(Y,X)$ and deduce that}
+\[
+R\in\Gamma\!\left(\Lambda^2T^*M\otimes T^*M\otimes TM\right).
+\]
+\end{exercise}
+
+Let $\Gamma:(-\varepsilon,\varepsilon)\times I\to M$ be a smooth variation through affinely parametrized geodesics, and define the vector fields along $\Gamma$ by
+\[
+T=\frac{\partial\Gamma}{\partial t},
+\qquad
+J=\frac{\partial\Gamma}{\partial s}.
+\]
+Then $[T,J]=0$.
+
+\begin{exercise}[Geodesic deviation]
+\textit{For a variation $\Gamma$ as above, prove that}
+\[
+\nabla_T\nabla_TJ=R(T,J)T.
+\]
+\end{exercise}
+
+Thus curvature determines the relative acceleration of nearby geodesics.
+
+Define the \textbf{Ricci tensor}, \textbf{scalar curvature}, and \textbf{Einstein tensor} by
+\[
+\operatorname{Ric}(X,Y)=\operatorname{tr}\bigl(Z\mapsto R(Z,X)Y\bigr),
+\qquad
+S=\operatorname{tr}_g(\operatorname{Ric}),
+\qquad
+G=\operatorname{Ric}-\frac12Sg.
+\]
+For a symmetric covariant two-tensor $A$, its \textbf{divergence} is the covector field
+\[
+(\operatorname{div}A)(Y)
+=\operatorname{tr}_g\bigl((X,Z)\mapsto(\nabla_XA)(Z,Y)\bigr).
+\]
+
+\begin{exercise}[Contracted Bianchi identity and conservation]\leavevmode\par
+\textit{Assume the second Bianchi identity}
+\[
+(\nabla_XR)(Y,Z)+(\nabla_YR)(Z,X)+(\nabla_ZR)(X,Y)=0.
+\]
+\textit{Contract this identity to prove that}
+\[
+\operatorname{div}G=0.
+\]
+\textit{Deduce that if $T$ is a symmetric covariant two-tensor satisfying}
+\[
+G+\Lambda g=\kappa T
+\]
+\textit{for constants $\Lambda,\kappa$ with $\kappa\ne0$, then $\operatorname{div}T=0$.}
+\end{exercise}
 
 \section{Braiding}
 
@@ -512,6 +615,16 @@ Theodore Frankel,
 \textit{The Geometry of Physics: An Introduction},
 3rd ed., Cambridge University Press, 2011.
 doi:10.1017/CBO9781139061377.
+
+\bibitem{oneill}
+Barrett O'Neill,
+\textit{Semi-Riemannian Geometry with Applications to Relativity},
+Pure and Applied Mathematics, Vol. 103, Academic Press, 1983.
+
+\bibitem{wald}
+Robert M. Wald,
+\textit{General Relativity},
+University of Chicago Press, 1984.
 
 \bibitem{aharonov-bohm}
 Yakir Aharonov and David Bohm,
