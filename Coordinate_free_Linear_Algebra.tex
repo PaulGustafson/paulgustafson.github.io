@@ -20,7 +20,9 @@
 
 
 \maketitle
-\section{Linear Algebra}
+The first section develops algebraic constructions independent of a basis; the second develops geometric constructions independent of coordinates.
+
+\section{Algebra}
 
 Linear algebra studies linear maps between vector spaces. A \textbf{vector space} $V$ over a field $k$ is a set equipped with vector addition and scalar multiplication operations satisfying straightforward compatibility conditions. A \textbf{linear map} $f: V \to U$ between $k$-vector spaces is a map of underlying sets such that $f(\alpha v + \beta w) = \alpha f(v) + \beta f(w)$ for all $\alpha, \beta \in k$ and $v, w \in V$. Examples include differential operators, group representations, coefficient matrices of linear systems of equations, and local approximations of globally nonlinear functions \cite{halmos,hoffman-kunze}.
 
@@ -182,8 +184,126 @@ For $f\in\End(V)$, the \textbf{characteristic polynomial} is the polynomial $\la
     \end{itemize}
 \end{exercise}
 
-\section{Calculus}
-A \textbf{smooth manifold} is a topological space that is locally diffeomorphic to Euclidean space $\mathbb{R}^n$. A \textbf{smooth vector bundle} $p : E \to M$ consists of a smooth surjection $p$ between smooth manifolds $E$ (the total space) and $M$ (the base space) such that all fibers are isomorphic to a single vector space $V$, and smooth local trivializations exist (locally, the fiber bundle looks like a product space). A prototypical example is the \textbf{tangent bundle} $TM$ which consists of all tangent spaces of points of a given manifold. A \textbf{vector field} $X \in \Gamma(TM)$ is a smooth section of the tangent bundle (i.e. a smooth map $s: M \to TM$ such that $p \circ s = 1_M$) \cite{spivak}.
+Let $\mathcal C$ be a $\mathbb C$-linear monoidal category with tensor product $\otimes$, tensor unit $1$, and finite direct sums. Write $\operatorname{Hom}_{\mathcal C}(x,y)$ for its complex vector space of morphisms from $x$ to $y$. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple, that there are finitely many isomorphism classes of simple objects, and that $\mathcal C$ is \textbf{rigid}: every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities \cite{etingof-tensor}.
+
+The definitions of duality, trace, and dimension above extend verbatim to $\mathcal C$. Write $d_x=\trace(1_x)$. Then
+\[
+d_{x\oplus y}=d_x+d_y,
+\qquad
+d_{x\otimes y}=d_xd_y.
+\]
+Assume that the categorical dimensions of nonzero objects are positive real numbers.
+
+For $x,y,z\in\mathcal C$, write
+\[
+F^{xyz}:(x\otimes y)\otimes z\longrightarrow x\otimes(y\otimes z)
+\]
+for the associator. A \textbf{braiding} is a family of isomorphisms
+\[
+c_{x,y}:x\otimes y\longrightarrow y\otimes x.
+\]
+For $f:x\to x'$ and $g:y\to y'$, it satisfies $(g\otimes f)c_{x,y}=c_{x',y'}(f\otimes g)$.
+The associator satisfies the pentagon identity, and the associator and braiding satisfy the hexagon identities. Suppressing associators, the latter are
+\[
+\begin{aligned}
+c_{x,y\otimes z}&=(1_y\otimes c_{x,z})(c_{x,y}\otimes1_z),\\
+c_{x\otimes y,z}&=(c_{x,z}\otimes1_y)(1_x\otimes c_{y,z}).
+\end{aligned}
+\]
+
+The \textbf{monodromy} of $x$ and $y$ is the double braiding
+\[
+M_{x,y}=c_{y,x}c_{x,y}:x\otimes y\longrightarrow x\otimes y.
+\]
+Thus $c_{x,y}$ is one crossing, while $M_{x,y}$ is a full braid. If $x\otimes y$ is simple, identify $M_{x,y}$ with its scalar in $\mathbb C^\times=\mathbb C\setminus\{0\}$. Decompositions of tensor products of simple objects are \textbf{fusion rules}, and the spaces $\operatorname{Hom}_{\mathcal C}(z,x\otimes y)$ are \textbf{fusion spaces}.
+
+An object $x$ is \textbf{invertible} if $x\otimes x^*\cong1$. Assume first that every simple object is invertible and that their isomorphism classes form the cyclic group
+\[
+\{1,a,a^2,\ldots,a^{m-1}\},
+\qquad
+a^r\otimes a^s\cong a^{r+s\pmod m}.
+\]
+Write $U(1)=\{z\in\mathbb C:|z|=1\}$ and $M_{r,s}=M_{a^r,a^s}\in U(1)$.
+
+\begin{exercise}[Abelian braiding phase]\leavevmode\par
+\textit{Use the hexagon identities to prove that}
+\[
+M_{r+s,t}=M_{r,t}M_{s,t},
+\qquad
+M_{r,s+t}=M_{r,s}M_{r,t}.
+\]
+\textit{Deduce that there is an integer $k$ modulo $m$ such that}
+\[
+M_{r,s}=\exp\left(\frac{2\pi i krs}{m}\right).
+\]
+\textit{For $k=1$, prove that the monodromy of $a$ about $N$ copies of $a$ is multiplication by}
+\[
+\exp\left(\frac{2\pi iN}{m}\right).
+\]
+\textit{In particular, for $m=3$, increasing $N$ by one changes the phase by $2\pi/3$.}
+\end{exercise}
+
+The phase $2\pi/3$ is the value observed by interferometry in the $\nu=1/3$ fractional quantum Hall state \cite{nakamura-anyons}.
+
+Now suppose that $\mathcal C$ has two simple objects $1,\tau$ satisfying the fusion rule
+\[
+\tau\otimes\tau\cong1\oplus\tau.
+\]
+
+\begin{exercise}[Fibonacci categorical dimension]\leavevmode\par
+\textit{Let $d_\tau=\trace(1_\tau)$. Prove that} \cite{etingof-tensor}
+\[
+d_\tau^2=1+d_\tau
+\]
+\textit{and, using positivity, that}
+\[
+d_\tau=\frac{1+\sqrt5}{2}.
+\]
+\textit{Let}
+\[
+V_n=\operatorname{Hom}_{\mathcal C}(1,\tau^{\otimes n}).
+\]
+\textit{Show that the dimensions of these fusion spaces satisfy the Fibonacci recurrence and determine their asymptotic growth rate.}
+\end{exercise}
+
+Let
+\[
+V=\operatorname{Hom}_{\mathcal C}(\tau,\tau^{\otimes3}).
+\]
+This fusion space is two-dimensional, with basis indexed by the intermediate objects $1,\tau$ in $(\tau\otimes\tau)\otimes\tau$. Set $\varphi=(1+\sqrt5)/2$ and choose \cite{bonderson}
+\[
+F=
+\begin{pmatrix}
+\varphi^{-1}&\varphi^{-1/2}\\
+\varphi^{-1/2}&-\varphi^{-1}
+\end{pmatrix},
+\qquad
+R=
+\begin{pmatrix}
+e^{-4\pi i/5}&0\\
+0&e^{3\pi i/5}
+\end{pmatrix}.
+\]
+Define $\sigma_1=R$ and $\sigma_2=F^{-1}RF$. Let
+\[
+B_3=\langle b_1,b_2\mid b_1b_2b_1=b_2b_1b_2\rangle.
+\]
+
+\begin{exercise}[Non-Abelian braid representation]\leavevmode\par
+\textit{Working exactly, verify that $F$ and $R$ are unitary and prove that}
+\[
+\sigma_1\sigma_2\sigma_1=\sigma_2\sigma_1\sigma_2.
+\]
+\textit{Prove also that $\sigma_1\sigma_2\neq\sigma_2\sigma_1$. Deduce that $b_i\mapsto\sigma_i$ defines a non-Abelian representation}
+\[
+B_3\longrightarrow U(V).
+\]
+\end{exercise}
+
+Such Fibonacci fusion and braiding data have been implemented on superconducting quantum processors \cite{xu-fibonacci}.\footnote{This is an engineered quantum simulation of Fibonacci topological order, not evidence that naturally occurring Fibonacci quasiparticles have been conclusively observed. A related trapped-ion realization of non-Abelian topological order is reported in \cite{iqbal-anyons}.}
+
+\section{Geometry}
+A \textbf{smooth manifold} is a topological space that is locally diffeomorphic to Euclidean space $\mathbb{R}^n$. A \textbf{smooth vector bundle} $p : E \to M$ consists of a smooth surjection $p$ between smooth manifolds $E$ (the total space) and $M$ (the base space) such that all fibers are isomorphic to a single vector space $V$, and smooth local trivializations exist (locally, the fiber bundle looks like a product space). A prototypical example is the \textbf{tangent bundle} $TM$ which consists of all tangent spaces of points of a given manifold. The \textbf{cotangent bundle} $T^*M$ is the dual bundle of $TM$. A \textbf{vector field} $X \in \Gamma(TM)$ is a smooth section of the tangent bundle (i.e. a smooth map $s: M \to TM$ such that $p \circ s = 1_M$) \cite{spivak}. An orientation of $M$ is a smoothly varying choice of orientation of each tangent space, using the determinant lines defined in the Algebra section.
 
 \begin{exercise}
 Write down precise definitions for the following:
@@ -194,7 +314,7 @@ Write down precise definitions for the following:
 \end{itemize}
 \end{exercise}
 
-To define integration in a coordinate-free way, we will integrate differential forms over chains. The space of \textbf{differential $n$-forms} is $\Omega^n(M)=\Gamma(\Lambda^nT^*M)$. On an oriented $n$-manifold, a \textbf{volume form} is a nowhere-vanishing element of $\Omega^n(M)$ that is positive with respect to the orientation. The exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ extends the differential of smooth functions and satisfies \cite{bott-tu}
+The exterior powers $\Lambda^kT_p^*M$ are those defined in the Algebra section. To define integration in a coordinate-free way, we will integrate differential forms over chains. The space of \textbf{differential $n$-forms} is $\Omega^n(M)=\Gamma(\Lambda^nT^*M)$. On an oriented $n$-manifold, a \textbf{volume form} is a nowhere-vanishing element of $\Omega^n(M)$ that is positive with respect to the orientation. The exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ extends the differential of smooth functions and satisfies \cite{bott-tu}
 \[
 d(\alpha\wedge\beta)=d\alpha\wedge\beta+(-1)^p\alpha\wedge d\beta
 \]
@@ -388,7 +508,7 @@ Then $[T,J]=0$.
 
 Thus curvature determines the relative acceleration of nearby geodesics.
 
-Define the \textbf{Ricci tensor}, \textbf{scalar curvature}, and \textbf{Einstein tensor} by
+The trace used below is the ordinary trace defined in the Algebra section. Define the \textbf{Ricci tensor}, \textbf{scalar curvature}, and \textbf{Einstein tensor} by
 \[
 \operatorname{Ric}(X,Y)=\operatorname{tr}\bigl(Z\mapsto R(Z,X)Y\bigr),
 \qquad
@@ -417,135 +537,6 @@ G+\Lambda g=\kappa T
 \]
 \textit{for constants $\Lambda,\kappa$ with $\kappa\ne0$, then $\operatorname{div}T=0$.}
 \end{exercise}
-
-\section{Braiding}
-
-Let $\mathcal C$ be a $\mathbb C$-linear monoidal category with tensor product $\otimes$, tensor unit $1$, and finite direct sums. Write $\operatorname{Hom}_{\mathcal C}(x,y)$ for its complex vector space of morphisms from $x$ to $y$. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple and that there are finitely many isomorphism classes of simple objects. The category is \textbf{rigid} if every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities \cite{etingof-tensor}.
-
-For $x,y,z\in\mathcal C$, write
-\[
-F^{xyz}:(x\otimes y)\otimes z\longrightarrow x\otimes(y\otimes z)
-\]
-for the associator. A \textbf{braiding} is a family of isomorphisms
-\[
-c_{x,y}:x\otimes y\longrightarrow y\otimes x.
-\]
-For $f:x\to x'$ and $g:y\to y'$, it satisfies $(g\otimes f)c_{x,y}=c_{x',y'}(f\otimes g)$.
-The associator satisfies the pentagon identity, and the associator and braiding satisfy the hexagon identities. Suppressing associators, the latter are
-\[
-\begin{aligned}
-c_{x,y\otimes z}&=(1_y\otimes c_{x,z})(c_{x,y}\otimes1_z),\\
-c_{x\otimes y,z}&=(c_{x,z}\otimes1_y)(1_x\otimes c_{y,z}).
-\end{aligned}
-\]
-
-The \textbf{monodromy} of $x$ and $y$ is the double braiding
-\[
-M_{x,y}=c_{y,x}c_{x,y}:x\otimes y\longrightarrow x\otimes y.
-\]
-Thus $c_{x,y}$ is one crossing, while $M_{x,y}$ is a full braid. If $x\otimes y$ is simple, identify $M_{x,y}$ with its scalar in $\mathbb C^\times=\mathbb C\setminus\{0\}$.
-
-For $f:x\to x$, rigidity and braiding define
-\[
-\trace(f)=\ev_xc_{x,x^*}(f\otimes1_{x^*})\coev_x\in\End(1)\cong\mathbb C.
-\]
-The \textbf{categorical dimension} $d_x=\trace(1_x)$ is assumed to lie in $\mathbb R_{>0}$ and satisfies
-\[
-d_{x\oplus y}=d_x+d_y,
-\qquad
-d_{x\otimes y}=d_xd_y.
-\]
-
-An object $x$ is \textbf{invertible} if $x\otimes x^*\cong1$. Assume first that every simple object is invertible and that their isomorphism classes form the cyclic group
-\[
-\{1,a,a^2,\ldots,a^{m-1}\},
-\qquad
-a^r\otimes a^s\cong a^{r+s\pmod m}.
-\]
-Write $U(1)=\{z\in\mathbb C:|z|=1\}$ and $M_{r,s}=M_{a^r,a^s}\in U(1)$.
-
-\begin{exercise}[Abelian braiding phase]\leavevmode\par
-\textit{Use the hexagon identities to prove that}
-\[
-M_{r+s,t}=M_{r,t}M_{s,t},
-\qquad
-M_{r,s+t}=M_{r,s}M_{r,t}.
-\]
-\textit{Deduce that there is an integer $k$ modulo $m$ such that}
-\[
-M_{r,s}=\exp\left(\frac{2\pi i krs}{m}\right).
-\]
-\textit{For $k=1$, prove that the monodromy of $a$ about $N$ copies of $a$ is multiplication by}
-\[
-\exp\left(\frac{2\pi iN}{m}\right).
-\]
-\textit{In particular, for $m=3$, increasing $N$ by one changes the phase by $2\pi/3$.}
-\end{exercise}
-
-The phase $2\pi/3$ is the value observed by interferometry in the $\nu=1/3$ fractional quantum Hall state \cite{nakamura-anyons}.
-
-Now suppose that $\mathcal C$ has two simple objects $1,\tau$ satisfying
-\[
-\tau\otimes\tau\cong1\oplus\tau.
-\]
-
-\begin{exercise}[Fibonacci categorical dimension]\leavevmode\par
-\textit{Let $d_\tau$ be the categorical dimension of $\tau$. Prove that} \cite{etingof-tensor}
-\[
-d_\tau^2=1+d_\tau
-\]
-\textit{and, using positivity, that}
-\[
-d_\tau=\frac{1+\sqrt5}{2}.
-\]
-\textit{Let}
-\[
-V_n=\operatorname{Hom}_{\mathcal C}(1,\tau^{\otimes n}).
-\]
-\textit{Show that the dimensions of these spaces satisfy the Fibonacci recurrence and determine their asymptotic growth rate.}
-\end{exercise}
-
-Let
-\[
-V=\operatorname{Hom}_{\mathcal C}(\tau,\tau^{\otimes3}).
-\]
-This space is two-dimensional, with basis indexed by the intermediate objects $1,\tau$ in $(\tau\otimes\tau)\otimes\tau$. Set $\varphi=(1+\sqrt5)/2$ and choose \cite{bonderson}
-\[
-F=
-\begin{pmatrix}
-\varphi^{-1}&\varphi^{-1/2}\\
-\varphi^{-1/2}&-\varphi^{-1}
-\end{pmatrix},
-\qquad
-R=
-\begin{pmatrix}
-e^{-4\pi i/5}&0\\
-0&e^{3\pi i/5}
-\end{pmatrix}.
-\]
-Define $\sigma_1=R$ and $\sigma_2=F^{-1}RF$. Let
-\[
-B_3=\langle b_1,b_2\mid b_1b_2b_1=b_2b_1b_2\rangle.
-\]
-
-\begin{exercise}[Non-Abelian braid representation]\leavevmode\par
-\textit{Working exactly, verify that $F$ and $R$ are unitary and prove that}
-\[
-\sigma_1\sigma_2\sigma_1=\sigma_2\sigma_1\sigma_2.
-\]
-\textit{Prove also that $\sigma_1\sigma_2\neq\sigma_2\sigma_1$. Deduce that $b_i\mapsto\sigma_i$ defines a non-Abelian representation}
-\[
-B_3\longrightarrow U(V).
-\]
-\end{exercise}
-
-Such Fibonacci fusion and braiding data have been implemented on superconducting quantum processors \cite{xu-fibonacci}.\footnote{This is an engineered quantum simulation of Fibonacci topological order, not evidence that naturally occurring Fibonacci quasiparticles have been conclusively observed. A related trapped-ion realization of non-Abelian topological order is reported in \cite{iqbal-anyons}.}
-
-
-
-
-
-
 
 \begin{thebibliography}{99}
 
