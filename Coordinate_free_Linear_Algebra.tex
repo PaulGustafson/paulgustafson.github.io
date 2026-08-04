@@ -158,6 +158,8 @@ The space $\Lambda^kV$ is the degree-$k$ component of $\Lambda V$.
 
 The \textbf{determinant} $\det(f)$ is the coefficient of the linear map on the highest-graded component of $\Lambda V$ given by $v_1 \wedge \cdots \wedge v_{\dim(V)} \mapsto f(v_1) \wedge \cdots f(v_{\dim(V)})$.
 
+For an $n$-dimensional real vector space $V$, its \textbf{determinant line} is $\det(V^*)=\Lambda^nV^*$. An \textbf{orientation} is a choice of one of the two connected components of $\det(V^*)\setminus\{0\}$; the elements of the chosen component are positive.
+
 \begin{exercise} Prove the following:
 \begin{itemize}
     \item $\det(f \oplus g) = \det(f) \det(g)$
@@ -192,7 +194,7 @@ Write down precise definitions for the following:
 \end{itemize}
 \end{exercise}
 
-To define integration in a coordinate-free way, we will integrate differential forms over chains. The space of \textbf{differential $n$-forms} is $\Omega^n(M)=\Gamma(\Lambda^nT^*M)$. The exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ extends the differential of smooth functions and satisfies
+To define integration in a coordinate-free way, we will integrate differential forms over chains. The space of \textbf{differential $n$-forms} is $\Omega^n(M)=\Gamma(\Lambda^nT^*M)$. On an oriented $n$-manifold, a \textbf{volume form} is a nowhere-vanishing element of $\Omega^n(M)$ that is positive with respect to the orientation. The exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ extends the differential of smooth functions and satisfies
 \[
 d(\alpha\wedge\beta)=d\alpha\wedge\beta+(-1)^p\alpha\wedge d\beta
 \]
@@ -237,7 +239,7 @@ A \textbf{symplectic form} is a two-form $\omega\in\Omega^2(M)$ such that $d\ome
 \]
 
 \begin{exercise}[Liouville's theorem]\leavevmode\par
-\textit{Let $(M,\omega)$ be $2n$-dimensional with $\omega$ symplectic. For $H\in C^\infty(M)$, prove using Cartan's formula that}
+\textit{Let $(M,\omega)$ be $2n$-dimensional with $\omega$ symplectic. Prove that $\omega^n/n!$ is a volume form. For $H\in C^\infty(M)$, prove using Cartan's formula that}
 \[
 \mathcal{L}_{X_H}\omega=0.
 \]
@@ -266,7 +268,11 @@ X_g(f)=\{f,g\}.
 \end{itemize}
 \end{exercise}
 
-Write $\operatorname{vol}_g$ for the metric volume form and $\langle\cdot,\cdot\rangle_g$ for the induced pairing of forms. On an oriented pseudo-Riemannian manifold, the Hodge star $\star$ is determined by
+On an oriented pseudo-Riemannian $n$-manifold, the metric induces a bilinear form $\langle\cdot,\cdot\rangle_g$ on differential forms. The \textbf{metric volume form} $\operatorname{vol}_g$ is the unique positive volume form satisfying
+\[
+\left|\langle\operatorname{vol}_g,\operatorname{vol}_g\rangle_g\right|=1.
+\]
+The Hodge star $\star$ is determined by
 \[
 \alpha\wedge\star\beta=\langle\alpha,\beta\rangle_g\operatorname{vol}_g.
 \]
