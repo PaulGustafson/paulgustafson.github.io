@@ -52,7 +52,34 @@ $(\ev_V \otimes 1_{V^*}) \circ (1_{V^*} \otimes \coev_{V}) = 1_{V^*}$. We define
 \end{exercise}
 
 
-The simplest linear maps are scalar multiples of the identity. Although most linear maps are not of this form, it is useful to decompose them into sums of scalar maps when possible. One condition under which we can decompose a linear map into a direct sum of scalars is if the map is self-adjoint. Suppose $k = \mathbb{C}$, the field of complex numbers. A Hermitian inner product $\langle \cdot, \cdot \rangle: V \times V \to \mathbb{C}$ is a positive-definite sesquilinear form (linear in the first variable, anti-linear in the second variable, and conjugate symmetric). A linear map $f : V \to V$ is \textbf{self-adjoint} if $\langle f v, w \rangle = \langle v, f w \rangle$ for all $v, w \in V$.
+The simplest linear maps are scalar multiples of the identity. Although most linear maps are not of this form, it is useful to decompose them into sums of scalar maps when possible. One condition under which we can decompose a linear map into a direct sum of scalars is if the map is self-adjoint. Suppose $V$ is finite dimensional over $\mathbb{C}$. A Hermitian inner product $\langle \cdot, \cdot \rangle: V \times V \to \mathbb{C}$ is a positive-definite sesquilinear form (linear in the first variable, anti-linear in the second variable, and conjugate symmetric). Write $|v|=\sqrt{\langle v,v\rangle}$. For a linear map $f:V\to W$ between Hermitian spaces, the adjoint $f^*:W\to V$ is characterized by $\langle fv,w\rangle=\langle v,f^*w\rangle$. An endomorphism $f$ is \textbf{self-adjoint} if $f=f^*$. An isomorphism $f$ is \textbf{unitary} if it preserves inner products, equivalently if $f^*=f^{-1}$.
+
+For maps $f:V\to V'$ and $g:W\to W'$, define $(f\otimes g)(v\otimes w)=f(v)\otimes g(w)$. The tensor product of Hermitian spaces has inner product
+\[
+\langle v_1\otimes w_1,v_2\otimes w_2\rangle
+=\langle v_1,v_2\rangle\langle w_1,w_2\rangle.
+\]
+The Cauchy--Schwarz inequality is $|\langle v,w\rangle|\leq |v||w|$, with equality iff $v$ and $w$ are linearly dependent.
+
+\begin{exercise}[No-cloning theorem]
+\textit{Let $V$ be a finite-dimensional complex inner-product space, let $b\in V$ be a unit vector, and suppose that $C:V\otimes V\to V\otimes V$ is unitary. Prove that if}
+\[
+C(v\otimes b)=v\otimes v,
+\qquad
+C(w\otimes b)=w\otimes w
+\]
+\textit{for unit vectors $v,w\in V$, then}
+\[
+\langle v,w\rangle=\langle v,w\rangle^2.
+\]
+\textit{Deduce that either $\langle v,w\rangle=0$ or $v=w$. Conclude that no unitary map can satisfy $C(v\otimes b)=v\otimes v$ for every unit vector $v\in V$.}
+\end{exercise}
+
+A scalar $\lambda \in k$ is an \textbf{eigenvalue} for a linear map $f : V \to V$ if there exists a nonzero vector $v \in V$ for which $fv = \lambda v$. The \textbf{eigenspace} of $\lambda$ is
+\[
+\ker(f-\lambda 1_V),
+\]
+whose nonzero elements are eigenvectors; its dimension is called the \textbf{geometric multiplicity} of $\lambda$.
 
 \begin{exercise}
 Prove that any self-adjoint linear map $f$ on a finite-dimensional complex vector space $V$ is diagonalizable:
@@ -60,12 +87,62 @@ $$f = \sum \lambda_i p_i,$$
 where $\sum p_i = 1_V$ and $p_i p_j = \delta_{ij} p_i$. Use this fact to prove the existence of the singular value decomposition for an arbitrary linear map between complex finite-dimensional vector spaces.
 \end{exercise}
 
-The scalars $\lambda_i$ above are called the eigenvalues of $f$, and the images of $p_i$ are the corresponding eigenspaces. More generally, a scalar $\lambda \in k$ is an \textbf{eigenvalue} for a linear map $f : V \to V$ if there exists a nonzero vector $v \in V$ for which $fv = \lambda v$. The \textbf{eigenspace} of $\lambda$ is
+For $\psi\in V\otimes W$, define
 \[
-\ker(f-\lambda 1_V),
+T_\psi:V^*\to W,
+\qquad
+T_\psi(\phi)=(\phi\otimes1_W)(\psi).
 \]
-whose nonzero elements are eigenvectors; its dimension is called the \textbf{geometric multiplicity} of $\lambda$.
+The map $j_V:V\to V^*$ given by $j_V(v)=\langle\mathord{\cdot},v\rangle$ is conjugate-linear. Equip $V^*$ with the Hermitian inner product determined by $\langle j_V(v),j_V(w)\rangle=\langle w,v\rangle$. With $T_\psi^*:W\to V^*$ denoting the adjoint, define
+\[
+\rho_V=j_V^{-1}T_\psi^*T_\psi j_V,
+\qquad
+\rho_W=T_\psi T_\psi^*.
+\]
+Write $U(V)$ for the group of unitary endomorphisms of $V$, acting with $U(W)$ on $V\otimes W$ by tensor products. A nonzero tensor is \textbf{decomposable} if it has the form $v\otimes w$. The rank of an endomorphism is the dimension of its image.
 
+\begin{exercise}[Schmidt decomposition and reduced endomorphisms]\leavevmode\par
+\textit{Let $V$ and $W$ be finite-dimensional Hermitian vector spaces and let $0\neq\psi\in V\otimes W$. Prove that there exist orthonormal families $(v_i)$ in $V$ and $(w_i)$ in $W$, and positive scalars $s_i$, such that}
+\[
+\psi=\sum_{i=1}^r s_i v_i\otimes w_i.
+\]
+\textit{Prove the following:}
+\begin{itemize}
+\item The nonzero eigenvalues of $\rho_V$ and $\rho_W$ are the numbers $s_i^2$, with the same multiplicities.
+\item $\psi$ is decomposable iff exactly one $s_i$ is nonzero.
+\item $\rho_V$ has rank one iff $\rho_W$ has rank one iff $\psi$ is decomposable.
+\item The multiset $(s_i)$ is invariant under the action of $U(V)\times U(W)$.
+\end{itemize}
+\end{exercise}
+
+For a unit vector $\psi\in V$ and a self-adjoint $A\in\End(V)$, define
+\[
+m_\psi(A)=\langle\psi,A\psi\rangle,
+\qquad
+\Delta_\psi(A)=\left|\left(A-m_\psi(A)1_V\right)\psi\right|.
+\]
+
+\begin{exercise}[Uncertainty principle]
+\textit{Let $A,B\in\End(V)$ be self-adjoint and let $\psi\in V$ be a unit vector. Prove that}
+\[
+\Delta_\psi(A)\Delta_\psi(B)
+\geq\frac{1}{2}\left|\left\langle\psi,[A,B]\psi\right\rangle\right|,
+\qquad
+[A,B]=AB-BA.
+\]
+\textit{Determine the condition for equality from the equality condition in the Cauchy--Schwarz inequality.}
+\end{exercise}
+
+For $K\in\End(V)$, define $e^K=\sum_{n\geq0}K^n/n!$. If $H$ is self-adjoint, write $U_t=e^{-itH}$.
+
+\begin{exercise}[Conservation from commutators]\leavevmode\par
+\textit{Let $A,H\in\End(V)$ be self-adjoint, let $U_t=e^{-itH}$, and let $\psi\in V$. Prove that}
+\[
+\frac{d}{dt}\left\langle U_t\psi,A\,U_t\psi\right\rangle
+=-i\left\langle U_t\psi,[H,A]U_t\psi\right\rangle.
+\]
+\textit{Deduce that $[H,A]=0$ implies that $\langle U_t\psi,A\,U_t\psi\rangle$ is independent of $t$ for every $\psi\in V$. Prove the converse.}
+\end{exercise}
 
 We can solve for the eigenvalues of a linear operator on a finite-dimensional vector space via the determinant. Define the tensor algebra and \textbf{exterior algebra of $V$} by
 \[
@@ -115,7 +192,11 @@ Write down precise definitions for the following:
 \end{itemize}
 \end{exercise}
 
-To define integration in a coordinate-free way, we will integrate differential forms over chains. A \textbf{differential $n$-form} is a section of the $n$-th graded component of the exterior bundle $\Lambda T^*M$. A \textbf{singular $n$-simplex} is a smooth map $\sigma:\Delta^n \to M$ where $\Delta^n$ is the standard $n$-simplex. The collection of singular $n$-simplices in $M$ freely generates the abelian group $C_n(M)$ of \textbf{singular $n$-chains} in $M$. The \textbf{boundary map} $\partial : C_n(M) \to C_{n-1}(M)$ is defined on each simplex $\sigma:\Delta^n \to M$ by
+To define integration in a coordinate-free way, we will integrate differential forms over chains. The space of \textbf{differential $n$-forms} is $\Omega^n(M)=\Gamma(\Lambda^nT^*M)$. The exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ extends the differential of smooth functions and satisfies
+\[
+d(\alpha\wedge\beta)=d\alpha\wedge\beta+(-1)^p\alpha\wedge d\beta
+\]
+for $\alpha\in\Omega^p(M)$. A \textbf{singular $n$-simplex} is a smooth map $\sigma:\Delta^n \to M$ where $\Delta^n$ is the standard $n$-simplex. The collection of singular $n$-simplices in $M$ freely generates the abelian group $C_n(M)$ of \textbf{singular $n$-chains} in $M$. The \textbf{boundary map} $\partial : C_n(M) \to C_{n-1}(M)$ is defined on each simplex $\sigma:\Delta^n \to M$ by
 $$\partial\sigma=\sum_{j=0}^{n}(-1)^j\sigma\circ f_j,$$ where $f_j : \Delta^{n-1} \to \Delta^n$ is the inclusion of the face opposite the $j$-th vertex of $\Delta^n$.
 
 A \textbf{chain complex} $(A_n, d_n)_n$ is a sequence of abelian groups $A_n$ and homomorphisms $d_n : A_n \to A_{n-1}$ such that $d_{n-1} \circ d_n = 0$ for all $n$. The $n$-th \textbf{homology group} $H_n$ of the chain complex is
@@ -135,12 +216,91 @@ H_{\mathrm{dR}}^n(M)
 \begin{exercise}
 Prove the following:
 \begin{itemize}
-\item Define the \textbf{exterior derivative} of an $n$-form, and show that differential forms on a manifold $M$ form a cochain complex.
+\item Show that $d^2=0$, so differential forms on a manifold $M$ form a cochain complex.
 \item Define the integral of an $n$-form on an $n$-chain. Prove that $\int_c d \omega = \int_{\partial c} \omega$ for any $n$-chain $c$ and differential $n-1$-form $\omega$.
 
 \item Singular cohomology with real coefficients and de Rham cohomology are naturally isomorphic.
 
 \item Bounded chain complexes of finite-dimensional vector spaces form a symmetric monoidal abelian category with duals, the trace of an endomorphism is its Lefschetz number, and the dimension of a chain complex is its Euler characteristic.
+\end{itemize}
+\end{exercise}
+
+For a vector field $X$, contraction is the map $\iota_X:\Omega^p(M)\to\Omega^{p-1}(M)$ defined by
+\[
+(\iota_X\alpha)(X_2,\ldots,X_p)=\alpha(X,X_2,\ldots,X_p).
+\]
+The Lie derivative of forms is determined by Cartan's formula $\mathcal{L}_X=d\iota_X+\iota_Xd$.
+
+A \textbf{symplectic form} is a two-form $\omega\in\Omega^2(M)$ such that $d\omega=0$ and $X\mapsto\iota_X\omega$ is a bundle isomorphism $TM\to T^*M$. Write $C^\infty(M)$ for the smooth real-valued functions on $M$. For $H\in C^\infty(M)$, define $X_H$ by
+\[
+\iota_{X_H}\omega=dH.
+\]
+
+\begin{exercise}[Liouville's theorem]\leavevmode\par
+\textit{Let $(M,\omega)$ be $2n$-dimensional with $\omega$ symplectic. For $H\in C^\infty(M)$, prove using Cartan's formula that}
+\[
+\mathcal{L}_{X_H}\omega=0.
+\]
+\textit{Deduce that $\mathcal{L}_{X_H}\omega^n=0$ and hence that the local flow of $X_H$ preserves the volume form}
+\[
+\frac{\omega^n}{n!}.
+\]
+\end{exercise}
+
+For $f,g\in C^\infty(M)$, define
+\[
+\{f,g\}=\omega(X_f,X_g).
+\]
+
+\begin{exercise}[Hamiltonian Noether theorem]\leavevmode\par
+\textit{Let $(M,\omega)$ be symplectic. Prove that}
+\[
+X_g(f)=\{f,g\}.
+\]
+\textit{Let $\Phi_t$ be the local flow of $X_f$. Prove that the following are equivalent:}
+\begin{itemize}
+\item $H\circ\Phi_t=H$ whenever both sides are defined.
+\item $X_f(H)=0$.
+\item $\{H,f\}=0$.
+\item $f$ is constant along the integral curves of $X_H$.
+\end{itemize}
+\end{exercise}
+
+Write $\operatorname{vol}_g$ for the metric volume form and $\langle\cdot,\cdot\rangle_g$ for the induced pairing of forms. On an oriented pseudo-Riemannian manifold, the Hodge star $\star$ is determined by
+\[
+\alpha\wedge\star\beta=\langle\alpha,\beta\rangle_g\operatorname{vol}_g.
+\]
+
+\begin{exercise}[Charge conservation from Maxwell's equations]\leavevmode\par
+\textit{Let $M$ be an oriented four-dimensional pseudo-Riemannian manifold. Suppose that $F\in\Omega^2(M)$ and $J\in\Omega^3(M)$ satisfy}
+\[
+dF=0,
+\qquad
+d\star F=J.
+\]
+\textit{Prove that $dJ=0$. If $C$ is an oriented compact four-dimensional chain, deduce that}
+\[
+\int_{\partial C}J=0.
+\]
+\textit{If the three-dimensional pieces of its boundary satisfy}
+\[
+\partial C=\Sigma_1-\Sigma_0+B,
+\]
+\textit{prove that}
+\[
+\int_{\Sigma_1}J-\int_{\Sigma_0}J=-\int_BJ.
+\]
+\end{exercise}
+
+For a closed form $A$, write $[A]$ for its de Rham cohomology class.
+
+\begin{exercise}[Aharonov--Bohm cohomological obstruction]
+\textit{Let $M$ be a compact smooth manifold and let $A\in\Omega^1(M)$ satisfy $dA=0$. Prove the following:}
+\begin{itemize}
+\item For every contractible open set $U\subseteq M$, there exists $\lambda\in C^\infty(U)$ such that $A|_U=d\lambda$.
+\item For every smooth closed curve $\gamma$, the number $\int_\gamma A$ depends only on the homology class of $\gamma$.
+\item There exists a global $\lambda\in C^\infty(M)$ with $A=d\lambda$ iff $[A]=0\in H_{\mathrm{dR}}^1(M)$.
+\item If $[A]\neq0$, then there exists a smooth closed curve $\gamma$ such that $\int_\gamma A\neq0$.
 \end{itemize}
 \end{exercise}
 
