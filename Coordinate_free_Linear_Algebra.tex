@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{graphicx} % Required for inserting images
-\usepackage{amsfonts, amsmath} % For \mathbb
+\usepackage{amsfonts, amsmath, amssymb} % For mathematical symbols
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{exercise}{Exercise}
@@ -20,7 +20,7 @@
 
 
 \maketitle
-The first section develops algebraic constructions independent of a basis; the second develops geometric constructions independent of coordinates.
+The first section develops algebraic constructions independent of a basis; the second develops geometric constructions independent of coordinates; the third develops analytic constructions from operators and positivity.
 
 \section{Algebra}
 
@@ -647,6 +647,314 @@ G+\Lambda g=\kappa T
 \textit{for constants $\Lambda,\kappa$ with $\kappa\ne0$, then $\operatorname{div}T=0$.}
 \end{exercise}
 
+\section{Analysis}
+
+A \textbf{unital $C^*$-algebra} is a complex unital Banach algebra $A$ with an involution $a\mapsto a^*$ satisfying
+\[
+\|a^*a\|=\|a\|^2.
+\]
+Its positive cone is $A_+=\{a^*a:a\in A\}$. A \textbf{state} is a linear map $\varphi:A\to\mathbb C$ such that \cite{paulsen}
+\[
+\varphi(a)\geq0\quad(a\in A_+),
+\qquad
+\varphi(1)=1.
+\]
+
+\begin{exercise}
+\textit{Let $\varphi$ be a positive linear functional on a unital $C^*$-algebra $A$. Prove that}
+\[
+|\varphi(b^*a)|^2
+\leq
+\varphi(a^*a)\varphi(b^*b).
+\]
+\textit{Deduce that $\|\varphi\|=\varphi(1)$.}
+\end{exercise}
+
+For a state $\varphi$, define
+\[
+\langle a,b\rangle_\varphi=\varphi(b^*a),
+\qquad
+N_\varphi=\{a\in A:\varphi(a^*a)=0\},
+\]
+and let $H_\varphi$ be the Hilbert-space completion of $A/N_\varphi$. For a Hilbert space $H$, write $\mathcal B(H)$ for the $C^*$-algebra of bounded operators on $H$. A vector $\Omega$ is \textbf{cyclic} for a representation $\pi$ if the span of $\pi(A)\Omega$ is dense.
+
+\begin{exercise}[GNS construction]\leavevmode\par
+\textit{Let $\varphi$ be a state on a unital $C^*$-algebra $A$. Prove that left multiplication induces a unital $*$-representation}
+\[
+\pi_\varphi:A\longrightarrow\mathcal B(H_\varphi)
+\]
+\textit{with a cyclic vector $\Omega_\varphi$ satisfying}
+\[
+\varphi(a)
+=\langle\pi_\varphi(a)\Omega_\varphi,\Omega_\varphi\rangle_\varphi.
+\]
+\textit{Prove that $(H_\varphi,\pi_\varphi,\Omega_\varphi)$ is unique up to unitary equivalence.}
+\end{exercise}
+
+For a linear map $\Phi:A\to B$ between unital $C^*$-algebras, its $n$-th \textbf{amplification} is
+\[
+\Phi_n:M_n(A)\longrightarrow M_n(B),
+\qquad
+[a_{ij}]\longmapsto[\Phi(a_{ij})].
+\]
+The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive. Its \textbf{completely bounded norm} is
+\[
+\|\Phi\|_{\mathrm{cb}}=\sup_{n\geq1}\|\Phi_n\|.
+\]
+
+\begin{exercise}
+\textit{For $n\geq2$, let}
+\[
+T:M_n(\mathbb C)\longrightarrow M_n(\mathbb C),
+\qquad
+T(a)=a^{\mathsf T}.
+\]
+\textit{Prove that $T$ is positive but not completely positive, and prove that}
+\[
+\|T\|_{\mathrm{cb}}=n.
+\]
+\end{exercise}
+
+For the standard matrix units $E_{ij}\in M_n(\mathbb C)$ and a linear map $\Phi:M_n(\mathbb C)\to M_m(\mathbb C)$, define the \textbf{Choi matrix}
+\[
+C_\Phi=\sum_{i,j=1}^n E_{ij}\otimes\Phi(E_{ij}).
+\]
+
+\begin{exercise}[Choi theorem]\leavevmode\par
+\textit{Let $\Phi:M_n(\mathbb C)\to M_m(\mathbb C)$ be linear. Prove that the following are equivalent} \cite{choi}:
+\begin{itemize}
+\item $\Phi$ is completely positive.
+\item $C_\Phi\geq0$.
+\item There are linear maps $V_r:\mathbb C^m\to\mathbb C^n$ such that
+\[
+\Phi(a)=\sum_rV_r^*aV_r.
+\]
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}[Stinespring dilation]\leavevmode\par
+\textit{Let $\Phi:A\to\mathcal B(H)$ be completely positive. Prove that there are a Hilbert space $K$, a $*$-representation $\pi:A\to\mathcal B(K)$, and a bounded operator $V:H\to K$ such that} \cite{stinespring}
+\[
+\Phi(a)=V^*\pi(a)V.
+\]
+\textit{Prove that $V$ is an isometry when $\Phi$ is unital. Call the dilation minimal if the span of $\pi(A)VH$ is dense in $K$, and prove that a minimal dilation is unique up to unitary equivalence.}
+\end{exercise}
+
+For a unital completely positive map $\Phi:A\to B$, define its \textbf{multiplicative domain} by
+\[
+\operatorname{MD}(\Phi)
+=
+\left\{
+a\in A:
+\begin{array}{l}
+\Phi(a^*a)=\Phi(a)^*\Phi(a),\\
+\Phi(aa^*)=\Phi(a)\Phi(a)^*
+\end{array}
+\right\}.
+\]
+
+\begin{exercise}[Multiplicative domain]\leavevmode\par
+\textit{Let $\Phi:A\to B$ be unital and completely positive. Prove the Kadison--Schwarz inequality}
+\[
+\Phi(a)^*\Phi(a)\leq\Phi(a^*a).
+\]
+\textit{Prove that $\operatorname{MD}(\Phi)$ is a $C^*$-subalgebra of $A$ and that, for $a\in\operatorname{MD}(\Phi)$ and $b\in A$,}
+\[
+\Phi(ab)=\Phi(a)\Phi(b),
+\qquad
+\Phi(ba)=\Phi(b)\Phi(a).
+\]
+\end{exercise}
+
+For $\mathcal S\subseteq\mathcal B(H)$, its \textbf{commutant} is
+\[
+\mathcal S'=\{T\in\mathcal B(H):Tx=xT\text{ for every }x\in\mathcal S\}.
+\]
+A \textbf{von Neumann algebra} is a unital $*$-subalgebra $M\subseteq\mathcal B(H)$ satisfying $M=M''$ \cite{takesaki}. A net $(T_\lambda)$ converges to $T$ in the \textbf{strong operator topology} if $T_\lambda\xi\to T\xi$ for every $\xi\in H$, and in the \textbf{weak operator topology} if
+\[
+\langle T_\lambda\xi,\eta\rangle\longrightarrow\langle T\xi,\eta\rangle
+\]
+for every $\xi,\eta\in H$.
+
+\begin{exercise}[Bicommutant theorem]\leavevmode\par
+\textit{Let $A\subseteq\mathcal B(H)$ be a unital $*$-subalgebra. Prove that}
+\[
+A''
+=\overline A^{\,\mathrm{SOT}}
+=\overline A^{\,\mathrm{WOT}}.
+\]
+\end{exercise}
+
+The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$. A positive functional or positive map is \textbf{normal} if it preserves suprema of bounded increasing nets of positive elements, and a positive functional $\psi$ is \textbf{faithful} if $\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an infinite-dimensional factor with a faithful normal tracial state
+\[
+\tau:M\longrightarrow\mathbb C,
+\qquad
+\tau(ab)=\tau(ba),
+\qquad
+\tau(1)=1.
+\]
+The normalized trace is an analytic analogue of the categorical trace in Algebra, not an identification with it.
+
+For projections $p,q\in M$, write $p\sim q$ if there is $v\in M$ such that
+\[
+v^*v=p,
+\qquad
+vv^*=q.
+\]
+Write $p\precsim q$ if $p$ is equivalent to a projection $r$ satisfying $rq=r$.
+
+\begin{exercise}[Projection dimension]\leavevmode\par
+\textit{Let $M$ be a type $\mathrm{II}_1$ factor with normalized trace $\tau$. Prove that}
+\[
+p\sim q\quad\Longrightarrow\quad\tau(p)=\tau(q),
+\]
+\textit{and prove the comparison theorem}
+\[
+p\precsim q
+\quad\Longleftrightarrow\quad
+\tau(p)\leq\tau(q).
+\]
+\textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
+\end{exercise}
+
+A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
+\[
+\tau\circ E_N=\tau,
+\qquad
+E_N(n_1xn_2)=n_1E_N(x)n_2
+\]
+for $x\in M$ and $n_1,n_2\in N$. Let $L^2(M,\tau)$ be the completion of $M$ for
+\[
+\langle x,y\rangle_\tau=\tau(y^*x).
+\]
+Let $M$ act on $L^2(M,\tau)$ by left multiplication.
+
+\begin{exercise}
+\textit{Prove that $E_N$ extends to the orthogonal projection}
+\[
+e_N:L^2(M,\tau)\longrightarrow L^2(N,\tau).
+\]
+\textit{Prove that}
+\[
+e_N=e_N^*=e_N^2,
+\qquad
+e_Nxe_N=E_N(x)e_N
+\]
+\textit{for every $x\in M$.}
+\end{exercise}
+
+The \textbf{basic construction} is
+\[
+M_1=\langle M,e_N\rangle''
+\subseteq\mathcal B(L^2(M,\tau)),
+\]
+the double commutant of the algebra generated by $M$ and $e_N$. For a projection $p=[p_{ij}]\in M_k(N)$ acting by left multiplication, define
+\[
+\dim_N\!\left(pL^2(N,\tau)^k\right)=\sum_{i=1}^k\tau(p_{ii}).
+\]
+An inclusion $N\subseteq M$ has \textbf{finite Jones index} if $L^2(M,\tau)$ is isomorphic as a right $N$-module to such a module; then
+\[
+[M:N]=\dim_NL^2(M,\tau).
+\]
+
+\begin{exercise}[Basic construction]\leavevmode\par
+\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that $M_1$ is a finite factor and that its normalized trace satisfies} \cite{jones-sunder}
+\[
+\tau_1(xe_Ny)
+=\frac{1}{[M:N]}\tau(xy)
+\]
+\textit{for $x,y\in M$.}
+\end{exercise}
+
+Iterating the basic construction gives the \textbf{Jones tower}
+\[
+N=M_{-1}\subset M=M_0\subset M_1\subset M_2\subset\cdots.
+\]
+Let $e_i$ be the Jones projection used to construct $M_i$ from $M_{i-1}$, and set
+\[
+\delta=\sqrt{[M:N]}.
+\]
+The \textbf{Temperley--Lieb algebra} with loop parameter $\delta$ is generated by $U_i$ subject to
+\[
+U_i^2=\delta U_i,
+\qquad
+U_iU_j=U_jU_i\quad(|i-j|\geq2),
+\qquad
+U_iU_{i\pm1}U_i=U_i.
+\]
+
+\begin{exercise}[Temperley--Lieb relations]\leavevmode\par
+\textit{Prove that the Jones projections satisfy} \cite{temperley-lieb,jones-index}
+\[
+e_i^2=e_i=e_i^*,
+\qquad
+e_ie_j=e_je_i\quad(|i-j|\geq2),
+\]
+\[
+e_ie_{i\pm1}e_i=\delta^{-2}e_i.
+\]
+\textit{Deduce that $U_i\mapsto\delta e_i$ defines a representation of the Temperley--Lieb algebra.}
+\end{exercise}
+
+Let $q\in\mathbb C^\times$ satisfy $\delta=q+q^{-1}$ and define
+\[
+\sigma_i=q\,1-U_i.
+\]
+These operators reconnect the Temperley--Lieb construction with the braid groups introduced in Algebra.
+
+\begin{exercise}[Braid representation]\leavevmode\par
+\textit{Prove that $\sigma_i$ is invertible with inverse $q^{-1}1-U_i$, and prove that}
+\[
+\sigma_i\sigma_{i+1}\sigma_i
+=\sigma_{i+1}\sigma_i\sigma_{i+1},
+\]
+\[
+\sigma_i\sigma_j=\sigma_j\sigma_i
+\qquad
+(|i-j|\geq2).
+\]
+\textit{Deduce that the $\sigma_i$ define a representation of the braid group} \cite{jones-polynomial}.
+\end{exercise}
+
+The compatible normalized traces on the Jones tower restrict to a positive \textbf{Markov trace} on the Temperley--Lieb algebras satisfying
+\[
+\operatorname{tr}(xU_i)=\delta^{-1}\operatorname{tr}(x)
+\]
+whenever $x$ belongs to the algebra generated by the preceding generators. Define
+\[
+P_0(\delta)=1,
+\qquad
+P_1(\delta)=\delta,
+\qquad
+P_{n+1}(\delta)=\delta P_n(\delta)-P_{n-1}(\delta).
+\]
+
+\begin{exercise}
+\textit{Prove that, when $\sin\theta\ne0$,}
+\[
+P_n(2\cos\theta)
+=\frac{\sin((n+1)\theta)}{\sin\theta}.
+\]
+\textit{Use positivity of the Markov trace to prove that if $0<\delta<2$, then}
+\[
+\delta=2\cos\left(\frac{\pi}{m}\right)
+\]
+\textit{for some integer $m\geq3$.}
+\end{exercise}
+
+\begin{exercise}[Jones index theorem]\leavevmode\par
+\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that} \cite{jones-index,jones-sunder}
+\[
+[M:N]
+\in
+\left\{
+4\cos^2\left(\frac{\pi}{n}\right):n\geq3
+\right\}
+\cup
+[4,\infty).
+\]
+\end{exercise}
+
 \begin{thebibliography}{99}
 
 \bibitem{halmos}
@@ -690,6 +998,56 @@ Alexei Kitaev,
 \textit{Periodic table for topological insulators and superconductors},
 AIP Conference Proceedings, 1134:22--30, 2009.
 doi:10.1063/1.3149495.
+
+\bibitem{paulsen}
+Vern Paulsen,
+\textit{Completely Bounded Maps and Operator Algebras},
+Cambridge Studies in Advanced Mathematics, Vol. 78,
+Cambridge University Press, 2002.
+doi:10.1017/CBO9780511546631.
+
+\bibitem{choi}
+Man-Duen Choi,
+\textit{Completely positive linear maps on complex matrices},
+Linear Algebra and its Applications, 10(3):285--290, 1975.
+doi:10.1016/0024-3795(75)90075-0.
+
+\bibitem{stinespring}
+W. Forrest Stinespring,
+\textit{Positive functions on $C^*$-algebras},
+Proceedings of the American Mathematical Society, 6:211--216, 1955.
+doi:10.1090/S0002-9939-1955-0069403-4.
+
+\bibitem{takesaki}
+Masamichi Takesaki,
+\textit{Theory of Operator Algebras I},
+Encyclopaedia of Mathematical Sciences, Vol. 124,
+Springer, 2002.
+
+\bibitem{jones-sunder}
+Vaughan F. R. Jones and V. S. Sunder,
+\textit{Introduction to Subfactors},
+London Mathematical Society Lecture Note Series, Vol. 234,
+Cambridge University Press, 1997.
+doi:10.1017/CBO9780511566219.
+
+\bibitem{jones-index}
+Vaughan F. R. Jones,
+\textit{Index for subfactors},
+Inventiones Mathematicae, 72(1):1--25, 1983.
+doi:10.1007/BF01389127.
+
+\bibitem{jones-polynomial}
+Vaughan F. R. Jones,
+\textit{A polynomial invariant for knots via von Neumann algebras},
+Bulletin of the American Mathematical Society, 12(1):103--111, 1985.
+doi:10.1090/S0273-0979-1985-15304-2.
+
+\bibitem{temperley-lieb}
+H. N. V. Temperley and E. H. Lieb,
+\textit{Relations between the ``percolation'' and ``colouring'' problem and other graph-theoretical problems associated with regular planar lattices},
+Proceedings of the Royal Society A, 322(1549):251--280, 1971.
+doi:10.1098/rspa.1971.0067.
 
 \bibitem{nielsen-chuang}
 Michael A. Nielsen and Isaac L. Chuang,
