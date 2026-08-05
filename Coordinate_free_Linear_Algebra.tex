@@ -94,7 +94,215 @@ A scalar $\lambda\in k$ is an \textbf{eigenvalue} of $f$ if $\ker(f-\lambda1_V)\
     \end{itemize}
 \end{exercise}
 
-A $\mathbb C$-linear monoidal category generalizes finite-dimensional complex vector spaces: it has objects, complex vector spaces $\operatorname{Hom}_{\mathcal C}(x,y)$ of morphisms, identities and bilinear associative composition, together with a tensor product $\otimes$ that is bilinear on morphisms and is associative with tensor unit $1$, up to coherent natural isomorphism. Direct sums and duals generalize the corresponding vector-space constructions.
+\subsection{Group representations}
+
+An action of a group $G$ on a set $X$ assigns to each $g\in G$ a bijection $x\mapsto gx$ such that $1x=x$ and $(gh)x=g(hx)$. A \textbf{representation} of $G$ on a vector space $V$ is a homomorphism
+\[
+\rho:G\longrightarrow\operatorname{GL}(V).
+\]
+A subspace $W\subseteq V$ is \textbf{$G$-invariant} if $\rho(g)W\subseteq W$ for every $g\in G$. Restriction gives the \textbf{subrepresentation} $W$, and $\rho(g)(v+W)=\rho(g)v+W$ gives the \textbf{quotient representation} $V/W$. A nonzero representation is \textbf{irreducible} if its only invariant subspaces are $0$ and $V$.
+
+For representations $V$ and $W$, the direct sum, tensor product, and dual representations are defined by
+\[
+\begin{aligned}
+g(v,w)&=(gv,gw),\\
+g(v\otimes w)&=gv\otimes gw,\\
+(g\phi)(v)&=\phi(g^{-1}v),\qquad \phi\in V^*.
+\end{aligned}
+\]
+An \textbf{intertwiner} $T:V\to W$ is a linear map satisfying $T\rho_V(g)=\rho_W(g)T$ for every $g$. Write $\operatorname{Hom}_G(V,W)$ for the space of intertwiners and
+\[
+V^G=\{v\in V:\rho(g)v=v\text{ for every }g\in G\}
+\]
+for the fixed-point space \cite{serre-representations}.
+
+\begin{exercise}[Invariant averaging]\leavevmode\par
+\textit{Let $G$ be finite and let $V$ be a complex representation. Define}
+\[
+P_G=\frac1{|G|}\sum_{g\in G}\rho(g).
+\]
+\textit{Prove that $P_G$ is the projection of $V$ onto $V^G$. Prove also that averaging any Hermitian inner product over $G$ produces a $G$-invariant Hermitian inner product, so every finite-dimensional complex representation of $G$ is equivalent to a unitary representation.}
+\end{exercise}
+
+\subsection{Maschke's theorem and Schur's lemma}
+
+\begin{theorem}[Maschke's theorem]
+Let $G$ be finite and let $k$ be a field whose characteristic does not divide $|G|$. Every finite-dimensional $k$-representation of $G$ is a direct sum of irreducible representations.
+\end{theorem}
+
+\begin{exercise}[Equivariant complements]\leavevmode\par
+\textit{Let $W\subseteq V$ be $G$-invariant and let $P:V\to W$ be any linear projection. Define}
+\[
+\widetilde P
+=\frac1{|G|}\sum_{g\in G}\rho(g)P\rho(g)^{-1}.
+\]
+\textit{Prove that $\widetilde P$ is $G$-equivariant and has image $W$. Deduce that $\ker\widetilde P$ is a $G$-invariant complement of $W$, and prove Maschke's theorem.}
+\end{exercise}
+
+\begin{theorem}[Schur's lemma]
+Let $V$ and $W$ be irreducible finite-dimensional complex representations. Every nonzero intertwiner $T:V\to W$ is an isomorphism, and
+\[
+\End_G(V)=\mathbb C1_V.
+\]
+\end{theorem}
+
+\begin{exercise}[Schur's lemma and the group algebra]\leavevmode\par
+\textit{Prove Schur's lemma. Let $\mathbb C[G]$ act on $V$ by the linear extension of $\rho$. Deduce that every element of the center $Z(\mathbb C[G])$ acts by a scalar on each irreducible representation.}
+\end{exercise}
+
+\subsection{Characters and orthogonality}
+
+The \textbf{character} of a finite-dimensional representation $V$ is the class function
+\[
+\chi_V(g)=\trace(\rho_V(g)).
+\]
+It satisfies
+\[
+\chi_{V\oplus W}=\chi_V+\chi_W,
+\qquad
+\chi_{V\otimes W}=\chi_V\chi_W,
+\qquad
+\chi_{V^*}(g)=\overline{\chi_V(g)}
+\]
+for unitary representations. For class functions $\chi,\psi:G\to\mathbb C$, define
+\[
+\langle\chi,\psi\rangle_G
+=\frac1{|G|}\sum_{g\in G}\overline{\chi(g)}\psi(g).
+\]
+
+\begin{theorem}[Great Orthogonality Theorem]
+Let $\Gamma^\alpha$ and $\Gamma^\beta$ be irreducible unitary representations of a finite group $G$, of dimensions $d_\alpha$ and $d_\beta$. In orthonormal bases,
+\[
+\sum_{g\in G}
+\Gamma^\alpha(g)_{ij}
+\overline{\Gamma^\beta(g)_{k\ell}}
+=\frac{|G|}{d_\alpha}
+\delta_{\alpha\beta}\delta_{ik}\delta_{j\ell}.
+\]
+Consequently their characters satisfy
+\[
+\langle\chi_\alpha,\chi_\beta\rangle_G
+=\delta_{\alpha\beta}.
+\]
+\end{theorem}
+
+\begin{exercise}[Orthogonality and multiplicities]\leavevmode\par
+\textit{Prove the Great Orthogonality Theorem. If $V$ is a finite-dimensional representation, prove that the multiplicity of $V_\alpha$ in $V$ is}
+\[
+m_\alpha=\langle\chi_\alpha,\chi_V\rangle_G.
+\]
+\textit{Conclude that the character determines a finite-dimensional complex representation up to isomorphism.}
+\end{exercise}
+
+For an irreducible character $\chi_\alpha$, define the \textbf{symmetry projection}
+\[
+P_\alpha
+=\frac{d_\alpha}{|G|}
+\sum_{g\in G}\overline{\chi_\alpha(g)}\rho(g).
+\]
+
+\begin{exercise}[Symmetry projections]\leavevmode\par
+\textit{Prove that the operators $P_\alpha$ are pairwise orthogonal idempotents and that $P_\alpha V$ is the $\alpha$-isotypic component of $V$. Interpret $P_\alpha$ as constructing symmetry-adapted linear combinations of atomic orbitals or displacement vectors.}
+\end{exercise}
+
+\subsection{Molecular symmetry}
+
+The \textbf{point group} of a molecule is the finite group $G\subseteq O(3)$ of spatial symmetries preserving its nuclear configuration, including atomic species. For a molecule with $N$ atoms, $G$ acts on the real displacement space
+\[
+V_{\mathrm{disp}}=\bigoplus_{a=1}^N\mathbb R^3_a
+\cong\mathbb R^{3N}
+\]
+by permuting atoms and applying the spatial linear action to each displacement. The three-dimensional translational representation carries the polar-vector action $R_g$, while the rotational representation carries the axial-vector action $\det(R_g)R_g$; denote them by $V_{\mathrm{trans}}$ and $V_{\mathrm{rot}}$. We complexify these real representations when applying character theory. For a nonlinear molecule, the vibrational representation is the class
+\[
+[V_{\mathrm{vib}}]
+=[V_{\mathrm{disp}}]-[V_{\mathrm{trans}}]-[V_{\mathrm{rot}}]
+\]
+in the representation ring; it has dimension $3N-6$ \cite{cotton-chemical}.
+
+\begin{exercise}[Character of molecular displacements]\leavevmode\par
+\textit{For $g\in G$, prove that}
+\[
+\chi_{\mathrm{disp}}(g)
+=\sum_{\substack{a\\g(a)=a}}\trace(R_g),
+\]
+\textit{where $R_g:\mathbb R^3\to\mathbb R^3$ is the spatial action and the sum is over atoms fixed by $g$. Use character orthogonality to express the multiplicity of every irreducible representation in $V_{\mathrm{vib}}$.}
+\end{exercise}
+
+For water, take the $z$-axis along the $C_2$ axis and the molecule in the $yz$-plane. Its point group is
+\[
+C_{2v}=\{E,C_2,\sigma_{xz},\sigma_{yz}\}.
+\]
+The character table follows from the preceding orthogonality theory:
+\[
+\begin{array}{c|rrrr|c}
+ &E&C_2&\sigma_{xz}&\sigma_{yz}&\text{basis functions}\\ \hline
+A_1&1&1&1&1&z\\
+A_2&1&1&-1&-1&R_z\\
+B_1&1&-1&1&-1&x,\ R_y\\
+B_2&1&-1&-1&1&y,\ R_x
+\end{array}
+\]
+
+\begin{exercise}[Vibrations of $H_2O$]\leavevmode\par
+\textit{Compute}
+\[
+\chi_{\mathrm{disp}}=(9,-1,1,3),
+\qquad
+\chi_{\mathrm{trans}}=(3,-1,1,1),
+\qquad
+\chi_{\mathrm{rot}}=(3,-1,-1,-1).
+\]
+\textit{Use character orthogonality to prove that}
+\[
+V_{\mathrm{vib}}\cong2A_1\oplus B_2.
+\]
+\textit{Identify the two $A_1$ modes as the symmetric stretch and bend, and the $B_2$ mode as the asymmetric stretch. Construct symmetry-adapted displacement vectors using the projections $P_{A_1}$ and $P_{B_2}$.}
+\end{exercise}
+
+\subsection{Spectroscopic selection rules}
+
+Let $V_i$ and $V_f$ be the symmetry types of initial and final states. The electric-dipole operator transforms as the vector representation $V_\mu=V_{\mathrm{trans}}$. A transition amplitude
+\[
+\langle\psi_f,\mu\psi_i\rangle
+\]
+can be nonzero only if its symmetry types admit a $G$-invariant contraction.
+
+\begin{exercise}[Electric-dipole selection rule]\leavevmode\par
+\textit{Use the Great Orthogonality Theorem to prove that the transition amplitude vanishes unless}
+\[
+1\subseteq V_f^*\otimes V_\mu\otimes V_i.
+\]
+\textit{For irreducible $V_f$, prove that this is equivalent to}
+\[
+V_f\subseteq V_\mu\otimes V_i.
+\]
+\textit{The vibrational ground state of water has type $A_1$. Since}
+\[
+V_\mu\cong A_1\oplus B_1\oplus B_2,
+\]
+\textit{deduce that both $A_1$ modes and the $B_2$ mode are infrared active. Thus molecular symmetry alone predicts that all three fundamental vibrations of water are allowed in infrared spectroscopy.}
+\end{exercise}
+
+The same method gives the Raman rule: a vibrational mode is Raman active precisely when its irreducible representation occurs in $\operatorname{Sym}^2(V_\mu)$.
+
+\begin{exercise}[Optional Raman selection rule]\leavevmode\par
+\textit{Prove that}
+\[
+\operatorname{Sym}^2(V_\mu)
+\cong3A_1\oplus A_2\oplus B_1\oplus B_2
+\]
+\textit{for $C_{2v}$. Deduce that all three fundamental vibrational modes of water are Raman active.}
+\end{exercise}
+
+Finite-group representations turn molecular symmetry into experimentally testable selection rules. The monoidal categories below retain irreducible decomposition and tensor product as fusion rules, and add associators and braiding.
+
+\subsection{Monoidal and braided categories}
+
+A $\mathbb C$-linear monoidal category is a categorical analogue of a complex vector space. It has objects, complex vector spaces
+\[
+\operatorname{Hom}_{\mathcal C}(x,y)
+\]
+of morphisms, identities, and bilinear associative composition. Its tensor product $\otimes$ is bilinear on morphisms and is associative with tensor unit $1$, up to coherent natural isomorphism. Direct sums and duals generalize the corresponding vector-space constructions.
 
 Let $\mathcal C$ be such a category with finite direct sums. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple, that there are finitely many isomorphism classes of simple objects, and that $\mathcal C$ is \textbf{rigid}: every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities \cite{etingof-tensor}.
 
@@ -1364,6 +1572,15 @@ Serge Lang,
 \textit{Algebra},
 3rd ed., Springer, 2002.
 
+\bibitem{serre-representations}
+Jean-Pierre Serre,
+\textit{Linear Representations of Finite Groups},
+Graduate Texts in Mathematics, Vol. 42, Springer, 1977.
+
+\bibitem{cotton-chemical}
+F. Albert Cotton,
+\textit{Chemical Applications of Group Theory},
+3rd ed., Wiley, 1990.
 
 \bibitem{ponto-shulman}
 Kate Ponto and Michael Shulman,
