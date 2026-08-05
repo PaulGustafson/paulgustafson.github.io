@@ -20,7 +20,7 @@
 
 
 \maketitle
-The first section develops algebraic constructions independent of a basis; the second develops geometric constructions independent of coordinates; the third develops analytic constructions from operators and positivity.
+The first section develops algebraic constructions independent of a basis; the second develops analytic constructions from norms, operators, and positivity; the third develops geometric constructions independent of coordinates.
 
 \section{Algebra}
 
@@ -54,98 +54,6 @@ $(\ev_V \otimes 1_{V^*}) \circ (1_{V^*} \otimes \coev_{V}) = 1_{V^*}$. We define
 \end{exercise}
 
 
-The simplest linear maps are scalar multiples of the identity. Although most linear maps are not of this form, it is useful to decompose them into sums of scalar maps when possible. One condition under which we can decompose a linear map into a direct sum of scalars is if the map is self-adjoint. Suppose $V$ is finite dimensional over $\mathbb{C}$. A Hermitian inner product $\langle \cdot, \cdot \rangle: V \times V \to \mathbb{C}$ is a positive-definite sesquilinear form (linear in the first variable, anti-linear in the second variable, and conjugate symmetric). Write $|v|=\sqrt{\langle v,v\rangle}$. For a linear map $f:V\to W$ between Hermitian spaces, the adjoint $f^*:W\to V$ is characterized by $\langle fv,w\rangle=\langle v,f^*w\rangle$. An endomorphism $f$ is \textbf{self-adjoint} if $f=f^*$. An isomorphism $f$ is \textbf{unitary} if it preserves inner products, equivalently if $f^*=f^{-1}$.
-
-For maps $f:V\to V'$ and $g:W\to W'$, define $(f\otimes g)(v\otimes w)=f(v)\otimes g(w)$. The tensor product of Hermitian spaces has inner product
-\[
-\langle v_1\otimes w_1,v_2\otimes w_2\rangle
-=\langle v_1,v_2\rangle\langle w_1,w_2\rangle.
-\]
-The Cauchy--Schwarz inequality is $|\langle v,w\rangle|\leq |v||w|$, with equality iff $v$ and $w$ are linearly dependent.
-
-\begin{exercise}[No-cloning theorem]
-\textit{Let $V$ be a finite-dimensional complex inner-product space, let $b\in V$ be a unit vector, and suppose that $C:V\otimes V\to V\otimes V$ is unitary. Prove that if} \cite{wootters-zurek}
-\[
-C(v\otimes b)=v\otimes v,
-\qquad
-C(w\otimes b)=w\otimes w
-\]
-\textit{for unit vectors $v,w\in V$, then}
-\[
-\langle v,w\rangle=\langle v,w\rangle^2.
-\]
-\textit{Deduce that either $\langle v,w\rangle=0$ or $v=w$. Conclude that no unitary map can satisfy $C(v\otimes b)=v\otimes v$ for every unit vector $v\in V$.}
-\end{exercise}
-
-A scalar $\lambda \in k$ is an \textbf{eigenvalue} for a linear map $f : V \to V$ if there exists a nonzero vector $v \in V$ for which $fv = \lambda v$. The \textbf{eigenspace} of $\lambda$ is
-\[
-\ker(f-\lambda 1_V),
-\]
-whose nonzero elements are eigenvectors; its dimension is called the \textbf{geometric multiplicity} of $\lambda$.
-
-\begin{exercise}
-Prove that any self-adjoint linear map $f$ on a finite-dimensional complex vector space $V$ is diagonalizable:
-$$f = \sum \lambda_i p_i,$$
-where $\sum p_i = 1_V$ and $p_i p_j = \delta_{ij} p_i$. Use this fact to prove the existence of the singular value decomposition for an arbitrary linear map between complex finite-dimensional vector spaces.
-\end{exercise}
-
-For $\psi\in V\otimes W$, define
-\[
-T_\psi:V^*\to W,
-\qquad
-T_\psi(\phi)=(\phi\otimes1_W)(\psi).
-\]
-The map $j_V:V\to V^*$ given by $j_V(v)=\langle\mathord{\cdot},v\rangle$ is conjugate-linear. Equip $V^*$ with the Hermitian inner product determined by $\langle j_V(v),j_V(w)\rangle=\langle w,v\rangle$. With $T_\psi^*:W\to V^*$ denoting the adjoint, define
-\[
-\rho_V=j_V^{-1}T_\psi^*T_\psi j_V,
-\qquad
-\rho_W=T_\psi T_\psi^*.
-\]
-Write $U(V)$ for the group of unitary endomorphisms of $V$, acting with $U(W)$ on $V\otimes W$ by tensor products. A nonzero tensor is \textbf{decomposable} if it has the form $v\otimes w$. The rank of an endomorphism is the dimension of its image.
-
-\begin{exercise}[Schmidt decomposition and reduced endomorphisms]\leavevmode\par
-\textit{Let $V$ and $W$ be finite-dimensional Hermitian vector spaces and let $0\neq\psi\in V\otimes W$. Prove that there exist orthonormal families $(v_i)$ in $V$ and $(w_i)$ in $W$, and positive scalars $s_i$, such that} \cite{nielsen-chuang}
-\[
-\psi=\sum_{i=1}^r s_i v_i\otimes w_i.
-\]
-\textit{Prove the following:}
-\begin{itemize}
-\item The nonzero eigenvalues of $\rho_V$ and $\rho_W$ are the numbers $s_i^2$, with the same multiplicities.
-\item $\psi$ is decomposable iff exactly one $s_i$ is nonzero.
-\item $\rho_V$ has rank one iff $\rho_W$ has rank one iff $\psi$ is decomposable.
-\item The multiset $(s_i)$ is invariant under the action of $U(V)\times U(W)$.
-\end{itemize}
-\end{exercise}
-
-For a unit vector $\psi\in V$ and a self-adjoint $A\in\End(V)$, define
-\[
-m_\psi(A)=\langle\psi,A\psi\rangle,
-\qquad
-\Delta_\psi(A)=\left|\left(A-m_\psi(A)1_V\right)\psi\right|.
-\]
-
-\begin{exercise}[Uncertainty principle]
-\textit{Let $A,B\in\End(V)$ be self-adjoint and let $\psi\in V$ be a unit vector. Prove that} \cite{robertson}
-\[
-\Delta_\psi(A)\Delta_\psi(B)
-\geq\frac{1}{2}\left|\left\langle\psi,[A,B]\psi\right\rangle\right|,
-\qquad
-[A,B]=AB-BA.
-\]
-\textit{Determine the condition for equality from the equality condition in the Cauchy--Schwarz inequality.}
-\end{exercise}
-
-For $K\in\End(V)$, define $e^K=\sum_{n\geq0}K^n/n!$. If $H$ is self-adjoint, write $U_t=e^{-itH}$.
-
-\begin{exercise}[Conservation from commutators]\leavevmode\par
-\textit{Let $A,H\in\End(V)$ be self-adjoint, let $U_t=e^{-itH}$, and let $\psi\in V$. Prove that} \cite{nielsen-chuang}
-\[
-\frac{d}{dt}\left\langle U_t\psi,A\,U_t\psi\right\rangle
-=-i\left\langle U_t\psi,[H,A]U_t\psi\right\rangle.
-\]
-\textit{Deduce that $[H,A]=0$ implies that $\langle U_t\psi,A\,U_t\psi\rangle$ is independent of $t$ for every $\psi\in V$. Prove the converse.}
-\end{exercise}
-
 We can solve for the eigenvalues of a linear operator on a finite-dimensional vector space via the determinant. Define the tensor algebra and \textbf{exterior algebra of $V$} by \cite{lang}
 \[
 T(V)=\bigoplus_{k\geq 0}V^{\otimes k},
@@ -171,6 +79,8 @@ For an $n$-dimensional real vector space $V$, its \textbf{determinant line} is $
 \end{exercise}
 
 For $f\in\End(V)$, the \textbf{characteristic polynomial} is the polynomial $\lambda \mapsto \det(f - \lambda 1_V)$.
+
+A scalar $\lambda\in k$ is an \textbf{eigenvalue} of $f$ if $\ker(f-\lambda1_V)\neq0$. This kernel is its \textbf{eigenspace}; its dimension is the geometric multiplicity of $\lambda$.
 
 \begin{exercise}
     Assume that the characteristic polynomial of $f$ splits over $k$. Prove the following for a linear operator $f$ on a finite-dimensional vector space $V$:
@@ -303,6 +213,567 @@ B_3\longrightarrow U(V).
 \end{exercise}
 
 Such Fibonacci fusion and braiding data have been implemented on superconducting quantum processors \cite{xu-fibonacci}.\footnote{This is an engineered quantum simulation of Fibonacci topological order, not evidence that naturally occurring Fibonacci quasiparticles have been conclusively observed. A related trapped-ion realization of non-Abelian topological order is reported in \cite{iqbal-anyons}.}
+
+\section{Analysis}
+
+\subsection{Norms, operator exponentials, and linear evolution}
+
+A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|:H\to[0,\infty)$ that is definite, homogeneous, and satisfies the triangle inequality. A normed space is a \textbf{Banach space} if every Cauchy sequence converges. A \textbf{Hilbert space} is a complex vector space with a Hermitian inner product $\langle\mathord{\cdot},\mathord{\cdot}\rangle$ whose norm $\|x\|=\sqrt{\langle x,x\rangle}$ is complete. The Cauchy--Schwarz inequality
+\[
+|\langle x,y\rangle|\leq\|x\|\|y\|
+\]
+implies the triangle inequality. A linear map $A:H\to K$ is \textbf{bounded} if
+\[
+\|A\|=\sup_{\|x\|=1}\|Ax\|<\infty.
+\]
+Write $\mathcal B(H,K)$ for the Banach space of bounded operators and $\mathcal B(H)=\mathcal B(H,H)$.
+
+For $A\in\mathcal B(H)$, the series
+\[
+e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}
+\]
+converges in operator norm because $\|A^n\|\leq\|A\|^n$. Only this elementary consequence of power-series convergence is needed below.
+
+\begin{exercise}[Operator exponentials and linear evolution]\leavevmode\par
+\textit{Prove that $e^{tA}$ is differentiable in operator norm and that}
+\[
+\frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
+\]
+\textit{Deduce that the unique solution of}
+\[
+\dot x(t)=Ax(t),\qquad x(0)=x_0,
+\]
+\textit{is $x(t)=e^{tA}x_0$. In finite dimensions use the Jordan decomposition}
+\[
+A=S+N,\qquad [S,N]=0,
+\]
+\textit{with $S$ semisimple and $N$ nilpotent, to prove}
+\[
+e^{tA}=e^{tS}e^{tN}.
+\]
+\textit{Show that on the generalized $\lambda$-eigenspace every component of a solution is a linear combination of terms $t^je^{\lambda t}$.}
+\end{exercise}
+
+\subsection{Hilbert-space operator theory}
+
+For $A\in\mathcal B(H,K)$ there is a unique \textbf{adjoint} $A^*\in\mathcal B(K,H)$ satisfying
+\[
+\langle Ax,y\rangle=\langle x,A^*y\rangle.
+\]
+An operator $A\in\mathcal B(H)$ is \textbf{self-adjoint} if $A=A^*$, \textbf{positive} if $\langle x,Ax\rangle\geq0$ for every $x$, and \textbf{unitary} if $A^*A=AA^*=1$. In finite dimensions, positivity is equivalent to $A=B^*B$ for some $B$.
+
+\begin{exercise}[Spectral theorem and singular-value decomposition]\leavevmode\par
+\textit{Let $H$ be a finite-dimensional complex Hilbert space. Prove that every self-adjoint $A\in\End(H)$ has an orthogonal spectral decomposition}
+\[
+A=\sum_\lambda\lambda p_\lambda,
+\qquad
+p_\lambda p_\mu=\delta_{\lambda\mu}p_\lambda,
+\qquad
+\sum_\lambda p_\lambda=1.
+\]
+\textit{Apply the theorem to $T^*T$ to prove that every map $T:H\to K$ has a singular-value decomposition}
+\[
+T=U\Sigma V^*.
+\]
+\textit{Prove that the diagonal entries of $\Sigma$ are the square roots of the nonzero eigenvalues of $T^*T$, counted with multiplicity.}
+\end{exercise}
+
+\subsection{Quantum states and uncertainty}
+
+For a unit vector $\psi\in H$ and a self-adjoint observable $A\in\mathcal B(H)$, define its \textbf{expectation} and \textbf{variance} by
+\[
+\langle A\rangle_\psi=\langle\psi,A\psi\rangle,
+\qquad
+\operatorname{Var}_\psi(A)
+=\left\|\left(A-\langle A\rangle_\psi1\right)\psi\right\|^2.
+\]
+
+\begin{exercise}[Robertson uncertainty inequality]\leavevmode\par
+\textit{For self-adjoint $A,B\in\mathcal B(H)$, apply Cauchy--Schwarz to the two centered vectors and take the imaginary part of their inner product to prove} \cite{robertson}
+\[
+\operatorname{Var}_\psi(A)\operatorname{Var}_\psi(B)
+\geq\frac14\left|\langle\psi,[A,B]\psi\rangle\right|^2,
+\qquad [A,B]=AB-BA.
+\]
+\textit{Determine the equality condition.}
+\end{exercise}
+
+If $H$ is self-adjoint, then $U_t=e^{-itH}$ is unitary and describes linear quantum evolution.
+
+\begin{exercise}[Conservation from commutators]\leavevmode\par
+\textit{Let $A,H$ be self-adjoint. Prove that} \cite{nielsen-chuang}
+\[
+\frac{d}{dt}\langle U_t\psi,A U_t\psi\rangle
+=-i\langle U_t\psi,[H,A]U_t\psi\rangle.
+\]
+\textit{Deduce that $[H,A]=0$ if and only if the expectation of $A$ is constant under this evolution for every initial vector.}
+\end{exercise}
+
+\begin{exercise}[No-cloning theorem]\leavevmode\par
+\textit{Let $b\in H$ be a unit vector and suppose that a unitary $C:H\otimes H\to H\otimes H$ satisfies $C(v\otimes b)=v\otimes v$ and $C(w\otimes b)=w\otimes w$ for unit vectors $v,w$. Prove that} \cite{wootters-zurek}
+\[
+\langle v,w\rangle=\langle v,w\rangle^2.
+\]
+\textit{Deduce that no unitary map clones every unit vector.}
+\end{exercise}
+
+\subsection{Schmidt decomposition and entanglement}
+
+For finite-dimensional Hilbert spaces $H_A,H_B$ and $\psi\in H_A\otimes H_B$, define
+\[
+T_\psi:H_A^*\to H_B,
+\qquad
+T_\psi(\phi)=(\phi\otimes1)(\psi).
+\]
+The singular-value decomposition of $T_\psi$ gives orthonormal families $(a_i)$ and $(b_i)$ and numbers $s_i>0$ such that
+\[
+\psi=\sum_{i=1}^r s_i a_i\otimes b_i.
+\]
+This is the \textbf{Schmidt decomposition}; $r$ is the Schmidt rank. For a unit vector $\psi$, the reduced density operators are
+\[
+\rho_A=\operatorname{Tr}_{H_B}(|\psi\rangle\langle\psi|),
+\qquad
+\rho_B=\operatorname{Tr}_{H_A}(|\psi\rangle\langle\psi|).
+\]
+
+\begin{exercise}[Schmidt decomposition and entanglement]\leavevmode\par
+\textit{Prove that the nonzero eigenvalues of $\rho_A$ and $\rho_B$ are the numbers $s_i^2$, with the same multiplicities. Prove that $\psi$ is separable, meaning $\psi=a\otimes b$, exactly when its Schmidt rank is one. Deduce that the entanglement entropy is} \cite{nielsen-chuang}
+\[
+S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
+=-\sum_i s_i^2\log s_i^2,
+\]
+\textit{with the convention $0\log0=0$.}
+\end{exercise}
+
+\subsection{CHSH, Gisin, and Tsirelson}
+
+Let $A_0,A_1$ and $B_0,B_1$ be self-adjoint operators with eigenvalues in $\{-1,1\}$. Their \textbf{CHSH operator} is
+\[
+\mathcal C=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1).
+\]
+Every classical local-hidden-variable assignment satisfies $|\langle\mathcal C\rangle|\leq2$.
+
+\begin{exercise}[Gisin's theorem for two qubits]\leavevmode\par
+\textit{For the two-qubit state in Schmidt form}
+\[
+\psi_\theta=\cos\theta\,|00\rangle+\sin\theta\,|11\rangle,
+\qquad 0\leq\theta\leq\frac\pi4,
+\]
+\textit{optimize over projective binary observables and prove that the maximal CHSH value is} \cite{gisin}
+\[
+2\sqrt{1+\sin^2(2\theta)}.
+\]
+\textit{Conclude that every entangled pure two-qubit state violates a CHSH inequality. For $\theta=\pi/4$, recover the value $2\sqrt2$.}
+\end{exercise}
+
+Tsirelson's representation theorem identifies every finite bipartite binary quantum correlation matrix with a Gram-type matrix \cite{tsirelson}:
+\[
+c_{ij}=\langle x_i,y_j\rangle
+\]
+for unit vectors $x_i,y_j$ in a real Hilbert space; conversely, every such finite family has a quantum realization. For a real matrix $M=(M_{ij})$, define
+\[
+\beta_{\mathrm C}(M)
+=\max_{\varepsilon_i,\delta_j\in\{-1,1\}}
+\left|\sum_{i,j}M_{ij}\varepsilon_i\delta_j\right|
+\]
+and
+\[
+\beta_{\mathrm Q}(M)
+=\sup_{\|x_i\|=\|y_j\|=1}
+\left|\sum_{i,j}M_{ij}\langle x_i,y_j\rangle\right|.
+\]
+\subsection{Grothendieck inequality}
+
+The real Grothendieck inequality states that there is a universal constant $K_G^{\mathbb R}$ such that \cite{grothendieck,pisier-grothendieck}
+\[
+\beta_{\mathrm Q}(M)\leq K_G^{\mathbb R}\beta_{\mathrm C}(M)
+\]
+for every real matrix $M$. Thus quantum mechanics gives at most a universal advantage for bipartite binary correlation Bell inequalities. CHSH has $\beta_{\mathrm C}=2$ and $\beta_{\mathrm Q}=2\sqrt2$, so
+\[
+\sqrt2\leq K_G^{\mathbb R}.
+\]
+
+\begin{exercise}[CHSH as a Grothendieck ratio]\leavevmode\par
+\textit{For}
+\[
+M_{\mathrm{CHSH}}=
+\begin{pmatrix}1&1\\1&-1\end{pmatrix},
+\]
+\textit{compute $\beta_{\mathrm C}(M_{\mathrm{CHSH}})$ directly. Choose four unit vectors in $\mathbb R^2$ that attain}
+\[
+\beta_{\mathrm Q}(M_{\mathrm{CHSH}})=2\sqrt2
+\]
+\textit{and verify the ratio $\sqrt2$.}
+\end{exercise}
+
+\subsection{$C^*$-algebras and positive maps}
+
+These finite-dimensional examples motivate a general language for normed algebras, positivity, and states. A \textbf{Banach algebra} is a Banach space $A$ with an associative bilinear multiplication satisfying $\|ab\|\leq\|a\|\|b\|$.
+
+A \textbf{unital $C^*$-algebra} is a complex unital Banach algebra $A$ with an involution $a\mapsto a^*$ satisfying
+\[
+\|a^*a\|=\|a\|^2.
+\]
+Its positive cone is $A_+=\{a^*a:a\in A\}$. A \textbf{state} is a linear map $\varphi:A\to\mathbb C$ such that \cite{paulsen}
+\[
+\varphi(a)\geq0\quad(a\in A_+),
+\qquad
+\varphi(1)=1.
+\]
+
+\begin{exercise}
+\textit{Let $\varphi$ be a positive linear functional on a unital $C^*$-algebra $A$. Prove that}
+\[
+|\varphi(b^*a)|^2
+\leq
+\varphi(a^*a)\varphi(b^*b).
+\]
+\textit{Deduce that $\|\varphi\|=\varphi(1)$.}
+\end{exercise}
+
+For a state $\varphi$, define
+\[
+\langle a,b\rangle_\varphi=\varphi(b^*a),
+\qquad
+N_\varphi=\{a\in A:\varphi(a^*a)=0\},
+\]
+and let $H_\varphi$ be the Hilbert-space completion of $A/N_\varphi$. For a Hilbert space $H$, write $\mathcal B(H)$ for the $C^*$-algebra of bounded operators on $H$. A vector $\Omega$ is \textbf{cyclic} for a representation $\pi$ if the span of $\pi(A)\Omega$ is dense.
+
+\begin{exercise}[GNS construction]\leavevmode\par
+\textit{Let $\varphi$ be a state on a unital $C^*$-algebra $A$. Prove that left multiplication induces a unital $*$-representation}
+\[
+\pi_\varphi:A\longrightarrow\mathcal B(H_\varphi)
+\]
+\textit{with a cyclic vector $\Omega_\varphi$ satisfying}
+\[
+\varphi(a)
+=\langle\pi_\varphi(a)\Omega_\varphi,\Omega_\varphi\rangle_\varphi.
+\]
+\textit{Prove that $(H_\varphi,\pi_\varphi,\Omega_\varphi)$ is unique up to unitary equivalence.}
+\end{exercise}
+
+For a linear map $\Phi:A\to B$ between unital $C^*$-algebras, its $n$-th \textbf{amplification} is
+\[
+\Phi_n:M_n(A)\longrightarrow M_n(B),
+\qquad
+[a_{ij}]\longmapsto[\Phi(a_{ij})].
+\]
+The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive. Its \textbf{completely bounded norm} is
+\[
+\|\Phi\|_{\mathrm{cb}}=\sup_{n\geq1}\|\Phi_n\|.
+\]
+
+\begin{exercise}
+\textit{For $n\geq2$, let}
+\[
+T:M_n(\mathbb C)\longrightarrow M_n(\mathbb C),
+\qquad
+T(a)=a^{\mathsf T}.
+\]
+\textit{Prove that $T$ is positive but not completely positive, and prove that}
+\[
+\|T\|_{\mathrm{cb}}=n.
+\]
+\end{exercise}
+
+For the standard matrix units $E_{ij}\in M_n(\mathbb C)$ and a linear map $\Phi:M_n(\mathbb C)\to M_m(\mathbb C)$, define the \textbf{Choi matrix}
+\[
+C_\Phi=\sum_{i,j=1}^n E_{ij}\otimes\Phi(E_{ij}).
+\]
+
+\begin{exercise}[Choi theorem]\leavevmode\par
+\textit{Let $\Phi:M_n(\mathbb C)\to M_m(\mathbb C)$ be linear. Prove that the following are equivalent} \cite{choi}:
+\begin{itemize}
+\item $\Phi$ is completely positive.
+\item $C_\Phi\geq0$.
+\item There are linear maps $V_r:\mathbb C^m\to\mathbb C^n$ such that
+\[
+\Phi(a)=\sum_rV_r^*aV_r.
+\]
+\end{itemize}
+\end{exercise}
+
+\begin{exercise}[Stinespring dilation]\leavevmode\par
+\textit{Let $\Phi:A\to\mathcal B(H)$ be completely positive. Prove that there are a Hilbert space $K$, a $*$-representation $\pi:A\to\mathcal B(K)$, and a bounded operator $V:H\to K$ such that} \cite{stinespring}
+\[
+\Phi(a)=V^*\pi(a)V.
+\]
+\textit{Prove that $V$ is an isometry when $\Phi$ is unital. Call the dilation minimal if the span of $\pi(A)VH$ is dense in $K$, and prove that a minimal dilation is unique up to unitary equivalence.}
+\end{exercise}
+
+For a unital completely positive map $\Phi:A\to B$, define its \textbf{multiplicative domain} by
+\[
+\operatorname{MD}(\Phi)
+=
+\left\{
+a\in A:
+\begin{array}{l}
+\Phi(a^*a)=\Phi(a)^*\Phi(a),\\
+\Phi(aa^*)=\Phi(a)\Phi(a)^*
+\end{array}
+\right\}.
+\]
+
+\begin{exercise}[Multiplicative domain]\leavevmode\par
+\textit{Let $\Phi:A\to B$ be unital and completely positive. Prove the Kadison--Schwarz inequality}
+\[
+\Phi(a)^*\Phi(a)\leq\Phi(a^*a).
+\]
+\textit{Prove that $\operatorname{MD}(\Phi)$ is a $C^*$-subalgebra of $A$ and that, for $a\in\operatorname{MD}(\Phi)$ and $b\in A$,}
+\[
+\Phi(ab)=\Phi(a)\Phi(b),
+\qquad
+\Phi(ba)=\Phi(b)\Phi(a).
+\]
+\end{exercise}
+
+\subsection{Completely bounded maps and operator spaces}
+
+An \textbf{operator space} is a closed linear subspace $E\subseteq\mathcal B(H)$, equipped with the matrix norms inherited from
+\[
+M_d(E)\subseteq\mathcal B(H^{\oplus d}).
+\]
+An abstract family of matrix norms comes from an operator space exactly when it satisfies Ruan's axioms. If $T:E\to F$ is linear, its amplification is
+\[
+T_d:M_d(E)\to M_d(F),
+\qquad [x_{ij}]\longmapsto[T(x_{ij})],
+\]
+and $T$ is \textbf{completely bounded} when $\|T\|_{\mathrm{cb}}=\sup_d\|T_d\|<\infty$.
+
+For a bilinear form $u:E\times F\to\mathbb C$, define its matrix amplification by
+\[
+u_d([x_{ij}],[y_{kl}])
+=\bigl[u(x_{ij},y_{kl})\bigr]_{(i,k),(j,l)}
+\in M_{d^2}.
+\]
+The \textbf{jointly completely bounded norm} is
+\[
+\|u\|_{\mathrm{jcb}}
+=\sup_{d\geq1}\|u_d\|.
+\]
+Equivalently, $\|u\|_{\mathrm{jcb}}$ is the completely bounded norm of the associated map $E\to F^*$, where $F^*$ carries its canonical operator-space structure.
+
+The finite-dimensional operator-space Grothendieck theorem of Pisier and Shlyakhtenko says that there is a universal constant $C$ such that every jointly completely bounded bilinear form $u:A\times B\to\mathbb C$ on finite-dimensional $C^*$-algebras admits states $f_1,f_2$ on $A$ and $g_1,g_2$ on $B$ satisfying \cite{pisier-shlyakhtenko}
+\[
+|u(a,b)|
+\leq C\|u\|_{\mathrm{jcb}}
+\bigl(f_1(a^*a)+f_2(aa^*)\bigr)^{1/2}
+\bigl(g_1(b^*b)+g_2(bb^*)\bigr)^{1/2}.
+\]
+This is the noncommutative analogue of the classical Grothendieck inequality, but the Bell scenarios governed by the two theories differ:
+\[
+\begin{aligned}
+\text{binary correlations}
+&\quad\longleftrightarrow\quad
+\text{classical Grothendieck inequality},\\
+\text{multi-output correlations}
+&\quad\longleftrightarrow\quad
+\text{operator-space norms}.
+\end{aligned}
+\]
+Unlike the binary correlation setting, general multi-output Bell inequalities need not have a dimension-independent quantum-to-classical ratio \cite{junge-bell}.
+
+\subsection{Von Neumann algebras and subfactors}
+
+For $\mathcal S\subseteq\mathcal B(H)$, its \textbf{commutant} is
+\[
+\mathcal S'=\{T\in\mathcal B(H):Tx=xT\text{ for every }x\in\mathcal S\}.
+\]
+A \textbf{von Neumann algebra} is a unital $*$-subalgebra $M\subseteq\mathcal B(H)$ satisfying $M=M''$ \cite{takesaki}. A net $(T_\lambda)$ converges to $T$ in the \textbf{strong operator topology} if $T_\lambda\xi\to T\xi$ for every $\xi\in H$, and in the \textbf{weak operator topology} if
+\[
+\langle T_\lambda\xi,\eta\rangle\longrightarrow\langle T\xi,\eta\rangle
+\]
+for every $\xi,\eta\in H$.
+
+\begin{exercise}[Bicommutant theorem]\leavevmode\par
+\textit{Let $A\subseteq\mathcal B(H)$ be a unital $*$-subalgebra. Prove that}
+\[
+A''
+=\overline A^{\,\mathrm{SOT}}
+=\overline A^{\,\mathrm{WOT}}.
+\]
+\end{exercise}
+
+The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$. A positive functional or positive map is \textbf{normal} if it preserves suprema of bounded increasing nets of positive elements, and a positive functional $\psi$ is \textbf{faithful} if $\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an infinite-dimensional factor with a faithful normal tracial state
+\[
+\tau:M\longrightarrow\mathbb C,
+\qquad
+\tau(ab)=\tau(ba),
+\qquad
+\tau(1)=1.
+\]
+The normalized trace is an analytic analogue of the categorical trace in Algebra, not an identification with it.
+
+For projections $p,q\in M$, write $p\sim q$ if there is $v\in M$ such that
+\[
+v^*v=p,
+\qquad
+vv^*=q.
+\]
+Write $p\precsim q$ if $p$ is equivalent to a projection $r$ satisfying $rq=r$.
+
+\begin{exercise}[Projection dimension]\leavevmode\par
+\textit{Let $M$ be a type $\mathrm{II}_1$ factor with normalized trace $\tau$. Prove that}
+\[
+p\sim q\quad\Longrightarrow\quad\tau(p)=\tau(q),
+\]
+\textit{and prove the comparison theorem}
+\[
+p\precsim q
+\quad\Longleftrightarrow\quad
+\tau(p)\leq\tau(q).
+\]
+\textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
+\end{exercise}
+
+A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
+\[
+\tau\circ E_N=\tau,
+\qquad
+E_N(n_1xn_2)=n_1E_N(x)n_2
+\]
+for $x\in M$ and $n_1,n_2\in N$. Let $L^2(M,\tau)$ be the completion of $M$ for
+\[
+\langle x,y\rangle_\tau=\tau(y^*x).
+\]
+Let $M$ act on $L^2(M,\tau)$ by left multiplication.
+
+\begin{exercise}
+\textit{Prove that $E_N$ extends to the orthogonal projection}
+\[
+e_N:L^2(M,\tau)\longrightarrow L^2(N,\tau).
+\]
+\textit{Prove that}
+\[
+e_N=e_N^*=e_N^2,
+\qquad
+e_Nxe_N=E_N(x)e_N
+\]
+\textit{for every $x\in M$.}
+\end{exercise}
+
+The \textbf{basic construction} is
+\[
+M_1=\langle M,e_N\rangle''
+\subseteq\mathcal B(L^2(M,\tau)),
+\]
+the double commutant of the algebra generated by $M$ and $e_N$. For a projection $p=[p_{ij}]\in M_k(N)$ acting by left multiplication, define
+\[
+\dim_N\!\left(pL^2(N,\tau)^k\right)=\sum_{i=1}^k\tau(p_{ii}).
+\]
+An inclusion $N\subseteq M$ has \textbf{finite Jones index} if $L^2(M,\tau)$ is isomorphic as a right $N$-module to such a module; then
+\[
+[M:N]=\dim_NL^2(M,\tau).
+\]
+
+\begin{exercise}[Basic construction]\leavevmode\par
+\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that $M_1$ is a finite factor and that its normalized trace satisfies} \cite{jones-sunder}
+\[
+\tau_1(xe_Ny)
+=\frac{1}{[M:N]}\tau(xy)
+\]
+\textit{for $x,y\in M$.}
+\end{exercise}
+
+Iterating the basic construction gives the \textbf{Jones tower}
+\[
+N=M_{-1}\subset M=M_0\subset M_1\subset M_2\subset\cdots.
+\]
+Let $e_i$ be the Jones projection used to construct $M_i$ from $M_{i-1}$, and set
+\[
+\delta=\sqrt{[M:N]}.
+\]
+The \textbf{Temperley--Lieb algebra} with loop parameter $\delta$ is generated by $U_i$ subject to
+\[
+U_i^2=\delta U_i,
+\qquad
+U_iU_j=U_jU_i\quad(|i-j|\geq2),
+\qquad
+U_iU_{i\pm1}U_i=U_i.
+\]
+
+\begin{exercise}[Temperley--Lieb relations]\leavevmode\par
+\textit{Prove that the Jones projections satisfy} \cite{temperley-lieb,jones-index}
+\[
+e_i^2=e_i=e_i^*,
+\qquad
+e_ie_j=e_je_i\quad(|i-j|\geq2),
+\]
+\[
+e_ie_{i\pm1}e_i=\delta^{-2}e_i.
+\]
+\textit{Deduce that $U_i\mapsto\delta e_i$ defines a representation of the Temperley--Lieb algebra.}
+\end{exercise}
+
+Let $q\in\mathbb C^\times$ satisfy $\delta=q+q^{-1}$ and define
+\[
+\sigma_i=q\,1-U_i.
+\]
+These operators reconnect the Temperley--Lieb construction with the braid groups introduced in Algebra.
+
+\begin{exercise}[Braid representation]\leavevmode\par
+\textit{Prove that $\sigma_i$ is invertible with inverse $q^{-1}1-U_i$, and prove that}
+\[
+\sigma_i\sigma_{i+1}\sigma_i
+=\sigma_{i+1}\sigma_i\sigma_{i+1},
+\]
+\[
+\sigma_i\sigma_j=\sigma_j\sigma_i
+\qquad
+(|i-j|\geq2).
+\]
+\textit{Deduce that the $\sigma_i$ define a representation of the braid group} \cite{jones-polynomial}.
+\end{exercise}
+
+The compatible normalized traces on the Jones tower restrict to a positive \textbf{Markov trace} on the Temperley--Lieb algebras satisfying
+\[
+\operatorname{tr}(xU_i)=\delta^{-1}\operatorname{tr}(x)
+\]
+whenever $x$ belongs to the algebra generated by the preceding generators. Define
+\[
+P_0(\delta)=1,
+\qquad
+P_1(\delta)=\delta,
+\qquad
+P_{n+1}(\delta)=\delta P_n(\delta)-P_{n-1}(\delta).
+\]
+
+\begin{exercise}
+\textit{Prove that, when $\sin\theta\ne0$,}
+\[
+P_n(2\cos\theta)
+=\frac{\sin((n+1)\theta)}{\sin\theta}.
+\]
+\textit{Use positivity of the Markov trace to prove that if $0<\delta<2$, then}
+\[
+\delta=2\cos\left(\frac{\pi}{m}\right)
+\]
+\textit{for some integer $m\geq3$.}
+\end{exercise}
+
+\begin{exercise}[Jones index theorem]\leavevmode\par
+\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that} \cite{jones-index,jones-sunder}
+\[
+[M:N]
+\in
+\left\{
+4\cos^2\left(\frac{\pi}{n}\right):n\geq3
+\right\}
+\cup
+[4,\infty).
+\]
+\textit{For}
+\[
+[M:N]=4\cos^2\left(\frac{\pi}{k+2}\right),
+\qquad
+\delta=\sqrt{[M:N]},
+\]
+\textit{prove that the Jones projections determine a representation of the Temperley--Lieb algebra $\operatorname{TL}_n(\delta)$, and hence a braid-group representation. Show that the Markov trace of a braid closure satisfies the Jones skein relation. Relate the parameter}
+\[
+\delta=2\cos\left(\frac{\pi}{k+2}\right)
+\]
+\textit{to the $SU(2)_k$ fusion and braiding data from Algebra and to the Wilson-loop invariant of Chern--Simons theory from Geometry.}
+\end{exercise}
 
 \section{Geometry}
 A \textbf{smooth manifold} is a topological space that is locally diffeomorphic to Euclidean space $\mathbb{R}^n$. A \textbf{smooth vector bundle} $p : E \to M$ consists of a smooth surjection $p$ between smooth manifolds $E$ (the total space) and $M$ (the base space) such that all fibers are isomorphic to a single vector space $V$, and smooth local trivializations exist (locally, the fiber bundle looks like a product space). For a smooth map $f:N\to M$, the \textbf{pullback bundle} is
@@ -871,325 +1342,6 @@ q^{-1}\langle W_{L_+}\rangle_k
 
 Chern--Simons theory relates the three parts of the document. Its Wilson lines carry braid-group actions governed algebraically by braided tensor categories, while the resulting link invariants are realized analytically through Temperley--Lieb algebras and subfactors \cite{reshetikhin-turaev}. These connections are indicated here, not proved as a full equivalence.
 
-\section{Analysis}
-
-A \textbf{unital $C^*$-algebra} is a complex unital Banach algebra $A$ with an involution $a\mapsto a^*$ satisfying
-\[
-\|a^*a\|=\|a\|^2.
-\]
-Its positive cone is $A_+=\{a^*a:a\in A\}$. A \textbf{state} is a linear map $\varphi:A\to\mathbb C$ such that \cite{paulsen}
-\[
-\varphi(a)\geq0\quad(a\in A_+),
-\qquad
-\varphi(1)=1.
-\]
-
-\begin{exercise}
-\textit{Let $\varphi$ be a positive linear functional on a unital $C^*$-algebra $A$. Prove that}
-\[
-|\varphi(b^*a)|^2
-\leq
-\varphi(a^*a)\varphi(b^*b).
-\]
-\textit{Deduce that $\|\varphi\|=\varphi(1)$.}
-\end{exercise}
-
-For a state $\varphi$, define
-\[
-\langle a,b\rangle_\varphi=\varphi(b^*a),
-\qquad
-N_\varphi=\{a\in A:\varphi(a^*a)=0\},
-\]
-and let $H_\varphi$ be the Hilbert-space completion of $A/N_\varphi$. For a Hilbert space $H$, write $\mathcal B(H)$ for the $C^*$-algebra of bounded operators on $H$. A vector $\Omega$ is \textbf{cyclic} for a representation $\pi$ if the span of $\pi(A)\Omega$ is dense.
-
-\begin{exercise}[GNS construction]\leavevmode\par
-\textit{Let $\varphi$ be a state on a unital $C^*$-algebra $A$. Prove that left multiplication induces a unital $*$-representation}
-\[
-\pi_\varphi:A\longrightarrow\mathcal B(H_\varphi)
-\]
-\textit{with a cyclic vector $\Omega_\varphi$ satisfying}
-\[
-\varphi(a)
-=\langle\pi_\varphi(a)\Omega_\varphi,\Omega_\varphi\rangle_\varphi.
-\]
-\textit{Prove that $(H_\varphi,\pi_\varphi,\Omega_\varphi)$ is unique up to unitary equivalence.}
-\end{exercise}
-
-For a linear map $\Phi:A\to B$ between unital $C^*$-algebras, its $n$-th \textbf{amplification} is
-\[
-\Phi_n:M_n(A)\longrightarrow M_n(B),
-\qquad
-[a_{ij}]\longmapsto[\Phi(a_{ij})].
-\]
-The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive. Its \textbf{completely bounded norm} is
-\[
-\|\Phi\|_{\mathrm{cb}}=\sup_{n\geq1}\|\Phi_n\|.
-\]
-
-\begin{exercise}
-\textit{For $n\geq2$, let}
-\[
-T:M_n(\mathbb C)\longrightarrow M_n(\mathbb C),
-\qquad
-T(a)=a^{\mathsf T}.
-\]
-\textit{Prove that $T$ is positive but not completely positive, and prove that}
-\[
-\|T\|_{\mathrm{cb}}=n.
-\]
-\end{exercise}
-
-For the standard matrix units $E_{ij}\in M_n(\mathbb C)$ and a linear map $\Phi:M_n(\mathbb C)\to M_m(\mathbb C)$, define the \textbf{Choi matrix}
-\[
-C_\Phi=\sum_{i,j=1}^n E_{ij}\otimes\Phi(E_{ij}).
-\]
-
-\begin{exercise}[Choi theorem]\leavevmode\par
-\textit{Let $\Phi:M_n(\mathbb C)\to M_m(\mathbb C)$ be linear. Prove that the following are equivalent} \cite{choi}:
-\begin{itemize}
-\item $\Phi$ is completely positive.
-\item $C_\Phi\geq0$.
-\item There are linear maps $V_r:\mathbb C^m\to\mathbb C^n$ such that
-\[
-\Phi(a)=\sum_rV_r^*aV_r.
-\]
-\end{itemize}
-\end{exercise}
-
-\begin{exercise}[Stinespring dilation]\leavevmode\par
-\textit{Let $\Phi:A\to\mathcal B(H)$ be completely positive. Prove that there are a Hilbert space $K$, a $*$-representation $\pi:A\to\mathcal B(K)$, and a bounded operator $V:H\to K$ such that} \cite{stinespring}
-\[
-\Phi(a)=V^*\pi(a)V.
-\]
-\textit{Prove that $V$ is an isometry when $\Phi$ is unital. Call the dilation minimal if the span of $\pi(A)VH$ is dense in $K$, and prove that a minimal dilation is unique up to unitary equivalence.}
-\end{exercise}
-
-For a unital completely positive map $\Phi:A\to B$, define its \textbf{multiplicative domain} by
-\[
-\operatorname{MD}(\Phi)
-=
-\left\{
-a\in A:
-\begin{array}{l}
-\Phi(a^*a)=\Phi(a)^*\Phi(a),\\
-\Phi(aa^*)=\Phi(a)\Phi(a)^*
-\end{array}
-\right\}.
-\]
-
-\begin{exercise}[Multiplicative domain]\leavevmode\par
-\textit{Let $\Phi:A\to B$ be unital and completely positive. Prove the Kadison--Schwarz inequality}
-\[
-\Phi(a)^*\Phi(a)\leq\Phi(a^*a).
-\]
-\textit{Prove that $\operatorname{MD}(\Phi)$ is a $C^*$-subalgebra of $A$ and that, for $a\in\operatorname{MD}(\Phi)$ and $b\in A$,}
-\[
-\Phi(ab)=\Phi(a)\Phi(b),
-\qquad
-\Phi(ba)=\Phi(b)\Phi(a).
-\]
-\end{exercise}
-
-For $\mathcal S\subseteq\mathcal B(H)$, its \textbf{commutant} is
-\[
-\mathcal S'=\{T\in\mathcal B(H):Tx=xT\text{ for every }x\in\mathcal S\}.
-\]
-A \textbf{von Neumann algebra} is a unital $*$-subalgebra $M\subseteq\mathcal B(H)$ satisfying $M=M''$ \cite{takesaki}. A net $(T_\lambda)$ converges to $T$ in the \textbf{strong operator topology} if $T_\lambda\xi\to T\xi$ for every $\xi\in H$, and in the \textbf{weak operator topology} if
-\[
-\langle T_\lambda\xi,\eta\rangle\longrightarrow\langle T\xi,\eta\rangle
-\]
-for every $\xi,\eta\in H$.
-
-\begin{exercise}[Bicommutant theorem]\leavevmode\par
-\textit{Let $A\subseteq\mathcal B(H)$ be a unital $*$-subalgebra. Prove that}
-\[
-A''
-=\overline A^{\,\mathrm{SOT}}
-=\overline A^{\,\mathrm{WOT}}.
-\]
-\end{exercise}
-
-The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$. A positive functional or positive map is \textbf{normal} if it preserves suprema of bounded increasing nets of positive elements, and a positive functional $\psi$ is \textbf{faithful} if $\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an infinite-dimensional factor with a faithful normal tracial state
-\[
-\tau:M\longrightarrow\mathbb C,
-\qquad
-\tau(ab)=\tau(ba),
-\qquad
-\tau(1)=1.
-\]
-The normalized trace is an analytic analogue of the categorical trace in Algebra, not an identification with it.
-
-For projections $p,q\in M$, write $p\sim q$ if there is $v\in M$ such that
-\[
-v^*v=p,
-\qquad
-vv^*=q.
-\]
-Write $p\precsim q$ if $p$ is equivalent to a projection $r$ satisfying $rq=r$.
-
-\begin{exercise}[Projection dimension]\leavevmode\par
-\textit{Let $M$ be a type $\mathrm{II}_1$ factor with normalized trace $\tau$. Prove that}
-\[
-p\sim q\quad\Longrightarrow\quad\tau(p)=\tau(q),
-\]
-\textit{and prove the comparison theorem}
-\[
-p\precsim q
-\quad\Longleftrightarrow\quad
-\tau(p)\leq\tau(q).
-\]
-\textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
-\end{exercise}
-
-A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
-\[
-\tau\circ E_N=\tau,
-\qquad
-E_N(n_1xn_2)=n_1E_N(x)n_2
-\]
-for $x\in M$ and $n_1,n_2\in N$. Let $L^2(M,\tau)$ be the completion of $M$ for
-\[
-\langle x,y\rangle_\tau=\tau(y^*x).
-\]
-Let $M$ act on $L^2(M,\tau)$ by left multiplication.
-
-\begin{exercise}
-\textit{Prove that $E_N$ extends to the orthogonal projection}
-\[
-e_N:L^2(M,\tau)\longrightarrow L^2(N,\tau).
-\]
-\textit{Prove that}
-\[
-e_N=e_N^*=e_N^2,
-\qquad
-e_Nxe_N=E_N(x)e_N
-\]
-\textit{for every $x\in M$.}
-\end{exercise}
-
-The \textbf{basic construction} is
-\[
-M_1=\langle M,e_N\rangle''
-\subseteq\mathcal B(L^2(M,\tau)),
-\]
-the double commutant of the algebra generated by $M$ and $e_N$. For a projection $p=[p_{ij}]\in M_k(N)$ acting by left multiplication, define
-\[
-\dim_N\!\left(pL^2(N,\tau)^k\right)=\sum_{i=1}^k\tau(p_{ii}).
-\]
-An inclusion $N\subseteq M$ has \textbf{finite Jones index} if $L^2(M,\tau)$ is isomorphic as a right $N$-module to such a module; then
-\[
-[M:N]=\dim_NL^2(M,\tau).
-\]
-
-\begin{exercise}[Basic construction]\leavevmode\par
-\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that $M_1$ is a finite factor and that its normalized trace satisfies} \cite{jones-sunder}
-\[
-\tau_1(xe_Ny)
-=\frac{1}{[M:N]}\tau(xy)
-\]
-\textit{for $x,y\in M$.}
-\end{exercise}
-
-Iterating the basic construction gives the \textbf{Jones tower}
-\[
-N=M_{-1}\subset M=M_0\subset M_1\subset M_2\subset\cdots.
-\]
-Let $e_i$ be the Jones projection used to construct $M_i$ from $M_{i-1}$, and set
-\[
-\delta=\sqrt{[M:N]}.
-\]
-The \textbf{Temperley--Lieb algebra} with loop parameter $\delta$ is generated by $U_i$ subject to
-\[
-U_i^2=\delta U_i,
-\qquad
-U_iU_j=U_jU_i\quad(|i-j|\geq2),
-\qquad
-U_iU_{i\pm1}U_i=U_i.
-\]
-
-\begin{exercise}[Temperley--Lieb relations]\leavevmode\par
-\textit{Prove that the Jones projections satisfy} \cite{temperley-lieb,jones-index}
-\[
-e_i^2=e_i=e_i^*,
-\qquad
-e_ie_j=e_je_i\quad(|i-j|\geq2),
-\]
-\[
-e_ie_{i\pm1}e_i=\delta^{-2}e_i.
-\]
-\textit{Deduce that $U_i\mapsto\delta e_i$ defines a representation of the Temperley--Lieb algebra.}
-\end{exercise}
-
-Let $q\in\mathbb C^\times$ satisfy $\delta=q+q^{-1}$ and define
-\[
-\sigma_i=q\,1-U_i.
-\]
-These operators reconnect the Temperley--Lieb construction with the braid groups introduced in Algebra.
-
-\begin{exercise}[Braid representation]\leavevmode\par
-\textit{Prove that $\sigma_i$ is invertible with inverse $q^{-1}1-U_i$, and prove that}
-\[
-\sigma_i\sigma_{i+1}\sigma_i
-=\sigma_{i+1}\sigma_i\sigma_{i+1},
-\]
-\[
-\sigma_i\sigma_j=\sigma_j\sigma_i
-\qquad
-(|i-j|\geq2).
-\]
-\textit{Deduce that the $\sigma_i$ define a representation of the braid group} \cite{jones-polynomial}.
-\end{exercise}
-
-The compatible normalized traces on the Jones tower restrict to a positive \textbf{Markov trace} on the Temperley--Lieb algebras satisfying
-\[
-\operatorname{tr}(xU_i)=\delta^{-1}\operatorname{tr}(x)
-\]
-whenever $x$ belongs to the algebra generated by the preceding generators. Define
-\[
-P_0(\delta)=1,
-\qquad
-P_1(\delta)=\delta,
-\qquad
-P_{n+1}(\delta)=\delta P_n(\delta)-P_{n-1}(\delta).
-\]
-
-\begin{exercise}
-\textit{Prove that, when $\sin\theta\ne0$,}
-\[
-P_n(2\cos\theta)
-=\frac{\sin((n+1)\theta)}{\sin\theta}.
-\]
-\textit{Use positivity of the Markov trace to prove that if $0<\delta<2$, then}
-\[
-\delta=2\cos\left(\frac{\pi}{m}\right)
-\]
-\textit{for some integer $m\geq3$.}
-\end{exercise}
-
-\begin{exercise}[Jones index theorem]\leavevmode\par
-\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that} \cite{jones-index,jones-sunder}
-\[
-[M:N]
-\in
-\left\{
-4\cos^2\left(\frac{\pi}{n}\right):n\geq3
-\right\}
-\cup
-[4,\infty).
-\]
-\textit{For}
-\[
-[M:N]=4\cos^2\left(\frac{\pi}{k+2}\right),
-\qquad
-\delta=\sqrt{[M:N]},
-\]
-\textit{prove that the Jones projections determine a representation of the Temperley--Lieb algebra $\operatorname{TL}_n(\delta)$, and hence a braid-group representation. Show that the Markov trace of a braid closure satisfies the Jones skein relation. Relate the parameter}
-\[
-\delta=2\cos\left(\frac{\pi}{k+2}\right)
-\]
-\textit{to the $SU(2)_k$ fusion and braiding data from Algebra and to the Wilson-loop invariant of Chern--Simons theory from Geometry.}
-\end{exercise}
-
 \begin{thebibliography}{99}
 
 \bibitem{halmos}
@@ -1288,6 +1440,41 @@ doi:10.1098/rspa.1971.0067.
 Michael A. Nielsen and Isaac L. Chuang,
 \textit{Quantum Computation and Quantum Information},
 10th Anniversary ed., Cambridge University Press, 2010.
+
+\bibitem{gisin}
+Nicolas Gisin,
+\textit{Bell's inequality holds for all non-product states},
+Physics Letters A, 154(5--6):201--202, 1991.
+doi:10.1016/0375-9601(91)90805-I.
+
+\bibitem{tsirelson}
+B. S. Tsirelson,
+\textit{Quantum generalizations of Bell's inequality},
+Letters in Mathematical Physics, 4:93--100, 1980.
+doi:10.1007/BF00417500.
+
+\bibitem{grothendieck}
+Alexander Grothendieck,
+\textit{R\'esum\'e de la th\'eorie m\'etrique des produits tensoriels topologiques},
+Boletim da Sociedade de Matem\'atica de S\~ao Paulo, 8:1--79, 1953.
+
+\bibitem{pisier-grothendieck}
+Gilles Pisier,
+\textit{Grothendieck's theorem, past and present},
+Bulletin of the American Mathematical Society, 49(2):237--323, 2012.
+doi:10.1090/S0273-0979-2011-01348-9.
+
+\bibitem{pisier-shlyakhtenko}
+Gilles Pisier and Dimitri Shlyakhtenko,
+\textit{Grothendieck's theorem for operator spaces},
+Inventiones Mathematicae, 150(1):185--217, 2002.
+doi:10.1007/s00222-002-0230-9.
+
+\bibitem{junge-bell}
+Marius Junge, Carlos Palazuelos, David P\'erez-Garc\'ia, Ignacio Villanueva, and Michael M. Wolf,
+\textit{Unbounded violations of bipartite Bell inequalities via operator space theory},
+Communications in Mathematical Physics, 300:715--739, 2010.
+doi:10.1007/s00220-010-1125-5.
 
 \bibitem{wootters-zurek}
 W. K. Wootters and W. H. Zurek,
