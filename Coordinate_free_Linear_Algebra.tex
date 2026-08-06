@@ -506,6 +506,73 @@ A=\frac{\Phi}{2\pi}d\theta.
 \textit{Prove that bounded chain complexes of finite-dimensional vector spaces form a symmetric monoidal abelian category with duals, that the categorical trace of an endomorphism is its Lefschetz number, and that the categorical dimension of a chain complex is its Euler characteristic.}
 \end{exercise}
 
+\subsection{Hodge theory and electromagnetism}
+
+A \textbf{pseudo-Riemannian metric} is a smooth nondegenerate symmetric section $g\in\Gamma(T^*M\otimes T^*M)$. On an oriented pseudo-Riemannian $n$-manifold, the metric induces a bilinear form $\langle\cdot,\cdot\rangle_g$ on differential forms. A \textbf{metric volume form} $\operatorname{vol}_g$ is a positive volume form satisfying
+\[
+\left|\langle\operatorname{vol}_g,\operatorname{vol}_g\rangle_g\right|=1.
+\]
+The \textbf{Hodge star} is an operator $\star:\Omega^p(M)\to\Omega^{n-p}(M)$ satisfying
+\[
+\alpha\wedge\star\beta=\langle\alpha,\beta\rangle_g\operatorname{vol}_g.
+\]
+
+\begin{exercise}[Metric volume and Hodge star]\leavevmode\par
+\textit{Prove that an oriented pseudo-Riemannian manifold has a unique metric volume form and a unique Hodge-star operator. Determine $\star^2$ in terms of the degree and signature of the metric.}
+\end{exercise}
+
+On an oriented Lorentzian four-manifold, the electromagnetic field strength is a two-form $F$ and the electric four-current is a three-form $J$. Maxwell's equations are \cite{frankel}
+\[
+dF=0,
+\qquad
+d\star F=J.
+\]
+
+\begin{exercise}[Maxwell's equations in spacetime]\leavevmode\par
+\textit{Prove that Maxwell's equations imply $dJ=0$. If $C$ is an oriented compact four-dimensional chain, deduce that}
+\[
+\int_{\partial C}J=0.
+\]
+\textit{If the three-dimensional pieces of its boundary satisfy}
+\[
+\partial C=\Sigma_1-\Sigma_0+B,
+\]
+\textit{prove that}
+\[
+\int_{\Sigma_1}J-\int_{\Sigma_0}J=-\int_BJ.
+\]
+\textit{Specialize to Minkowski spacetime $\mathbb R_t\times\mathbb R^3$ with metric $-dt^2+dx^2+dy^2+dz^2$. Let $\star_3$ and $\operatorname{vol}_3$ be the Euclidean Hodge star and volume form on space, and write}
+\[
+F=B-dt\wedge E,
+\qquad
+J=\rho\,\operatorname{vol}_3-dt\wedge\star_3j,
+\]
+\textit{where $E,j$ are spatial one-forms and $B$ is a spatial two-form. Prove that Maxwell's equations are equivalent to}
+\[
+d_3B=0,
+\qquad
+\partial_tB+d_3E=0,
+\]
+\[
+d_3\star_3E=\rho\,\operatorname{vol}_3,
+\qquad
+d_3\star_3B-\partial_t\star_3E=\star_3j.
+\]
+\textit{Identify these with Gauss's laws, Faraday's law, and the Amp\`ere--Maxwell law. Show that $dJ=0$ becomes the continuity equation}
+\[
+\partial_t\rho\,\operatorname{vol}_3+d_3\star_3j=0.
+\]
+\end{exercise}
+
+\begin{exercise}[Maxwell action and gauge invariance]\leavevmode\par
+\textit{Assume that $M$ has no boundary, or restrict to compactly supported variations. For $A\in\Omega^1(M)$, set $F=dA$ and define}
+\[
+S[A]
+=-\frac12\int_M F\wedge\star F+\int_M A\wedge J.
+\]
+\textit{For $\alpha\in\Omega^1(M)$, compute the first variation of $S[A+t\alpha]$ and prove that its Euler--Lagrange equation is $d\star F=J$. Explain why $dF=0$ holds identically. Prove that the action is invariant under $A\mapsto A+d\lambda$ when $dJ=0$, and show conversely how gauge invariance of the source term forces charge conservation.}
+\end{exercise}
+
 \subsection{Bundles and K-theory}
 
 A \textbf{smooth vector bundle} $p:E\to M$ is a smooth family of vector spaces locally isomorphic to a product $U\times V\to U$. For a smooth map $f:N\to M$, its \textbf{pullback bundle} is
@@ -616,7 +683,7 @@ H_x^2=1_V,
 
 This construction is used in the classification of noninteracting topological insulators and superconductors under specified symmetry assumptions \cite{kitaev-periodic}.
 
-\subsection{Symplectic and metric geometry}
+\subsection{Symplectic geometry}
 
 For a vector field $X$, contraction is the map $\iota_X:\Omega^p(M)\to\Omega^{p-1}(M)$ defined by
 \[
@@ -659,71 +726,6 @@ X_g(f)=\{f,g\}.
 \item $\{H,f\}=0$.
 \item $f$ is constant along the integral curves of $X_H$.
 \end{itemize}
-\end{exercise}
-
-A \textbf{pseudo-Riemannian metric} is a smooth nondegenerate symmetric section $g\in\Gamma(T^*M\otimes T^*M)$. On an oriented pseudo-Riemannian $n$-manifold, the metric induces a bilinear form $\langle\cdot,\cdot\rangle_g$ on differential forms. A \textbf{metric volume form} $\operatorname{vol}_g$ is a positive volume form satisfying
-\[
-\left|\langle\operatorname{vol}_g,\operatorname{vol}_g\rangle_g\right|=1.
-\]
-The \textbf{Hodge star} is an operator $\star:\Omega^p(M)\to\Omega^{n-p}(M)$ satisfying
-\[
-\alpha\wedge\star\beta=\langle\alpha,\beta\rangle_g\operatorname{vol}_g.
-\]
-
-\begin{exercise}[Metric volume and Hodge star]\leavevmode\par
-\textit{Prove that an oriented pseudo-Riemannian manifold has a unique metric volume form and a unique Hodge-star operator. Determine $\star^2$ in terms of the degree and signature of the metric.}
-\end{exercise}
-
-On an oriented Lorentzian four-manifold, the electromagnetic field strength is a two-form $F$ and the electric four-current is a three-form $J$. Maxwell's equations are \cite{frankel}
-\[
-dF=0,
-\qquad
-d\star F=J.
-\]
-
-\begin{exercise}[Maxwell's equations in spacetime]\leavevmode\par
-\textit{Prove that Maxwell's equations imply $dJ=0$. If $C$ is an oriented compact four-dimensional chain, deduce that}
-\[
-\int_{\partial C}J=0.
-\]
-\textit{If the three-dimensional pieces of its boundary satisfy}
-\[
-\partial C=\Sigma_1-\Sigma_0+B,
-\]
-\textit{prove that}
-\[
-\int_{\Sigma_1}J-\int_{\Sigma_0}J=-\int_BJ.
-\]
-\textit{Specialize to Minkowski spacetime $\mathbb R_t\times\mathbb R^3$ with metric $-dt^2+dx^2+dy^2+dz^2$. Let $\star_3$ and $\operatorname{vol}_3$ be the Euclidean Hodge star and volume form on space, and write}
-\[
-F=B-dt\wedge E,
-\qquad
-J=\rho\,\operatorname{vol}_3-dt\wedge\star_3j,
-\]
-\textit{where $E,j$ are spatial one-forms and $B$ is a spatial two-form. Prove that Maxwell's equations are equivalent to}
-\[
-d_3B=0,
-\qquad
-\partial_tB+d_3E=0,
-\]
-\[
-d_3\star_3E=\rho\,\operatorname{vol}_3,
-\qquad
-d_3\star_3B-\partial_t\star_3E=\star_3j.
-\]
-\textit{Identify these with Gauss's laws, Faraday's law, and the Amp\`ere--Maxwell law. Show that $dJ=0$ becomes the continuity equation}
-\[
-\partial_t\rho\,\operatorname{vol}_3+d_3\star_3j=0.
-\]
-\end{exercise}
-
-\begin{exercise}[Maxwell action and gauge invariance]\leavevmode\par
-\textit{Assume that $M$ has no boundary, or restrict to compactly supported variations. For $A\in\Omega^1(M)$, set $F=dA$ and define}
-\[
-S[A]
-=-\frac12\int_M F\wedge\star F+\int_M A\wedge J.
-\]
-\textit{For $\alpha\in\Omega^1(M)$, compute the first variation of $S[A+t\alpha]$ and prove that its Euler--Lagrange equation is $d\star F=J$. Explain why $dF=0$ holds identically. Prove that the action is invariant under $A\mapsto A+d\lambda$ when $dJ=0$, and show conversely how gauge invariance of the source term forces charge conservation.}
 \end{exercise}
 
 \subsection{Connections and curvature}
