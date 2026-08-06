@@ -480,6 +480,28 @@ For a smooth map $f:N\to M$, the \textbf{pullback} of $\alpha\in\Omega^p(M)$ is
 \textit{Prove that integration over smooth singular cycles induces a natural isomorphism between de Rham cohomology and singular cohomology with real coefficients.}
 \end{exercise}
 
+The Aharonov--Bohm effect gives a direct physical meaning to first de Rham cohomology. In the region accessible to a charged particle outside an impenetrable solenoid, the electromagnetic potential $A$ may satisfy $dA=0$ without being globally exact. Its periods then produce observable quantum phases even though the magnetic field vanishes along every particle trajectory \cite{aharonov-bohm,frankel}.
+
+\begin{exercise}[Aharonov--Bohm effect and de Rham cohomology]\leavevmode\par
+\textit{Let $M$ be a smooth manifold and let $A\in\Omega^1(M)$ satisfy $dA=0$. Prove the following:}
+\begin{itemize}
+\item For every contractible open set $U\subseteq M$, there exists $\lambda\in C^\infty(U)$ such that $A|_U=d\lambda$.
+\item For every smooth closed curve $\gamma$, the period $\int_\gamma A$ depends only on the homology class of $\gamma$.
+\item There exists a global $\lambda\in C^\infty(M)$ with $A=d\lambda$ if and only if $[A]=0\in H_{\mathrm{dR}}^1(M)$. If $[A]\neq0$, use the de Rham theorem to find a smooth closed curve with nonzero period.
+\end{itemize}
+\textit{Now take $M=\mathbb R^3\setminus\{(0,0,z):z\in\mathbb R\}$, the space outside an idealized solenoid, and define}
+\[
+d\theta=\frac{-y\,dx+x\,dy}{x^2+y^2},
+\qquad
+A=\frac{\Phi}{2\pi}d\theta.
+\]
+\textit{Prove that $M$ deformation retracts onto $S^1$, that $d\theta$ is closed but not exact, and that its integral around a positively oriented loop linking the solenoid once is $2\pi$. Deduce that $\int_\gamma A=\Phi$. For a particle of charge $q$, prove that}
+\[
+\exp\!\left(\frac{iq}{\hbar}\int_\gamma A\right)
+\]
+\textit{is unchanged by $A\mapsto A+d\lambda$, and explain why the relative phase $q\Phi/\hbar$ shifts the interference pattern although $dA=0$ on $M$.}
+\end{exercise}
+
 \begin{exercise}[Categorical trace on chain complexes]\leavevmode\par
 \textit{Prove that bounded chain complexes of finite-dimensional vector spaces form a symmetric monoidal abelian category with duals, that the categorical trace of an endomorphism is its Lefschetz number, and that the categorical dimension of a chain complex is its Euler characteristic.}
 \end{exercise}
@@ -652,14 +674,15 @@ The \textbf{Hodge star} is an operator $\star:\Omega^p(M)\to\Omega^{n-p}(M)$ sat
 \textit{Prove that an oriented pseudo-Riemannian manifold has a unique metric volume form and a unique Hodge-star operator. Determine $\star^2$ in terms of the degree and signature of the metric.}
 \end{exercise}
 
-\begin{exercise}[Charge conservation from Maxwell's equations]\leavevmode\par
-\textit{Let $M$ be an oriented four-dimensional pseudo-Riemannian manifold. Suppose that $F\in\Omega^2(M)$ and $J\in\Omega^3(M)$ satisfy} \cite{frankel}
+On an oriented Lorentzian four-manifold, the electromagnetic field strength is a two-form $F$ and the electric four-current is a three-form $J$. Maxwell's equations are \cite{frankel}
 \[
 dF=0,
 \qquad
 d\star F=J.
 \]
-\textit{Prove that $dJ=0$. If $C$ is an oriented compact four-dimensional chain, deduce that}
+
+\begin{exercise}[Maxwell's equations in spacetime]\leavevmode\par
+\textit{Prove that Maxwell's equations imply $dJ=0$. If $C$ is an oriented compact four-dimensional chain, deduce that}
 \[
 \int_{\partial C}J=0.
 \]
@@ -671,19 +694,36 @@ d\star F=J.
 \[
 \int_{\Sigma_1}J-\int_{\Sigma_0}J=-\int_BJ.
 \]
+\textit{Specialize to Minkowski spacetime $\mathbb R_t\times\mathbb R^3$ with metric $-dt^2+dx^2+dy^2+dz^2$. Let $\star_3$ and $\operatorname{vol}_3$ be the Euclidean Hodge star and volume form on space, and write}
+\[
+F=B-dt\wedge E,
+\qquad
+J=\rho\,\operatorname{vol}_3-dt\wedge\star_3j,
+\]
+\textit{where $E,j$ are spatial one-forms and $B$ is a spatial two-form. Prove that Maxwell's equations are equivalent to}
+\[
+d_3B=0,
+\qquad
+\partial_tB+d_3E=0,
+\]
+\[
+d_3\star_3E=\rho\,\operatorname{vol}_3,
+\qquad
+d_3\star_3B-\partial_t\star_3E=\star_3j.
+\]
+\textit{Identify these with Gauss's laws, Faraday's law, and the Amp\`ere--Maxwell law. Show that $dJ=0$ becomes the continuity equation}
+\[
+\partial_t\rho\,\operatorname{vol}_3+d_3\star_3j=0.
+\]
 \end{exercise}
 
-For a closed form $A$, write $[A]$ for its de Rham cohomology class. The next exercise is a modern de Rham formulation; the original paper does not use this language \cite{aharonov-bohm,frankel}.
-
-\begin{exercise}[Aharonov--Bohm cohomological obstruction]
-\textit{Let $M$ be a compact smooth manifold and let $A\in\Omega^1(M)$ satisfy $dA=0$. Prove the following:}
-\begin{itemize}
-\item For every contractible open set $U\subseteq M$, there exists $\lambda\in C^\infty(U)$ such that $A|_U=d\lambda$.
-\item For every smooth closed curve $\gamma$, the number $\int_\gamma A$ depends only on the homology class of $\gamma$.
-\item There exists a global $\lambda\in C^\infty(M)$ with $A=d\lambda$ iff $[A]=0\in H_{\mathrm{dR}}^1(M)$.
-\item If $[A]\neq0$, then there exists a smooth closed curve $\gamma$ such that $\int_\gamma A\neq0$.
-\item For a particle of charge $q$, the phase $\exp(iq\int_\gamma A)$ is gauge invariant. Explain how a nontrivial phase can shift an interference pattern even though $dA=0$ on $M$.
-\end{itemize}
+\begin{exercise}[Maxwell action and gauge invariance]\leavevmode\par
+\textit{Assume that $M$ has no boundary, or restrict to compactly supported variations. For $A\in\Omega^1(M)$, set $F=dA$ and define}
+\[
+S[A]
+=-\frac12\int_M F\wedge\star F+\int_M A\wedge J.
+\]
+\textit{For $\alpha\in\Omega^1(M)$, compute the first variation of $S[A+t\alpha]$ and prove that its Euler--Lagrange equation is $d\star F=J$. Explain why $dF=0$ holds identically. Prove that the action is invariant under $A\mapsto A+d\lambda$ when $dJ=0$, and show conversely how gauge invariance of the source term forces charge conservation.}
 \end{exercise}
 
 \subsection{Connections and curvature}
