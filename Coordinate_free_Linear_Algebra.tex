@@ -1818,6 +1818,18 @@ For a self-adjoint $H$, write $U_t=e^{-itH}$.
 
 \subsection{Schmidt decomposition and entanglement}
 
+For finite-dimensional Hilbert spaces $H_A,H_B$, the \textbf{partial trace}
+over $H_B$ is the linear map
+\[
+\operatorname{Tr}_{H_B}:\End(H_A\otimes H_B)\longrightarrow\End(H_A)
+\]
+characterized by
+\[
+\operatorname{Tr}\!\left(A\operatorname{Tr}_{H_B}(X)\right)
+=\operatorname{Tr}\!\left((A\otimes1_{H_B})X\right)
+\qquad(A\in\End(H_A)).
+\]
+
 For finite-dimensional Hilbert spaces $H_A,H_B$ and $\psi\in H_A\otimes H_B$, define
 \[
 T_\psi:H_A^*\to H_B,
@@ -1836,12 +1848,71 @@ where $(a_i)$ and $(b_i)$ are orthonormal families and $s_i>0$; $r$ is the \text
 \]
 
 \begin{exercise}[Schmidt decomposition and entanglement]\leavevmode\par
-\textit{Use the singular-value decomposition of $T_\psi$ to prove that every $\psi$ has a Schmidt decomposition. Prove that the nonzero eigenvalues of $\rho_A$ and $\rho_B$ are the numbers $s_i^2$, with the same multiplicities. Prove that $\psi$ is separable, meaning $\psi=a\otimes b$, exactly when its Schmidt rank is one. Deduce that the entanglement entropy is}
+\textit{Prove that the partial trace exists uniquely. Use the singular-value decomposition of $T_\psi$ to prove that every $\psi$ has a Schmidt decomposition. Prove that the nonzero eigenvalues of $\rho_A$ and $\rho_B$ are the numbers $s_i^2$, with the same multiplicities. Prove that $\psi$ is separable, meaning $\psi=a\otimes b$, exactly when its Schmidt rank is one. Deduce that the entanglement entropy is}
 \[
 S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
 =-\sum_i s_i^2\log s_i^2,
 \]
 \textit{with the convention $0\log0=0$.}
+\end{exercise}
+
+\subsection{Quantum channels and Stinespring dilation}
+
+For a linear map $\Phi:\mathcal A\to\mathcal B$ between unital
+$*$-subalgebras of bounded operators, its $n$th \textbf{matrix amplification}
+is
+\[
+\Phi_n([x_{ij}])=[\Phi(x_{ij})].
+\]
+The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive.
+
+For finite-dimensional Hilbert spaces $H,K$, a \textbf{quantum channel} is a
+completely positive trace-preserving linear map
+\[
+\Phi:\End(H)\longrightarrow\End(K).
+\]
+After choosing an orthonormal basis $(e_i)$ of $H$, define the \textbf{Choi
+operator} of $\Phi$ by
+\[
+C_\Phi
+=\sum_{i,j}|e_i\rangle\langle e_j|
+\otimes\Phi(|e_i\rangle\langle e_j|)
+\in\End(H\otimes K).
+\]
+
+\begin{exercise}[Every channel is unitary with an environment]
+\leavevmode\par
+\textit{Prove that $\Phi$ is completely positive if and only if
+$C_\Phi\geq0$ \cite{choi-cp}. Prove the finite-dimensional Stinespring
+dilation theorem \cite{stinespring}: $\Phi$ is a quantum channel if and only
+if there are a finite-dimensional Hilbert space $E$ and an isometry}
+\[
+V:H\longrightarrow K\otimes E
+\]
+\textit{such that}
+\[
+\Phi(\rho)=\operatorname{Tr}_E(V\rho V^*).
+\]
+\textit{Prove equivalently that there are operators $K_\alpha:H\to K$ with}
+\[
+\Phi(\rho)=\sum_\alpha K_\alpha\rho K_\alpha^*,
+\qquad
+\sum_\alpha K_\alpha^*K_\alpha=1_H.
+\]
+\textit{Prove that the least possible dimension of $E$, and the least
+number of Kraus operators, both equal $\operatorname{rank}C_\Phi$. When
+$H=K$, fix a unit vector $e_0\in E$ and extend $x\otimes e_0\mapsto Vx$ to
+a unitary $U$ on $H\otimes E$. Deduce}
+\[
+\Phi(\rho)
+=\operatorname{Tr}_E\!\left(
+U(\rho\otimes|e_0\rangle\langle e_0|)U^*
+\right).
+\]
+\textit{Interpret this as unitary interaction with an environment followed
+by forgetting the environment. Using the Schmidt decomposition, strengthen
+the no-cloning exercise above by proving that no quantum channel can clone
+every pure state.}
 \end{exercise}
 
 \subsection{CHSH, Gisin, and Tsirelson}
@@ -1969,7 +2040,7 @@ p\precsim q
 \textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
 \end{exercise}
 
-A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. For a linear map $\Phi:M\to N$, define its matrix amplification by $\Phi_n([x_{ij}])=[\Phi(x_{ij})]$; the map is \textbf{completely positive} if every $\Phi_n$ is positive. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
+A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
 \[
 \tau\circ E_N=\tau,
 \qquad
@@ -2188,6 +2259,18 @@ H. P. Robertson,
 \textit{The Uncertainty Principle},
 Physical Review, 34:163--164, 1929.
 doi:10.1103/PhysRev.34.163.
+
+\bibitem{stinespring}
+W. Forrest Stinespring,
+\textit{Positive Functions on $C^*$-Algebras},
+Proceedings of the American Mathematical Society, 6:211--216, 1955.
+doi:10.1090/S0002-9939-1955-0069403-4.
+
+\bibitem{choi-cp}
+Man-Duen Choi,
+\textit{Completely Positive Linear Maps on Complex Matrices},
+Linear Algebra and its Applications, 10(3):285--290, 1975.
+doi:10.1016/0024-3795(75)90075-0.
 
 \bibitem{pauli-hydrogen}
 Wolfgang Pauli,
