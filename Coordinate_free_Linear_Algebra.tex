@@ -1196,6 +1196,46 @@ An operator $A\in\mathcal B(H)$ is \textbf{self-adjoint} if $A=A^*$, \textbf{nor
 \]
 \end{exercise}
 
+\subsection{Compact operators and the Fredholm alternative}
+
+A bounded operator $K:H\to L$ between Hilbert spaces is \textbf{compact} if the image of the closed unit ball has compact closure. Equivalently, for every bounded sequence $(x_n)$ in $H$, the sequence $(Kx_n)$ has a convergent subsequence. Write $\mathcal K(H,L)$ for the compact operators and $\mathcal K(H)=\mathcal K(H,H)$.
+
+\begin{exercise}[Compact operators]\leavevmode\par
+\textit{Prove the sequential characterization of compactness above. Prove that every finite-rank operator is compact, that $\mathcal K(H,L)$ is closed in the operator norm, and that}
+\[
+A\in\mathcal B(L,M),\quad K\in\mathcal K(H,L),\quad B\in\mathcal B(N,H)
+\quad\Longrightarrow\quad
+AKB\in\mathcal K(N,M).
+\]
+\textit{Deduce that $\mathcal K(H)$ is a closed two-sided ideal in $\mathcal B(H)$. Prove that $K^*$ is compact whenever $K$ is compact and that, on a Hilbert space, every compact operator is an operator-norm limit of finite-rank operators.}
+\end{exercise}
+
+A bounded operator $T:H\to L$ is \textbf{Fredholm} if $\ker T$ and $L/\operatorname{im}T$ are finite dimensional and $\operatorname{im}T$ is closed. Its \textbf{Fredholm index} is
+\[
+\operatorname{ind}(T)
+=\dim\ker T-\dim(L/\operatorname{im}T).
+\]
+
+\begin{exercise}[Fredholm alternative]\leavevmode\par
+\textit{Let $K\in\mathcal K(H)$ and $\lambda\in\mathbb C\setminus\{0\}$. Prove that $\lambda1-K$ has closed range and that} \cite{conway-functional}
+\[
+\dim\ker(\lambda1-K)
+=\dim\ker(\overline\lambda1-K^*)<\infty.
+\]
+\textit{Using}
+\[
+\operatorname{im}(\lambda1-K)^\perp
+=\ker(\overline\lambda1-K^*),
+\]
+\textit{prove that the following are equivalent:}
+\begin{itemize}
+\item $\lambda1-K$ is injective.
+\item $\lambda1-K$ is surjective.
+\item $\lambda1-K$ is invertible.
+\end{itemize}
+\textit{Prove more generally that $(\lambda1-K)x=y$ is solvable if and only if $y$ is orthogonal to $\ker(\overline\lambda1-K^*)$. Deduce that $\lambda1-K$ is Fredholm of index zero. Finally, prove that every nonzero point of the spectrum of a compact operator is an eigenvalue of finite multiplicity and that zero is the only possible accumulation point of the spectrum.}
+\end{exercise}
+
 \subsection{Quantum states and uncertainty}
 
 A finite-dimensional \textbf{quantum state} is a positive operator $\rho$ with $\trace(\rho)=1$. A unit vector $\psi$ defines the pure state $\rho_\psi=|\psi\rangle\langle\psi|$. For a self-adjoint observable $A$, define
@@ -1590,6 +1630,11 @@ Alexei Kitaev,
 \textit{Periodic table for topological insulators and superconductors},
 AIP Conference Proceedings, 1134:22--30, 2009.
 doi:10.1063/1.3149495.
+
+\bibitem{conway-functional}
+John B. Conway,
+\textit{A Course in Functional Analysis},
+2nd ed., Graduate Texts in Mathematics, Vol. 96, Springer, 1990.
 
 \bibitem{takesaki}
 Masamichi Takesaki,
