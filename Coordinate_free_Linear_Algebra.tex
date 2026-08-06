@@ -847,6 +847,37 @@ J=\frac{\partial\Gamma}{\partial s}.
 \]
 \end{exercise}
 
+Let $(M,g)$ be a compact oriented Riemannian surface with piecewise smooth boundary. Given a local positively oriented orthonormal frame $(e_1,e_2)$, define its \textbf{connection one-form} $\omega$ by
+\[
+\nabla_Xe_1=-\omega(X)e_2,
+\qquad
+\nabla_Xe_2=\omega(X)e_1.
+\]
+The \textbf{Gaussian curvature} is
+\[
+K=g(R(e_1,e_2)e_2,e_1),
+\]
+and the Euler characteristic is $\chi(M)=\sum_j(-1)^j\dim H_j(M;\mathbb R)$. Along a positively oriented smooth boundary component with unit tangent $T$, let $N$ be the inward unit normal for which $(T,N)$ is positively oriented and define the signed \textbf{geodesic curvature} by $k_g=g(\nabla_TT,N)$.
+
+\begin{exercise}[Gauss--Bonnet theorem]\leavevmode\par
+\textit{Prove that} \cite{do-carmo}
+\[
+d\omega=K\operatorname{vol}_g.
+\]
+\textit{Determine how $\omega$ transforms under a rotation of the local orthonormal frame and deduce that $K\operatorname{vol}_g$ is globally defined. Using Stokes' theorem on a triangulation, let $\theta_j$ be the signed exterior angle through which the positively oriented boundary tangent turns at its $j$-th corner, and prove the Gauss--Bonnet formula}
+\[
+\int_MK\operatorname{vol}_g
++\int_{\partial M}k_g\,ds
++\sum_j\theta_j
+=2\pi\chi(M).
+\]
+\textit{Deduce that every closed oriented Riemannian surface satisfies}
+\[
+\frac{1}{2\pi}\int_MK\operatorname{vol}_g=\chi(M).
+\]
+\textit{Apply the theorem to recover the area $4\pi r^2$ of the round sphere of radius $r$. Prove that a torus admits no metric with $K>0$ everywhere, and that a closed genus-$g$ surface with constant curvature $K=-1$ has area $4\pi(g-1)$.}
+\end{exercise}
+
 The trace used below is the ordinary trace defined in the Algebra section. Define the \textbf{Ricci tensor}, \textbf{scalar curvature}, and \textbf{Einstein tensor} by
 \[
 \operatorname{Ric}(X,Y)=\operatorname{tr}\bigl(Z\mapsto R(Z,X)Y\bigr),
@@ -1730,6 +1761,11 @@ doi:10.1017/CBO9781139061377.
 Barrett O'Neill,
 \textit{Semi-Riemannian Geometry with Applications to Relativity},
 Pure and Applied Mathematics, Vol. 103, Academic Press, 1983.
+
+\bibitem{do-carmo}
+Manfredo P. do Carmo,
+\textit{Differential Geometry of Curves and Surfaces},
+Prentice-Hall, 1976.
 
 \bibitem{wald}
 Robert M. Wald,
