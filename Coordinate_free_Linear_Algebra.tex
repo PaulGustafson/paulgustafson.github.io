@@ -19,7 +19,7 @@
 
 
 \maketitle
-The first section develops algebraic constructions independent of a basis; the second develops analytic constructions from norms, operators, and positivity; the third develops geometric constructions independent of coordinates.
+The first section develops algebraic constructions independent of a basis; the second develops geometric constructions independent of coordinates; the third develops analytic constructions from norms, operators, and positivity.
 
 \section{Algebra}
 
@@ -96,6 +96,28 @@ A scalar $\lambda\in k$ is an \textbf{eigenvalue} of $f$ if $\ker(f-\lambda1_V)\
         \item The operator $f$ satisfies its own characteristic polynomial (replacing $\lambda$ with $f$)
         \item The existence of the Jordan normal form for a linear operator on a finite-dimensional complex vector space
     \end{itemize}
+\end{exercise}
+
+A \textbf{Hermitian inner product} on a complex vector space $V$ is a positive-definite sesquilinear form $\langle\mathord{\cdot},\mathord{\cdot}\rangle$, conjugate-linear in the first variable and linear in the second. It induces the norm $\|v\|=\sqrt{\langle v,v\rangle}$. For a linear map $A:V\to W$ between finite-dimensional Hermitian spaces, an \textbf{adjoint} is a map $A^*:W\to V$ satisfying
+\[
+\langle Av,w\rangle=\langle v,A^*w\rangle.
+\]
+An endomorphism $A$ is \textbf{self-adjoint} if $A=A^*$, \textbf{normal} if $A^*A=AA^*$, \textbf{positive} if $\langle v,Av\rangle\geq0$ for every $v$, and \textbf{unitary} if $A^*A=AA^*=1$. Equip $\End(V)$ with the induced operator norm.
+
+\begin{exercise}[Finite-dimensional spectral theorem]\label{ex:finite-spectral-theorem}\leavevmode\par
+\textit{Prove that every linear map between finite-dimensional Hermitian spaces has a unique adjoint and establish the identities $(AB)^*=B^*A^*$ and $\|A^*A\|=\|A\|^2$. Prove that $A\in\End(V)$ is positive if and only if $A=B^*B$ for some $B$, and prove that every normal $A$ has an orthogonal spectral decomposition}
+\[
+A=\sum_\lambda\lambda p_\lambda,
+\qquad
+p_\lambda p_\mu=\delta_{\lambda\mu}p_\lambda,
+\qquad
+\sum_\lambda p_\lambda=1.
+\]
+\textit{Apply the theorem to $T^*T$ to prove that every map $T:H\to K$ between finite-dimensional Hermitian spaces has a singular-value decomposition}
+\[
+T=U\Sigma V^*.
+\]
+\textit{Prove that the diagonal entries of $\Sigma$ are the square roots of the nonzero eigenvalues of $T^*T$, counted with multiplicity.}
 \end{exercise}
 
 \subsection{Group representations}
@@ -414,416 +436,6 @@ B_3\longrightarrow U(V).
 
 Such Fibonacci fusion and braiding data have been implemented on superconducting quantum processors \cite{xu-fibonacci}.\footnote{This is an engineered quantum simulation of Fibonacci topological order, not evidence that naturally occurring Fibonacci quasiparticles have been conclusively observed. A related trapped-ion realization of non-Abelian topological order is reported in \cite{iqbal-anyons}.}
 
-\section{Analysis}
-
-\subsection{Norms, operator exponentials, and linear evolution}
-
-A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|:H\to[0,\infty)$ that is definite, homogeneous, and satisfies the triangle inequality. A normed space is a \textbf{Banach space} if every Cauchy sequence converges. A \textbf{Hilbert space} is a complex vector space with a Hermitian inner product $\langle\mathord{\cdot},\mathord{\cdot}\rangle$ whose norm $\|x\|=\sqrt{\langle x,x\rangle}$ is complete. A linear map $A:H\to K$ is \textbf{bounded} if
-\[
-\|A\|=\sup_{\|x\|=1}\|Ax\|<\infty.
-\]
-Write $\mathcal B(H,K)$ for the normed space of bounded operators and $\mathcal B(H)=\mathcal B(H,H)$.
-
-For $A\in\mathcal B(H)$, define the operator exponential by the formal series
-\[
-e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}
-\]
-whenever the series converges in operator norm.
-
-\begin{exercise}[Cauchy--Schwarz inequality]\leavevmode\par
-\textit{Prove that every inner-product space satisfies}
-\[
-|\langle x,y\rangle|\leq\|x\|\|y\|.
-\]
-\textit{Deduce the triangle inequality for the induced norm. Prove that $\mathcal B(H,K)$ is complete when $K$ is complete and that the exponential series converges in $\mathcal B(H)$ for every bounded $A$.}
-\end{exercise}
-
-\begin{exercise}[Operator exponentials and linear evolution]\leavevmode\par
-\textit{Prove that $e^{tA}$ is differentiable in operator norm and that}
-\[
-\frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
-\]
-\textit{Deduce that the unique solution of}
-\[
-\dot x(t)=Ax(t),\qquad x(0)=x_0,
-\]
-\textit{is $x(t)=e^{tA}x_0$. In finite dimensions use the Jordan decomposition}
-\[
-A=S+N,\qquad [S,N]=0,
-\]
-\textit{with $S$ semisimple and $N$ nilpotent, to prove}
-\[
-e^{tA}=e^{tS}e^{tN}.
-\]
-\textit{Show that on the generalized $\lambda$-eigenspace every component of a solution is a linear combination of terms $t^je^{\lambda t}$.}
-\end{exercise}
-
-\subsection{Hilbert-space operator theory}
-
-An \textbf{adjoint} of $A\in\mathcal B(H,K)$ is an operator $A^*\in\mathcal B(K,H)$ satisfying
-\[
-\langle Ax,y\rangle=\langle x,A^*y\rangle.
-\]
-An operator $A\in\mathcal B(H)$ is \textbf{self-adjoint} if $A=A^*$, \textbf{normal} if $A^*A=AA^*$, \textbf{positive} if $\langle x,Ax\rangle\geq0$ for every $x$, and \textbf{unitary} if $A^*A=AA^*=1$.
-
-\begin{exercise}[Spectral theorem and singular-value decomposition]\leavevmode\par
-\textit{Prove that every bounded operator between Hilbert spaces has a unique adjoint and establish the identities $(AB)^*=B^*A^*$ and $\|A^*A\|=\|A\|^2$. Let $H$ be finite-dimensional. Prove that $A\in\End(H)$ is positive if and only if $A=B^*B$ for some $B$, and prove that every normal $A$ has an orthogonal spectral decomposition}
-\[
-A=\sum_\lambda\lambda p_\lambda,
-\qquad
-p_\lambda p_\mu=\delta_{\lambda\mu}p_\lambda,
-\qquad
-\sum_\lambda p_\lambda=1.
-\]
-\textit{Apply the theorem to $T^*T$ to prove that every map $T:H\to K$ has a singular-value decomposition}
-\[
-T=U\Sigma V^*.
-\]
-\textit{Prove that the diagonal entries of $\Sigma$ are the square roots of the nonzero eigenvalues of $T^*T$, counted with multiplicity.}
-\end{exercise}
-
-\subsection{Quantum states and uncertainty}
-
-A finite-dimensional \textbf{quantum state} is a positive operator $\rho$ with $\trace(\rho)=1$. A unit vector $\psi$ defines the pure state $\rho_\psi=|\psi\rangle\langle\psi|$. For a self-adjoint observable $A$, define
-\[
-\langle A\rangle_\rho=\trace(\rho A),
-\qquad
-\operatorname{Var}_\rho(A)
-=\trace\!\left(\rho(A-\langle A\rangle_\rho1)^2\right).
-\]
-For $\rho=\rho_\psi$, use the subscripts $\psi$ instead of $\rho$.
-
-\begin{exercise}[Robertson uncertainty inequality]\leavevmode\par
-\textit{For self-adjoint $A,B\in\mathcal B(H)$ and a unit vector $\psi$, prove} \cite{robertson}
-\[
-\operatorname{Var}_\psi(A)\operatorname{Var}_\psi(B)
-\geq\frac14\left|\langle\psi,[A,B]\psi\rangle\right|^2,
-\qquad [A,B]=AB-BA.
-\]
-\textit{Determine the equality condition.}
-\end{exercise}
-
-For a self-adjoint $H$, write $U_t=e^{-itH}$.
-
-\begin{exercise}[Conservation from commutators]\leavevmode\par
-\textit{Let $A,H$ be self-adjoint. Prove that $U_t$ is unitary and that} \cite{nielsen-chuang}
-\[
-\frac{d}{dt}\langle U_t\psi,A U_t\psi\rangle
-=-i\langle U_t\psi,[H,A]U_t\psi\rangle.
-\]
-\textit{Deduce that $[H,A]=0$ if and only if the expectation of $A$ is constant under this evolution for every initial vector.}
-\end{exercise}
-
-\begin{exercise}[No-cloning theorem]\leavevmode\par
-\textit{Let $b\in H$ be a unit vector and suppose that a unitary $C:H\otimes H\to H\otimes H$ satisfies $C(v\otimes b)=v\otimes v$ and $C(w\otimes b)=w\otimes w$ for unit vectors $v,w$. Prove that} \cite{wootters-zurek}
-\[
-\langle v,w\rangle=\langle v,w\rangle^2.
-\]
-\textit{Deduce that no unitary map clones every unit vector.}
-\end{exercise}
-
-\subsection{Schmidt decomposition and entanglement}
-
-For finite-dimensional Hilbert spaces $H_A,H_B$ and $\psi\in H_A\otimes H_B$, define
-\[
-T_\psi:H_A^*\to H_B,
-\qquad
-T_\psi(\phi)=(\phi\otimes1)(\psi).
-\]
-A \textbf{Schmidt decomposition} of $\psi$ is an expression
-\[
-\psi=\sum_{i=1}^r s_i a_i\otimes b_i.
-\]
-where $(a_i)$ and $(b_i)$ are orthonormal families and $s_i>0$; $r$ is the \textbf{Schmidt rank}. For a unit vector $\psi$, define the reduced density operators by
-\[
-\rho_A=\operatorname{Tr}_{H_B}(|\psi\rangle\langle\psi|),
-\qquad
-\rho_B=\operatorname{Tr}_{H_A}(|\psi\rangle\langle\psi|).
-\]
-
-\begin{exercise}[Schmidt decomposition and entanglement]\leavevmode\par
-\textit{Use the singular-value decomposition of $T_\psi$ to prove that every $\psi$ has a Schmidt decomposition. Prove that the nonzero eigenvalues of $\rho_A$ and $\rho_B$ are the numbers $s_i^2$, with the same multiplicities. Prove that $\psi$ is separable, meaning $\psi=a\otimes b$, exactly when its Schmidt rank is one. Deduce that the entanglement entropy is} \cite{nielsen-chuang}
-\[
-S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
-=-\sum_i s_i^2\log s_i^2,
-\]
-\textit{with the convention $0\log0=0$.}
-\end{exercise}
-
-\subsection{CHSH, Gisin, and Tsirelson}
-
-Let $A_0,A_1$ and $B_0,B_1$ be self-adjoint operators with eigenvalues in $\{-1,1\}$. Their \textbf{CHSH operator} is
-\[
-\mathcal C=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1).
-\]
-\begin{exercise}[Gisin's theorem for two qubits]\leavevmode\par
-\textit{Prove that every classical local-hidden-variable assignment satisfies $|\langle\mathcal C\rangle|\leq2$. For the two-qubit state in Schmidt form}
-\[
-\psi_\theta=\cos\theta\,|00\rangle+\sin\theta\,|11\rangle,
-\qquad 0\leq\theta\leq\frac\pi4,
-\]
-\textit{optimize over projective binary observables and prove that the maximal CHSH value is} \cite{gisin}
-\[
-2\sqrt{1+\sin^2(2\theta)}.
-\]
-\textit{Conclude that every entangled pure two-qubit state violates a CHSH inequality. For $\theta=\pi/4$, recover the value $2\sqrt2$.}
-\end{exercise}
-
-A \textbf{bipartite binary quantum correlation matrix} has entries
-\[
-c_{ij}=\langle\psi,(A_i\otimes B_j)\psi\rangle,
-\]
-where $\psi$ is a unit vector. The operators $A_i$ and $B_j$ are self-adjoint unitaries on finite-dimensional Hilbert spaces.
-
-For a real matrix $M=(M_{ij})$, define
-\[
-\beta_{\mathrm C}(M)
-=\max_{\varepsilon_i,\delta_j\in\{-1,1\}}
-\left|\sum_{i,j}M_{ij}\varepsilon_i\delta_j\right|
-\]
-and
-\[
-\beta_{\mathrm Q}(M)
-=\sup_c\left|\sum_{i,j}M_{ij}c_{ij}\right|,
-\]
-where the supremum is over bipartite binary quantum correlation matrices.
-
-\begin{exercise}[Tsirelson's representation theorem and bound]\leavevmode\par
-\textit{Prove that a finite real matrix $c=(c_{ij})$ is a bipartite binary quantum correlation matrix if and only if there are unit vectors $x_i,y_j$ in a real Hilbert space such that} \cite{tsirelson}
-\[
-c_{ij}=\langle x_i,y_j\rangle.
-\]
-\textit{Deduce that}
-\[
-\beta_{\mathrm Q}(M)
-=\sup_{\|x_i\|=\|y_j\|=1}
-\left|\sum_{i,j}M_{ij}\langle x_i,y_j\rangle\right|.
-\]
-\textit{For the CHSH operator, prove the Tsirelson bound $\|\mathcal C\|\leq2\sqrt2$ and exhibit observables and a state attaining equality.}
-\end{exercise}
-
-\subsection{Grothendieck inequality}
-
-The \textbf{real Grothendieck constant} $K_G^{\mathbb R}$ is the least constant for which
-\[
-\beta_{\mathrm Q}(M)\leq K_G^{\mathbb R}\beta_{\mathrm C}(M)
-\]
-holds for every real matrix $M$.
-
-\begin{exercise}[Grothendieck's inequality]\leavevmode\par
-\textit{Prove that $K_G^{\mathbb R}<\infty$} \cite{grothendieck,pisier-grothendieck}. \textit{For}
-\[
-M_{\mathrm{CHSH}}=
-\begin{pmatrix}1&1\\1&-1\end{pmatrix},
-\]
-\textit{compute $\beta_{\mathrm C}(M_{\mathrm{CHSH}})$ directly. Choose four unit vectors in $\mathbb R^2$ that attain}
-\[
-\beta_{\mathrm Q}(M_{\mathrm{CHSH}})=2\sqrt2
-\]
-\textit{and verify the ratio $\sqrt2$. Deduce that $\sqrt2\leq K_G^{\mathbb R}$ and interpret the inequality as a dimension-independent bound on quantum advantage for bipartite binary correlation Bell inequalities.}
-\end{exercise}
-
-\subsection{Von Neumann algebras and subfactors}
-
-For $\mathcal S\subseteq\mathcal B(H)$, its \textbf{commutant} is
-\[
-\mathcal S'=\{T\in\mathcal B(H):Tx=xT\text{ for every }x\in\mathcal S\}.
-\]
-A \textbf{von Neumann algebra} is a unital $*$-subalgebra $M\subseteq\mathcal B(H)$ satisfying $M=M''$ \cite{takesaki}. A net $(T_\lambda)$ converges to $T$ in the \textbf{strong operator topology} if $T_\lambda\xi\to T\xi$ for every $\xi\in H$, and in the \textbf{weak operator topology} if
-\[
-\langle T_\lambda\xi,\eta\rangle\longrightarrow\langle T\xi,\eta\rangle
-\]
-for every $\xi,\eta\in H$.
-
-\begin{exercise}[Bicommutant theorem]\leavevmode\par
-\textit{Let $A\subseteq\mathcal B(H)$ be a unital $*$-subalgebra. Prove that}
-\[
-A''
-=\overline A^{\,\mathrm{SOT}}
-=\overline A^{\,\mathrm{WOT}}.
-\]
-\end{exercise}
-
-The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$. A positive functional or positive map is \textbf{normal} if it preserves suprema of bounded increasing nets of positive elements, and a positive functional $\psi$ is \textbf{faithful} if $\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an infinite-dimensional factor with a faithful normal tracial state
-\[
-\tau:M\longrightarrow\mathbb C,
-\qquad
-\tau(ab)=\tau(ba),
-\qquad
-\tau(1)=1.
-\]
-
-For projections $p,q\in M$, write $p\sim q$ if there is $v\in M$ such that
-\[
-v^*v=p,
-\qquad
-vv^*=q.
-\]
-Write $p\precsim q$ if $p$ is equivalent to a projection $r$ satisfying $rq=r$.
-
-\begin{exercise}[Projection dimension]\leavevmode\par
-\textit{Let $M$ be a type $\mathrm{II}_1$ factor with normalized trace $\tau$. Prove that}
-\[
-p\sim q\quad\Longrightarrow\quad\tau(p)=\tau(q),
-\]
-\textit{and prove the comparison theorem}
-\[
-p\precsim q
-\quad\Longleftrightarrow\quad
-\tau(p)\leq\tau(q).
-\]
-\textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
-\end{exercise}
-
-A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. For a linear map $\Phi:M\to N$, define its matrix amplification by $\Phi_n([x_{ij}])=[\Phi(x_{ij})]$; the map is \textbf{completely positive} if every $\Phi_n$ is positive. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
-\[
-\tau\circ E_N=\tau,
-\qquad
-E_N(n_1xn_2)=n_1E_N(x)n_2
-\]
-for $x\in M$ and $n_1,n_2\in N$. Let $L^2(M,\tau)$ be the completion of $M$ for
-\[
-\langle x,y\rangle_\tau=\tau(y^*x).
-\]
-Let $M$ act on $L^2(M,\tau)$ by left multiplication.
-
-\begin{exercise}[Conditional expectation and Jones projection]\leavevmode\par
-\textit{Prove that there is a unique trace-preserving conditional expectation $E_N:M\to N$. Prove that $E_N$ extends to the orthogonal projection}
-\[
-e_N:L^2(M,\tau)\longrightarrow L^2(N,\tau).
-\]
-\textit{Prove that}
-\[
-e_N=e_N^*=e_N^2,
-\qquad
-e_Nxe_N=E_N(x)e_N
-\]
-\textit{for every $x\in M$.}
-\end{exercise}
-
-The \textbf{basic construction} is
-\[
-M_1=\langle M,e_N\rangle''
-\subseteq\mathcal B(L^2(M,\tau)),
-\]
-the double commutant of the algebra generated by $M$ and $e_N$. For a projection $p=[p_{ij}]\in M_k(N)$ acting by left multiplication, define
-\[
-\dim_N\!\left(pL^2(N,\tau)^k\right)=\sum_{i=1}^k\tau(p_{ii}).
-\]
-An inclusion $N\subseteq M$ has \textbf{finite Jones index} if $L^2(M,\tau)$ is isomorphic as a right $N$-module to such a module; then
-\[
-[M:N]=\dim_NL^2(M,\tau).
-\]
-
-\begin{exercise}[Jones basic construction]\leavevmode\par
-\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that $M_1$ is a finite factor and that its normalized trace satisfies} \cite{jones-sunder}
-\[
-\tau_1(xe_Ny)
-=\frac{1}{[M:N]}\tau(xy)
-\]
-\textit{for $x,y\in M$.}
-\end{exercise}
-
-The \textbf{Jones tower} is the sequence obtained by iterating the basic construction:
-\[
-N=M_{-1}\subset M=M_0\subset M_1\subset M_2\subset\cdots.
-\]
-Let $e_i$ be the Jones projection used to construct $M_i$ from $M_{i-1}$, and set
-\[
-\delta=\sqrt{[M:N]}.
-\]
-The \textbf{Temperley--Lieb algebra} with loop parameter $\delta$ is generated by $U_i$ subject to
-\[
-U_i^2=\delta U_i,
-\qquad
-U_iU_j=U_jU_i\quad(|i-j|\geq2),
-\qquad
-U_iU_{i\pm1}U_i=U_i.
-\]
-
-\begin{exercise}[Temperley--Lieb relations]\leavevmode\par
-\textit{Prove that the Jones projections satisfy} \cite{temperley-lieb,jones-index}
-\[
-e_i^2=e_i=e_i^*,
-\qquad
-e_ie_j=e_je_i\quad(|i-j|\geq2),
-\]
-\[
-e_ie_{i\pm1}e_i=\delta^{-2}e_i.
-\]
-\textit{Deduce that $U_i\mapsto\delta e_i$ defines a representation of the Temperley--Lieb algebra.}
-\end{exercise}
-
-Let $q\in\mathbb C^\times$ satisfy $\delta=q+q^{-1}$ and define
-\[
-\sigma_i=q\,1-U_i.
-\]
-These operators reconnect the Temperley--Lieb construction with the braid groups introduced in Algebra.
-
-\begin{exercise}[Braid representation]\leavevmode\par
-\textit{Prove that $\sigma_i$ is invertible with inverse $q^{-1}1-U_i$, and prove that}
-\[
-\sigma_i\sigma_{i+1}\sigma_i
-=\sigma_{i+1}\sigma_i\sigma_{i+1},
-\]
-\[
-\sigma_i\sigma_j=\sigma_j\sigma_i
-\qquad
-(|i-j|\geq2).
-\]
-\textit{Deduce that the $\sigma_i$ define a representation of the braid group} \cite{jones-polynomial}.
-\end{exercise}
-
-A \textbf{Markov trace} on the Temperley--Lieb tower is a compatible family of positive normalized traces satisfying
-\[
-\operatorname{tr}(xU_i)=\delta^{-1}\operatorname{tr}(x)
-\]
-whenever $x$ belongs to the algebra generated by the preceding generators. Define
-\[
-P_0(\delta)=1,
-\qquad
-P_1(\delta)=\delta,
-\qquad
-P_{n+1}(\delta)=\delta P_n(\delta)-P_{n-1}(\delta).
-\]
-
-\begin{exercise}[Markov trace and discrete index values]\leavevmode\par
-\textit{Prove that the normalized traces on the Jones tower restrict to a Markov trace. Prove that, when $\sin\theta\ne0$,}
-\[
-P_n(2\cos\theta)
-=\frac{\sin((n+1)\theta)}{\sin\theta}.
-\]
-\textit{Use positivity of the Markov trace to prove that if $0<\delta<2$, then}
-\[
-\delta=2\cos\left(\frac{\pi}{m}\right)
-\]
-\textit{for some integer $m\geq3$.}
-\end{exercise}
-
-\begin{exercise}[Jones index theorem]\leavevmode\par
-\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that} \cite{jones-index,jones-sunder}
-\[
-[M:N]
-\in
-\left\{
-4\cos^2\left(\frac{\pi}{n}\right):n\geq3
-\right\}
-\cup
-[4,\infty).
-\]
-\textit{For}
-\[
-[M:N]=4\cos^2\left(\frac{\pi}{k+2}\right),
-\qquad
-\delta=\sqrt{[M:N]},
-\]
-\textit{prove that the Jones projections determine a representation of the Temperley--Lieb algebra $\operatorname{TL}_n(\delta)$, and hence a braid-group representation. Show that the Markov trace of a braid closure satisfies the Jones skein relation. Relate the parameter}
-\[
-\delta=2\cos\left(\frac{\pi}{k+2}\right)
-\]
-\textit{to the $SU(2)_k$ fusion and braiding data from Algebra and to the Wilson-loop invariant of Chern--Simons theory from Geometry.}
-\end{exercise}
-
 \section{Geometry}
 
 \subsection{Differential forms and cohomology}
@@ -921,7 +533,7 @@ K^{n+2}(X)\cong K^n(X)
 \textit{and deduce that complex K-theory is naturally $\mathbb Z/2$-graded.}
 \end{exercise}
 
-For the gapped families below, assume that $X$ is connected, so vector-bundle ranks are constant. Let $V$ be a finite-dimensional Hermitian vector space. A continuous family is a map
+For the gapped families below, assume that $X$ is connected, so vector-bundle ranks are constant. Let $V$ be a finite-dimensional Hermitian vector space as in Algebra. Exercise~\ref{ex:finite-spectral-theorem} supplies the spectral decomposition used below. A continuous family is a map
 \[
 H:X\longrightarrow\End(V)
 \]
@@ -1433,7 +1045,410 @@ Z:\operatorname{Bord}_3^{\mathrm{or}}
 \]
 
 \begin{exercise}[Reshetikhin--Turaev TQFT]\leavevmode\par
-\textit{Let $\mathcal C$ be a modular braided fusion category. Prove that the Reshetikhin--Turaev construction assigns finite-dimensional state spaces to closed oriented surfaces and compatible linear maps to bordisms, defining a three-dimensional oriented TQFT} \cite{reshetikhin-turaev}. \textit{Prove that labeled Wilson lines induce the braid-group actions determined by the $F$- and $R$-symbols of $\mathcal C$. For the $SU(2)_k$ category, relate the resulting link invariant to the Temperley--Lieb and Jones constructions in Analysis and to the Chern--Simons Wilson-loop skein relation above.}
+\textit{Let $\mathcal C$ be a modular braided fusion category. Prove that the Reshetikhin--Turaev construction assigns finite-dimensional state spaces to closed oriented surfaces and compatible linear maps to bordisms, defining a three-dimensional oriented TQFT} \cite{reshetikhin-turaev}. \textit{Prove that labeled Wilson lines induce the braid-group actions determined by the $F$- and $R$-symbols of $\mathcal C$. For the $SU(2)_k$ category, relate the resulting link invariant to the Chern--Simons Wilson-loop skein relation above.}
+\end{exercise}
+
+\section{Analysis}
+
+\subsection{Norms, operator exponentials, and linear evolution}
+
+A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|:H\to[0,\infty)$ that is definite, homogeneous, and satisfies the triangle inequality. A normed space is a \textbf{Banach space} if every Cauchy sequence converges. A \textbf{Hilbert space} is a complex vector space with a Hermitian inner product $\langle\mathord{\cdot},\mathord{\cdot}\rangle$ whose norm $\|x\|=\sqrt{\langle x,x\rangle}$ is complete. A linear map $A:H\to K$ is \textbf{bounded} if
+\[
+\|A\|=\sup_{\|x\|=1}\|Ax\|<\infty.
+\]
+Write $\mathcal B(H,K)$ for the normed space of bounded operators and $\mathcal B(H)=\mathcal B(H,H)$.
+
+For $A\in\mathcal B(H)$, define the operator exponential by the formal series
+\[
+e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}
+\]
+whenever the series converges in operator norm.
+
+\begin{exercise}[Cauchy--Schwarz inequality]\leavevmode\par
+\textit{Prove that every inner-product space satisfies}
+\[
+|\langle x,y\rangle|\leq\|x\|\|y\|.
+\]
+\textit{Deduce the triangle inequality for the induced norm. Prove that $\mathcal B(H,K)$ is complete when $K$ is complete and that the exponential series converges in $\mathcal B(H)$ for every bounded $A$.}
+\end{exercise}
+
+\begin{exercise}[Operator exponentials and linear evolution]\leavevmode\par
+\textit{Prove that $e^{tA}$ is differentiable in operator norm and that}
+\[
+\frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
+\]
+\textit{Deduce that the unique solution of}
+\[
+\dot x(t)=Ax(t),\qquad x(0)=x_0,
+\]
+\textit{is $x(t)=e^{tA}x_0$. In finite dimensions use the Jordan decomposition}
+\[
+A=S+N,\qquad [S,N]=0,
+\]
+\textit{with $S$ semisimple and $N$ nilpotent, to prove}
+\[
+e^{tA}=e^{tS}e^{tN}.
+\]
+\textit{Show that on the generalized $\lambda$-eigenspace every component of a solution is a linear combination of terms $t^je^{\lambda t}$.}
+\end{exercise}
+
+\subsection{Hilbert-space operator theory}
+
+An \textbf{adjoint} of $A\in\mathcal B(H,K)$ is an operator $A^*\in\mathcal B(K,H)$ satisfying
+\[
+\langle Ax,y\rangle=\langle x,A^*y\rangle.
+\]
+An operator $A\in\mathcal B(H)$ is \textbf{self-adjoint} if $A=A^*$, \textbf{normal} if $A^*A=AA^*$, \textbf{positive} if $\langle x,Ax\rangle\geq0$ for every $x$, and \textbf{unitary} if $A^*A=AA^*=1$.
+
+\begin{exercise}[Adjoints of bounded operators]\leavevmode\par
+\textit{Prove that every bounded operator between Hilbert spaces has a unique adjoint and establish the identities}
+\[
+(AB)^*=B^*A^*,
+\qquad
+\|A^*A\|=\|A\|^2.
+\]
+\end{exercise}
+
+\subsection{Quantum states and uncertainty}
+
+A finite-dimensional \textbf{quantum state} is a positive operator $\rho$ with $\trace(\rho)=1$. A unit vector $\psi$ defines the pure state $\rho_\psi=|\psi\rangle\langle\psi|$. For a self-adjoint observable $A$, define
+\[
+\langle A\rangle_\rho=\trace(\rho A),
+\qquad
+\operatorname{Var}_\rho(A)
+=\trace\!\left(\rho(A-\langle A\rangle_\rho1)^2\right).
+\]
+For $\rho=\rho_\psi$, use the subscripts $\psi$ instead of $\rho$.
+
+\begin{exercise}[Robertson uncertainty inequality]\leavevmode\par
+\textit{For self-adjoint $A,B\in\mathcal B(H)$ and a unit vector $\psi$, prove} \cite{robertson}
+\[
+\operatorname{Var}_\psi(A)\operatorname{Var}_\psi(B)
+\geq\frac14\left|\langle\psi,[A,B]\psi\rangle\right|^2,
+\qquad [A,B]=AB-BA.
+\]
+\textit{Determine the equality condition.}
+\end{exercise}
+
+For a self-adjoint $H$, write $U_t=e^{-itH}$.
+
+\begin{exercise}[Conservation from commutators]\leavevmode\par
+\textit{Let $A,H$ be self-adjoint. Prove that $U_t$ is unitary and that} \cite{nielsen-chuang}
+\[
+\frac{d}{dt}\langle U_t\psi,A U_t\psi\rangle
+=-i\langle U_t\psi,[H,A]U_t\psi\rangle.
+\]
+\textit{Deduce that $[H,A]=0$ if and only if the expectation of $A$ is constant under this evolution for every initial vector.}
+\end{exercise}
+
+\begin{exercise}[No-cloning theorem]\leavevmode\par
+\textit{Let $b\in H$ be a unit vector and suppose that a unitary $C:H\otimes H\to H\otimes H$ satisfies $C(v\otimes b)=v\otimes v$ and $C(w\otimes b)=w\otimes w$ for unit vectors $v,w$. Prove that} \cite{wootters-zurek}
+\[
+\langle v,w\rangle=\langle v,w\rangle^2.
+\]
+\textit{Deduce that no unitary map clones every unit vector.}
+\end{exercise}
+
+\subsection{Schmidt decomposition and entanglement}
+
+For finite-dimensional Hilbert spaces $H_A,H_B$ and $\psi\in H_A\otimes H_B$, define
+\[
+T_\psi:H_A^*\to H_B,
+\qquad
+T_\psi(\phi)=(\phi\otimes1)(\psi).
+\]
+A \textbf{Schmidt decomposition} of $\psi$ is an expression
+\[
+\psi=\sum_{i=1}^r s_i a_i\otimes b_i.
+\]
+where $(a_i)$ and $(b_i)$ are orthonormal families and $s_i>0$; $r$ is the \textbf{Schmidt rank}. For a unit vector $\psi$, define the reduced density operators by
+\[
+\rho_A=\operatorname{Tr}_{H_B}(|\psi\rangle\langle\psi|),
+\qquad
+\rho_B=\operatorname{Tr}_{H_A}(|\psi\rangle\langle\psi|).
+\]
+
+\begin{exercise}[Schmidt decomposition and entanglement]\leavevmode\par
+\textit{Use the singular-value decomposition of $T_\psi$ to prove that every $\psi$ has a Schmidt decomposition. Prove that the nonzero eigenvalues of $\rho_A$ and $\rho_B$ are the numbers $s_i^2$, with the same multiplicities. Prove that $\psi$ is separable, meaning $\psi=a\otimes b$, exactly when its Schmidt rank is one. Deduce that the entanglement entropy is} \cite{nielsen-chuang}
+\[
+S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
+=-\sum_i s_i^2\log s_i^2,
+\]
+\textit{with the convention $0\log0=0$.}
+\end{exercise}
+
+\subsection{CHSH, Gisin, and Tsirelson}
+
+Let $A_0,A_1$ and $B_0,B_1$ be self-adjoint operators with eigenvalues in $\{-1,1\}$. Their \textbf{CHSH operator} is
+\[
+\mathcal C=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1).
+\]
+\begin{exercise}[Gisin's theorem for two qubits]\leavevmode\par
+\textit{Prove that every classical local-hidden-variable assignment satisfies $|\langle\mathcal C\rangle|\leq2$. For the two-qubit state in Schmidt form}
+\[
+\psi_\theta=\cos\theta\,|00\rangle+\sin\theta\,|11\rangle,
+\qquad 0\leq\theta\leq\frac\pi4,
+\]
+\textit{optimize over projective binary observables and prove that the maximal CHSH value is} \cite{gisin}
+\[
+2\sqrt{1+\sin^2(2\theta)}.
+\]
+\textit{Conclude that every entangled pure two-qubit state violates a CHSH inequality. For $\theta=\pi/4$, recover the value $2\sqrt2$.}
+\end{exercise}
+
+A \textbf{bipartite binary quantum correlation matrix} has entries
+\[
+c_{ij}=\langle\psi,(A_i\otimes B_j)\psi\rangle,
+\]
+where $\psi$ is a unit vector. The operators $A_i$ and $B_j$ are self-adjoint unitaries on finite-dimensional Hilbert spaces.
+
+For a real matrix $M=(M_{ij})$, define
+\[
+\beta_{\mathrm C}(M)
+=\max_{\varepsilon_i,\delta_j\in\{-1,1\}}
+\left|\sum_{i,j}M_{ij}\varepsilon_i\delta_j\right|
+\]
+and
+\[
+\beta_{\mathrm Q}(M)
+=\sup_c\left|\sum_{i,j}M_{ij}c_{ij}\right|,
+\]
+where the supremum is over bipartite binary quantum correlation matrices.
+
+\begin{exercise}[Tsirelson's representation theorem and bound]\leavevmode\par
+\textit{Prove that a finite real matrix $c=(c_{ij})$ is a bipartite binary quantum correlation matrix if and only if there are unit vectors $x_i,y_j$ in a real Hilbert space such that} \cite{tsirelson}
+\[
+c_{ij}=\langle x_i,y_j\rangle.
+\]
+\textit{Deduce that}
+\[
+\beta_{\mathrm Q}(M)
+=\sup_{\|x_i\|=\|y_j\|=1}
+\left|\sum_{i,j}M_{ij}\langle x_i,y_j\rangle\right|.
+\]
+\textit{For the CHSH operator, prove the Tsirelson bound $\|\mathcal C\|\leq2\sqrt2$ and exhibit observables and a state attaining equality.}
+\end{exercise}
+
+\subsection{Grothendieck inequality}
+
+The \textbf{real Grothendieck constant} $K_G^{\mathbb R}$ is the least constant for which
+\[
+\beta_{\mathrm Q}(M)\leq K_G^{\mathbb R}\beta_{\mathrm C}(M)
+\]
+holds for every real matrix $M$.
+
+\begin{exercise}[Grothendieck's inequality]\leavevmode\par
+\textit{Prove that $K_G^{\mathbb R}<\infty$} \cite{grothendieck,pisier-grothendieck}. \textit{For}
+\[
+M_{\mathrm{CHSH}}=
+\begin{pmatrix}1&1\\1&-1\end{pmatrix},
+\]
+\textit{compute $\beta_{\mathrm C}(M_{\mathrm{CHSH}})$ directly. Choose four unit vectors in $\mathbb R^2$ that attain}
+\[
+\beta_{\mathrm Q}(M_{\mathrm{CHSH}})=2\sqrt2
+\]
+\textit{and verify the ratio $\sqrt2$. Deduce that $\sqrt2\leq K_G^{\mathbb R}$ and interpret the inequality as a dimension-independent bound on quantum advantage for bipartite binary correlation Bell inequalities.}
+\end{exercise}
+
+\subsection{Von Neumann algebras and subfactors}
+
+For $\mathcal S\subseteq\mathcal B(H)$, its \textbf{commutant} is
+\[
+\mathcal S'=\{T\in\mathcal B(H):Tx=xT\text{ for every }x\in\mathcal S\}.
+\]
+A \textbf{von Neumann algebra} is a unital $*$-subalgebra $M\subseteq\mathcal B(H)$ satisfying $M=M''$ \cite{takesaki}. A net $(T_\lambda)$ converges to $T$ in the \textbf{strong operator topology} if $T_\lambda\xi\to T\xi$ for every $\xi\in H$, and in the \textbf{weak operator topology} if
+\[
+\langle T_\lambda\xi,\eta\rangle\longrightarrow\langle T\xi,\eta\rangle
+\]
+for every $\xi,\eta\in H$.
+
+\begin{exercise}[Bicommutant theorem]\leavevmode\par
+\textit{Let $A\subseteq\mathcal B(H)$ be a unital $*$-subalgebra. Prove that}
+\[
+A''
+=\overline A^{\,\mathrm{SOT}}
+=\overline A^{\,\mathrm{WOT}}.
+\]
+\end{exercise}
+
+The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$. A positive functional or positive map is \textbf{normal} if it preserves suprema of bounded increasing nets of positive elements, and a positive functional $\psi$ is \textbf{faithful} if $\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an infinite-dimensional factor with a faithful normal tracial state
+\[
+\tau:M\longrightarrow\mathbb C,
+\qquad
+\tau(ab)=\tau(ba),
+\qquad
+\tau(1)=1.
+\]
+
+For projections $p,q\in M$, write $p\sim q$ if there is $v\in M$ such that
+\[
+v^*v=p,
+\qquad
+vv^*=q.
+\]
+Write $p\precsim q$ if $p$ is equivalent to a projection $r$ satisfying $rq=r$.
+
+\begin{exercise}[Projection dimension]\leavevmode\par
+\textit{Let $M$ be a type $\mathrm{II}_1$ factor with normalized trace $\tau$. Prove that}
+\[
+p\sim q\quad\Longrightarrow\quad\tau(p)=\tau(q),
+\]
+\textit{and prove the comparison theorem}
+\[
+p\precsim q
+\quad\Longleftrightarrow\quad
+\tau(p)\leq\tau(q).
+\]
+\textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
+\end{exercise}
+
+A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. For a linear map $\Phi:M\to N$, define its matrix amplification by $\Phi_n([x_{ij}])=[\Phi(x_{ij})]$; the map is \textbf{completely positive} if every $\Phi_n$ is positive. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
+\[
+\tau\circ E_N=\tau,
+\qquad
+E_N(n_1xn_2)=n_1E_N(x)n_2
+\]
+for $x\in M$ and $n_1,n_2\in N$. Let $L^2(M,\tau)$ be the completion of $M$ for
+\[
+\langle x,y\rangle_\tau=\tau(y^*x).
+\]
+Let $M$ act on $L^2(M,\tau)$ by left multiplication.
+
+\begin{exercise}[Conditional expectation and Jones projection]\leavevmode\par
+\textit{Prove that there is a unique trace-preserving conditional expectation $E_N:M\to N$. Prove that $E_N$ extends to the orthogonal projection}
+\[
+e_N:L^2(M,\tau)\longrightarrow L^2(N,\tau).
+\]
+\textit{Prove that}
+\[
+e_N=e_N^*=e_N^2,
+\qquad
+e_Nxe_N=E_N(x)e_N
+\]
+\textit{for every $x\in M$.}
+\end{exercise}
+
+The \textbf{basic construction} is
+\[
+M_1=\langle M,e_N\rangle''
+\subseteq\mathcal B(L^2(M,\tau)),
+\]
+the double commutant of the algebra generated by $M$ and $e_N$. For a projection $p=[p_{ij}]\in M_k(N)$ acting by left multiplication, define
+\[
+\dim_N\!\left(pL^2(N,\tau)^k\right)=\sum_{i=1}^k\tau(p_{ii}).
+\]
+An inclusion $N\subseteq M$ has \textbf{finite Jones index} if $L^2(M,\tau)$ is isomorphic as a right $N$-module to such a module; then
+\[
+[M:N]=\dim_NL^2(M,\tau).
+\]
+
+\begin{exercise}[Jones basic construction]\leavevmode\par
+\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that $M_1$ is a finite factor and that its normalized trace satisfies} \cite{jones-sunder}
+\[
+\tau_1(xe_Ny)
+=\frac{1}{[M:N]}\tau(xy)
+\]
+\textit{for $x,y\in M$.}
+\end{exercise}
+
+The \textbf{Jones tower} is the sequence obtained by iterating the basic construction:
+\[
+N=M_{-1}\subset M=M_0\subset M_1\subset M_2\subset\cdots.
+\]
+Let $e_i$ be the Jones projection used to construct $M_i$ from $M_{i-1}$, and set
+\[
+\delta=\sqrt{[M:N]}.
+\]
+The \textbf{Temperley--Lieb algebra} with loop parameter $\delta$ is generated by $U_i$ subject to
+\[
+U_i^2=\delta U_i,
+\qquad
+U_iU_j=U_jU_i\quad(|i-j|\geq2),
+\qquad
+U_iU_{i\pm1}U_i=U_i.
+\]
+
+\begin{exercise}[Temperley--Lieb relations]\leavevmode\par
+\textit{Prove that the Jones projections satisfy} \cite{temperley-lieb,jones-index}
+\[
+e_i^2=e_i=e_i^*,
+\qquad
+e_ie_j=e_je_i\quad(|i-j|\geq2),
+\]
+\[
+e_ie_{i\pm1}e_i=\delta^{-2}e_i.
+\]
+\textit{Deduce that $U_i\mapsto\delta e_i$ defines a representation of the Temperley--Lieb algebra.}
+\end{exercise}
+
+Let $q\in\mathbb C^\times$ satisfy $\delta=q+q^{-1}$ and define
+\[
+\sigma_i=q\,1-U_i.
+\]
+These operators reconnect the Temperley--Lieb construction with the braid groups introduced in Algebra.
+
+\begin{exercise}[Braid representation]\leavevmode\par
+\textit{Prove that $\sigma_i$ is invertible with inverse $q^{-1}1-U_i$, and prove that}
+\[
+\sigma_i\sigma_{i+1}\sigma_i
+=\sigma_{i+1}\sigma_i\sigma_{i+1},
+\]
+\[
+\sigma_i\sigma_j=\sigma_j\sigma_i
+\qquad
+(|i-j|\geq2).
+\]
+\textit{Deduce that the $\sigma_i$ define a representation of the braid group} \cite{jones-polynomial}.
+\end{exercise}
+
+A \textbf{Markov trace} on the Temperley--Lieb tower is a compatible family of positive normalized traces satisfying
+\[
+\operatorname{tr}(xU_i)=\delta^{-1}\operatorname{tr}(x)
+\]
+whenever $x$ belongs to the algebra generated by the preceding generators. Define
+\[
+P_0(\delta)=1,
+\qquad
+P_1(\delta)=\delta,
+\qquad
+P_{n+1}(\delta)=\delta P_n(\delta)-P_{n-1}(\delta).
+\]
+
+\begin{exercise}[Markov trace and discrete index values]\leavevmode\par
+\textit{Prove that the normalized traces on the Jones tower restrict to a Markov trace. Prove that, when $\sin\theta\ne0$,}
+\[
+P_n(2\cos\theta)
+=\frac{\sin((n+1)\theta)}{\sin\theta}.
+\]
+\textit{Use positivity of the Markov trace to prove that if $0<\delta<2$, then}
+\[
+\delta=2\cos\left(\frac{\pi}{m}\right)
+\]
+\textit{for some integer $m\geq3$.}
+\end{exercise}
+
+\begin{exercise}[Jones index theorem]\leavevmode\par
+\textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that} \cite{jones-index,jones-sunder}
+\[
+[M:N]
+\in
+\left\{
+4\cos^2\left(\frac{\pi}{n}\right):n\geq3
+\right\}
+\cup
+[4,\infty).
+\]
+\textit{For}
+\[
+[M:N]=4\cos^2\left(\frac{\pi}{k+2}\right),
+\qquad
+\delta=\sqrt{[M:N]},
+\]
+\textit{prove that the Jones projections determine a representation of the Temperley--Lieb algebra $\operatorname{TL}_n(\delta)$, and hence a braid-group representation. Show that the Markov trace of a braid closure satisfies the Jones skein relation. Relate the parameter}
+\[
+\delta=2\cos\left(\frac{\pi}{k+2}\right)
+\]
+\textit{to the $SU(2)_k$ fusion and braiding data from Algebra and to the Wilson-loop invariant of Chern--Simons theory from Geometry.}
 \end{exercise}
 
 \begin{thebibliography}{99}
