@@ -71,8 +71,6 @@ The space $\Lambda^kV$ is the degree-$k$ component of $\Lambda V$.
 
 The \textbf{determinant} $\det(f)$ is the coefficient of the linear map on the highest-graded component of $\Lambda V$ given by $v_1 \wedge \cdots \wedge v_{\dim(V)} \mapsto f(v_1) \wedge \cdots f(v_{\dim(V)})$.
 
-For an $n$-dimensional real vector space $V$, its \textbf{determinant line} is $\det(V^*)=\Lambda^nV^*$. An \textbf{orientation} is a choice of one of the two connected components of $\det(V^*)\setminus\{0\}$; the elements of the chosen component are positive.
-
 \begin{exercise}[Determinant identities and volume]\leavevmode\par
 Prove the following:
 \begin{itemize}
@@ -676,7 +674,16 @@ Fibonacci quasiparticles.}
 
 \subsection{Differential forms and cohomology}
 
-A \textbf{smooth manifold} is a topological space equipped with an atlas whose transition maps are smooth. A smooth map $f:M\to N$ has a tangent map $df:TM\to TN$. The \textbf{tangent bundle} $TM$ is the union of the tangent spaces, the \textbf{cotangent bundle} is $T^*M$, and a \textbf{vector field} is a smooth section of $TM$. An orientation of $M$ is a smoothly varying choice of orientation of its tangent spaces, using the determinant lines defined in Algebra.
+A \textbf{smooth manifold} is a topological space equipped with an atlas whose transition maps are smooth. A smooth map $f:M\to N$ has a tangent map $df:TM\to TN$. The \textbf{tangent bundle} $TM$ is the union of the tangent spaces, the \textbf{cotangent bundle} is $T^*M$, and a \textbf{vector field} is a smooth section of $TM$.
+
+For an $n$-dimensional real vector space $V$, its \textbf{determinant line} is
+\[
+\det(V^*)=\Lambda^nV^*.
+\]
+An \textbf{orientation} of $V$ is a choice of one of the two connected
+components of $\det(V^*)\setminus\{0\}$; the elements of the chosen component
+are positive. An orientation of an $n$-manifold $M$ is a smoothly varying
+choice of orientation of its tangent spaces.
 
 The exterior powers $\Lambda^kT_p^*M$ are those defined in the Algebra section. To define integration in a coordinate-free way, we will integrate differential forms over chains. The space of \textbf{differential $n$-forms} is $\Omega^n(M)=\Gamma(\Lambda^nT^*M)$. On an oriented $n$-manifold, a \textbf{volume form} is a nowhere-vanishing element of $\Omega^n(M)$ that is positive with respect to the orientation. The exterior derivative $d:\Omega^n(M)\to\Omega^{n+1}(M)$ extends the differential of smooth functions and satisfies
 \[
