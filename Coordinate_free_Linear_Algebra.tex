@@ -307,7 +307,94 @@ V_\mu\cong A_1\oplus B_1\oplus B_2,
 \textit{for $C_{2v}$. Deduce that all three fundamental vibrational modes of water are Raman active.}
 \end{exercise}
 
-Finite-group representations turn molecular symmetry into experimentally testable selection rules. The monoidal categories below retain irreducible decomposition and tensor product as fusion rules, and add associators and braiding.
+Finite-group representations turn molecular symmetry into experimentally testable selection rules. Continuous symmetries are encoded by Lie groups.
+
+\subsection{Lie groups and Lie algebras}
+
+A \textbf{matrix Lie group} is a subgroup $G\subseteq\operatorname{GL}(n,\mathbb C)$ that is closed in the subspace topology. Its \textbf{Lie algebra} is
+\[
+\mathfrak g=\{X\in M_n(\mathbb C):e^{tX}\in G\text{ for all }t\in\mathbb R\},
+\]
+where $e^{tX}=\sum_{k\geq0}(tX)^k/k!$. The Lie bracket is $[X,Y]=XY-YX$. An abstract \textbf{Lie algebra} over $k$ is a $k$-vector space with a bilinear bracket that is skew-symmetric and satisfies the Jacobi identity. A \textbf{Lie algebra representation} on $V$ is a linear map $\rho:\mathfrak g\to\mathfrak{gl}(V)$ with $\rho([X,Y])=[\rho(X),\rho(Y)]$.
+
+For $g\in G$ and $X,Y\in\mathfrak g$, the adjoint actions are
+\[
+\operatorname{Ad}_g(X)=gXg^{-1},
+\qquad
+\operatorname{ad}_X(Y)=[X,Y].
+\]
+
+\begin{exercise}[Classical matrix Lie algebras]\leavevmode\par
+\textit{Prove that the Lie algebras of $\operatorname{GL}(n,\mathbb C)$, $\operatorname{SL}(n,\mathbb C)$, $\operatorname{O}(n)$, $\operatorname{SO}(n)$, $\operatorname{U}(n)$, and $\operatorname{SU}(n)$ are respectively}
+\[
+\mathfrak{gl}(n,\mathbb C),
+\quad
+\mathfrak{sl}(n,\mathbb C)=\{X:\trace(X)=0\},
+\]
+\[
+\mathfrak{o}(n)=\{X:X^T=-X\},
+\quad
+\mathfrak{u}(n)=\{X:X^*=-X\},
+\quad
+\mathfrak{su}(n)=\mathfrak{u}(n)\cap\mathfrak{sl}(n,\mathbb C).
+\]
+\textit{Verify that each is a Lie algebra under $[X,Y]=XY-YX$.}
+\end{exercise}
+
+\begin{exercise}[One-parameter subgroups and the bracket]\leavevmode\par
+\textit{Prove that $t\mapsto e^{tX}$ is a smooth group homomorphism $\mathbb R\to G$ whenever $X\in\mathfrak g$, and that every smooth homomorphism $\mathbb R\to G$ arises uniquely in this way. Prove that}
+\[
+[X,Y]
+=\left.\frac{d}{dt}\right|_{t=0}
+\left.\frac{d}{ds}\right|_{s=0}
+e^{tX}e^{sY}e^{-tX}e^{-sY},
+\]
+\textit{and deduce $\operatorname{Ad}_{e^{tX}}=e^{t\operatorname{ad}_X}$.}
+\end{exercise}
+
+\begin{exercise}[From group representations to Lie algebra representations]\leavevmode\par
+\textit{Let $\rho:G\to\operatorname{GL}(V)$ be a smooth finite-dimensional representation of a matrix Lie group. Prove that}
+\[
+\dot\rho(X)
+=\left.\frac{d}{dt}\right|_{t=0}\rho(e^{tX})
+\]
+\textit{is a Lie algebra representation $\mathfrak g\to\mathfrak{gl}(V)$, and that $\rho(e^{tX})=e^{t\dot\rho(X)}$. If $G$ is connected, prove that a subspace is $G$-invariant if and only if it is $\mathfrak g$-invariant.}
+\end{exercise}
+
+The \textbf{Pauli matrices} are
+\[
+\sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+\sigma_2=\begin{pmatrix}0&-i\\i&0\end{pmatrix},
+\qquad
+\sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
+\]
+
+\begin{exercise}[Angular momentum and $\mathfrak{su}(2)$]\leavevmode\par
+\textit{Equip $\mathfrak{su}(2)$ with the basis $J_a=\sigma_a/2$. Prove that}
+\[
+[J_a,J_b]=\sum_c\varepsilon_{abc}J_c.
+\]
+\textit{For each half-integer or integer $j\geq0$, construct an irreducible representation $V_j$ of dimension $2j+1$ on which the Casimir $J^2=\sum_a J_a^2$ acts by $j(j+1)$, and prove that every finite-dimensional irreducible complex representation of $\mathfrak{su}(2)$ is isomorphic to exactly one $V_j$. Interpret $j$ as spin.}
+\end{exercise}
+
+\begin{exercise}[Spin and spatial rotations]\leavevmode\par
+\textit{Prove that the Lie algebra homomorphism $\mathfrak{su}(2)\to\mathfrak{so}(3)$ induced by the adjoint representation is an isomorphism. Deduce that there is a double cover $\operatorname{SU}(2)\to\operatorname{SO}(3)$. Explain why integer-$j$ representations of $\mathfrak{su}(2)$ descend to representations of $\operatorname{SO}(3)$, while half-integer $j$ yield projective representations of spatial rotations---the algebraic origin of spinor wavefunctions.}
+\end{exercise}
+
+\begin{exercise}[Isospin and electric charge]\leavevmode\par
+\textit{Let $T_a=\sigma_a/2$ generate an $\mathfrak{su}(2)$ isospin action and let $Y$ generate a commuting $\mathfrak{u}(1)$ hypercharge action on a finite-dimensional space of particle states. Set $Q=T_3+Y$. For the quark doublet $(u,d)$ with $Y=1/6$ and the lepton doublet $(\nu,e)$ with $Y=-1/2$, recover the electric charges $2/3$, $-1/3$, $0$, and $-1$. Relate this infinitesimal picture to the Standard Model representations in the Geometry section.}
+\end{exercise}
+
+\begin{exercise}[Standard Model Lie algebra]\leavevmode\par
+\textit{Prove that the Lie algebra of $G_{\mathrm{SM}}=\operatorname{SU}(3)\times\operatorname{SU}(2)\times\operatorname{U}(1)$ is}
+\[
+\mathfrak{su}(3)\oplus\mathfrak{su}(2)\oplus\mathfrak{u}(1).
+\]
+\textit{Writing a connection as a triple $(G_\mu,W_\mu,B_\mu)$ with values in these summands, identify the corresponding force carriers as eight gluons, three weak bosons, and one hypercharge boson. Using the Higgs representation $(\mathbf 1,\mathbf 2)_{1/2}$ from Geometry, show at the Lie-algebra level that a generic vacuum expectation value has stabilizer $\mathfrak{u}(1)_{\mathrm{EM}}$ generated by $Q=T_3+Y$.}
+\end{exercise}
+
+Lie theory supplies continuous symmetry for the gauge and spacetime constructions in Geometry. The monoidal categories below retain irreducible decomposition and tensor product as fusion rules, and add associators and braiding.
 
 \subsection{Monoidal and braided categories}
 
@@ -951,9 +1038,10 @@ Let $(M,g)$ be a pseudo-Riemannian manifold with Levi-Civita connection $\nabla$
 \textit{Deduce that $g(X,\dot\gamma)$ is constant along $\gamma$.}
 \end{exercise}
 
-The \textbf{curvature} of $\nabla$ is the map
+The \textbf{curvature} of $\nabla$ is the $\End(TM)$-valued $2$-form $F_\nabla$ determined by
 \[
 R(X,Y)Z
+:=F_\nabla(X,Y)Z
 =\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
 \]
 
@@ -1050,20 +1138,16 @@ G+\Lambda g=\kappa T
 
 Connections and curvature also determine characteristic classes. In odd dimensions, their transgression forms define Chern--Simons functionals.
 
-Let $E\to M$ be a complex vector bundle and write $\Omega^0(M,E)=\Gamma(E)$. A \textbf{connection} on $E$ is a $\mathbb C$-linear map
+Let $E\to M$ be a real or complex vector bundle and write $\Omega^0(M,E)=\Gamma(E)$. A \textbf{connection} on $E$ is a map
 \[
 \nabla:\Omega^0(M,E)\longrightarrow\Omega^1(M,E)
 \]
-satisfying $\nabla(fs)=df\otimes s+f\nabla s$. For $\alpha\in\Omega^p(M)$ and an $E$-valued form $\eta$, extend it by
+linear over the ground field and satisfying $\nabla(fs)=df\otimes s+f\nabla s$. For $\alpha\in\Omega^p(M)$ and an $E$-valued form $\eta$, extend it by
 \[
 \nabla(\alpha\wedge\eta)
 =d\alpha\wedge\eta+(-1)^p\alpha\wedge\nabla\eta.
 \]
-Its \textbf{curvature} is
-\[
-F_\nabla=\nabla^2\in\Omega^2(M,\End E).
-\]
-The connection induces one on $\End E$-valued forms.
+In this presentation the same curvature is $F_\nabla=\nabla^2\in\Omega^2(M,\End E)$; when $E=TM$ this recovers the formula above. The connection induces one on $\End E$-valued forms.
 
 \begin{exercise}[Bianchi identity]
 \textit{Let $\nabla$ be a connection on $E\to M$. Prove that}
@@ -1143,6 +1227,98 @@ C_1(E_H^-)
 \textit{and deduce that a nonzero Chern number obstructs a global smooth frame of occupied Bloch states.}
 \end{exercise}
 
+\subsection{Yang--Mills theory and the Standard Model}
+
+Let $G$ be a Lie group with Lie algebra $\mathfrak g$. A \textbf{principal $G$-bundle} is a smooth free right $G$-manifold $P$ with quotient $M=P/G$ such that the projection $P\to M$ is a locally trivial fiber bundle. For a finite-dimensional representation $\rho:G\to\operatorname{GL}(V)$, the \textbf{associated bundle} is
+\[
+E=P\times_G V=(P\times V)/\sim,
+\qquad
+(p\cdot g,v)\sim(p,\rho(g)^{-1}v).
+\]
+A \textbf{principal connection} is a $\mathfrak g$-valued one-form $A$ on $P$ that is $G$-equivariant and reproduces the generators of the fundamental vector fields. In a local trivialization it is represented by an ordinary form $A\in\Omega^1(U,\mathfrak g)$, with curvature
+\[
+F_A=dA+A\wedge A\in\Omega^2(U,\mathfrak g).
+\]
+A gauge transformation is a smooth map $g:U\to G$, acting by
+\[
+A\mapsto A^g=g^{-1}Ag+g^{-1}dg.
+\]
+
+\begin{exercise}[Connections and gauge symmetry]\leavevmode\par
+\textit{Show that a principal connection $A$ induces a covariant derivative}
+\[
+\nabla_A:\Gamma(E)\longrightarrow\Gamma(T^*M\otimes E)
+\]
+\textit{on every associated vector bundle $E=P\times_G V$. Prove that under a gauge transformation the curvature transforms by}
+\[
+F_{A^g}=g^{-1}F_Ag.
+\]
+\end{exercise}
+
+On an oriented Riemannian four-manifold, extend the Hodge star to $\mathfrak g$-valued forms using a fixed $\operatorname{Ad}$-invariant inner product on $\mathfrak g$, written $\operatorname{Tr}$. The Yang--Mills action of a connection is
+\[
+S(A)=\int_M\operatorname{Tr}(F_A\wedge\star F_A).
+\]
+Write $d_A\alpha=d\alpha+[A,\alpha]$ for the exterior covariant derivative on $\mathfrak g$-valued forms.
+
+\begin{exercise}[Yang--Mills action]\leavevmode\par
+\textit{Prove that $S(A)$ is invariant under gauge transformations. Computing the first variation, derive the Euler--Lagrange equation}
+\[
+d_A\star F_A=0,
+\]
+\textit{equivalently $d_A^*F_A=0$. Relate the abelian case $G=U(1)$ to the source-free Maxwell equation from the Hodge theory subsection.}
+\end{exercise}
+
+The Standard Model gauge group is
+\[
+G_{\mathrm{SM}}=\operatorname{SU}(3)_C\times\operatorname{SU}(2)_L\times\operatorname{U}(1)_Y.
+\]
+
+\begin{exercise}[Standard Model gauge group]\leavevmode\par
+\textit{Explain why the three factors correspond to the strong force ($\operatorname{SU}(3)_C$) and the electroweak force ($\operatorname{SU}(2)_L\times\operatorname{U}(1)_Y$), and how this generalizes the $U(1)$ Maxwell connection already treated.}
+\end{exercise}
+
+Matter fields are sections of associated bundles for representations of $G_{\mathrm{SM}}$. Write $(\mathbf n,\mathbf m)_Y$ for the representation of dimension $n$ under $\operatorname{SU}(3)_C$, dimension $m$ under $\operatorname{SU}(2)_L$, and weak hypercharge $Y$. One generation of left-handed Weyl fermions is
+\[
+Q_L=(\mathbf 3,\mathbf 2)_{1/6},
+\qquad
+u_R=(\mathbf 3,\mathbf 1)_{2/3},
+\qquad
+d_R=(\mathbf 3,\mathbf 1)_{-1/3},
+\]
+\[
+L_L=(\mathbf 1,\mathbf 2)_{-1/2},
+\qquad
+e_R=(\mathbf 1,\mathbf 1)_{-1}.
+\]
+Electric charge is the operator $Q=T_3+Y$ on the unbroken electromagnetic generator.
+
+\begin{exercise}[Matter as representations]\leavevmode\par
+\textit{For each field above, verify that $Q=T_3+Y$ reproduces the observed electric charges of the up quark, down quark, neutrino, and electron (and their weak partners).}
+\end{exercise}
+
+Let $\phi$ be a section of the Higgs bundle associated to $(\mathbf 1,\mathbf 2)_{1/2}$, with potential
+\[
+V(\phi)=-\mu^2|\phi|^2+\lambda|\phi|^4
+\]
+for $\mu^2,\lambda>0$. Write $g$ and $g'$ for the $\operatorname{SU}(2)_L$ and $\operatorname{U}(1)_Y$ coupling constants, and let
+\[
+D\phi=d\phi+\tfrac{i}{2}g\,W^a\sigma_a\phi+\tfrac{i}{2}g'B\phi
+\]
+be the electroweak covariant derivative.
+
+\begin{exercise}[Higgs mechanism]\leavevmode\par
+\textit{Show that a vacuum expectation value for $\phi$ breaks}
+\[
+\operatorname{SU}(2)_L\times\operatorname{U}(1)_Y\longrightarrow\operatorname{U}(1)_{\mathrm{EM}}.
+\]
+\textit{Expanding $|D\phi|^2$ about that vacuum, derive the $W$ and $Z$ masses and show that the photon remains massless.}
+\end{exercise}
+
+\begin{exercise}[Anomaly cancellation]\leavevmode\par
+\textit{For one generation of left-handed Weyl fermions as above, compute the gauge anomalies $\operatorname{Tr}(Y)$ and $\operatorname{Tr}(Y^3)$, counting color and weak multiplicities and treating right-handed fields as left-handed conjugates (opposite hypercharge). Show that both cancel. Interpret this cancellation as a structural constraint on the allowed Standard Model representations.}
+\end{exercise}
+
 \subsection{Chern--Simons theory and TQFT}
 
 For two connections on $E$, set
@@ -1168,11 +1344,11 @@ P(F_{\nabla^1})-P(F_{\nabla^0})
 \]
 \end{exercise}
 
-Let $\mathfrak g\subseteq M_N(\mathbb C)$ be a matrix Lie algebra whose trace pairing is nondegenerate. For $A\in\Omega^1(M,\mathfrak g)$, wedge products include matrix multiplication. Define
+Let $\mathfrak g\subseteq M_N(\mathbb C)$ be a matrix Lie algebra whose trace pairing is nondegenerate. For $A\in\Omega^1(M,\mathfrak g)$, wedge products include matrix multiplication. As above, write
 \[
 F_A=dA+A\wedge A
 \]
-and
+and define
 \[
 \operatorname{CS}(A)
 =\operatorname{tr}\left(
