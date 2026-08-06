@@ -148,7 +148,13 @@ labels them as further reading.
 ## Cross-references
 
 Definitions may refer forward to exercises, and exercises may invoke earlier
-definitions. Use concise references such as `By Exercise~\ref{...}` or
+definitions. A forward reference may preview a later application, but it must
+not supply a definition, hypothesis, or result needed to solve the current
+exercise. State any such prerequisite locally inside the exercise. When a
+later section develops the full application, make it refer backward to the
+earlier exercise.
+
+Use concise references such as `By Exercise~\ref{...}` or
 `Apply Exercise~\ref{...}`. Do not restate an exercise's conclusion afterward
 unless it is required to define the next object.
 
@@ -166,6 +172,8 @@ answer to both questions is no, delete it.
 Before finalizing a subsection, verify that:
 
 - every object is defined before use;
+- no exercise depends on definitions or hypotheses introduced only in a later
+  section;
 - every substantive mathematical or physical claim occurs in an exercise;
 - every exercise has an informative title;
 - no theorem or proof environments remain;
