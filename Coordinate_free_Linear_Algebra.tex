@@ -29,25 +29,8 @@ multiplication operations satisfying straightforward compatibility conditions.
 
 \begin{exercise}[Small string vibrations obey superposition]
 \label{ex:wave-superposition}\leavevmode\par
-\textit{Consider a taut string of length $L$, constant tension $T$, and
-constant linear mass density $\mu$, with transverse displacement $u(x,t)$.
-Assuming small transverse slopes and negligible longitudinal motion,
-apply Newton's law to an arbitrary segment of the string and derive}
-\[
-\mu u_{tt}=T u_{xx}.
-\]
-\textit{Set $c=\sqrt{T/\mu}$ and impose the fixed-end conditions
-$u(0,t)=u(L,t)=0$. Let $\mathcal W$ be the set of twice continuously
-differentiable solutions. Prove that}
-\[
-u,w\in\mathcal W,\quad a,b\in\mathbb R
-\quad\Longrightarrow\quad
-au+bw\in\mathcal W.
-\]
-\textit{Deduce that $\mathcal W$ is a real vector space under pointwise
-operations. Interpret addition as superposition of displacements, scalar
-multiplication as changing amplitude, and additive inverses as destructive
-interference.}
+\textit{Derive the wave equation starting from a taut string and show that
+its solutions form a vector space.}
 \end{exercise}
 
 A \textbf{linear map} $f: V \to U$ between $k$-vector spaces is a map of underlying sets such that $f(\alpha v + \beta w) = \alpha f(v) + \beta f(w)$ for all $\alpha, \beta \in k$ and $v, w \in V$.
@@ -1743,8 +1726,8 @@ that $e^{A+B}=e^Ae^B$.}
 
 \begin{exercise}[Fourier modes solve the fixed-end wave equation]
 \label{ex:fixed-end-wave}\leavevmode\par
-\textit{Return to the fixed-end wave equation from
-Exercise~\ref{ex:wave-superposition}. Let the initial displacement $f$ and
+\textit{For the wave equation from Exercise~\ref{ex:wave-superposition},
+impose fixed-end boundary conditions. Let the initial displacement $f$ and
 velocity $g$ have sine-series
 expansions whose required derivatives converge uniformly. By separating
 variables, determine all fixed-end normal modes and prove that the solution
