@@ -98,6 +98,29 @@ A scalar $\lambda\in k$ is an \textbf{eigenvalue} of $f$ if $\ker(f-\lambda1_V)\
     \end{itemize}
 \end{exercise}
 
+For a damped harmonic oscillator with mass $m>0$, damping coefficient $b\geq0$,
+and spring stiffness $\kappa>0$, set $y=(x,\dot x)$ and
+\[
+A=
+\begin{pmatrix}
+0&1\\
+-\kappa/m&-b/m
+\end{pmatrix}.
+\]
+
+\begin{exercise}[Critical damping is a Jordan block]\leavevmode\par
+\textit{Rewrite $m\ddot x+b\dot x+\kappa x=0$ as $\dot y=Ay$. Determine
+the real and complex Jordan forms of $A$ and solve the oscillator in the
+underdamped, overdamped, and critically damped regimes. Prove that critical
+damping occurs precisely when $b^2=4m\kappa$ and that the resulting
+nontrivial Jordan block produces the term}
+\[
+t e^{-bt/(2m)}.
+\]
+\textit{Relate the eigenvalues in the three regimes to oscillation and
+decay of the motion.}
+\end{exercise}
+
 A \textbf{Hermitian inner product} on a complex vector space $V$ is a positive-definite sesquilinear form $\langle\mathord{\cdot},\mathord{\cdot}\rangle$, conjugate-linear in the first variable and linear in the second. It induces the norm $\|v\|=\sqrt{\langle v,v\rangle}$. For a linear map $A:V\to W$ between finite-dimensional Hermitian spaces, an \textbf{adjoint} is a map $A^*:W\to V$ satisfying
 \[
 \langle Av,w\rangle=\langle v,A^*w\rangle.
@@ -1618,7 +1641,7 @@ Z:\operatorname{Bord}_3^{\mathrm{or}}
 
 \section{Analysis}
 
-\subsection{Norms, operator exponentials, and linear evolution}
+\subsection{Norms, operator exponentials, and waves}
 
 A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|:H\to[0,\infty)$ that is definite, homogeneous, and satisfies the triangle inequality. A normed space is a \textbf{Banach space} if every Cauchy sequence converges. A \textbf{Hilbert space} is a complex vector space with a Hermitian inner product $\langle\mathord{\cdot},\mathord{\cdot}\rangle$ whose norm $\|x\|=\sqrt{\langle x,x\rangle}$ is complete. A linear map $A:H\to K$ is \textbf{bounded} if
 \[
@@ -1640,48 +1663,14 @@ whenever the series converges in operator norm.
 \textit{Deduce the triangle inequality for the induced norm. Prove that $\mathcal B(H,K)$ is complete when $K$ is complete and that the exponential series converges in $\mathcal B(H)$ for every bounded $A$.}
 \end{exercise}
 
-\begin{exercise}[Operator exponentials and linear evolution]\leavevmode\par
+\begin{exercise}[Bounded-operator exponentials]\leavevmode\par
 \textit{Prove that $e^{tA}$ is differentiable in operator norm and that}
 \[
 \frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
 \]
-\textit{Deduce that the unique solution of}
-\[
-\dot x(t)=Ax(t),\qquad x(0)=x_0,
-\]
-\textit{is $x(t)=e^{tA}x_0$. In finite dimensions use the Jordan decomposition}
-\[
-A=S+N,\qquad [S,N]=0,
-\]
-\textit{with $S$ semisimple and $N$ nilpotent, to prove}
-\[
-e^{tA}=e^{tS}e^{tN}.
-\]
-\textit{Show that on the generalized $\lambda$-eigenspace every component of a solution is a linear combination of terms $t^je^{\lambda t}$.}
-\end{exercise}
-
-For a damped harmonic oscillator with mass $m>0$, damping coefficient $b\geq0$,
-and spring stiffness $\kappa>0$, set $y=(x,\dot x)$ and
-\[
-A=
-\begin{pmatrix}
-0&1\\
--\kappa/m&-b/m
-\end{pmatrix}.
-\]
-
-\begin{exercise}[Critical damping is a Jordan block]\leavevmode\par
-\textit{Rewrite $m\ddot x+b\dot x+\kappa x=0$ as $\dot y=Ay$. Determine
-the real and complex Jordan forms of $A$ and use
-$y(t)=e^{tA}y(0)$ to solve the oscillator in the underdamped, overdamped,
-and critically damped regimes. Prove that critical damping occurs precisely
-when $b^2=4m\kappa$ and that the resulting nontrivial Jordan block produces
-the term}
-\[
-t e^{-bt/(2m)}.
-\]
-\textit{Relate the eigenvalues in the three regimes to oscillation and
-decay of the motion.}
+\textit{Prove the semigroup law $e^{(s+t)A}=e^{sA}e^{tA}$ and deduce that
+$e^{tA}$ is invertible with inverse $e^{-tA}$. If $A$ and $B$ commute, prove
+that $e^{A+B}=e^Ae^B$.}
 \end{exercise}
 
 For a string of length $L$ with fixed endpoints and wave speed $v>0$, the
