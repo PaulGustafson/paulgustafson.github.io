@@ -734,6 +734,50 @@ A \textbf{symplectic form} is a two-form $\omega\in\Omega^2(M)$ such that $d\ome
 \iota_{X_H}\omega=dH.
 \]
 
+Let $\pi:T^*Q\to Q$ be the cotangent bundle of a configuration manifold. Its \textbf{tautological one-form} is
+\[
+\theta_{(q,p)}(\xi)=p\bigl(d\pi_{(q,p)}\xi\bigr),
+\]
+and its \textbf{canonical symplectic form} is $\omega_0=-d\theta$.
+
+\begin{exercise}[Hamilton's equations and the harmonic oscillator]\leavevmode\par
+\textit{Prove that the definition of $\theta$ is coordinate independent. In local cotangent coordinates $(q^i,p_i)$, prove that} \cite{arnold}
+\[
+\theta=\sum_{i=1}^n p_i\,dq^i,
+\qquad
+\omega_0=\sum_{i=1}^n dq^i\wedge dp_i,
+\]
+\textit{and prove that $\omega_0$ is symplectic. For}
+\[
+H(q,p)=\frac{1}{2m}\sum_{i=1}^np_i^2+V(q),
+\]
+\textit{derive Hamilton's equations}
+\[
+\dot q^i=\frac{\partial H}{\partial p_i},
+\qquad
+\dot p_i=-\frac{\partial H}{\partial q^i},
+\]
+\textit{and hence Newton's equation $m\ddot q=-\nabla V(q)$. For $V(q)=m\Omega^2|q|^2/2$, solve the flow and prove that every nonconstant trajectory has period $2\pi/\Omega$. In the one-dimensional case, describe the constant-energy curves as ellipses in phase space.}
+\end{exercise}
+
+\begin{exercise}[Charged particle in a magnetic field]\leavevmode\par
+\textit{Let $Q=\mathbb R^3$, let $B\in\Omega^2(Q)$ satisfy $dB=0$, and let $e$ be the charge of a particle. Prove that the magnetically twisted form}
+\[
+\omega_B=\omega_0-e\pi^*B
+\]
+\textit{is symplectic on $T^*Q$. For a static electric potential $\phi$ and Hamiltonian}
+\[
+H(q,p)=\frac{|p|^2}{2m}+e\phi(q),
+\]
+\textit{identify $B$ with the vector field $\mathbf B$ determined by $B(u,v)=\mathbf B\cdot(u\times v)$ and derive the Lorentz-force equation} \cite{frankel}
+\[
+m\ddot q=e\bigl(\mathbf E+\dot q\times\mathbf B\bigr),
+\qquad
+\mathbf E=-\nabla\phi.
+\]
+\textit{If $B=dA$, prove that $\omega_B=-d(\theta+e\pi^*A)$ and that $A\mapsto A+d\lambda$ leaves $\omega_B$ and the equations of motion unchanged. Relate this gauge freedom to the potential used in the Aharonov--Bohm exercise.}
+\end{exercise}
+
 \begin{exercise}[Liouville's theorem]\leavevmode\par
 \textit{Let $(M,\omega)$ be $2n$-dimensional with $\omega$ symplectic. Prove that $\omega^n/n!$ is a volume form. For $H\in C^\infty(M)$, prove using Cartan's formula that} \cite{arnold}
 \[
@@ -764,6 +808,22 @@ X_g(f)=\{f,g\}.
 \item $\{H,f\}=0$.
 \item $f$ is constant along the integral curves of $X_H$.
 \end{itemize}
+\end{exercise}
+
+\begin{exercise}[Central forces and angular momentum]\leavevmode\par
+\textit{On $T^*\mathbb R^3$, let}
+\[
+H(q,p)=\frac{|p|^2}{2m}+V(|q|),
+\qquad
+L=q\times p.
+\]
+\textit{Prove that the components of angular momentum satisfy}
+\[
+\{L_i,L_j\}=\sum_k\varepsilon_{ijk}L_k,
+\qquad
+\{L_i,H\}=0.
+\]
+\textit{Deduce from the Hamiltonian Noether theorem that $L$ is conserved. Show that when $L\neq0$ the trajectory remains in the fixed plane through the origin perpendicular to $L$, and interpret this conservation law as a consequence of rotational symmetry of the central potential.}
 \end{exercise}
 
 \subsection{Connections and curvature}
