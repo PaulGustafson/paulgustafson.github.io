@@ -289,11 +289,13 @@ Finite-group representations turn molecular symmetry into experimentally testabl
 
 \subsection{Monoidal and braided categories}
 
-A $\mathbb C$-linear monoidal category is a categorical analogue of a complex vector space. It has objects, complex vector spaces
+A $\mathbb C$-linear category is a category whose morphism sets
 \[
 \operatorname{Hom}_{\mathcal C}(x,y)
 \]
-of morphisms, identities, and bilinear associative composition. Its tensor product $\otimes$ is bilinear on morphisms and is associative with tensor unit $1$, up to coherent natural isomorphism. Direct sums and duals generalize the corresponding vector-space constructions.
+are complex vector spaces and whose composition is bilinear.
+
+A $\mathbb C$-linear monoidal category is a $\mathbb C$-linear category equipped with a tensor product $\otimes$ that is bilinear on morphisms and is associative with tensor unit $1$, up to coherent natural isomorphism. Direct sums and duals generalize the corresponding vector-space constructions.
 
 Let $\mathcal C$ be such a category with finite direct sums. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple, that there are finitely many isomorphism classes of simple objects, and that $\mathcal C$ is \textbf{rigid}: every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities \cite{etingof-tensor}.
 
