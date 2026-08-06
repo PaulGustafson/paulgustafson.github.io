@@ -622,6 +622,29 @@ K^{n+2}(X)\cong K^n(X)
 \textit{and deduce that complex K-theory is naturally $\mathbb Z/2$-graded.}
 \end{exercise}
 
+For $0\leq r\leq N$, identify the complex Grassmannian $\operatorname{Gr}_r(\mathbb C^N)$ with the space of rank-$r$ orthogonal projections in $M_N(\mathbb C)$. Its \textbf{tautological bundle} has fiber $\operatorname{im}P$ over $P$. Let $BU$ denote the stable complex Grassmannian obtained from finite Grassmannians by adjoining trivial summands.
+
+\begin{exercise}[Stable classification of complex vector bundles]\label{ex:stable-bundle-classification}\leavevmode\par
+\textit{Let $X$ be compact Hausdorff. Use a finite trivializing cover and a partition of unity to prove that every complex vector bundle $E\to X$ is a direct summand of a trivial bundle: there are a bundle $E^\perp$ and an integer $N$ such that} \cite{hatcher-k}
+\[
+E\oplus E^\perp\cong\underline{\mathbb C}^{\,N}.
+\]
+\textit{After choosing a Hermitian metric, deduce that $E$ is the image bundle of a continuous projection}
+\[
+P_E:X\longrightarrow\operatorname{Gr}_r(\mathbb C^N)
+\subseteq M_N(\mathbb C).
+\]
+\textit{Conversely, prove that every continuous projection-valued map has a vector bundle as its image. Prove that a homotopy of projections determines a vector bundle over $X\times[0,1]$ and hence gives isomorphic image bundles at its endpoints. Prove the stable converse: two bundles have the same reduced K-theory class exactly when, after adjoining trivial bundles, their projection-valued maps become homotopic.}
+
+\textit{For a connected finite CW complex $X$, deduce the natural classifications}
+\[
+K^0(X)\cong[X,\mathbb Z\times BU],
+\qquad
+\widetilde K^0(X)\cong[X,BU]_*.
+\]
+\textit{Here the first integer records virtual rank and the star denotes based homotopy classes. Explain how direct sum of bundles corresponds to the $H$-space addition on $\mathbb Z\times BU$.}
+\end{exercise}
+
 For the gapped families below, assume that $X$ is connected, so vector-bundle ranks are constant. Let $V$ be a finite-dimensional Hermitian vector space as in Algebra. Exercise~\ref{ex:finite-spectral-theorem} supplies the spectral decomposition used below. A continuous family is a map
 \[
 H:X\longrightarrow\End(V)
@@ -688,7 +711,7 @@ H:\mathbb T^d\longrightarrow\End(V)
 over the Brillouin torus. The negative-energy bundle $E_H^-$ is the bundle of occupied states. Declare two such Hamiltonians \textbf{stably equivalent} when they become connected by a smooth gap-preserving homotopy after adjoining momentum-independent filled or empty bands \cite{kitaev-periodic}.
 
 \begin{exercise}[Class A topological band insulators]\label{ex:class-a-insulators}\leavevmode\par
-\textit{Use the preceding exercises and the stable classification of vector bundles by homotopy classes of projections to prove that}
+\textit{Use the preceding exercises and Exercise~\ref{ex:stable-bundle-classification} to prove that}
 \[
 H\longmapsto
 [E_H^-]-[\underline{\mathbb C}^{\,\operatorname{rank}E_H^-}]
