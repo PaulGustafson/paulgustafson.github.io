@@ -23,6 +23,13 @@ Prose outside exercises may contain only:
 Definitions may include axioms and immediate definitional equalities. They
 should not contain embedded proofs or consequences that require proof.
 
+A setup belongs outside an exercise only when it is reused by multiple
+exercises or is needed by subsequent exposition. Parameters, hypotheses,
+physical models, and notation used by only one exercise must be introduced
+inside that exercise, even when they could be phrased as definitions. In
+particular, do not place a `Let`, `Fix`, or `Consider` paragraph immediately
+before an exercise when that exercise is its only consumer.
+
 Historical or experimental context should normally be incorporated into an
 exercise title or task. A rare one-sentence note is acceptable only when it
 cannot reasonably be made into a mathematical task and is essential for
@@ -180,6 +187,8 @@ Before finalizing a subsection, verify that:
 - every object is defined before use;
 - no exercise depends on definitions or hypotheses introduced only in a later
   section;
+- every single-exercise setup is contained in that exercise rather than in
+  the preceding exposition;
 - every substantive mathematical or physical claim occurs in an exercise;
 - every exercise has an informative title;
 - no theorem or proof environments remain;
