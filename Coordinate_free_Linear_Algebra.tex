@@ -1808,7 +1808,7 @@ For a self-adjoint $H$, write $U_t=e^{-itH}$.
 \textit{Deduce that $[H,A]=0$ if and only if the expectation of $A$ is constant under this evolution for every initial vector.}
 \end{exercise}
 
-\begin{exercise}[No-cloning theorem]\leavevmode\par
+\begin{exercise}[No-cloning theorem]\label{ex:no-cloning}\leavevmode\par
 \textit{Let $b\in H$ be a unit vector and suppose that a unitary $C:H\otimes H\to H\otimes H$ satisfies $C(v\otimes b)=v\otimes v$ and $C(w\otimes b)=w\otimes w$ for unit vectors $v,w$. Prove that} \cite{wootters-zurek}
 \[
 \langle v,w\rangle=\langle v,w\rangle^2.
@@ -1854,65 +1854,6 @@ S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
 =-\sum_i s_i^2\log s_i^2,
 \]
 \textit{with the convention $0\log0=0$.}
-\end{exercise}
-
-\subsection{Quantum channels and Stinespring dilation}
-
-For a linear map $\Phi:\mathcal A\to\mathcal B$ between unital
-$*$-subalgebras of bounded operators, its $n$th \textbf{matrix amplification}
-is
-\[
-\Phi_n([x_{ij}])=[\Phi(x_{ij})].
-\]
-The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive.
-
-For finite-dimensional Hilbert spaces $H,K$, a \textbf{quantum channel} is a
-completely positive trace-preserving linear map
-\[
-\Phi:\End(H)\longrightarrow\End(K).
-\]
-After choosing an orthonormal basis $(e_i)$ of $H$, define the \textbf{Choi
-operator} of $\Phi$ by
-\[
-C_\Phi
-=\sum_{i,j}|e_i\rangle\langle e_j|
-\otimes\Phi(|e_i\rangle\langle e_j|)
-\in\End(H\otimes K).
-\]
-
-\begin{exercise}[Every channel is unitary with an environment]
-\leavevmode\par
-\textit{Prove that $\Phi$ is completely positive if and only if
-$C_\Phi\geq0$ \cite{choi-cp}. Prove the finite-dimensional Stinespring
-dilation theorem \cite{stinespring}: $\Phi$ is a quantum channel if and only
-if there are a finite-dimensional Hilbert space $E$ and an isometry}
-\[
-V:H\longrightarrow K\otimes E
-\]
-\textit{such that}
-\[
-\Phi(\rho)=\operatorname{Tr}_E(V\rho V^*).
-\]
-\textit{Prove equivalently that there are operators $K_\alpha:H\to K$ with}
-\[
-\Phi(\rho)=\sum_\alpha K_\alpha\rho K_\alpha^*,
-\qquad
-\sum_\alpha K_\alpha^*K_\alpha=1_H.
-\]
-\textit{Prove that the least possible dimension of $E$, and the least
-number of Kraus operators, both equal $\operatorname{rank}C_\Phi$. When
-$H=K$, fix a unit vector $e_0\in E$ and extend $x\otimes e_0\mapsto Vx$ to
-a unitary $U$ on $H\otimes E$. Deduce}
-\[
-\Phi(\rho)
-=\operatorname{Tr}_E\!\left(
-U(\rho\otimes|e_0\rangle\langle e_0|)U^*
-\right).
-\]
-\textit{Interpret this as unitary interaction with an environment followed
-by forgetting the environment. Using the Schmidt decomposition, strengthen
-the no-cloning exercise above by proving that no quantum channel can clone
-every pure state.}
 \end{exercise}
 
 \subsection{CHSH, Gisin, and Tsirelson}
@@ -2009,7 +1950,63 @@ A''
 \]
 \end{exercise}
 
-The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$. A positive functional or positive map is \textbf{normal} if it preserves suprema of bounded increasing nets of positive elements, and a positive functional $\psi$ is \textbf{faithful} if $\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an infinite-dimensional factor with a faithful normal tracial state
+The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$.
+
+For a linear map $\Phi:M\to N$ between von Neumann algebras, its $n$th
+\textbf{matrix amplification} is
+\[
+\Phi_n([x_{ij}])=[\Phi(x_{ij})].
+\]
+The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive,
+and it is \textbf{normal} if it preserves suprema of bounded increasing nets
+of positive elements. A \textbf{normal $*$-representation} of $M$ on a Hilbert
+space $K$ is a normal unital $*$-homomorphism $\pi:M\to\mathcal B(K)$. A
+\textbf{Heisenberg-picture quantum channel} is a normal unital completely
+positive map between von Neumann algebras.
+
+\begin{exercise}[Normal CP maps have Stinespring dilations]
+\leavevmode\par
+\textit{Let $M$ be a von Neumann algebra and let
+$\Phi:M\to\mathcal B(H)$ be normal and completely positive. Prove the normal
+Stinespring theorem \cite{stinespring}: there are a Hilbert space $K$, a
+normal $*$-representation $\pi:M\to\mathcal B(K)$, and a bounded operator
+$V:H\to K$ such that}
+\[
+\Phi(x)=V^*\pi(x)V,
+\qquad
+V^*V=\Phi(1).
+\]
+\textit{Prove that the dilation can be chosen minimal, meaning}
+\[
+K=\overline{\operatorname{span}}\{\pi(x)V\xi:x\in M,\ \xi\in H\},
+\]
+\textit{and that any two minimal dilations are unitarily equivalent. Deduce
+that $V$ is an isometry when $\Phi$ is unital.}
+
+\textit{For $M=\mathcal B(H_0)$, prove that every normal representation of
+$M$ is unitarily equivalent to $x\mapsto x\otimes1_E$ on $H_0\otimes E$.
+Deduce that every normal Heisenberg-picture channel
+$\Phi:\mathcal B(H_0)\to\mathcal B(H)$ has the form}
+\[
+\Phi(x)=V^*(x\otimes1_E)V
+\]
+\textit{for an isometry $V:H\to H_0\otimes E$. Interpret $E$ as an
+environment. In finite dimensions, pass to the adjoint with respect to the
+trace pairing and recover the Kraus and partial-trace forms}
+\[
+\Phi_*(\rho)=\sum_\alpha K_\alpha\rho K_\alpha^*
+=\operatorname{Tr}_E(V\rho V^*),
+\qquad
+\sum_\alpha K_\alpha^*K_\alpha=1_H.
+\]
+\textit{Use this consequence to strengthen Exercise~\ref{ex:no-cloning}:
+no quantum channel can clone every pure state.}
+\end{exercise}
+
+A positive functional $\psi$ is \textbf{normal} if it preserves suprema of
+bounded increasing nets of positive elements and \textbf{faithful} if
+$\psi(a^*a)=0$ implies $a=0$. A \textbf{type $\mathrm{II}_1$ factor} is an
+infinite-dimensional factor with a faithful normal tracial state
 \[
 \tau:M\longrightarrow\mathbb C,
 \qquad
@@ -2265,12 +2262,6 @@ W. Forrest Stinespring,
 \textit{Positive Functions on $C^*$-Algebras},
 Proceedings of the American Mathematical Society, 6:211--216, 1955.
 doi:10.1090/S0002-9939-1955-0069403-4.
-
-\bibitem{choi-cp}
-Man-Duen Choi,
-\textit{Completely Positive Linear Maps on Complex Matrices},
-Linear Algebra and its Applications, 10(3):285--290, 1975.
-doi:10.1016/0024-3795(75)90075-0.
 
 \bibitem{pauli-hydrogen}
 Wolfgang Pauli,
