@@ -91,6 +91,12 @@ to the next subsection. Break long results into meaningful intermediate
 prompts, but do not create exercises that only repeat a definition or perform
 routine substitution.
 
+Within a subsection, collect the elementary theory before its principal
+application. A physical symmetry group should arise from a stated symmetry of
+a system; if a model instead takes the group from experiment, identify it
+explicitly as empirical input rather than presenting it as a consequence of
+the preceding mathematics.
+
 The document's main progression is:
 
 1. **Algebra:** coordinate-free linear algebra, representation theory, Lie
