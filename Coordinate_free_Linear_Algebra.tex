@@ -812,6 +812,63 @@ m\ddot q=e\bigl(\mathbf E+\dot q\times\mathbf B\bigr),
 \]
 \end{exercise}
 
+Fix a phase-volume unit so that the logarithm of a phase-space density is dimensionless. For a probability density $\rho$ with respect to Liouville measure $d\mu_L=\omega^n/n!$, define the \textbf{fine-grained Gibbs entropy} by
+\[
+S_G[\rho]
+=-k_B\int_M\rho\log\rho\,d\mu_L.
+\]
+
+\begin{exercise}[Entropy and the monatomic ideal gas]\leavevmode\par
+\textit{Let $\Phi_t$ be a Hamiltonian flow and let $\rho_t=\rho_0\circ\Phi_{-t}$. Use Liouville's theorem to prove that $\rho_t$ remains normalized and that} \cite{pathria}
+\[
+S_G[\rho_t]=S_G[\rho_0].
+\]
+\textit{Now consider $N$ indistinguishable noninteracting particles of mass $m$ in a three-dimensional box of volume $V$, with Hamiltonian}
+\[
+H(q,p)=\sum_{a=1}^N\frac{|p_a|^2}{2m}.
+\]
+\textit{Divide phase volume by $N!h^{3N}$ and prove that the volume of the region $H\leq E$ is}
+\[
+\Omega(E,V,N)
+=\frac{V^N}{N!h^{3N}}
+\frac{(2\pi mE)^{3N/2}}{\Gamma(3N/2+1)}.
+\]
+\textit{Define the microcanonical entropy and its thermodynamic derivatives by}
+\[
+S_{\mathrm{mc}}=k_B\log\Omega,
+\qquad
+\frac1T=\left(\frac{\partial S_{\mathrm{mc}}}{\partial E}\right)_{V,N},
+\qquad
+\frac PT=\left(\frac{\partial S_{\mathrm{mc}}}{\partial V}\right)_{E,N}.
+\]
+\textit{Derive}
+\[
+E=\frac32Nk_BT,
+\qquad
+PV=Nk_BT.
+\]
+\textit{Use Stirling's formula to obtain the Sackur--Tetrode expression}
+\[
+S_{\mathrm{mc}}
+=Nk_B\left[
+\log\!\left(
+\frac VN
+\left(\frac{4\pi mE}{3Nh^2}\right)^{3/2}
+\right)
++\frac52
+\right]+o(N).
+\]
+\textit{For a reversible adiabatic process, set $dS_{\mathrm{mc}}=0$ and prove}
+\[
+PV^{5/3}=\text{constant}.
+\]
+\textit{If $\varrho=mN/V$ is the mass density, use $c^2=(\partial P/\partial\varrho)_S$ to derive the measurable sound-speed law}
+\[
+c=\sqrt{\frac{5P}{3\varrho}}.
+\]
+\textit{Finally, show that removing a partition and allowing a free expansion from $V$ to $2V$ changes the thermodynamic entropy by $Nk_B\log2$. Explain why this does not contradict conservation of the fine-grained Gibbs entropy: the former compares equilibrium macrostates after changing the accessible region, whereas the latter follows the exact Hamiltonian density without coarse-graining.}
+\end{exercise}
+
 For $f,g\in C^\infty(M)$, define
 \[
 \{f,g\}=\omega(X_f,X_g).
@@ -1825,6 +1882,11 @@ doi:10.1103/PhysRev.34.163.
 V. I. Arnold,
 \textit{Mathematical Methods of Classical Mechanics},
 2nd ed., Springer, 1989.
+
+\bibitem{pathria}
+R. K. Pathria and Paul D. Beale,
+\textit{Statistical Mechanics},
+3rd ed., Elsevier, 2011.
 
 \bibitem{noether}
 Emmy Noether,
