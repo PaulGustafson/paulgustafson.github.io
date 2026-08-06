@@ -573,7 +573,7 @@ S[A]
 \textit{For $\alpha\in\Omega^1(M)$, compute the first variation of $S[A+t\alpha]$ and prove that its Euler--Lagrange equation is $d\star F=J$. Explain why $dF=0$ holds identically. Prove that the action is invariant under $A\mapsto A+d\lambda$ when $dJ=0$, and show conversely how gauge invariance of the source term forces charge conservation.}
 \end{exercise}
 
-\subsection{Bundles and K-theory}
+\subsection{Bundles, K-theory, and band topology}
 
 A \textbf{smooth vector bundle} $p:E\to M$ is a smooth family of vector spaces locally isomorphic to a product $U\times V\to U$. For a smooth map $f:N\to M$, its \textbf{pullback bundle} is
 \[
@@ -681,7 +681,45 @@ H_x^2=1_V,
 \textit{and that its negative spectral bundle is $E$. Deduce that every subbundle of a trivial bundle arises as the negative spectral bundle of a gapped family. Combine the preceding exercises to prove that a finite-dimensional gapped family determines a class in $\widetilde K^0(X)$ invariant under gap-preserving homotopy and stabilization.}
 \end{exercise}
 
-This construction is used in the classification of noninteracting topological insulators and superconductors under specified symmetry assumptions \cite{kitaev-periodic}.
+Consider a translation-invariant noninteracting band insulator in symmetry class A: there is no time-reversal, particle-hole, or chiral symmetry, and its Bloch Hamiltonian is a smooth gapped family
+\[
+H:\mathbb T^d\longrightarrow\End(V)
+\]
+over the Brillouin torus. The negative-energy bundle $E_H^-$ is the bundle of occupied states. Declare two such Hamiltonians \textbf{stably equivalent} when they become connected by a smooth gap-preserving homotopy after adjoining momentum-independent filled or empty bands \cite{kitaev-periodic}.
+
+\begin{exercise}[Class A topological band insulators]\label{ex:class-a-insulators}\leavevmode\par
+\textit{Use the preceding exercises and the stable classification of vector bundles by homotopy classes of projections to prove that}
+\[
+H\longmapsto
+[E_H^-]-[\underline{\mathbb C}^{\,\operatorname{rank}E_H^-}]
+\]
+\textit{induces a bijection from stable equivalence classes of class A Hamiltonians over a compact connected space $X$ to $\widetilde K^0(X)$. In particular, show that every reduced K-theory class is realized by a flattened Hamiltonian $H=1-2P$.}
+
+\textit{Using the suspension isomorphism and Bott periodicity, prove that the strong class A phases of continuum models whose momentum space compactifies to $S^d$ form}
+\[
+\widetilde K^0(S^d)
+\cong
+\begin{cases}
+\mathbb Z,&d\text{ even},\\
+0,&d\text{ odd}.
+\end{cases}
+\]
+\textit{Using the K\"unneth theorem and the graded ring $K^*(S^1)$, prove that}
+\[
+K^0(\mathbb T^d)
+\cong
+\bigoplus_{\substack{0\leq j\leq d\\j\ \mathrm{even}}}
+\mathbb Z^{\binom dj},
+\qquad
+\widetilde K^0(\mathbb T^d)
+\cong
+\bigoplus_{\substack{2\leq j\leq d\\j\ \mathrm{even}}}
+\mathbb Z^{\binom dj}.
+\]
+\textit{Deduce that the reduced classifications over $\mathbb T^d$ for $d=1,2,3$ are respectively $0$, $\mathbb Z$, and $\mathbb Z^3$. Distinguish the strong invariant from the weak invariants inherited from lower-dimensional subtori.}
+\end{exercise}
+
+This exercise does not give the full tenfold-way classification. Antiunitary symmetries impose additional Real or Quaternionic structure on the occupied states and require corresponding variants of K-theory \cite{kitaev-periodic}.
 
 \subsection{Symplectic geometry}
 
@@ -909,7 +947,7 @@ Define the \textbf{Chern character form} by
 \]
 When induced connections are understood, suppress them from the notation.
 
-\begin{exercise}[Chern character]\leavevmode\par
+\begin{exercise}[Chern character]\label{ex:chern-character}\leavevmode\par
 \textit{Prove that $d\,\operatorname{ch}(E,\nabla)=0$ and that its de Rham class is independent of $\nabla$. For a second complex vector bundle $F$ with connection, prove that}
 \[
 \operatorname{ch}(E\oplus F)
@@ -925,6 +963,13 @@ When induced connections are understood, suppress them from the notation.
 \qquad
 H_{\mathrm{dR}}^{\mathrm{even}}(M)=\bigoplus_{j\geq0}H_{\mathrm{dR}}^{2j}(M).
 \]
+\textit{Return to the two-dimensional class A insulator in Exercise~\ref{ex:class-a-insulators}. For its smooth occupied-state projector $P$, prove that the Grassmann connection $\nabla=P\,d$ has curvature $F_\nabla=P\,dP\wedge dP$ on $E_H^-$. Show that the integer classifying the phase is the first Chern number}
+\[
+C_1(E_H^-)
+=\frac{i}{2\pi}\int_{\mathbb T^2}
+\operatorname{tr}\bigl(P\,dP\wedge dP\bigr)\in\mathbb Z,
+\]
+\textit{and deduce that a nonzero Chern number obstructs a global smooth frame of occupied Bloch states.}
 \end{exercise}
 
 \subsection{Chern--Simons theory and TQFT}
