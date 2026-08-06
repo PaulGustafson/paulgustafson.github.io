@@ -27,17 +27,19 @@ Linear algebra studies linear maps between vector spaces. A \textbf{vector
 space} $V$ over a field $k$ is a set equipped with vector addition and scalar
 multiplication operations satisfying straightforward compatibility conditions.
 
-Fix $L,c>0$, and let $\mathcal W$ be the set of twice continuously differentiable functions
-$u:[0,L]\times\mathbb R\to\mathbb R$ satisfying the fixed-end wave equation
-\[
-u_{tt}=c^2u_{xx},
-\qquad
-u(0,t)=u(L,t)=0.
-\]
+Consider a taut string of length $L$, constant tension $T$, and constant
+linear mass density $\mu$, with transverse displacement $u(x,t)$.
 
-\begin{exercise}[Linear waves obey superposition]
+\begin{exercise}[Small string vibrations obey superposition]
 \label{ex:wave-superposition}\leavevmode\par
-\textit{Prove that the zero displacement belongs to $\mathcal W$ and that}
+\textit{Assuming small transverse slopes and negligible longitudinal motion,
+apply Newton's law to an arbitrary segment of the string and derive}
+\[
+\mu u_{tt}=T u_{xx}.
+\]
+\textit{Set $c=\sqrt{T/\mu}$ and impose the fixed-end conditions
+$u(0,t)=u(L,t)=0$. Let $\mathcal W$ be the set of twice continuously
+differentiable solutions. Prove that}
 \[
 u,w\in\mathcal W,\quad a,b\in\mathbb R
 \quad\Longrightarrow\quad
