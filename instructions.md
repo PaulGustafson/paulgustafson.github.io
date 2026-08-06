@@ -123,6 +123,28 @@ When an experiment motivates a construction, name the observable conclusion
 in the exercise title and place any comparison with cited data inside the
 exercise.
 
+## Citation policy
+
+Inline citations are exceptional. Use them only for:
+
+- primary sources reporting experiments or observations discussed by an
+  exercise;
+- original or authoritative sources for major theorems, classifications, or
+  constructions that form a destination of an exercise;
+- a specialized formula or data set whose provenance a reader could not
+  reasonably infer.
+
+Place a theorem citation in the exercise that states the result, and place an
+experimental citation in the task that compares the mathematical prediction
+with the observation. Do not attach citations to routine definitions,
+standard notation, elementary constructions, or textbook-level background
+such as vector spaces, tensor and exterior algebras, manifolds, differential
+forms, representations, or Hilbert spaces.
+
+Prefer one primary source to a cluster of general references. Remove
+bibliography entries that are no longer cited unless the document explicitly
+labels them as further reading.
+
 ## Cross-references
 
 Definitions may refer forward to exercises, and exercises may invoke earlier
