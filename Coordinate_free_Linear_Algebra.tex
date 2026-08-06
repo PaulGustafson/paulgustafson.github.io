@@ -120,6 +120,35 @@ T=U\Sigma V^*.
 \textit{Prove that the diagonal entries of $\Sigma$ are the square roots of the nonzero eigenvalues of $T^*T$, counted with multiplicity.}
 \end{exercise}
 
+For $N$ equal masses $m>0$ joined by identical springs of stiffness
+$\kappa>0$ between fixed endpoints, write
+$q(t)=(q_1(t),\ldots,q_N(t))\in\mathbb R^N$, set $q_0=q_{N+1}=0$, and
+define
+\[
+(Kq)_j=\frac{\kappa}{m}(2q_j-q_{j-1}-q_{j+1}).
+\]
+The displacement equation is $\ddot q+Kq=0$.
+
+\begin{exercise}[The spectral theorem produces normal modes]
+\label{ex:vibrating-chain}\leavevmode\par
+\textit{Prove that $K$ is positive and self-adjoint. Determine its spectrum
+and prove that it has an orthogonal eigenbasis with components}
+\[
+v_j^{(r)}=\sin\left(\frac{\pi rj}{N+1}\right),
+\qquad
+\omega_r^2=\frac{4\kappa}{m}
+\sin^2\left(\frac{\pi r}{2(N+1)}\right),
+\qquad 1\leq r\leq N.
+\]
+\textit{Use the finite-dimensional spectral theorem to prove that every
+motion is a unique superposition of these normal modes and determine its
+coefficients from $q(0)$ and $\dot q(0)$. Prove conservation of}
+\[
+\mathcal E(q,\dot q)
+=\frac m2\|\dot q\|^2+\frac m2\langle q,Kq\rangle.
+\]
+\end{exercise}
+
 \subsection{Group representations}
 
 An action of a group $G$ on a set $X$ assigns to each $g\in G$ a bijection $x\mapsto gx$ such that $1x=x$ and $(gh)x=g(hx)$. A \textbf{representation} of $G$ on a vector space $V$ is a homomorphism
@@ -1629,6 +1658,63 @@ A=S+N,\qquad [S,N]=0,
 e^{tA}=e^{tS}e^{tN}.
 \]
 \textit{Show that on the generalized $\lambda$-eigenspace every component of a solution is a linear combination of terms $t^je^{\lambda t}$.}
+\end{exercise}
+
+For a damped harmonic oscillator with mass $m>0$, damping coefficient $b\geq0$,
+and spring stiffness $\kappa>0$, set $y=(x,\dot x)$ and
+\[
+A=
+\begin{pmatrix}
+0&1\\
+-\kappa/m&-b/m
+\end{pmatrix}.
+\]
+
+\begin{exercise}[Critical damping is a Jordan block]\leavevmode\par
+\textit{Rewrite $m\ddot x+b\dot x+\kappa x=0$ as $\dot y=Ay$. Determine
+the real and complex Jordan forms of $A$ and use
+$y(t)=e^{tA}y(0)$ to solve the oscillator in the underdamped, overdamped,
+and critically damped regimes. Prove that critical damping occurs precisely
+when $b^2=4m\kappa$ and that the resulting nontrivial Jordan block produces
+the term}
+\[
+t e^{-bt/(2m)}.
+\]
+\textit{Relate the eigenvalues in the three regimes to oscillation and
+decay of the motion.}
+\end{exercise}
+
+For a string of length $L$ with fixed endpoints and wave speed $v>0$, the
+displacement $u:[0,L]\times\mathbb R\to\mathbb R$ satisfies
+\[
+u_{tt}=v^2u_{xx},
+\qquad
+u(0,t)=u(L,t)=0.
+\]
+
+\begin{exercise}[Fourier modes solve the fixed-end wave equation]
+\label{ex:fixed-end-wave}\leavevmode\par
+\textit{Let the initial displacement $f$ and velocity $g$ have sine-series
+expansions whose required derivatives converge uniformly. By separating
+variables, determine all fixed-end normal modes and prove that the solution
+with $u(x,0)=f(x)$ and $u_t(x,0)=g(x)$ is}
+\[
+u(x,t)=\sum_{n\geq1}
+\left(
+a_n\cos\frac{n\pi vt}{L}
++\frac{Lb_n}{n\pi v}\sin\frac{n\pi vt}{L}
+\right)
+\sin\frac{n\pi x}{L},
+\]
+\textit{where $a_n$ and $b_n$ are the sine coefficients of $f$ and $g$.
+Prove conservation of the wave energy}
+\[
+\mathcal E[u](t)
+=\frac12\int_0^L\left(u_t(x,t)^2+v^2u_x(x,t)^2\right)\,dx.
+\]
+\textit{In Exercise~\ref{ex:vibrating-chain}, take lattice spacing
+$a_N=L/(N+1)$ and $\kappa_N/m_N=v^2/a_N^2$. Prove that each fixed
+normal-mode frequency converges to $n\pi v/L$ as $N\to\infty$.}
 \end{exercise}
 
 \subsection{Hilbert-space operator theory}
