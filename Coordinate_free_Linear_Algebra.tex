@@ -1368,7 +1368,8 @@ K-theory. The \textbf{symbol class} of an elliptic operator is
 Define $\operatorname{ind}_{\mathrm{top}}:K_c^0(T^*M)\to\mathbb Z$ by the
 K-theoretic pushforward to a point.
 
-\begin{exercise}[Atiyah--Singer index theorem]\leavevmode\par
+\begin{exercise}[Atiyah--Singer index theorem]
+\label{ex:atiyah-singer}\leavevmode\par
 \textit{Prove that an elliptic operator $D$ has a Fredholm extension and that}
 \cite{atiyah-singer-index}
 \[
@@ -1379,6 +1380,29 @@ K-theoretic pushforward to a point.
 \textit{For a Riemannian metric on $M$, apply this to the de Rham operator
 $d+d^*:\Omega^{\mathrm{even}}(M)\to\Omega^{\mathrm{odd}}(M)$ and recover
 $\operatorname{ind}(d+d^*)=\chi(M)$.}
+\end{exercise}
+
+\begin{exercise}[Instanton charge produces the chiral anomaly]\leavevmode\par
+\textit{Let $A$ be a finite-action anti-self-dual $\operatorname{SU}(N)$
+connection on $\mathbb R^4$ extending to a Hermitian bundle $E\to S^4$.
+For skew-Hermitian curvature $F_A$ and the fundamental trace, define its
+topological charge by}
+\[
+Q(A)=\frac{1}{8\pi^2}\int_{S^4}\operatorname{tr}(F_A\wedge F_A)
+=\langle c_2(E),[S^4]\rangle.
+\]
+\textit{Prove that $Q(A)\in\mathbb Z$. Let $S^\pm$ be the half-spinor bundles
+and $D_A^\pm$ the coupled chiral Dirac operators. Use
+Exercise~\ref{ex:atiyah-singer} to prove}
+\[
+\dim\ker D_A^- - \dim\ker D_A^+=Q(A).
+\]
+\textit{For $N_f$ massless Dirac fermions in the fundamental representation,
+deduce the integrated chiral anomaly}
+\cite{fujikawa-anomaly}
+\[
+\Delta Q_5=\int_{\mathbb R^4}d{\star J_5}=2N_fQ(A).
+\]
 \end{exercise}
 
 \subsection{Quantum states, uncertainty, and dynamics}
@@ -1786,6 +1810,12 @@ Michael F. Atiyah and Isadore M. Singer,
 \textit{The index of elliptic operators I},
 Annals of Mathematics, 87(3):484--530, 1968.
 doi:10.2307/1970715.
+
+\bibitem{fujikawa-anomaly}
+Kazuo Fujikawa,
+\textit{Path-integral measure for gauge-invariant fermion theories},
+Physical Review Letters, 42(18):1195--1198, 1979.
+doi:10.1103/PhysRevLett.42.1195.
 
 \bibitem{kitaev-periodic}
 Alexei Kitaev,
