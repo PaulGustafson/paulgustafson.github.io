@@ -1285,7 +1285,7 @@ $\mathcal B(H,K)$ is complete when $K$ is complete.}
 \]
 \end{exercise}
 
-\subsection{Compact operators and the Fredholm alternative}
+\subsection{Compact operators and index theory}
 
 A bounded operator $K:H\to L$ between Hilbert spaces is \textbf{compact} if
 the image of the closed unit ball has compact closure. Write
@@ -1328,6 +1328,57 @@ $\omega^2\in\sigma(K)$ it exists exactly when
 $f\perp\ker(\omega^2 1-K)$. Show that a nonzero component of $f$ in this
 eigenspace produces a secular term proportional to
 $t\sin(\omega t)$.}
+\end{exercise}
+
+\begin{exercise}[The Fredholm index is stable]\leavevmode\par
+\textit{Prove that $T\in\mathcal B(H)$ is Fredholm exactly when its image in
+$\mathcal B(H)/\mathcal K(H)$ is invertible. Prove that the Fredholm index is
+locally constant, additive under composition, and invariant under compact
+perturbations.}
+\end{exercise}
+
+Let $\operatorname{Fred}(H)$ denote the Fredholm operators on $H$, with the
+operator-norm topology.
+
+\begin{exercise}[Fredholm families represent K-theory]\leavevmode\par
+\textit{For an infinite-dimensional separable Hilbert space $H$ and compact
+Hausdorff space $X$, construct the index bundle of a norm-continuous family
+$X\to\operatorname{Fred}(H)$ and prove the Atiyah--J\"anich isomorphism}
+\cite{atiyah-k-theory}
+\[
+[X,\operatorname{Fred}(H)]\cong K^0(X).
+\]
+\end{exercise}
+
+Let $M$ be a closed smooth manifold and let $E,F\to M$ be complex vector
+bundles. An order-$m$ \textbf{differential operator}
+$D:\Gamma(E)\to\Gamma(F)$ is locally of the form
+$D=\sum_{|\alpha|\leq m}a_\alpha(x)\partial^\alpha$. Its \textbf{principal
+symbol} is
+\[
+\sigma_D(x,\xi)=\sum_{|\alpha|=m}a_\alpha(x)\xi^\alpha:
+E_x\longrightarrow F_x.
+\]
+The operator is \textbf{elliptic} if $\sigma_D(x,\xi)$ is invertible for
+$\xi\ne0$. Write $K_c^0(Y)=\widetilde K^0(Y^+)$ for compactly supported
+K-theory. The \textbf{symbol class} of an elliptic operator is
+\[
+[\sigma_D]=[\pi^*E,\pi^*F,\sigma_D]\in K_c^0(T^*M).
+\]
+Define $\operatorname{ind}_{\mathrm{top}}:K_c^0(T^*M)\to\mathbb Z$ by the
+K-theoretic pushforward to a point.
+
+\begin{exercise}[Atiyah--Singer index theorem]\leavevmode\par
+\textit{Prove that an elliptic operator $D$ has a Fredholm extension and that}
+\cite{atiyah-singer-index}
+\[
+\operatorname{ind}(D)
+=\dim\ker D-\dim\ker D^*
+=\operatorname{ind}_{\mathrm{top}}[\sigma_D].
+\]
+\textit{For a Riemannian metric on $M$, apply this to the de Rham operator
+$d+d^*:\Omega^{\mathrm{even}}(M)\to\Omega^{\mathrm{odd}}(M)$ and recover
+$\operatorname{ind}(d+d^*)=\chi(M)$.}
 \end{exercise}
 
 \subsection{Quantum states, uncertainty, and dynamics}
@@ -1729,6 +1780,12 @@ and Chern--Simons Wilson-loop invariants constructed above.}
 Michael F. Atiyah,
 \textit{K-Theory},
 W. A. Benjamin, 1967.
+
+\bibitem{atiyah-singer-index}
+Michael F. Atiyah and Isadore M. Singer,
+\textit{The index of elliptic operators I},
+Annals of Mathematics, 87(3):484--530, 1968.
+doi:10.2307/1970715.
 
 \bibitem{kitaev-periodic}
 Alexei Kitaev,
