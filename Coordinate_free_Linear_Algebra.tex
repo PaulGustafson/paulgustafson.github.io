@@ -476,44 +476,22 @@ M_{r,s}=\exp\left(\frac{2\pi i krs}{m}\right).
 anyon and compare it with \cite{nakamura-anyons}.}
 \end{exercise}
 
-\begin{exercise}[Topological quantum computation]\leavevmode\par
-\textit{Let $\mathcal C$ be a semisimple rigid braided $\mathbb C$-linear
-category with positive categorical dimensions, simple objects $1,\tau$, and fusion rule
-$\tau\otimes\tau\cong1\oplus\tau$. Set
-$V=\operatorname{Hom}_{\mathcal C}(\tau,\tau^{\otimes3})$ and
-$\varphi=(1+\sqrt5)/2$, and in the fusion basis take} \cite{bonderson}
+\begin{exercise}[Reshetikhin--Turaev TQFT]
+\label{ex:rt-tqft}\leavevmode\par
+\textit{A ribbon fusion category is a braided fusion category with a
+dual-compatible twist $\theta$ satisfying
+$\theta_{x\otimes y}=M_{x,y}(\theta_x\otimes\theta_y)$. For simple objects
+$x_i$, define $S_{ij}=\trace(M_{x_i,x_j})$ and call the category modular when
+$S$ is invertible. Prove that every modular ribbon fusion category $\mathcal C$
+defines a symmetric monoidal functor} \cite{reshetikhin-turaev}
 \[
-F=
-\begin{pmatrix}
-\varphi^{-1}&\varphi^{-1/2}\\
-\varphi^{-1/2}&-\varphi^{-1}
-\end{pmatrix},
-\qquad
-R=
-\begin{pmatrix}
-e^{-4\pi i/5}&0\\
-0&e^{3\pi i/5}
-\end{pmatrix}.
+Z_{\mathcal C}:\widehat{\operatorname{Bord}}_3^{\mathcal C}
+\longrightarrow\operatorname{Vect}_{\mathbb C},
 \]
-\textit{Derive $d_\tau=\varphi$ and the Fibonacci growth of the fusion spaces.
-Prove that $b_1\mapsto R$ and $b_2\mapsto F^{-1}RF$ define a non-Abelian
-unitary representation $\rho:B_3\to\operatorname{U}(V)$ whose projective
-image is infinite and dense in
-$\operatorname{PU}(V)\cong\operatorname{SO}(3)$, equivalently that it
-approximates every element of
-$\operatorname{SU}(V)\cong\operatorname{SU}(2)$ up to overall phase}
-\cite{freedman-larsen-wang}.
-\textit{Find a braid word $w$ and a phase $z\in\operatorname{U}(1)$ such that}
-\[
-\left\|z\rho(w)-H\right\|_{\mathrm{op}}<10^{-3},
-\qquad
-H=\frac{1}{\sqrt2}
-\begin{pmatrix}
-1&1\\
-1&-1
-\end{pmatrix}.
-\]
-\textit{Contrast this with the phase-only $\mathbb Z/3$ model.}
+\textit{where $\widehat{\operatorname{Bord}}_3^{\mathcal C}$ is the
+anomaly-corrected category of oriented three-dimensional bordisms with
+$\mathcal C$-colored ribbon graphs. Recover the $F$- and $R$-matrices from
+the resulting state spaces and bordisms.}
 \end{exercise}
 
 \section{Geometry}
@@ -1272,21 +1250,8 @@ q^{-1}\langle W_{L_+}\rangle_k
 =\left(q^{1/2}-q^{-1/2}\right)\langle W_{L_0}\rangle_k
 \]
 \textit{and $\langle W_{\bigcirc}\rangle_k=1$. Show that they determine the
-Jones polynomial and account for framing dependence.}
-\end{exercise}
-
-\begin{exercise}[Reshetikhin--Turaev TQFT]\leavevmode\par
-\textit{Prove that a modular braided fusion category defines a
-Reshetikhin--Turaev TQFT}
-\[
-Z:\operatorname{Bord}_3^{\mathrm{or}}
-\longrightarrow\operatorname{Vect}_{\mathbb C}.
-\]
-\textit{Here $\operatorname{Bord}_3^{\mathrm{or}}$ is the category of closed
-oriented surfaces and oriented three-dimensional bordisms. Relate its Wilson
-lines to the $F$- and $R$-matrices and, for
-$SU(2)_k$, to the Chern--Simons skein relation
-\cite{reshetikhin-turaev}.}
+Jones polynomial, account for framing dependence, and agree with the
+Reshetikhin--Turaev invariant of Exercise~\ref{ex:rt-tqft}.}
 \end{exercise}
 
 \section{Analysis}
@@ -1875,9 +1840,9 @@ doi:10.1007/BF01217730.
 
 \bibitem{reshetikhin-turaev}
 Nicolai Reshetikhin and Vladimir G. Turaev,
-\textit{Ribbon graphs and their invariants derived from quantum groups},
-Communications in Mathematical Physics, 127(1):1--26, 1990.
-doi:10.1007/BF02096491.
+\textit{Invariants of 3-manifolds via link polynomials and quantum groups},
+Inventiones Mathematicae, 103:547--597, 1991.
+doi:10.1007/BF01239527.
 
 \bibitem{achucarro-townsend}
 A. Ach\'ucarro and P. K. Townsend,
@@ -1897,23 +1862,11 @@ Yakir Aharonov and David Bohm,
 Physical Review, 115(3):485--491, 1959.
 doi:10.1103/PhysRev.115.485.
 
-\bibitem{bonderson}
-Parsa H. Bonderson,
-\textit{Non-Abelian Anyons and Interferometry},
-Ph.D. thesis, California Institute of Technology, 2007.
-doi:10.7907/5NDZ-W890.
-
 \bibitem{nakamura-anyons}
 J. Nakamura, S. Liang, G. C. Gardner, and M. J. Manfra,
 \textit{Direct observation of anyonic braiding statistics},
 Nature Physics, 16:931--936, 2020.
 doi:10.1038/s41567-020-1019-1.
-
-\bibitem{freedman-larsen-wang}
-Michael H. Freedman, Michael J. Larsen, and Zhenghan Wang,
-\textit{The two-eigenvalue problem and density of Jones representation of braid groups},
-Communications in Mathematical Physics, 228(1):177--199, 2002.
-doi:10.1007/s002200200636.
 
 \end{thebibliography}
 
