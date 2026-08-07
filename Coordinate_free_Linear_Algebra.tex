@@ -1634,6 +1634,27 @@ the reversal of the tensor factors as the distinction between largest
 singular value and total singular mass.}
 \end{exercise}
 
+\begin{exercise}[Trace norm governs state discrimination]
+\leavevmode\par
+\textit{Let $\rho_0,\rho_1\in M_n$ be positive with trace one, and let
+$p_0,p_1$ be probabilities with $p_0+p_1=1$. A binary measurement is a pair
+$M_0,M_1\geq0$ with $M_0+M_1=1$. Define
+$\|x\|_1=\trace\sqrt{x^*x}$. For}
+\[
+p_{\mathrm{succ}}
+=p_0\trace(M_0\rho_0)+p_1\trace(M_1\rho_1),
+\]
+\textit{prove the Helstrom formula \cite{helstrom-detection}}
+\[
+\max_{(M_0,M_1)}p_{\mathrm{succ}}
+=\frac12\left(1+\|p_0\rho_0-p_1\rho_1\|_1\right).
+\]
+\textit{Determine an optimal measurement from the positive spectral
+subspace of $p_0\rho_0-p_1\rho_1$, and use
+$R_n\otimes_hC_n\cong S_1^n$ to interpret distinguishability as a Haagerup
+tensor norm.}
+\end{exercise}
+
 For a bilinear map $u:E\times F\to G$, define
 \[
 u_n(x,y)_{ij}=\sum_{k=1}^n u(x_{ik},y_{kj}),
@@ -1662,12 +1683,29 @@ $S\subseteq\mathcal B(H)$. A linear map $\Phi:S\to T$ is \textbf{positive}
 if $\Phi(S_+)\subseteq T_+$, and \textbf{completely positive} if every
 $\Phi_n:M_n(S)\to M_n(T)$ is positive.
 
-\begin{exercise}[Positivity at one level is not complete positivity]
+\begin{exercise}[Partial transpose detects entanglement]
 \leavevmode\par
-\textit{Prove that transposition $t:M_n\to M_n$ is positive but, for
-$n\geq2$, $t_2$ is not positive. Exhibit the obstruction using a maximally
-entangled rank-one projection, and relate it to
-$\|t\|_{\mathrm{cb}}=n$.}
+\textit{A state in $M_m\otimes M_n$ is a positive element $\rho$ with
+$\trace\rho=1$. Call it separable if
+$\rho=\sum_k p_k\sigma_k\otimes\tau_k$ for states $\sigma_k,\tau_k$ and
+probabilities $p_k$. Prove that transposition $t:M_n\to M_n$ is positive and
+that every separable state has positive partial transpose}
+\cite{peres-ppt}
+\[
+\rho^\Gamma=(1\otimes t)(\rho)\geq0.
+\]
+\textit{For
+$\Omega_2=(|00\rangle+|11\rangle)/\sqrt2$, compute the spectrum of
+$(|\Omega_2\rangle\langle\Omega_2|)^\Gamma$ and deduce that $t$ is not
+$2$-positive. Assume the Peres--Horodecki theorem that positivity of the
+partial transpose is also sufficient for separability in
+$2\times2$ and $2\times3$ systems \cite{horodecki-ppt}. Apply it to}
+\[
+\rho_p=p|\psi^-\rangle\langle\psi^-|+(1-p)\frac{1_4}{4},
+\qquad
+|\psi^-\rangle=\frac{|01\rangle-|10\rangle}{\sqrt2},
+\]
+\textit{and prove that $\rho_p$ is separable exactly when $p\leq1/3$.}
 \end{exercise}
 
 For $\Phi:M_n\to M_m$, its \textbf{Choi matrix} is
@@ -1688,6 +1726,35 @@ C_\Phi\geq0,
 \textit{Determine the least number of Kraus operators from
 $\operatorname{rank}C_\Phi$ and express trace preservation and unitality as
 partial-trace conditions on $C_\Phi$.}
+\end{exercise}
+
+\begin{exercise}[Choi states enable process tomography]
+\leavevmode\par
+\textit{Let
+$\Omega_n=n^{-1/2}\sum_{i=1}^n e_i\otimes e_i$ and let
+$\Phi:M_n\to M_m$ be completely positive and trace preserving. Define}
+\[
+\rho_\Phi=(1\otimes\Phi)(|\Omega_n\rangle\langle\Omega_n|).
+\]
+\textit{Prove}
+\[
+\rho_\Phi=\frac1nC_\Phi,
+\qquad
+\Phi(x)=n\,\operatorname{Tr}_1
+\!\left((x^{\mathsf T}\otimes1)\rho_\Phi\right),
+\qquad
+\operatorname{Tr}_2\rho_\Phi=\frac1n1.
+\]
+\textit{Here $\operatorname{Tr}_1$ and $\operatorname{Tr}_2$ are the partial
+traces over the first and second tensor factors. Call a bipartite probe
+$\sigma\in M_n\otimes M_n$ full
+operator-Schmidt rank if
+$\sigma=\sum_{k=1}^{n^2}A_k\otimes B_k$ with both families linearly
+independent. Prove that $(1\otimes\Phi)(\sigma)$ determines every linear map
+$\Phi:M_n\to M_m$ exactly when $\sigma$ has full operator-Schmidt rank.
+Construct a separable probe with this property, and compare the entangled-
+and separable-probe process reconstructions reported in the photonic
+experiment of Altepeter et al. \cite{altepeter-tomography}.}
 \end{exercise}
 
 \begin{exercise}[Stinespring dilation turns positivity into geometry]
@@ -2248,6 +2315,31 @@ Man-Duen Choi,
 \textit{Completely positive linear maps on complex matrices},
 Linear Algebra and its Applications, 10(3):285--290, 1975.
 doi:10.1016/0024-3795(75)90075-0.
+
+\bibitem{helstrom-detection}
+Carl W. Helstrom,
+\textit{Quantum Detection and Estimation Theory},
+Mathematics in Science and Engineering, Vol. 123,
+Academic Press, 1976.
+
+\bibitem{peres-ppt}
+Asher Peres,
+\textit{Separability criterion for density matrices},
+Physical Review Letters, 77(8):1413--1415, 1996.
+doi:10.1103/PhysRevLett.77.1413.
+
+\bibitem{horodecki-ppt}
+Micha{\l} Horodecki, Pawe{\l} Horodecki, and Ryszard Horodecki,
+\textit{Separability of mixed states: necessary and sufficient conditions},
+Physics Letters A, 223(1--2):1--8, 1996.
+doi:10.1016/S0375-9601(96)00706-2.
+
+\bibitem{altepeter-tomography}
+J. B. Altepeter, D. Branning, E. Jeffrey, T. C. Wei, P. G. Kwiat,
+R. T. Thew, J. L. O'Brien, M. A. Nielsen, and A. G. White,
+\textit{Ancilla-assisted quantum process tomography},
+Physical Review Letters, 90(19):193601, 2003.
+doi:10.1103/PhysRevLett.90.193601.
 
 \bibitem{wittstock}
 Gerd Wittstock,
