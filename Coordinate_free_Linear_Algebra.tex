@@ -1331,85 +1331,50 @@ Reshetikhin--Turaev invariant of Exercise~\ref{ex:rt-tqft}.}
 
 \section{Analysis}
 
-\subsection{Hilbert spaces and bounded operators}
+\subsection{Operators on Hilbert space}
 
-A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|:H\to[0,\infty)$ that is definite, homogeneous, and satisfies the triangle inequality. A normed space is a \textbf{Banach space} if every Cauchy sequence converges. A \textbf{Hilbert space} is a complex vector space with a Hermitian inner product $\langle\mathord{\cdot},\mathord{\cdot}\rangle$ whose norm $\|x\|=\sqrt{\langle x,x\rangle}$ is complete. A linear map $A:H\to K$ is \textbf{bounded} if
+A \textbf{Hilbert space} is a complex inner-product space complete for
+$\|x\|=\sqrt{\langle x,x\rangle}$. Write $\mathcal B(H,K)$ for the bounded
+operators $H\to K$ with
 \[
-\|A\|=\sup_{\|x\|=1}\|Ax\|<\infty.
-\]
-Write $\mathcal B(H,K)$ for the normed space of bounded operators and $\mathcal B(H)=\mathcal B(H,H)$.
-
-The notions of adjoint, self-adjoint, normal, positive, and unitary extend from
-the finite-dimensional case to bounded operators on Hilbert spaces.
-
-\begin{exercise}[Cauchy--Schwarz inequality]\leavevmode\par
-\textit{Prove that every inner-product space satisfies}
-\[
-|\langle x,y\rangle|\leq\|x\|\|y\|.
-\]
-\textit{Deduce the triangle inequality for the induced norm and prove that
-$\mathcal B(H,K)$ is complete when $K$ is complete.}
-\end{exercise}
-
-\begin{exercise}[Adjoints of bounded operators]\leavevmode\par
-\textit{Prove that every bounded operator between Hilbert spaces has a unique adjoint and establish the identities}
-\[
-(AB)^*=B^*A^*,
+\|T\|=\sup_{\|x\|=1}\|Tx\|,
 \qquad
-\|A^*A\|=\|A\|^2.
+\mathcal B(H)=\mathcal B(H,H).
 \]
-\end{exercise}
+A \textbf{$C^*$-algebra} is a complex Banach $*$-algebra $A$ satisfying
+$\|a^*a\|=\|a\|^2$. An element $a\in A$ is \textbf{positive}, written
+$a\geq0$, if $a=b^*b$ for some $b\in A$. The algebra $M_n(A)$ has its standard
+$C^*$-algebra structure.
 
-\subsection{Compact operators and index theory}
-
-A bounded operator $K:H\to L$ between Hilbert spaces is \textbf{compact} if
-the image of the closed unit ball has compact closure. Write
-$\mathcal K(H,L)$ for the compact operators and
-$\mathcal K(H)=\mathcal K(H,H)$.
-
-\begin{exercise}[Compact operators]\leavevmode\par
-\textit{Give the sequential characterization of compact operators and prove
-that they form an adjoint-closed norm-closed operator ideal generated densely
-by finite-rank operators.}
-\end{exercise}
-
-A bounded operator $T:H\to L$ is \textbf{Fredholm} if $\ker T$ and $L/\operatorname{im}T$ are finite dimensional and $\operatorname{im}T$ is closed. Its \textbf{Fredholm index} is
+\begin{exercise}[Hilbert-space operators form a $C^*$-algebra]\leavevmode\par
+\textit{Prove the Cauchy--Schwarz inequality, construct the adjoint of every
+$T\in\mathcal B(H,K)$, and prove}
 \[
-\operatorname{ind}(T)
-=\dim\ker T-\dim(L/\operatorname{im}T).
+(ST)^*=T^*S^*,
+\qquad
+\|T^*T\|=\|T\|^2.
 \]
-
-\begin{exercise}[Fredholm alternative]\leavevmode\par
-\textit{For $K\in\mathcal K(H)$ and $\lambda\ne0$, prove the Fredholm
-alternative \cite{conway-functional}: $\lambda1-K$ has index zero,}
-\[
-\dim\ker(\lambda1-K)
-=\dim\ker(\overline\lambda1-K^*)<\infty.
-\]
-\textit{Characterize solvability of $(\lambda1-K)x=y$ and deduce that every
-nonzero spectral value of a compact operator is an eigenvalue of
-finite multiplicity, with zero the only possible accumulation point.}
+\textit{Deduce that $\mathcal B(H)$ is a $C^*$-algebra and that
+$M_n(\mathcal B(H))\cong\mathcal B(H^{\oplus n})$ isometrically as a
+$*$-algebra.}
 \end{exercise}
 
-\begin{exercise}[The Fredholm alternative detects resonance]\leavevmode\par
-\textit{Let $K\in\mathcal K(H)$ be positive and self-adjoint and consider}
-\[
-\ddot u+Ku=f\cos(\omega t),
-\qquad \omega>0.
-\]
-\textit{Characterize the responses $u(t)=x\cos(\omega t)$. Prove that the
-response is unique when $\omega^2\notin\sigma(K)$, while for
-$\omega^2\in\sigma(K)$ it exists exactly when
-$f\perp\ker(\omega^2 1-K)$. Show that a nonzero component of $f$ in this
-eigenspace produces a secular term proportional to
-$t\sin(\omega t)$.}
-\end{exercise}
+\subsection{A Fredholm index interlude}
 
-\begin{exercise}[The Fredholm index is stable]\leavevmode\par
-\textit{Prove that $T\in\mathcal B(H)$ is Fredholm exactly when its image in
-$\mathcal B(H)/\mathcal K(H)$ is invertible. Prove that the Fredholm index is
-locally constant, additive under composition, and invariant under compact
-perturbations.}
+An operator $K\in\mathcal B(H,K')$ is \textbf{compact} if the image of its
+closed unit ball has compact closure. Write $\mathcal K(H)$ for the compact
+operators on $H$. An operator $T:H\to K'$ is \textbf{Fredholm} if its kernel
+and cokernel are finite dimensional and its image is closed; define
+\[
+\operatorname{ind}(T)=\dim\ker T-\dim\operatorname{coker}T.
+\]
+
+\begin{exercise}[The Fredholm index survives compact error]\leavevmode\par
+\textit{Prove that $\mathcal K(H)$ is the norm-closed ideal generated by the
+finite-rank operators and that $T\in\mathcal B(H)$ is Fredholm exactly when
+its image in $\mathcal B(H)/\mathcal K(H)$ is invertible. Deduce that the
+index is locally constant, additive under composition, and invariant under
+compact perturbations \cite{conway-functional}.}
 \end{exercise}
 
 Let $\operatorname{Fred}(H)$ denote the Fredholm operators on $H$, with the
@@ -1480,102 +1445,304 @@ deduce the integrated chiral anomaly}
 \]
 \end{exercise}
 
-\subsection{Quantum states, uncertainty, and dynamics}
+\subsection{Operator spaces and completely bounded maps}
 
-For $A\in\mathcal B(H)$, define the operator exponential by
+A \textbf{concrete operator space} is a closed linear subspace
+$E\subseteq\mathcal B(H,K)$. Its $n$th matrix level is
 \[
-e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}.
+M_n(E)\subseteq\mathcal B(H^{\oplus n},K^{\oplus n})
 \]
-
-\begin{exercise}[Bounded-operator exponentials]\leavevmode\par
-\textit{Prove that the exponential series converges in operator norm and
-that}
+with the inherited operator norm. For a linear map $\phi:E\to F$, define
 \[
-\frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
-\]
-\textit{Prove the semigroup law and the identity $e^{A+B}=e^Ae^B$ for
-commuting $A$ and $B$.}
-\end{exercise}
-
-A finite-dimensional \textbf{quantum state} is a positive operator $\rho$ with $\trace(\rho)=1$. A unit vector $\psi$ defines the pure state $\rho_\psi=|\psi\rangle\langle\psi|$. For a self-adjoint observable $A$, define
-\[
-\langle A\rangle_\rho=\trace(\rho A),
+\phi_n([x_{ij}])=[\phi(x_{ij})],
 \qquad
-\operatorname{Var}_\rho(A)
-=\trace\!\left(\rho(A-\langle A\rangle_\rho1)^2\right).
+\|\phi\|_{\mathrm{cb}}=\sup_{n\geq1}\|\phi_n\|.
 \]
-For $\rho=\rho_\psi$, use the subscripts $\psi$ instead of $\rho$.
+The map is a \textbf{complete contraction}, \textbf{complete isometry}, or
+\textbf{completely bounded} when every $\phi_n$ is contractive, isometric, or
+uniformly bounded, respectively. Write $\operatorname{CB}(E,F)$ for the
+completely bounded maps.
 
-\begin{exercise}[Robertson uncertainty inequality]\leavevmode\par
-\textit{For self-adjoint $A,B\in\mathcal B(H)$ and a unit vector $\psi$, prove} \cite{robertson}
+\begin{exercise}[Ruan's axioms characterize concrete operator spaces]
+\leavevmode\par
+\textit{Show that concrete matrix norms satisfy}
 \[
-\operatorname{Var}_\psi(A)\operatorname{Var}_\psi(B)
-\geq\frac14\left|\langle\psi,[A,B]\psi\rangle\right|^2,
-\qquad [A,B]=AB-BA.
+\|x\oplus y\|=\max\{\|x\|,\|y\|\},
+\qquad
+\|\alpha x\beta\|\leq\|\alpha\|\,\|x\|\,\|\beta\|.
 \]
-\textit{Determine the equality condition.}
+\textit{Conversely, prove that a vector space with matrix norms satisfying
+these axioms admits a completely isometric embedding into
+$\mathcal B(H)$ \cite{ruan-operator-spaces}.}
 \end{exercise}
 
-\begin{exercise}[Commuting observables are conserved]\leavevmode\par
-\textit{Let $A,H$ be self-adjoint and write $U_t=e^{-itH}$. Prove that
-$U_t$ is unitary and that}
+The \textbf{row} and \textbf{column operator spaces} are
 \[
-\frac{d}{dt}\langle U_t\psi,A U_t\psi\rangle
-=-i\langle U_t\psi,[H,A]U_t\psi\rangle.
+R_n=M_{1,n}\subseteq\mathcal B(\mathbb C^n,\mathbb C),
+\qquad
+C_n=M_{n,1}\subseteq\mathcal B(\mathbb C,\mathbb C^n).
 \]
-\textit{Deduce that $[H,A]=0$ if and only if the expectation of $A$ is constant under this evolution for every initial vector.}
+
+\begin{exercise}[Matrix levels detect noncommutativity]\leavevmode\par
+\textit{For the identity maps between the underlying Hilbert spaces of
+$R_n$ and $C_n$, prove}
+\[
+\|1:R_n\to C_n\|_{\mathrm{cb}}
+=\|1:C_n\to R_n\|_{\mathrm{cb}}=\sqrt n.
+\]
+\textit{For transposition $t:M_n\to M_n$, prove}
+\[
+\|t\|=1,
+\qquad
+\|t\|_{\mathrm{cb}}=n.
+\]
+\textit{Explain why Banach-space norm alone forgets both distinctions.}
 \end{exercise}
 
-\begin{exercise}[No-cloning theorem]\label{ex:no-cloning}\leavevmode\par
-\textit{Let $b\in H$ be a unit vector and suppose that a unitary $C:H\otimes H\to H\otimes H$ satisfies $C(v\otimes b)=v\otimes v$ and $C(w\otimes b)=w\otimes w$ for unit vectors $v,w$. Prove that} \cite{wootters-zurek}
+\begin{exercise}[Smith's lemma stabilizes maps into matrices]\leavevmode\par
+\textit{For an operator space $E$ and a linear map $\phi:E\to M_n$, prove}
+\cite{smith-cb}
 \[
-\langle v,w\rangle=\langle v,w\rangle^2.
+\|\phi\|_{\mathrm{cb}}=\|\phi_n\|.
 \]
-\textit{Deduce that no unitary map clones every unit vector.}
+\textit{Deduce that complete boundedness is a finite computation whenever the
+codomain is a fixed matrix algebra.}
 \end{exercise}
 
-\subsection{Schmidt decomposition and entanglement}
+\subsection{Operator-space duality and Haagerup tensoring}
 
-For finite-dimensional Hilbert spaces $H_A,H_B$, the \textbf{partial trace}
-over $H_B$ is the linear map
+The \textbf{operator-space dual} of $E$ is the Banach dual $E^*$ with matrix
+norms determined by
 \[
-\operatorname{Tr}_{H_B}:\End(H_A\otimes H_B)\longrightarrow\End(H_A)
+M_n(E^*)=\operatorname{CB}(E,M_n)
 \]
+isometrically. Rectangular spaces $M_{p,q}(E)$ carry the norms inherited from
+$\mathcal B(H^{\oplus q},K^{\oplus p})$. For
+$u=\sum_{k=1}^r x_k\otimes y_k\in E\otimes F$, define
+\[
+\|u\|_h
+=\inf\left\{
+\|[x_1\ \cdots\ x_r]\|_{M_{1,r}(E)}
+\|[y_1\ \cdots\ y_r]^{\mathsf T}\|_{M_{r,1}(F)}
+\right\}.
+\]
+The completion is the \textbf{Haagerup tensor product} $E\otimes_hF$.
+
+\begin{exercise}[Rows and columns give Schatten norms]
+\leavevmode\par
+\textit{Under $e_i\otimes e_j\mapsto E_{ij}$, prove the complete isometries}
+\[
+C_n\otimes_hR_n\cong M_n,
+\qquad
+R_n\otimes_hC_n\cong S_1^n,
+\]
+\textit{where $M_n$ has operator norm and $S_1^n$ has trace norm. Interpret
+the reversal of the tensor factors as the distinction between largest
+singular value and total singular mass.}
+\end{exercise}
+
+For a bilinear map $u:E\times F\to G$, define
+\[
+u_n(x,y)_{ij}=\sum_{k=1}^n u(x_{ik},y_{kj}),
+\qquad
+\|u\|_{\mathrm{mb}}=\sup_n\|u_n\|.
+\]
+Such a map is \textbf{multiplicatively bounded} if this supremum is finite.
+
+\begin{exercise}[Haagerup tensoring linearizes products]
+\leavevmode\par
+\textit{Prove that $u$ is multiplicatively bounded exactly when its
+linearization extends to a completely bounded map}
+\[
+\widetilde u:E\otimes_hF\longrightarrow G,
+\qquad
+\widetilde u(x\otimes y)=u(x,y),
+\]
+\textit{and prove $\|\widetilde u\|_{\mathrm{cb}}=\|u\|_{\mathrm{mb}}$.
+Apply this to multiplication in a $C^*$-algebra.}
+\end{exercise}
+
+\subsection{Operator systems and completely positive maps}
+
+An \textbf{operator system} is a self-adjoint unital subspace
+$S\subseteq\mathcal B(H)$. A linear map $\Phi:S\to T$ is \textbf{positive}
+if $\Phi(S_+)\subseteq T_+$, and \textbf{completely positive} if every
+$\Phi_n:M_n(S)\to M_n(T)$ is positive.
+
+\begin{exercise}[Positivity at one level is not complete positivity]
+\leavevmode\par
+\textit{Prove that transposition $t:M_n\to M_n$ is positive but, for
+$n\geq2$, $t_2$ is not positive. Exhibit the obstruction using a maximally
+entangled rank-one projection, and relate it to
+$\|t\|_{\mathrm{cb}}=n$.}
+\end{exercise}
+
+For $\Phi:M_n\to M_m$, its \textbf{Choi matrix} is
+\[
+C_\Phi=\sum_{i,j=1}^n E_{ij}\otimes\Phi(E_{ij})\in M_n\otimes M_m.
+\]
+
+\begin{exercise}[Choi matrices classify completely positive maps]
+\leavevmode\par
+\textit{Prove that the following are equivalent \cite{choi-cp}:}
+\[
+\Phi\text{ is completely positive},
+\qquad
+C_\Phi\geq0,
+\qquad
+\Phi(x)=\sum_\alpha V_\alpha xV_\alpha^*.
+\]
+\textit{Determine the least number of Kraus operators from
+$\operatorname{rank}C_\Phi$ and express trace preservation and unitality as
+partial-trace conditions on $C_\Phi$.}
+\end{exercise}
+
+\begin{exercise}[Stinespring dilation turns positivity into geometry]
+\leavevmode\par
+\textit{For a completely positive map
+$\Phi:A\to\mathcal B(H)$ from a unital $C^*$-algebra, construct a
+$*$-representation $\pi:A\to\mathcal B(K)$ and $V:H\to K$ such that}
+\cite{stinespring}
+\[
+\Phi(a)=V^*\pi(a)V,
+\qquad
+V^*V=\Phi(1).
+\]
+\textit{Prove uniqueness of a minimal dilation up to unitary equivalence.}
+\end{exercise}
+
+For $E\subseteq\mathcal B(H,K)$, define its \textbf{Paulsen operator system}
+\[
+\mathcal S(E)=
+\left\{
+\begin{pmatrix}
+\lambda1_K&x\\
+y^*&\mu1_H
+\end{pmatrix}:
+\lambda,\mu\in\mathbb C,\ x,y\in E
+\right\}
+\subseteq\mathcal B(K\oplus H).
+\]
+
+\begin{exercise}[The $2\times2$ trick converts contractions into positivity]
+\leavevmode\par
+\textit{For $\phi:E\to\mathcal B(H_1,H_2)$, prove that $\phi$ is a complete
+contraction exactly when the unital map}
+\[
+\begin{pmatrix}\lambda1_K&x\\y^*&\mu1_H\end{pmatrix}
+\longmapsto
+\begin{pmatrix}\lambda1_{H_2}&\phi(x)\\
+\phi(y)^*&\mu1_{H_1}\end{pmatrix}
+\]
+\textit{is completely positive. Use this operator-system encoding to derive
+the completely contractive extension theorem.}
+\end{exercise}
+
+\begin{exercise}[Wittstock factorizes completely bounded maps]
+\leavevmode\par
+\textit{For a completely bounded map
+$\phi:A\to\mathcal B(H)$, prove that there are a representation
+$\pi:A\to\mathcal B(K)$ and operators $V,W:H\to K$ such that}
+\cite{wittstock}
+\[
+\phi(a)=V^*\pi(a)W,
+\qquad
+\|\phi\|_{\mathrm{cb}}
+=\inf\{\|V\|\|W\|:\phi(\mathord{\cdot})=V^*\pi(\mathord{\cdot})W\}.
+\]
+\textit{Deduce that every completely bounded map is a linear combination of
+completely positive maps.}
+\end{exercise}
+
+\subsection{Quantum channels and matrix-level distinguishability}
+
+For $x\in M_n$, write $\|x\|_1=\trace\sqrt{x^*x}$. A
+\textbf{state} is $\rho\in M_n$ with $\rho\geq0$ and $\trace\rho=1$. The
+\textbf{partial trace} $\operatorname{Tr}_B:M_n\otimes M_m\to M_n$ is
 characterized by
 \[
-\operatorname{Tr}\!\left(A\operatorname{Tr}_{H_B}(X)\right)
-=\operatorname{Tr}\!\left((A\otimes1_{H_B})X\right)
-\qquad(A\in\End(H_A)).
+\trace\!\left(a\,\operatorname{Tr}_B x\right)
+=\trace\!\left((a\otimes1)x\right).
+\]
+A \textbf{Schr\"odinger-picture quantum channel} is a completely positive
+trace-preserving map $\Phi:M_n\to M_m$. Its
+\textbf{Heisenberg adjoint} $\Phi^*:M_m\to M_n$ is determined by
+\[
+\trace(\Phi(\rho)a)=\trace(\rho\Phi^*(a)).
 \]
 
-For finite-dimensional Hilbert spaces $H_A,H_B$ and $\psi\in H_A\otimes H_B$, define
-\[
-T_\psi:H_A^*\to H_B,
-\qquad
-T_\psi(\phi)=(\phi\otimes1)(\psi).
-\]
-A \textbf{Schmidt decomposition} of $\psi$ is an expression
+\begin{exercise}[Schmidt spectra measure entanglement]
+\leavevmode\par
+\textit{For $\psi\in H_A\otimes H_B$, apply singular-value decomposition to
+$T_\psi:H_A^*\to H_B$, where $T_\psi(f)=(f\otimes1)(\psi)$, and obtain}
 \[
 \psi=\sum_{i=1}^r s_i a_i\otimes b_i.
 \]
-where $(a_i)$ and $(b_i)$ are orthonormal families and $s_i>0$; $r$ is the \textbf{Schmidt rank}. For a unit vector $\psi$, define the reduced density operators by
+\textit{Characterize product vectors by $r=1$, identify $s_i^2$ as the
+nonzero eigenvalues of both reduced states, and compute}
 \[
-\rho_A=\operatorname{Tr}_{H_B}(|\psi\rangle\langle\psi|),
-\qquad
-\rho_B=\operatorname{Tr}_{H_A}(|\psi\rangle\langle\psi|).
+S(\psi)=-\sum_i s_i^2\log s_i^2.
 \]
-
-\begin{exercise}[Schmidt decomposition and entanglement]\leavevmode\par
-\textit{Use singular-value decomposition to derive the Schmidt decomposition,
-characterize separability, and compute the entanglement entropy}
-\[
-S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
-=-\sum_i s_i^2\log s_i^2,
-\]
-\textit{where the $s_i$ are the Schmidt coefficients.}
 \end{exercise}
 
-\subsection{CHSH, Gisin, and Tsirelson}
+\begin{exercise}[Channels are isometries with an environment]\leavevmode\par
+\textit{Combine Choi's theorem and Stinespring dilation to prove that every
+channel has equivalent forms}
+\[
+\Phi(\rho)=\sum_\alpha K_\alpha\rho K_\alpha^*
+=\operatorname{Tr}_E(V\rho V^*),
+\qquad
+V^*V=1.
+\]
+\textit{Describe the Choi--Jamio{\l}kowski correspondence and determine
+which bipartite states correspond to channels.}
+\end{exercise}
+
+For a linear map $\Psi:M_n\to M_m$, define its \textbf{diamond norm} by
+\[
+\|\Psi\|_\diamond
+=\sup_{k\geq1}\|\Psi\otimes1_{M_k}\|_{1\to1}.
+\]
+
+\begin{exercise}[The diamond norm is the operational cb norm]
+\leavevmode\par
+\textit{Prove the stabilization and duality identities}
+\cite{watrous-cb-norms}
+\[
+\|\Psi\|_\diamond
+=\|\Psi\otimes1_{M_n}\|_{1\to1},
+\qquad
+\|\Psi\|_\diamond=\|\Psi^*\|_{\mathrm{cb}}.
+\]
+\textit{For equally likely channels $\Phi_0,\Phi_1$, prove that the optimal
+one-use discrimination probability, allowing an entangled ancilla, is}
+\[
+p_{\mathrm{succ}}
+=\frac12+\frac14\|\Phi_0-\Phi_1\|_\diamond.
+\]
+\end{exercise}
+
+\begin{exercise}[Entanglement improves process discrimination]
+\leavevmode\par
+\textit{Assume the Piani--Watrous theorem that every entangled bipartite
+state improves the success probability in some channel-discrimination task
+\cite{piani-watrous}. Explain why this is an operational manifestation of
+matrix amplification. Reconstruct the subchannels and unsteerable benchmark
+in the photonic experiment of Sun et al., and compare its measured
+steering-assisted success probabilities with that benchmark
+\cite{sun-subchannel}.}
+\end{exercise}
+
+\begin{exercise}[No channel universally clones pure states]
+\label{ex:no-cloning}\leavevmode\par
+\textit{Suppose a channel $C$ and fixed blank state $\sigma$ satisfy
+$C(\rho\otimes\sigma)=\rho\otimes\rho$ for every pure state $\rho$. Use
+contractivity of trace distance, or monotonicity of fidelity, to obtain a
+contradiction from two nonorthogonal states. Recover the unitary inner-product
+argument of Wootters and Zurek \cite{wootters-zurek}.}
+\end{exercise}
+
+\subsection{Nonlocal correlations and Grothendieck inequalities}
 
 \begin{exercise}[Every entangled pure two-qubit state violates CHSH]\leavevmode\par
 \textit{Let $A_0,A_1$ and $B_0,B_1$ be self-adjoint operators with
@@ -1617,19 +1784,18 @@ and
 \]
 where the supremum is over bipartite binary quantum correlation matrices.
 
-\begin{exercise}[Tsirelson's representation theorem and bound]\leavevmode\par
-\textit{Prove Tsirelson's representation theorem \cite{tsirelson}: there exist
-real vectors $x_i,y_j$ with $\|x_i\|\leq 1$ and $\|y_j\|\leq 1$ such that}
+\begin{exercise}[Tsirelson turns quantum correlations into vectors]
+\leavevmode\par
+\textit{Prove that every binary quantum correlation has a representation}
+\cite{tsirelson}
 \[
-c_{ij}=\langle x_i,y_j\rangle.
+c_{ij}=\langle x_i,y_j\rangle_{\mathbb R},
+\qquad
+\|x_i\|,\|y_j\|\leq1.
 \]
-\textit{Conversely, use finite-dimensional Clifford representations to prove
-that every finite family of such inner products is a bipartite binary quantum
-correlation matrix. Deduce that $\beta_{\mathrm Q}$ is the corresponding
-vector relaxation and derive the sharp CHSH bound $2\sqrt2$.}
+\textit{Prove the converse using finite-dimensional Clifford
+representations and deduce the sharp CHSH value $2\sqrt2$.}
 \end{exercise}
-
-\subsection{Grothendieck inequality}
 
 The \textbf{real Grothendieck constant} $K_G^{\mathbb R}$ is the least constant for which
 \[
@@ -1637,18 +1803,41 @@ The \textbf{real Grothendieck constant} $K_G^{\mathbb R}$ is the least constant 
 \]
 holds for every real matrix $M$.
 
-\begin{exercise}[Grothendieck's inequality]\leavevmode\par
-\textit{Prove that $K_G^{\mathbb R}<\infty$
-\cite{grothendieck,pisier-grothendieck}. Use}
+\begin{exercise}[Grothendieck bounds quantum advantage uniformly]
+\leavevmode\par
+\textit{Prove that $K_G^{\mathbb R}<\infty$ \cite{grothendieck}. Use}
 \[
 M_{\mathrm{CHSH}}=
 \begin{pmatrix}1&1\\1&-1\end{pmatrix},
 \]
-\textit{to prove $K_G^{\mathbb R}\geq\sqrt2$ and interpret the inequality
-as a dimension-independent bound on quantum advantage.}
+\textit{to prove $K_G^{\mathbb R}\geq\sqrt2$ and interpret the inequality as
+a dimension-independent comparison of scalar and Hilbert-space strategies.}
 \end{exercise}
 
-\subsection{Von Neumann algebras and subfactors}
+For a bilinear form $u:A\times B\to\mathbb C$, define
+$T_u:A\to B^*$ by $T_u(a)(b)=u(a,b)$. The form is
+\textbf{jointly completely bounded} when $T_u$ is completely bounded, with
+$\|u\|_{\mathrm{jcb}}=\|T_u\|_{\mathrm{cb}}$. A \textbf{state} on a unital
+$C^*$-algebra is a positive functional of norm one.
+
+\begin{exercise}[The operator-space Grothendieck inequality]
+\leavevmode\par
+\textit{Prove that for every jointly completely bounded
+$u:A\times B\to\mathbb C$ there are states $f_1,f_2$ on $A$ and $g_1,g_2$
+on $B$ such that} \cite{haagerup-musat}
+\[
+|u(a,b)|\leq\|u\|_{\mathrm{jcb}}
+\left(
+f_1(aa^*)^{1/2}g_1(b^*b)^{1/2}
++f_2(a^*a)^{1/2}g_2(bb^*)^{1/2}
+\right).
+\]
+\textit{Deduce a factorization of $T_u$ through a direct sum of row and
+column Hilbert operator spaces, and recover the scalar Grothendieck pattern
+on commutative subalgebras.}
+\end{exercise}
+
+\subsection{Dual operator spaces and von Neumann algebras}
 
 For $\mathcal S\subseteq\mathcal B(H)$, its \textbf{commutant} is
 \[
@@ -1660,28 +1849,23 @@ A \textbf{von Neumann algebra} is a unital $*$-subalgebra $M\subseteq\mathcal B(
 \]
 for every $\xi,\eta\in H$.
 
-\begin{exercise}[Bicommutant theorem]\leavevmode\par
+\begin{exercise}[Bicommutants are dual operator algebras]\leavevmode\par
 \textit{Let $A\subseteq\mathcal B(H)$ be a unital $*$-subalgebra. Prove that}
 \[
 A''
 =\overline A^{\,\mathrm{SOT}}
 =\overline A^{\,\mathrm{WOT}}.
 \]
+\textit{Identify the canonical predual of $A''$ as a quotient of the
+trace-class operators.}
 \end{exercise}
 
-The \textbf{center} of a von Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if $Z(M)=\mathbb C1$.
-
-For a linear map $\Phi:M\to N$ between von Neumann algebras, its $n$th
-\textbf{matrix amplification} is
-\[
-\Phi_n([x_{ij}])=[\Phi(x_{ij})].
-\]
-The map $\Phi$ is \textbf{completely positive} if every $\Phi_n$ is positive,
-and it is \textbf{normal} if it preserves suprema of bounded increasing nets
-of positive elements. A \textbf{normal $*$-representation} of $M$ on a Hilbert
-space $K$ is a normal unital $*$-homomorphism $\pi:M\to\mathcal B(K)$. A
-\textbf{Heisenberg-picture quantum channel} is a normal unital completely
-positive map between von Neumann algebras.
+An operator space $E$ is a \textbf{dual operator space} with predual $E_*$ if
+$E=E_*^*$ completely isometrically. A map between dual operator spaces is
+\textbf{normal} if it is weak-$*$ continuous. The \textbf{center} of a von
+Neumann algebra is $Z(M)=M\cap M'$, and $M$ is a \textbf{factor} if
+$Z(M)=\mathbb C1$. A \textbf{normal channel} is a normal unital completely
+positive map.
 
 \begin{exercise}[Normal CP maps have Stinespring dilations]
 \leavevmode\par
@@ -1694,17 +1878,11 @@ normal representation $\pi:M\to\mathcal B(K)$, and $V:H\to K$ such that}
 \qquad
 V^*V=\Phi(1).
 \]
-\textit{Deduce that every normal channel on $\mathcal B(H_0)$ has the
-environmental form}
+\textit{Deduce that every normal channel on $\mathcal B(H_0)$ has the form}
 \[
 \Phi(x)=V^*(x\otimes1_E)V
 \]
-\textit{and, in finite dimensions, the Kraus and partial-trace forms}
-\[
-\Phi_*(\rho)=\sum_\alpha K_\alpha\rho K_\alpha^*
-=\operatorname{Tr}_E(V\rho V^*).
-\]
-\textit{Conclude that no quantum channel clones every pure state.}
+\textit{and that its preadjoint is a Schr\"odinger-picture channel.}
 \end{exercise}
 
 A positive functional $\psi$ is \textbf{normal} if it preserves suprema of
@@ -1741,6 +1919,8 @@ p\precsim q
 \textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
 \end{exercise}
 
+\subsection{Conditional expectations and subfactors}
+
 A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let
 $N\subseteq M$ be finite von Neumann algebras with a common faithful normal
 tracial state $\tau$. A \textbf{trace-preserving conditional expectation} is
@@ -1756,8 +1936,20 @@ for $x\in M$ and $n_1,n_2\in N$. Let $L^2(M,\tau)$ be the completion of $M$ for
 \]
 Let $M$ act on $L^2(M,\tau)$ by left multiplication.
 
-\begin{exercise}[Conditional expectation and Jones projection]\leavevmode\par
-\textit{Prove that there is a unique trace-preserving conditional expectation $E_N:M\to N$. Prove that $E_N$ extends to the orthogonal projection}
+\begin{exercise}[Norm-one projections are conditional expectations]
+\leavevmode\par
+\textit{Let $A$ be a unital $C^*$-algebra, $B\subseteq A$ a unital
+$C^*$-subalgebra, and $P:A\to B$ a linear projection with $\|P\|=1$. Prove
+Tomiyama's theorem \cite{tomiyama}: $P$ is positive, completely positive, and}
+\[
+P(b_1ab_2)=b_1P(a)b_2.
+\]
+\end{exercise}
+
+\begin{exercise}[Conditional expectations give Jones projections]
+\leavevmode\par
+\textit{Prove that there is a unique trace-preserving conditional
+expectation $E_N:M\to N$ and that it extends to the orthogonal projection}
 \[
 e_N:L^2(M,\tau)\longrightarrow L^2(N,\tau).
 \]
@@ -1783,6 +1975,20 @@ An inclusion $N\subseteq M$ has \textbf{finite Jones index} if $L^2(M,\tau)$ is 
 \[
 [M:N]=\dim_NL^2(M,\tau).
 \]
+
+\begin{exercise}[The Pimsner--Popa bound detects finite index]
+\leavevmode\par
+\textit{For an inclusion $N\subseteq M$ of type $\mathrm{II}_1$ factors
+with trace-preserving expectation $E_N$, prove that finite index is
+equivalent to the existence of $\lambda>0$ satisfying}
+\cite{pimsner-popa}
+\[
+E_N(x)\geq\lambda x\qquad(x\in M_+).
+\]
+\textit{Prove that the largest such $\lambda$ is $[M:N]^{-1}$ and interpret
+this order inequality as a quantitative strengthening of complete
+positivity.}
+\end{exercise}
 
 \begin{exercise}[Jones basic construction]\leavevmode\par
 \textit{Let $N\subseteq M$ be an inclusion of type $\mathrm{II}_1$ factors of finite Jones index. Prove that $M_1$ is a finite factor and that its normalized trace satisfies} \cite{jones-sunder}
@@ -1925,6 +2131,69 @@ John B. Conway,
 \textit{A Course in Functional Analysis},
 2nd ed., Graduate Texts in Mathematics, Vol. 96, Springer, 1990.
 
+\bibitem{ruan-operator-spaces}
+Zhong-Jin Ruan,
+\textit{Subspaces of $C^*$-algebras},
+Journal of Functional Analysis, 76(1):217--230, 1988.
+doi:10.1016/0022-1236(88)90057-2.
+
+\bibitem{smith-cb}
+R. R. Smith,
+\textit{Completely bounded maps between $C^*$-algebras},
+Journal of the London Mathematical Society, s2-27(1):157--166, 1983.
+doi:10.1112/jlms/s2-27.1.157.
+
+\bibitem{choi-cp}
+Man-Duen Choi,
+\textit{Completely positive linear maps on complex matrices},
+Linear Algebra and its Applications, 10(3):285--290, 1975.
+doi:10.1016/0024-3795(75)90075-0.
+
+\bibitem{wittstock}
+Gerd Wittstock,
+\textit{Ein operatorwertiger Hahn--Banach Satz},
+Journal of Functional Analysis, 40(2):127--150, 1981.
+doi:10.1016/0022-1236(81)90064-1.
+
+\bibitem{watrous-cb-norms}
+John Watrous,
+\textit{Semidefinite programs for completely bounded norms},
+Theory of Computing, 5(11):217--238, 2009.
+doi:10.4086/toc.2009.v005a011.
+
+\bibitem{piani-watrous}
+Marco Piani and John Watrous,
+\textit{All entangled states are useful for channel discrimination},
+Physical Review Letters, 102(25):250501, 2009.
+doi:10.1103/PhysRevLett.102.250501.
+
+\bibitem{sun-subchannel}
+Kai Sun, Xiang-Jun Ye, Ya Xiao, Xiao-Ye Xu, Yu-Chun Wu, Jin-Shi Xu,
+Jing-Ling Chen, Chuan-Feng Li, and Guang-Can Guo,
+\textit{Demonstration of Einstein--Podolsky--Rosen steering with enhanced
+subchannel discrimination},
+npj Quantum Information, 4:12, 2018.
+doi:10.1038/s41534-018-0067-1.
+
+\bibitem{haagerup-musat}
+Uffe Haagerup and Magdalena Musat,
+\textit{The Effros--Ruan conjecture for bilinear forms on $C^*$-algebras},
+Inventiones Mathematicae, 174(1):139--163, 2008.
+doi:10.1007/s00222-008-0137-7.
+
+\bibitem{tomiyama}
+Jun Tomiyama,
+\textit{On the projection of norm one in $W^*$-algebras},
+Proceedings of the Japan Academy, 33(10):608--612, 1957.
+doi:10.3792/pja/1195524885.
+
+\bibitem{pimsner-popa}
+Mihai Pimsner and Sorin Popa,
+\textit{Entropy and index for subfactors},
+Annales scientifiques de l'\'Ecole Normale Sup\'erieure,
+19(1):57--106, 1986.
+doi:10.24033/asens.1504.
+
 \bibitem{jones-sunder}
 Vaughan F. R. Jones and V. S. Sunder,
 \textit{Introduction to Subfactors},
@@ -1974,23 +2243,11 @@ Alexander Grothendieck,
 \textit{R\'esum\'e de la th\'eorie m\'etrique des produits tensoriels topologiques},
 Boletim da Sociedade de Matem\'atica de S\~ao Paulo, 8:1--79, 1953.
 
-\bibitem{pisier-grothendieck}
-Gilles Pisier,
-\textit{Grothendieck's theorem, past and present},
-Bulletin of the American Mathematical Society, 49(2):237--323, 2012.
-doi:10.1090/S0273-0979-2011-01348-9.
-
 \bibitem{wootters-zurek}
 W. K. Wootters and W. H. Zurek,
 \textit{A Single Quantum Cannot Be Cloned},
 Nature, 299:802--803, 1982.
 doi:10.1038/299802a0.
-
-\bibitem{robertson}
-H. P. Robertson,
-\textit{The Uncertainty Principle},
-Physical Review, 34:163--164, 1929.
-doi:10.1103/PhysRev.34.163.
 
 \bibitem{stinespring}
 W. Forrest Stinespring,
