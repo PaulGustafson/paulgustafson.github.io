@@ -306,7 +306,18 @@ is the matrix coefficient used below.
 1\subseteq V_f^*\otimes V_\mu\otimes V_i.
 \]
 \textit{Apply it to show that all three fundamental vibrations of water are
-infrared active.}
+infrared active. Compare the mode assignments with the compiled gas-phase
+fundamentals}
+\[
+\nu_2=1594.59\ \mathrm{cm}^{-1},
+\qquad
+\nu_1=3656.65\ \mathrm{cm}^{-1},
+\qquad
+\nu_3=3755.79\ \mathrm{cm}^{-1}
+\]
+\textit{for the bend, symmetric stretch, and asymmetric stretch
+\cite{shimanouchi-water}. Reconcile the compilation's $B_1$ label for the
+asymmetric stretch with the $B_2$ label above by comparing axis conventions.}
 \end{exercise}
 
 \begin{exercise}[Water's vibrations are Raman active]\leavevmode\par
@@ -591,7 +602,9 @@ gauge-invariant phase}
 \exp\!\left(\frac{iq}{\hbar}\int_\gamma A\right)
 \]
 \textit{and the Aharonov--Bohm interference shift $q\Phi/\hbar$
-\cite{aharonov-bohm}.}
+\cite{aharonov-bohm}. Explain how the shielded-flux electron-holography
+experiment of Tonomura et al. isolates this holonomy, and compare its measured
+relative phase shift with the prediction \cite{tonomura-ab}.}
 \end{exercise}
 
 \subsection{Hodge theory and electromagnetism}
@@ -813,7 +826,10 @@ For a local unit eigenvector $\psi$, define}
 \]
 \textit{Prove that these local forms define a connection and curvature on
 $L$ and that the Berry phase around a closed curve $\gamma$ is its holonomy
-$\exp(i\int_\gamma\mathcal A)$.}
+$\exp(i\int_\gamma\mathcal A)$. For $H_n=n\cdot\sigma$, $n\in S^2$, prove
+that the phases of the two eigenlines around a loop enclosing oriented solid
+angle $\Omega$ are $\gamma_\pm=\mp\Omega/2$ modulo $2\pi$, and compare this
+prediction with neutron spin rotation \cite{bitter-dubbers}.}
 \end{exercise}
 
 \begin{exercise}[K-theory classifies class A band insulators]\label{ex:class-a-insulators}\leavevmode\par
@@ -844,7 +860,10 @@ C_1(E_H^-)
 \operatorname{tr}\bigl(P^-\,dP^-\wedge dP^-\bigr),
 \]
 \textit{and prove that a nonzero value obstructs a global smooth frame of
-occupied states.}
+occupied states. Assuming the TKNN formula
+$\sigma_{xy}=C_1(E_H^-)e^2/h$ \cite{tknn}, deduce the quantized Hall resistance and
+compare its plateaus and geometry independence with the original observation
+\cite{von-klitzing-qhe}.}
 \end{exercise}
 
 \subsection{Symplectic geometry}
@@ -1021,6 +1040,22 @@ J=\frac{\partial\Gamma}{\partial s}.
 \]
 \end{exercise}
 
+\begin{exercise}[Geodesic deviation produces interferometer strain]
+\leavevmode\par
+\textit{Consider the weak plane-wave metric}
+\[
+g=-dt^2+\bigl(1+h_+(t-z)\bigr)dx^2
++\bigl(1-h_+(t-z)\bigr)dy^2+dz^2,
+\qquad |h_+|\ll1.
+\]
+\textit{Use geodesic deviation to show, to first order, that freely falling
+mirrors separated along the $x$- and $y$-axes acquire opposite fractional
+length changes $h_+/2$ and $-h_+/2$. Deduce that an equal-arm Michelson
+interferometer measures differential strain $h_+$, and compare this prediction
+with the peak strain of order $10^{-21}$ observed for GW150914
+\cite{ligo-gw150914}.}
+\end{exercise}
+
 \begin{exercise}[Gauss--Bonnet theorem]\leavevmode\par
 \textit{Let $(M,g)$ be a compact oriented Riemannian surface with piecewise
 smooth boundary. With Gaussian curvature $K$, signed geodesic curvature
@@ -1137,7 +1172,11 @@ these data derive the fermion charges,
 the symmetry breaking
 $\operatorname{SU}(2)_L\times\operatorname{U}(1)_Y
 \to\operatorname{U}(1)_{\mathrm{EM}}$, the $W$ and $Z$ masses, the massless
-photon, and cancellation of the hypercharge anomalies.}
+photon, and cancellation of the hypercharge anomalies. Identify the
+$W^\pm\to e^\pm\nu$ missing-transverse-energy and
+$Z^0\to\ell^+\ell^-$ invariant-mass signatures permitted by these
+representations, and compare them with the original UA1 observations
+\cite{ua1-w,ua1-z}.}
 \end{exercise}
 
 \subsection{Chern--Simons theory and TQFT}
@@ -1554,7 +1593,9 @@ eigenvalues in $\{-1,1\}$, and define the CHSH operator}
 2\sqrt{1+\sin^2(2\theta)}.
 \]
 \textit{Conclude that every entangled pure two-qubit state violates
-CHSH.}
+CHSH. Relate the four observables to spacelike-separated measurement settings
+and compare the quantum violation with a loophole-free Bell experiment using
+electron spins separated by $1.3$ kilometers \cite{hensen-bell}.}
 \end{exercise}
 
 A \textbf{bipartite binary quantum correlation matrix} has entries
@@ -1866,6 +1907,19 @@ Alexei Kitaev,
 AIP Conference Proceedings, 1134:22--30, 2009.
 doi:10.1063/1.3149495.
 
+\bibitem{von-klitzing-qhe}
+K. von Klitzing, G. Dorda, and M. Pepper,
+\textit{New Method for High-Accuracy Determination of the Fine-Structure
+Constant Based on Quantized Hall Resistance},
+Physical Review Letters, 45(6):494--497, 1980.
+doi:10.1103/PhysRevLett.45.494.
+
+\bibitem{tknn}
+D. J. Thouless, M. Kohmoto, M. P. Nightingale, and M. den Nijs,
+\textit{Quantized Hall Conductance in a Two-Dimensional Periodic Potential},
+Physical Review Letters, 49(6):405--408, 1982.
+doi:10.1103/PhysRevLett.49.405.
+
 \bibitem{conway-functional}
 John B. Conway,
 \textit{A Course in Functional Analysis},
@@ -1901,6 +1955,13 @@ Nicolas Gisin,
 \textit{Bell's inequality holds for all non-product states},
 Physics Letters A, 154(5--6):201--202, 1991.
 doi:10.1016/0375-9601(91)90805-I.
+
+\bibitem{hensen-bell}
+B. Hensen et al.,
+\textit{Loophole-free Bell inequality violation using electron spins
+separated by 1.3 kilometres},
+Nature, 526:682--686, 2015.
+doi:10.1038/nature15759.
 
 \bibitem{tsirelson}
 B. S. Tsirelson,
@@ -1951,6 +2012,13 @@ Energy Levels of Hydrogen, Deuterium, and Tritium},
 Atomic Data and Nuclear Data Tables, 96:586--644, 2010.
 doi:10.1016/j.adt.2010.05.001.
 
+\bibitem{shimanouchi-water}
+Takehiko Shimanouchi,
+\textit{Tables of Molecular Vibrational Frequencies, Consolidated Volume I},
+National Standard Reference Data Series, NSRDS-NBS 39,
+National Bureau of Standards, 1972.
+doi:10.6028/NBS.NSRDS.39.
+
 \bibitem{noether}
 Emmy Noether,
 \textit{Invariant Variation Problems},
@@ -1964,6 +2032,12 @@ Manfredo P. do Carmo,
 \textit{Differential Geometry of Curves and Surfaces},
 Prentice-Hall, 1976.
 
+\bibitem{ligo-gw150914}
+B. P. Abbott et al. (LIGO Scientific Collaboration and Virgo Collaboration),
+\textit{Observation of Gravitational Waves from a Binary Black Hole Merger},
+Physical Review Letters, 116(6):061102, 2016.
+doi:10.1103/PhysRevLett.116.061102.
+
 \bibitem{chern-simons}
 S. S. Chern and J. Simons,
 \textit{Characteristic forms and geometric invariants},
@@ -1975,6 +2049,20 @@ C. N. Yang and R. L. Mills,
 \textit{Conservation of Isotopic Spin and Isotopic Gauge Invariance},
 Physical Review, 96(1):191--195, 1954.
 doi:10.1103/PhysRev.96.191.
+
+\bibitem{ua1-w}
+G. Arnison et al. (UA1 Collaboration),
+\textit{Experimental observation of isolated large transverse energy
+electrons with associated missing energy at $\sqrt{s}=540$ GeV},
+Physics Letters B, 122(1):103--116, 1983.
+doi:10.1016/0370-2693(83)91177-2.
+
+\bibitem{ua1-z}
+G. Arnison et al. (UA1 Collaboration),
+\textit{Experimental observation of lepton pairs of invariant mass around
+95 GeV/$c^2$ at the CERN SPS collider},
+Physics Letters B, 126(5):398--410, 1983.
+doi:10.1016/0370-2693(83)90188-0.
 
 \bibitem{witten-jones}
 E. Witten,
@@ -2005,6 +2093,20 @@ Yakir Aharonov and David Bohm,
 \textit{Significance of Electromagnetic Potentials in the Quantum Theory},
 Physical Review, 115(3):485--491, 1959.
 doi:10.1103/PhysRev.115.485.
+
+\bibitem{tonomura-ab}
+Akira Tonomura, Nobuyuki Osakabe, Tsuyoshi Matsuda, Takeshi Kawasaki,
+Junji Endo, Shinichiro Yano, and Hiroji Yamada,
+\textit{Evidence for Aharonov--Bohm effect with magnetic field completely
+shielded from electron wave},
+Physical Review Letters, 56(8):792--795, 1986.
+doi:10.1103/PhysRevLett.56.792.
+
+\bibitem{bitter-dubbers}
+T. Bitter and D. Dubbers,
+\textit{Manifestation of Berry's topological phase in neutron spin rotation},
+Physical Review Letters, 59(3):251--254, 1987.
+doi:10.1103/PhysRevLett.59.251.
 
 \bibitem{nakamura-anyons}
 J. Nakamura, S. Liang, G. C. Gardner, and M. J. Manfra,
