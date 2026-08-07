@@ -140,6 +140,14 @@ normal modes of $\ddot q+Kq=0$, their frequencies, and the conserved energy}
 \]
 \end{exercise}
 
+\begin{exercise}[Fourier modes solve the fixed-end wave equation]
+\label{ex:fixed-end-wave}\leavevmode\par
+\textit{Solve the fixed-end wave equation from
+Exercise~\ref{ex:wave-superposition} by Fourier series, prove conservation
+of wave energy, and recover its normal-mode frequencies as the continuum
+limit of Exercise~\ref{ex:vibrating-chain}.}
+\end{exercise}
+
 \subsection{Group representations}
 
 An action of a group $G$ on a set $X$ assigns to each $g\in G$ a bijection $x\mapsto gx$ such that $1x=x$ and $(gh)x=g(hx)$. A \textbf{representation} of $G$ on a vector space $V$ is a homomorphism
@@ -1283,7 +1291,7 @@ $SU(2)_k$, to the Chern--Simons skein relation
 
 \section{Analysis}
 
-\subsection{Norms, operator exponentials, and waves}
+\subsection{Hilbert spaces and bounded operators}
 
 A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|:H\to[0,\infty)$ that is definite, homogeneous, and satisfies the triangle inequality. A normed space is a \textbf{Banach space} if every Cauchy sequence converges. A \textbf{Hilbert space} is a complex vector space with a Hermitian inner product $\langle\mathord{\cdot},\mathord{\cdot}\rangle$ whose norm $\|x\|=\sqrt{\langle x,x\rangle}$ is complete. A linear map $A:H\to K$ is \textbf{bounded} if
 \[
@@ -1291,45 +1299,17 @@ A \textbf{norm} on a complex vector space $H$ is a function $\|\mathord{\cdot}\|
 \]
 Write $\mathcal B(H,K)$ for the normed space of bounded operators and $\mathcal B(H)=\mathcal B(H,H)$.
 
-For $A\in\mathcal B(H)$, define the operator exponential by the formal series
-\[
-e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}
-\]
-whenever the series converges in operator norm.
+The notions of adjoint, self-adjoint, normal, positive, and unitary extend from
+the finite-dimensional case to bounded operators on Hilbert spaces.
 
 \begin{exercise}[Cauchy--Schwarz inequality]\leavevmode\par
 \textit{Prove that every inner-product space satisfies}
 \[
 |\langle x,y\rangle|\leq\|x\|\|y\|.
 \]
-\textit{Deduce the triangle inequality for the induced norm. Prove that $\mathcal B(H,K)$ is complete when $K$ is complete and that the exponential series converges in $\mathcal B(H)$ for every bounded $A$.}
+\textit{Deduce the triangle inequality for the induced norm and prove that
+$\mathcal B(H,K)$ is complete when $K$ is complete.}
 \end{exercise}
-
-\begin{exercise}[Bounded-operator exponentials]\leavevmode\par
-\textit{Prove that $e^{tA}$ is differentiable in operator norm and that}
-\[
-\frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
-\]
-\textit{Prove the semigroup law $e^{(s+t)A}=e^{sA}e^{tA}$ and deduce that
-$e^{tA}$ is invertible with inverse $e^{-tA}$. If $A$ and $B$ commute, prove
-that $e^{A+B}=e^Ae^B$.}
-\end{exercise}
-
-\begin{exercise}[Fourier modes solve the fixed-end wave equation]
-\label{ex:fixed-end-wave}\leavevmode\par
-\textit{Solve the fixed-end wave equation from
-Exercise~\ref{ex:wave-superposition} by Fourier series, prove conservation
-of wave energy, and recover its normal-mode frequencies as the continuum
-limit of Exercise~\ref{ex:vibrating-chain}.}
-\end{exercise}
-
-\subsection{Hilbert-space operator theory}
-
-An \textbf{adjoint} of $A\in\mathcal B(H,K)$ is an operator $A^*\in\mathcal B(K,H)$ satisfying
-\[
-\langle Ax,y\rangle=\langle x,A^*y\rangle.
-\]
-An operator $A\in\mathcal B(H)$ is \textbf{self-adjoint} if $A=A^*$, \textbf{normal} if $A^*A=AA^*$, \textbf{positive} if $\langle x,Ax\rangle\geq0$ for every $x$, and \textbf{unitary} if $A^*A=AA^*=1$.
 
 \begin{exercise}[Adjoints of bounded operators]\leavevmode\par
 \textit{Prove that every bounded operator between Hilbert spaces has a unique adjoint and establish the identities}
@@ -1366,12 +1346,27 @@ alternative \cite{conway-functional}: $\lambda1-K$ has index zero,}
 \dim\ker(\lambda1-K)
 =\dim\ker(\overline\lambda1-K^*)<\infty.
 \]
-\textit{Characterize solvability of $(\lambda1-K)x=y$ and deduce the
-that every nonzero spectral value of a compact operator is an eigenvalue of
+\textit{Characterize solvability of $(\lambda1-K)x=y$ and deduce that every
+nonzero spectral value of a compact operator is an eigenvalue of
 finite multiplicity, with zero the only possible accumulation point.}
 \end{exercise}
 
-\subsection{Quantum states and uncertainty}
+\subsection{Quantum states, uncertainty, and dynamics}
+
+For $A\in\mathcal B(H)$, define the operator exponential by
+\[
+e^A=\sum_{n=0}^{\infty}\frac{A^n}{n!}.
+\]
+
+\begin{exercise}[Bounded-operator exponentials]\leavevmode\par
+\textit{Prove that the exponential series converges in operator norm and
+that}
+\[
+\frac{d}{dt}e^{tA}=Ae^{tA}=e^{tA}A.
+\]
+\textit{Prove the semigroup law and the identity $e^{A+B}=e^Ae^B$ for
+commuting $A$ and $B$.}
+\end{exercise}
 
 A finite-dimensional \textbf{quantum state} is a positive operator $\rho$ with $\trace(\rho)=1$. A unit vector $\psi$ defines the pure state $\rho_\psi=|\psi\rangle\langle\psi|$. For a self-adjoint observable $A$, define
 \[
