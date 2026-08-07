@@ -669,6 +669,23 @@ K^0(X)\cong[X,\mathbb Z\times BU],
 \]
 \end{exercise}
 
+\begin{exercise}[K\"unneth theorem computes torus K-theory]
+\label{ex:kunneth-k-theory}\leavevmode\par
+\textit{For finite CW complexes $X$ and $Y$ with torsion-free K-groups,
+prove that external product induces the graded isomorphism} \cite{atiyah-k-theory}
+\[
+K^*(X)\mathbin{\widehat\otimes}K^*(Y)
+\cong K^*(X\times Y).
+\]
+\textit{Here $\widehat\otimes$ denotes graded tensor product. Use Bott
+periodicity to deduce}
+\[
+K^*(\mathbb T^d)
+\cong\Lambda_{\mathbb Z}(\eta_1,\ldots,\eta_d),
+\qquad |\eta_j|=1.
+\]
+\end{exercise}
+
 For the gapped families below, assume that $X$ is connected, so vector-bundle ranks are constant. Let $V$ be a finite-dimensional Hermitian vector space as in Algebra. Exercise~\ref{ex:finite-spectral-theorem} supplies the spectral decomposition used below. A continuous family is a map
 \[
 H:X\longrightarrow\End(V)
@@ -710,8 +727,8 @@ stable equivalence classes are classified by $\widetilde K^0(X)$
 0,&d\text{ odd}.
 \end{cases}
 \]
-\textit{Compute the classifications over $\mathbb T^d$ for $d=1,2,3$ and
-distinguish strong from weak invariants.}
+\textit{Use Exercise~\ref{ex:kunneth-k-theory} to compute the classifications
+over $\mathbb T^d$ for $d=1,2,3$ and distinguish strong from weak invariants.}
 \end{exercise}
 
 \subsection{Symplectic geometry}
@@ -1734,6 +1751,11 @@ and Chern--Simons Wilson-loop invariants constructed above.}
 \end{exercise}
 
 \begin{thebibliography}{99}
+
+\bibitem{atiyah-k-theory}
+Michael F. Atiyah,
+\textit{K-Theory},
+W. A. Benjamin, 1967.
 
 \bibitem{kitaev-periodic}
 Alexei Kitaev,
