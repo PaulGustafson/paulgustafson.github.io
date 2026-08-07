@@ -1,5 +1,4 @@
 \documentclass{article}
-\usepackage{graphicx} % Required for inserting images
 \usepackage{amsfonts, amsmath, amssymb} % For mathematical symbols
 
 \newtheorem{exercise}{Exercise}
@@ -51,7 +50,7 @@ $k(X\sqcup Y)\cong kX\oplus kY$, $k(X\times Y)\cong kX\otimes kY$.
 
 The \textbf{dual space} $V^*$ is the space of linear maps from a vector space $V$ to its ground field $k$. The evaluation map $\ev_V : V^* \otimes V \to k$ is the linear extension of the evaluation morphism $f \otimes x \mapsto f(x)$. We say that $V$ is \textbf{finite dimensional} if there is a co-evaluation morphism $\coev_V: k \to V \otimes V^*$ satisfying the snake equations $(1_{V} \otimes \ev_V) \circ (\coev_V \otimes 1_V) = 1_V$
 and
-$(\ev_V \otimes 1_{V^*}) \circ (1_{V^*} \otimes \coev_{V}) = 1_{V^*}$. We define the \textbf{dimension} $\dim(V) = \trace(1_V)$, where $\trace(f) : \End(V) \to k$ is given by $f \mapsto (\ev_V \circ s_{V, V^*} \circ (f \otimes 1_{V^*}) \circ \coev_V)(1)$ where $s_{X, Y} : X \otimes Y \to Y \otimes X$ is the symmetric braiding $x \otimes y \mapsto y \otimes x$.
+$(\ev_V \otimes 1_{V^*}) \circ (1_{V^*} \otimes \coev_{V}) = 1_{V^*}$. We define the \textbf{dimension} $\dim(V) = \trace(1_V)$, where $\trace : \End(V) \to k$ is given by $f \mapsto (\ev_V \circ s_{V, V^*} \circ (f \otimes 1_{V^*}) \circ \coev_V)(1)$ where $s_{X, Y} : X \otimes Y \to Y \otimes X$ is the symmetric braiding $x \otimes y \mapsto y \otimes x$.
 
 
 
@@ -61,8 +60,8 @@ Prove the following for finite-dimensional vector spaces $V,W$ and linear maps $
         \item $\trace(f g) = \trace(g f)$
         \item $\trace(f \oplus g) = \trace(f) + \trace(g)$
         \item $\trace(f \otimes g) = \trace(f) \trace(g)$
-        \item $\dim(V) \in \mathbf{N}$
-        \item $V \cong W$ iff $\dim(V) = \dim(W)$
+        \item If $\operatorname{char}(k)=0$, then $\dim(V)\in\mathbf{N}\subset k$
+        \item If $\operatorname{char}(k)=0$, then $V\cong W$ iff $\dim(V)=\dim(W)$
     \end{itemize}
 \end{exercise}
 
@@ -76,10 +75,11 @@ T(V)=\bigoplus_{k\geq 0}V^{\otimes k},
 The space $\Lambda^kV$ is the degree-$k$ component of $\Lambda V$.
 
 \begin{exercise}[The top exterior power is one-dimensional]
-    Show that the highest graded component of $\Lambda V$ is one-dimensional.
+    Let $V$ be finite-dimensional with $n=\dim(V)$. Show that
+    $\Lambda^nV$ is one-dimensional and that $\Lambda^kV=0$ for all $k>n$.
 \end{exercise}
 
-The \textbf{determinant} $\det(f)$ is the coefficient of the linear map on the highest-graded component of $\Lambda V$ given by $v_1 \wedge \cdots \wedge v_{\dim(V)} \mapsto f(v_1) \wedge \cdots f(v_{\dim(V)})$.
+The \textbf{determinant} $\det(f)$ is the coefficient of the linear map on the highest-graded component of $\Lambda V$ given by $v_1 \wedge \cdots \wedge v_{\dim(V)} \mapsto f(v_1) \wedge \cdots \wedge f(v_{\dim(V)})$.
 
 \begin{exercise}[Determinant identities and volume]\leavevmode\par
 Prove the following:
@@ -437,6 +437,12 @@ Assume that the categorical dimensions of nonzero objects are positive real numb
 
 \begin{exercise}[Categorical trace and dimension]\leavevmode\par
 \textit{Repeat the first three parts of Exercise~\ref{ex:linear-trace-dimension} in $\mathcal C$.}
+\end{exercise}
+
+\begin{exercise}[The Lefschetz number is a categorical trace]\leavevmode\par
+\textit{Show that bounded complexes of finite-dimensional vector spaces form
+a symmetric monoidal category and that the Lefschetz number defines a
+categorical trace.}
 \end{exercise}
 
 For $x,y,z\in\mathcal C$, write
@@ -978,12 +984,6 @@ J=\frac{\partial\Gamma}{\partial s}.
 \]
 \end{exercise}
 
-\begin{exercise}[The Lefschetz number is a categorical trace]\leavevmode\par
-\textit{Show that bounded complexes of finite-dimensional vector spaces form
-a symmetric monoidal category and that the Lefschetz number defines a
-categorical trace.}
-\end{exercise}
-
 \begin{exercise}[Gauss--Bonnet theorem]\leavevmode\par
 \textit{Let $(M,g)$ be a compact oriented Riemannian surface with piecewise
 smooth boundary. With Gaussian curvature $K$, signed geodesic curvature
@@ -1235,7 +1235,7 @@ For a framed link, define the formal Chern--Simons expectation value \cite{witte
 \langle W_L\rangle_k
 =
 \frac{\int e^{iS_k(A)}W_L(A)\,\mathcal DA}
-{\int e^{iS_k(A)}\,\mathcal DA}
+{\int e^{iS_k(A)}\,\mathcal DA}.
 \]
 \begin{exercise}[Wilson loops and the Jones polynomial]\leavevmode\par
 \textit{For normalized $SU(2)$ theory at level $k$, set}
@@ -1400,7 +1400,7 @@ Exercise~\ref{ex:atiyah-singer} to prove}
 deduce the integrated chiral anomaly}
 \cite{fujikawa-anomaly}
 \[
-\Delta Q_5=\int_{\mathbb R^4}d{\star J_5}=2N_fQ(A).
+\Delta Q_5=\int_{\mathbb R^4}d(\star J_5)=2N_fQ(A).
 \]
 \end{exercise}
 
@@ -1540,7 +1540,8 @@ and
 where the supremum is over bipartite binary quantum correlation matrices.
 
 \begin{exercise}[Tsirelson's representation theorem and bound]\leavevmode\par
-\textit{Prove Tsirelson's representation theorem \cite{tsirelson}:}
+\textit{Prove Tsirelson's representation theorem \cite{tsirelson}: there exist
+real vectors $x_i,y_j$ with $\|x_i\|\leq 1$ and $\|y_j\|\leq 1$ such that}
 \[
 c_{ij}=\langle x_i,y_j\rangle.
 \]
