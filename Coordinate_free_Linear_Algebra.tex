@@ -811,19 +811,21 @@ symmetry confines each nonradial trajectory to a fixed plane.}
 
 \subsection{Connections and curvature}
 
-An \textbf{affine connection} is a map $\nabla : \Gamma(TM) \times \Gamma(TM) \to \Gamma(TM)$ such that
+Let $E\to M$ be a real or complex vector bundle and write
+$\Omega^0(M,E)=\Gamma(E)$. A \textbf{connection} on $E$ is a ground-field
+linear map
 \[
-\nabla_{fX}Y=f\nabla_XY,
-\qquad
-\nabla_X(fY)=X(f)Y+f\nabla_XY.
+\nabla:\Omega^0(M,E)\longrightarrow\Omega^1(M,E)
 \]
+satisfying $\nabla(fs)=df\otimes s+f\nabla s$. An \textbf{affine connection}
+is a connection on $TM$; write $\nabla_XY=(\nabla Y)(X)$.
 For a covector field $\alpha$, set
 \[
 (\nabla_X\alpha)(Y)=X(\alpha(Y))-\alpha(\nabla_XY).
 \]
 Define the covariant derivative of general tensor fields by the product rule and by requiring it to commute with contractions.
 
-A connection is \textbf{torsion-free and metric-compatible} when
+An affine connection is \textbf{torsion-free and metric-compatible} when
 \[
 \nabla_XY-\nabla_YX=[X,Y],
 \qquad
@@ -943,11 +945,7 @@ G+\Lambda g=\kappa T
 \textit{for constants $\Lambda,\kappa$ with $\kappa\ne0$, then $\operatorname{div}T=0$.}
 \end{exercise}
 
-Let $E\to M$ be a real or complex vector bundle and write $\Omega^0(M,E)=\Gamma(E)$. A \textbf{connection} on $E$ is a map
-\[
-\nabla:\Omega^0(M,E)\longrightarrow\Omega^1(M,E)
-\]
-linear over the ground field and satisfying $\nabla(fs)=df\otimes s+f\nabla s$. For $\alpha\in\Omega^p(M)$ and an $E$-valued form $\eta$, extend it by
+For a connection on $E\to M$, extend $\nabla$ to $E$-valued forms by
 \[
 \nabla(\alpha\wedge\eta)
 =d\alpha\wedge\eta+(-1)^p\alpha\wedge\nabla\eta.
