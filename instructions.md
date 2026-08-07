@@ -98,6 +98,9 @@ to the next subsection. Break long results into meaningful intermediate
 prompts, but do not create exercises that only repeat a definition or perform
 routine substitution.
 
+State the destination, not a guided route: omit routine intermediate steps,
+suggested lemmas, and interpretations that the solver can recover unaided.
+
 Within a subsection, collect the elementary theory before its principal
 application. A physical symmetry group should arise from a stated symmetry of
 a system; if a model instead takes the group from experiment, identify it
@@ -191,6 +194,7 @@ Before finalizing a subsection, verify that:
   the preceding exposition;
 - every substantive mathematical or physical claim occurs in an exercise;
 - every exercise has an informative title;
+- every exercise states its destination without prescribing routine steps;
 - no theorem or proof environments remain;
 - no solutions or hints are included;
 - coordinate calculations appear only when they reveal an invariant or an

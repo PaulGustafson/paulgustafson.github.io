@@ -40,13 +40,9 @@ The \textbf{free $k$-vector space on a set $X$}, denoted $kX$, is the set of fin
 An \textbf{isomorphism} of vector spaces $V\cong W$ consists of linear maps $f:V\to W$ and $g:W\to V$ such that $f\circ g=1_W$ and $g\circ f=1_V$.
 
 \begin{exercise}[Universal constructions]\leavevmode\par
-Prove the following:
-\begin{itemize}
-\item $k(X \sqcup Y) \cong kX \oplus kY$
-\item $k(X \times Y) \cong kX \otimes kY$
-\item The first isomorphism theorem for vector spaces (and second and third if you want).
-\item Find universal properties determining up to canonical isomorphism the free $k$-vector space, direct sum, quotient, tensor product, and dual space (defined below), respectively.
-\end{itemize}
+Give the universal properties of free spaces, direct sums, quotients, and
+tensor products, and use them to prove the three isomorphism theorems and
+$k(X\sqcup Y)\cong kX\oplus kY$, $k(X\times Y)\cong kX\otimes kY$.
 \end{exercise}
 
 The \textbf{dual space} $V^*$ is the space of linear maps from a vector space $V$ to its ground field $k$. The evaluation map $\ev_V : V^* \otimes V \to k$ is the linear extension of the evaluation morphism $f \otimes x \mapsto f(x)$. We say that $V$ is \textbf{finite dimensional} if there is a co-evaluation morphism $\coev_V: k \to V \otimes V^*$ satisfying the snake equations $(1_{V} \otimes \ev_V) \circ (\coev_V \otimes 1_V) = 1_V$
@@ -95,37 +91,17 @@ For $f\in\End(V)$, the \textbf{characteristic polynomial} is the polynomial $\la
 A scalar $\lambda\in k$ is an \textbf{eigenvalue} of $f$ if $\ker(f-\lambda1_V)\neq0$. This kernel is its \textbf{eigenspace}; its dimension is the geometric multiplicity of $\lambda$.
 
 \begin{exercise}[Characteristic polynomial and Jordan form]\leavevmode\par
-    Let $f\in\End(V)$ with $V$ finite dimensional. Suppose its characteristic polynomial splits over $k$. Prove:
-    \begin{itemize}
-
-        \item Every eigenvalue of $f$ is a root of its characteristic polynomial.
-        \item The geometric multiplicity of each eigenvalue is at most equal to its \textbf{algebraic multiplicity} (i.e. multiplicity as a root of the characteristic polynomial)
-        \item $\trace(f) = \sum_i \lambda_i$ and $\det(f) = \prod_i \lambda_i$, where each eigenvalue $\lambda_i$ is repeated according to its algebraic multiplicity
-        \item The operator $f$ satisfies its own characteristic polynomial (replacing $\lambda$ with $f$)
-        \item The existence of the Jordan normal form for a linear operator on a finite-dimensional complex vector space
-    \end{itemize}
+Let $f\in\End(V)$ have split characteristic polynomial. Prove the
+Cayley--Hamilton theorem and Jordan normal form, and derive the algebraic and
+geometric multiplicity inequality together with the eigenvalue formulas for
+$\trace(f)$ and $\det(f)$.
 \end{exercise}
 
 \begin{exercise}[Critical damping is a Jordan block]\leavevmode\par
-\textit{For a damped harmonic oscillator with mass $m>0$, damping coefficient
-$b\geq0$, and spring stiffness $\kappa>0$, set $y=(x,\dot x)$ and}
-\[
-A=
-\begin{pmatrix}
-0&1\\
--\kappa/m&-b/m
-\end{pmatrix}.
-\]
-\textit{Rewrite $m\ddot x+b\dot x+\kappa x=0$ as $\dot y=Ay$. Determine
-the real and complex Jordan forms of $A$ and solve the oscillator in the
-underdamped, overdamped, and critically damped regimes. Prove that critical
-damping occurs precisely when $b^2=4m\kappa$ and that the resulting
-nontrivial Jordan block produces the term}
-\[
-t e^{-bt/(2m)}.
-\]
-\textit{Relate the eigenvalues in the three regimes to oscillation and
-decay of the motion.}
+\textit{Use Jordan normal form to solve
+$m\ddot x+b\dot x+\kappa x=0$ in all three damping regimes, and show that
+critical damping is exactly $b^2=4m\kappa$, where a nontrivial Jordan block
+produces $t e^{-bt/(2m)}$.}
 \end{exercise}
 
 A \textbf{Hermitian inner product} on a complex vector space $V$ is a positive-definite sesquilinear form $\langle\mathord{\cdot},\mathord{\cdot}\rangle$, conjugate-linear in the first variable and linear in the second. It induces the norm $\|v\|=\sqrt{\langle v,v\rangle}$. For a linear map $A:V\to W$ between finite-dimensional Hermitian spaces, an \textbf{adjoint} is a map $A^*:W\to V$ satisfying
@@ -135,42 +111,28 @@ A \textbf{Hermitian inner product} on a complex vector space $V$ is a positive-d
 An endomorphism $A$ is \textbf{self-adjoint} if $A=A^*$, \textbf{normal} if $A^*A=AA^*$, \textbf{positive} if $\langle v,Av\rangle\geq0$ for every $v$, and \textbf{unitary} if $A^*A=AA^*=1$. Equip $\End(V)$ with the induced operator norm.
 
 \begin{exercise}[Finite-dimensional spectral theorem]\label{ex:finite-spectral-theorem}\leavevmode\par
-\textit{Prove that every linear map between finite-dimensional Hermitian spaces has a unique adjoint and establish the identities $(AB)^*=B^*A^*$ and $\|A^*A\|=\|A\|^2$. Prove that $A\in\End(V)$ is positive if and only if $A=B^*B$ for some $B$, and prove that every normal $A$ has an orthogonal spectral decomposition}
+\textit{Develop the finite-dimensional spectral theorem: prove existence of
+adjoints and positive square roots, and prove that every normal operator has
+an orthogonal spectral decomposition}
 \[
 A=\sum_\lambda\lambda p_\lambda,
-\qquad
-p_\lambda p_\mu=\delta_{\lambda\mu}p_\lambda,
-\qquad
-\sum_\lambda p_\lambda=1.
+\qquad \sum_\lambda p_\lambda=1.
 \]
-\textit{Apply the theorem to $T^*T$ to prove that every map $T:H\to K$ between finite-dimensional Hermitian spaces has a singular-value decomposition}
+\textit{Deduce the singular-value decomposition}
 \[
 T=U\Sigma V^*.
 \]
-\textit{Prove that the diagonal entries of $\Sigma$ are the square roots of the nonzero eigenvalues of $T^*T$, counted with multiplicity.}
 \end{exercise}
 
 \begin{exercise}[The spectral theorem produces normal modes]
 \label{ex:vibrating-chain}\leavevmode\par
-\textit{For $N$ equal masses $m>0$ joined by identical springs of stiffness
-$\kappa>0$ between fixed endpoints, write
-$q(t)=(q_1(t),\ldots,q_N(t))\in\mathbb R^N$, set $q_0=q_{N+1}=0$, and define}
+\textit{For a fixed-end chain of $N$ equal masses and springs, set
+$q_0=q_{N+1}=0$ and define}
 \[
 (Kq)_j=\frac{\kappa}{m}(2q_j-q_{j-1}-q_{j+1}).
 \]
-\textit{The displacement equation is $\ddot q+Kq=0$. Prove that $K$ is
-positive and self-adjoint. Determine its spectrum and prove that it has an
-orthogonal eigenbasis with components}
-\[
-v_j^{(r)}=\sin\left(\frac{\pi rj}{N+1}\right),
-\qquad
-\omega_r^2=\frac{4\kappa}{m}
-\sin^2\left(\frac{\pi r}{2(N+1)}\right),
-\qquad 1\leq r\leq N.
-\]
-\textit{Use the finite-dimensional spectral theorem to prove that every
-motion is a unique superposition of these normal modes and determine its
-coefficients from $q(0)$ and $\dot q(0)$. Prove conservation of}
+\textit{Diagonalize $K$ and use the spectral theorem to determine all normal
+modes of $\ddot q+Kq=0$, their frequencies, and the conserved energy}
 \[
 \mathcal E(q,\dot q)
 =\frac m2\|\dot q\|^2+\frac m2\langle q,Kq\rangle.
@@ -239,15 +201,9 @@ For class functions $\chi,\psi:G\to\mathbb C$, define
 \]
 
 \begin{exercise}[Great Orthogonality Theorem]\leavevmode\par
-\textit{Prove that characters are class functions and that, for unitary representations,}
-\[
-\chi_{V\oplus W}=\chi_V+\chi_W,
-\qquad
-\chi_{V\otimes W}=\chi_V\chi_W,
-\qquad
-\chi_{V^*}(g)=\overline{\chi_V(g)}.
-\]
-\textit{Let $\Gamma^\alpha$ and $\Gamma^\beta$ be irreducible unitary representations of a finite group $G$, of dimensions $d_\alpha$ and $d_\beta$. In orthonormal bases, prove that}
+\textit{For irreducible unitary representations $\Gamma^\alpha$ and
+$\Gamma^\beta$ of dimensions $d_\alpha,d_\beta$ of a finite group $G$,
+prove}
 \[
 \sum_{g\in G}
 \Gamma^\alpha(g)_{ij}
@@ -255,16 +211,12 @@ For class functions $\chi,\psi:G\to\mathbb C$, define
 =\frac{|G|}{d_\alpha}
 \delta_{\alpha\beta}\delta_{ik}\delta_{j\ell}.
 \]
-\textit{Deduce that their characters satisfy}
-\[
-\langle\chi_\alpha,\chi_\beta\rangle_G
-=\delta_{\alpha\beta}.
-\]
-\textit{If $V$ is a finite-dimensional representation, prove that the multiplicity of $V_\alpha$ in $V$ is}
+\textit{Develop its character consequences, including}
 \[
 m_\alpha=\langle\chi_\alpha,\chi_V\rangle_G.
 \]
-\textit{Conclude that the character determines a finite-dimensional complex representation up to isomorphism.}
+\textit{Deduce that characters classify finite-dimensional complex
+representations.}
 \end{exercise}
 
 For an irreducible character $\chi_\alpha$, define the \textbf{symmetry projection}
@@ -306,29 +258,12 @@ For water, take the $z$-axis along the $C_2$ axis and the molecule in the $yz$-p
 C_{2v}=\{E,C_2,\sigma_{xz},\sigma_{yz}\}.
 \]
 \begin{exercise}[Water has three symmetry-classified vibrations]\leavevmode\par
-\textit{Use the group law and character orthogonality to derive the character table}
-\[
-\begin{array}{c|rrrr|c}
- &E&C_2&\sigma_{xz}&\sigma_{yz}&\text{basis functions}\\ \hline
-A_1&1&1&1&1&z\\
-A_2&1&1&-1&-1&R_z\\
-B_1&1&-1&1&-1&x,\ R_y\\
-B_2&1&-1&-1&1&y,\ R_x.
-\end{array}
-\]
-\textit{Compute}
-\[
-\chi_{\mathrm{disp}}=(9,-1,1,3),
-\qquad
-\chi_{\mathrm{trans}}=(3,-1,1,1),
-\qquad
-\chi_{\mathrm{rot}}=(3,-1,-1,-1).
-\]
-\textit{Use character orthogonality to prove that}
+\textit{Derive the $C_{2v}$ character table and use it to show that water's
+vibrational representation is}
 \[
 V_{\mathrm{vib}}\cong2A_1\oplus B_2.
 \]
-\textit{Identify the two $A_1$ modes as the symmetric stretch and bend, and the $B_2$ mode as the asymmetric stretch. Construct symmetry-adapted displacement vectors using the projections $P_{A_1}$ and $P_{B_2}$.}
+\textit{Identify and construct the three normal modes.}
 \end{exercise}
 
 \subsection{Spectroscopic selection rules}
@@ -340,19 +275,12 @@ Let $V_i$ and $V_f$ be the symmetry types of initial and final states. The elect
 is the matrix coefficient used below.
 
 \begin{exercise}[Symmetry determines electric-dipole transitions]\leavevmode\par
-\textit{Use the Great Orthogonality Theorem to prove that the transition amplitude vanishes unless}
+\textit{Derive the electric-dipole selection rule}
 \[
 1\subseteq V_f^*\otimes V_\mu\otimes V_i.
 \]
-\textit{For irreducible $V_f$, prove that this is equivalent to}
-\[
-V_f\subseteq V_\mu\otimes V_i.
-\]
-\textit{The vibrational ground state of water has type $A_1$. Since}
-\[
-V_\mu\cong A_1\oplus B_1\oplus B_2,
-\]
-\textit{deduce that both $A_1$ modes and the $B_2$ mode are infrared active. Thus molecular symmetry alone predicts that all three fundamental vibrations of water are allowed in infrared spectroscopy.}
+\textit{Apply it to show that all three fundamental vibrations of water are
+infrared active.}
 \end{exercise}
 
 \begin{exercise}[All fundamental vibrations of water are Raman active]\leavevmode\par
@@ -424,7 +352,7 @@ e^{tX}e^{sY}e^{-tX}e^{-sY},
 \end{exercise}
 
 \begin{exercise}[Rotations, angular momentum, and spin]\leavevmode\par
-\textit{Define the Pauli matrices by}
+\textit{Using the Pauli matrices}
 \[
 \sigma_1=\begin{pmatrix}0&1\\1&0\end{pmatrix},
 \qquad
@@ -432,22 +360,12 @@ e^{tX}e^{sY}e^{-tX}e^{-sY},
 \qquad
 \sigma_3=\begin{pmatrix}1&0\\0&-1\end{pmatrix}.
 \]
-\textit{Identify $\mathfrak{so}(3)$ with $\mathbb R^3$ equipped with the
-cross-product bracket. Set $T_a=\sigma_a/2$ and $X_a=-iT_a$. Prove that
-$X_1,X_2,X_3$ form a basis of $\mathfrak{su}(2)$ and that}
-\[
-[X_a,X_b]=\sum_c\varepsilon_{abc}X_c,
-\qquad
-[T_a,T_b]=i\sum_c\varepsilon_{abc}T_c.
-\]
-\textit{Prove that the adjoint representation induces a double cover
-$\operatorname{SU}(2)\to\operatorname{SO}(3)$. Classify the
-finite-dimensional irreducible complex representations $V_j$ of
-$\operatorname{SU}(2)$. For the unitary representation $\rho_j$, set
-$J_a=i\dot\rho_j(X_a)$; prove that
-$\dim V_j=2j+1$ and that $\sum_aJ_a^2=j(j+1)1_{V_j}$, and explain why integer
-spin descends to $\operatorname{SO}(3)$ while half-integer spin gives
-projective representations of spatial rotations.}
+\textit{Identify $\mathfrak{su}(2)\cong\mathfrak{so}(3)$, construct the
+double cover $\operatorname{SU}(2)\to\operatorname{SO}(3)$, and classify the
+irreducible spin representations $\rho_j:SU(2)\to U(V_j)$. For
+$J_a=i\dot\rho_j(-i\sigma_a/2)$, derive
+$\dim V_j=2j+1$ and $J^2=j(j+1)1_{V_j}$, including the distinction between
+integer and half-integer spin.}
 \end{exercise}
 
 A \textbf{quantum number} is an eigenvalue used to label a joint eigenspace
@@ -455,94 +373,39 @@ of commuting observables.
 
 \begin{exercise}[Energy and symmetry produce quantum numbers]\leavevmode\par
 \textit{Let $H$ be a self-adjoint operator on a finite-dimensional Hermitian
-space $V$, and let $\rho:\operatorname{SU}(2)\to U(V)$ commute with $H$. Prove
-that every spectral subspace of $H$ is $\operatorname{SU}(2)$-invariant and
-decomposes into irreducible representations. For
-$J_a=i\dot\rho(X_a)$ and $J^2=\sum_aJ_a^2$, prove that $V$ has an
-orthonormal basis}
+space $V$ with a commuting $\operatorname{SU}(2)$ action. Derive the joint
+quantum-number decomposition}
 \[
 |E,j,m,\alpha\rangle
 \]
-\textit{satisfying}
-\[
-H|E,j,m,\alpha\rangle=E|E,j,m,\alpha\rangle,
-\]
-\[
-J^2|E,j,m,\alpha\rangle=j(j+1)|E,j,m,\alpha\rangle,
-\qquad
-J_3|E,j,m,\alpha\rangle=m|E,j,m,\alpha\rangle.
-\]
-\textit{Determine the allowed values of $j$ and $m$, identify the multiplicity
-label $\alpha$, and prove that the occurrence of $V_j$ in an energy
-eigenspace forces degeneracy at least $2j+1$. Interpret
-$E,j,m,\alpha$ as quantum numbers.}
+\textit{for $H,J^2,J_3$, including the allowed values and the degeneracy
+forced by spin $j$.}
 \end{exercise}
 
 \begin{exercise}[Hidden symmetry determines the hydrogen spectrum]
 \label{ex:hydrogen-hidden-symmetry}\leavevmode\par
-\textit{On $L^2(\mathbb R^3)$, let $x_i$ be multiplication by the $i$th
-coordinate, let $p_i=-i\hbar\partial_i$, and set $h=2\pi\hbar$. Set}
+\textit{With $p=-i\hbar\nabla$, $r=|x|$, and $L=x\times p$, consider the
+hydrogen Hamiltonian and Runge--Lenz operator}
 \[
-r=\left(\sum_i x_i^2\right)^{1/2},
-\qquad
-p^2=\sum_i p_i^2,
-\qquad
 H=\frac{p^2}{2\mu}-\frac{\kappa}{r},
-\]
-\textit{where $\mu,\kappa>0$. Define the angular momentum and quantum
-Runge--Lenz operators by}
-\[
-L=x\times p,
 \qquad
 A=\frac{1}{2\mu}(p\times L-L\times p)-\kappa\frac{x}{r}.
 \]
-\textit{On a common invariant domain away from the origin, prove that}
-\[
-[H,L_i]=[H,A_i]=0,
-\qquad
-[L_i,L_j]=i\hbar\sum_k\varepsilon_{ijk}L_k,
-\]
-\[
-[L_i,A_j]=i\hbar\sum_k\varepsilon_{ijk}A_k,
-\qquad
-[A_i,A_j]=-{2i\hbar\over\mu}H
-\sum_k\varepsilon_{ijk}L_k,
-\]
-\textit{and prove the identities}
-\[
-L\mathbin{\cdot}A=A\mathbin{\cdot}L=0,
-\qquad
-A^2=\kappa^2+\frac{2H}{\mu}(L^2+\hbar^2).
-\]
-\textit{Let $E<0$ and let $W$ be an irreducible finite-dimensional subspace
-of the $E$-eigenspace that is invariant under $L$ and $A$. Define}
-\[
-M=\sqrt{-\frac{\mu}{2E}}\,A,
-\qquad
-I=\frac{L+M}{2},
-\qquad
-K=\frac{L-M}{2}.
-\]
-\textit{Prove that $I$ and $K$ generate two commuting copies of
-$\mathfrak{su}(2)$ and that $I^2=K^2$. Classify $W$ as a representation of
-$\mathfrak{su}(2)\oplus\mathfrak{su}(2)$ and deduce}
+\textit{Use the hidden $\mathfrak{so}(4)$ symmetry to derive the bound-state
+spectrum and degeneracies}
 \[
 E_n=-\frac{\mu\kappa^2}{2\hbar^2n^2},
 \qquad
-n=1,2,\ldots,
-\qquad
-\dim W=n^2.
+n\geq1,
+\qquad \dim W_n=n^2,
 \]
-\textit{Under the diagonal rotation algebra generated by $L=I+K$, prove}
+\textit{and the angular-momentum decomposition}
 \[
-W\cong\bigoplus_{\ell=0}^{n-1}V_\ell,
+W_n\cong\bigoplus_{\ell=0}^{n-1}V_\ell.
 \]
-\textit{and recover the quantum numbers $n,\ell,m$ and their allowed
-values. Derive the transition frequencies
-$\nu=|E_n-E_{n'}|/h$, compare their gross spectral series with the measured
-hydrogen levels and lines in \cite{kramida-hydrogen}, and relate this hidden
-symmetry derivation to Pauli's algebraic treatment in
-\cite{pauli-hydrogen}.}
+\textit{Recover the quantum numbers and transition frequencies, and compare
+them with hydrogen spectroscopy \cite{kramida-hydrogen} and Pauli's
+algebraic derivation \cite{pauli-hydrogen}.}
 \end{exercise}
 
 \subsection{Monoidal and braided categories}
@@ -591,30 +454,14 @@ An object $x$ is \textbf{invertible} if $x\otimes x^*\cong1$.
 
 \begin{exercise}[The $\nu=1/3$ anyonic phase advances by $2\pi/3$]\leavevmode\par
 \textit{Assume that every simple object is invertible and that their
-isomorphism classes form the cyclic group}
-\[
-\{1,a,a^2,\ldots,a^{m-1}\},
-\qquad
-a^r\otimes a^s\cong a^{r+s\pmod m}.
-\]
-\textit{Write $U(1)=\{z\in\mathbb C:|z|=1\}$ and
-$M_{r,s}=M_{a^r,a^s}\in U(1)$. Use the hexagon identities to prove that}
-\[
-M_{r+s,t}=M_{r,t}M_{s,t},
-\qquad
-M_{r,s+t}=M_{r,s}M_{r,t}.
-\]
-\textit{Deduce that there is an integer $k$ modulo $m$ such that}
+isomorphism classes form $\mathbb Z/m$, generated by $a$. Classify its
+monodromy, writing $M_{r,s}=M_{a^r,a^s}$, and show that, for some
+$k\bmod m$,}
 \[
 M_{r,s}=\exp\left(\frac{2\pi i krs}{m}\right).
 \]
-\textit{For $k=1$, prove that the monodromy of $a$ about $N$ copies of $a$ is multiplication by}
-\[
-\exp\left(\frac{2\pi iN}{m}\right).
-\]
-\textit{In particular, for $m=3$, increasing $N$ by one changes the phase by $2\pi/3$.}
-\textit{Compare this conclusion with the interferometric observation of the
-$\nu=1/3$ fractional quantum Hall state in \cite{nakamura-anyons}.}
+\textit{For $k=1$ and $m=3$, derive the $2\pi/3$ phase advance per enclosed
+anyon and compare it with \cite{nakamura-anyons}.}
 \end{exercise}
 
 Now suppose that $\mathcal C$ has two simple objects $1,\tau$ satisfying the fusion rule
@@ -623,28 +470,14 @@ Now suppose that $\mathcal C$ has two simple objects $1,\tau$ satisfying the fus
 \]
 
 \begin{exercise}[Fibonacci categorical dimension]\leavevmode\par
-\textit{Let $d_\tau=\trace(1_\tau)$. Prove that}
-\[
-d_\tau^2=1+d_\tau
-\]
-\textit{and, using positivity, that}
-\[
-d_\tau=\frac{1+\sqrt5}{2}.
-\]
-\textit{Let}
-\[
-V_n=\operatorname{Hom}_{\mathcal C}(1,\tau^{\otimes n}).
-\]
-\textit{Show that the dimensions of these fusion spaces satisfy the Fibonacci recurrence and determine their asymptotic growth rate.}
+\textit{Derive the golden-ratio dimension of $\tau$ and the Fibonacci growth
+of its fusion spaces.}
 \end{exercise}
 
 \begin{exercise}[Fibonacci anyons braid non-Abelianly]\leavevmode\par
-\textit{Let}
-\[
-V=\operatorname{Hom}_{\mathcal C}(\tau,\tau^{\otimes3}).
-\]
-\textit{Set $\varphi=(1+\sqrt5)/2$. In the basis indexed by the intermediate
-labels $1,\tau$, define \cite{bonderson}}
+\textit{On $V=\operatorname{Hom}_{\mathcal C}(\tau,\tau^{\otimes3})$, use
+the fusion basis, set $\varphi=(1+\sqrt5)/2$, and use the matrices
+\cite{bonderson}}
 \[
 F=
 \begin{pmatrix}
@@ -658,19 +491,9 @@ e^{-4\pi i/5}&0\\
 0&e^{3\pi i/5}
 \end{pmatrix}.
 \]
-\textit{Define $\sigma_1=R$ and $\sigma_2=F^{-1}RF$, and let}
-\[
-B_3=\langle b_1,b_2\mid b_1b_2b_1=b_2b_1b_2\rangle.
-\]
-\textit{Use the fusion rule to prove that $V$ is two-dimensional with basis indexed by the intermediate objects $1,\tau$ in $(\tau\otimes\tau)\otimes\tau$. Working exactly, verify that $F$ and $R$ are unitary and prove that}
-\[
-\sigma_1\sigma_2\sigma_1=\sigma_2\sigma_1\sigma_2.
-\]
-\textit{Prove also that $\sigma_1\sigma_2\neq\sigma_2\sigma_1$. Deduce that $b_i\mapsto\sigma_i$ defines a non-Abelian representation}
-\[
-B_3\longrightarrow U(V).
-\]
-\textit{Relate these fusion and braiding data to the engineered
+\textit{Show that $b_1\mapsto R$ and $b_2\mapsto F^{-1}RF$ define a
+non-Abelian unitary representation of $B_3$. Relate
+these fusion and braiding data to the engineered
 superconducting-processor realization in \cite{xu-fibonacci} and the related
 trapped-ion realization in \cite{iqbal-anyons}; distinguish these simulations
 of non-Abelian topological order from evidence for naturally occurring
@@ -731,23 +554,21 @@ For a smooth map $f:N\to M$, the \textbf{pullback} of $\alpha\in\Omega^p(M)$ is
 \end{exercise}
 
 \begin{exercise}[Nontrivial cohomology produces the Aharonov--Bohm phase]\leavevmode\par
-\textit{Let $M$ be a smooth manifold and let $A\in\Omega^1(M)$ satisfy $dA=0$. Prove the following:}
-\begin{itemize}
-\item For every contractible open set $U\subseteq M$, there exists $\lambda\in C^\infty(U)$ such that $A|_U=d\lambda$.
-\item For every smooth closed curve $\gamma$, the period $\int_\gamma A$ depends only on the homology class of $\gamma$.
-\item There exists a global $\lambda\in C^\infty(M)$ with $A=d\lambda$ if and only if $[A]=0\in H_{\mathrm{dR}}^1(M)$. If $[A]\neq0$, use the de Rham theorem to find a smooth closed curve with nonzero period.
-\end{itemize}
-\textit{Now take $M=\mathbb R^3\setminus\{(0,0,z):z\in\mathbb R\}$, the space outside an idealized solenoid, and define}
+\textit{Outside an idealized solenoid, let}
 \[
+M=\mathbb R^3\setminus\{(0,0,z):z\in\mathbb R\},
+\qquad
 d\theta=\frac{-y\,dx+x\,dy}{x^2+y^2},
 \qquad
 A=\frac{\Phi}{2\pi}d\theta.
 \]
-\textit{Prove that $M$ deformation retracts onto $S^1$, that $d\theta$ is closed but not exact, and that its integral around a positively oriented loop linking the solenoid once is $2\pi$. Deduce that $\int_\gamma A=\Phi$. For a particle of charge $q$, prove that}
+\textit{For a particle of charge $q$, use de Rham cohomology to derive the
+gauge-invariant phase}
 \[
 \exp\!\left(\frac{iq}{\hbar}\int_\gamma A\right)
 \]
-\textit{is unchanged by $A\mapsto A+d\lambda$, and explain why the relative phase $q\Phi/\hbar$ shifts the interference pattern although $dA=0$ on $M$ \cite{aharonov-bohm}.}
+\textit{and the Aharonov--Bohm interference shift $q\Phi/\hbar$
+\cite{aharonov-bohm}.}
 \end{exercise}
 
 \begin{exercise}[Categorical trace on chain complexes]\leavevmode\par
@@ -773,55 +594,30 @@ On an oriented Lorentzian four-manifold, the electromagnetic field strength is
 a two-form $F$ and the electric four-current is a three-form $J$.
 
 \begin{exercise}[Maxwell's equations imply charge conservation]\leavevmode\par
-\textit{Take Maxwell's equations to be}
+\textit{From Maxwell's equations}
 \[
 dF=0,
 \qquad
 d\star F=J.
 \]
-\textit{Prove that they imply $dJ=0$. If $C$ is an oriented compact
-four-dimensional chain, deduce that}
-\[
-\int_{\partial C}J=0.
-\]
-\textit{If the three-dimensional pieces of its boundary satisfy}
-\[
-\partial C=\Sigma_1-\Sigma_0+B,
-\]
-\textit{prove that}
-\[
-\int_{\Sigma_1}J-\int_{\Sigma_0}J=-\int_BJ.
-\]
-\textit{Specialize to Minkowski spacetime $\mathbb R_t\times\mathbb R^3$ with metric $-dt^2+dx^2+dy^2+dz^2$. Let $\star_3$ and $\operatorname{vol}_3$ be the Euclidean Hodge star and volume form on space, and write}
+\textit{Derive charge conservation in differential and integral form. On
+Minkowski spacetime, write}
 \[
 F=B-dt\wedge E,
 \qquad
 J=\rho\,\operatorname{vol}_3-dt\wedge\star_3j,
 \]
-\textit{where $E,j$ are spatial one-forms and $B$ is a spatial two-form. Prove that Maxwell's equations are equivalent to}
-\[
-d_3B=0,
-\qquad
-\partial_tB+d_3E=0,
-\]
-\[
-d_3\star_3E=\rho\,\operatorname{vol}_3,
-\qquad
-d_3\star_3B-\partial_t\star_3E=\star_3j.
-\]
-\textit{Identify these with Gauss's laws, Faraday's law, and the Amp\`ere--Maxwell law. Show that $dJ=0$ becomes the continuity equation}
-\[
-\partial_t\rho\,\operatorname{vol}_3+d_3\star_3j=0.
-\]
+\textit{and recover the classical Maxwell equations and continuity equation.}
 \end{exercise}
 
 \begin{exercise}[Gauge invariance forces charge conservation]\leavevmode\par
-\textit{Assume that $M$ has no boundary, or restrict to compactly supported variations. For $A\in\Omega^1(M)$, set $F=dA$ and define}
+\textit{For $F=dA$, consider}
 \[
 S[A]
 =-\frac12\int_M F\wedge\star F+\int_M A\wedge J.
 \]
-\textit{For $\alpha\in\Omega^1(M)$, compute the first variation of $S[A+t\alpha]$ and prove that its Euler--Lagrange equation is $d\star F=J$. Explain why $dF=0$ holds identically. Prove that the action is invariant under $A\mapsto A+d\lambda$ when $dJ=0$, and show conversely how gauge invariance of the source term forces charge conservation.}
+\textit{Derive Maxwell's equations and prove that gauge invariance is
+equivalent to charge conservation, assuming vanishing boundary terms.}
 \end{exercise}
 
 \subsection{Bundles, K-theory, and band topology}
@@ -876,24 +672,13 @@ K^{n+2}(X)\cong K^n(X)
 For $0\leq r\leq N$, identify the complex Grassmannian $\operatorname{Gr}_r(\mathbb C^N)$ with the space of rank-$r$ orthogonal projections in $M_N(\mathbb C)$. Its \textbf{tautological bundle} has fiber $\operatorname{im}P$ over $P$. Let $BU$ denote the stable complex Grassmannian obtained from finite Grassmannians by adjoining trivial summands.
 
 \begin{exercise}[Stable classification of complex vector bundles]\label{ex:stable-bundle-classification}\leavevmode\par
-\textit{Let $X$ be compact Hausdorff. Use a finite trivializing cover and a partition of unity to prove that every complex vector bundle $E\to X$ is a direct summand of a trivial bundle: there are a bundle $E^\perp$ and an integer $N$ such that}
-\[
-E\oplus E^\perp\cong\underline{\mathbb C}^{\,N}.
-\]
-\textit{After choosing a Hermitian metric, deduce that $E$ is the image bundle of a continuous projection}
-\[
-P_E:X\longrightarrow\operatorname{Gr}_r(\mathbb C^N)
-\subseteq M_N(\mathbb C).
-\]
-\textit{Conversely, prove that every continuous projection-valued map has a vector bundle as its image. Prove that a homotopy of projections determines a vector bundle over $X\times[0,1]$ and hence gives isomorphic image bundles at its endpoints. Prove the stable converse: two bundles have the same reduced K-theory class exactly when, after adjoining trivial bundles, their projection-valued maps become homotopic.}
-
-\textit{For a connected finite CW complex $X$, deduce the natural classifications}
+\textit{Classify stable complex vector bundles over a connected finite CW
+complex $X$ by projection-valued maps, proving}
 \[
 K^0(X)\cong[X,\mathbb Z\times BU],
 \qquad
 \widetilde K^0(X)\cong[X,BU]_*.
 \]
-\textit{Here the first integer records virtual rank and the star denotes based homotopy classes. Explain how direct sum of bundles corresponds to the $H$-space addition on $\mathbb Z\times BU$.}
 \end{exercise}
 
 For the gapped families below, assume that $X$ is connected, so vector-bundle ranks are constant. Let $V$ be a finite-dimensional Hermitian vector space as in Algebra. Exercise~\ref{ex:finite-spectral-theorem} supplies the spectral decomposition used below. A continuous family is a map
@@ -908,77 +693,47 @@ E_x^-=\operatorname{im}(P_x^-).
 \]
 
 \begin{exercise}[Negative spectral bundle]\leavevmode\par
-\textit{Let $H$ be a gapped family over compact $X$. Prove that there are $\delta,M>0$ such that every eigenvalue of every $H_x$ lies in $[-M,-\delta]\cup[\delta,M]$, and hence that a contour $\Gamma$ as above exists. Prove that}
-\[
-(P_x^-)^2=P_x^-,
-\qquad
-(P_x^-)^*=P_x^-,
-\]
-\textit{that $x\mapsto P_x^-$ is continuous, and that}
-\[
-E_H^-=\coprod_{x\in X}E_x^-
-\]
-\textit{is a complex vector bundle over $X$. Prove that its rank is locally constant.}
+\textit{Prove that the negative spectral subspaces of a gapped family over
+compact $X$ form a vector bundle of locally constant rank.}
 \end{exercise}
 
 \begin{exercise}[Gap-preserving homotopy]\leavevmode\par
-\textit{For a gapped family $H:X\times[0,1]\to\End(V)$, let $E_j^-$ be the
-negative spectral bundle of $x\mapsto H(x,j)$, and let
-$i_j:X\to X\times[0,1]$ be given by $i_j(x)=(x,j)$. Prove that the negative
-spectral subspaces of $H$ form a vector bundle $E^-\to X\times[0,1]$. Prove
-that the endpoint pullbacks of any vector bundle over $X\times[0,1]$ are
-isomorphic, and apply this to $i_0^*E^-$ and $i_1^*E^-$. Deduce that}
+\textit{Prove that a gap-preserving homotopy has isomorphic endpoint spectral
+bundles and hence}
 \[
 [E_0^-]=[E_1^-]\in K^0(X).
 \]
 \end{exercise}
 
 \begin{exercise}[Stabilization]\leavevmode\par
-\textit{Let $Q\in\End(W)$ be a fixed invertible self-adjoint endomorphism of
-a finite-dimensional Hermitian space $W$, let $W^-$ be its negative
-eigenspace, and write $\underline{W^-}=X\times W^-$. For a gapped family
-$H$, prove that}
+\textit{For a constant gapped operator $Q$ with negative eigenspace $W^-$,
+prove}
 \[
 E_{H\oplus Q}^-\cong E_H^-\oplus\underline{W^-}.
 \]
-\textit{Deduce that}
+\textit{Deduce the stable invariance of}
 \[
 [E_H^-]-[\underline{\mathbb C}^{\,\operatorname{rank}E_H^-}]
 \in\widetilde K^0(X)
-\]
-\textit{is unchanged by adjoining a constant gapped summand.}
+\].
 \end{exercise}
 
 \begin{exercise}[Flattened family]\leavevmode\par
-\textit{Let $E\subseteq X\times V$ be a subbundle and let $P_x$ be the
-orthogonal projection onto $E_x$. Define $H_x=1_V-2P_x$. Prove that
-$x\mapsto H_x$ is a gapped family, that}
-\[
-H_x^2=1_V,
-\]
-\textit{and that its negative spectral bundle is $E$. Deduce that every subbundle of a trivial bundle arises as the negative spectral bundle of a gapped family. Combine the preceding exercises to prove that a finite-dimensional gapped family determines a class in $\widetilde K^0(X)$ invariant under gap-preserving homotopy and stabilization.}
+\textit{Show that every subbundle $E\subseteq X\times V$ is the negative
+spectral bundle of the flattened family $H_x=1-2P_{E_x}$, and conclude that
+gapped families define stable homotopy invariants in $\widetilde K^0(X)$.}
 \end{exercise}
 
 \begin{exercise}[K-theory classifies class A band insulators]\label{ex:class-a-insulators}\leavevmode\par
-\textit{Consider a translation-invariant noninteracting band insulator in
-symmetry class A: there is no time-reversal, particle-hole, or chiral
-symmetry, and its Bloch Hamiltonian is a smooth gapped family}
+\textit{A class A band model over a compact connected parameter space $X$
+has a smooth gapped Hamiltonian}
 \[
-H:\mathbb T^d\longrightarrow\End(V)
+H:X\longrightarrow\End(V)
 \]
-\textit{over the Brillouin torus. The negative-energy bundle $E_H^-$ is the
-bundle of occupied states. Declare two such Hamiltonians stably equivalent
-when they become connected by a smooth gap-preserving homotopy after
-adjoining momentum-independent filled or empty bands
-\cite{kitaev-periodic}. Use the preceding exercises and
-Exercise~\ref{ex:stable-bundle-classification} to prove that}
-\[
-H\longmapsto
-[E_H^-]-[\underline{\mathbb C}^{\,\operatorname{rank}E_H^-}]
-\]
-\textit{induces a bijection from stable equivalence classes of class A Hamiltonians over a compact connected space $X$ to $\widetilde K^0(X)$. In particular, show that every reduced K-theory class is realized by a flattened Hamiltonian $H=1-2P$.}
-
-\textit{Using the suspension isomorphism and Bott periodicity, prove that the strong class A phases of continuum models whose momentum space compactifies to $S^d$ form}
+\textit{whose negative-energy bundle consists of occupied states; for a
+crystal, $X=\mathbb T^d$. Prove that
+stable equivalence classes are classified by $\widetilde K^0(X)$
+\cite{kitaev-periodic}, and compute the strong phases}
 \[
 \widetilde K^0(S^d)
 \cong
@@ -987,23 +742,8 @@ H\longmapsto
 0,&d\text{ odd}.
 \end{cases}
 \]
-\textit{Using the K\"unneth theorem and the graded ring $K^*(S^1)$, prove that}
-\[
-K^0(\mathbb T^d)
-\cong
-\bigoplus_{\substack{0\leq j\leq d\\j\ \mathrm{even}}}
-\mathbb Z^{\binom dj},
-\qquad
-\widetilde K^0(\mathbb T^d)
-\cong
-\bigoplus_{\substack{2\leq j\leq d\\j\ \mathrm{even}}}
-\mathbb Z^{\binom dj}.
-\]
-\textit{Deduce that the reduced classifications over $\mathbb T^d$ for $d=1,2,3$ are respectively $0$, $\mathbb Z$, and $\mathbb Z^3$. Distinguish the strong invariant from the weak invariants inherited from lower-dimensional subtori.}
-\textit{Explain why this is not the full tenfold-way classification:
-antiunitary symmetries impose Real or Quaternionic structures on the occupied
-states and require the corresponding variants of K-theory
-\cite{kitaev-periodic}.}
+\textit{Compute the classifications over $\mathbb T^d$ for $d=1,2,3$ and
+distinguish strong from weak invariants.}
 \end{exercise}
 
 \subsection{Symplectic geometry}
@@ -1027,113 +767,58 @@ Let $\pi:T^*Q\to Q$ be the cotangent bundle of a configuration manifold. Its \te
 and its \textbf{canonical symplectic form} is $\omega_0=-d\theta$.
 
 \begin{exercise}[The symplectic form produces Hamilton's equations]\leavevmode\par
-\textit{Prove that the definition of $\theta$ is coordinate independent. In local cotangent coordinates $(q^i,p_i)$, prove that}
-\[
-\theta=\sum_{i=1}^n p_i\,dq^i,
-\qquad
-\omega_0=\sum_{i=1}^n dq^i\wedge dp_i,
-\]
-\textit{and prove that $\omega_0$ is symplectic. For}
+\textit{For}
 \[
 H(q,p)=\frac{1}{2m}\sum_{i=1}^np_i^2+V(q),
 \]
-\textit{derive Hamilton's equations}
-\[
-\dot q^i=\frac{\partial H}{\partial p_i},
-\qquad
-\dot p_i=-\frac{\partial H}{\partial q^i},
-\]
-\textit{and hence Newton's equation $m\ddot q=-\nabla V(q)$. For $V(q)=m\Omega^2|q|^2/2$, solve the flow and prove that every nonconstant trajectory has period $2\pi/\Omega$. In the one-dimensional case, describe the constant-energy curves as ellipses in phase space.}
+\textit{derive Hamilton's equations intrinsically from $\omega_0$, recover
+Newton's equation, and solve the harmonic-oscillator flow.}
 \end{exercise}
 
 \begin{exercise}[Magnetic symplectic curvature produces the Lorentz force]\leavevmode\par
-\textit{Let $Q=\mathbb R^3$, let $B\in\Omega^2(Q)$ satisfy $dB=0$, and let $e$ be the charge of a particle. Prove that the magnetically twisted form}
+\textit{For a particle of charge $e$ in a closed magnetic field
+$B\in\Omega^2(\mathbb R^3)$, derive the Lorentz force from}
 \[
 \omega_B=\omega_0-e\pi^*B
-\]
-\textit{is symplectic on $T^*Q$. For a static electric potential $\phi$ and Hamiltonian}
-\[
+\qquad\text{and}\qquad
 H(q,p)=\frac{|p|^2}{2m}+e\phi(q),
 \]
-\textit{identify $B$ with the vector field $\mathbf B$ determined by $B(u,v)=\mathbf B\cdot(u\times v)$ and derive the Lorentz-force equation}
-\[
-m\ddot q=e\bigl(\mathbf E+\dot q\times\mathbf B\bigr),
-\qquad
-\mathbf E=-\nabla\phi.
-\]
-\textit{If $B=dA$, prove that $\omega_B=-d(\theta+e\pi^*A)$ and that $A\mapsto A+d\lambda$ leaves $\omega_B$ and the equations of motion unchanged. Relate this gauge freedom to the potential used in the Aharonov--Bohm exercise.}
+\textit{and relate the gauge freedom for $B=dA$ to the Aharonov--Bohm
+potential.}
 \end{exercise}
 
 \begin{exercise}[Liouville's theorem]\leavevmode\par
-\textit{Let $(M,\omega)$ be $2n$-dimensional with $\omega$ symplectic. Prove that $\omega^n/n!$ is a volume form. For $H\in C^\infty(M)$, prove using Cartan's formula that}
-\[
-\mathcal{L}_{X_H}\omega=0.
-\]
-\textit{Deduce that $\mathcal{L}_{X_H}\omega^n=0$ and hence that the local flow of $X_H$ preserves the volume form}
+\textit{Prove that every Hamiltonian flow preserves the symplectic volume}
 \[
 \frac{\omega^n}{n!}.
 \]
 \end{exercise}
 
 \begin{exercise}[Hamiltonian phase volume produces ideal-gas thermodynamics]\leavevmode\par
-\textit{Fix a phase-volume unit so that the logarithm of a phase-space
-density is dimensionless. For a probability density $\rho$ with respect to
-Liouville measure $d\mu_L=\omega^n/n!$, define the fine-grained Gibbs entropy
-by}
+\textit{For Liouville measure $d\mu_L=\omega^n/n!$, show that Hamiltonian
+evolution preserves the fine-grained Gibbs entropy}
 \[
 S_G[\rho]
 =-k_B\int_M\rho\log\rho\,d\mu_L.
 \]
-\textit{Let $\Phi_t$ be a Hamiltonian flow and let
-$\rho_t=\rho_0\circ\Phi_{-t}$. Use Liouville's theorem to prove that $\rho_t$
-remains normalized and that}
-\[
-S_G[\rho_t]=S_G[\rho_0].
-\]
-\textit{Now consider $N$ indistinguishable noninteracting particles of mass $m$ in a three-dimensional box of volume $V$, with Hamiltonian}
+\textit{For $N$ indistinguishable noninteracting particles in a box, divide
+phase volume by $N!h^{3N}$ and use}
 \[
 H(q,p)=\sum_{a=1}^N\frac{|p_a|^2}{2m}.
 \]
-\textit{Divide phase volume by $N!h^{3N}$ and prove that the volume of the region $H\leq E$ is}
-\[
-\Omega(E,V,N)
-=\frac{V^N}{N!h^{3N}}
-\frac{(2\pi mE)^{3N/2}}{\Gamma(3N/2+1)}.
-\]
-\textit{Define the microcanonical entropy and its thermodynamic derivatives by}
-\[
-S_{\mathrm{mc}}=k_B\log\Omega,
-\qquad
-\frac1T=\left(\frac{\partial S_{\mathrm{mc}}}{\partial E}\right)_{V,N},
-\qquad
-\frac PT=\left(\frac{\partial S_{\mathrm{mc}}}{\partial V}\right)_{E,N}.
-\]
-\textit{Derive}
+\textit{Derive the Sackur--Tetrode entropy and the ideal-gas laws}
 \[
 E=\frac32Nk_BT,
 \qquad
 PV=Nk_BT.
 \]
-\textit{Use Stirling's formula to obtain the Sackur--Tetrode expression}
-\[
-S_{\mathrm{mc}}
-=Nk_B\left[
-\log\!\left(
-\frac VN
-\left(\frac{4\pi mE}{3Nh^2}\right)^{3/2}
-\right)
-+\frac52
-\right]+o(N).
-\]
-\textit{For a reversible adiabatic process, set $dS_{\mathrm{mc}}=0$ and prove}
-\[
-PV^{5/3}=\text{constant}.
-\]
-\textit{If $\varrho=mN/V$ is the mass density, use $c^2=(\partial P/\partial\varrho)_S$ to derive the measurable sound-speed law}
+\textit{Derive the adiabatic and sound-speed laws, including, for
+$\varrho=mN/V$,}
 \[
 c=\sqrt{\frac{5P}{3\varrho}}.
 \]
-\textit{Finally, show that removing a partition and allowing a free expansion from $V$ to $2V$ changes the thermodynamic entropy by $Nk_B\log2$. Explain why this does not contradict conservation of the fine-grained Gibbs entropy: the former compares equilibrium macrostates after changing the accessible region, whereas the latter follows the exact Hamiltonian density without coarse-graining.}
+\textit{Reconcile the entropy increase in free expansion with conservation
+of fine-grained Gibbs entropy.}
 \end{exercise}
 
 For $f,g\in C^\infty(M)$, define
@@ -1142,19 +827,9 @@ For $f,g\in C^\infty(M)$, define
 \]
 
 \begin{exercise}[Hamiltonian symmetry produces conservation laws]\leavevmode\par
-\textit{Let $(M,\omega)$ be symplectic. Prove that}
-\[
-X_g(f)=\{f,g\}.
-\]
-\textit{Let $\Phi_t$ be the local flow of $X_f$. Prove that the following are equivalent:}
-\begin{itemize}
-\item $H\circ\Phi_t=H$ whenever both sides are defined.
-\item $X_f(H)=0$.
-\item $\{H,f\}=0$.
-\item $f$ is constant along the integral curves of $X_H$.
-\end{itemize}
-\textit{Explain why this is a Hamiltonian symmetry--conservation statement
-rather than the full variational theorem of \cite{noether}.}
+\textit{Prove that a Hamiltonian $f$ generates a symmetry of $H$ exactly
+when $f$ is conserved by the flow of $H$, and distinguish this statement
+from Noether's variational theorem \cite{noether}.}
 \end{exercise}
 
 \begin{exercise}[Central forces and angular momentum]\leavevmode\par
@@ -1164,13 +839,8 @@ H(q,p)=\frac{|p|^2}{2m}+V(|q|),
 \qquad
 L=q\times p.
 \]
-\textit{Prove that the components of angular momentum satisfy}
-\[
-\{L_i,L_j\}=\sum_k\varepsilon_{ijk}L_k,
-\qquad
-\{L_i,H\}=0.
-\]
-\textit{Deduce from the Hamiltonian Noether theorem that $L$ is conserved. Show that when $L\neq0$ the trajectory remains in the fixed plane through the origin perpendicular to $L$, and interpret this conservation law as a consequence of rotational symmetry of the central potential.}
+\textit{Derive the angular-momentum Poisson algebra and show that rotational
+symmetry confines each nonradial trajectory to a fixed plane.}
 \end{exercise}
 
 \subsection{Connections and curvature}
@@ -1258,34 +928,16 @@ J=\frac{\partial\Gamma}{\partial s}.
 
 \begin{exercise}[Gauss--Bonnet theorem]\leavevmode\par
 \textit{Let $(M,g)$ be a compact oriented Riemannian surface with piecewise
-smooth boundary. Given a local positively oriented orthonormal frame
-$(e_1,e_2)$, define its connection one-form $\omega$ by}
-\[
-\nabla_Xe_1=-\omega(X)e_2,
-\qquad
-\nabla_Xe_2=\omega(X)e_1.
-\]
-\textit{Define the Gaussian curvature by
-$K=g(R(e_1,e_2)e_2,e_1)$ and the Euler characteristic by
-$\chi(M)=\sum_j(-1)^j\dim H_j(M;\mathbb R)$. Along a positively oriented
-smooth boundary component with unit tangent $T$, let $N$ be the inward unit
-normal for which $(T,N)$ is positively oriented and define the signed
-geodesic curvature by $k_g=g(\nabla_TT,N)$. Prove that} \cite{do-carmo}
-\[
-d\omega=K\operatorname{vol}_g.
-\]
-\textit{Determine how $\omega$ transforms under a rotation of the local orthonormal frame and deduce that $K\operatorname{vol}_g$ is globally defined. Using Stokes' theorem on a triangulation, let $\theta_j$ be the signed exterior angle through which the positively oriented boundary tangent turns at its $j$-th corner, and prove the Gauss--Bonnet formula}
+smooth boundary. With Gaussian curvature $K$, signed geodesic curvature
+$k_g$, and signed exterior angles $\theta_j$, prove} \cite{do-carmo}
 \[
 \int_MK\operatorname{vol}_g
 +\int_{\partial M}k_g\,ds
 +\sum_j\theta_j
 =2\pi\chi(M).
 \]
-\textit{Deduce that every closed oriented Riemannian surface satisfies}
-\[
-\frac{1}{2\pi}\int_MK\operatorname{vol}_g=\chi(M).
-\]
-\textit{Apply the theorem to recover the area $4\pi r^2$ of the round sphere of radius $r$. Prove that a torus admits no metric with $K>0$ everywhere, and that a closed genus-$g$ surface with constant curvature $K=-1$ has area $4\pi(g-1)$.}
+\textit{Derive its consequences for round spheres, positively curved tori,
+and closed hyperbolic surfaces.}
 \end{exercise}
 
 The trace used below is the ordinary trace defined in the Algebra section. Define the \textbf{Ricci tensor}, \textbf{scalar curvature}, and \textbf{Einstein tensor} by
@@ -1353,14 +1005,11 @@ Berry curvature by}
 \qquad
 \mathcal F=d\mathcal A.
 \]
-\textit{Prove that $L\to X$ is a complex line bundle. Under the change
-$\psi\mapsto e^{i\lambda}\psi$, prove that
-$\mathcal A\mapsto\mathcal A-d\lambda$ and that $\mathcal F$ is unchanged.
-For a closed curve $\gamma$ in $X$, prove that}
+\textit{Prove that $L\to X$ is a line bundle and that, for a closed curve
+$\gamma$, the gauge-independent Berry phase is its holonomy}
 \[
 \exp\left(i\int_\gamma\mathcal A\right)
-\]
-\textit{is the holonomy of the eigenline connection and is independent of the local choice of eigenvector. Interpret it as the geometric phase accumulated during adiabatic transport.}
+\].
 \end{exercise}
 
 Let $P$ be an invariant symmetric $k$-linear polynomial on the endomorphism
@@ -1393,31 +1042,18 @@ dP(F_\nabla)=0.
 \operatorname{ch}(E,\nabla)
 =\operatorname{tr}\exp\left(\frac{iF_\nabla}{2\pi}\right).
 \]
-\textit{When induced connections are understood, suppress them from the
-notation. Prove that $d\,\operatorname{ch}(E,\nabla)=0$ and that its de Rham
-class is independent of $\nabla$. For a second complex vector bundle $F$
-with connection, prove that}
-\[
-\operatorname{ch}(E\oplus F)
-=\operatorname{ch}(E)+\operatorname{ch}(F),
-\]
-\[
-\operatorname{ch}(E\otimes F)
-=\operatorname{ch}(E)\wedge\operatorname{ch}(F).
-\]
-\textit{If $M$ is compact, deduce that the Chern character defines a ring homomorphism}
+\textit{For compact $M$, prove that it defines a ring homomorphism}
 \[
 \operatorname{ch}:K^0(M)\longrightarrow H_{\mathrm{dR}}^{\mathrm{even}}(M),
-\qquad
-H_{\mathrm{dR}}^{\mathrm{even}}(M)=\bigoplus_{j\geq0}H_{\mathrm{dR}}^{2j}(M).
 \]
-\textit{Return to the two-dimensional class A insulator in Exercise~\ref{ex:class-a-insulators}. For its smooth occupied-state projector $P$, prove that the Grassmann connection $\nabla=P\,d$ has curvature $F_\nabla=P\,dP\wedge dP$ on $E_H^-$. Show that the integer classifying the phase is the first Chern number}
+\textit{For the two-dimensional class A insulator of
+Exercise~\ref{ex:class-a-insulators}, identify the phase with}
 \[
 C_1(E_H^-)
 =\frac{i}{2\pi}\int_{\mathbb T^2}
 \operatorname{tr}\bigl(P\,dP\wedge dP\bigr)\in\mathbb Z,
 \]
-\textit{and deduce that a nonzero Chern number obstructs a global smooth frame of occupied Bloch states.}
+\textit{and show that a nonzero value obstructs a global smooth Bloch frame.}
 \end{exercise}
 
 \subsection{Yang--Mills theory and the Standard Model}
@@ -1434,41 +1070,27 @@ F_A=dA+A\wedge A\in\Omega^2(U,\mathfrak g).
 \]
 \begin{exercise}[Isospin motivates Yang--Mills connections]\leavevmode\par
 \textit{Treat the proton and neutron as a nucleon doublet carrying the
-defining representation of $\operatorname{SU}(2)$. Determine the obstruction
-to replacing its global $\operatorname{SU}(2)$ symmetry by a
-spacetime-dependent transformation $g:U\to\operatorname{SU}(2)$. Prove that a
-covariant derivative requires a local connection form transforming by}
+defining representation of $\operatorname{SU}(2)$. Gauge this symmetry and
+derive}
 \[
 A\longmapsto A^g=g^{-1}Ag+g^{-1}dg.
 \]
-\textit{Show that a principal connection $A$ induces a covariant derivative}
-\[
-\nabla_A:\Gamma(E)\longrightarrow\Gamma(T^*M\otimes E)
-\]
-\textit{on every associated vector bundle $E=P\times_G V$. Prove that under a gauge transformation the curvature transforms by}
-\[
-F_{A^g}=g^{-1}F_Ag.
-\]
-\textit{Relate this construction to the original non-Abelian gauge theory of
-isospin in \cite{yang-mills}.}
+\textit{Show that the resulting connection differentiates associated-bundle
+fields and has covariant curvature, and relate this construction to
+\cite{yang-mills}.}
 \end{exercise}
 
 \begin{exercise}[Yang--Mills action]\leavevmode\par
-\textit{On an oriented Riemannian four-manifold, extend the Hodge star to
-$\mathfrak g$-valued forms using a fixed $\operatorname{Ad}$-invariant inner
-product on $\mathfrak g$, written $\operatorname{Tr}$. Define the Yang--Mills
-action and exterior covariant derivative by}
+\textit{On an oriented Riemannian four-manifold, consider the Yang--Mills
+action}
 \[
-S(A)=\int_M\operatorname{Tr}(F_A\wedge\star F_A),
-\qquad
-d_A\alpha=d\alpha+[A,\alpha].
+S(A)=\int_M\operatorname{Tr}(F_A\wedge\star F_A).
 \]
-\textit{Prove that $S(A)$ is invariant under gauge transformations.
-Computing the first variation, derive the Euler--Lagrange equation}
+\textit{Prove gauge invariance, derive}
 \[
 d_A\star F_A=0,
 \]
-\textit{equivalently $d_A^*F_A=0$. Relate the abelian case $G=U(1)$ to the source-free Maxwell equation from the Hodge theory subsection.}
+\textit{and recover source-free Maxwell theory in the abelian case.}
 \end{exercise}
 
 \begin{exercise}[Standard Model representations and symmetry breaking]\leavevmode\par
@@ -1501,20 +1123,12 @@ V(\phi)=-\mu^2|\phi|^2+\lambda|\phi|^4,
 \qquad
 D\phi=d\phi+\tfrac{i}{2}g\,W^a\sigma_a\phi+\tfrac{i}{2}g'B\phi,
 \]
-\textit{where $\mu^2,\lambda>0$ and $g,g'$ are the electroweak coupling
-constants. Determine the Standard Model Lie algebra and decompose a connection
-into its gluon, weak-boson, and hypercharge components. Verify the electric
-charges of the fermions above. Show that a Higgs vacuum proportional to
-$(0,1)$ has infinitesimal stabilizer
-$\mathfrak{su}(3)_C\oplus\mathfrak{u}(1)_{\mathrm{EM}}$ and breaks the
-electroweak group by}
-\[
-\operatorname{SU}(2)_L\times\operatorname{U}(1)_Y\longrightarrow\operatorname{U}(1)_{\mathrm{EM}}.
-\]
-\textit{Derive the $W$ and $Z$ masses, prove that the photon remains massless,
-and prove cancellation of $\operatorname{Tr}(Y)$ and
-$\operatorname{Tr}(Y^3)$ for one fermion generation, treating right-handed
-fields as left-handed conjugates.}
+\textit{where $\mu^2,\lambda>0$ and $g,g'$ are coupling constants. From
+these data derive the fermion charges,
+the symmetry breaking
+$\operatorname{SU}(2)_L\times\operatorname{U}(1)_Y
+\to\operatorname{U}(1)_{\mathrm{EM}}$, the $W$ and $Z$ masses, the massless
+photon, and cancellation of the hypercharge anomalies.}
 \end{exercise}
 
 \subsection{Chern--Simons theory and TQFT}
@@ -1621,23 +1235,18 @@ F_\omega+\frac1{\ell^2}e\wedge e=0.
 \end{exercise}
 
 \begin{exercise}[Three-dimensional gravity is a Chern--Simons theory]\leavevmode\par
-\textit{Define the first-order three-dimensional Einstein--Hilbert
-functional, up to its conventional overall coefficient, by}
+\textit{For the first-order Einstein--Hilbert functional}
 \[
 S_{\mathrm{EH}}(e,\omega)
 =\int_M\operatorname{tr}\left(
 e\wedge F_\omega+\frac{1}{3\ell^2}e\wedge e\wedge e
 \right).
 \]
-\textit{Prove that, up to an overall normalization and an exact term,}
+\textit{Prove that, up to normalization and an exact term, it equals}
 \[
 S_{\mathrm{CS}}(A^+)-S_{\mathrm{CS}}(A^-)
 \]
-\textit{equals $S_{\mathrm{EH}}(e,\omega)$} \cite{achucarro-townsend,witten-gravity}.
-\textit{Explain why this is a local Lie-algebra formulation in three
-spacetime dimensions and why changing between Lorentzian and Euclidean
-signatures changes the real form and reality conditions rather than deriving
-four-dimensional gravity by Wick rotation.}
+\cite{achucarro-townsend,witten-gravity}.
 \end{exercise}
 
 For a connection $A$ and a finite-dimensional representation $V$ of its gauge group, parallel transport around an oriented closed curve $\gamma$ gives the holonomy $\operatorname{Hol}_\gamma(A)$. Define the \textbf{Wilson loop}
@@ -1657,37 +1266,32 @@ For a framed link, define the formal Chern--Simons expectation value \cite{witte
 {\int e^{iS_k(A)}\,\mathcal DA}
 \]
 \begin{exercise}[Wilson loops and the Jones polynomial]\leavevmode\par
-\textit{For normalized $SU(2)$ theory at integer level $k\geq1$, set}
+\textit{For normalized $SU(2)$ theory at level $k$, set}
 \[
 q=\exp\left(\frac{2\pi i}{k+2}\right).
 \]
-\textit{Prove that the expectation value depends on the chosen framing. Let $L_+$, $L_-$, and $L_0$ differ only by a positive crossing, a negative crossing, and the oriented smoothing. Assume that, after the standard framing normalization, the Wilson-loop expectation values satisfy}
+\textit{Assume the normalized Wilson-loop expectations satisfy}
 \[
 q^{-1}\langle W_{L_+}\rangle_k
 -q\langle W_{L_-}\rangle_k
 =\left(q^{1/2}-q^{-1/2}\right)\langle W_{L_0}\rangle_k
 \]
-\textit{and $\langle W_{\bigcirc}\rangle_k=1$. Prove that these relations determine the Jones polynomial of an oriented link.}
+\textit{and $\langle W_{\bigcirc}\rangle_k=1$. Show that they determine the
+Jones polynomial and account for framing dependence.}
 \end{exercise}
 
 \begin{exercise}[Reshetikhin--Turaev TQFT]\leavevmode\par
-\textit{Let $\operatorname{Bord}_3^{\mathrm{or}}$ be the symmetric monoidal
-category whose objects are closed oriented surfaces, whose morphisms are
-oriented three-dimensional bordisms modulo diffeomorphism, and whose tensor
-product is disjoint union. Define a three-dimensional oriented TQFT to be a
-symmetric monoidal functor}
+\textit{Prove that a modular braided fusion category defines a
+Reshetikhin--Turaev TQFT}
 \[
 Z:\operatorname{Bord}_3^{\mathrm{or}}
 \longrightarrow\operatorname{Vect}_{\mathbb C}.
 \]
-\textit{Let $\mathcal C$ be a modular braided fusion category. Prove that the
-Reshetikhin--Turaev construction assigns finite-dimensional state spaces to
-closed oriented surfaces and compatible linear maps to bordisms, defining a
-three-dimensional oriented TQFT} \cite{reshetikhin-turaev}. \textit{Prove
-that labeled Wilson lines induce the braid-group actions determined by the
-$F$- and $R$-symbols of $\mathcal C$. For the $SU(2)_k$ category, relate the
-resulting link invariant to the Chern--Simons Wilson-loop skein relation
-above.}
+\textit{Here $\operatorname{Bord}_3^{\mathrm{or}}$ is the category of closed
+oriented surfaces and oriented three-dimensional bordisms. Relate its Wilson
+lines to the $F$- and $R$-matrices and, for
+$SU(2)_k$, to the Chern--Simons skein relation
+\cite{reshetikhin-turaev}.}
 \end{exercise}
 
 \section{Analysis}
@@ -1726,29 +1330,10 @@ that $e^{A+B}=e^Ae^B$.}
 
 \begin{exercise}[Fourier modes solve the fixed-end wave equation]
 \label{ex:fixed-end-wave}\leavevmode\par
-\textit{For the wave equation from Exercise~\ref{ex:wave-superposition},
-impose fixed-end boundary conditions. Let the initial displacement $f$ and
-velocity $g$ have sine-series
-expansions whose required derivatives converge uniformly. By separating
-variables, determine all fixed-end normal modes and prove that the solution
-with $u(x,0)=f(x)$ and $u_t(x,0)=g(x)$ is}
-\[
-u(x,t)=\sum_{n\geq1}
-\left(
-a_n\cos\frac{n\pi ct}{L}
-+\frac{Lb_n}{n\pi c}\sin\frac{n\pi ct}{L}
-\right)
-\sin\frac{n\pi x}{L},
-\]
-\textit{where $a_n$ and $b_n$ are the sine coefficients of $f$ and $g$.
-Prove conservation of the wave energy}
-\[
-\mathcal E[u](t)
-=\frac12\int_0^L\left(u_t(x,t)^2+c^2u_x(x,t)^2\right)\,dx.
-\]
-\textit{In Exercise~\ref{ex:vibrating-chain}, take lattice spacing
-$a_N=L/(N+1)$ and $\kappa_N/m_N=c^2/a_N^2$. Prove that each fixed
-normal-mode frequency converges to $n\pi c/L$ as $N\to\infty$.}
+\textit{Solve the fixed-end wave equation from
+Exercise~\ref{ex:wave-superposition} by Fourier series, prove conservation
+of wave energy, and recover its normal-mode frequencies as the continuum
+limit of Exercise~\ref{ex:vibrating-chain}.}
 \end{exercise}
 
 \subsection{Hilbert-space operator theory}
@@ -1776,16 +1361,9 @@ $\mathcal K(H,L)$ for the compact operators and
 $\mathcal K(H)=\mathcal K(H,H)$.
 
 \begin{exercise}[Compact operators]\leavevmode\par
-\textit{Prove that $K$ is compact if and only if, for every bounded sequence
-$(x_n)$ in $H$, the sequence $(Kx_n)$ has a convergent subsequence. Prove that
-every finite-rank operator is compact, that $\mathcal K(H,L)$ is closed in the
-operator norm, and that}
-\[
-A\in\mathcal B(L,M),\quad K\in\mathcal K(H,L),\quad B\in\mathcal B(N,H)
-\quad\Longrightarrow\quad
-AKB\in\mathcal K(N,M).
-\]
-\textit{Deduce that $\mathcal K(H)$ is a closed two-sided ideal in $\mathcal B(H)$. Prove that $K^*$ is compact whenever $K$ is compact and that, on a Hilbert space, every compact operator is an operator-norm limit of finite-rank operators.}
+\textit{Give the sequential characterization of compact operators and prove
+that they form an adjoint-closed norm-closed operator ideal generated densely
+by finite-rank operators.}
 \end{exercise}
 
 A bounded operator $T:H\to L$ is \textbf{Fredholm} if $\ker T$ and $L/\operatorname{im}T$ are finite dimensional and $\operatorname{im}T$ is closed. Its \textbf{Fredholm index} is
@@ -1795,23 +1373,15 @@ A bounded operator $T:H\to L$ is \textbf{Fredholm} if $\ker T$ and $L/\operatorn
 \]
 
 \begin{exercise}[Fredholm alternative]\leavevmode\par
-\textit{Let $K\in\mathcal K(H)$ and $\lambda\in\mathbb C\setminus\{0\}$. Prove that $\lambda1-K$ has closed range and that} \cite{conway-functional}
+\textit{For $K\in\mathcal K(H)$ and $\lambda\ne0$, prove the Fredholm
+alternative \cite{conway-functional}: $\lambda1-K$ has index zero,}
 \[
 \dim\ker(\lambda1-K)
 =\dim\ker(\overline\lambda1-K^*)<\infty.
 \]
-\textit{Using}
-\[
-\operatorname{im}(\lambda1-K)^\perp
-=\ker(\overline\lambda1-K^*),
-\]
-\textit{prove that the following are equivalent:}
-\begin{itemize}
-\item $\lambda1-K$ is injective.
-\item $\lambda1-K$ is surjective.
-\item $\lambda1-K$ is invertible.
-\end{itemize}
-\textit{Prove more generally that $(\lambda1-K)x=y$ is solvable if and only if $y$ is orthogonal to $\ker(\overline\lambda1-K^*)$. Deduce that $\lambda1-K$ is Fredholm of index zero. Finally, prove that every nonzero point of the spectrum of a compact operator is an eigenvalue of finite multiplicity and that zero is the only possible accumulation point of the spectrum.}
+\textit{Characterize solvability of $(\lambda1-K)x=y$ and deduce the
+that every nonzero spectral value of a compact operator is an eigenvalue of
+finite multiplicity, with zero the only possible accumulation point.}
 \end{exercise}
 
 \subsection{Quantum states and uncertainty}
@@ -1885,12 +1455,13 @@ where $(a_i)$ and $(b_i)$ are orthonormal families and $s_i>0$; $r$ is the \text
 \]
 
 \begin{exercise}[Schmidt decomposition and entanglement]\leavevmode\par
-\textit{Prove that the partial trace exists uniquely. Use the singular-value decomposition of $T_\psi$ to prove that every $\psi$ has a Schmidt decomposition. Prove that the nonzero eigenvalues of $\rho_A$ and $\rho_B$ are the numbers $s_i^2$, with the same multiplicities. Prove that $\psi$ is separable, meaning $\psi=a\otimes b$, exactly when its Schmidt rank is one. Deduce that the entanglement entropy is}
+\textit{Use singular-value decomposition to derive the Schmidt decomposition,
+characterize separability, and compute the entanglement entropy}
 \[
 S(\psi)=-\operatorname{Tr}(\rho_A\log\rho_A)
 =-\sum_i s_i^2\log s_i^2,
 \]
-\textit{with the convention $0\log0=0$.}
+\textit{where the $s_i$ are the Schmidt coefficients.}
 \end{exercise}
 
 \subsection{CHSH, Gisin, and Tsirelson}
@@ -1901,17 +1472,17 @@ eigenvalues in $\{-1,1\}$, and define the CHSH operator}
 \[
 \mathcal C=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1).
 \]
-\textit{Prove that every classical local-hidden-variable assignment satisfies
-$|\langle\mathcal C\rangle|\leq2$. For the two-qubit state in Schmidt form}
+\textit{Establish the classical CHSH bound $2$. For the two-qubit state}
 \[
 \psi_\theta=\cos\theta\,|00\rangle+\sin\theta\,|11\rangle,
 \qquad 0\leq\theta\leq\frac\pi4,
 \]
-\textit{optimize over projective binary observables and prove that the maximal CHSH value is} \cite{gisin}
+\textit{derive the maximal CHSH value} \cite{gisin}
 \[
 2\sqrt{1+\sin^2(2\theta)}.
 \]
-\textit{Conclude that every entangled pure two-qubit state violates a CHSH inequality. For $\theta=\pi/4$, recover the value $2\sqrt2$.}
+\textit{Conclude that every entangled pure two-qubit state violates
+CHSH.}
 \end{exercise}
 
 A \textbf{bipartite binary quantum correlation matrix} has entries
@@ -1934,17 +1505,11 @@ and
 where the supremum is over bipartite binary quantum correlation matrices.
 
 \begin{exercise}[Tsirelson's representation theorem and bound]\leavevmode\par
-\textit{Prove that a finite real matrix $c=(c_{ij})$ is a bipartite binary quantum correlation matrix if and only if there are unit vectors $x_i,y_j$ in a real Hilbert space such that} \cite{tsirelson}
+\textit{Prove Tsirelson's representation theorem \cite{tsirelson}:}
 \[
 c_{ij}=\langle x_i,y_j\rangle.
 \]
-\textit{Deduce that}
-\[
-\beta_{\mathrm Q}(M)
-=\sup_{\|x_i\|=\|y_j\|=1}
-\left|\sum_{i,j}M_{ij}\langle x_i,y_j\rangle\right|.
-\]
-\textit{For the CHSH operator, prove the Tsirelson bound $\|\mathcal C\|\leq2\sqrt2$ and exhibit observables and a state attaining equality.}
+\textit{Derive the sharp CHSH bound $2\sqrt2$.}
 \end{exercise}
 
 \subsection{Grothendieck inequality}
@@ -1956,16 +1521,14 @@ The \textbf{real Grothendieck constant} $K_G^{\mathbb R}$ is the least constant 
 holds for every real matrix $M$.
 
 \begin{exercise}[Grothendieck's inequality]\leavevmode\par
-\textit{Prove that $K_G^{\mathbb R}<\infty$} \cite{grothendieck,pisier-grothendieck}. \textit{For}
+\textit{Prove that $K_G^{\mathbb R}<\infty$
+\cite{grothendieck,pisier-grothendieck}. Use}
 \[
 M_{\mathrm{CHSH}}=
 \begin{pmatrix}1&1\\1&-1\end{pmatrix},
 \]
-\textit{compute $\beta_{\mathrm C}(M_{\mathrm{CHSH}})$ directly. Choose four unit vectors in $\mathbb R^2$ that attain}
-\[
-\beta_{\mathrm Q}(M_{\mathrm{CHSH}})=2\sqrt2
-\]
-\textit{and verify the ratio $\sqrt2$. Deduce that $\sqrt2\leq K_G^{\mathbb R}$ and interpret the inequality as a dimension-independent bound on quantum advantage for bipartite binary correlation Bell inequalities.}
+\textit{to prove $K_G^{\mathbb R}\geq\sqrt2$ and interpret the inequality
+as a dimension-independent bound on quantum advantage.}
 \end{exercise}
 
 \subsection{Von Neumann algebras and subfactors}
@@ -2006,40 +1569,25 @@ positive map between von Neumann algebras.
 \begin{exercise}[Normal CP maps have Stinespring dilations]
 \leavevmode\par
 \textit{Let $M$ be a von Neumann algebra and let
-$\Phi:M\to\mathcal B(H)$ be normal and completely positive. Prove the normal
-Stinespring theorem \cite{stinespring}: there are a Hilbert space $K$, a
-normal $*$-representation $\pi:M\to\mathcal B(K)$, and a bounded operator
-$V:H\to K$ such that}
+$\Phi:M\to\mathcal B(H)$ be normal and completely positive. Prove
+Stinespring's theorem \cite{stinespring}: there are a Hilbert space $K$, a
+normal representation $\pi:M\to\mathcal B(K)$, and $V:H\to K$ such that}
 \[
 \Phi(x)=V^*\pi(x)V,
 \qquad
 V^*V=\Phi(1).
 \]
-\textit{Prove that the dilation can be chosen minimal, meaning}
-\[
-K=\overline{\operatorname{span}}\{\pi(x)V\xi:x\in M,\ \xi\in H\},
-\]
-\textit{and that any two minimal dilations are unitarily equivalent. Deduce
-that $V$ is an isometry when $\Phi$ is unital.}
-
-\textit{For $M=\mathcal B(H_0)$, prove that every normal representation of
-$M$ is unitarily equivalent to $x\mapsto x\otimes1_E$ on $H_0\otimes E$.
-Deduce that every normal Heisenberg-picture channel
-$\Phi:\mathcal B(H_0)\to\mathcal B(H)$ has the form}
+\textit{Deduce that every normal channel on $\mathcal B(H_0)$ has the
+environmental form}
 \[
 \Phi(x)=V^*(x\otimes1_E)V
 \]
-\textit{for an isometry $V:H\to H_0\otimes E$. Interpret $E$ as an
-environment. In finite dimensions, pass to the adjoint with respect to the
-trace pairing and recover the Kraus and partial-trace forms}
+\textit{and, in finite dimensions, the Kraus and partial-trace forms}
 \[
 \Phi_*(\rho)=\sum_\alpha K_\alpha\rho K_\alpha^*
-=\operatorname{Tr}_E(V\rho V^*),
-\qquad
-\sum_\alpha K_\alpha^*K_\alpha=1_H.
+=\operatorname{Tr}_E(V\rho V^*).
 \]
-\textit{Use this consequence to strengthen Exercise~\ref{ex:no-cloning}:
-no quantum channel can clone every pure state.}
+\textit{Conclude that no quantum channel clones every pure state.}
 \end{exercise}
 
 A positive functional $\psi$ is \textbf{normal} if it preserves suprema of
@@ -2210,17 +1758,8 @@ P_n(2\cos\theta)
 \cup
 [4,\infty).
 \]
-\textit{For}
-\[
-[M:N]=4\cos^2\left(\frac{\pi}{k+2}\right),
-\qquad
-\delta=\sqrt{[M:N]},
-\]
-\textit{prove that the Jones projections determine a representation of the Temperley--Lieb algebra $\operatorname{TL}_n(\delta)$, and hence a braid-group representation. Show that the Markov trace of a braid closure satisfies the Jones skein relation. Relate the parameter}
-\[
-\delta=2\cos\left(\frac{\pi}{k+2}\right)
-\]
-\textit{to the $SU(2)_k$ fusion and braiding data from Algebra and to the Wilson-loop invariant of Chern--Simons theory from Geometry.}
+\textit{Relate the discrete values to the $SU(2)_k$ braid representations
+and Chern--Simons Wilson-loop invariants constructed above.}
 \end{exercise}
 
 \begin{thebibliography}{99}
