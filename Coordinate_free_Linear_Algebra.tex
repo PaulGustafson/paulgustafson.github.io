@@ -1,5 +1,9 @@
 \documentclass{article}
 \usepackage{amsfonts, amsmath, amssymb} % For mathematical symbols
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\emergencystretch}{3em}
 
 \newtheorem{exercise}{Exercise}
 \newcommand{\trace}{\operatorname{tr}}
@@ -23,7 +27,14 @@
 
 The first section develops algebraic constructions independent of a basis; the second develops geometric constructions independent of coordinates; the third develops analytic constructions from norms, operators, and positivity.
 
+Definitions establish the language, while the exercises carry the mathematical
+development. They range from foundational arguments to major synthesis
+problems; citations attached to the latter identify sources for the additional
+machinery their complete proofs require.
+
 \section{Algebra}
+
+\subsection{Linear algebra}
 
 Linear algebra studies linear maps between vector spaces. A \textbf{vector
 space} $V$ over a field $k$ is a set equipped with vector addition and scalar
@@ -55,11 +66,14 @@ $(\ev_V \otimes 1_{V^*}) \circ (1_{V^*} \otimes \coev_{V}) = 1_{V^*}$. We define
 
 
 \begin{exercise}[Trace and dimension identities]\label{ex:linear-trace-dimension}\leavevmode\par
-Prove the following for finite-dimensional vector spaces $V,W$ and linear maps $f,g:V\to V$.
+Prove the following for finite-dimensional vector spaces $V,W$.
     \begin{itemize}
-        \item $\trace(f g) = \trace(g f)$
-        \item $\trace(f \oplus g) = \trace(f) + \trace(g)$
-        \item $\trace(f \otimes g) = \trace(f) \trace(g)$
+        \item If $f:V\to W$ and $g:W\to V$, then
+        $\trace(gf)=\trace(fg)$.
+        \item If $f\in\End(V)$ and $g\in\End(W)$, then
+        $\trace(f \oplus g) = \trace(f) + \trace(g)$.
+        \item If $f\in\End(V)$ and $g\in\End(W)$, then
+        $\trace(f \otimes g) = \trace(f) \trace(g)$.
         \item If $\operatorname{char}(k)=0$, then $\dim(V)\in\mathbf{N}\subset k$
         \item If $\operatorname{char}(k)=0$, then $V\cong W$ iff $\dim(V)=\dim(W)$
     \end{itemize}
@@ -173,7 +187,7 @@ V^G=\{v\in V:\rho(g)v=v\text{ for every }g\in G\}
 \]
 for the fixed-point space.
 
-\begin{exercise}[Averaging produces invariant projections and inner products]\leavevmode\par
+\begin{exercise}[Averaging produces invariants]\leavevmode\par
 \textit{Let $G$ be finite and let $V$ be a complex representation. Define}
 \[
 P_G=\frac1{|G|}\sum_{g\in G}\rho(g).
@@ -295,7 +309,7 @@ is the matrix coefficient used below.
 infrared active.}
 \end{exercise}
 
-\begin{exercise}[All fundamental vibrations of water are Raman active]\leavevmode\par
+\begin{exercise}[Water's vibrations are Raman active]\leavevmode\par
 \textit{Let the polarizability tensor carry $\operatorname{Sym}^2(V_\mu)$. Prove that a vibrational mode is Raman active precisely when its irreducible representation occurs in this symmetric square. Prove that}
 \[
 \operatorname{Sym}^2(V_\mu)
@@ -394,7 +408,7 @@ quantum-number decomposition}
 forced by spin $j$.}
 \end{exercise}
 
-\begin{exercise}[Hidden symmetry determines the hydrogen spectrum]
+\begin{exercise}[Hidden symmetry gives the hydrogen spectrum]
 \label{ex:hydrogen-hidden-symmetry}\leavevmode\par
 \textit{With $p=-i\hbar\nabla$, $r=|x|$, and $L=x\times p$, consider the
 hydrogen Hamiltonian and Runge--Lenz operator}
@@ -432,8 +446,22 @@ A $\mathbb C$-linear monoidal category is a $\mathbb C$-linear category equipped
 
 Let $\mathcal C$ be such a category with finite direct sums. An object $x$ is \textbf{simple} if $\End(x)\cong\mathbb C$, and $\mathcal C$ is \textbf{semisimple} if every object is a finite direct sum of simple objects. Assume that $1$ is simple, that there are finitely many isomorphism classes of simple objects, and that $\mathcal C$ is \textbf{rigid}: every $x$ has a dual $x^*$ with evaluation and coevaluation maps satisfying the snake identities.
 
-The definitions of duality, trace, and dimension above extend verbatim to $\mathcal C$. Write $d_x=\trace(1_x)$.
-Assume that the categorical dimensions of nonzero objects are positive real numbers.
+A \textbf{pivotal structure} on $\mathcal C$ is a monoidal natural
+isomorphism $j_x:x\to x^{**}$. It defines the right and left traces of
+$f:x\to x$ by
+\[
+\begin{aligned}
+\trace_R(f)
+&=\ev_{x^*}(j_x\otimes1_{x^*})(f\otimes1_{x^*})\coev_x,\\
+\trace_L(f)
+&=\ev_x(1_{x^*}\otimes f)(1_{x^*}\otimes j_x^{-1})\coev_{x^*}.
+\end{aligned}
+\]
+The pivotal structure is \textbf{spherical} if
+$\trace_L(f)=\trace_R(f)$ for every endomorphism $f$. Assume that
+$\mathcal C$ has a spherical pivotal structure, write the common trace as
+$\trace(f)$, and set $d_x=\trace(1_x)$. Assume that the categorical
+dimensions of nonzero objects are positive real numbers.
 
 \begin{exercise}[Categorical trace and dimension]\leavevmode\par
 \textit{Repeat the first three parts of Exercise~\ref{ex:linear-trace-dimension} in $\mathcal C$.}
@@ -503,7 +531,12 @@ $\mathcal C$-colored ribbon graphs.}
 
 \subsection{Differential forms and cohomology}
 
-A \textbf{smooth manifold} is a topological space equipped with an atlas whose transition maps are smooth. A smooth map $f:M\to N$ has a tangent map $df:TM\to TN$. The \textbf{tangent bundle} $TM$ is the union of the tangent spaces, the \textbf{cotangent bundle} is $T^*M$, and a \textbf{vector field} is a smooth section of $TM$.
+A \textbf{smooth $n$-manifold} is a Hausdorff, second-countable topological
+space equipped with a maximal atlas of charts to open subsets of
+$\mathbb R^n$ whose transition maps are smooth. A smooth map $f:M\to N$ has
+a tangent map $df:TM\to TN$. The \textbf{tangent bundle} $TM$ is the union
+of the tangent spaces, the \textbf{cotangent bundle} is $T^*M$, and a
+\textbf{vector field} is a smooth section of $TM$.
 
 For an $n$-dimensional real vector space $V$, its \textbf{determinant line}
 is $\det(V^*)=\Lambda^nV^*$.
@@ -543,7 +576,7 @@ For a smooth map $f:N\to M$, the \textbf{pullback} of $\alpha\in\Omega^p(M)$ is
 \textit{Prove that integration over smooth singular cycles induces a natural isomorphism between de Rham cohomology and singular cohomology with real coefficients.}
 \end{exercise}
 
-\begin{exercise}[Nontrivial cohomology produces the Aharonov--Bohm phase]\leavevmode\par
+\begin{exercise}[Cohomology produces the Aharonov--Bohm phase]\leavevmode\par
 \textit{Outside an idealized solenoid, let}
 \[
 M=\mathbb R^3\setminus\{(0,0,z):z\in\mathbb R\},
@@ -742,7 +775,11 @@ independent of the connection. Apply this to}
 
 \subsection{Band topology}
 
-For the gapped families below, assume that $X$ is connected, so vector-bundle ranks are constant. Let $V$ be a finite-dimensional Hermitian vector space. Exercise~\ref{ex:finite-spectral-theorem} supplies the spectral decomposition used below. A continuous family is a map
+For the gapped families below, assume that $X$ is compact and connected, so
+spectra are uniformly bounded and vector-bundle ranks are constant. Let $V$
+be a finite-dimensional Hermitian vector space.
+Exercise~\ref{ex:finite-spectral-theorem} supplies the spectral decomposition
+used below. A continuous family is a map
 \[
 H:X\longrightarrow\End(V)
 \]
@@ -839,7 +876,7 @@ H(q,p)=\frac{1}{2m}\sum_{i=1}^np_i^2+V(q),
 Newton's equation, and solve the harmonic-oscillator flow.}
 \end{exercise}
 
-\begin{exercise}[Magnetic symplectic curvature produces the Lorentz force]\leavevmode\par
+\begin{exercise}[Magnetic curvature produces the Lorentz force]\leavevmode\par
 \textit{For a particle of charge $e$ in a closed magnetic field
 $B\in\Omega^2(\mathbb R^3)$, derive the Lorentz force from}
 \[
@@ -856,7 +893,7 @@ potential.}
 $\omega^n/n!$.}
 \end{exercise}
 
-\begin{exercise}[Hamiltonian phase volume produces ideal-gas thermodynamics]\leavevmode\par
+\begin{exercise}[Phase volume produces ideal-gas thermodynamics]\leavevmode\par
 \textit{For Liouville measure $d\mu_L=\omega^n/n!$, show that Hamiltonian
 evolution preserves the fine-grained Gibbs entropy}
 \[
@@ -1065,7 +1102,7 @@ d_A\star F_A=0,
 \textit{and recover source-free Maxwell theory in the abelian case.}
 \end{exercise}
 
-\begin{exercise}[Standard Model representations and symmetry breaking]\leavevmode\par
+\begin{exercise}[Standard Model symmetry breaking]\leavevmode\par
 \textit{Take the Standard Model gauge group to be}
 \[
 G_{\mathrm{SM}}
@@ -1545,7 +1582,10 @@ real vectors $x_i,y_j$ with $\|x_i\|\leq 1$ and $\|y_j\|\leq 1$ such that}
 \[
 c_{ij}=\langle x_i,y_j\rangle.
 \]
-\textit{Derive the sharp CHSH bound $2\sqrt2$.}
+\textit{Conversely, use finite-dimensional Clifford representations to prove
+that every finite family of such inner products is a bipartite binary quantum
+correlation matrix. Deduce that $\beta_{\mathrm Q}$ is the corresponding
+vector relaxation and derive the sharp CHSH bound $2\sqrt2$.}
 \end{exercise}
 
 \subsection{Grothendieck inequality}
@@ -1660,7 +1700,10 @@ p\precsim q
 \textit{Deduce that $\tau(p)=\tau(q)$ if and only if $p\sim q$.}
 \end{exercise}
 
-A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let $N\subseteq M$ be finite von Neumann algebras with a common normalized trace $\tau$. A \textbf{trace-preserving conditional expectation} is a normal unital completely positive map $E_N:M\to N$ such that
+A von Neumann algebra is \textbf{finite} if $v^*v=1$ implies $vv^*=1$. Let
+$N\subseteq M$ be finite von Neumann algebras with a common faithful normal
+tracial state $\tau$. A \textbf{trace-preserving conditional expectation} is
+a normal unital completely positive map $E_N:M\to N$ such that
 \[
 \tau\circ E_N=\tau,
 \qquad
