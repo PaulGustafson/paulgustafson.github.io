@@ -1,0 +1,143 @@
+\section{Noncommutativity}
+
+\begin{exercise}[An entangled state has no local state vector]
+\textbf{Experiment.}
+Two-qubit tomography reconstructs joint states whose correlations cannot be
+represented by assigning a pure state to each qubit.  Let
+\(\rho\) be the reconstructed positive trace-one operator on
+\(H_A\otimes H_B\).
+
+Derive the unique operator \(\rho_A\) satisfying
+\[
+        \Tr(\rho_A X)=\Tr\!\bigl(\rho(X\otimes\id)\bigr)
+\]
+for every observable \(X\) on \(H_A\).  For a maximally entangled pure state,
+show that \(\rho_A\) is maximally mixed.  Explain how a globally sharp state
+can therefore give locally random results.  Show that no choice of bases in
+\(H_A\) and \(H_B\) turns this state into a product, and identify the
+basis-free invariant that detects this failure.
+\end{exercise}
+
+\begin{exercise}[An ancilla improves discrimination]
+\textbf{Experiment.}
+Entangling a probe with an untouched ancilla can increase the probability of
+distinguishing two laboratory channels.  For channels \(\Phi_0,\Phi_1\), the
+largest unassisted bias is governed by their action on system states, while
+the assisted bias allows states on \(H\otimes A\).
+
+Express the assisted bias as the norm of
+\((\Phi_0-\Phi_1)\otimes\id_A\).  Show that an ancilla of dimension
+\(\dim H\) is sufficient.  Construct a pair of channels for which the
+assisted value is strictly larger than the unassisted value.  Explain why the
+experiment forces a matrix-level norm on maps rather than a norm which tests
+only the original system.
+\end{exercise}
+
+\begin{exercise}[Bell correlations]
+\textbf{Experiment.}
+Loophole-reduced Bell tests observe correlations violating the CHSH bound
+\(2\) while remaining below the quantum bound \(2\sqrt2\)
+\cite{hensen}.  Let \(A_0,A_1\) and \(B_0,B_1\) be self-adjoint contractions
+belonging to commuting local observable algebras, and set
+\[
+        C=A_0(B_0+B_1)+A_1(B_0-B_1).
+\]
+
+Prove the classical bound when all four observables commute.  In the quantum
+case, compute \(C^2\) and derive \(\|C\|\le2\sqrt2\)
+\cite{tsirelson}.  Give observables and a bipartite state attaining equality.
+Explain which algebraic change permits the experimentally observed violation
+and why the same calculation still forbids correlations beyond the quantum
+bound.
+\end{exercise}
+
+\begin{exercise}[Two photons leave together]
+\textbf{Experiment.}
+When two indistinguishable photons enter opposite ports of a balanced beam
+splitter simultaneously, coincident detections at the two outputs are
+suppressed \cite{hong-ou-mandel}.  Let \(H\) be the one-photon mode space and
+describe two identical bosons in the symmetric square of \(H\).
+
+Apply the beam-splitter unitary functorially to the two-photon state.  Show
+that the two amplitudes leading to one photon in each output cancel, whereas
+the amplitudes for both photons in one output add.  Explain why distinguishable
+photons do not show complete suppression.  Relate the width and depth of the
+observed coincidence dip to temporal overlap and indistinguishability rather
+than to a choice of mode coordinates.
+\end{exercise}
+
+\begin{exercise}[Sequential spin measurements]
+\textbf{Experiment.}
+A beam selected by a vertical Stern--Gerlach analyzer becomes uncertain when
+measured horizontally; selecting the horizontal output then restores two
+possible vertical outcomes.  Represent the selections by rank-one
+projections \(P\) and \(Q\).
+
+Compute the sequential probabilities from products such as \(PQP\).  Show
+that the observed order effect disappears exactly when the projections
+commute.  Explain why the disturbance is not accounted for by ignorance of a
+pre-existing pair of spin components.  Express the uncertainty through the
+commutator without selecting matrices until the final numerical example.
+\end{exercise}
+
+\begin{exercise}[No perfect photocopier]
+\textbf{Experiment.}
+Optical experiments can approximately clone states from a known ensemble, but
+no device produces two perfect copies of every unknown polarization state.
+Suppose a physical evolution \(U\) and a fixed blank state \(b\) satisfied
+\[
+        U(v\otimes b)=v\otimes v
+\]
+for every unit vector \(v\).
+
+Compare inner products before and after the evolution and derive a
+contradiction for two distinct nonorthogonal states.  Explain why known
+orthogonal states can be copied and why probabilistic or approximate cloning
+does not contradict the argument.  Identify preservation of transition
+probabilities as the structure forced by the experiment.
+\end{exercise}
+
+\begin{exercise}[Teleportation correlations]
+\textbf{Experiment.}
+Quantum teleportation transfers an unknown qubit state using a shared
+entangled pair, two classical bits, and no transmission of the original
+carrier.  Let \(H\) be the qubit space and use the canonical correspondence
+between maps on \(H\) and vectors in \(H\otimes H^*\).
+
+Decompose the combined state into four orthogonal measurement alternatives.
+Show that each alternative leaves the remote system related to the input by a
+known unitary correction.  Explain why averaging before receipt of the
+classical message gives a maximally mixed remote state, preventing
+faster-than-light signaling.  State what experimental statistics certify
+fidelity beyond a classical measure-and-prepare scheme.
+\end{exercise}
+
+\begin{exercise}[Decoherence of interference]
+\textbf{Experiment.}
+Interference visibility falls when path information leaks into an
+environment, even if no observer reads that information.  Let the two paths
+become correlated with normalized environment states \(e_0,e_1\).
+
+Take the partial trace of the joint pure state and show that the
+off-diagonal interference term is multiplied by
+\(\langle e_1,e_0\rangle\).  Relate fringe visibility to this overlap and path
+distinguishability to its complement.  Explain the disappearance of fringes
+when the records are orthogonal and their recovery under a quantum eraser
+which recombines the record alternatives.
+\end{exercise}
+
+\begin{exercise}[Quantum Zeno inhibition]
+\textbf{Experiment.}
+Repeated measurements of whether an unstable or coherently driven system
+remains in its initial state can inhibit its transition.  Let \(P\) project
+onto that state and let \(U(t)\) be the unobserved evolution.
+
+Show that after \(N\) equally spaced ideal tests the survival probability is
+\[
+        \bigl\|(PU(t/N)P)^Nv\bigr\|^2.
+\]
+Use the short-time quadratic behavior to find its limit as \(N\to\infty\).
+Explain why the result depends on the noncommuting alternation of evolution
+and projection, and state which finite measurement times limit the laboratory
+effect.
+\end{exercise}

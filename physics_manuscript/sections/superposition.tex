@@ -1,0 +1,167 @@
+\section{Superposition}
+
+\begin{exercise}[The monochord]
+\textbf{Experiment.}
+A string fixed at both ends rings only at frequencies
+\[
+        f_n=nf_1,\qquad n=1,2,\ldots,
+\]
+and an arbitrary small displacement separates into the corresponding normal
+modes.  Let \(V\) be the real vector space of displacements, let
+\(K:V\to V^*\) encode the restoring force, and let
+\(M:V\to V^*\) encode kinetic energy.  Assume that \(M\) is positive and that
+\(K\) is symmetric with respect to the natural pairing.
+
+Explain the observed decomposition without choosing coordinates.  Show that a
+mode of angular frequency \(\omega\) is a nonzero solution of
+\[
+        Kv=\omega^2Mv.
+\]
+Use the \(M\)-inner product to explain why modes with distinct frequencies are
+orthogonal.  For an ideal string, identify the boundary condition that gives
+\(\omega_n=n\omega_1\), and state which assumptions fail when the amplitude is
+large enough that superposition is no longer observed.
+\end{exercise}
+
+\begin{exercise}[Young's fringes]
+\textbf{Experiment.}
+Young's two-slit experiment produces alternating bright and dark bands
+\cite{young}.  Blocking either slit removes the bands.  At a detector point,
+let the two alternatives contribute \(a,b\in\C\), while the measured intensity
+is proportional to \(|a+b|^2\).
+
+Explain why adding measured intensities cannot produce the dark bands.
+Expand \(|a+b|^2\), isolate the interference term, and show that it depends on
+the relative phase but not on a simultaneous multiplication
+\((a,b)\mapsto(e^{i\theta}a,e^{i\theta}b)\).  Reformulate the physical state as
+a ray in a complex vector space.  Explain why the quotient by nonzero scalar
+multiplication records the experimental invariance more faithfully than any
+choice of phase convention.
+\end{exercise}
+
+\begin{exercise}[One photon, two paths]
+\textbf{Experiment.}
+In a balanced Mach--Zehnder interferometer, single photons arrive one at a
+time, yet one output can be dark after many trials.  Inserting a phase
+\(\phi\) in one arm changes the output probabilities to
+\[
+        p_0=\cos^2(\phi/2),\qquad p_1=\sin^2(\phi/2).
+\]
+Let \(H\) be the two-dimensional path space and let a lossless beam splitter
+be represented by a unitary map \(B:H\to H\).
+
+Find a coordinate-free expression for the phase shifter using the two path
+subspaces and their orthogonal projections.  Compose two beam splitters with
+this map and recover the observed probabilities.  Explain why a classical
+mixture of \emph{upper path} and \emph{lower path} cannot make one output
+dark, and why the experiment nevertheless does not determine a preferred
+basis for \(H\).
+\end{exercise}
+
+\begin{exercise}[Stern--Gerlach splitting]
+\textbf{Experiment.}
+A beam of silver atoms passing through an inhomogeneous magnetic field splits
+into two beams, not a continuous smear \cite{stern-gerlach}.  Repeating the
+experiment with a rotated magnet changes the relative counts.  Model a
+measurement direction \(n\in\R^3\) by a self-adjoint operator \(S_n\) on a
+two-dimensional complex Hilbert space.
+
+Find structural assumptions on \(n\mapsto S_n\) which force
+\(S_n^2=(\hbar^2/4)\id\).  Deduce the two observed values
+\(\pm\hbar/2\).  If \(P_n^+\) and \(P_m^+\) are the positive-beam projections,
+show that the probability of passing both filters is
+\(\Tr(P_n^+P_m^+)=(1+n\cdot m)/2\).  Explain the disappearance and return of a
+blocked beam when an intermediate, differently oriented analyzer is inserted.
+\end{exercise}
+
+\begin{exercise}[Tomography of an open evolution]
+\textbf{Experiment.}
+Quantum process tomography reconstructs laboratory evolutions which are not
+unitary: attenuation, dephasing, and relaxation all occur
+\cite{altepeter}.  Let \(\Phi:\operatorname{End}(H)\to\operatorname{End}(K)\)
+be the reconstructed linear map.  Experiments require density operators to
+remain positive even when the system is entangled with an untouched auxiliary
+system \(A\).
+
+Show that the requirement is positivity of
+\(\Phi\otimes\id_{\operatorname{End}(A)}\) for every finite-dimensional
+\(A\).  Prove that it suffices to test \(A\cong H\).  From the positive
+operator obtained by applying \(\Phi\otimes\id\) to a maximally entangled
+state, derive operators \(V_i:H\to K\) satisfying
+\[
+        \Phi(\rho)=\sum_i V_i\rho V_i^*.
+\]
+Explain why preservation of total detection probability is equivalent to
+\(\sum_iV_i^*V_i=\id_H\).
+\end{exercise}
+
+\begin{exercise}[Chladni figures]
+\textbf{Experiment.}
+Sand on a driven metal plate collects along sharp nodal curves, and the
+pattern changes abruptly as the driving frequency is varied.
+Let \(V\) be the displacement space and let the plate's elastic and inertial
+forms be \(K\) and \(M\).
+
+Explain why persistent patterns occur near the spectrum of the generalized
+operator \(K-\omega^2M\).  Show that the sand records the zero set of an
+eigenvector rather than its coordinates.  Explain why a geometrically
+symmetric plate can have degenerate modes, why a small clamp or added mass
+splits them, and why an arbitrary linear combination is observed when the
+driving frequency meets an unsplit eigenspace.
+\end{exercise}
+
+\begin{exercise}[Malus's law]
+\textbf{Experiment.}
+Light transmitted through two ideal linear polarizers has intensity
+\(I=I_0\cos^2\theta\), where \(\theta\) is their relative angle.
+Represent a pure polarization by a ray in a two-dimensional complex inner
+product space and a polarizer by an orthogonal projection \(P\) of rank one.
+
+Explain the observed law by showing that the transmitted fraction from ray
+\([v]\) is \(\|Pv\|^2/\|v\|^2\).  Prove that this number depends only on the
+two rays and not on phases or chosen bases.  Explain why inserting a third
+polarizer between crossed polarizers can restore nonzero transmission.
+\end{exercise}
+
+\begin{exercise}[Ramsey fringes]
+\textbf{Experiment.}
+Two separated resonant pulses applied to an atom produce an oscillating
+excitation probability as the pulse separation or oscillator frequency is
+varied.  Let the two energy eigenspaces be orthogonal lines in \(H\); model
+each pulse by a unitary mixing them and free evolution by the spectral
+projections of the Hamiltonian.
+
+Compose the three maps and recover a sinusoidal detection probability.
+Explain why the phase accumulated during the unobserved interval affects the
+final population.  Identify the invariant relative phase and explain how the
+fringe period measures the energy splitting without selecting coordinates on
+\(H\).
+\end{exercise}
+
+\begin{exercise}[Neutron diffraction]
+\textbf{Experiment.}
+A monochromatic neutron beam scattered by a crystal gives intense peaks only
+at particular angles.  Associate an amplitude to scattering from each lattice
+site and let translations act on the wave's one-dimensional phase space.
+
+Explain why the total amplitude is a sum of translation characters.  Show
+that constructive interference occurs precisely when the momentum transfer
+defines the trivial character on the crystal lattice.  Recover Bragg's law
+after choosing a family of lattice planes.  Explain why the reciprocal
+lattice, defined as a character group, is independent of any chosen primitive
+cell.
+\end{exercise}
+
+\begin{exercise}[Interference of large molecules]
+\textbf{Experiment.}
+Molecular beams passing through a diffraction grating produce interference
+fringes even when the molecules have many internal degrees of freedom.
+Associate a complex amplitude to each center-of-mass path and an internal
+state to the molecule.
+
+Show that the detected intensity contains cross terms weighted by the inner
+product of the internal states carried along the two paths.  Explain why
+unobserved internal excitations can reduce visibility without selecting a
+definite trajectory.  Identify the coherence condition which lets a composite
+object display the same superposition law as a photon.
+\end{exercise}

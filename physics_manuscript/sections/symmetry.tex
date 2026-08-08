@@ -1,0 +1,159 @@
+\section{Symmetry}
+
+\begin{exercise}[Three vibrations of water]
+\textbf{Experiment.}
+Infrared spectroscopy finds three fundamental vibrational modes of a water
+molecule: one bend and two stretches \cite{shimanouchi}.  The equilibrium
+shape is preserved by a reflection and by interchange of the two hydrogen
+atoms.  Let the resulting finite group \(G\) act on the small-displacement
+space \(V\), and suppose the dynamical operator \(D:V\to V\) commutes with
+that action.
+
+Without assigning coordinates to the atoms, show that every eigenspace of
+\(D\) is a \(G\)-representation.  Decompose \(V\) into irreducible
+representations by averaging an arbitrary inner product over \(G\).  Explain
+why this decomposition separates the symmetric stretch, antisymmetric
+stretch, and bend.  Use the transformation of the dipole moment to state which
+components can absorb infrared radiation and thereby explain the observed
+selection rule.
+\end{exercise}
+
+\begin{exercise}[Missing spectral lines]
+\textbf{Experiment.}
+Atomic spectra contain sharp lines, but many energy differences produce no
+line.  Suppose a symmetry group \(G\) acts unitarily on the state space \(H\),
+the Hamiltonian commutes with \(G\), and the radiation-coupling operator
+transforms as a representation \(W\).
+
+For initial and final irreducible subspaces \(V_i,V_f\subset H\), interpret a
+transition amplitude as a \(G\)-equivariant map
+\[
+        V_i\longrightarrow V_f\otimes W.
+\]
+Use Schur's lemma to show that the amplitude vanishes unless \(V_i\) occurs in
+\(V_f\otimes W\).  Apply this statement to rotational symmetry and an electric
+dipole, obtaining the usual change in angular momentum.  Explain why a
+vanishing intertwiner predicts an absent line rather than merely a weak one.
+\end{exercise}
+
+\begin{exercise}[Hydrogen degeneracy]
+\textbf{Experiment.}
+Ignoring fine structure and external fields, hydrogen energy levels with
+different orbital angular momentum share the same energy.  Spectroscopy
+organizes the bound-state energy by one principal integer \cite{hydrogen}.
+Let \(L\) be angular momentum and \(A\) the conserved Runge--Lenz vector.
+
+Starting from their coordinate-free commutator relations on a fixed negative
+energy eigenspace, rescale \(A\) and form two commuting triples
+\[
+        J_\pm=\tfrac12(L\pm A').
+\]
+Show that each triple generates a copy of \(\mathfrak{su}(2)\).  Determine the
+dimension of the resulting representation and recover the degeneracy \(n^2\).
+Explain which extra conserved quantity accounts for degeneracy not forced by
+ordinary spatial rotations, and which experimental perturbations destroy it.
+\end{exercise}
+
+\begin{exercise}[A full turn changes a sign]
+\textbf{Experiment.}
+Neutron interferometry detects a relative phase of \(\pi\) when one beam's
+spin is rotated through \(2\pi\), and return after \(4\pi\)
+\cite{hagiwara}.  Spatial directions are transformed by
+\(\mathrm{SO}(3)\), but spin states form rays in a two-dimensional Hilbert
+space.
+
+Show that a continuous action on rays lifts to an ordinary unitary
+representation of the double cover \(\mathrm{SU}(2)\).  Prove that the
+nontrivial element above the identity rotation acts as \(-\id\) in the
+spin-\(\tfrac12\) representation.  Explain why the sign is invisible on an
+isolated ray yet becomes observable when the rotated beam interferes with an
+unrotated beam.  Identify the obstruction to replacing this projective action
+by an ordinary representation of \(\mathrm{SO}(3)\).
+\end{exercise}
+
+\begin{exercise}[Protected end states]
+\textbf{Experiment.}
+Open integer-spin antiferromagnetic chains exhibit low-energy spin-\(\tfrac12\)
+degrees of freedom at their ends while the bulk remains gapped.  Model the
+ground state by a tensor network whose internal space carries a projective
+representation \(u_g\) of the preserved symmetry group:
+\[
+        u_g u_h=\omega(g,h)u_{gh}.
+\]
+
+Use associativity to derive the cocycle identity for \(\omega\).  Show that a
+change \(u_g\mapsto\beta(g)u_g\) changes \(\omega\) by a coboundary but cannot
+change its cohomology class.  Explain why a nontrivial class permits
+half-integer edge behavior even though every bulk site has integer spin.
+Argue why a continuous, symmetry-preserving, gap-preserving deformation
+cannot remove the edge representation.
+\end{exercise}
+
+\begin{exercise}[Zeeman splitting]
+\textbf{Experiment.}
+A spectral line splits into several components when an atom is placed in a
+magnetic field, and the pattern depends on the field direction.
+Let an irreducible rotation representation describe an unperturbed energy
+eigenspace, and let the field select the subgroup of rotations about its axis.
+
+Restrict the representation to this subgroup and decompose it into
+characters.  Explain why the perturbation can assign different energies to
+the resulting weight spaces.  Recover the number and spacing of components in
+the simplest orbital model.  Explain why removing the field restores the
+degeneracy without requiring the eigenvectors to return to a preferred basis.
+\end{exercise}
+
+\begin{exercise}[Ammonia inversion]
+\textbf{Experiment.}
+The ammonia microwave spectrum contains a close doublet associated with the
+nitrogen atom tunneling between two classically equivalent configurations.
+Let the reflection exchanging the configurations act unitarily on the
+low-energy state space and commute with the Hamiltonian.
+
+Decompose the space into the two characters of the reflection group.  Explain
+why the energy eigenstates are symmetric and antisymmetric combinations rather
+than states localized in one configuration.  Relate the doublet separation to
+the tunneling amplitude, and explain why a measurement localizing the nitrogen
+prepares a superposition which subsequently oscillates.
+\end{exercise}
+
+\begin{exercise}[Parity violation]
+\textbf{Experiment.}
+In polarized cobalt-60 decay, electrons are emitted preferentially opposite
+the nuclear spin.  Reflection reverses momentum but not angular momentum.
+
+Construct the scalar made from the spin and emitted momentum and determine
+its behavior under spatial reflection.  Explain why a reflection-invariant
+decay law would force the angular distribution to have equal rates in the two
+directions.  Show how the observed asymmetry rules out parity as a symmetry of
+the weak interaction while leaving rotational covariance intact.  Distinguish
+failure of a physical symmetry from a change of coordinates.
+\end{exercise}
+
+\begin{exercise}[Identical-particle multiplets]
+\textbf{Experiment.}
+Atomic term spectra contain multiplets with systematic absences determined by
+whether the electrons occupy symmetric or antisymmetric joint states.
+Let the permutation group act on the tensor power of the one-electron state
+space.
+
+Decompose the tensor power into symmetry types.  Explain why the fermionic
+state must lie in the alternating subspace and how this constrains the allowed
+combination of spatial and spin factors.  Derive the singlet--triplet
+alternative for two electrons.  Explain the observed missing terms as absent
+representation components, not as transitions too weak to detect.
+\end{exercise}
+
+\begin{exercise}[Raman polarization rules]
+\textbf{Experiment.}
+Changing the relative polarizations of incident and scattered light makes
+some molecular Raman lines appear and others disappear.  Let a vibrational
+mode transform in a representation \(V\), and let the polarizability transform
+in the symmetric square of the spatial vector representation.
+
+Express the scattering amplitude as an invariant trilinear form.  Determine
+when such an invariant exists by decomposing the tensor product.  Explain the
+observed polarization-dependent absences as symmetry constraints on the
+amplitude, and show why rotating the laboratory axes cannot change whether
+the invariant subspace exists.
+\end{exercise}

@@ -1,0 +1,153 @@
+\section{Topology}
+
+\begin{exercise}[A phase outside the solenoid]
+\textbf{Experiment.}
+Electron interference fringes shift when magnetic flux through an excluded
+solenoid changes, even though the magnetic field vanishes along both electron
+paths \cite{aharonov-bohm,tonomura}.  Let \(X\) be the field-free region and
+let \(A\) be a closed one-form there.
+
+Show that the relative phase is
+\[
+        \exp\!\left(\frac{iq}{\hbar}\oint_\gamma A\right),
+\]
+where \(\gamma\) is the loop formed by the two paths.  Prove invariance under
+\(A\mapsto A+df\).  Show that the phase depends only on the de Rham class of
+\(A\) and the homology class of \(\gamma\).  Compute it for the complement of
+an ideal solenoid, and explain why the observed fringe shift detects
+holonomy rather than a local magnetic force on the electrons.
+\end{exercise}
+
+\begin{exercise}[A geometric neutron phase]
+\textbf{Experiment.}
+Polarized neutrons transported through a cyclic sequence of magnetic fields
+acquire a phase proportional to the solid angle enclosed by the field
+direction on the sphere \cite{berry-neutron}.  Let \(L\to S^2\) be the line
+whose fiber is the instantaneous positive-spin eigenspace.
+
+Use orthogonal projection of the trivial connection to construct a connection
+on \(L\).  Calculate its curvature and show that the holonomy around a loop is
+half the enclosed solid angle, modulo \(2\pi\).  Explain why changing the phase
+of each chosen eigenvector changes the local connection form but not the
+measured interference phase.  Determine why no globally smooth nonvanishing
+choice of positive-spin eigenvector exists.
+\end{exercise}
+
+\begin{exercise}[Integer Hall plateaus]
+\textbf{Experiment.}
+At low temperature, a two-dimensional electron system displays Hall
+conductance locked to integer multiples of \(e^2/h\), with plateaus stable
+under disorder and small changes of magnetic field \cite{von-klitzing}.
+For a gapped periodic model, let the occupied states form a vector bundle
+\(E\) over the Brillouin torus.
+
+Construct the projected connection on \(E\) and its curvature \(F\).  Show
+that
+\[
+        \frac{i}{2\pi}\int_{\mathbb T^2}\Tr(F)\in\Z.
+\]
+Use the response formula to identify this integer with Hall conductance
+\cite{tknn}.  Prove that it is unchanged under a continuous deformation that
+keeps the spectral gap open.  Explain both the plateau's stability and the
+need for a gap closing when the measured integer changes.
+\end{exercise}
+
+\begin{exercise}[One particle per pump cycle]
+\textbf{Experiment.}
+An adiabatically driven one-dimensional lattice can transport an integer
+number of particles per cycle; cold-atom measurements observe this quantized
+pumping \cite{lohse}.  Treat crystal momentum and drive time as coordinates on
+a torus, and let \(E\) be the occupied-state bundle over that torus.
+
+Relate the transported charge in one period to the curvature of the projected
+connection on \(E\).  Show that the result is its first Chern number and is
+therefore integral.  Explain why small errors in the drive do not change the
+transported integer while adiabaticity and the energy gap persist.  Identify
+what the experiment would show if the path crossed a degeneracy.
+\end{exercise}
+
+\begin{exercise}[Zero modes at a boundary]
+\textbf{Experiment.}
+Topological materials support robust boundary modes whose net direction of
+propagation is tied to a bulk integer.  Let \(D\) be the Fredholm operator
+obtained from the boundary problem, with finite-dimensional kernel and
+cokernel.
+
+Show that
+\[
+        \operatorname{ind}D=\dim\ker D-\dim\operatorname{coker}D
+\]
+is unchanged by sufficiently small perturbations.  Relate this analytic
+integer to the bulk Chern number through an index pairing.  Explain why
+disorder may deform individual boundary states but cannot change the net
+number of chiral channels without closing the bulk gap or mixing with an
+opposite boundary.  State the experimentally testable transport consequence
+of this equality.
+\end{exercise}
+
+\begin{exercise}[Quantized superconducting flux]
+\textbf{Experiment.}
+Magnetic flux trapped in a superconducting ring occurs in integer multiples
+of \(h/2e\).  Let the nonzero condensate define a phase on the ring and let
+\(A\) be the electromagnetic connection.
+
+Show that single-valuedness makes the phase winding an integer.  Combine its
+differential with \(A\) to form the gauge-invariant circulation and recover
+the observed flux unit when the bulk current vanishes.  Explain why local
+changes of condensate phase do not alter the integer.  Identify the event
+required for the ring to move between adjacent flux sectors.
+\end{exercise}
+
+\begin{exercise}[Weak localization in a ring]
+\textbf{Experiment.}
+The conductance of a small disordered metallic ring oscillates as magnetic
+flux through the ring is varied, even when electrons travel diffusively.
+Pair each closed diffusive path with its time reverse.
+
+Show that the two amplitudes have equal dynamical phase but acquire opposite
+magnetic holonomies.  Derive the flux period of their interference correction.
+Explain why averaging over disorder suppresses many path pairs but preserves
+the time-reversed pair.  Interpret the oscillation as sensitivity to the
+connection's holonomy rather than to a force along the wire.
+\end{exercise}
+
+\begin{exercise}[Graphene's half-integer offset]
+\textbf{Experiment.}
+Graphene exhibits a quantum Hall sequence shifted relative to that of an
+ordinary parabolic band.  Near a band-touching point, the low-energy
+eigenspaces form lines over a loop in momentum space.
+
+Transport an eigenline around the loop and compute its geometric phase.
+Explain how the resulting sign changes the semiclassical quantization rule and
+produces the observed Hall offset.  Show that the phase cannot be removed by
+choosing eigenvectors smoothly along the entire loop while respecting
+single-valuedness.  State what perturbation can gap the touching point and
+alter the inference.
+\end{exercise}
+
+\begin{exercise}[A topological interface mode]
+\textbf{Experiment.}
+Engineered one-dimensional lattices with alternating couplings display a
+localized mode where the coupling pattern switches order.  Let the gapped
+bulk Hamiltonian possess a symmetry which pairs positive and negative
+energies.
+
+Associate a winding integer to each translation-invariant bulk.  Show that
+the two coupling orders have different integers.  Explain why an interface
+must then support a midgap state and why its wave function is localized.
+Determine which perturbations can move or remove the state, and relate the
+answer to whether the protecting symmetry and bulk gap survive.
+\end{exercise}
+
+\begin{exercise}[Josephson voltage oscillations]
+\textbf{Experiment.}
+A constant voltage across a Josephson junction produces an alternating
+supercurrent whose frequency obeys \(f=2eV/h\).  Let the two superconductors
+carry condensate phases connected by the electromagnetic gauge field.
+
+Construct the gauge-invariant phase difference across the junction.  Use its
+time evolution to derive the measured frequency--voltage relation.  Explain
+why the coefficient reveals charge \(2e\), why a local phase convention
+cannot alter the prediction, and how phase winding makes the oscillation a
+global comparison rather than an observable absolute phase.
+\end{exercise}
