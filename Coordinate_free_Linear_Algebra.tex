@@ -2271,14 +2271,22 @@ and Chern--Simons Wilson-loop invariants constructed above.}
 
 \section{Tensor categories and generalized cohomology}
 
-\subsection{Tensor products, duality, and trace}
+\subsection{Monoidal functors and decategorification}
 
-Write $\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}}$ for finite-dimensional
-complex vector spaces, $\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)$ for
-finite-dimensional complex representations of $G$,
+A \textbf{strong monoidal functor} $F:\mathcal C\to\mathcal D$ is a functor
+with coherent natural isomorphisms
+\[
+F(x)\otimes F(y)\cong F(x\otimes y),
+\qquad
+1_{\mathcal D}\cong F(1_{\mathcal C}).
+\]
+It is \textbf{symmetric monoidal} when these isomorphisms intertwine the
+symmetries of $\mathcal C$ and $\mathcal D$.
+
+Write $\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)$ for finite-dimensional
+complex representations of $G$ and
 $\operatorname{Ch}_{\mathbb C}^{b}$ for bounded cochain complexes of
-finite-dimensional complex vector spaces, and $\operatorname{OS}^{\mathrm{fd}}$
-for finite-dimensional operator spaces with completely bounded maps. For
+finite-dimensional complex vector spaces. For
 $C,D\in\operatorname{Ch}_{\mathbb C}^{b}$, define
 \[
 (C\otimes D)^n=\bigoplus_{p+q=n}C^p\otimes D^q,
@@ -2286,7 +2294,9 @@ $C,D\in\operatorname{Ch}_{\mathbb C}^{b}$, define
 d(c\otimes e)=dc\otimes e+(-1)^pc\otimes de
 \]
 for $c\in C^p$, and define the graded interchange by
-$c\otimes e\mapsto(-1)^{pq}e\otimes c$ for $e\in D^q$.
+$c\otimes e\mapsto(-1)^{pq}e\otimes c$ for $e\in D^q$. For compact
+Hausdorff $X$, write $\operatorname{Proj}_{\mathrm{fg}}(C(X))$ for finitely
+generated projective $C(X)$-modules, with tensor product over $C(X)$.
 
 For finite factors $M,N$, an \textbf{$M$--$N$ correspondence} is a Hilbert
 space $H$ with commuting normal unital representations of $M$ and
@@ -2298,44 +2308,128 @@ $M$--$P$ correspondence. A \textbf{bicategory} has objects, a category of
 morphisms between each ordered pair of objects, and horizontal composition
 that is associative and unital up to coherent natural isomorphisms.
 
-\begin{exercise}[Tensor products have different symmetries]
-\label{ex:tensor-structures-synthesis}\leavevmode\par
-\textit{Prove that
-$\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}}$,
-$\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)$,
-$\operatorname{Ch}_{\mathbb C}^{b}$, and $\operatorname{Vect}(X)$ for
-compact Hausdorff $X$ are
-symmetric rigid monoidal categories. Identify their tensor units and duals,
-and prove that their categorical traces are respectively the ordinary trace,
-the ordinary trace of an equivariant endomorphism, the supertrace of a
-cochain endomorphism $f=(f^n)_n$,}
+\begin{exercise}[Associated bundles carry symmetry into K-theory]
+\label{ex:monoidal-bridges}\leavevmode\par
+\textit{Let $G$ be a compact matrix group, let $X$ be a compact smooth
+manifold, and let $P\to X$ be a principal $G$-bundle. Prove that}
 \[
-\operatorname{str}(f)=\sum_n(-1)^n\trace(f^n),
+\operatorname{Assoc}_P:
+\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
+\longrightarrow\operatorname{Vect}(X),
+\qquad
+V\longmapsto P\times_GV,
 \]
-\textit{and the fiberwise trace of a bundle endomorphism. Prove the Hopf
-trace identity}
+\textit{is symmetric monoidal and preserves direct sums, duals, and traces.
+Prove that the section functor is a symmetric monoidal equivalence}
+\cite{swan-vector-bundles}
+\[
+\Gamma:\operatorname{Vect}(X)
+\xrightarrow{\ \simeq\ }
+\operatorname{Proj}_{\mathrm{fg}}(C(X)),
+\qquad
+\Gamma(E\otimes F)\cong
+\Gamma(E)\otimes_{C(X)}\Gamma(F).
+\]
+\textit{For a smooth map $f:Y\to X$, construct the monoidal natural
+isomorphism}
+\[
+f^*\operatorname{Assoc}_P
+\cong\operatorname{Assoc}_{f^*P}.
+\]
+\textit{After Grothendieck completion, prove that these functors induce a
+commutative diagram whose top row consists of symmetric monoidal functors and
+whose bottom row consists of ring homomorphisms:}
+\[
+\begin{array}{ccccc}
+\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
+&\xrightarrow{\operatorname{Assoc}_P}&
+\operatorname{Vect}(X)
+&\xrightarrow{\Gamma}&
+\operatorname{Proj}_{\mathrm{fg}}(C(X))\\[4pt]
+\Big\downarrow&&\Big\downarrow&&\Big\downarrow\\[-2pt]
+R(G)&\longrightarrow&K^0(X)&\xrightarrow{\ \cong\ }&K_0(C(X)),
+\end{array}
+\]
+\textit{The vertical arrows send objects to their stable classes.}\par
+\end{exercise}
+
+\begin{exercise}[Cohomology is monoidal and preserves trace]
+\leavevmode\par
+\textit{Let $\operatorname{GrVect}_{\mathbb C}^{\mathrm{fd}}$ be the category
+of finite-dimensional graded complex vector spaces with graded tensor
+product and Koszul interchange. Prove that the cohomology functor}
+\[
+H^*:\operatorname{Ch}_{\mathbb C}^{b}
+\longrightarrow\operatorname{GrVect}_{\mathbb C}^{\mathrm{fd}}
+\]
+\textit{is symmetric monoidal, with its monoidal isomorphism given by the
+K\"unneth map. Prove that every symmetric monoidal functor preserves duals
+and categorical traces. Apply this to a cochain endomorphism $f=(f^n)_n$ to
+prove the Hopf trace identity}
 \[
 \sum_n(-1)^n\trace(f^n)
-=\sum_n(-1)^n\trace\bigl(H^n(f)\bigr)
+=\sum_n(-1)^n\trace\bigl(H^n(f)\bigr).
 \]
-\textit{for an endomorphism of a bounded complex.}
+\end{exercise}
 
-\textit{Prove that $\operatorname{OS}^{\mathrm{fd}}$ is monoidal under
-$\otimes_h$ with unit $\mathbb C$, but that the ordinary flip cannot define
-a symmetry: use Exercise~\ref{ex:row-column} and}
+\begin{exercise}[Forgetting matrix norms loses information]
+\leavevmode\par
+\textit{Let $\operatorname{OS}^{\mathrm{fd}}$ be finite-dimensional operator
+spaces with completely bounded maps. Prove that forgetting matrix norms
+defines a strong monoidal functor}
+\[
+U:(\operatorname{OS}^{\mathrm{fd}},\otimes_h)
+\longrightarrow
+(\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}},\otimes).
+\]
+\textit{Show that $U(R_n)=U(C_n)=\mathbb C^n$ and that $U$ identifies the
+underlying vector spaces of $C_n\otimes_hR_n$ and $R_n\otimes_hC_n$, while
+Exercise~\ref{ex:row-column} and}
 \[
 C_n\otimes_hR_n\cong M_n,
 \qquad
-R_n\otimes_hC_n\cong S_1^n.
+R_n\otimes_hC_n\cong S_1^n
 \]
-
-\textit{Construct the bicategory whose objects are finite factors, whose
-hom-categories are $\operatorname{Corr}(M,N)$, and whose horizontal
-composition is Connes fusion. Prove that $L^2(M)$ is the unit and that
-finite-index correspondences are dualizable} \cite{jones-sunder}.
+\textit{show that it forgets their complete norms. Deduce that the ordinary
+flip on vector spaces has no completely isometric symmetric-monoidal lift
+through $U$.}\par
 \end{exercise}
 
-\begin{exercise}[Tensor structure controls physical observables]
+\begin{exercise}[Homomorphisms compose by Connes fusion]
+\label{ex:correspondence-functor}\leavevmode\par
+\textit{Construct the bicategory whose objects are finite factors, whose
+hom-categories are $\operatorname{Corr}(M,N)$, and whose horizontal
+composition is Connes fusion. Prove that $L^2(M)$ is the unit. Show that a
+normal unital $*$-homomorphism $\phi:M\to N$ defines the correspondence}
+\[
+{}_{M}L^2(N)_{N},
+\qquad
+m\cdot\xi=\phi(m)\xi,
+\]
+\textit{and construct the coherent unitary intertwiners}
+\[
+{}_{M}L^2(N)_{N}
+\mathbin{\overline\otimes_N}
+{}_{N}L^2(P)_{P}
+\cong
+{}_{M}L^2(P)_{P}
+\]
+\textit{for composable homomorphisms $M\to N\to P$. Thus prove that normal
+unital $*$-homomorphisms map pseudofunctorially into the correspondence
+bicategory} \cite{jones-sunder}.
+
+\textit{For a finite-index inclusion $N\subseteq M$ of type $\mathrm{II}_1$
+factors, prove that ${}_NL^2(M)_M$ is dualizable. Define the statistical
+dimension of a dualizable correspondence $H$ by $d(H)=\trace(1_H)$ and prove}
+\[
+d({}_NL^2(M)_M)=\sqrt{[M:N]}.
+\]
+\textit{Identify this dimension with the Temperley--Lieb loop parameter
+$\delta$ and relate categorical duality to the discrete values in
+Exercise~\ref{ex:jones-index}} \cite{jones-index}.\par
+\end{exercise}
+
+\begin{exercise}[Monoidal functors turn structure into observables]
 \leavevmode\par
 \textit{Express the selection rule of
 Exercise~\ref{ex:electric-dipole-selection} as the nonvanishing of}
@@ -2343,8 +2437,9 @@ Exercise~\ref{ex:electric-dipole-selection} as the nonvanishing of}
 \operatorname{Hom}_G
 \bigl(1,V_f^*\otimes V_\mu\otimes V_i\bigr),
 \]
-\textit{and explain why this formulation is independent of bases and
-Clebsch--Gordan coordinates.}
+\textit{For $P\to X$ as in Exercise~\ref{ex:monoidal-bridges}, prove that
+$\operatorname{Assoc}_P$ carries such invariant tensors to globally defined
+couplings of the associated bundles.}
 
 \textit{For the pointed $\mathbb Z/3$ category of
 Exercise~\ref{ex:anyonic-monodromy}, prove that}
@@ -2352,20 +2447,10 @@ Exercise~\ref{ex:anyonic-monodromy}, prove that}
 S_{rs}=\trace(M_{a^r,a^s})
 =\exp(2\pi i rs/3)
 \]
-\textit{is an invertible Fourier matrix. Relate its entries to the measured
-$2\pi/3$ monodromy phase and to the modularity hypothesis in
-Exercise~\ref{ex:rt-tqft}} \cite{nakamura-anyons}.
-
-\textit{For a finite-index inclusion $N\subseteq M$ of type $\mathrm{II}_1$
-factors, prove that the $N$--$M$ correspondence
-${}_NL^2(M)_M$ is dualizable. Define the statistical dimension of a
-dualizable correspondence $H$ by $d(H)=\trace(1_H)$ and prove}
-\[
-d({}_NL^2(M)_M)=\sqrt{[M:N]}.
-\]
-\textit{Identify this dimension with the Temperley--Lieb loop parameter
-$\delta$, and relate categorical duality to the discrete values in
-Exercise~\ref{ex:jones-index}} \cite{jones-index}.
+\textit{is an invertible Fourier matrix. Under the symmetric monoidal TQFT
+functor of Exercise~\ref{ex:rt-tqft}, identify disjoint union with tensor
+product and gluing with composition. Relate the entries of $S$ to the
+measured $2\pi/3$ monodromy phase} \cite{nakamura-anyons}.\par
 \end{exercise}
 
 \subsection{Generalized cohomology and index}
@@ -2407,6 +2492,9 @@ pointed homotopy equivalences $E_n\simeq\Omega E_{n+1}$. It
 \[
 \widetilde E^n(X)\cong[X,E_n]_*.
 \]
+A \textbf{map of generalized cohomology theories} is a family of natural
+transformations compatible with suspension and the boundary maps; it is
+\textbf{multiplicative} when it also preserves products and units.
 Let $U=\varinjlim U(n)$ be the stable unitary group.
 
 \begin{exercise}[Spectra represent cohomology and K-theory]
@@ -2424,8 +2512,15 @@ KU_{2j+1}\simeq U.
 \]
 \textit{Prove that ordinary cohomology satisfies the dimension axiom, that
 complex K-theory does not, and that the two-periodicity of $KU$ is Bott
-periodicity. For a finite CW complex $X$, prove that the Chern character
-induces the rational isomorphisms} \cite{atiyah-k-theory}
+periodicity. Construct the multiplicative Chern-character map of spectra}
+\cite{atiyah-k-theory}
+\[
+\operatorname{ch}:KU\longrightarrow
+H\mathbb Q[u,u^{-1}],
+\qquad |u|=2,
+\]
+\textit{and prove that it becomes an equivalence after rationalization. For
+a finite CW complex $X$, deduce the natural rational isomorphisms}
 \[
 K^0(X)\otimes\mathbb Q
 \cong\bigoplus_jH^{2j}(X;\mathbb Q),
