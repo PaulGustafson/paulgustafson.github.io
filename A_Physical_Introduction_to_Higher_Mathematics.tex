@@ -1075,21 +1075,109 @@ factorizations and compare the minimal, Haagerup, and projective norms on
 finite-dimensional matrix spaces.
 \end{exercise}
 
-\begin{exercise}[Grothendieck inequalities]
-State and prove the finite-dimensional real Grothendieck inequality for
-bilinear forms on $\ell_\infty^m\times\ell_\infty^n$. Formulate the
-noncommutative and operator-space Grothendieck inequalities and deduce their
-dimension-independent comparison of bounded and completely bounded
-correlations.
-\end{exercise}
-
-\begin{definition}[Bell functionals and XOR games]
+\begin{definition}[Bell functionals and nonlocal games]
 A \emph{Bell functional} is an array $M=(M_{xy}^{ab})$ evaluated on
 conditional distributions by
-$\langle M,p\rangle=\sum_{a,b,x,y}M_{xy}^{ab}p(a,b\mid x,y)$. An \emph{XOR
-game} is specified by real coefficients $M_{xy}$ and scores correlations
+$\langle M,p\rangle=\sum_{a,b,x,y}M_{xy}^{ab}p(a,b\mid x,y)$. A two-player
+\emph{nonlocal game} $G=(\pi,V)$ consists of a question distribution
+$\pi(x,y)$ and a payoff $0\leq V(a,b\mid x,y)\leq1$. Its classical and
+entangled values $\omega(G)$ and $\omega^*(G)$ are the optimal expected
+payoffs using, respectively, shared randomness and local measurements on a
+shared finite-dimensional state. An \emph{XOR game} has binary answers and
+scores only their parity, equivalently a correlation
 $\sum_{x,y}M_{xy}\mathbb E[a_xb_y]$ for signs $a_x,b_y$.
 \end{definition}
+
+\begin{exercise}[Magic-square pseudotelepathy]
+The referee chooses $(x,y)\in\{1,2,3\}^2$ uniformly. Alice returns a row
+$a\in\{\pm1\}^3$ with product $+1$, Bob returns a column
+$b\in\{\pm1\}^3$ with product $-1$, and they win when $a_y=b_x$. Prove by
+multiplying all row and column constraints that no deterministic classical
+strategy wins every question, construct one losing on only one question,
+and hence show $\omega(G_{\rm MS})=8/9$. Using two Bell pairs and a
+Mermin--Peres square of commuting two-qubit Pauli observables, construct a
+strategy with $\omega^*(G_{\rm MS})=1$.
+
+Compare the ideal query-by-query predictions with the hyperentangled-photon
+experiment of
+\href{https://doi.org/10.1103/PhysRevLett.129.050402}
+{Xu et al., \emph{Physical Review Letters} \textbf{129} (2022)}. Explain
+separately the locality and fair-sampling assumptions in that experiment.
+Show why a score above $8/9$ is a device-independent witness under the
+stated assumptions; then, assuming a robust magic-square rigidity theorem,
+explain how a score $1-\varepsilon$ certifies two Bell pairs up to local
+isometries and errors controlled by $\varepsilon$.
+\end{exercise}
+
+\begin{definition}[The tensor of a game]
+Set
+\[
+E_{X,A}=\ell_1^X(\ell_\infty^A),\qquad
+\|z\|_{E_{X,A}}=\sum_x\max_a|z_{x,a}|,
+\]
+with its standard dual operator-space structure. The tensor associated to
+$G=(\pi,V)$ is
+\[
+\widehat G=\sum_{x,y,a,b}\pi(x,y)V(a,b\mid x,y)
+ (e_x\otimes e_a)\otimes(e_y\otimes e_b)
+ \in E_{X,A}\otimes E_{Y,B}.
+\]
+\end{definition}
+
+\begin{exercise}[Nonlocal games force operator-space norms]
+Identify deterministic strategies with extreme points of the relevant unit
+balls and prove
+\[
+\omega(G)=\|\widehat G\|_{E_{X,A}\otimes_\varepsilon E_{Y,B}},\qquad
+\omega^*(G)=\|\widehat G\|_{E_{X,A}\otimes_{\min}E_{Y,B}}.
+\]
+Equivalently, show that these are the bounded and completely bounded norms
+of the bilinear payoff form on the dual mixed-norm spaces. Locate in the
+proof the use of positivity of a game tensor, and explain why the same
+simple formula need not hold for an arbitrary signed Bell functional. Use
+\href{https://doi.org/10.1063/1.4938052}
+{Palazuelos--Vidick, \emph{Survey on Nonlocal Games and Operator Space
+Theory}, \emph{Journal of Mathematical Physics} \textbf{57} (2016)} as a
+guide.
+\end{exercise}
+
+\begin{exercise}[The Khot--Vishnoi separation]
+Let $n=2^\ell$ and let $H\subset\{0,1\}^n$ be the Hadamard code
+$h_s(t)=s\cdot t$ for $s,t\in\mathbb F_2^\ell$. The questions are cosets of
+$H$. The referee chooses $[x]$ uniformly and a noise string $z$ whose bits
+are independent Bernoulli variables with parameter $\eta$, and sends $[x]$
+to Alice and $[x+z]$ to Bob. They answer $a\in[x]$ and $b\in[x+z]$ and win
+when $a+b=z$ over $\mathbb F_2^n$.
+
+For $\eta=1/2-1/\log n$ and large $n$, take as input the
+Bonami--Beckner classical estimate $\omega(G_{\rm KV})\leq C/n$. Verify the
+explicit strategy using a maximally entangled state of local dimension $n$
+and obtain $\omega^*(G_{\rm KV})\geq c/(\log n)^2$. Deduce
+\[
+\frac{\|\widehat G_{\rm KV}\|_{\min}}
+     {\|\widehat G_{\rm KV}\|_\varepsilon}
+=\frac{\omega^*(G_{\rm KV})}{\omega(G_{\rm KV})}
+\geq c'\frac{n}{(\log n)^2}.
+\]
+Explain why this unbounded physical separation rules out replacing the
+minimal norm by the injective norm with a dimension-independent constant on
+these spaces, and is the reason the matrix levels of operator spaces are
+essential. Consult
+\href{https://doi.org/10.4086/toc.2012.v008a027}
+{Buhrman--Regev--Scarpa--de Wolf, \emph{Theory of Computing} \textbf{8}
+(2012)} for the estimates.
+\end{exercise}
+
+\begin{exercise}[Grothendieck inequalities for correlation games]
+State and prove the finite-dimensional real Grothendieck inequality for
+bilinear forms on $\ell_\infty^m\times\ell_\infty^n$. Using Tsirelson's
+vector representation, deduce the dimension-independent bound
+$\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$ for two-player XOR games. State a
+noncommutative or operator-space Grothendieck inequality with its correct
+auxiliary norms and hypotheses. Explain why the XOR conclusion does not
+give a universal bound on $\omega^*(G)/\omega(G)$ for arbitrary
+multi-output games, and reconcile this with the Khot--Vishnoi exercise.
+\end{exercise}
 
 \begin{exercise}[Classical and quantum correlation bounds]
 Prove that the classical and quantum XOR values are
