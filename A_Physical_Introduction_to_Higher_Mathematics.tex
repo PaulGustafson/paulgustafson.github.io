@@ -1411,31 +1411,7 @@ $\Delta Q_5=2\,\operatorname{ind}D_A^+$, identifying the chirality change
 carried by an instanton transition.
 \end{exercise}
 
-\section{Tensor Categories, Subfactors, and Topological Physics}
-
-\begin{definition}[Monoidal and rigid categories]
-A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
-unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
-of $X$ is an object $X^*$ with evaluation and coevaluation morphisms
-satisfying the snake identities. A monoidal category is \emph{rigid} if
-every object has left and right duals.
-\end{definition}
-
-\begin{definition}[Fusion, braided, and modular categories]
-A \emph{fusion category} over $\C$ is a finite semisimple rigid
-$\C$-linear monoidal category with simple unit. A \emph{braiding} is a
-natural family $c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon
-identities. A ribbon fusion category is \emph{modular} if its braiding is
-nondegenerate.
-\end{definition}
-
-\begin{exercise}[Fusion rules and braiding]
-Prove that simple-object classes of a fusion category form a based ring under
-tensor product. Derive the pentagon and hexagon equations for associativity
-and braiding data. Compute quantum dimensions and braid-group
-representations for the Fibonacci fusion rule
-$\tau\otimes\tau\cong1\oplus\tau$.
-\end{exercise}
+\section{Subfactors, Conformal Nets, and Tensor Categories}
 
 \begin{definition}[Subfactors and conditional expectations]
 A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
@@ -1483,6 +1459,96 @@ Construct a braid-group representation from the Temperley--Lieb generators.
 Use the Markov trace and Markov moves to obtain an invariant of oriented
 links, normalize it to the Jones polynomial, and derive its skein relation.
 Compute it for the unknot, trefoil, and Hopf link.
+\end{exercise}
+
+\begin{definition}[Local conformal nets]
+Let $\mathcal I$ be the proper open intervals of $S^1$. A \emph{local
+conformal net} assigns a von Neumann algebra $\mathcal A(I)\subset B(H)$ to
+each $I\in\mathcal I$ such that
+\[
+I\subset J\Longrightarrow\mathcal A(I)\subset\mathcal A(J),\qquad
+I\cap J=\varnothing\Longrightarrow
+[\mathcal A(I),\mathcal A(J)]=0.
+\]
+The assignment is covariant under orientation-preserving diffeomorphisms of
+$S^1$, represented projectively on $H$ with positive rotation generator. It
+has an invariant vacuum vector $\Omega$, cyclic for the local algebras, and
+$\bigvee_I\mathcal A(I)=B(H)$. Physically, $S^1$ is the compactified chiral
+light ray and $\mathcal A(I)$ consists of observables localized in $I$.
+\end{definition}
+
+\begin{exercise}[The two-interval subfactor]
+For $E=I_1\cup I_2$ a union of disjoint intervals, set
+$\mathcal A(E)=\mathcal A(I_1)\vee\mathcal A(I_2)$. Use locality to obtain
+the inclusion
+\[
+\mathcal A(E)\subseteq\mathcal A(E')'.
+\]
+Under the split and irreducibility hypotheses, show that this is a
+subfactor. Define the \emph{$\mu$-index}
+$\mu(\mathcal A)=[\mathcal A(E')':\mathcal A(E)]$, and prove that it is
+independent of the two-interval configuration by conformal covariance.
+Contrast single-interval Haag duality
+$\mathcal A(I)=\mathcal A(I')'$ with the possible failure of duality for
+$E$, measured by this Jones index.
+\end{exercise}
+
+\begin{definition}[DHR sectors]
+A \emph{DHR sector} of $\mathcal A$ is represented by a transportable
+endomorphism $\rho$ of the quasilocal algebra that acts identically on
+$\mathcal A(I')$ for some interval $I$. Composition is the tensor product;
+transporting two localized endomorphisms past one another gives their
+braiding. For a finite-index irreducible sector localized in $I$, its
+statistical dimension satisfies
+\[
+d(\rho)^2=[\mathcal A(I):\rho(\mathcal A(I))].
+\]
+\end{definition}
+
+\begin{exercise}[From Jones index to a modular category]
+Assume that $\mathcal A$ is completely rational: it is split and strongly
+additive, with finite $\mu$-index. Using the multi-interval subfactor, prove
+that there are finitely many irreducible DHR sectors $\rho_i$, their
+braiding is nondegenerate, and
+\[
+\mu(\mathcal A)=\sum_i d(\rho_i)^2.
+\]
+Conclude that the sectors form a unitary modular tensor category. For the
+Ising net at $c=1/2$, take the sectors $1,\psi,\sigma$ with dimensions
+$1,1,\sqrt2$ and fusion rules
+\[
+\psi^2=1,\qquad \psi\sigma=\sigma,\qquad
+\sigma^2=1\oplus\psi.
+\]
+Compute $\mu(\mathcal A)$ and interpret $\psi$ and $\sigma$ as the chiral
+Majorana and spin sectors. Use
+\href{https://doi.org/10.1007/PL00005565}
+{Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
+\textbf{219} (2001)} for the modularity theorem.
+\end{exercise}
+
+\begin{definition}[Monoidal and rigid categories]
+A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
+unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
+of $X$ is an object $X^*$ with evaluation and coevaluation morphisms
+satisfying the snake identities. A monoidal category is \emph{rigid} if
+every object has left and right duals.
+\end{definition}
+
+\begin{definition}[Fusion, braided, and modular categories]
+A \emph{fusion category} over $\C$ is a finite semisimple rigid
+$\C$-linear monoidal category with simple unit. A \emph{braiding} is a
+natural family $c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon
+identities. A ribbon fusion category is \emph{modular} if its braiding is
+nondegenerate.
+\end{definition}
+
+\begin{exercise}[Fusion rules and braiding]
+Prove that simple-object classes of a fusion category form a based ring under
+tensor product. Derive the pentagon and hexagon equations for associativity
+and braiding data. Compute quantum dimensions and braid-group
+representations for the Fibonacci fusion rule
+$\tau\otimes\tau\cong1\oplus\tau$.
 \end{exercise}
 
 \begin{definition}[Chern--Simons theory and Wilson loops]
