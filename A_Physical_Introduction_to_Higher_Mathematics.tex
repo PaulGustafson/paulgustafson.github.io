@@ -16,6 +16,7 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{exercise}{Exercise}[section]
+\newtheorem*{supplied}{Supplied input}
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
@@ -202,6 +203,20 @@ $f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
 $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
 
+\begin{definition}[Fourier function spaces]
+For $p=1,2$, define $L^p(\R^n)$ as the completion of the continuous
+compactly supported functions $C_c(\R^n)$ in
+\[
+\|f\|_p=\left(\int_{\R^n}|f(x)|^p\,dx\right)^{1/p}.
+\]
+Define $L^2(\T)$ as the completion of $C(\T)$ for the inner product
+$\langle f,g\rangle=(2\pi)^{-1}\int_0^{2\pi}\overline{f(x)}g(x)\,dx$.
+A complete inner-product space is a \emph{Hilbert space}, so $L^2(\T)$ and
+$L^2(\R^n)$ are Hilbert spaces by construction. Measure theory will later
+identify these completions with measurable functions modulo almost-everywhere
+equality.
+\end{definition}
+
 \begin{definition}[Orthogonal expansions]
 Let $H$ be an inner-product space. For an orthogonal family $(e_n)$, the
 \emph{orthogonal coefficients} of $f$ are
@@ -231,12 +246,16 @@ monotone decay of heat energy directly from the spectral coefficients.
 \end{exercise}
 
 \begin{definition}[Fourier transform and convolution]
-For $f\in L^1(\R^n)$, its \emph{Fourier transform} is
+For $f,g\in C_c(\R^n)$, define the \emph{Fourier transform} and
+\emph{convolution} by
 \[
-\mathcal Ff(\xi)=(2\pi)^{-n/2}\int_{\R^n}f(x)e^{-ix\cdot\xi}\,dx.
+\mathcal Ff(\xi)=(2\pi)^{-n/2}\int_{\R^n}f(x)e^{-ix\cdot\xi}\,dx,
+\qquad
+(f*g)(x)=\int_{\R^n}f(y)g(x-y)\,dy.
 \]
-For $f,g\in L^1(\R^n)$, their \emph{convolution} is
-$(f*g)(x)=\int_{\R^n}f(y)g(x-y)\,dy$.
+The estimates $\|\mathcal Ff\|_\infty\leq(2\pi)^{-n/2}\|f\|_1$ and
+$\|f*g\|_1\leq\|f\|_1\|g\|_1$ extend these operations to the $L^1$
+completion.
 \end{definition}
 
 \begin{exercise}[Fourier inversion, convolution, and Plancherel]
@@ -420,13 +439,23 @@ and compute the singlet and triplet decomposition of
 $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
 
+\begin{supplied}[Unbounded Hamiltonians]
+Physical Hamiltonians such as the Coulomb and Schr\"odinger operators are
+generally unbounded. We take as analytic input the theory of densely defined
+closed and self-adjoint operators, their domains, the unbounded spectral
+theorem and functional calculus, and Stone's theorem. All claims below about
+such Hamiltonians are understood on their invariant domains; the later
+bounded spectral theorem does not replace this input.
+\end{supplied}
+
 \begin{definition}[Quantum symmetries]
 For a Hilbert space $H$ and self-adjoint Hamiltonian $\mathcal H$, a
-\emph{unitary symmetry} is a unitary $U$ satisfying
-$U\mathcal H=\mathcal HU$. A \emph{quantum number} is an eigenvalue of a
-self-adjoint operator commuting with $\mathcal H$. An operator $A$ has
-\emph{symmetry type} $W$ when its components define an intertwiner from $W$
-to $\End(H)$ under conjugation.
+\emph{unitary symmetry} is a unitary $U$ with
+$U\operatorname{Dom}(\mathcal H)=\operatorname{Dom}(\mathcal H)$ and
+$\mathcal HU\psi=U\mathcal H\psi$ on that domain. A \emph{quantum number}
+is an eigenvalue of a self-adjoint operator commuting with $\mathcal H$ in
+this sense. An operator $A$ has \emph{symmetry type} $W$ when its components
+define an intertwiner from $W$ to $\End(H)$ under conjugation.
 \end{definition}
 
 \begin{exercise}[Symmetry, degeneracy, and selection rules]
@@ -609,6 +638,23 @@ separation field $J$, prove
 Deduce the leading relative acceleration of nearby freely falling bodies.
 \end{exercise}
 
+\begin{definition}[Principal and associated bundles]
+A \emph{smooth principal $G$-bundle} is a smooth map $\pi:P\to M$ with a
+free right $G$-action, transitive on each fiber, such that every point of
+$M$ has a neighborhood $U$ with an equivariant diffeomorphism
+$\pi^{-1}(U)\cong U\times G$. For a representation $G\to GL(V)$, the
+\emph{associated vector bundle} is
+$P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
+\end{definition}
+
+\begin{exercise}[Bundles from gauge transition functions]
+Show that local trivializations of $P$ determine smooth maps
+$g_{ij}:U_i\cap U_j\to G$ satisfying $g_{ij}g_{jk}=g_{ik}$, and conversely
+construct $P$ from such data. Derive the transition functions of
+$P\times_GV$ and characterize a global gauge choice as a global section of
+$P$.
+\end{exercise}
+
 \begin{definition}[Gauge fields]
 Let $G$ be a Lie group and $\pi:P\to M$ a principal $G$-bundle. A
 \emph{gauge connection} is an equivariant $\mathfrak g$-valued one-form
@@ -730,12 +776,16 @@ integral is obtained from nonnegative simple functions by monotone limits and
 then by positive and negative parts. For $1\leq p<\infty$,
 $L^p(X,\mu)$ consists of measurable functions modulo equality almost
 everywhere with $\int|f|^p\,d\mu<\infty$; $L^\infty$ uses essential bounds.
+For Lebesgue measure on $\R^n$ or normalized arc measure on $\T$, this
+measurable-function model is canonically isometric to the completions used
+in Fourier analysis.
 \end{definition}
 
 \begin{exercise}[Convergence and $L^p$ spaces]
 Prove monotone and dominated convergence and Fatou's lemma. Prove H\"older's
 and Minkowski's inequalities and completeness of $L^p$. Prove that $L^2$ is
-a Hilbert space and identify the dual of $L^p$ for $1<p<\infty$ under the
+a Hilbert space, prove the asserted identification with the earlier
+completions, and identify the dual of $L^p$ for $1<p<\infty$ under the
 standard $\sigma$-finiteness hypotheses.
 \end{exercise}
 
@@ -824,7 +874,9 @@ $\Tr\rho=1$. An \emph{observable} is a self-adjoint operator $A$ with
 spectral measure $E_A$. The \emph{Born probability} of an event $B$ is
 $\Tr(\rho E_A(B))$. A closed-system \emph{unitary dynamics} is
 $\rho\mapsto U_t\rho U_t^*$ for a strongly continuous unitary group
-$U_t$.
+$U_t$. For unbounded observables and generators, spectral measures,
+expectations, and exponentials are interpreted using the supplied
+unbounded-operator theory and their natural domains.
 \end{definition}
 
 \begin{exercise}[Born rule and unitary dynamics]
@@ -1124,7 +1176,7 @@ $G=(\pi,V)$ is
 \]
 \end{definition}
 
-\begin{exercise}[Nonlocal games force operator-space norms]
+\begin{exercise}[Game values as Banach and operator-space norms]
 Identify deterministic strategies with extreme points of the relevant unit
 balls and prove
 \[
@@ -1141,54 +1193,32 @@ Theory}, \emph{Journal of Mathematical Physics} \textbf{57} (2016)} as a
 guide.
 \end{exercise}
 
-\begin{exercise}[The Khot--Vishnoi separation]
-Let $n=2^\ell$ and let $H\subset\{0,1\}^n$ be the Hadamard code
-$h_s(t)=s\cdot t$ for $s,t\in\mathbb F_2^\ell$. The questions are cosets of
-$H$. The referee chooses $[x]$ uniformly and a noise string $z$ whose bits
-are independent Bernoulli variables with parameter $\eta$, and sends $[x]$
-to Alice and $[x+z]$ to Bob. They answer $a\in[x]$ and $b\in[x+z]$ and win
-when $a+b=z$ over $\mathbb F_2^n$.
+\begin{exercise}[Bounded and unbounded quantum advantages]
+For an XOR game, prove that its classical and entangled biases are
+\[
+\beta(G)=\sup_{a_x,b_y=\pm1}\left|\sum M_{xy}a_xb_y\right|,
+\quad
+\beta^*(G)=\sup_{\|u_x\|,\|v_y\|\leq1}
+ \left|\sum M_{xy}\langle u_x,v_y\rangle\right|.
+\]
+Use Tsirelson's vector representation and the real Grothendieck inequality
+to prove $\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$. For CHSH, compute the
+classical bound $2$ and quantum bound $2\sqrt2$.
 
-For $\eta=1/2-1/\log n$ and large $n$, take as input the
-Bonami--Beckner classical estimate $\omega(G_{\rm KV})\leq C/n$. Verify the
-explicit strategy using a maximally entangled state of local dimension $n$
-and obtain $\omega^*(G_{\rm KV})\geq c/(\log n)^2$. Deduce
+For general multi-output games, take as supplied the Khot--Vishnoi estimates
+$\omega(G_{\rm KV})\leq C/n$ and
+$\omega^*(G_{\rm KV})\geq c/(\log n)^2$, achieved with local entanglement
+dimension $n$. Use the preceding norm dictionary to deduce
 \[
 \frac{\|\widehat G_{\rm KV}\|_{\min}}
      {\|\widehat G_{\rm KV}\|_\varepsilon}
-=\frac{\omega^*(G_{\rm KV})}{\omega(G_{\rm KV})}
 \geq c'\frac{n}{(\log n)^2}.
 \]
-Explain why this unbounded physical separation rules out replacing the
-minimal norm by the injective norm with a dimension-independent constant on
-these spaces, and is the reason the matrix levels of operator spaces are
-essential. Consult
+Explain why the XOR comparison remains dimension independent while general
+game tensors require operator-space matrix levels. Consult
 \href{https://doi.org/10.4086/toc.2012.v008a027}
 {Buhrman--Regev--Scarpa--de Wolf, \emph{Theory of Computing} \textbf{8}
-(2012)} for the estimates.
-\end{exercise}
-
-\begin{exercise}[Grothendieck inequalities for correlation games]
-State and prove the finite-dimensional real Grothendieck inequality for
-bilinear forms on $\ell_\infty^m\times\ell_\infty^n$. Using Tsirelson's
-vector representation, deduce the dimension-independent bound
-$\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$ for two-player XOR games. State a
-noncommutative or operator-space Grothendieck inequality with its correct
-auxiliary norms and hypotheses. Explain why the XOR conclusion does not
-give a universal bound on $\omega^*(G)/\omega(G)$ for arbitrary
-multi-output games, and reconcile this with the Khot--Vishnoi exercise.
-\end{exercise}
-
-\begin{exercise}[Classical and quantum correlation bounds]
-Prove that the classical and quantum XOR values are
-\[
-\sup_{a_x,b_y=\pm1}\left|\sum M_{xy}a_xb_y\right|,
-\qquad
-\sup_{\|u_x\|,\|v_y\|\leq1}
-\left|\sum M_{xy}\langle u_x,v_y\rangle\right|.
-\]
-Apply Grothendieck's inequality to bound their ratio. For CHSH, compute the
-classical bound $2$ and quantum bound $2\sqrt2$.
+(2012)} for the supplied estimates.
 \end{exercise}
 
 \begin{exercise}[Measured nonclassical correlations]
@@ -1241,12 +1271,13 @@ $f_*[S^n]=\deg(f)[S^n]$ and prove multiplicativity and agreement with winding
 number for $n=1$.
 \end{exercise}
 
-\begin{definition}[Fiber, vector, and principal bundles]
+\begin{definition}[Topological bundles and sections]
 A \emph{fiber bundle} with fiber $F$ is a map $\pi:E\to X$ locally
 isomorphic over $X$ to $U\times F\to U$. A \emph{vector bundle} has vector
-spaces as fibers and linear transition maps. A \emph{principal $G$-bundle}
-has a free right $G$-action and local equivariant trivializations. A
-\emph{section} is a map $s:X\to E$ with $\pi s=\id_X$.
+spaces as fibers and linear transition maps. A topological principal
+$G$-bundle is the continuous analogue of the smooth principal bundle used
+for gauge fields. A \emph{section} is a map $s:X\to E$ with
+$\pi s=\id_X$.
 \end{definition}
 
 \begin{exercise}[Bundles from transition functions]
@@ -1271,11 +1302,20 @@ curvature and compute the $U(1)$ holonomy around the boundary of a surface as
 $\exp(i\int F)$ when a global potential is available.
 \end{exercise}
 
+\begin{supplied}[Classifying spaces]
+Let $BU(n)=\operatorname{Gr}_n(\C^\infty)$ be the infinite Grassmannian with
+tautological bundle $\gamma_n\to BU(n)$. We take as supplied the
+classification theorem that, for paracompact $X$, pullback gives a bijection
+between $[X,BU(n)]$ and isomorphism classes of rank-$n$ complex vector
+bundles. We also take as supplied the universal classes
+$c_j(\gamma_n)\in H^{2j}(BU(n);\Z)$.
+\end{supplied}
+
 \begin{definition}[Chern classes and character]
-The \emph{Chern classes} of a complex vector bundle $E$ are the natural
-classes $c_j(E)\in H^{2j}(X;\Z)$ determined by
-$c(E\oplus F)=c(E)c(F)$ and the universal bundle. The \emph{Chern character}
-is the natural ring map
+If a rank-$n$ complex vector bundle $E\to X$ is classified by
+$f:X\to BU(n)$, its \emph{Chern classes} are
+$c_j(E)=f^*c_j(\gamma_n)\in H^{2j}(X;\Z)$. They are natural and satisfy
+$c(E\oplus F)=c(E)c(F)$. The \emph{Chern character} is the natural ring map
 $\operatorname{ch}:K^0(X)\to H^{\mathrm{even}}(X;\Q)$ whose value on a line
 bundle $L$ is $e^{c_1(L)}$.
 \end{definition}
@@ -1358,6 +1398,18 @@ additivity of the index. Compute the index of the unilateral shift and
 identify the boundary map $K_1(\mathcal Q(H))\to K_0(\mathcal K(H))$.
 \end{exercise}
 
+\begin{supplied}[Index-theorem foundations]
+We take as supplied the construction of Sobolev spaces and completions,
+elliptic estimates and elliptic regularity, and the extension of elliptic
+operators to Fredholm maps between Sobolev spaces. We also take as supplied
+spin structures (lifts of oriented orthonormal frame bundles from $SO(n)$
+to $\operatorname{Spin}(n)$), their spinor bundles and Dirac operators, the
+characteristic class
+$\widehat A(TM)=\prod_j(x_j/2)/\sinh(x_j/2)$ in formal curvature roots, and
+the Thom isomorphism and $K$-theoretic pushforward. The following exercises
+apply this analytic and spin-geometric machinery rather than construct it.
+\end{supplied}
+
 \begin{definition}[Elliptic symbols]
 For vector bundles $E,F$ over a compact smooth manifold, the \emph{principal
 symbol} of an order-$m$ differential operator
@@ -1369,8 +1421,8 @@ index} is the K-theoretic pushforward of its symbol class.
 \end{definition}
 
 \begin{exercise}[Atiyah--Singer index theorem]
-Prove elliptic regularity and Fredholmness for elliptic operators on compact
-manifolds. Establish the Atiyah--Singer equality
+Use the supplied elliptic estimates to deduce Fredholmness on a compact
+manifold. Establish the Atiyah--Singer equality
 $\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$, using Bott
 periodicity and the axiomatic characterization of the index. Derive the
 Riemann--Roch and Dirac-index formulas as special cases.
@@ -1496,6 +1548,16 @@ Use the Markov trace and Markov moves to obtain an invariant of oriented
 links, normalize it to the Jones polynomial, and derive its skein relation.
 Compute it for the unknot, trefoil, and Hopf link.
 \end{exercise}
+
+\begin{supplied}[Operator-algebraic foundations for conformal nets]
+We take as supplied normal and locally normal representations of von
+Neumann algebras, von Neumann tensor products, Tomita--Takesaki modular
+theory, and the type-III nature and Reeh--Schlieder property of local
+algebras. We also take as structural hypotheses Haag duality, the split
+property, strong additivity, and the localization and transportability
+results of DHR sector theory. The exercises below use these inputs to expose
+the passage from local algebras and Jones index to fusion and braiding.
+\end{supplied}
 
 \begin{definition}[Local conformal nets]
 Let $\mathcal I$ be the proper open intervals of $S^1$. A \emph{local
