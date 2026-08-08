@@ -1,0 +1,944 @@
+\documentclass[12pt]{article}
+\usepackage{amsfonts,amsmath,amssymb}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\emergencystretch}{3em}
+\linespread{1.08}
+\newtheorem{exercise}{Exercise}[section]
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\im}{\operatorname{im}}
+
+\hypersetup{
+  pdftitle={Coordinate-Free Mathematics Through Experiment},
+  pdfauthor={Paul Gustafson}
+}
+
+\title{Coordinate-Free Mathematics Through Experiment}
+\author{Paul Gustafson}
+\date{August 2026}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Interference, states, and measurement}
+
+Why do observed waves interfere, and why do quantum measurements return
+discrete outcomes?
+
+\subsection{Superposition}
+
+A \textbf{real vector space} is an abelian group $V$ with scalar
+multiplication by $\R$ satisfying the distributive and associative laws.  A
+map $T:V\to W$ is \textbf{linear} if
+\[
+T(av+bw)=aT(v)+bT(w).
+\]
+The \textbf{direct sum} $V\oplus W$ is the product vector space.  The
+\textbf{quotient} $V/N$ identifies $v$ and $w$ when $v-w\in N$.
+
+\begin{exercise}[String vibrations obey superposition]
+For a homogeneous string of length $L$, constant tension $T$, density $\rho$,
+small transverse displacement, and fixed endpoints, derive
+\[
+\rho\,\partial_t^2u=T\,\partial_x^2u,
+\qquad u(0,t)=u(L,t)=0.
+\]
+Prove that the solutions form a vector space and that evolution from initial
+data is linear.  Derive the normal modes, their frequencies, and conservation
+of
+\[
+E(t)=\frac12\int_0^L
+\bigl(\rho|\partial_tu|^2+T|\partial_xu|^2\bigr)\,dx.
+\]
+State which small-displacement and no-damping assumptions are required.
+\end{exercise}
+
+\begin{exercise}[Fourier modes produce interference fringes]
+Solve the fixed-end wave equation by expanding initial data in the orthogonal
+functions $\sin(n\pi x/L)$.  Prove Parseval's identity for a finite mode sum
+and use it to express the conserved energy as a sum of modal energies.  For
+two coherent monochromatic amplitudes $\psi_1,psi_2$, derive
+\[
+|\psi_1+\psi_2|^2
+=|\psi_1|^2+|\psi_2|^2
++2\operatorname{Re}(\overline{\psi_1}\psi_2).
+\]
+Determine when the cross term gives constructive and destructive
+interference, and compare the predicted fringe spacing with Young's
+two-source interference geometry \cite{young}.
+\end{exercise}
+
+The \textbf{tensor product} $V\otimes W$ is a vector space equipped with a
+bilinear map $(v,w)\mapsto v\otimes w$ such that every bilinear map
+$V\times W\to X$ factors through a unique linear map $V\otimes W\to X$.
+
+\begin{exercise}[Tensor products model composites]
+Construct $V\otimes W$ as a quotient of the free vector space on $V\times W$
+and prove its universal property.  Prove uniqueness up to unique isomorphism.
+Explain why closure under superposition forces $V\otimes W$ to contain
+non-product vectors.
+\end{exercise}
+
+\subsection{Spectral measurement}
+
+A \textbf{finite-dimensional Hilbert space} is a finite-dimensional complex
+vector space $H$ with a positive-definite Hermitian inner product.  The
+\textbf{adjoint} $A^*$ satisfies
+$\langle Av,w\rangle=\langle v,A^*w\rangle$.  An operator is
+\textbf{self-adjoint} if $A=A^*$ and \textbf{normal} if $A^*A=AA^*$.
+An \textbf{orthogonal projection} satisfies $P=P^*=P^2$.
+
+\begin{exercise}[Spectral measurement]
+Prove that every normal $A\in\End(H)$ has a unique decomposition
+\[
+A=\sum_{\lambda\in\sigma(A)}\lambda P_\lambda,
+\qquad
+P_\lambda P_\mu=0\quad(\lambda\ne\mu),
+\qquad
+\sum_\lambda P_\lambda=1.
+\]
+For self-adjoint $A$ and a unit state $\psi$, prove that
+$\langle\psi,P_\lambda\psi\rangle$ is a probability distribution.  For
+$A=\sigma_3$, compare the two predicted outcomes with the beam splitting in
+the Stern--Gerlach experiment \cite{stern-gerlach}.
+\end{exercise}
+
+\begin{exercise}[Noncommuting observables are uncertain]
+For self-adjoint $A,B$ and a unit vector $\psi$, define
+\[
+\Delta_\psi A
+=\|(A-\langle\psi,A\psi\rangle)\psi\|.
+\]
+Apply Cauchy--Schwarz to prove
+\[
+\Delta_\psi A\,\Delta_\psi B
+\geq\frac12|\langle\psi,[A,B]\psi\rangle|.
+\]
+Characterize equality and compute the bound for two Pauli observables.  State
+why the result constrains repeated preparations rather than simultaneous
+classical values assigned to one particle.
+\end{exercise}
+
+For $\psi\in H_A\otimes H_B$, define
+$T_\psi:H_A^*\to H_B$ by $T_\psi(f)=(f\otimes1)(\psi)$.
+
+\begin{exercise}[Schmidt spectra measure entanglement]
+Apply singular-value decomposition to $T_\psi$ and prove
+\[
+\psi=\sum_{i=1}^r s_i a_i\otimes b_i
+\]
+for orthonormal families and $s_i>0$.  Prove that $\psi$ is a product vector
+exactly when $r=1$, and identify $s_i^2$ as the nonzero eigenvalues of both
+reduced density operators.
+\end{exercise}
+
+\subsection{Open evolution}
+
+A \textbf{state} on $M_n(\C)$ is a positive matrix $\rho$ with
+$\tr\rho=1$.  A linear map $\Phi:M_n\to M_m$ is \textbf{positive} if it
+preserves positive matrices and \textbf{completely positive} if
+$1_{M_r}\otimes\Phi$ is positive for every $r$.  A \textbf{quantum channel}
+is completely positive and trace preserving.  Its \textbf{Choi matrix} is
+\[
+C_\Phi=\sum_{i,j}E_{ij}\otimes\Phi(E_{ij}).
+\]
+
+\begin{exercise}[Ancillas force complete positivity]
+Prove that transposition is positive but not $2$-positive by applying partial
+transpose to a maximally entangled two-qubit state.  Prove the equivalences
+\[
+\Phi\text{ completely positive}
+\Longleftrightarrow C_\Phi\geq0
+\Longleftrightarrow
+\Phi(x)=\sum_aK_axK_a^*.
+\]
+Construct a Stinespring dilation from the Kraus operators and compare the Choi
+state reconstruction with quantum process tomography
+\cite{choi,stinespring,altepeter}.
+\end{exercise}
+
+\begin{exercise}[No channel clones nonorthogonal states]
+Suppose a channel maps $\rho\otimes\sigma$ to $\rho\otimes\rho$ for every
+pure state $\rho$.  Use contractivity of trace distance, or monotonicity of
+fidelity, to obtain a contradiction from two nonorthogonal states
+\cite{wootters-zurek}.
+\end{exercise}
+
+
+\section{Molecular spectra and symmetry}
+
+Why do experimentally observed spectral lines organize into symmetry types
+and selection rules?
+
+\subsection{Representations and characters}
+
+A \textbf{representation} of a group $G$ on $V$ is a homomorphism
+$\rho:G\to\operatorname{GL}(V)$.  A subspace is \textbf{invariant} if it is
+preserved by every $\rho(g)$ and \textbf{irreducible} if it has no nontrivial
+invariant subspaces.  An \textbf{intertwiner} $T:V\to W$ satisfies
+$T\rho_V(g)=\rho_W(g)T$.
+
+\begin{exercise}[Finite symmetry decomposes into sectors]
+For finite $G$, average an inner product and a projection over $G$.  Deduce
+Maschke's theorem and prove Schur's lemma over $\C$.  If a Hamiltonian commutes
+with $G$, prove that it is block diagonal on
+\[
+V\cong\bigoplus_\alpha M_\alpha\otimes V_\alpha
+\]
+and identify the symmetry-enforced degeneracy of each block.
+\end{exercise}
+
+The \textbf{character} of $V$ is $\chi_V(g)=\tr(\rho(g))$.  For class
+functions define
+\[
+\langle\chi,\psi\rangle_G
+=\frac1{|G|}\sum_{g\in G}\overline{\chi(g)}\psi(g).
+\]
+
+\begin{exercise}[Characters recover multiplicities]
+Prove the orthogonality of irreducible characters and
+\[
+m_\alpha=\langle\chi_\alpha,\chi_V\rangle_G.
+\]
+Prove that
+\[
+P_\alpha=\frac{\dim V_\alpha}{|G|}
+\sum_{g\in G}\overline{\chi_\alpha(g)}\rho(g)
+\]
+projects onto the $V_\alpha$-isotypic component.
+\end{exercise}
+
+\subsection{Water vibrations and selection rules}
+
+For a nonlinear molecule with $N$ nuclei, the displacement representation has
+dimension $3N$.  Its vibrational representation is obtained by removing the
+translation and rotation representations.  In the electric-dipole model a
+transition $V_i\to V_f$ through a dipole component $V_\mu$ is allowed only if
+\[
+\Hom_G(1,V_f^*\otimes V_\mu\otimes V_i)\ne0.
+\]
+
+\begin{exercise}[Water has three symmetry-classified vibrations]
+Using the equilibrium point group $C_{2v}$, compute the character of the
+nine-dimensional displacement representation of water and prove
+\[
+V_{\mathrm{vib}}\cong2A_1\oplus B_2.
+\]
+Determine the infrared- and Raman-active modes.  Compare the predicted mode
+count and symmetry types with measured water spectra \cite{shimanouchi}.
+Distinguish the empirical equilibrium geometry and force constants from the
+representation-theoretic conclusions.
+\end{exercise}
+
+\begin{exercise}[Symmetry gives electric-dipole selection rules]
+Let $V_i,V_f$ be irreducible energy sectors and let the dipole operator
+transform as the spatial vector representation $V_\mu$.  Prove that a
+nonzero transition amplitude is equivalent to the occurrence of the trivial
+representation in $V_f^*\otimes V_\mu\otimes V_i$.  For rotation symmetry,
+use the decomposition of $V_j\otimes V_1$ to derive
+$\Delta j=0,\pm1$ with the $0\to0$ exception.  Separate this symmetry rule
+from parity, radial overlap, and experimental line strength.
+\end{exercise}
+
+\subsection{Continuous and projective symmetry}
+
+A \textbf{matrix Lie group} is a closed subgroup of
+$\operatorname{GL}(n,\C)$.  Its \textbf{Lie algebra} consists of the matrices
+$X$ for which $e^{tX}$ stays in the group, with bracket $[X,Y]=XY-YX$.
+For rotation generators use
+\[
+[J_i,J_j]=i\varepsilon_{ijk}J_k,
+\qquad J^2=J_1^2+J_2^2+J_3^2.
+\]
+
+\begin{exercise}[Rotation symmetry produces spin]
+Prove that $J^2$ commutes with every $J_i$.  Using
+$J_\pm=J_1\pm iJ_2$, classify the finite-dimensional unitary irreducible
+representations by $j\in\tfrac12\Z_{\ge0}$ and
+$m=-j,-j+1,\ldots,j$.  Verify the spin-$1/2$ representation with Pauli
+matrices and relate its two outcomes to Stern--Gerlach splitting.
+\end{exercise}
+
+\begin{exercise}[Hydrogen's hidden rotational symmetry]
+For the Coulomb Hamiltonian, define angular momentum $L=q\times p$ and the
+Runge--Lenz vector in the bound-state model.  Prove that their commutators
+close to $\mathfrak{so}(4)$ after rescaling by the negative energy.  Use the
+irreducible representation dimensions to recover the $n^2$ orbital
+degeneracy.  Identify relativistic, spin, and radiative effects omitted by the
+model and compare the resulting splitting hierarchy with hydrogen
+spectroscopy \cite{hydrogen}.
+\end{exercise}
+
+A \textbf{projective representation} satisfies
+\[
+U_gU_h=\alpha(g,h)U_{gh},
+\]
+where associativity makes $\alpha$ a $U(1)$-valued $2$-cocycle.  Rephasing
+$U_g$ changes $\alpha$ by a coboundary.
+
+\begin{exercise}[Cohomology classifies projective symmetry]
+Prove that equivalence classes of factor systems are classified by
+$H^2(G,U(1))$.  For $G=\Z/2\times\Z/2$ and
+$U_x=\sigma_1$, $U_z=\sigma_3$, compute the nontrivial class and prove that
+every commuting edge operator is scalar.  State the symmetry and gap
+assumptions required for protection of a spin-$1/2$ edge doublet.
+\end{exercise}
+
+
+\section{Electromagnetic fields and geometry}
+
+Why do Maxwell fields, charge conservation, and classical motion admit
+coordinate-independent formulations?
+
+\subsection{Forms and Maxwell equations}
+
+For a smooth manifold $M$, a \textbf{differential $p$-form} is a smooth
+section of $\Lambda^pT^*M$.  The exterior derivative
+$d:\Omega^p(M)\to\Omega^{p+1}(M)$ satisfies $d^2=0$ and the graded Leibniz
+rule.  The \textbf{de Rham cohomology} is
+\[
+H^p_{\mathrm{dR}}(M)=\ker d/\im d.
+\]
+For an oriented manifold with boundary, Stokes' theorem is
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+
+A pseudo-Riemannian metric and orientation determine the \textbf{Hodge star}
+by
+\[
+\alpha\wedge\star\beta
+=\langle\alpha,\beta\rangle_g\operatorname{vol}_g.
+\]
+On four-dimensional spacetime, the electromagnetic field is
+$F\in\Omega^2(M)$ and the current is $J\in\Omega^3(M)$.
+
+\begin{exercise}[Maxwell equations force charge conservation]
+From
+\[
+dF=0,
+\qquad d\star F=J,
+\]
+prove $dJ=0$ and $\int_{\partial X}J=0$ for every compact four-region $X$.
+Recover the coordinate continuity equation and identify it as a chart
+expression of the invariant statement.  Derive the vacuum wave equation and
+compare its wave speed with electromagnetic-wave measurements
+\cite{hertz}.
+\end{exercise}
+
+\subsection{Hamiltonian mechanics}
+
+A \textbf{symplectic form} is a closed nondegenerate two-form $\omega$.  A
+Hamiltonian $H$ determines $X_H$ by
+\[
+\iota_{X_H}\omega=dH.
+\]
+The \textbf{Poisson bracket} is
+$\{f,h\}=\omega(X_f,X_h)$.
+
+\begin{exercise}[Hamiltonian flow preserves phase volume]
+Using Cartan's formula, prove
+\[
+\mathcal L_{X_H}\omega=0
+\]
+and deduce preservation of $\omega^n/n!$.  Derive Hamilton's equations in
+canonical coordinates.  Explain why friction cannot be an autonomous
+Hamiltonian flow on the same finite-dimensional phase space.
+\end{exercise}
+
+\begin{exercise}[Magnetic curvature produces the Lorentz force]
+On $T^*Q$, replace the canonical symplectic form by
+$\omega_B=\omega_0+q\pi^*B$ for a closed two-form $B$.  Derive the Lorentz
+force from the kinetic Hamiltonian and identify gauge change as a change of
+potential leaving $B$ fixed.
+\end{exercise}
+
+\subsection{Metric curvature}
+
+A \textbf{pseudo-Riemannian metric} is a smooth nondegenerate symmetric
+bilinear form on $TM$.  Its \textbf{Levi--Civita connection} is torsion free
+and metric compatible.  Its curvature is
+\[
+R(X,Y)Z
+=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
+\]
+
+\begin{exercise}[Curvature produces interferometer strain]
+Derive the coordinate-free Koszul formula and prove existence and uniqueness
+of the Levi--Civita connection.  For a variation of geodesics with tangent
+$T$ and separation $J$, prove
+\[
+\nabla_T\nabla_TJ=R(T,J)T.
+\]
+Apply this equation to a weak transverse plane gravitational wave and derive
+the opposite fractional arm-length changes measured by an equal-arm
+Michelson interferometer.  Compare the predicted differential strain with
+GW150914 \cite{ligo} and identify the weak-field and freely falling mirror
+assumptions.
+\end{exercise}
+
+\subsection{Connections and gauge fields}
+
+A \textbf{vector bundle} $E\to M$ is locally a product $U\times V$ with
+linear transition maps.  A \textbf{connection} is a linear map
+\[
+\nabla:\Omega^0(M,E)\to\Omega^1(M,E),
+\qquad
+\nabla(fs)=df\otimes s+f\nabla s.
+\]
+Its \textbf{curvature} is
+$F_\nabla=\nabla^2\in\Omega^2(M,\End E)$.
+In a local gauge, $F_A=dA+A\wedge A$.
+
+\begin{exercise}[Curvature is gauge covariant]
+For $A^g=g^{-1}Ag+g^{-1}dg$, prove
+\[
+F_{A^g}=g^{-1}F_Ag,
+\qquad d_AF_A=0.
+\]
+Using an invariant inner product, vary
+\[
+S(A)=\frac12\int_M\langle F_A\wedge\star F_A\rangle
+\]
+and derive the Yang--Mills equation.  Recover Maxwell theory for $G=U(1)$ and
+distinguish the empirical gauge group and matter representations from the
+geometric consequences.
+\end{exercise}
+
+
+\section{Observed phase and quantized transport}
+
+How can a field-free region carry an observable phase, and why is Hall
+conductance quantized?
+
+\subsection{Aharonov--Bohm holonomy}
+
+For a $U(1)$ connection $A$ and closed loop $\gamma$, define
+\[
+\operatorname{Hol}_A(\gamma)
+=\exp\!\left(\frac{iq}{\hbar}\int_\gamma A\right).
+\]
+
+\begin{exercise}[A field-free loop carries phase]
+Outside an ideal solenoid let
+\[
+M=\R^3\setminus\{(0,0,z):z\in\R\},
+\qquad
+A=\frac{\Phi}{2\pi}d\theta.
+\]
+Prove that the phase depends only on $[A]\in H^1_{\mathrm{dR}}(M)$ and
+$[\gamma]\in H_1(M)$, and equals
+$\exp(iq\Phi/\hbar)$ for a once-winding loop.  Compare the predicted fringe
+shift with shielded-flux electron interferometry
+\cite{aharonov-bohm,tonomura}.
+\end{exercise}
+
+\begin{exercise}[Berry phase is eigenbundle holonomy]
+For a smooth family of self-adjoint operators with a simple isolated
+eigenvalue, prove that the eigenlines form a bundle.  For a local unit
+eigenvector $\psi$, set
+\[
+\mathcal A=i\langle\psi,d\psi\rangle,
+\qquad \mathcal F=d\mathcal A.
+\]
+Prove the gauge-transformation law and identify
+$\exp(i\int_\gamma\mathcal A)$ with holonomy.  For
+$H(n)=n\cdot\sigma$, $n\in S^2$, compute the phase as half the enclosed solid
+angle and compare it with neutron spin-rotation measurements
+\cite{berry-neutron}.
+\end{exercise}
+
+\subsection{Chern classes and stable bundles}
+
+For a complex bundle $E$ with connection $\nabla$, define the Chern forms by
+\[
+\det\!\left(1+\frac{iF_\nabla}{2\pi}\right)
+=1+c_1(E,\nabla)+c_2(E,\nabla)+\cdots.
+\]
+The \textbf{Grothendieck group} $K^0(X)$ is generated by vector bundles with
+$[E\oplus F]=[E]+[F]$.
+
+\begin{exercise}[Curvature produces stable characteristic classes]
+Using the Bianchi identity, prove that the Chern forms are closed.  For a path
+of connections, derive the transgression formula and prove that their de Rham
+classes are connection independent.  Prove that
+\[
+\operatorname{ch}:K^0(X)\longrightarrow H^{\mathrm{even}}_{\mathrm{dR}}(X)
+\]
+is well defined and that a nonzero first Chern number obstructs a global
+frame.
+\end{exercise}
+
+\subsection{Integer quantum Hall effect}
+
+For a smooth gapped self-adjoint family $H(k)$ on the Brillouin torus, define
+the occupied projection by
+\[
+P(k)=\frac{1}{2\pi i}\int_\Gamma(z-H(k))^{-1}\,dz.
+\]
+Its images form the \textbf{Bloch bundle} $E_{\mathrm{occ}}$.
+
+\begin{exercise}[Gap-preserving Hall integer]
+Prove that a gap-preserving homotopy produces isomorphic endpoint Bloch
+bundles and preserves
+\[
+C_1(P)=\frac{i}{2\pi}\int_{\mathbb T^2}
+\tr(P\,dP\wedge dP)\in\Z.
+\]
+Assuming the TKNN formula
+$\sigma_{xy}=C_1(P)e^2/h$, compare the predicted plateaus with the integer
+quantum Hall measurements \cite{tknn,von-klitzing}.  Identify gap closing as
+the point where the invariant may change.
+\end{exercise}
+
+\subsection{Fredholm index}
+
+A bounded operator $T:H_0\to H_1$ is \textbf{Fredholm} if its kernel and
+cokernel are finite dimensional and its range is closed.  Define
+\[
+\operatorname{ind}T
+=\dim\ker T-\dim\operatorname{coker}T.
+\]
+
+\begin{exercise}[Zero-mode imbalance is stable]
+Prove that $T$ is Fredholm exactly when its image in the Calkin algebra is
+invertible.  Deduce local constancy and invariance under compact perturbation
+of the index.  State the Atiyah--Singer identification of analytic index with
+the K-theoretic symbol pairing and derive the de Rham Euler-characteristic
+case \cite{atiyah-singer}.
+\end{exercise}
+
+\begin{exercise}[Instanton charge produces chiral zero modes]
+For an $SU(N)$ connection on a bundle over $S^4$, define
+\[
+Q(A)=\frac{1}{8\pi^2}\int_{S^4}\tr(F_A\wedge F_A).
+\]
+Use Chern--Weil theory to prove $Q(A)\in\Z$.  Assuming the coupled Dirac case
+of the index theorem, relate $Q(A)$ to the difference of chiral zero-mode
+dimensions and derive the integrated anomaly for $N_f$ massless fermions.
+Distinguish the mathematical index identity from the physical assumptions in
+the fermion model.
+\end{exercise}
+
+
+\section{Bell experiments and noncommutative analysis}
+
+Why do entangled systems violate classical correlation bounds while remaining
+unable to signal?
+
+\subsection{Matrix norms and distinguishability}
+
+A \textbf{concrete operator space} is a closed subspace
+$E\subseteq\mathcal B(H,K)$ with matrix norms inherited from
+\[
+M_r(E)\subseteq\mathcal B(H^{\oplus r},K^{\oplus r}).
+\]
+For $\phi:E\to F$, define
+\[
+\|\phi\|_{\mathrm{cb}}=\sup_r\|1_{M_r}\otimes\phi\|.
+\]
+
+\begin{exercise}[Matrix levels detect noncommutativity]
+Prove for transposition $t:M_n\to M_n$ that
+\[
+\|t\|=1,
+\qquad
+\|t\|_{\mathrm{cb}}=n.
+\]
+For the row and column spaces $R_n$ and $C_n$, prove that the identity between
+their underlying Hilbert spaces has cb norm $\sqrt n$ in either direction.
+Explain why an ordinary Banach norm forgets both distinctions.
+\end{exercise}
+
+For $u=\sum_kx_k\otimes y_k\in E\otimes F$, define the
+\textbf{Haagerup norm}
+\[
+\|u\|_h
+=\inf
+\|[x_1\ \cdots\ x_r]\|_{M_{1,r}(E)}
+\|[y_1\ \cdots\ y_r]^{\mathsf T}\|_{M_{r,1}(F)}.
+\]
+
+\begin{exercise}[Trace norm governs state discrimination]
+Prove
+\[
+C_n\otimes_hR_n\cong M_n,
+\qquad
+R_n\otimes_hC_n\cong S_1^n.
+\]
+For equally likely states $\rho_0,\rho_1$, prove the Helstrom formula
+\[
+p_{\mathrm{succ}}
+=\frac12+\frac14\|\rho_0-\rho_1\|_1.
+\]
+Interpret the trace norm through the second Haagerup product.
+\end{exercise}
+
+For $\Psi:M_n\to M_m$, define the \textbf{diamond norm}
+\[
+\|\Psi\|_\diamond
+=\sup_r\|\Psi\otimes1_{M_r}\|_{1\to1}.
+\]
+
+\begin{exercise}[Entangled probes distinguish channels]
+Prove stabilization at ancillary dimension $n$ and
+\[
+p_{\mathrm{succ}}(\Phi_0,\Phi_1)
+=\frac12+\frac14\|\Phi_0-\Phi_1\|_\diamond.
+\]
+Identify the role of Schmidt rank and compare ancilla-assisted discrimination
+with process-discrimination experiments \cite{watrous,sun}.
+\end{exercise}
+
+An \textbf{operator system} is a self-adjoint unital subspace of
+$\mathcal B(H)$.  A unital map between operator systems is completely
+positive when it preserves the positive cone at every matrix level.
+
+\begin{exercise}[Operator-system positivity]
+For an operator space $E\subseteq\mathcal B(H,K)$, form the Paulsen system
+\[
+\mathcal S(E)=
+\left\{
+\begin{pmatrix}\lambda1_K&x\\y^*&\mu1_H\end{pmatrix}:
+x,y\in E,\ \lambda,\mu\in\C
+\right\}.
+\]
+Prove that a map $\phi:E\to F$ is a complete contraction exactly when its
+unital extension $\mathcal S(E)\to\mathcal S(F)$ is completely positive.
+Explain why this gives a common language for channel admissibility and
+matrix-level distinguishability.
+\end{exercise}
+
+\subsection{Bell correlations}
+
+For self-adjoint unitaries $A_0,A_1,B_0,B_1$, define
+\[
+S=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1).
+\]
+
+\begin{exercise}[Quantum correlations reach the Tsirelson bound]
+Prove that deterministic local sign assignments give $|S|\leq2$.  Using
+\[
+S^2=4-[A_0,A_1]\otimes[B_0,B_1],
+\]
+prove $\|S\|\leq2\sqrt2$ and attain equality with a maximally entangled
+two-qubit state.  Compare the quantum prediction with loophole-controlled
+Bell experiments \cite{tsirelson,hensen}.  Explain why violation excludes the
+specified local hidden-variable model but does not permit signaling.
+\end{exercise}
+
+\begin{exercise}[Grothendieck bounds quantum advantage]
+For real coefficients $c_{ij}$, compare
+\[
+\sup_{\varepsilon_i,\delta_j\in\{\pm1\}}
+\left|\sum_{ij}c_{ij}\varepsilon_i\delta_j\right|
+\quad\text{and}\quad
+\sup_{\|x_i\|,\|y_j\|\leq1}
+\left|\sum_{ij}c_{ij}\langle x_i,y_j\rangle\right|.
+\]
+Use Tsirelson's vector representation and the real Grothendieck inequality to
+obtain a dimension-independent bound on bipartite correlation advantage.
+Identify CHSH as a particular coefficient matrix.
+\end{exercise}
+
+\subsection{Infinite observables and index}
+
+A \textbf{von Neumann algebra} is a unital $*$-subalgebra
+$M\subseteq\mathcal B(H)$ equal to its bicommutant.  For a finite-factor
+inclusion $N\subseteq M$, let $E_N:M\to N$ be the trace-preserving conditional
+expectation and $e_N:L^2(M)\to L^2(N)$ the Jones projection.
+
+\begin{exercise}[Weak limits produce the bicommutant]
+Prove the finite-dimensional bicommutant theorem directly.  State the
+von Neumann bicommutant theorem for a unital $*$-subalgebra of
+$\mathcal B(H)$ and show that vector functionals are normal on its weak
+closure.  Explain why weak closure, rather than norm closure alone, retains
+limits of increasing families of quantum events.
+\end{exercise}
+
+\begin{exercise}[Subfactor index produces braid relations]
+Prove $e_Nxe_N=E_N(x)e_N$.  In the basic-construction tower, derive
+\[
+e_i^2=e_i=e_i^*,
+\qquad e_ie_{i\pm1}e_i=\delta^{-2}e_i,
+\qquad e_ie_j=e_je_i\quad(|i-j|\ge2).
+\]
+Relate $\delta^2$ to the Jones index and derive braid generators from the
+Temperley--Lieb relations.  State the quantization of subfactor indices below
+four \cite{jones-index}.
+\end{exercise}
+
+
+\section{Observed anyonic braiding}
+
+Why can exchanging experimentally realized quasiparticles in two dimensions
+produce phases beyond bosonic and fermionic signs?
+
+\subsection{Braids and fusion}
+
+The \textbf{braid group} $B_n$ has generators
+$\sigma_1,\ldots,\sigma_{n-1}$ and relations
+\[
+\sigma_i\sigma_{i+1}\sigma_i
+=\sigma_{i+1}\sigma_i\sigma_{i+1},
+\qquad
+\sigma_i\sigma_j=\sigma_j\sigma_i\quad(|i-j|\ge2).
+\]
+
+A \textbf{$\C$-linear monoidal category} has a bilinear tensor product,
+unit, and coherent associator.  A \textbf{braiding} is a natural family
+$c_{x,y}:x\otimes y\to y\otimes x$ satisfying the hexagon identities.  In a
+semisimple rigid category, decompositions
+\[
+x\otimes y\cong\bigoplus_zN_{xy}^zz
+\]
+are \textbf{fusion rules}; $\Hom(z,x\otimes y)$ is a fusion space.
+
+\begin{exercise}[Braiding represents particle exchange]
+Prove that
+\[
+\rho(\sigma_i)
+=1^{\otimes(i-1)}\otimes c_{x,x}\otimes
+1^{\otimes(n-i-1)}
+\]
+defines a representation of $B_n$ on $x^{\otimes n}$.  Identify the
+Yang--Baxter equation with a hexagon consequence and prove that imposing
+$\sigma_i^2=1$ gives the symmetric group.
+\end{exercise}
+
+\begin{exercise}[A three-cocycle controls reassociation]
+For $G$-graded vector spaces, multiply the associator on degrees $g,h,k$ by
+$\omega(g,h,k)\in U(1)$.  Prove that the pentagon identity is the
+$3$-cocycle equation and that changing $\omega$ by a coboundary gives a
+monoidally equivalent category.  For $G=\Z/2$, compute the two classes in
+$H^3(G,U(1))$ and their pointed fusion rules.
+\end{exercise}
+
+The \textbf{monodromy} is $M_{x,y}=c_{y,x}c_{x,y}$.
+
+\begin{exercise}[One-third anyons produce a $2\pi/3$ phase]
+Assume all simple objects are invertible and form $\Z/m$, generated by $a$.
+Prove that scalar monodromy compatible with fusion has the form
+\[
+M_{a^r,a^s}=\exp\!\left(\frac{2\pi ikrs}{m}\right).
+\]
+For $m=3$, $k=1$, derive the phase advance per enclosed anyon and compare it
+with interferometric evidence for anyonic braiding \cite{nakamura}.
+State the ideal topological assumptions and the non-topological device effects
+that must be controlled.
+\end{exercise}
+
+\begin{exercise}[Fusion dimension]
+Let positive numbers $d_x$ satisfy
+$d_xd_y=\sum_zN_{xy}^zd_z$.  Prove that $d$ is a positive character of the
+fusion ring.  For Fibonacci fusion
+$\tau\otimes\tau=1\oplus\tau$, compute $d_\tau$ and the asymptotic growth of
+the fusion space of $n$ $\tau$-anyons.  Relate nonintegral dimension to state
+growth rather than to a fractional dimension of an ordinary vector space.
+\end{exercise}
+
+\subsection{Chern--Simons theory}
+
+For a connection $A$ on an oriented three-manifold, define
+\[
+S_{\mathrm{CS}}(A)
+=\frac{k}{4\pi}\int_M
+\tr\!\left(A\wedge dA+\frac23A\wedge A\wedge A\right).
+\]
+A Wilson loop is $W_R(K)=\tr_R\operatorname{Hol}_A(K)$.
+
+\begin{exercise}[Chern--Simons link invariants]
+Vary $S_{\mathrm{CS}}$ and derive $F_A=0$.  Show that a large gauge
+transformation changes the action by $2\pi k$ times an integer and deduce
+level quantization.  Assuming the ribbon-category evaluation rules, prove that
+closed braid amplitudes are categorical traces and recover the relation to
+Jones-type invariants \cite{witten-jones,reshetikhin-turaev}.
+\end{exercise}
+
+\subsection{Stable functorial invariants}
+
+An additive strong monoidal functor preserves direct sums and tensor products.
+The \textbf{Grothendieck group} $K_0(\mathcal C)$ is generated by objects with
+$[x\oplus y]=[x]+[y]$ and multiplication $[x][y]=[x\otimes y]$.
+
+\begin{exercise}[Physical structures produce stable observables]
+Prove that an additive strong monoidal functor induces a ring homomorphism on
+$K_0$ and preserves categorical traces when it preserves duals.  Organize the
+Aharonov--Bohm phase, Hall integer, Fredholm index, and anyon monodromy as
+\[
+\text{physical structure}
+\longrightarrow\text{stable class}
+\longrightarrow\text{pairing or trace}
+\longrightarrow\text{observable}.
+\]
+For each, identify the experimental observable, the mathematical invariant,
+and the hypothesis whose failure permits the value to change.
+\end{exercise}
+
+\begin{exercise}[Six experiments force six successive structures]
+For each of the following observations, identify the minimal mathematical
+object, the central invariant or theorem, and the model assumption tested by
+the observation:
+\begin{enumerate}
+\item two-source interference and linear superposition;
+\item water vibrational spectra and character multiplicities;
+\item electromagnetic-wave propagation and $d^2=0$;
+\item Aharonov--Bohm interference and flat holonomy;
+\item integer Hall plateaus and the first Chern number;
+\item Bell violation and matrix-level noncommutativity;
+\item fractional-quantum-Hall interferometry and braid monodromy.
+\end{enumerate}
+For every step, exhibit a phenomenon that the preceding structure cannot
+distinguish.  Prove that the resulting progression is
+\[
+\begin{gathered}
+\text{linear spaces}\longrightarrow\text{representations}
+\longrightarrow\text{geometry}\\[-2pt]
+\longrightarrow\text{stable topology}\longrightarrow\text{operator spaces}
+\longrightarrow\text{braided categories}.
+\end{gathered}
+\]
+Separate observations from physical modeling assumptions and both from the
+mathematical conclusions proved in the exercises.
+\end{exercise}
+
+
+\clearpage
+\begin{thebibliography}{99}
+
+\bibitem{stern-gerlach}
+W. Gerlach and O. Stern,
+\textit{Der experimentelle Nachweis der Richtungsquantelung im Magnetfeld},
+Zeitschrift f"ur Physik 9 (1922), 349--352.
+
+\bibitem{young}
+T. Young,
+\textit{The Bakerian Lecture: Experiments and calculations relative to
+physical optics},
+Philosophical Transactions of the Royal Society 94 (1804), 1--16.
+
+\bibitem{choi}
+M.-D. Choi,
+\textit{Completely positive linear maps on complex matrices},
+Linear Algebra and its Applications 10 (1975), 285--290.
+
+\bibitem{stinespring}
+W. F. Stinespring,
+\textit{Positive functions on $C^*$-algebras},
+Proceedings of the American Mathematical Society 6 (1955), 211--216.
+
+\bibitem{altepeter}
+J. B. Altepeter et al.,
+\textit{Ancilla-assisted quantum process tomography},
+Physical Review Letters 90 (2003), 193601.
+
+\bibitem{wootters-zurek}
+W. K. Wootters and W. H. Zurek,
+\textit{A single quantum cannot be cloned},
+Nature 299 (1982), 802--803.
+
+\bibitem{shimanouchi}
+T. Shimanouchi,
+\textit{Tables of Molecular Vibrational Frequencies, Consolidated Volume I},
+NSRDS--NBS 39, National Bureau of Standards, 1972.
+
+\bibitem{hydrogen}
+A. Kramida,
+\textit{A critical compilation of experimental data on spectral lines and
+energy levels of hydrogen, deuterium, and tritium},
+Atomic Data and Nuclear Data Tables 96 (2010), 586--644.
+
+\bibitem{hertz}
+H. Hertz,
+\textit{"Uber sehr schnelle elektrische Schwingungen},
+Annalen der Physik 267 (1887), 421--448.
+
+\bibitem{ligo}
+B. P. Abbott et al.,
+\textit{Observation of gravitational waves from a binary black hole merger},
+Physical Review Letters 116 (2016), 061102.
+
+\bibitem{aharonov-bohm}
+Y. Aharonov and D. Bohm,
+\textit{Significance of electromagnetic potentials in the quantum theory},
+Physical Review 115 (1959), 485--491.
+
+\bibitem{tonomura}
+A. Tonomura et al.,
+\textit{Evidence for Aharonov--Bohm effect with magnetic field completely
+shielded from electron wave},
+Physical Review Letters 56 (1986), 792--795.
+
+\bibitem{berry-neutron}
+T. Bitter and D. Dubbers,
+\textit{Manifestation of Berry's topological phase in neutron spin rotation},
+Physical Review Letters 59 (1987), 251--254.
+
+\bibitem{tknn}
+D. J. Thouless, M. Kohmoto, M. P. Nightingale, and M. den Nijs,
+\textit{Quantized Hall conductance in a two-dimensional periodic potential},
+Physical Review Letters 49 (1982), 405--408.
+
+\bibitem{von-klitzing}
+K. von Klitzing, G. Dorda, and M. Pepper,
+\textit{New method for high-accuracy determination of the fine-structure
+constant based on quantized Hall resistance},
+Physical Review Letters 45 (1980), 494--497.
+
+\bibitem{atiyah-singer}
+M. F. Atiyah and I. M. Singer,
+\textit{The index of elliptic operators I},
+Annals of Mathematics 87 (1968), 484--530.
+
+\bibitem{watrous}
+J. Watrous,
+\textit{Semidefinite programs for completely bounded norms},
+Theory of Computing 5 (2009), 217--238.
+
+\bibitem{sun}
+K. Sun et al.,
+\textit{Demonstration of Einstein--Podolsky--Rosen steering with enhanced
+subchannel discrimination},
+npj Quantum Information 4 (2018), 12.
+
+\bibitem{tsirelson}
+B. S. Tsirelson,
+\textit{Quantum generalizations of Bell's inequality},
+Letters in Mathematical Physics 4 (1980), 93--100.
+
+\bibitem{hensen}
+B. Hensen et al.,
+\textit{Loophole-free Bell inequality violation using electron spins
+separated by 1.3 kilometres},
+Nature 526 (2015), 682--686.
+
+\bibitem{jones-index}
+V. F. R. Jones,
+\textit{Index for subfactors},
+Inventiones Mathematicae 72 (1983), 1--25.
+
+\bibitem{nakamura}
+J. Nakamura, S. Liang, G. C. Gardner, and M. J. Manfra,
+\textit{Direct observation of anyonic braiding statistics},
+Nature Physics 16 (2020), 931--936.
+
+\bibitem{witten-jones}
+E. Witten,
+\textit{Quantum field theory and the Jones polynomial},
+Communications in Mathematical Physics 121 (1989), 351--399.
+
+\bibitem{reshetikhin-turaev}
+N. Reshetikhin and V. G. Turaev,
+\textit{Invariants of 3-manifolds via link polynomials and quantum groups},
+Inventiones Mathematicae 103 (1991), 547--597.
+
+\end{thebibliography}
+
+\end{document}
