@@ -302,11 +302,7 @@ coordinate-independent formulations?
 For a smooth manifold $M$, a \textbf{differential $p$-form} is a smooth
 section of $\Lambda^pT^*M$.  The exterior derivative
 $d:\Omega^p(M)\to\Omega^{p+1}(M)$ satisfies $d^2=0$ and the graded Leibniz
-rule.  The \textbf{de Rham cohomology} is
-\[
-H^p_{\mathrm{dR}}(M)=\ker d/\im d.
-\]
-For an oriented manifold with boundary, Stokes' theorem is
+rule.  For an oriented manifold with boundary, Stokes' theorem is
 \[
 \int_Md\omega=\int_{\partial M}\omega.
 \]
@@ -420,6 +416,12 @@ conductance quantized?
 
 \subsection{Aharonov--Bohm holonomy}
 
+The \textbf{de Rham cohomology} is
+\[
+H^p_{\mathrm{dR}}(M)
+=\ker\bigl(d:\Omega^p(M)\to\Omega^{p+1}(M)\bigr)
+/\im\bigl(d:\Omega^{p-1}(M)\to\Omega^p(M)\bigr).
+\]
 For a $U(1)$ connection $A$ and closed loop $\gamma$, define
 \[
 \operatorname{Hol}_A(\gamma)
