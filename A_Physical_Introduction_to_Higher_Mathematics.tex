@@ -1,4 +1,4 @@
-\documentclass[11pt]{book}
+\documentclass[11pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -14,8 +14,8 @@
 \setlist{nosep}
 
 \theoremstyle{definition}
-\newtheorem{definition}{Definition}[chapter]
-\newtheorem{exercise}{Exercise}[chapter]
+\newtheorem{definition}{Definition}[section]
+\newtheorem{exercise}{Exercise}[section]
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
@@ -46,14 +46,13 @@
 \date{}
 
 \begin{document}
-\frontmatter
 \maketitle
 \tableofcontents
-\mainmatter
+\clearpage
 
 \part{Waves}
 
-\chapter{Linear Structure and Spectra}
+\section{Linear Structure and Spectra}
 
 \begin{definition}[Vector spaces and linear maps]
 Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
@@ -159,7 +158,7 @@ Show that normality removes generalized eigenvectors. Prove that commuting
 normal endomorphisms admit a common orthogonal spectral decomposition.
 \end{exercise}
 
-\chapter{Oscillation and Fourier Analysis}
+\section{Oscillation and Fourier Analysis}
 
 \begin{definition}[Linear oscillator]
 A \emph{linear oscillator} on a finite-dimensional real inner-product space
@@ -250,7 +249,7 @@ unitary operator on $L^2(\R^n)$. Deduce the Plancherel theorem.
 \begin{exercise}[Wave and heat propagators]
 Use the Fourier transform to solve the Cauchy problems for
 \[
-\partial_t^2u=c^2\Delta u,qquad \partial_tu=\kappa\Delta u
+\partial_t^2u=c^2\Delta u,\qquad \partial_tu=\kappa\Delta u
 \]
 on $\R^n$. Identify their spectral-mode evolution, derive the Gaussian heat
 kernel and its convolution law, and prove finite propagation speed for the
@@ -268,7 +267,7 @@ optical diffraction.
 
 \part{Symmetry}
 
-\chapter{Groups and Representations}
+\section{Groups and Representations}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
@@ -347,7 +346,7 @@ to the displacement space of a molecule whose equilibrium configuration is
 preserved by $G$.
 \end{exercise}
 
-\chapter{Continuous Symmetry and Angular Momentum}
+\section{Continuous Symmetry and Angular Momentum}
 
 \begin{definition}[Lie groups and Lie algebras]
 A \emph{Lie group} is a smooth manifold $G$ whose multiplication and
@@ -459,7 +458,7 @@ fundamental vibrational bands.
 
 \part{Fields}
 
-\chapter{Manifolds, Forms, and Metrics}
+\section{Manifolds, Forms, and Metrics}
 
 \begin{definition}[Topological and smooth manifolds]
 A \emph{topological manifold} of dimension $n$ is a Hausdorff,
@@ -556,7 +555,7 @@ Minkowski spacetime, maximize proper time among inertial paths with fixed
 endpoints and derive special-relativistic time dilation.
 \end{exercise}
 
-\chapter{Connections, Curvature, and Field Equations}
+\section{Connections, Curvature, and Field Equations}
 
 \begin{definition}[Connections and geodesics]
 A \emph{connection} on $TM$ is a map
@@ -677,7 +676,7 @@ relativity in the observed regime.
 
 \part{States}
 
-\chapter{Hamiltonian and Statistical States}
+\section{Hamiltonian and Statistical States}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -792,7 +791,7 @@ compare the pressure law with dilute-gas measurements within the classical
 regime.
 \end{exercise}
 
-\chapter{Hilbert-Space and Algebraic States}
+\section{Hilbert-Space and Algebraic States}
 
 \begin{definition}[Hilbert spaces and bounded operators]
 A \emph{Hilbert space} is a complete inner-product space. A linear map
@@ -911,7 +910,7 @@ to matrix factors and to diffuse finite factors, and formulate independence
 of commuting subalgebras by factorization of the state.
 \end{exercise}
 
-\chapter{Completely Bounded Structure and Correlations}
+\section{Completely Bounded Structure and Correlations}
 
 \begin{definition}[Positive and completely positive maps]
 A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
@@ -1019,7 +1018,7 @@ satisfying the experimental assumptions.
 
 \part{Topology}
 
-\chapter{Homotopy, Cohomology, and Bundles}
+\section{Homotopy, Cohomology, and Bundles}
 
 \begin{definition}[Homotopy and fundamental group]
 A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
@@ -1127,7 +1126,7 @@ integer quantization under gap-preserving perturbations and compare with
 integer quantum Hall plateaus.
 \end{exercise}
 
-\chapter{K-Theory and Index}
+\section{K-Theory and Index}
 
 \begin{definition}[Grothendieck completion and stable equivalence]
 The \emph{Grothendieck group} of a commutative monoid $M$ is the universal
@@ -1193,7 +1192,7 @@ periodicity and the axiomatic characterization of the index. Derive the
 Riemann--Roch and Dirac-index formulas as special cases.
 \end{exercise}
 
-\chapter{Tensor Categories, Subfactors, and Topological Physics}
+\section{Tensor Categories, Subfactors, and Topological Physics}
 
 \begin{definition}[Monoidal and rigid categories]
 A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
@@ -1240,7 +1239,7 @@ $e_Nxe_N=E(x)e_N$ and construct the canonical trace on the basic
 construction. Prove that the normalized Jones projections in the tower
 satisfy
 \[
-e_i^2=e_i,qquad e_ie_j=e_je_i\ (|i-j|>1),qquad
+e_i^2=e_i,\qquad e_ie_j=e_je_i\ (|i-j|>1),\qquad
 e_ie_{i\pm1}e_i=[M:N]^{-1}e_i.
 \]
 \end{exercise}
