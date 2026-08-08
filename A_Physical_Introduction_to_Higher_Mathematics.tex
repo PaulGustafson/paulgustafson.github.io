@@ -1,19 +1,31 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.7in]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 \usepackage{enumitem}
+\usepackage[compact]{titlesec}
 
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.35em}
+\setlength{\parskip}{0.16em}
 \setlength{\emergencystretch}{3em}
+\setlength{\abovedisplayskip}{0.45em}
+\setlength{\belowdisplayskip}{0.45em}
+\setlength{\abovedisplayshortskip}{0.25em}
+\setlength{\belowdisplayshortskip}{0.25em}
+\linespread{0.96}
 \setlist{nosep}
+\titlespacing*{\part}{0pt}{1.8ex plus 0.3ex}{0.7ex}
+\titlespacing*{\section}{0pt}{1.4ex plus 0.2ex}{0.5ex}
+\titleformat{\part}[block]{\Large\bfseries}{Part \thepart}{0.65em}{}
+\titleformat{\section}{\large\bfseries}{\thesection}{0.6em}{}
 
-\theoremstyle{definition}
+\newtheoremstyle{compactdefinition}
+  {0.35em}{0.35em}{}{}{\bfseries}{.}{0.5em}{}
+\theoremstyle{compactdefinition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{exercise}{Exercise}[section]
 
@@ -1000,9 +1012,13 @@ $\sum_{x,y}M_{xy}\mathbb E[a_xb_y]$ for signs $a_x,b_y$.
 \end{definition}
 
 \begin{exercise}[Classical and quantum correlation bounds]
-Prove that the classical XOR value is
-$\sup_{a_x,b_y=\pm1}|\sum M_{xy}a_xb_y|$ and that the quantum value is
-$\sup_{\|u_x\|,\|v_y\|\leq1}|\sum M_{xy}\langle u_x,v_y\rangle|$.
+Prove that the classical and quantum XOR values are
+\[
+\sup_{a_x,b_y=\pm1}\left|\sum M_{xy}a_xb_y\right|,
+\qquad
+\sup_{\|u_x\|,\|v_y\|\leq1}
+\left|\sum M_{xy}\langle u_x,v_y\rangle\right|.
+\]
 Apply Grothendieck's inequality to bound their ratio. For CHSH, compute the
 classical bound $2$ and quantum bound $2\sqrt2$.
 \end{exercise}
@@ -1190,6 +1206,41 @@ manifolds. Establish the Atiyah--Singer equality
 $\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$, using Bott
 periodicity and the axiomatic characterization of the index. Derive the
 Riemann--Roch and Dirac-index formulas as special cases.
+\end{exercise}
+
+\begin{definition}[Chirality and instantons]
+Let $M$ be an oriented even-dimensional Riemannian spin manifold. The
+\emph{chirality operator} splits its complex spinor bundle as
+$S=S^+\oplus S^-$. For a Hermitian vector bundle $E$ with unitary connection
+$A$, the coupled Dirac operator is odd and has a \emph{chiral part}
+\[
+D_A^+:\Gamma(S^+\otimes E)\longrightarrow\Gamma(S^-\otimes E).
+\]
+On an oriented Riemannian four-manifold, an $SU(r)$-connection is an
+\emph{instanton} or \emph{anti-instanton} when $F_A=*F_A$ or $F_A=-*F_A$.
+Its \emph{instanton number} is
+\[
+k=\int_M\operatorname{ch}_2(E)
+  =-\frac{1}{8\pi^2}\int_M\Tr(F_A\wedge F_A)\in\Z.
+\]
+\end{definition}
+
+\begin{exercise}[Fermion chirality detects instanton number]
+Apply the Dirac-index formula from the preceding exercise to prove
+\[
+\operatorname{ind}D_A^+
+=\dim\ker D_A^+-\dim\ker(D_A^+)^*
+=\int_M\bigl[\widehat A(TM)\operatorname{ch}(E)\bigr]_4.
+\]
+For the fundamental $SU(2)$ bundle over $S^4$, show that this index is $k$
+with the orientation convention in the definition. Use the Weitzenb\"ock
+formula for a self-dual or anti-self-dual connection to determine which
+chirality has no zero modes and deduce that the other has exactly $|k|$
+zero modes. For a fermion in a representation $R$, derive the factor
+$2T(R)k$. Finally, compute the fermionic measure under the axial rotation
+$\psi\mapsto e^{i\alpha\gamma_5}\psi$ and obtain the integrated anomaly
+$\Delta Q_5=2\,\operatorname{ind}D_A^+$, identifying the chirality change
+carried by an instanton transition.
 \end{exercise}
 
 \section{Tensor Categories, Subfactors, and Topological Physics}
