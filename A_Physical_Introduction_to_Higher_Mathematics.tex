@@ -1595,6 +1595,47 @@ d(\rho)^2=[\mathcal A(I):\rho(\mathcal A(I))].
 \]
 \end{definition}
 
+\begin{exercise}[Critical Ising chain, Rydberg spectroscopy, and the Ising net]
+For $J,h>0$, consider the transverse-field Ising chain
+\[
+H_{\rm I}=-J\sum_i Z_iZ_{i+1}-h\sum_iX_i.
+\]
+Use the Jordan--Wigner transformation and a Bogoliubov rotation to obtain
+\[
+\varepsilon(k)=2\sqrt{J^2+h^2-2Jh\cos k}.
+\]
+Show that the gap is $2|J-h|$ and closes at $h=J$, where the long-wavelength
+modes are massless Majorana fermions. Taking the standard fermionic
+determinant asymptotics as input, obtain
+$\langle Z_iZ_{i+r}\rangle\sim Cr^{-1/4}$ and a connected energy-density
+correlator proportional to $r^{-2}$. Identify the bulk Ising fields
+$1,\sigma,\varepsilon$ with scaling dimensions $0,1/8,1$, respectively.
+
+The Rydberg experiment realizes a different microscopic chain,
+\[
+H_{\rm R}=\sum_i\left(\frac{\Omega}{2}P_{i-1}X_iP_{i+1}-\Delta n_i\right)
+ +\sum_{j-i\geq2}V_{ij}n_in_j,
+\]
+in the nearest-neighbor blockade regime. Explain why equality of microscopic
+Hamiltonians is unnecessary for the two critical points to share the Ising
+universality class; here $n_i$ projects onto the Rydberg state and
+$P_i=1-n_i$. Take as input the open-chain CFT spectrum, including its
+conformal towers and
+$E_a(L)-E_0(L)=\pi v x_a/L+o(L^{-1})$, and recover the universal even-parity
+ratios $2:4:6:8$ and odd-parity ratios $3:5:7$. Compare them with the reported
+modulation-spectroscopy peaks of
+\href{https://arxiv.org/abs/2601.16275}
+{Sun et al., \emph{Experimental observation of conformal field theory
+spectra} (2026)}, stating the finite-size and experimental limitations.
+
+Identify the chiral continuum theory with the $c=1/2$ Ising conformal net.
+Its DHR sectors $1,\psi,\sigma$ have conformal weights
+$0,1/2,1/16$; relate the bulk energy field to $\psi\bar\psi$ and distinguish
+these chiral weights from the bulk scaling dimensions above. Explain why the
+experiment supports the Ising CFT spectrum but does not directly measure the
+net or all of its superselection sectors.
+\end{exercise}
+
 \begin{definition}[Monoidal and rigid categories]
 A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
 unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
