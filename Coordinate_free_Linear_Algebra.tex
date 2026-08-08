@@ -1809,6 +1809,29 @@ linearization extends to a completely bounded map}
 Apply this to multiplication in a $C^*$-algebra.}
 \end{exercise}
 
+\begin{exercise}[Forgetting matrix norms loses tensor information]
+\leavevmode\par
+\textit{Let $\operatorname{OS}^{\mathrm{fd}}$ be finite-dimensional operator
+spaces with completely bounded maps. Prove that forgetting matrix norms
+defines a strong monoidal functor}
+\[
+U:(\operatorname{OS}^{\mathrm{fd}},\otimes_h)
+\longrightarrow
+(\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}},\otimes).
+\]
+\textit{Show that $U(R_n)=U(C_n)=\mathbb C^n$ and that $U$ identifies the
+underlying vector spaces of $C_n\otimes_hR_n$ and $R_n\otimes_hC_n$, while
+Exercise~\ref{ex:row-column} and}
+\[
+C_n\otimes_hR_n\cong M_n,
+\qquad
+R_n\otimes_hC_n\cong S_1^n
+\]
+\textit{show that it forgets their complete norms. Deduce that the ordinary
+flip on vector spaces has no completely isometric symmetric-monoidal lift
+through $U$.}\par
+\end{exercise}
+
 \subsection{Operator systems and completely positive maps}
 
 An \textbf{operator system} is a self-adjoint unital subspace
@@ -2382,9 +2405,9 @@ P_n(2\cos\theta)
 and Chern--Simons Wilson-loop invariants constructed above.}
 \end{exercise}
 
-\section{Tensor categories and generalized cohomology}
+\section{From structured objects to stable invariants}
 
-\subsection{Monoidal functors and decategorification}
+\subsection{Monoidal functors transport structure}
 
 A \textbf{strong monoidal functor} $F:\mathcal C\to\mathcal D$ is a functor
 with coherent natural isomorphisms
@@ -2421,7 +2444,7 @@ $M$--$P$ correspondence. A \textbf{bicategory} has objects, a category of
 morphisms between each ordered pair of objects, and horizontal composition
 that is associative and unital up to coherent natural isomorphisms.
 
-\begin{exercise}[Associated bundles carry symmetry into K-theory]
+\begin{exercise}[Associated bundles carry symmetry into geometry]
 \label{ex:monoidal-bridges}\leavevmode\par
 \textit{Let $G$ be a compact matrix group, let $X$ be a compact smooth
 manifold, and let $P\to X$ be a principal $G$-bundle. Prove that}
@@ -2449,21 +2472,6 @@ isomorphism}
 f^*\operatorname{Assoc}_P
 \cong\operatorname{Assoc}_{f^*P}.
 \]
-\textit{After Grothendieck completion, prove that these functors induce a
-commutative diagram whose top row consists of symmetric monoidal functors and
-whose bottom row consists of ring homomorphisms:}
-\[
-\begin{array}{ccccc}
-\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
-&\xrightarrow{\operatorname{Assoc}_P}&
-\operatorname{Vect}(X)
-&\xrightarrow{\Gamma}&
-\operatorname{Proj}_{\mathrm{fg}}(C(X))\\[4pt]
-\Big\downarrow&&\Big\downarrow&&\Big\downarrow\\[-2pt]
-R(G)&\longrightarrow&K^0(X)&\xrightarrow{\ \cong\ }&K_0(C(X)),
-\end{array}
-\]
-\textit{The vertical arrows send objects to their stable classes.}\par
 \end{exercise}
 
 \begin{exercise}[Cohomology is monoidal and preserves trace]
@@ -2483,29 +2491,6 @@ prove the Hopf trace identity}
 \sum_n(-1)^n\trace(f^n)
 =\sum_n(-1)^n\trace\bigl(H^n(f)\bigr).
 \]
-\end{exercise}
-
-\begin{exercise}[Forgetting matrix norms loses information]
-\leavevmode\par
-\textit{Let $\operatorname{OS}^{\mathrm{fd}}$ be finite-dimensional operator
-spaces with completely bounded maps. Prove that forgetting matrix norms
-defines a strong monoidal functor}
-\[
-U:(\operatorname{OS}^{\mathrm{fd}},\otimes_h)
-\longrightarrow
-(\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}},\otimes).
-\]
-\textit{Show that $U(R_n)=U(C_n)=\mathbb C^n$ and that $U$ identifies the
-underlying vector spaces of $C_n\otimes_hR_n$ and $R_n\otimes_hC_n$, while
-Exercise~\ref{ex:row-column} and}
-\[
-C_n\otimes_hR_n\cong M_n,
-\qquad
-R_n\otimes_hC_n\cong S_1^n
-\]
-\textit{show that it forgets their complete norms. Deduce that the ordinary
-flip on vector spaces has no completely isometric symmetric-monoidal lift
-through $U$.}\par
 \end{exercise}
 
 \begin{exercise}[Homomorphisms compose by Connes fusion]
@@ -2574,35 +2559,71 @@ with the Chern--Simons Wilson-loop invariant constructed there}
 \cite{witten-jones,reshetikhin-turaev}.\par
 \end{exercise}
 
-\begin{exercise}[Monoidal functors turn structure into observables]
-\leavevmode\par
-\textit{Express the selection rule of
-Exercise~\ref{ex:electric-dipole-selection} as the nonvanishing of}
-\[
-\operatorname{Hom}_G
-\bigl(1,V_f^*\otimes V_\mu\otimes V_i\bigr),
-\]
-\textit{For $P\to X$ as in Exercise~\ref{ex:monoidal-bridges}, prove that
-$\operatorname{Assoc}_P$ carries such invariant tensors to globally defined
-couplings of the associated bundles.}
+\subsection{Decategorification}
 
-\textit{For the pointed $\mathbb Z/3$ category of
-Exercise~\ref{ex:anyonic-monodromy}, prove that}
+For a category $\mathcal C$ with finite direct sums, let
+$\pi_0^\oplus(\mathcal C)$ be the commutative monoid of isomorphism classes
+under direct sum. Its \textbf{Grothendieck group} $K_0(\mathcal C)$ consists
+of formal differences $[x]-[y]$, modulo the relations
+$[x\oplus y]=[x]+[y]$. If $\mathcal C$ also has a tensor product distributing
+over direct sums, tensor product defines multiplication on $K_0(\mathcal C)$.
+Write
 \[
-S_{rs}=\trace(M_{a^r,a^s})
-=\exp(2\pi i rs/3)
+R(G)=K_0\bigl(\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)\bigr),
+\qquad
+K^0(X)=K_0\bigl(\operatorname{Vect}(X)\bigr).
 \]
-\textit{is an invertible Fourier matrix. Write
-$d_i=\trace(1_{x_i})$ and
-$\mathcal D=(\sum_i d_i^2)^{1/2}$. Under the symmetric monoidal TQFT functor
-of Exercise~\ref{ex:rt-tqft}, interpret $\mathcal D^{-1}S$ as the operator
-assigned to the mapping cylinder of the modular transformation
-$\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ of the torus.
-Relate its entries to the measured $2\pi/3$ monodromy phase}
-\cite{nakamura-anyons}.\par
+An \textbf{additive functor} preserves finite direct sums.
+
+\begin{exercise}[Grothendieck completion produces stable invariants]
+\label{ex:decategorification-bridges}\leavevmode\par
+\textit{Prove that an additive strong monoidal functor induces a ring
+homomorphism on Grothendieck groups. Apply this to
+Exercise~\ref{ex:monoidal-bridges} and prove that the vertical maps in the
+diagram below send objects to their stable classes and that every square
+commutes:}
+\[
+\begin{array}{ccccc}
+\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
+&\xrightarrow{\operatorname{Assoc}_P}&
+\operatorname{Vect}(X)
+&\xrightarrow{\Gamma}&
+\operatorname{Proj}_{\mathrm{fg}}(C(X))\\[4pt]
+\Big\downarrow&&\Big\downarrow&&\Big\downarrow\\[-2pt]
+R(G)&\longrightarrow&K^0(X)&\xrightarrow{\ \cong\ }&K_0(C(X)).
+\end{array}
+\]
+\textit{For a representation $V$, identify the image of $[V]$ in each
+model and prove that it depends only on the stable isomorphism class of the
+associated bundle $P\times_GV$.}
 \end{exercise}
 
-\subsection{Generalized cohomology and index}
+\begin{exercise}[Traces descend to stable invariants]
+\leavevmode\par
+\textit{For $C\in\operatorname{Ch}_{\mathbb C}^{b}$, prove that}
+\[
+\sum_n(-1)^n[C^n]
+=\sum_n(-1)^n[H^n(C)]
+\quad\text{in}\quad
+K_0\bigl(\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}}\bigr),
+\]
+\textit{and recover the Euler--Poincar\'e identity by applying dimension.
+For a spherical fusion category $\mathcal C$, prove that categorical
+dimension induces a ring homomorphism}
+\[
+K_0(\mathcal C)\longrightarrow\mathbb C,
+\qquad [x]\longmapsto\trace(1_x).
+\]
+\textit{For dualizable finite-index $M$--$M$ correspondences $H$ and $K$,
+prove that statistical dimension is multiplicative under Connes fusion,}
+\[
+d(H\mathbin{\overline\otimes_M}K)=d(H)d(K),
+\]
+\textit{and interpret the Jones index as the square of this
+decategorified dimension by Exercise~\ref{ex:correspondence-functor}.}
+\end{exercise}
+
+\subsection{Generalized cohomology and stable K-theory}
 
 A pointed space has a distinguished basepoint. Its \textbf{wedge} is the
 disjoint union of pointed spaces with their basepoints identified. For a
@@ -2686,13 +2707,12 @@ K^1(X)\otimes\mathbb Q
 \]
 \end{exercise}
 
-\begin{exercise}[K-theory has three models]
+\begin{exercise}[K-theory unifies geometric and analytic models]
 \label{ex:k-models-synthesis}\leavevmode\par
-\textit{For a finite group $G$, define $K_G^0(X)$ as the Grothendieck group
+\textit{For a finite group $G$, let $K_G^0(X)$ be the Grothendieck group
 of finite-rank complex $G$-equivariant vector bundles over a compact
-$G$-space $X$. Define the representation ring $R(G)$ as the Grothendieck
-group of finite-dimensional complex representations, with multiplication
-induced by tensor product, and prove}
+$G$-space $X$. Apply Exercise~\ref{ex:decategorification-bridges} at a point
+to prove}
 \[
 K_G^0(\mathrm{pt})\cong R(G).
 \]
@@ -2717,7 +2737,37 @@ Fredholm-family models. Prove that the Chern character is independent of the
 chosen model.}
 \end{exercise}
 
-\begin{exercise}[Generalized cohomology quantizes observables]
+\subsection{Quantized physical observables}
+
+\begin{exercise}[Monoidal functors produce observable amplitudes]
+\leavevmode\par
+\textit{Express the selection rule of
+Exercise~\ref{ex:electric-dipole-selection} as the nonvanishing of}
+\[
+\operatorname{Hom}_G
+\bigl(1,V_f^*\otimes V_\mu\otimes V_i\bigr).
+\]
+\textit{For $P\to X$ as in Exercise~\ref{ex:monoidal-bridges}, prove that
+$\operatorname{Assoc}_P$ carries such invariant tensors to globally defined
+couplings of the associated bundles.}
+
+\textit{For the pointed $\mathbb Z/3$ category of
+Exercise~\ref{ex:anyonic-monodromy}, prove that}
+\[
+S_{rs}=\trace(M_{a^r,a^s})
+=\exp(2\pi i rs/3)
+\]
+\textit{is an invertible Fourier matrix. Write
+$d_i=\trace(1_{x_i})$ and
+$\mathcal D=(\sum_i d_i^2)^{1/2}$. Under the symmetric monoidal TQFT functor
+of Exercise~\ref{ex:rt-tqft}, interpret $\mathcal D^{-1}S$ as the operator
+assigned to the mapping cylinder of the modular transformation
+$\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ of the torus.
+Relate its entries to the measured $2\pi/3$ monodromy phase}
+\cite{nakamura-anyons}.\par
+\end{exercise}
+
+\begin{exercise}[Stable classes quantize physical observables]
 \leavevmode\par
 \textit{Place the following constructions in the generalized-cohomology
 framework above. First, interpret the Aharonov--Bohm phase in
@@ -2737,8 +2787,11 @@ Exercise~\ref{ex:atiyah-singer}. Deduce that Aharonov--Bohm holonomy is
 invariant under gauge change and homology of loops in the field-free region,
 that the Hall integer is invariant under gap-preserving homotopy, and that
 the Fredholm index is invariant under norm-continuous Fredholm homotopy.
-Identify the distinct generalized cohomology theories responsible for these
-quantized quantities.}
+Identify the generalized cohomology theory responsible for each quantized
+quantity. Compare these stable pairings with the categorical trace
+observables in the preceding exercise by identifying, in every example, the
+structured input, the functorial passage, and the resulting numerical
+invariant.}
 \end{exercise}
 
 \begin{thebibliography}{99}
