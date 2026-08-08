@@ -976,12 +976,59 @@ sufficient projections to approximate their self-adjoint elements
 spectrally.
 \end{exercise}
 
+\begin{definition}[Normality and spatial tensor products]
+A positive functional $\varphi$ on a von Neumann algebra is \emph{normal} if
+$a_\lambda\uparrow a$ implies
+$\varphi(a_\lambda)\uparrow\varphi(a)$ for every bounded increasing net of
+positive elements. A representation is \emph{normal} if it preserves such
+suprema. For concrete von Neumann algebras $M\subseteq B(H)$ and
+$N\subseteq B(K)$, their \emph{spatial tensor product} is
+\[
+M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
+\]
+\end{definition}
+
+\begin{exercise}[Normal states and independent subsystems]
+Show that every density operator $\rho$ gives the normal state
+$a\mapsto\Tr(\rho a)$, and, using trace-class duality, prove the converse on
+$B(H)$. Prove
+$B(H)\mathbin{\overline\otimes}B(K)=B(H\otimes K)$ and identify product
+states and partial traces in this language. Explain why local
+normality---normality on every local algebra---is the infinite-system
+analogue of requiring ordinary reduced density matrices for all finite
+laboratories.
+\end{exercise}
+
+\begin{definition}[Cyclic and separating vectors; modular Hamiltonians]
+For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
+$\overline{M\Omega}=H$ and \emph{separating} if $a\Omega=0$ implies $a=0$.
+For a faithful density operator $\rho$, its \emph{modular Hamiltonian} is
+$K_\rho=-\log\rho$ and its modular flow on $B(H)$ is
+$\sigma_t(a)=\rho^{it}a\rho^{-it}$.
+\end{definition}
+
+\begin{exercise}[Finite modular theory and entanglement tomography]
+For finite-dimensional $H$, let $B(H)$ act on itself by left multiplication
+with inner product $\langle X,Y\rangle=\Tr(X^*Y)$, and set
+$\Omega_\rho=\rho^{1/2}$ for faithful $\rho$. Prove that
+$\Omega_\rho$ is cyclic and separating. For
+$S_0(a\Omega_\rho)=a^*\Omega_\rho$, compute the polar decomposition and show
+that its modular operator is $\Delta(X)=\rho X\rho^{-1}$, yielding the flow
+above. If $\rho$ is a reduced state, recover its entanglement spectrum from
+$K_\rho$. Compare this reconstruction with the trapped-ion data analyzed by
+\href{https://doi.org/10.1038/s41567-021-01260-w}
+{Kokail et al., \emph{Nature Physics} \textbf{17} (2021)}, and explain why
+finite-subsystem tomography does not by itself establish continuum modular
+theory.
+\end{exercise}
+
 \begin{definition}[Traces, factors, and noncommutative probability]
 A \emph{trace} on a von Neumann algebra is a normal positive functional
 $\tau$ satisfying $\tau(ab)=\tau(ba)$. A \emph{factor} is a von Neumann
-algebra with center $\C1$. A \emph{noncommutative probability space} is a
-pair $(M,\varphi)$ of a von Neumann algebra and a normal state; its random
-variables are operators affiliated with $M$.
+algebra with center $\C1$; it is \emph{type I} if it is isomorphic to some
+$B(K)$. A \emph{noncommutative probability space} is a pair $(M,\varphi)$
+of a von Neumann algebra and a normal state; its random variables are
+operators affiliated with $M$.
 \end{definition}
 
 \begin{exercise}[Projection dimension and factors]
@@ -1541,16 +1588,6 @@ links, normalize it to the Jones polynomial, and derive its skein relation.
 Compute it for the unknot, trefoil, and Hopf link.
 \end{exercise}
 
-\begin{supplied}[Operator-algebraic foundations for conformal nets]
-We take as supplied normal and locally normal representations of von
-Neumann algebras, von Neumann tensor products, Tomita--Takesaki modular
-theory, and the type-III nature and Reeh--Schlieder property of local
-algebras. We also take as structural hypotheses Haag duality, the split
-property, strong additivity, and the localization and transportability
-results of DHR sector theory. The exercises below use these inputs to expose
-the passage from local algebras and Jones index to fusion and braiding.
-\end{supplied}
-
 \begin{definition}[Local conformal nets]
 Let $\mathcal I$ be the proper open intervals of $S^1$. A \emph{local
 conformal net} assigns a von Neumann algebra $\mathcal A(I)\subset B(H)$ to
@@ -1564,13 +1601,29 @@ The assignment is covariant under orientation-preserving diffeomorphisms of
 $S^1$, represented projectively on $H$ with positive rotation generator. It
 has an invariant vacuum vector $\Omega$, cyclic for the local algebras, and
 $\bigvee_I\mathcal A(I)=B(H)$. Physically, $S^1$ is the compactified chiral
-light ray and $\mathcal A(I)$ consists of observables localized in $I$.
+light ray and $\mathcal A(I)$ consists of observables localized in $I$. The
+norm closure of $\bigcup_I\mathcal A(I)$ is the \emph{quasilocal algebra}.
+\end{definition}
+
+\begin{definition}[Duality and regularity for conformal nets]
+Write $I'$ for the interior of the complement of $I$. A net has \emph{Haag
+duality} when $\mathcal A(I)=\mathcal A(I')'$. It has the \emph{split
+property} when $\overline I\subset J$ implies
+$\mathcal A(I)\subset F\subset\mathcal A(J)$ for some type-I factor $F$.
+It is \emph{strongly additive} when removing an interior point from $I$ to
+obtain $I_1\cup I_2$ gives
+$\mathcal A(I)=\mathcal A(I_1)\vee\mathcal A(I_2)$. A representation of the
+quasilocal algebra is \emph{locally normal} when its restriction to every
+$\mathcal A(I)$ is normal.
 \end{definition}
 
 \begin{exercise}[The two-interval subfactor]
 For $E=I_1\cup I_2$ a union of disjoint intervals, set
-$\mathcal A(E)=\mathcal A(I_1)\vee\mathcal A(I_2)$. Use locality to obtain
-the inclusion
+$\mathcal A(E)=\mathcal A(I_1)\vee\mathcal A(I_2)$. First use locality and
+vacuum cyclicity for $\mathcal A(I')$ to prove that the vacuum is separating
+for $\mathcal A(I)$. Use the split property and the spatial tensor product
+to identify separated local algebras as independent subsystems. Then use
+locality to obtain the inclusion
 \[
 \mathcal A(E)\subseteq\mathcal A(E')'.
 \]
@@ -1584,16 +1637,28 @@ $E$, measured by this Jones index.
 \end{exercise}
 
 \begin{definition}[DHR sectors]
-A \emph{DHR sector} of $\mathcal A$ is represented by a transportable
-endomorphism $\rho$ of the quasilocal algebra that acts identically on
-$\mathcal A(I')$ for some interval $I$. Composition is the tensor product;
-transporting two localized endomorphisms past one another gives their
-braiding. For a finite-index irreducible sector localized in $I$, its
-statistical dimension satisfies
+A \emph{DHR sector} of $\mathcal A$ is represented by a locally normal,
+transportable endomorphism $\rho$ of the quasilocal algebra that acts
+identically on $\mathcal A(I')$ for some interval $I$; transportability
+means that an equivalent representative can be localized in any interval.
+Composition is the tensor product; transporting two localized endomorphisms
+past one another gives their braiding. For a finite-index irreducible sector
+localized in $I$, its statistical dimension satisfies
 \[
 d(\rho)^2=[\mathcal A(I):\rho(\mathcal A(I))].
 \]
 \end{definition}
+
+\begin{supplied}[DHR and complete-rationality theorems]
+We take as supplied that charge transporters for localized finite-index DHR
+endomorphisms produce a unitary braiding. We also use the theorem that a
+split, strongly additive conformal net with finite $\mu$-index has finitely
+many irreducible sectors, nondegenerate braiding, and
+$\mu(\mathcal A)=\sum_i d(\rho_i)^2$; see
+\href{https://doi.org/10.1007/PL00005565}
+{Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
+\textbf{219} (2001)}.
+\end{supplied}
 
 \begin{exercise}[Critical Ising chain, Rydberg spectroscopy, and the Ising net]
 For $J,h>0$, consider the transverse-field Ising chain
@@ -1656,9 +1721,9 @@ with unitary nondegenerate braiding.
 
 \begin{exercise}[From Jones index to a modular category]
 Assume that $\mathcal A$ is completely rational: it is split and strongly
-additive, with finite $\mu$-index. Using the multi-interval subfactor, prove
-that there are finitely many irreducible DHR sectors $\rho_i$, their
-braiding is nondegenerate, and
+additive, with finite $\mu$-index. Apply the supplied complete-rationality
+theorem to obtain finitely many irreducible DHR sectors $\rho_i$ with
+nondegenerate braiding and
 \[
 \mu(\mathcal A)=\sum_i d(\rho_i)^2.
 \]
@@ -1670,10 +1735,7 @@ $1,1,\sqrt2$ and fusion rules
 \sigma^2=1\oplus\psi.
 \]
 Compute $\mu(\mathcal A)$ and interpret $\psi$ and $\sigma$ as the chiral
-Majorana and spin sectors. Use
-\href{https://doi.org/10.1007/PL00005565}
-{Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
-\textbf{219} (2001)} for the modularity theorem.
+Majorana and spin sectors.
 \end{exercise}
 
 \begin{exercise}[Fusion rules and braiding]
