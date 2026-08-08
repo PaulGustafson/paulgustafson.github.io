@@ -1,0 +1,301 @@
+\part{Classical Fields and Geometry}
+
+\chapter{Maxwell fields are differential forms}
+\label{ch:forms}
+
+\physicalquestion{How can electric charge and magnetic flux be described in
+a way that every observer can integrate consistently?}
+
+\modelassumptions{Spacetime is a smooth oriented four-manifold.  The
+electromagnetic field is classical, sources are smooth on the region under
+study, and singular charges or material interfaces are excluded unless they
+are represented by removed subsets or distributions.}
+
+\section{What can be pulled back and integrated?}
+
+A smooth $n$-manifold is a Hausdorff, second-countable space locally modeled
+on $\R^n$ by smoothly compatible charts.  Its tangent and cotangent bundles
+are $TM$ and $T^*M$.  A differential $p$-form is a smooth section of
+$\Lambda^pT^*M$; write $\Omega^p(M)$ for their space.
+
+The wedge product is alternating and the exterior derivative
+$d:\Omega^p(M)\to\Omega^{p+1}(M)$ is the unique graded derivation extending
+the differential of functions and satisfying $d^2=0$.  For a smooth map
+$f:N\to M$, pullback obeys $f^*d=df^*$.  Integration pairs compactly
+supported top-degree forms with oriented manifolds.  Stokes' theorem states
+\[
+\int_Xd\omega=\int_{\partial X}\omega.
+\]
+
+Closed forms lie in $\ker d$, exact forms in $\im d$, and
+$H^p_{\mathrm{dR}}(M)=\ker d/\im d$ records the obstruction to finding a
+global potential.
+
+\section{Which conservation law is structural?}
+
+\begin{theorem}[Maxwell charge conservation]
+Let $F\in\Omega^2(M)$ be the electromagnetic field and let
+$J\in\Omega^3(M)$ be the current.  If a metric-dependent Hodge star satisfies
+the Maxwell equations
+\[
+dF=0,\qquad d{\star F}=J,
+\]
+then $dJ=0$.  For every compact oriented four-region $X$,
+\[
+\int_{\partial X}J=0.
+\]
+\end{theorem}
+
+\begin{proof}
+Apply $d$ to the sourced equation: $dJ=d^2{\star F}=0$.  Stokes' theorem then
+gives $\int_{\partial X}J=\int_XdJ=0$.
+\end{proof}
+
+\section{How does this return to charge measurements?}
+
+The boundary of a spacetime slab consists of two spatial slices and a timelike
+side.  The theorem says that the difference of total charge on the slices
+equals the current flux through the side.  This conclusion does not depend on
+a coordinate continuity equation; that equation is a chart expression of
+$dJ=0$.  The physical model still assumes that $J$ includes every relevant
+source.  Apparent nonconservation may instead signal current crossing an
+unmodeled boundary or failure of the classical description.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Flux depends only on homology]
+If $F$ is closed and two oriented $2$-cycles differ by the boundary of a
+$3$-chain, prove that their integrals of $F$ agree.  State the dual dependence
+on the de Rham class $[F]$.
+\end{exercise}
+
+\begin{exercise}[Gauge potentials are local data]
+If $F=dA$ on a contractible region, prove that replacing $A$ by $A+d\lambda$
+does not change $F$.  Give an example on a punctured region where a closed
+one-form is not exact.
+\end{exercise}
+
+
+\chapter{Metrics turn geometry into dynamics}
+\label{ch:metric}
+
+\physicalquestion{What additional structure turns invariant field forms into
+lengths, wave equations, freely falling paths, and tidal acceleration?}
+
+\modelassumptions{The manifold carries a smooth nondegenerate metric of fixed
+signature.  Test bodies are small enough to neglect their backreaction and,
+when geodesic motion is invoked, non-gravitational forces are absent.}
+
+\section{What does a metric determine without coordinates?}
+
+A pseudo-Riemannian metric is a smooth nondegenerate symmetric bilinear form
+$g$ on each tangent space.  An orientation and $g$ determine a volume form
+$\operatorname{vol}_g$ and a Hodge star by
+\[
+\alpha\wedge\star\beta
+=\langle\alpha,\beta\rangle_g\operatorname{vol}_g.
+\]
+
+A connection on $TM$ assigns covariant derivatives $\nabla_XY$, is linear in
+$X$, satisfies a Leibniz rule in $Y$, and permits vectors at nearby points to
+be compared infinitesimally.  It is torsion free when
+$\nabla_XY-\nabla_YX=[X,Y]$ and metric compatible when $\nabla g=0$.
+
+\section{Why is there a canonical metric connection?}
+
+\begin{theorem}[Levi--Civita]
+Every pseudo-Riemannian metric has a unique torsion-free, metric-compatible
+connection.  It is determined by the coordinate-free Koszul formula
+\begin{align*}
+2g(\nabla_XY,Z)={}&Xg(Y,Z)+Yg(Z,X)-Zg(X,Y)\\
+&-g(X,[Y,Z])+g(Y,[Z,X])+g(Z,[X,Y]).
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+Metric compatibility expands each derivative of an inner product into two
+covariant-derivative terms.  Add the expansions for $Xg(Y,Z)$ and
+$Yg(Z,X)$, subtract the one for $Zg(X,Y)$, and use zero torsion to replace
+differences of covariant derivatives by Lie brackets.  This yields the
+formula and hence uniqueness by nondegeneracy of $g$.  Conversely the formula
+defines $\nabla_XY$ uniquely; direct substitution verifies linearity, the
+Leibniz rule, zero torsion, and metric compatibility.
+\end{proof}
+
+\section{How do connection and star return to physics?}
+
+The Hodge star in Chapter~\ref{ch:forms} supplies the metric part of Maxwell's
+equations.  The Levi--Civita connection defines geodesics by
+$\nabla_{\dot\gamma}\dot\gamma=0$ and curvature by
+\[
+R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
+\]
+For a variation of geodesics with separation field $J$, the equation
+$\nabla_T\nabla_TJ=R(T,J)T$ turns curvature into relative acceleration.  A
+gravitational-wave interferometer uses this tidal effect; it does not measure
+coordinate components of the metric in isolation.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[The Hodge star is unique]
+Prove pointwise existence and uniqueness of $\star$ from the induced inner
+product on exterior powers.  Determine $\star^2$ in terms of form degree and
+metric signature.
+\end{exercise}
+
+\begin{exercise}[Killing fields give conserved quantities]
+If $X$ satisfies $\mathcal L_Xg=0$ and $\gamma$ is an affinely parametrized
+geodesic, prove that $g(X,\dot\gamma)$ is constant.
+\end{exercise}
+
+
+\chapter{Hamiltonian evolution is symplectic}
+\label{ch:symplectic}
+
+\physicalquestion{Why does conservative time evolution preserve phase-space
+volume even when it stretches and folds individual regions?}
+
+\modelassumptions{The classical system has a finite-dimensional smooth phase
+space, its dynamics is deterministic, and the Hamiltonian has no explicit
+time dependence.  Dissipation and stochastic forcing are excluded.}
+
+\section{What replaces a metric on phase space?}
+
+A symplectic form is a closed nondegenerate two-form $\omega$ on a manifold
+$M$.  Nondegeneracy identifies every one-form with a unique vector field.  A
+Hamiltonian $H\in C^\infty(M)$ therefore determines $X_H$ by
+\[
+\iota_{X_H}\omega=dH.
+\]
+The Poisson bracket is $\{f,h\}=\omega(X_f,X_h)$.  In canonical coordinates
+the definition reproduces Hamilton's equations, but neither $\omega$ nor
+$X_H$ depends on those coordinates.
+
+\section{Why can Hamiltonian flow not compress phase volume?}
+
+\begin{theorem}[Liouville]
+The local flow $\varphi_t$ of a Hamiltonian vector field preserves the
+symplectic form and the Liouville volume $\omega^n/n!$ on a $2n$-dimensional
+phase space.
+\end{theorem}
+
+\begin{proof}
+Cartan's formula and $d\omega=0$ give
+\[
+\mathcal L_{X_H}\omega
+=d(\iota_{X_H}\omega)+\iota_{X_H}d\omega=d^2H=0.
+\]
+Thus
+$\frac d{dt}\varphi_t^*\omega
+=\varphi_t^*\mathcal L_{X_H}\omega=0$,
+so $\varphi_t^*\omega=\omega$.  Pullback respects wedge products, hence it
+also fixes $\omega^n/n!$.
+\end{proof}
+
+\section{What physical consequence follows?}
+
+An ensemble transported by a Hamiltonian flow cannot converge into a smaller
+phase-volume attractor.  This explains why ordinary friction cannot be
+represented by an autonomous Hamiltonian on the same finite-dimensional
+phase space: friction contracts volumes and violates the theorem's
+assumptions.  In equilibrium statistical mechanics the preserved volume is
+the invariant measure from which microcanonical counting begins.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Magnetic curvature gives the Lorentz force]
+On $T^*Q$ replace the canonical symplectic form by
+$\omega_B=\omega_0+q\pi^*B$ for a closed two-form $B$ on $Q$.  For kinetic
+Hamiltonian $H$, derive the Lorentz-force equation.
+\end{exercise}
+
+\begin{exercise}[Moment maps recover angular momentum]
+For the lifted rotation action on $T^*\R^3$, prove that the moment map is
+$J(q,p)=q\times p$.  Show directly that a rotation-invariant Hamiltonian
+conserves $J$, and compare with Chapter~\ref{ch:lie}.
+\end{exercise}
+
+
+\chapter{Local symmetry becomes a connection}
+\label{ch:gauge}
+
+\physicalquestion{How can internal states at different spacetime points be
+compared when no preferred frame exists globally?}
+
+\modelassumptions{Internal states form fibers of a smooth vector bundle.  A
+compact Lie group $G$ acts on the fibers, local gauge transformations are
+changes of frame, and classical gauge fields are smooth connections.}
+
+\section{Which object compares neighboring fibers?}
+
+A vector bundle $E\to M$ is locally a product $U\times V$ with linear
+transition maps.  A connection is a linear map
+\[
+\nabla:\Omega^0(M,E)\to\Omega^1(M,E),
+\qquad \nabla(fs)=df\otimes s+f\nabla s.
+\]
+Extending it to $E$-valued forms defines curvature
+$F_\nabla=\nabla^2\in\Omega^2(M,\End E)$.
+
+For a principal $G$-bundle, a local frame represents the connection by a
+Lie-algebra-valued one-form $A$, with
+\[
+F_A=dA+A\wedge A.
+\]
+A gauge transformation changes $A$ but conjugates $F_A$; curvature is the
+local obstruction to path-independent transport.
+
+\section{Which identity constrains every gauge field?}
+
+\begin{theorem}[Bianchi identity]
+Every connection satisfies $d_A F_A=0$, or intrinsically
+$\nabla F_\nabla=0$.
+\end{theorem}
+
+\begin{proof}
+In a local frame, $d_A\eta=d\eta+A\wedge\eta-(-1)^p\eta\wedge A$ for a
+$p$-form.  Substitute $F_A=dA+A\wedge A$, use $d^2=0$ and the graded Leibniz
+rule, and observe that all remaining terms cancel associatively.  Since the
+identity transforms covariantly, it is independent of the chosen frame.
+\end{proof}
+
+\section{How does local symmetry produce field equations?}
+
+With an invariant inner product on the Lie algebra and the Hodge star from
+Chapter~\ref{ch:metric}, the Yang--Mills action is
+\[
+S(A)=\frac12\int_M\langle F_A\wedge\star F_A\rangle.
+\]
+A compactly supported variation gives $d_A\star F_A=0$ in vacuum.  The Bianchi
+identity is kinematic; the Yang--Mills equation is dynamical.  For $G=U(1)$
+they reduce to the two Maxwell equations.  Nonabelian groups additionally
+self-couple through $A\wedge A$.
+
+The Standard Model uses a particular gauge group and matter representations.
+Those choices are empirical inputs to the model; gauge geometry organizes
+their charges and couplings but does not derive the observed representation
+list from differential geometry alone.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Gauge variation of curvature]
+For $A^g=g^{-1}Ag+g^{-1}dg$, prove
+$F_{A^g}=g^{-1}F_Ag$ and show that the Yang--Mills action is gauge invariant.
+\end{exercise}
+
+\begin{exercise}[Part III synthesis]
+On a principal $U(1)$-bundle, connect the four descriptions
+\[
+\text{potential}\longrightarrow\text{connection}\longrightarrow
+\text{curvature}\longrightarrow\text{Maxwell field}.
+\]
+Derive both Maxwell equations, distinguish the Bianchi identity from the
+Euler--Lagrange equation, and identify exactly where orientation, metric, and
+bundle topology enter.
+\end{exercise}
+
+\parttransition{Curvature and differential equations are local.  They cannot
+detect every effect of a flat connection around a hole, nor explain why a
+transport coefficient remains an integer under continuous deformation.
+Global observables force holonomy, characteristic classes, K-theory, and
+index.}

@@ -1,0 +1,301 @@
+\part{Symmetry and Quantum Numbers}
+
+\chapter{Symmetry separates state space into sectors}
+\label{ch:representations}
+
+\physicalquestion{Why do energy levels occur in symmetry-related families
+rather than as unrelated individual states?}
+
+\modelassumptions{A symmetry is an invertible transformation preserving the
+physical predictions of the model.  The transformations compose as a finite
+group $G$ and act linearly on a finite-dimensional complex state space $V$.}
+
+\section{How does a physical transformation become algebra?}
+
+A group representation is a homomorphism
+$\rho:G\to\operatorname{GL}(V)$.  A subspace $W\subseteq V$ is invariant
+when $\rho(g)W\subseteq W$ for all $g$.  It is irreducible when its only
+invariant subspaces are $0$ and itself.  A map $T:V\to W$ intertwines two
+representations when $T\rho_V(g)=\rho_W(g)T$.
+
+If a Hamiltonian $H$ obeys $H\rho(g)=\rho(g)H$, then every eigenspace of $H$
+is invariant.  Symmetry can therefore organize degeneracy only if invariant
+spaces can be decomposed into elementary pieces.
+
+\section{Why can finite symmetry be completely decomposed?}
+
+\begin{theorem}[Maschke and Schur]
+Every finite-dimensional complex representation of a finite group is a direct
+sum of irreducible representations.  If $V,W$ are irreducible, every nonzero
+intertwiner $V\to W$ is an isomorphism; moreover
+$\End_G(V)=\C\,1_V$.
+\end{theorem}
+
+\begin{proof}
+Average any Hermitian inner product over $G$ to make it invariant.  If
+$W\subseteq V$ is invariant, then $W^\perp$ is invariant as well.  Induction
+on dimension gives a decomposition into irreducibles.  For an intertwiner
+$T$, its kernel and image are invariant, so irreducibility makes a nonzero
+$T$ invertible.  If $T\in\End_G(V)$, choose an eigenvalue $\lambda$ over
+$\C$.  The intertwiner $T-\lambda1$ has nonzero kernel and is therefore zero.
+\end{proof}
+
+\section{What does decomposition predict physically?}
+
+Write
+\[
+V\cong\bigoplus_\alpha M_\alpha\otimes V_\alpha,
+\]
+where the $V_\alpha$ are inequivalent irreducibles and $G$ acts trivially on
+the multiplicity spaces $M_\alpha$.  Every symmetry-preserving Hamiltonian
+has the form $\bigoplus_\alpha H_\alpha\otimes1_{V_\alpha}$.  Thus an energy
+inside the $\alpha$ sector has at least $\dim V_\alpha$-fold degeneracy unless
+other structure splits the multiplicity space.  The claim is conditional on
+the symmetry being exact; perturbations that break $G$ may split the level.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Averaging produces invariant projectors]
+For $W\subseteq V$ invariant and any projection $P:V\to W$, prove that
+\[
+\widetilde P=\frac1{|G|}\sum_{g\in G}\rho(g)P\rho(g)^{-1}
+\]
+is an equivariant projection onto $W$.
+\end{exercise}
+
+\begin{exercise}[Symmetry protects degeneracy]
+Let an irreducible representation $V_\alpha$ occur once in an eigenspace of a
+$G$-invariant Hamiltonian.  Prove that every $G$-invariant perturbation acts
+there by a scalar.  Explain why this conclusion says nothing about a
+perturbation that breaks $G$.
+\end{exercise}
+
+
+\chapter{Characters predict molecular spectra}
+\label{ch:characters}
+
+\physicalquestion{Why are some molecular vibrations visible in infrared or
+Raman spectra while symmetry forbids others?}
+
+\modelassumptions{The equilibrium molecule has a finite point group $G$.
+Small nuclear displacements form a linear representation, and the electric
+dipole approximation is valid for the transitions under discussion.}
+
+\section{Which invariant detects an irreducible sector?}
+
+The character of a representation is
+$\chi_V(g)=\tr(\rho_V(g))$.  It is constant on conjugacy classes and does not
+depend on a basis.  For class functions define
+\[
+\langle\chi,\psi\rangle_G
+=\frac1{|G|}\sum_{g\in G}\overline{\chi(g)}\psi(g).
+\]
+
+For an irreducible $V_\alpha$ of dimension $d_\alpha$, the operator
+\[
+P_\alpha=\frac{d_\alpha}{|G|}
+\sum_{g\in G}\overline{\chi_\alpha(g)}\rho_V(g)
+\]
+is the candidate projector onto its isotypic component.
+
+\section{Why do characters recover multiplicities?}
+
+\begin{theorem}[Character orthogonality]
+Irreducible characters of a finite group are orthonormal.  If
+$V\cong\bigoplus_\alpha m_\alpha V_\alpha$, then
+\[
+m_\alpha=\langle\chi_\alpha,\chi_V\rangle_G,
+\]
+and $P_\alpha$ is the projection onto the $V_\alpha$-isotypic component.
+\end{theorem}
+
+\begin{proof}
+For a linear map $A:V_\alpha\to V_\beta$, average
+$A\mapsto |G|^{-1}\sum_g\rho_\beta(g)A\rho_\alpha(g)^{-1}$.
+The result is an intertwiner.  Schur's lemma from
+Chapter~\ref{ch:representations} makes it zero for $\alpha\ne\beta$ and a
+scalar identity for $\alpha=\beta$.  Applying this to matrix units and taking
+traces gives character orthogonality.  Additivity of trace on direct sums
+then gives the multiplicity formula.  Substitution into $P_\alpha$ shows that
+it is identity on copies of $V_\alpha$ and zero on all other irreducibles.
+\end{proof}
+
+\section{How does this return to a water spectrum?}
+
+For water at equilibrium the model point group is $C_{2v}$.  The nuclear
+displacement representation has dimension nine.  Removing translations and
+rotations leaves
+\[
+V_{\mathrm{vib}}\cong2A_1\oplus B_2.
+\]
+A dipole transition from $V_i$ to $V_f$ through a dipole component $V_\mu$
+can be nonzero only if
+\[
+\Hom_G(1,V_f^*\otimes V_\mu\otimes V_i)\ne0.
+\]
+This invariant-tensor condition predicts allowed lines.  Measured line
+positions additionally depend on masses, force constants, anharmonicity, and
+instrumental conditions; symmetry organizes visibility but does not determine
+the frequencies by itself.  Reference vibrational frequencies provide the
+experimental comparison for this classification \cite{shimanouchi}.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Water has three symmetry-classified vibrations]
+Construct the $C_{2v}$ character of the nine-dimensional displacement space
+from the fixed nuclei and spatial traces.  Subtract translations and rotations
+and derive $2A_1\oplus B_2$.
+\end{exercise}
+
+\begin{exercise}[Raman selection differs from dipole selection]
+Let the polarizability transform as $\operatorname{Sym}^2(V_\mu)$.  Determine
+which $C_{2v}$ irreducibles occur and compare the Raman-active and
+infrared-active water modes.
+\end{exercise}
+
+
+\chapter{Continuous symmetry produces angular momentum}
+\label{ch:lie}
+
+\physicalquestion{Why are rotational quantum numbers discrete even though
+physical rotations vary continuously?}
+
+\modelassumptions{Rotations act continuously and unitarily on a
+finite-dimensional state space.  Infinitesimal generators are defined on the
+whole space; domain issues of unbounded operators are postponed.}
+
+\section{How is continuous transformation differentiated?}
+
+A matrix Lie group is a closed subgroup of $\operatorname{GL}(n,\C)$.  Its
+Lie algebra consists of the matrices $X$ for which $e^{tX}$ remains in the
+group, with bracket $[X,Y]=XY-YX$.  Differentiating a smooth representation
+$U:G\to U(H)$ gives a Lie-algebra representation.  For rotations, define
+self-adjoint generators $J_i$ by differentiating the three one-parameter
+rotation subgroups; with $\hbar=1$ they satisfy
+\[
+[J_i,J_j]=i\varepsilon_{ijk}J_k.
+\]
+Set $J^2=J_1^2+J_2^2+J_3^2$.
+
+\section{Which operator labels rotational sectors?}
+
+\begin{theorem}[The rotational Casimir]
+The operator $J^2$ commutes with every $J_i$ and hence with the connected
+rotation representation.  On every irreducible complex rotation sector it is
+a scalar.
+\end{theorem}
+
+\begin{proof}
+Using $[AB,C]=A[B,C]+[A,C]B$,
+\[
+[J^2,J_\ell]
+=i\sum_{i,k}\varepsilon_{i\ell k}(J_iJ_k+J_kJ_i)=0,
+\]
+because the coefficient is antisymmetric in $i,k$ while the parenthesis is
+symmetric.  Thus $J^2$ intertwines the Lie-algebra action and therefore the
+connected group action.  Schur's lemma makes it scalar on an irreducible
+sector.
+\end{proof}
+
+\section{Why do angular-momentum quantum numbers result?}
+
+Introduce $J_\pm=J_1\pm iJ_2$.  The commutators
+$[J_3,J_\pm]=\pm J_\pm$ make $J_\pm$ raising and lowering operators.  In a
+finite-dimensional unitary irreducible sector, positivity of
+$J_\mp J_\pm$ forces a highest weight $j\in\tfrac12\Z_{\ge0}$ and weights
+$m=-j,-j+1,\ldots,j$, while $J^2=j(j+1)$.  Integer $j$ descends to an honest
+representation of $SO(3)$; half-integer $j$ is an honest representation of
+its double cover $SU(2)$ and only a projective representation of $SO(3)$.
+The continuous group therefore produces discrete labels through unitarity and
+finite dimensionality.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Spin one-half]
+Set $J_i=\sigma_i/2$ for the Pauli matrices.  Verify the commutation
+relations, compute $J^2$, and prove that a $2\pi$ rotation acts by $-1$ while
+a $4\pi$ rotation acts by $1$.
+\end{exercise}
+
+\begin{exercise}[Rotational invariance conserves angular momentum]
+Let canonical position and momentum operators satisfy
+$[Q_i,P_j]=i\delta_{ij}$ and set
+$L_i=\sum_{jk}\varepsilon_{ijk}Q_jP_k$.  For
+$H=(P_1^2+P_2^2+P_3^2)/(2m)+V(Q_1^2+Q_2^2+Q_3^2)$, prove
+$[H,L_i]=0$ and identify precisely where rotational invariance of the
+potential is used.
+\end{exercise}
+
+
+\chapter{Quantum phases require projective symmetry}
+\label{ch:projective}
+
+\physicalquestion{How can a symmetry act consistently on physical rays even
+when its operators fail to multiply exactly as the group does?}
+
+\modelassumptions{State vectors differing by a phase represent the same pure
+state.  A discrete symmetry group acts unitarily on rays, and phases belong to
+$U(1)$ with trivial group action.}
+
+\section{Which phases are removable?}
+
+A projective representation has operators satisfying
+\[
+U_gU_h=\alpha(g,h)U_{gh},\qquad \alpha(g,h)\in U(1).
+\]
+Associativity forces the cocycle equation
+\[
+\alpha(g,h)\alpha(gh,k)=\alpha(h,k)\alpha(g,hk).
+\]
+Rephasing $U_g$ by $\lambda(g)$ changes $\alpha$ by the coboundary
+$\lambda(g)\lambda(h)\lambda(gh)^{-1}$.  The quotient of cocycles by
+coboundaries is $H^2(G,U(1))$.
+
+\section{Why does cohomology classify projective actions?}
+
+\begin{theorem}[Projective classification]
+Equivalence classes of normalized factor systems for projective unitary
+representations of $G$ are classified by $H^2(G,U(1))$.  Tensor product
+multiplies the corresponding cohomology classes.
+\end{theorem}
+
+\begin{proof}
+The displayed associativity calculation says exactly that a factor system is
+a normalized $2$-cocycle.  Changing representatives of rays rephases the
+operators and hence multiplies the cocycle by a coboundary; conversely every
+coboundary is produced by such a rephasing.  For tensor products,
+$(U_g\otimes V_g)(U_h\otimes V_h)=
+\alpha(g,h)\beta(g,h)U_{gh}\otimes V_{gh}$, so classes multiply.
+\end{proof}
+
+\section{How can a cohomology class protect an edge state?}
+
+Let $G=\Z/2\times\Z/2$ be generated by two $\pi$ rotations.  On a spin-half
+edge take $U_x=\sigma_1$ and $U_z=\sigma_3$.  Their anticommutation realizes
+the nontrivial element of $H^2(G,U(1))\cong\Z/2$.  Any local edge operator
+commuting with both is scalar, so a symmetry-preserving local perturbation
+cannot split the doublet.  In the spin-one Haldane model, the statement relies
+on a bulk gap, locality, and preservation of the specified symmetry; closing
+the gap or breaking the symmetry evades the conclusion.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[The projective class squares to zero]
+Compute the factor system for $U_x,U_z$ above and prove that its tensor square
+is cohomologically trivial.  Interpret this as the possibility of combining
+two protected edges into an ordinary linear representation.
+\end{exercise}
+
+\begin{exercise}[Part II synthesis]
+Let a Hamiltonian commute with a finite symmetry group and suppose one
+isotypic sector carries a projective edge action.  Use characters to isolate
+the sector, Schur's lemma to constrain symmetric perturbations, and
+$H^2(G,U(1))$ to decide whether the action can be rephased to an ordinary
+representation.  Separate degeneracy forced by an irreducible dimension from
+degeneracy protected by a nontrivial projective class.
+\end{exercise}
+
+\parttransition{Global symmetry uses the same group at every point.  A field
+must compare locally varying values and frames across spacetime.  Making
+symmetry local forces differential forms, metrics, bundles, connections, and
+curvature.}

@@ -1,0 +1,323 @@
+\part{States, Superposition, and Measurement}
+
+\chapter{Waves force linearity}
+\label{ch:waves}
+
+\physicalquestion{Why can two waves occupy the same string at the same time
+without destroying one another?}
+
+\modelassumptions{The string is homogeneous, perfectly flexible, held at
+constant tension, and displaced transversely by a small amount.  Slopes are
+small enough that quadratic geometric corrections, damping, and external
+forcing may be neglected.}
+
+\section{What language can express superposition?}
+
+A real \emph{vector space} is a set $V$ with addition and scalar
+multiplication satisfying the usual distributive, associative, and inverse
+laws.  A map $T:V\to W$ is \emph{linear} when
+\[
+T(av+bw)=aT(v)+bT(w).
+\]
+These axioms are not introduced because coordinates are convenient.  They
+encode the empirical modeling rule that amplitudes add and may be rescaled.
+
+For a string of length $L$, let $u(x,t)$ be its transverse displacement.  In
+the small-slope model, force balance gives
+\begin{equation}
+\rho\,\partial_t^2u=T\,\partial_x^2u,
+\qquad u(0,t)=u(L,t)=0,
+\label{eq:wave}
+\end{equation}
+where $T>0$ is tension and $\rho>0$ is linear density.
+
+\section{What does the wave equation force?}
+
+\begin{theorem}[Superposition]
+The solutions of \eqref{eq:wave} form a real vector space.  For every fixed
+time $t$, evolution from admissible initial data $(u_0,v_0)$ to
+$(u(\cdot,t),\partial_tu(\cdot,t))$ is linear whenever the initial-value
+problem has a unique solution.
+\end{theorem}
+
+\begin{proof}
+Let $D=\rho\partial_t^2-T\partial_x^2$.  Differentiation is linear, so
+$D(au+bv)=aD(u)+bD(v)$.  The boundary conditions are homogeneous and are
+therefore preserved by the same combination.  Hence solutions are closed
+under addition and scaling.  If $E_t$ denotes evolution, then
+$aE_t(u_0,v_0)+bE_t(w_0,z_0)$ solves the equation with initial data
+$(au_0+bw_0,av_0+bz_0)$.  Uniqueness identifies this solution with
+$E_t(au_0+bw_0,av_0+bz_0)$.
+\end{proof}
+
+\section{What does this say about an observed string?}
+
+The theorem predicts that independently prepared small-amplitude normal
+modes pass through one another and that their measured displacement is the
+sum of their displacements.  It does not predict exact superposition for a
+large displacement: there the omitted nonlinear terms invalidate the model.
+For fixed endpoints the functions
+\[
+u_n(x,t)=\sin\!\left(\frac{n\pi x}{L}\right)
+\cos\!\left(\frac{n\pi}{L}\sqrt{T/\rho}\,t\right)
+\]
+are modes, and linearity makes every finite linear combination another
+motion.  The coefficients are coordinates used to calculate a motion; the
+solution space and its linear evolution exist before a basis is chosen.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Energy distinguishes the physical solution space]
+For sufficiently regular solutions of \eqref{eq:wave}, prove conservation of
+\[
+E(t)=\frac12\int_0^L\bigl(\rho|\partial_tu|^2
++T|\partial_xu|^2\bigr)\,dx.
+\]
+Explain which boundary term uses the fixed-end assumption.
+\end{exercise}
+
+\begin{exercise}[Critical damping breaks conservative mode evolution]
+Write $m\ddot q+b\dot q+kq=0$ as a first-order linear system.  Classify its
+three damping regimes by the characteristic polynomial and identify the
+nontrivial Jordan block at $b^2=4mk$.
+\end{exercise}
+
+
+\chapter{Composite systems require tensor products}
+\label{ch:tensors}
+
+\physicalquestion{If two systems are prepared independently, what state
+space contains both independent preparations and correlations between them?}
+
+\modelassumptions{Only the linear structure of each component is retained.
+The preparation rule is linear in either component when the other component
+is fixed.}
+
+\section{Why are pairs of vectors not enough?}
+
+The direct sum $V\oplus W$ describes alternatives or independent sectors: a
+vector is a pair $(v,w)$.  A quotient $V/N$ declares vectors differing by an
+element of $N$ equivalent.  Neither construction represents a preparation
+that is bilinear in two inputs.
+
+The \emph{tensor product} is a vector space $V\otimes W$ with a bilinear map
+$\tau:V\times W\to V\otimes W$ such that every bilinear
+$b:V\times W\to X$ factors through a unique linear map
+$\widetilde b:V\otimes W\to X$:
+\[
+b=\widetilde b\circ\tau.
+\]
+This universal property, rather than a choice of product basis, defines the
+composite state space.
+
+\section{What makes the tensor product canonical?}
+
+\begin{theorem}[Existence and uniqueness of the tensor product]
+Every pair of vector spaces has a tensor product.  Any two tensor products
+satisfying the universal property are related by a unique isomorphism that
+preserves pure tensors.
+\end{theorem}
+
+\begin{proof}
+Take the free vector space on $V\times W$ and quotient by the span of the four
+families enforcing additivity and homogeneity in each variable.  The class of
+$(v,w)$ is denoted $v\otimes w$.  A bilinear map vanishes on those relations,
+so its linear extension descends uniquely to the quotient.  If $(T,\tau)$ and
+$(T',\tau')$ both satisfy the property, universality gives maps
+$f:T\to T'$ and $g:T'\to T$ preserving pure tensors.  Uniqueness applied to
+the identity factorization gives $gf=\id_T$ and $fg=\id_{T'}$.
+\end{proof}
+
+\section{Where does entanglement enter?}
+
+A nonzero vector $\psi\in V\otimes W$ is a \emph{product vector} if
+$\psi=v\otimes w$; otherwise it is entangled.  The universal property
+permits all bilinear product preparations, but the resulting vector space
+necessarily contains their linear combinations.  Thus entanglement is not
+an added force or interaction.  It is already present in the minimal linear
+space closed under superposition of composite preparations.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Schmidt decomposition]
+For finite-dimensional complex inner-product spaces $H_A,H_B$, associate to
+$\psi\in H_A\otimes H_B$ the map $H_A^*\to H_B$.  Apply singular-value
+decomposition to prove
+$\psi=\sum_i s_i a_i\otimes b_i$ with orthonormal families and $s_i>0$.
+Prove that $\psi$ is a product vector exactly when one Schmidt coefficient is
+nonzero.
+\end{exercise}
+
+\begin{exercise}[Universal constructions]
+Give coordinate-free universal properties for direct sums and quotients.
+Use them to prove $k(X\sqcup Y)\cong kX\oplus kY$ and
+$k(X\times Y)\cong kX\otimes kY$ for free vector spaces.
+\end{exercise}
+
+
+\chapter{Measurement requires Hilbert-space geometry}
+\label{ch:measurement}
+
+\physicalquestion{How can a state assign probabilities to mutually exclusive
+measurement outcomes without choosing coordinates?}
+
+\modelassumptions{The system is finite dimensional, pure states are rays in a
+complex vector space, and an ideal repeatable measurement is represented by a
+self-adjoint operator.}
+
+\section{What structure turns amplitudes into probabilities?}
+
+A Hermitian inner product on a complex vector space $H$ is positive definite,
+linear in its second argument, and conjugate linear in its first.  It gives
+$\|\psi\|^2=\langle\psi,\psi\rangle$.  The adjoint of $A:H\to H$ is the
+unique $A^*$ satisfying
+$\langle A\psi,\phi\rangle=\langle\psi,A^*\phi\rangle$.
+An operator is self-adjoint when $A=A^*$ and normal when $A^*A=AA^*$.
+
+An orthogonal projection is an operator $P=P^*=P^2$.  If $\|\psi\|=1$, the
+number $\langle\psi,P\psi\rangle=\|P\psi\|^2$ lies in $[0,1]$ and is
+independent of the phase chosen to represent the ray of $\psi$.
+
+\section{Why do observables have spectral outcomes?}
+
+\begin{theorem}[Finite-dimensional spectral theorem]
+Every normal operator on a finite-dimensional complex inner-product space has
+a unique decomposition
+\[
+A=\sum_{\lambda\in\sigma(A)}\lambda P_\lambda,
+\qquad P_\lambda P_\mu=0\ (\lambda\ne\mu),
+\qquad \sum_\lambda P_\lambda=1,
+\]
+where $P_\lambda$ projects onto the $\lambda$-eigenspace.
+\end{theorem}
+
+\begin{proof}
+The characteristic polynomial gives an eigenvector $v$.  Normality implies
+that $v^\perp$ is invariant under both $A$ and $A^*$: for $w\perp v$, use
+$\ker(A-\lambda)^\perp=\im(A^*-\overline\lambda)$.  Induction on dimension
+produces an orthonormal eigenbasis.  Grouping basis vectors by eigenvalue
+gives the projections.  Their images are the intrinsic eigenspaces, so the
+decomposition is unique.
+\end{proof}
+
+\section{How does the theorem return to measurement?}
+
+For a self-adjoint observable $A$, all eigenvalues are real.  The ideal
+measurement model assigns
+\[
+\Pr_\psi(A=\lambda)=\langle\psi,P_\lambda\psi\rangle,
+\qquad
+\sum_\lambda\Pr_\psi(A=\lambda)=1.
+\]
+The theorem supplies mutually exclusive outcomes and the inner product turns
+their components into normalized probabilities.  This is a mathematical
+model of measurement statistics; agreement of repeated experiments with
+these frequencies tests the model rather than proving the spectral theorem.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Uncertainty from noncommutativity]
+For self-adjoint $A,B$ and unit $\psi$, set
+$\Delta_\psi A=\|(A-\langle A\rangle_\psi)\psi\|$.  Use Cauchy--Schwarz to
+prove
+\[
+\Delta_\psi A\,\Delta_\psi B
+\geq\frac12|\langle\psi,[A,B]\psi\rangle|.
+\]
+State precisely when equality holds.
+\end{exercise}
+
+\begin{exercise}[Normal modes are spectral measurements]
+For a finite chain of equal masses and springs, express its stiffness as a
+positive self-adjoint operator.  Find its spectral projections and recover
+the mode frequencies without treating the chosen mass coordinates as
+intrinsic.
+\end{exercise}
+
+
+\chapter{Ancillas force complete positivity}
+\label{ch:channels}
+
+\physicalquestion{Why must a physical evolution remain positive after the
+system is coupled to an arbitrary auxiliary system on which nothing is done?}
+
+\modelassumptions{States of an $n$-level system are density operators in
+$M_n(\C)$.  Dynamics is linear on statistical mixtures, and an unused
+ancilla evolves by the identity map.}
+
+\section{Why is positivity alone insufficient?}
+
+A density operator is $\rho\geq0$ with $\tr\rho=1$.  A linear map
+$\Phi:M_n\to M_m$ is positive when it carries positive matrices to positive
+matrices.  It is \emph{completely positive} when
+$\id_{M_r}\otimes\Phi$ is positive for every $r$.  A quantum channel is a
+completely positive trace-preserving map.
+
+The transpose is positive but $\id_{M_2}\otimes t$ sends the maximally
+entangled two-qubit state to an operator with a negative eigenvalue.  Ordinary
+positivity therefore fails the untouched-ancilla test.
+
+For $\Phi:M_n\to M_m$, define the Choi matrix
+\[
+C_\Phi=\sum_{i,j}E_{ij}\otimes\Phi(E_{ij}).
+\]
+
+\section{What structure characterizes physical finite-dimensional maps?}
+
+\begin{theorem}[Choi--Kraus--Stinespring]
+For a linear map $\Phi:M_n\to M_m$, the following are equivalent:
+\begin{enumerate}
+\item $\Phi$ is completely positive;
+\item $C_\Phi\geq0$;
+\item $\Phi(x)=\sum_{a=1}^rK_axK_a^*$ for some $K_a:\C^n\to\C^m$.
+\end{enumerate}
+Consequently $\Phi(x)=V^*(x\otimes1_E)V$ for a map
+$V:\C^m\to\C^n\otimes E$.  If $\Phi$ is unital, $V$ is an isometry.
+\cite{choi,stinespring}
+\end{theorem}
+
+\begin{proof}
+Complete positivity makes
+$C_\Phi=(\id\otimes\Phi)(|\Omega\rangle\langle\Omega|)$ positive, with
+$\Omega=\sum_i e_i\otimes e_i$.  A positive decomposition
+$C_\Phi=\sum_a|v_a\rangle\langle v_a|$ identifies each $v_a$ with a matrix
+$K_a$ and direct substitution gives the Kraus formula.  That formula is
+positive after every matrix amplification.  Finally set
+$V\xi=\sum_aK_a^*\xi\otimes e_a$; then
+$V^*(x\otimes1)V=\sum_aK_axK_a^*$.  The identity
+$V^*V=\Phi(1)$ proves the last assertion.
+\end{proof}
+
+\section{What does dilation say about open evolution?}
+
+In the Schr\"odinger picture the adjoint form of the theorem says that every
+channel can be written
+\[
+\rho\longmapsto\operatorname{Tr}_E(U(\rho\otimes\sigma)U^*)
+\]
+after enlarging the environment if necessary.  Irreversibility is therefore
+compatible with reversible evolution of a larger closed system: information
+is lost only when the environment is ignored.  Complete positivity is the
+coordinate-free consistency condition that makes this statement survive
+every added ancilla.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[No universal cloner]
+Suppose a channel maps $\rho\otimes\sigma$ to $\rho\otimes\rho$ for every
+pure state $\rho$.  Use monotonicity of fidelity, or contractivity of trace
+distance, to derive a contradiction from two nonorthogonal states.
+\end{exercise}
+
+\begin{exercise}[Part I synthesis]
+Begin with two normal modes of the string in Chapter~\ref{ch:waves}, regard
+their complex span as a two-level system, attach a two-level environment, and
+construct a unitary coupling whose reduced evolution is a dephasing channel.
+Find its Kraus operators and Choi matrix, prove complete positivity, and
+identify exactly which superpositions lose phase coherence.
+\end{exercise}
+
+\parttransition{Linear spaces, tensor products, and channels describe states
+and evolutions.  They do not identify which transformations preserve the
+physical structure or how those transformations label observable sectors.
+That missing classification is symmetry.}

@@ -1,0 +1,365 @@
+\part{Quantum Information and Noncommutative Analysis}
+
+\chapter{Composite tests require matrix norms}
+\label{ch:operator-spaces}
+
+\physicalquestion{Why can two linear maps with the same ordinary norm behave
+differently when an entangled auxiliary system is attached?}
+
+\modelassumptions{Systems are finite dimensional in the explicit
+calculations.  A subspace of operators inherits the norm arising from its
+action on a Hilbert space, and an $r$-level ancilla is represented by matrix
+amplification.}
+
+\section{Which norm remembers every ancilla?}
+
+A concrete operator space is a closed subspace
+$E\subseteq\mathcal B(H,K)$.  Its $r$th matrix level is
+\[
+M_r(E)\subseteq\mathcal B(H^{\oplus r},K^{\oplus r}).
+\]
+For $\phi:E\to F$, set $\phi_r([x_{ij}])=[\phi(x_{ij})]$ and
+\[
+\|\phi\|_{\mathrm{cb}}=\sup_r\|\phi_r\|.
+\]
+The row and column operator spaces are
+$R_n=M_{1,n}$ and $C_n=M_{n,1}$ with their concrete matrix norms.  As Hilbert
+spaces both are $\C^n$; as operator spaces they encode different directions
+of action.
+
+\section{Can ordinary norm miss an arbitrarily large effect?}
+
+\begin{theorem}[Transposition detects matrix levels]
+For transposition $t:M_n\to M_n$,
+\[
+\|t\|=1,
+\qquad
+\|t\|_{\mathrm{cb}}=n.
+\]
+Thus ordinary boundedness does not control behavior under ancillas.
+\end{theorem}
+
+\begin{proof}
+Transposition preserves singular values, so its operator norm on $M_n$ is
+one.  At matrix level $n$, apply $\id\otimes t$ to the flip
+$F=\sum_{ij}E_{ij}\otimes E_{ji}$, which is unitary and has norm one.  The
+image is
+$\sum_{ij}E_{ij}\otimes E_{ij}=n|\Omega\rangle\langle\Omega|$ for normalized
+$\Omega=n^{-1/2}\sum_i e_i\otimes e_i$, and has norm $n$.  Hence the cb norm
+is at least $n$.  Writing a matrix amplification as block transposition and
+using the row--column factorization gives the reverse bound $n$.
+\end{proof}
+
+\section{What does this mean for composite quantum systems?}
+
+The transpose preserves positivity of an isolated density matrix but, as
+seen in Chapter~\ref{ch:channels}, fails positivity on an entangled ancilla.
+The norm calculation measures the same obstruction quantitatively: the gap
+between bounded and completely bounded behavior grows with dimension.  Matrix
+levels are therefore operational data, not decorative copies of a Banach
+norm.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Rows and columns are completely different]
+Prove that the identity maps between the underlying Hilbert spaces of $R_n$
+and $C_n$ have cb norm $\sqrt n$ in both directions.
+\end{exercise}
+
+\begin{exercise}[Ruan's concrete identities]
+For $x\in M_m(E)$ and $y\in M_n(E)$ prove
+\[
+\|x\oplus y\|=\max\{\|x\|,\|y\|\},\qquad
+\|\alpha x\beta\|\leq\|\alpha\|\|x\|\|\beta\|.
+\]
+Explain why these identities are invariant under complete isometry.
+\end{exercise}
+
+
+\chapter{Noncommutative products require Haagerup tensoring}
+\label{ch:haagerup}
+
+\physicalquestion{Which tensor product records the norm of a process formed
+by multiplying or composing noncommuting operator-valued inputs?}
+
+\modelassumptions{Operator spaces are concrete and finite dimensional for
+examples, although the definitions extend by completion.  Bilinear maps are
+tested at all matrix levels using matrix multiplication of indices.}
+
+\section{Why does the algebraic tensor product forget too much?}
+
+For $u=\sum_{k=1}^r x_k\otimes y_k\in E\otimes F$, define
+\[
+\|u\|_h=\inf
+\left\{
+\|[x_1\ \cdots\ x_r]\|_{M_{1,r}(E)}
+\|[y_1\ \cdots\ y_r]^{\mathsf T}\|_{M_{r,1}(F)}
+\right\}.
+\]
+The completion is the Haagerup tensor product $E\otimes_hF$.
+
+For a bilinear map $b:E\times F\to G$, define
+\[
+b_n(x,y)_{ij}=\sum_kb(x_{ik},y_{kj}),
+\qquad \|b\|_{\mathrm{mb}}=\sup_n\|b_n\|.
+\]
+
+\section{Which universal property fits multiplication?}
+
+\begin{theorem}[Haagerup linearization]
+A bilinear map $b:E\times F\to G$ is multiplicatively bounded exactly when
+its linearization extends to a completely bounded map
+\[
+\widetilde b:E\otimes_hF\to G.
+\]
+Moreover $\|\widetilde b\|_{\mathrm{cb}}=\|b\|_{\mathrm{mb}}$.
+\end{theorem}
+
+\begin{proof}
+A factorization $u=a\odot c$ with
+$a\in M_{1,r}(E)$ and $c\in M_{r,1}(F)$ is sent at matrix level to the
+corresponding product $b_n(a,c)$.  Hence
+$\|\widetilde b_n(u)\|\leq\|b\|_{\mathrm{mb}}\|a\|\|c\|$; taking the
+infimum proves one inequality and extension by continuity.  Conversely apply
+$\widetilde b_n$ to elementary matrix factorizations $x\odot y$ to obtain
+$\|b_n(x,y)\|\leq\|\widetilde b\|_{\mathrm{cb}}\|x\|\|y\|$.  Taking
+suprema gives equality.
+\end{proof}
+
+\section{Where does this tensor norm appear physically?}
+
+Multiplication in a $C^*$-algebra is multiplicatively bounded and therefore
+linearizes through $\otimes_h$.  The complete isometries
+\[
+C_n\otimes_hR_n\cong M_n,
+\qquad
+R_n\otimes_hC_n\cong S_1^n
+\]
+distinguish operator norm from trace norm solely by reversing factors.  The
+second norm controls optimal state discrimination, so the order-sensitive
+tensor geometry has an operational meaning.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Helstrom discrimination]
+For states $\rho_0,\rho_1$ with equal prior probability, prove that the best
+binary measurement succeeds with probability
+\[
+\frac12+\frac14\|\rho_0-\rho_1\|_1.
+\]
+Relate the trace norm to $R_n\otimes_hC_n$.
+\end{exercise}
+
+\begin{exercise}[Forgetting matrix norms loses tensor information]
+Show that $R_n$ and $C_n$ have isometric underlying Banach spaces while their
+Haagerup products in the two orders have different norms.  Explain why no
+symmetric completely isometric flip can identify the two products.
+\end{exercise}
+
+
+\chapter{Channels are distinguished at the matrix level}
+\label{ch:diamond}
+
+\physicalquestion{How well can one use distinguish two quantum processes when
+the input may be entangled with an auxiliary system?}
+
+\modelassumptions{Channels act between finite matrix algebras, are used once,
+and have equal prior probability.  Arbitrary finite-dimensional ancillas and
+joint output measurements are allowed.}
+
+\section{Which distance includes every composite probe?}
+
+Recall complete positivity and channels from Chapter~\ref{ch:channels}.  For
+a linear map $\Psi:M_n\to M_m$, its diamond norm is
+\[
+\|\Psi\|_\diamond
+=\sup_r\|\Psi\otimes\id_{M_r}\|_{1\to1}.
+\]
+The supremum explicitly asks how distinguishability changes when an untouched
+ancilla is attached.  Operator systems---self-adjoint unital subspaces of
+$\mathcal B(H)$---supply the matrix order that makes complete positivity
+intrinsic even when the domain is not a full algebra.
+
+\section{Why is the diamond norm operational?}
+
+\begin{theorem}[One-use channel discrimination]
+For equally likely channels $\Phi_0,\Phi_1:M_n\to M_m$, the optimal one-use
+success probability is
+\[
+p_{\mathrm{succ}}
+=\frac12+\frac14\|\Phi_0-\Phi_1\|_\diamond.
+\]
+The ancillary dimension $n$ is sufficient.
+\end{theorem}
+
+\begin{proof}
+For an input state $\rho$ on system plus ancilla, the two output states differ
+by $((\Phi_0-\Phi_1)\otimes\id)(\rho)$.  The Helstrom formula from
+Chapter~\ref{ch:haagerup} gives the optimal measurement for that input.
+Maximizing over inputs produces the diamond norm.  Convexity reduces the
+maximum to pure inputs, and Schmidt decomposition from Chapter~\ref{ch:tensors}
+shows that a pure input needs Schmidt rank at most $n$; a larger ancilla cannot
+improve the value.
+\end{proof}
+
+\section{What advantage can entanglement provide?}
+
+If the maximizing input is entangled, a strategy restricted to uncorrelated
+probes attains a smaller norm.  The advantage is not additional channel use;
+it comes from evaluating the same map at a higher matrix level.  Process
+discrimination experiments compare observed success frequencies with the
+separable benchmark and the diamond-norm prediction under calibrated noise
+assumptions.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Two unitary channels]
+For unitary channels $\rho\mapsto U_i\rho U_i^*$, express perfect one-use
+distinguishability in terms of the numerical range of $U_0^*U_1$.
+\end{exercise}
+
+\begin{exercise}[The Heisenberg adjoint has cb norm]
+Prove in finite dimensions that
+$\|\Psi\|_\diamond=\|\Psi^*\|_{\mathrm{cb}}$ when the adjoint is equipped
+with operator norm matrix levels.
+\end{exercise}
+
+
+\chapter{Bell correlations are noncommutative geometry}
+\label{ch:bell}
+
+\physicalquestion{How strongly can separated quantum measurements correlate
+without allowing communication between the laboratories?}
+
+\modelassumptions{Each party chooses one of two binary observables.  The
+observables of different parties commute in the tensor-product model, each
+outcome is $\pm1$, and the experimental settings are statistically independent
+of the prepared state.}
+
+\section{Which operator encodes the Bell test?}
+
+For self-adjoint unitaries $A_0,A_1$ and $B_0,B_1$, define the CHSH operator
+\[
+S=A_0\otimes(B_0+B_1)+A_1\otimes(B_0-B_1).
+\]
+Local hidden-variable assignments satisfy $|\langle S\rangle|\leq2$.  The
+operators need not commute within one laboratory, and that noncommutativity
+changes the bound.
+
+\section{How large can the quantum value be?}
+
+\begin{theorem}[Tsirelson bound]
+Every quantum realization above satisfies
+$\|S\|\leq2\sqrt2$, and the bound is attained by a maximally entangled pair
+of qubits with suitable Pauli measurements \cite{tsirelson}.
+\end{theorem}
+
+\begin{proof}
+Using $A_i^2=B_j^2=1$, expand to obtain
+\[
+S^2=4\,1-[A_0,A_1]\otimes[B_0,B_1].
+\]
+Each commutator has norm at most two, so $\|S^2\|\leq8$ and
+$\|S\|\leq2\sqrt2$.  For the singlet state, take orthogonal Pauli directions
+for Alice and the normalized sum and difference directions for Bob; direct
+calculation gives magnitude $2\sqrt2$.
+\end{proof}
+
+\section{What does a violation establish experimentally?}
+
+Under the stated locality and statistical assumptions, an observed value
+above two rules out the corresponding local hidden-variable model.  It does
+not permit signaling, since each local marginal is independent of the remote
+choice.  Grothendieck-type inequalities generalize the theorem: for broad
+families of correlation experiments, quantum advantage over classical vector
+assignments remains bounded by a universal constant.  Loophole-controlled
+Bell experiments compare measured correlations with these bounds under
+explicitly tested locality assumptions \cite{hensen}.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Every pure entangled two-qubit state violates CHSH]
+Put a pure two-qubit state in Schmidt form and optimize planar Pauli
+measurements to obtain a CHSH value strictly above two whenever both Schmidt
+coefficients are nonzero.
+\end{exercise}
+
+\begin{exercise}[Grothendieck turns operators into vectors]
+For a real coefficient matrix $(c_{ij})$, formulate the classical sign
+optimization and the quantum vector relaxation.  Show how Tsirelson's vector
+representation places their ratio under the real Grothendieck constant.
+\end{exercise}
+
+
+\chapter{Infinite observables lead to subfactor index}
+\label{ch:subfactors}
+
+\physicalquestion{How can one measure the relative size of nested infinite
+observable algebras when ordinary vector-space dimension is meaningless?}
+
+\modelassumptions{Observable algebras act nondegenerately on Hilbert space and
+are closed in the weak operator topology.  For the index calculation, the
+algebras are finite factors with faithful normalized trace.}
+
+\section{Which closure contains physical limits?}
+
+A von Neumann algebra is a unital $*$-subalgebra
+$M\subseteq\mathcal B(H)$ equal to its bicommutant $M''$.  Equivalently, it
+is weak-operator closed.  Its predual selects the normal functionals, the
+states compatible with monotone limits of observables.
+
+For an inclusion $N\subseteq M$ of finite factors, a trace-preserving
+conditional expectation $E_N:M\to N$ is the noncommutative analogue of
+averaging onto the smaller observable algebra.  On $L^2(M)$ let $e_N$ be the
+orthogonal projection onto $L^2(N)$.
+
+\section{Why do nested expectations produce Temperley--Lieb relations?}
+
+\begin{theorem}[Jones projections]
+In the iterated basic construction for a finite-index inclusion, the Jones
+projections $e_i$ satisfy
+\[
+e_i^2=e_i=e_i^*,\qquad e_ie_j=e_je_i\ (|i-j|\ge2),
+\qquad e_ie_{i\pm1}e_i=\delta^{-2}e_i,
+\]
+where $\delta^2=[M:N]$ is the Jones index.
+\end{theorem}
+
+\begin{proof}
+Idempotence and self-adjointness hold because each $e_i$ is an orthogonal
+projection.  Projections separated by at least two stages act on commuting
+levels of the tower.  For adjacent stages, use
+$e_Nxe_N=E_N(x)e_N$ and the Markov normalization of the trace in the basic
+construction; applying the expectation twice contributes the scalar
+$[M:N]^{-1}=\delta^{-2}$.  Density of the algebraic tower extends the
+relations to $L^2$.
+\end{proof}
+
+\section{How does index return to quantum structure?}
+
+The parameter $\delta$ behaves like the dimension of a bimodule and composes
+multiplicatively.  Positivity of the Temperley--Lieb trace forces the values
+below two to be $\delta=2\cos(\pi/n)$, producing the discrete Jones indices
+$4\cos^2(\pi/n)$ \cite{jones-index}.  The same relations yield braid-group representations;
+what began as relative size of observable algebras becomes data for particle
+exchange.  The quantization theorem is deeper than the displayed relations
+and is used here as the bridge to Part VI.
+
+\section{What further contact should be proved?}
+
+\begin{exercise}[Conditional expectation gives a Jones projection]
+Prove $e_Nxe_N=E_N(x)e_N$ first on the dense subspace $M\subseteq L^2(M)$.
+\end{exercise}
+
+\begin{exercise}[Part V synthesis]
+Track one composite-system question through four levels: ordinary norm,
+matrix norm, completely positive order, and von Neumann closure.  For each
+level identify a physical operation it controls and a counterexample showing
+why the preceding level is insufficient.  End by deriving the braid
+generators from the Temperley--Lieb projections.
+\end{exercise}
+
+\parttransition{Operator spaces and algebras encode states, maps, and
+inclusions, but they do not make fusion, reassociation, exchange, defects, and
+gluing into first-class operations.  Those processes demand monoidal and
+braided categories.}
