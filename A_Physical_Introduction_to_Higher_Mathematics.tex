@@ -882,6 +882,45 @@ $U_t=e^{-itH/\hbar}$. Prove conservation of expected energy and derive the
 Heisenberg equation for observables.
 \end{exercise}
 
+\begin{exercise}[Stern--Gerlach projections and the Born rule]
+For a spin-$1/2$ system and unit vector $n$, diagonalize
+$S_n=(\hbar/2)n\cdot\sigma$ and obtain
+$P_\pm(n)=(1\pm n\cdot\sigma)/2$. For
+$\rho=(1+r\cdot\sigma)/2$, derive
+$p_\pm(n)=\Tr(\rho P_\pm(n))=(1\pm r\cdot n)/2$. Model an inhomogeneous
+magnetic field by $H_{\rm int}=-\boldsymbol\mu\cdot\mathbf B$ and explain
+the separation into discrete beams. For successive analyzers along axes
+$n$ and $m$, derive the transition probability
+$\Tr(P_+(n)P_+(m))=(1+n\cdot m)/2$ and interpret the intermediate projection.
+Compare the two-way splitting with
+\href{https://doi.org/10.1007/BF01326983}
+{Gerlach--Stern, \emph{Zeitschrift f\"ur Physik} \textbf{9} (1922)}.
+Distinguish the original observation of space quantization in silver atoms
+from its later spin interpretation, and state which discrete outcomes and
+frequency predictions test the projection postulate and Born rule.
+\end{exercise}
+
+\begin{exercise}[Blackbody radiation from quantized Fourier modes]
+For electromagnetic radiation in a large conducting cavity, use its Fourier
+modes and two polarizations to derive the mode density
+$g(\omega)=\omega^2/(\pi^2c^3)$ per unit volume. Show that classical Gibbs
+equipartition assigns mean energy $k_BT$ to each mode and produces the
+ultraviolet divergence. Taking the oscillator levels
+$E_n=\hbar\omega(n+1/2)$ as input, compute the quantum Gibbs partition
+function and the thermal mean energy
+$\hbar\omega/(e^{\beta\hbar\omega}-1)$. Deduce Planck's law
+\[
+u(\omega,T)=\frac{\hbar\omega^3}{\pi^2c^3}
+ \frac{1}{e^{\hbar\omega/(k_BT)}-1},
+\]
+the Stefan--Boltzmann $T^4$ law, and Wien scaling
+$\omega_{\max}\propto T$. Compare the low- and high-frequency limits with
+the cavity spectra discussed by
+\href{https://doi.org/10.1002/andp.19013090310}
+{Planck, \emph{Annalen der Physik} \textbf{309} (1901)}, and identify
+precisely where quantization removes the classical divergence.
+\end{exercise}
+
 \begin{definition}[Composite and reduced states]
 The state space of a composite system is $H_A\otimes H_B$. A state is
 \emph{separable} if it lies in the closed convex hull of product density
@@ -1339,6 +1378,23 @@ Derive local connection and curvature forms and their gauge-transformation
 laws. Prove the Bianchi identity. Show that infinitesimal holonomy is
 curvature and compute the $U(1)$ holonomy around the boundary of a surface as
 $\exp(i\int F)$ when a global potential is available.
+\end{exercise}
+
+\begin{exercise}[Aharonov--Bohm holonomy]
+On $X=\R^2\setminus\{0\}$, consider the $U(1)$ gauge potential
+$A=(\Phi/2\pi)d\theta$. Verify that $F=dA=0$ on $X$ but
+$\oint_\gamma A=\Phi$ for a loop of winding number one. Show that a particle
+of charge $q$ acquires the gauge-invariant phase
+$\exp(iq\Phi/\hbar)$, derive the relative phase of two paths enclosing the
+excluded flux, and obtain the flux period $h/|q|$. Prove that $A$ cannot be
+removed by a single-valued gauge transformation unless its holonomy is
+trivial. Compare the predicted fringe displacement with the shielded-flux
+electron-holography experiment of
+\href{https://doi.org/10.1103/PhysRevLett.56.792}
+{Tonomura et al., \emph{Physical Review Letters} \textbf{56} (1986)}.
+Explain why the result establishes the physical significance of holonomy,
+not of a gauge-dependent potential by itself, even though curvature vanishes
+along the electron paths.
 \end{exercise}
 
 \begin{supplied}[Classifying spaces]
