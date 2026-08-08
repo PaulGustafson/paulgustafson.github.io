@@ -638,22 +638,16 @@ separation field $J$, prove
 Deduce the leading relative acceleration of nearby freely falling bodies.
 \end{exercise}
 
-\begin{definition}[Principal and associated bundles]
-A \emph{smooth principal $G$-bundle} is a smooth map $\pi:P\to M$ with a
-free right $G$-action, transitive on each fiber, such that every point of
-$M$ has a neighborhood $U$ with an equivariant diffeomorphism
-$\pi^{-1}(U)\cong U\times G$. For a representation $G\to GL(V)$, the
+\begin{definition}[Smooth bundles and sections]
+A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
+locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
+bundle} has vector-space fibers and linear transition maps. A \emph{smooth
+principal $G$-bundle} has a free right $G$-action, transitive on each fiber,
+and local equivariant trivializations. A \emph{section} is a smooth map
+$s:M\to E$ with $\pi s=\id_M$. For a representation $G\to GL(V)$, the
 \emph{associated vector bundle} is
 $P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
 \end{definition}
-
-\begin{exercise}[Bundles from gauge transition functions]
-Show that local trivializations of $P$ determine smooth maps
-$g_{ij}:U_i\cap U_j\to G$ satisfying $g_{ij}g_{jk}=g_{ik}$, and conversely
-construct $P$ from such data. Derive the transition functions of
-$P\times_GV$ and characterize a global gauge choice as a global section of
-$P$.
-\end{exercise}
 
 \begin{definition}[Gauge fields]
 Let $G$ be a Lie group and $\pi:P\to M$ a principal $G$-bundle. A
@@ -664,9 +658,11 @@ $G$-equivariant bundle automorphism covering $\id_M$.
 \end{definition}
 
 \begin{exercise}[Gauge covariance and Bianchi identity]
-Derive the transformation laws for a local gauge potential and its
-curvature. Prove $d_AF_A=0$ and gauge invariance of holonomy up to conjugacy.
-For $G=U(1)$, recover $A\mapsto A+d\chi$ and $F=dA$.
+Choose local sections $s_i$ and derive transition maps
+$g_{ij}:U_i\cap U_j\to G$ and the transformation laws for the local
+potentials $A_i=s_i^*A$ and curvatures $F_i=s_i^*F_A$. Prove $d_AF_A=0$ and
+gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
+$A\mapsto A+d\chi$ and $F=dA$.
 \end{exercise}
 
 \begin{definition}[Electromagnetic field]
@@ -1271,20 +1267,16 @@ $f_*[S^n]=\deg(f)[S^n]$ and prove multiplicativity and agreement with winding
 number for $n=1$.
 \end{exercise}
 
-\begin{definition}[Topological bundles and sections]
-A \emph{fiber bundle} with fiber $F$ is a map $\pi:E\to X$ locally
-isomorphic over $X$ to $U\times F\to U$. A \emph{vector bundle} has vector
-spaces as fibers and linear transition maps. A topological principal
-$G$-bundle is the continuous analogue of the smooth principal bundle used
-for gauge fields. A \emph{section} is a map $s:X\to E$ with
-$\pi s=\id_X$.
-\end{definition}
+For the rest of this section, forget the smooth structure on the bundles
+introduced with gauge fields and regard their local trivializations and
+transition maps as continuous. We study them up to topological isomorphism.
 
-\begin{exercise}[Bundles from transition functions]
-Prove that transition functions satisfying the cocycle condition construct a
-bundle and that changes of local trivialization give isomorphic bundles.
-Prove that a principal bundle is trivial exactly when it has a global
-section. Construct associated vector bundles from representations of $G$.
+\begin{exercise}[Topological bundles from transition functions]
+Prove that continuous transition functions satisfying the cocycle condition
+construct a topological bundle and that changes of local trivialization give
+isomorphic bundles. Prove that a principal bundle is trivial exactly when it
+has a global section. Construct associated vector bundles from
+representations of $G$.
 \end{exercise}
 
 \begin{definition}[Global connections and holonomy]
