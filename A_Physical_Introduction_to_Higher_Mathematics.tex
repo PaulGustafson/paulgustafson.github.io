@@ -1541,6 +1541,24 @@ d(\rho)^2=[\mathcal A(I):\rho(\mathcal A(I))].
 \]
 \end{definition}
 
+\begin{definition}[Monoidal and rigid categories]
+A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
+unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
+of $X$ is an object $X^*$ with evaluation and coevaluation morphisms
+satisfying the snake identities. A monoidal category is \emph{rigid} if
+every object has left and right duals.
+\end{definition}
+
+\begin{definition}[Fusion, braided, and modular categories]
+A \emph{fusion category} over $\C$ is a finite semisimple rigid
+$\C$-linear monoidal category with simple unit. It is \emph{unitary} when it
+is a $C^*$-category and its tensor product and structural isomorphisms are
+compatible with the adjoint. A \emph{braiding} is a natural family
+$c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon identities. A
+\emph{unitary modular tensor category} is a unitary ribbon fusion category
+with unitary nondegenerate braiding.
+\end{definition}
+
 \begin{exercise}[From Jones index to a modular category]
 Assume that $\mathcal A$ is completely rational: it is split and strongly
 additive, with finite $\mu$-index. Using the multi-interval subfactor, prove
@@ -1562,22 +1580,6 @@ Majorana and spin sectors. Use
 {Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
 \textbf{219} (2001)} for the modularity theorem.
 \end{exercise}
-
-\begin{definition}[Monoidal and rigid categories]
-A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
-unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
-of $X$ is an object $X^*$ with evaluation and coevaluation morphisms
-satisfying the snake identities. A monoidal category is \emph{rigid} if
-every object has left and right duals.
-\end{definition}
-
-\begin{definition}[Fusion, braided, and modular categories]
-A \emph{fusion category} over $\C$ is a finite semisimple rigid
-$\C$-linear monoidal category with simple unit. A \emph{braiding} is a
-natural family $c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon
-identities. A ribbon fusion category is \emph{modular} if its braiding is
-nondegenerate.
-\end{definition}
 
 \begin{exercise}[Fusion rules and braiding]
 Prove that simple-object classes of a fusion category form a based ring under
