@@ -1,0 +1,1328 @@
+\documentclass[11pt]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\setlength{\emergencystretch}{3em}
+\setlist{nosep}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{exercise}{Exercise}[chapter]
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\Ad}{\operatorname{Ad}}
+
+\hypersetup{
+  pdftitle={A Physical Introduction to Higher Mathematics},
+  pdfauthor={Paul Gustafson}
+}
+
+\title{A Physical Introduction to Higher Mathematics}
+\author{Paul Gustafson}
+\date{}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+\mainmatter
+
+\part{Waves}
+
+\chapter{Linear Structure and Spectra}
+
+\begin{definition}[Vector spaces and linear maps]
+Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
+action $k\times V\to V$ satisfying distributivity, associativity, and
+$1v=v$. A map $T:V\to W$ is \emph{linear} if
+$T(av+bw)=aT(v)+bT(w)$.
+\end{definition}
+
+\begin{definition}[Subspaces, kernels, images, and quotients]
+A \emph{subspace} of $V$ is a subset closed under linear combinations. For a
+linear map $T:V\to W$, define
+\[
+\ker T=\{v:T(v)=0\},\qquad \im T=\{T(v):v\in V\}.
+\]
+For a subspace $U\subseteq V$, the \emph{quotient} $V/U$ is the vector space
+of cosets $v+U$. The \emph{direct sum} $V\oplus W$ is $V\times W$ with
+componentwise operations.
+\end{definition}
+
+\begin{exercise}[Universal linear constructions]
+Prove that $\ker T$ and $\im T$ are subspaces. State and prove the universal
+properties of $V/U$ and $V\oplus W$. Deduce
+$V/\ker T\cong\im T$ and the three isomorphism theorems.
+\end{exercise}
+
+\begin{definition}[Duals and pairings]
+The \emph{dual} of $V$ is $V^*=\Hom_k(V,k)$. A \emph{pairing} of $V$ and
+$W$ is a bilinear map $V\times W\to k$. It is \emph{nondegenerate} if each
+nonzero argument pairs nontrivially with some argument in the other space.
+\end{definition}
+
+\begin{definition}[Tensor products]
+A \emph{tensor product} of $V$ and $W$ is a vector space $V\otimes W$ with a
+bilinear map $(v,w)\mapsto v\otimes w$ such that every bilinear map
+$b:V\times W\to X$ factors uniquely through a linear map
+$\widetilde b:V\otimes W\to X$. Tensor powers and multilinear maps are
+defined by iteration.
+\end{definition}
+
+\begin{exercise}[Duality and multilinearity]
+For finite-dimensional spaces, construct the natural maps
+\[
+V^*\otimes W\longrightarrow\Hom(V,W),\qquad
+V^*\otimes W^*\longrightarrow(V\otimes W)^*.
+\]
+Prove that they are isomorphisms, identify the evaluation pairing, and prove
+the tensor--hom adjunction
+$\Hom(U\otimes V,W)\cong\Hom(U,\Hom(V,W))$.
+\end{exercise}
+
+\begin{definition}[Inner products and orthogonality]
+An \emph{inner product} on a real vector space is a positive-definite
+symmetric bilinear form. On a complex vector space it is a positive-definite
+sesquilinear form, conjugate-linear in the first variable. Write
+$\|v\|=\sqrt{\langle v,v\rangle}$. Vectors are \emph{orthogonal} when their
+inner product is zero, and
+$U^\perp=\{v:\langle u,v\rangle=0\text{ for every }u\in U\}$.
+\end{definition}
+
+\begin{definition}[Projections and adjoints]
+A \emph{projection} is an endomorphism $P$ with $P^2=P$. An \emph{orthogonal
+projection} is a projection with $\ker P=(\im P)^\perp$. The \emph{adjoint}
+of $T:V\to W$ is a map $T^*:W\to V$ satisfying
+$\langle Tv,w\rangle=\langle v,T^*w\rangle$.
+\end{definition}
+
+\begin{exercise}[Orthogonal decomposition and best approximation]
+Let $V$ be finite-dimensional and $U\subseteq V$. Prove
+$V=U\oplus U^\perp$, construct the orthogonal projection $P_U$, and prove
+that $P_Uv$ is the unique element of $U$ minimizing $\|v-u\|$. Prove that
+$P$ is an orthogonal projection if and only if $P=P^*=P^2$.
+\end{exercise}
+
+\begin{definition}[Isometries and spectral classes]
+A linear map is \emph{orthogonal} over $\R$, or \emph{unitary} over $\C$, if
+it preserves the inner product. An endomorphism $A$ is \emph{self-adjoint} if
+$A=A^*$ and \emph{normal} if $AA^*=A^*A$. A scalar $\lambda$ is an
+\emph{eigenvalue} if $\ker(A-\lambda\id)\ne0$; a subspace $U$ is
+\emph{invariant} if $A(U)\subseteq U$.
+\end{definition}
+
+\begin{definition}[Spectral decomposition]
+A \emph{spectral decomposition} of an endomorphism $A$ is an expression
+\[
+A=\sum_{\lambda\in\spec(A)}\lambda P_\lambda,
+\qquad P_\lambda P_\mu=\delta_{\lambda\mu}P_\lambda,
+\qquad \sum_\lambda P_\lambda=\id,
+\]
+with orthogonal projections $P_\lambda$.
+\end{definition}
+
+\begin{exercise}[Finite-dimensional spectral theorem]
+Prove that adjoints exist uniquely. Prove that a complex endomorphism is
+unitarily diagonalizable if and only if it is normal. Deduce spectral
+decompositions for self-adjoint, unitary, and normal operators, including the
+reality of self-adjoint spectra and the unit modulus of unitary spectra.
+\end{exercise}
+
+\begin{exercise}[Diagonalization and invariant subspaces]
+For an endomorphism with split characteristic polynomial, prove that it is
+diagonalizable if and only if the space is the direct sum of its eigenspaces.
+Show that normality removes generalized eigenvectors. Prove that commuting
+normal endomorphisms admit a common orthogonal spectral decomposition.
+\end{exercise}
+
+\chapter{Oscillation and Fourier Analysis}
+
+\begin{definition}[Linear oscillator]
+A \emph{linear oscillator} on a finite-dimensional real inner-product space
+$V$ is an equation
+\[
+M\ddot q+Kq=0,
+\]
+where $M$ is positive definite and $K$ is self-adjoint and positive
+semidefinite. A \emph{normal mode} is a nonzero $v\in V$ for which
+$q(t)=a(t)v$ solves the equation for some nonconstant $a$.
+\end{definition}
+
+\begin{exercise}[The harmonic oscillator]
+Solve $m\ddot q+kq=0$ for $m,k>0$. Prove conservation of
+$E=\frac12m\dot q^2+\frac12kq^2$, determine the period, and deduce from the
+measured period of a small-amplitude mass--spring system the ratio $k/m$.
+\end{exercise}
+
+\begin{exercise}[Coupled oscillators and normal modes]
+Transform $M\ddot q+Kq=0$ by $M^{1/2}$. Apply the spectral theorem to prove
+the existence of an $M$-orthogonal basis of normal modes and derive their
+frequencies. For a fixed-end chain of $N$ equal masses joined by equal
+springs, compute the frequencies and mode shapes and identify the modes seen
+in a Chladni-type standing-wave measurement.
+\end{exercise}
+
+\begin{definition}[Vibrating string]
+For length $L$, tension $\tau$, and linear density $\rho$, a \emph{vibrating
+string} is a function $u:[0,L]\times\R\to\R$ satisfying fixed-end conditions
+$u(0,t)=u(L,t)=0$ and
+\[
+\rho\,\partial_t^2u=\tau\,\partial_x^2u.
+\]
+\end{definition}
+
+\begin{exercise}[String modes and measured pitch]
+Derive the vibrating-string equation from transverse force balance in the
+small-slope limit. Determine all separated normal modes and their
+frequencies. Prove that the fundamental frequency is
+$f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
+$f_n/f_1=n$ with the harmonics of a stretched string.
+\end{exercise}
+
+\begin{definition}[Orthogonal expansions]
+Let $H$ be an inner-product space. For an orthogonal family $(e_n)$, the
+\emph{orthogonal coefficients} of $f$ are
+$\widehat f(n)=\langle e_n,f\rangle/\|e_n\|^2$. A \emph{Fourier series} on
+$\T=\R/(2\pi\Z)$ is the formal expansion
+$f\sim\sum_{n\in\Z}\widehat f(n)e^{inx}$, where
+$\widehat f(n)=(2\pi)^{-1}\int_0^{2\pi}f(x)e^{-inx}\,dx$.
+\end{definition}
+
+\begin{exercise}[Bessel, completeness, and Parseval]
+Prove Bessel's inequality for every finite orthogonal family. Prove that an
+orthonormal family $(e_n)$ is complete precisely when
+\[
+\|f\|^2=\sum_n|\langle e_n,f\rangle|^2
+\]
+for every $f$. Prove completeness of $(e^{inx})_{n\in\Z}$ in
+$L^2(\T)$ and obtain Parseval's identity and $L^2$ convergence of Fourier
+series.
+\end{exercise}
+
+\begin{exercise}[Spectral evolution on an interval]
+Expand suitable fixed-end initial data in string modes and derive the unique
+solution of the wave equation. Expand suitable initial temperature data in
+the same spatial eigenfunctions and derive the fixed-end solution of
+$\partial_tu=\kappa\partial_x^2u$. Prove conservation of wave energy and
+monotone decay of heat energy directly from the spectral coefficients.
+\end{exercise}
+
+\begin{definition}[Fourier transform and convolution]
+For $f\in L^1(\R^n)$, its \emph{Fourier transform} is
+\[
+\mathcal Ff(\xi)=(2\pi)^{-n/2}\int_{\R^n}f(x)e^{-ix\cdot\xi}\,dx.
+\]
+For $f,g\in L^1(\R^n)$, their \emph{convolution} is
+$(f*g)(x)=\int_{\R^n}f(y)g(x-y)\,dy$.
+\end{definition}
+
+\begin{exercise}[Fourier inversion, convolution, and Plancherel]
+For Schwartz functions, prove Fourier inversion and
+$\mathcal F(f*g)=(2\pi)^{n/2}(\mathcal Ff)(\mathcal Fg)$. Prove that
+$\mathcal F$ preserves the $L^2$ inner product and extends uniquely to a
+unitary operator on $L^2(\R^n)$. Deduce the Plancherel theorem.
+\end{exercise}
+
+\begin{exercise}[Wave and heat propagators]
+Use the Fourier transform to solve the Cauchy problems for
+\[
+\partial_t^2u=c^2\Delta u,qquad \partial_tu=\kappa\Delta u
+\]
+on $\R^n$. Identify their spectral-mode evolution, derive the Gaussian heat
+kernel and its convolution law, and prove finite propagation speed for the
+one-dimensional wave equation.
+\end{exercise}
+
+\begin{exercise}[Interference and Fourier optics]
+For coherent scalar waves with complex amplitudes $a_1,a_2$, derive
+$|a_1+a_2|^2$ and the fringe spacing in Young's double-slit geometry. In the
+Fraunhofer regime, derive that the far-field amplitude is the Fourier
+transform of the aperture. Compute the single-slit diffraction intensity,
+locate its zeros, and compare the predicted angular spacing with measured
+optical diffraction.
+\end{exercise}
+
+\part{Symmetry}
+
+\chapter{Groups and Representations}
+
+\begin{definition}[Groups, homomorphisms, and quotients]
+A \emph{group} is a set $G$ with an associative multiplication, an identity,
+and inverses. A \emph{homomorphism} $\phi:G\to H$ preserves multiplication.
+A subgroup $N\leq G$ is \emph{normal} if $gNg^{-1}=N$ for every $g\in G$;
+the \emph{quotient group} $G/N$ consists of cosets with induced
+multiplication.
+\end{definition}
+
+\begin{exercise}[The group isomorphism theorems]
+Prove that kernels are normal and that a normal subgroup is the kernel of the
+quotient homomorphism. Prove the three isomorphism theorems for groups and
+the universal property of $G/N$.
+\end{exercise}
+
+\begin{definition}[Actions, orbits, and stabilizers]
+A \emph{left action} of $G$ on $X$ is a homomorphism
+$G\to\operatorname{Bij}(X)$. The \emph{orbit} and \emph{stabilizer} of
+$x\in X$ are $Gx=\{gx:g\in G\}$ and $G_x=\{g:gx=x\}$.
+\end{definition}
+
+\begin{exercise}[Orbit--stabilizer and class equation]
+Construct a natural bijection $G/G_x\to Gx$. For finite $G$, deduce the
+orbit--stabilizer formula and the class equation from the conjugation action.
+Use these results to prove that every group of prime order is cyclic.
+\end{exercise}
+
+\begin{definition}[Representations and intertwiners]
+A \emph{representation} of $G$ on $V$ is a homomorphism
+$\rho:G\to\operatorname{GL}(V)$. An \emph{intertwiner}
+$T:(V,\rho)\to(W,\sigma)$ satisfies $T\rho(g)=\sigma(g)T$. A subspace is
+\emph{invariant} if it is preserved by every $\rho(g)$; a nonzero
+representation is \emph{irreducible} if it has no proper nonzero invariant
+subspace. Direct sums and tensor products carry the actions
+$\rho\oplus\sigma$ and $g\mapsto\rho(g)\otimes\sigma(g)$.
+\end{definition}
+
+\begin{exercise}[Maschke's theorem]
+Let $G$ be finite and let the characteristic of $k$ not divide $|G|$.
+Average an arbitrary projection over $G$ to construct an invariant
+complement to every invariant subspace. Deduce that every finite-dimensional
+representation is a direct sum of irreducible representations.
+\end{exercise}
+
+\begin{exercise}[Schur's lemma]
+Prove that a nonzero intertwiner between irreducible complex
+finite-dimensional representations is an isomorphism and that every
+endomorphism of an irreducible representation is scalar. Deduce uniqueness
+of irreducible multiplicities in a decomposition.
+\end{exercise}
+
+\begin{definition}[Characters]
+The \emph{character} of a finite-dimensional representation $V$ is the class
+function $\chi_V(g)=\Tr(\rho_V(g))$. For class functions on a finite group,
+define
+\[
+\langle f,h\rangle_G=\frac1{|G|}\sum_{g\in G}\overline{f(g)}h(g).
+\]
+\end{definition}
+
+\begin{exercise}[Character orthogonality and decomposition]
+Use averaging of linear maps and Schur's lemma to prove orthonormality of the
+irreducible characters. Prove that they form an orthonormal basis of the
+class functions and that
+$\langle\chi_U,\chi_V\rangle_G=\dim\Hom_G(U,V)$. Deduce the multiplicity
+formula and the character table constraints.
+\end{exercise}
+
+\begin{exercise}[Symmetry projections]
+For an irreducible character $\chi$ of a finite group, prove that
+\[
+P_\chi=\frac{\dim\chi}{|G|}\sum_{g\in G}\overline{\chi(g)}\rho(g)
+\]
+is the projection onto the $\chi$-isotypic subspace. Apply these projections
+to the displacement space of a molecule whose equilibrium configuration is
+preserved by $G$.
+\end{exercise}
+
+\chapter{Continuous Symmetry and Angular Momentum}
+
+\begin{definition}[Lie groups and Lie algebras]
+A \emph{Lie group} is a smooth manifold $G$ whose multiplication and
+inversion are smooth. Its \emph{Lie algebra} is
+$\mathfrak g=T_eG$ with bracket induced by left-invariant vector fields. A
+\emph{one-parameter subgroup} is a smooth homomorphism $\R\to G$. The
+\emph{exponential map} $\exp:\mathfrak g\to G$ sends $X$ to the value at
+$1$ of the one-parameter subgroup with initial velocity $X$.
+\end{definition}
+
+\begin{exercise}[One-parameter subgroups and the exponential map]
+Prove existence and uniqueness of the one-parameter subgroup generated by
+$X\in\mathfrak g$. For a closed matrix group, prove that it is
+$t\mapsto e^{tX}$, identify the commutator bracket, and compute the first
+nontrivial terms of the Baker--Campbell--Hausdorff formula.
+\end{exercise}
+
+\begin{definition}[Infinitesimal representations]
+For a smooth representation $\rho:G\to\operatorname{GL}(V)$, its
+\emph{infinitesimal representation} is
+\[
+d\rho:\mathfrak g\to\End(V),\qquad
+d\rho(X)=\left.\frac{d}{dt}\right|_{0}\rho(\exp tX).
+\]
+\end{definition}
+
+\begin{exercise}[Differentiating symmetry]
+Prove that $d\rho$ preserves brackets and that
+$\rho(\exp X)=\exp(d\rho(X))$. Prove that a connected Lie-group
+representation is determined by its infinitesimal representation whenever
+the latter integrates uniquely.
+\end{exercise}
+
+\begin{definition}[Rotations and spin]
+Define
+\[
+\begin{aligned}
+SO(3)&=\{R\in\End(\R^3):R^*R=\id,\ \det R=1\},\\
+SU(2)&=\{U\in\End(\C^2):U^*U=\id,\ \det U=1\}.
+\end{aligned}
+\]
+An \emph{angular-momentum representation} is a unitary representation of
+$SU(2)$; with Planck constant $\hbar$, its infinitesimal generators
+$J_1,J_2,J_3$ are normalized by
+$[J_i,J_j]=i\hbar\varepsilon_{ijk}J_k$.
+\end{definition}
+
+\begin{exercise}[$SU(2)$ double-covers $SO(3)$]
+Let $SU(2)$ act by conjugation on the real space of traceless Hermitian
+$2\times2$ operators. Prove that the resulting homomorphism
+$SU(2)\to SO(3)$ is surjective with kernel $\{\pm\id\}$. Deduce the effect of
+a $2\pi$ rotation in integer- and half-integer-spin representations.
+\end{exercise}
+
+\begin{exercise}[Irreducible representations of $SU(2)$]
+Using raising and lowering operators, prove that every finite-dimensional
+irreducible complex representation is indexed by
+$j\in\{0,\frac12,1,\ldots\}$, has dimension $2j+1$, and has
+$J_3$-eigenvalues $m\hbar$ for $m=-j,-j+1,\ldots,j$. Compute the spectrum of
+$J^2=J_1^2+J_2^2+J_3^2$.
+\end{exercise}
+
+\begin{exercise}[Clebsch--Gordan decomposition]
+Prove
+\[
+V_{j_1}\otimes V_{j_2}\cong
+\bigoplus_{j=|j_1-j_2|}^{j_1+j_2}V_j.
+\]
+Construct coupled angular-momentum eigenstates from highest-weight vectors
+and compute the singlet and triplet decomposition of
+$V_{1/2}\otimes V_{1/2}$.
+\end{exercise}
+
+\begin{definition}[Quantum symmetries]
+For a Hilbert space $H$ and self-adjoint Hamiltonian $\mathcal H$, a
+\emph{unitary symmetry} is a unitary $U$ satisfying
+$U\mathcal H=\mathcal HU$. A \emph{quantum number} is an eigenvalue of a
+self-adjoint operator commuting with $\mathcal H$. An operator $A$ has
+\emph{symmetry type} $W$ when its components define an intertwiner from $W$
+to $\End(H)$ under conjugation.
+\end{definition}
+
+\begin{exercise}[Symmetry, degeneracy, and selection rules]
+Prove that every eigenspace of $\mathcal H$ is symmetry-invariant and
+decomposes into irreducibles. Deduce symmetry-forced degeneracies. Prove that
+a transition matrix element $\langle f,Ai\rangle$ can be nonzero only if the
+trivial representation occurs in
+$V_f^*\otimes W\otimes V_i$, and derive the angular-momentum rules for an
+electric-dipole operator.
+\end{exercise}
+
+\begin{exercise}[Atomic spectra]
+For the Coulomb Hamiltonian, use rotational symmetry and separation into
+irreducible $SO(3)$-types to obtain the quantum numbers $\ell,m$ and their
+degeneracies. With the radial spectrum
+$E_n=-m_e e^4/(2(4\pi\varepsilon_0)^2\hbar^2n^2)$ as derived input, compute
+the Balmer wavelengths and compare them with the observed hydrogen lines.
+Apply the electric-dipole rule to identify forbidden transitions.
+\end{exercise}
+
+\begin{exercise}[Molecular symmetry]
+For the equilibrium geometry of $H_2O$, determine the point-group action on
+nuclear displacements, remove translations and rotations, and decompose the
+vibrational representation into irreducibles. Determine infrared and Raman
+activity from the transformation types of the dipole and polarizability.
+Compare the predicted number and symmetry of lines with the observed three
+fundamental vibrational bands.
+\end{exercise}
+
+\part{Fields}
+
+\chapter{Manifolds, Forms, and Metrics}
+
+\begin{definition}[Topological and smooth manifolds]
+A \emph{topological manifold} of dimension $n$ is a Hausdorff,
+second-countable space locally homeomorphic to $\R^n$. A \emph{smooth
+manifold} is a topological manifold with a maximal atlas whose transition
+maps are smooth. A map of smooth manifolds is \emph{smooth} when its chart
+representatives are smooth.
+\end{definition}
+
+\begin{definition}[Tangent and cotangent spaces]
+The \emph{tangent space} $T_pM$ is the vector space of derivations
+$v:C^\infty(M)\to\R$ at $p$, satisfying
+$v(fg)=f(p)v(g)+g(p)v(f)$. The \emph{cotangent space} is
+$T_p^*M=(T_pM)^*$. The differential of $F:M\to N$ is
+$dF_p(v)(f)=v(f\circ F)$.
+\end{definition}
+
+\begin{exercise}[Intrinsic tangent vectors]
+Prove that derivations at $p$, equivalence classes of smooth curves through
+$p$, and the usual coordinate tangent vectors are naturally isomorphic.
+Prove the chain rule $d(G\circ F)_p=dG_{F(p)}\circ dF_p$ and compute tangent
+spaces of regular level sets.
+\end{exercise}
+
+\begin{definition}[Vector fields and flows]
+A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
+$X$ is a smooth local action $\Phi$ of $\R$ on $M$ satisfying
+$\left.\frac d{dt}\right|_0\Phi_t(p)=X_p$. The \emph{Lie bracket} is the
+vector field $[X,Y](f)=X(Yf)-Y(Xf)$.
+\end{definition}
+
+\begin{exercise}[Flows and brackets]
+Prove local existence and uniqueness of flows. Prove that $[X,Y]=0$ if and
+only if their local flows commute, and that the Lie derivative
+$\mathcal L_XY=[X,Y]$ is natural under diffeomorphisms.
+\end{exercise}
+
+\begin{definition}[Exterior algebra and differential forms]
+The \emph{exterior algebra} of a vector space $V$ is
+$\Lambda V=T(V)/\langle v\otimes v:v\in V\rangle$. A \emph{differential
+$k$-form} on $M$ is a smooth section of $\Lambda^kT^*M$. The \emph{pullback}
+of $\omega\in\Omega^k(N)$ by $F:M\to N$ is
+\[
+(F^*\omega)_p(v_1,\ldots,v_k)
+=\omega_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+\end{definition}
+
+\begin{definition}[Exterior derivative]
+The \emph{exterior derivative} is the unique family of maps
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded Leibniz
+rule, $d^2=0$, and naturality $F^*d=dF^*$.
+\end{definition}
+
+\begin{exercise}[Cartan calculus]
+Construct $d$ locally and prove its uniqueness. For contraction $\iota_X$,
+prove Cartan's identity
+$\mathcal L_X=d\iota_X+\iota_Xd$ and the naturality of $d$, wedge products,
+and pullbacks.
+\end{exercise}
+
+\begin{definition}[Integration of forms]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of nonzero elements in $\Lambda^nT_p^*M$. The integral
+$\int_M\omega$ of a compactly supported top form is defined using
+orientation-preserving charts and a partition of unity.
+\end{definition}
+
+\begin{exercise}[Stokes' theorem]
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem.
+\end{exercise}
+
+\begin{definition}[Tensor fields and metrics]
+A \emph{$(r,s)$-tensor field} is a smooth section of
+$TM^{\otimes r}\otimes T^*M^{\otimes s}$. A \emph{Riemannian metric} is a
+smooth positive-definite inner product on each $T_pM$. A \emph{Lorentzian
+metric} is a smooth nondegenerate symmetric form of signature
+$(-,+,\ldots,+)$. The length of a curve in a Riemannian manifold is
+$\int\sqrt{g(\dot\gamma,\dot\gamma)}\,dt$; the proper time of a timelike
+curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
+orientation define a volume form $\vol_g$.
+\end{definition}
+
+\begin{exercise}[Metric volume and proper time]
+Construct $\vol_g$ intrinsically and derive its coordinate expression.
+Prove invariance of length and proper time under reparametrization. In
+Minkowski spacetime, maximize proper time among inertial paths with fixed
+endpoints and derive special-relativistic time dilation.
+\end{exercise}
+
+\chapter{Connections, Curvature, and Field Equations}
+
+\begin{definition}[Connections and geodesics]
+A \emph{connection} on $TM$ is a map
+$\nabla:\Gamma(TM)\times\Gamma(TM)\to\Gamma(TM)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fY)=X(f)Y+f\nabla_XY$. Its torsion is
+$T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$. A \emph{geodesic} satisfies
+$\nabla_{\dot\gamma}\dot\gamma=0$. A connection is \emph{metric compatible}
+if $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ)$.
+\end{definition}
+
+\begin{exercise}[Levi--Civita connection]
+Prove that every Riemannian or Lorentzian metric has a unique torsion-free,
+metric-compatible connection. Derive the Koszul formula and prove that its
+geodesics are precisely the critical curves of the energy functional with
+fixed endpoints.
+\end{exercise}
+
+\begin{definition}[Covariant derivative and parallel transport]
+For a curve $\gamma$, the connection induces a \emph{covariant derivative}
+$D/dt$ on vector fields along $\gamma$. A field $V$ is \emph{parallel} when
+$DV/dt=0$; the resulting linear isomorphism between endpoint tangent spaces
+is \emph{parallel transport}.
+\end{definition}
+
+\begin{exercise}[Parallel transport and holonomy]
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Show that Levi--Civita transport preserves the metric. Compute the
+rotation obtained by transporting a tangent vector around a latitude on the
+unit sphere and relate it to the enclosed curvature.
+\end{exercise}
+
+\begin{definition}[Curvature]
+The \emph{curvature} of a connection is
+\[
+R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
+\]
+For a metric connection, the \emph{Riemann tensor} is
+$\operatorname{Riem}(X,Y,Z,W)=g(R(X,Y)Z,W)$. Its contraction is the
+\emph{Ricci tensor} $\operatorname{Ric}$; the contraction of Ricci is the
+\emph{scalar curvature} $S$.
+\end{definition}
+
+\begin{exercise}[Curvature identities and geodesic deviation]
+Prove tensoriality and the algebraic symmetries of the Riemann tensor and the
+first and second Bianchi identities. For a variation through geodesics with
+separation field $J$, prove
+\[
+\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
+\]
+Deduce the leading relative acceleration of nearby freely falling bodies.
+\end{exercise}
+
+\begin{definition}[Gauge fields]
+Let $G$ be a Lie group and $\pi:P\to M$ a principal $G$-bundle. A
+\emph{gauge connection} is an equivariant $\mathfrak g$-valued one-form
+$A$ on $P$ reproducing fundamental vertical fields. Its \emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
+\end{definition}
+
+\begin{exercise}[Gauge covariance and Bianchi identity]
+Derive the transformation laws for a local gauge potential and its
+curvature. Prove $d_AF_A=0$ and gauge invariance of holonomy up to conjugacy.
+For $G=U(1)$, recover $A\mapsto A+d\chi$ and $F=dA$.
+\end{exercise}
+
+\begin{definition}[Electromagnetic field]
+On an oriented Lorentzian four-manifold, an \emph{electromagnetic field
+strength} is a two-form $F$. Given a current one-form $J$ and constants
+$\mu_0,c$, \emph{Maxwell's equations} are
+\[
+dF=0,\qquad d{*F}=\mu_0{*J}.
+\]
+Locally, a \emph{gauge potential} is a one-form $A$ with $F=dA$.
+\end{definition}
+
+\begin{exercise}[Maxwell theory and electromagnetic waves]
+Derive charge conservation from Maxwell's equations. On Minkowski
+spacetime, recover the electric and magnetic vector equations and the Lorentz
+force from $F$. In vacuum, impose Lorenz gauge and derive wave equations with
+speed $c$. Prove transverse polarization and compare the predicted relation
+$c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
+\end{exercise}
+
+\begin{definition}[Einstein equation]
+The \emph{Einstein tensor} of a Lorentzian metric is
+$G=\operatorname{Ric}-\frac12Sg$. A \emph{stress--energy tensor} is a
+symmetric two-tensor $T$ whose contraction with an observer's velocity gives
+the observer's energy--momentum current. The \emph{Einstein equation} with
+cosmological constant $\Lambda$ is
+\[
+G+\Lambda g=\frac{8\pi G_N}{c^4}T.
+\]
+\end{definition}
+
+\begin{exercise}[Conservation and the Newtonian limit]
+Use the contracted Bianchi identity to derive $\nabla^aT_{ab}=0$. Linearize
+$g=\eta+h$ for a static weak field and recover Poisson's equation and the
+Newtonian inverse-square law with the stated coupling constant.
+\end{exercise}
+
+\begin{exercise}[Gravitational radiation]
+Linearize the vacuum Einstein equation about Minkowski spacetime, impose
+transverse--traceless gauge, and obtain two tensor polarizations satisfying a
+wave equation. Apply geodesic deviation to a ring of freely falling test
+masses and derive the strain measured by an orthogonal-arm interferometer.
+\end{exercise}
+
+\begin{exercise}[Gravitational-wave detection]
+For a quasi-circular binary, derive the leading quadrupole waveform and the
+chirp relation between frequency, frequency derivative, and chirp mass.
+Using public values for GW150914, infer the chirp mass and order of magnitude
+of the strain. Compare these predictions with the measured coincident LIGO
+strain, limiting the conclusion to agreement of the waveform with general
+relativity in the observed regime.
+\end{exercise}
+
+\part{States}
+
+\chapter{Hamiltonian and Statistical States}
+
+\begin{definition}[Configuration and phase spaces]
+A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
+space} is the cotangent bundle $T^*Q$. The tautological one-form on $T^*Q$ is
+$\theta_\alpha(v)=\alpha(d\pi(v))$, and its canonical symplectic form is
+$\omega=-d\theta$.
+\end{definition}
+
+\begin{definition}[Symplectic dynamics]
+A \emph{symplectic form} is a closed, nondegenerate two-form $\omega$. The
+\emph{Hamiltonian vector field} of $H\in C^\infty(M)$ is defined by
+$\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}. The
+\emph{Poisson bracket} is $\{f,g\}=\omega(X_f,X_g)$.
+\end{definition}
+
+\begin{exercise}[Hamilton's equations and Poisson algebra]
+Prove that the canonical form on $T^*Q$ is symplectic. In canonical
+coordinates, derive Hamilton's equations. Prove antisymmetry, the Leibniz
+rule, and the Jacobi identity for the Poisson bracket, and prove
+$\dot f=\{H,f\}+\partial_tf$ along Hamiltonian flow.
+\end{exercise}
+
+\begin{definition}[Symplectic actions and momentum maps]
+An action of a Lie group $G$ on $(M,\omega)$ is \emph{symplectic} if it
+preserves $\omega$. A \emph{momentum map} is an equivariant map
+$J:M\to\mathfrak g^*$ such that
+$d\langle J,\xi\rangle=\iota_{\xi_M}\omega$ for every
+$\xi\in\mathfrak g$.
+\end{definition}
+
+\begin{exercise}[Noether's theorem]
+Prove that if a Hamiltonian is invariant under a symplectic $G$-action with
+momentum map $J$, then every component of $J$ is conserved. Compute the
+momentum maps for translations and rotations of a particle and recover
+linear and angular momentum conservation.
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the phase-space volume $\omega^n/n!$, and every density
+depending only on $H$. Deduce that Hamiltonian evolution cannot compress
+phase volume.
+\end{exercise}
+
+\begin{definition}[Measure and integration]
+A \emph{$\sigma$-algebra} $\Sigma$ on $X$ is closed under complements and
+countable unions. A \emph{measure} is a countably additive map
+$\mu:\Sigma\to[0,\infty]$ with $\mu(\varnothing)=0$. A function is
+\emph{measurable} if inverse images of Borel sets are measurable. Its
+integral is obtained from nonnegative simple functions by monotone limits and
+then by positive and negative parts. For $1\leq p<\infty$,
+$L^p(X,\mu)$ consists of measurable functions modulo equality almost
+everywhere with $\int|f|^p\,d\mu<\infty$; $L^\infty$ uses essential bounds.
+\end{definition}
+
+\begin{exercise}[Convergence and $L^p$ spaces]
+Prove monotone and dominated convergence and Fatou's lemma. Prove H\"older's
+and Minkowski's inequalities and completeness of $L^p$. Prove that $L^2$ is
+a Hilbert space and identify the dual of $L^p$ for $1<p<\infty$ under the
+standard $\sigma$-finiteness hypotheses.
+\end{exercise}
+
+\begin{definition}[Probability]
+A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
+with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map.
+Its \emph{expectation} is its integral. The \emph{conditional expectation}
+$\mathbb E[X\mid\mathcal G]$ is the $\mathcal G$-measurable integrable random
+variable satisfying
+$\int_G\mathbb E[X\mid\mathcal G]d\mathbb P=\int_GX,d\mathbb P$ for all
+$G\in\mathcal G$. Families of $\sigma$-algebras are \emph{independent} when
+the probability of every finite intersection is the product of its
+probabilities.
+\end{definition}
+
+\begin{exercise}[Expectation, conditioning, and independence]
+Prove existence and almost-everywhere uniqueness of conditional expectation,
+the tower property, and conditional Jensen inequality. Characterize
+independence by factorization of expectations and derive variance addition
+for independent square-integrable random variables.
+\end{exercise}
+
+\begin{definition}[Entropy and Gibbs ensembles]
+For a discrete probability vector $p$, its \emph{entropy} is
+$S(p)=-k_B\sum_ip_i\log p_i$. For a phase-space probability density $\rho$
+relative to Liouville measure $\mu_L$, its \emph{statistical entropy} is
+$S(\rho)=-k_B\int\rho\log\rho,d\mu_L$. The \emph{canonical Gibbs ensemble}
+at inverse temperature $\beta$ is
+$d\mathbb P_\beta=Z(\beta)^{-1}e^{-\beta H}d\mu_L$.
+\end{definition}
+
+\begin{definition}[Measure-preserving dynamics and ergodicity]
+A measurable transformation $T$ is \emph{measure preserving} if
+$\mu(T^{-1}A)=\mu(A)$. It is \emph{ergodic} if every invariant measurable
+set has measure zero or full measure. An \emph{equilibrium state} is an
+invariant probability measure for the dynamics.
+\end{definition}
+
+\begin{exercise}[Entropy and equilibrium]
+Maximize entropy under normalization and fixed mean energy to derive the
+Gibbs ensemble. Prove
+$\langle H\rangle=-\partial_\beta\log Z$ and
+$\operatorname{Var}(H)=\partial_\beta^2\log Z$. Prove invariance of Gibbs
+measure under Hamiltonian flow and formulate the consequence of the ergodic
+theorem for equality of time and ensemble averages.
+\end{exercise}
+
+\begin{exercise}[Ideal-gas thermodynamics]
+Compute the classical canonical partition function of $N$ indistinguishable
+noninteracting particles in a box, including the phase-space normalization
+$h^{3N}N!$. Derive the ideal-gas law, internal energy, and entropy, and
+compare the pressure law with dilute-gas measurements within the classical
+regime.
+\end{exercise}
+
+\chapter{Hilbert-Space and Algebraic States}
+
+\begin{definition}[Hilbert spaces and bounded operators]
+A \emph{Hilbert space} is a complete inner-product space. A linear map
+$T:H\to K$ is \emph{bounded} if
+$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Its adjoint is the unique bounded
+map satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. Projections,
+self-adjoint operators, and unitary operators satisfy respectively
+$P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$.
+\end{definition}
+
+\begin{definition}[Projection-valued measures]
+A \emph{projection-valued measure} on a measurable space $X$ is a map
+$E$ from measurable sets to orthogonal projections on $H$ with
+$E(X)=\id$ and countable additivity in the strong operator topology. For a
+bounded measurable $f$, the operator $\int_Xf,dE$ is defined by uniform
+approximation from simple functions.
+\end{definition}
+
+\begin{exercise}[Spectral theorem]
+Prove that every bounded self-adjoint operator $A$ has a unique
+projection-valued measure on $\spec(A)\subset\R$ such that
+$A=\int\lambda,dE(\lambda)$. Extend the statement to bounded normal
+operators, derive continuous functional calculus, and characterize unitary
+and projection spectra.
+\end{exercise}
+
+\begin{definition}[Quantum states and observables]
+A \emph{density operator} is a positive trace-class operator $\rho$ with
+$\Tr\rho=1$. An \emph{observable} is a self-adjoint operator $A$ with
+spectral measure $E_A$. The \emph{Born probability} of an event $B$ is
+$\Tr(\rho E_A(B))$. A closed-system \emph{unitary dynamics} is
+$\rho\mapsto U_t\rho U_t^*$ for a strongly continuous unitary group
+$U_t$.
+\end{definition}
+
+\begin{exercise}[Born rule and unitary dynamics]
+Prove that the Born rule defines a probability measure and that its expected
+value is $\Tr(\rho A)$ when defined. Derive the von Neumann equation from
+$U_t=e^{-itH/\hbar}$. Prove conservation of expected energy and derive the
+Heisenberg equation for observables.
+\end{exercise}
+
+\begin{definition}[Composite and reduced states]
+The state space of a composite system is $H_A\otimes H_B$. A state is
+\emph{separable} if it lies in the closed convex hull of product density
+operators and \emph{entangled} otherwise. The \emph{reduced state}
+$\rho_A=\Tr_B\rho$ is determined by
+$\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
+\end{definition}
+
+\begin{exercise}[Schmidt decomposition and entanglement]
+Prove the Schmidt decomposition for pure vectors in a tensor product of
+finite-dimensional Hilbert spaces. Prove that a pure state is separable
+exactly when its reduced state has rank one, and that the two reduced states
+have the same nonzero spectrum. Compute the reduced states and entanglement
+entropy of a Bell state.
+\end{exercise}
+
+\begin{definition}[$C^*$-algebras and states]
+A \emph{Banach algebra} is a complete normed algebra with
+$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
+$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
+Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
+if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
+$\varphi$ with $\|\varphi\|=\varphi(1)=1$.
+\end{definition}
+
+\begin{exercise}[Commutative Gelfand duality]
+For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
+$C^*$-algebra. Prove that every commutative unital $C^*$-algebra $A$ is
+isometrically $*$-isomorphic to $C(\operatorname{Spec}A)$ by the Gelfand
+transform, and identify states on $C(X)$ with probability measures.
+\end{exercise}
+
+\begin{definition}[Representations and GNS construction]
+A \emph{representation} of a $C^*$-algebra $A$ is a $*$-homomorphism
+$\pi:A\to B(H)$. For a state $\varphi$, define
+$N_\varphi=\{a:\varphi(a^*a)=0\}$ and
+$\langle[a],[b]\rangle=\varphi(a^*b)$ on $A/N_\varphi$.
+\end{definition}
+
+\begin{exercise}[GNS theorem]
+Complete $A/N_\varphi$ and prove that left multiplication induces a cyclic
+representation $(\pi_\varphi,H_\varphi,\Omega_\varphi)$ satisfying
+$\varphi(a)=\langle\Omega_\varphi,\pi_\varphi(a)\Omega_\varphi\rangle$.
+Prove uniqueness up to a cyclic unitary equivalence.
+\end{exercise}
+
+\begin{definition}[Operator topologies and von Neumann algebras]
+The \emph{weak operator topology} is generated by
+$T\mapsto\langle x,Ty\rangle$; the \emph{strong operator topology} is
+generated by $T\mapsto\|Tx\|$. For $S\subseteq B(H)$, its \emph{commutant}
+is $S'=\{T:TS=ST\text{ for all }S\in S\}$. A \emph{von Neumann algebra} is
+a unital $*$-subalgebra $M\subseteq B(H)$ with $M=M''$.
+\end{definition}
+
+\begin{exercise}[Bicommutant theorem]
+Prove that for a unital $*$-subalgebra $A\subseteq B(H)$, the strong and weak
+operator closures of $A$ equal $A''$. Deduce that von Neumann algebras have
+sufficient projections to approximate their self-adjoint elements
+spectrally.
+\end{exercise}
+
+\begin{definition}[Traces, factors, and noncommutative probability]
+A \emph{trace} on a von Neumann algebra is a normal positive functional
+$\tau$ satisfying $\tau(ab)=\tau(ba)$. A \emph{factor} is a von Neumann
+algebra with center $\C1$. A \emph{noncommutative probability space} is a
+pair $(M,\varphi)$ of a von Neumann algebra and a normal state; its random
+variables are operators affiliated with $M$.
+\end{definition}
+
+\begin{exercise}[Projection dimension and factors]
+For a finite factor with normalized trace $\tau$, prove additivity and unitary
+invariance of $\tau$ on projections. Relate the possible projection values
+to matrix factors and to diffuse finite factors, and formulate independence
+of commuting subalgebras by factorization of the state.
+\end{exercise}
+
+\chapter{Completely Bounded Structure and Correlations}
+
+\begin{definition}[Positive and completely positive maps]
+A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
+preserves positive elements and \emph{completely positive} if every
+$\id_{M_n}\otimes\Phi$ is positive. A \emph{quantum channel} is a completely
+positive trace-preserving map on trace-class operators, equivalently a
+unital completely positive map on observables in the adjoint picture.
+\end{definition}
+
+\begin{exercise}[Stinespring and Kraus representations]
+Prove that a unital completely positive map $\Phi:A\to B(H)$ has a
+representation
+$\Phi(a)=V^*\pi(a)V$. In finite dimensions, derive a Kraus representation
+$\Phi(a)=\sum_iK_i^*aK_i$ and its normalization. Prove that every channel is
+unitary evolution on a larger system followed by discarding an environment.
+\end{exercise}
+
+\begin{definition}[Measurements]
+A \emph{positive operator-valued measure} is a countably additive map $E$
+from measurable events to positive operators with $E(X)=1$. In state $\rho$,
+its outcome probability is $\Tr(\rho E(B))$.
+\end{definition}
+
+\begin{exercise}[POVMs and dilation]
+Prove that projection-valued measures are POVMs. Prove Naimark's dilation
+theorem in finite dimensions and derive the measurement channel associated
+to a POVM. Show that state discrimination can require a nonprojective POVM.
+\end{exercise}
+
+\begin{definition}[Operator spaces]
+An \emph{operator space} is a closed subspace $E\subseteq B(H)$ with matrix
+norms inherited from $M_n(E)\subseteq B(H^{\oplus n})$. A map
+$u:E\to F$ is \emph{completely bounded} if
+$\|u\|_{cb}=\sup_n\|\id_{M_n}\otimes u\|<\infty$. The matrix order of an
+operator system is the family of positive cones $M_n(E)_+$.
+\end{definition}
+
+\begin{exercise}[Ruan's theorem]
+Prove that concrete operator-space norms satisfy
+\[
+\|x\oplus y\|=\max(\|x\|,\|y\|),\qquad
+\|axb\|\leq\|a\|\|x\|\|b\|.
+\]
+Prove conversely that every vector space with matrix norms satisfying these
+axioms admits a complete isometry into $B(H)$.
+\end{exercise}
+
+\begin{exercise}[Arveson--Wittstock extension]
+Prove in finite dimensions that a completely positive map from an operator
+system extends completely positively to the containing $C^*$-algebra.
+Deduce, by the $2\times2$ operator-system construction, that completely
+bounded maps admit norm-preserving extensions.
+\end{exercise}
+
+\begin{definition}[Operator-space tensor products]
+The \emph{minimal operator-space tensor norm} on $E\otimes F$ is inherited
+from concrete inclusions in $B(H\otimes K)$. The \emph{Haagerup norm} is
+\[
+\|z\|_h=\inf\{\|[x_1\ \cdots\ x_r]\|\,
+\|[y_1\ \cdots\ y_r]^T\|:z=\sum_ix_i\otimes y_i\}.
+\]
+A bilinear form $u:E\times F\to\C$ is \emph{jointly completely bounded}
+when its associated matrix amplifications are uniformly bounded.
+\end{definition}
+
+\begin{exercise}[Tensor norms linearize bilinear maps]
+Prove the universal property of the projective Banach-space tensor norm.
+Prove that the Haagerup tensor product linearizes completely bounded
+factorizations and compare the minimal, Haagerup, and projective norms on
+finite-dimensional matrix spaces.
+\end{exercise}
+
+\begin{exercise}[Grothendieck inequalities]
+State and prove the finite-dimensional real Grothendieck inequality for
+bilinear forms on $\ell_\infty^m\times\ell_\infty^n$. Formulate the
+noncommutative and operator-space Grothendieck inequalities and deduce their
+dimension-independent comparison of bounded and completely bounded
+correlations.
+\end{exercise}
+
+\begin{definition}[Bell functionals and XOR games]
+A \emph{Bell functional} is an array $M=(M_{xy}^{ab})$ evaluated on
+conditional distributions by
+$\langle M,p\rangle=\sum_{a,b,x,y}M_{xy}^{ab}p(a,b\mid x,y)$. An \emph{XOR
+game} is specified by real coefficients $M_{xy}$ and scores correlations
+$\sum_{x,y}M_{xy}\mathbb E[a_xb_y]$ for signs $a_x,b_y$.
+\end{definition}
+
+\begin{exercise}[Classical and quantum correlation bounds]
+Prove that the classical XOR value is
+$\sup_{a_x,b_y=\pm1}|\sum M_{xy}a_xb_y|$ and that the quantum value is
+$\sup_{\|u_x\|,\|v_y\|\leq1}|\sum M_{xy}\langle u_x,v_y\rangle|$.
+Apply Grothendieck's inequality to bound their ratio. For CHSH, compute the
+classical bound $2$ and quantum bound $2\sqrt2$.
+\end{exercise}
+
+\begin{exercise}[Measured nonclassical correlations]
+For a polarization-entangled two-photon state, choose four polarization
+angles attaining the CHSH value $2\sqrt2$ and derive the predicted
+coincidence correlations. Analyze a loophole-free Bell-test data table with
+its stated uncertainties and determine whether the classical bound is
+excluded, restricting the conclusion to local hidden-variable models
+satisfying the experimental assumptions.
+\end{exercise}
+
+\part{Topology}
+
+\chapter{Homotopy, Cohomology, and Bundles}
+
+\begin{definition}[Homotopy and fundamental group]
+A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
+$H:X\times[0,1]\to Y$ with endpoints $f$ and $g$. The \emph{fundamental
+group} $\pi_1(X,x_0)$ is the group of endpoint-fixed homotopy classes of
+loops based at $x_0$, with concatenation.
+\end{definition}
+
+\begin{exercise}[Fundamental groups and winding]
+Prove homotopy invariance of $\pi_1$ and the Seifert--van Kampen theorem for a
+union with path-connected intersection. Compute
+$\pi_1(S^1)\cong\Z$ by lifting loops to $\R$, and prove that the resulting
+integer is the winding number.
+\end{exercise}
+
+\begin{definition}[Homology and cohomology]
+The \emph{singular chain group} $C_n(X;R)$ is the free $R$-module on
+continuous maps $\Delta^n\to X$, with alternating face boundary $\partial$.
+The \emph{homology} is $H_n(X;R)=\ker\partial_n/\im\partial_{n+1}$. The
+\emph{cochain complex} is $C^n(X;R)=\Hom(C_n(X;R),R)$ with coboundary
+$\delta\phi=\phi\partial$, and its cohomology is $H^n(X;R)$.
+\end{definition}
+
+\begin{definition}[Products and pairings]
+The \emph{Kronecker pairing} is
+$H^n(X;R)\times H_n(X;R)\to R$, $([\phi],[c])\mapsto\phi(c)$. The
+\emph{cup product} is the product on cohomology induced by the front--back
+face formula on cochains.
+\end{definition}
+
+\begin{exercise}[Homology, cohomology, and degree]
+Prove $\partial^2=0$, $\delta^2=0$, and homotopy invariance. Compute the
+homology and cohomology rings of spheres and tori. For a continuous map
+$f:S^n\to S^n$, define its degree by
+$f_*[S^n]=\deg(f)[S^n]$ and prove multiplicativity and agreement with winding
+number for $n=1$.
+\end{exercise}
+
+\begin{definition}[Fiber, vector, and principal bundles]
+A \emph{fiber bundle} with fiber $F$ is a map $\pi:E\to X$ locally
+isomorphic over $X$ to $U\times F\to U$. A \emph{vector bundle} has vector
+spaces as fibers and linear transition maps. A \emph{principal $G$-bundle}
+has a free right $G$-action and local equivariant trivializations. A
+\emph{section} is a map $s:X\to E$ with $\pi s=\id_X$.
+\end{definition}
+
+\begin{exercise}[Bundles from transition functions]
+Prove that transition functions satisfying the cocycle condition construct a
+bundle and that changes of local trivialization give isomorphic bundles.
+Prove that a principal bundle is trivial exactly when it has a global
+section. Construct associated vector bundles from representations of $G$.
+\end{exercise}
+
+\begin{definition}[Global connections and holonomy]
+A \emph{connection} on a vector bundle $E\to M$ is a map
+$\nabla:\Gamma(E)\to\Omega^1(M;E)$ satisfying
+$\nabla(fs)=df\otimes s+f\nabla s$. Its curvature is
+$F_\nabla=\nabla^2\in\Omega^2(M;\End E)$. Its \emph{holonomy} along a loop is
+the automorphism of the initial fiber given by parallel transport.
+\end{definition}
+
+\begin{exercise}[Curvature and holonomy]
+Derive local connection and curvature forms and their gauge-transformation
+laws. Prove the Bianchi identity. Show that infinitesimal holonomy is
+curvature and compute the $U(1)$ holonomy around the boundary of a surface as
+$\exp(i\int F)$ when a global potential is available.
+\end{exercise}
+
+\begin{definition}[Chern classes and character]
+The \emph{Chern classes} of a complex vector bundle $E$ are the natural
+classes $c_j(E)\in H^{2j}(X;\Z)$ determined by
+$c(E\oplus F)=c(E)c(F)$ and the universal bundle. The \emph{Chern character}
+is the natural ring map
+$\operatorname{ch}:K^0(X)\to H^{\mathrm{even}}(X;\Q)$ whose value on a line
+bundle $L$ is $e^{c_1(L)}$.
+\end{definition}
+
+\begin{exercise}[Curvature representatives]
+For a Hermitian bundle with unitary connection, prove that
+\[
+\det\!\left(1+\frac{i}{2\pi}F_\nabla\right)
+\quad\text{and}\quad
+\Tr\exp\!\left(\frac{i}{2\pi}F_\nabla\right)
+\]
+are closed forms whose cohomology classes are independent of the connection.
+Identify them with the Chern classes and Chern character and prove their
+Whitney-sum formulas.
+\end{exercise}
+
+\begin{definition}[Berry geometry]
+For a smooth family of one-dimensional spectral projections
+$P_x$ on a Hilbert space, the ranges form a line bundle. The \emph{Berry
+connection} is $\nabla=P\circ d$ and its curvature is the \emph{Berry
+curvature}. Its holonomy is the \emph{Berry phase}. The integral
+$\langle c_1(L),[\Sigma]\rangle$ is the \emph{Chern number} over an oriented
+closed surface $\Sigma$.
+\end{definition}
+
+\begin{exercise}[Berry phase and quantized response]
+Compute the Berry curvature of a two-level Hamiltonian
+$H(n)=n\cdot\sigma$ over $S^2$ and its Chern number. For a gapped
+two-dimensional periodic Hamiltonian, derive the Kubo formula expressing
+Hall conductance as $e^2/h$ times the occupied-band Chern number. Deduce
+integer quantization under gap-preserving perturbations and compare with
+integer quantum Hall plateaus.
+\end{exercise}
+
+\chapter{K-Theory and Index}
+
+\begin{definition}[Grothendieck completion and stable equivalence]
+The \emph{Grothendieck group} of a commutative monoid $M$ is the universal
+abelian group receiving a monoid map from $M$. Vector bundles $E,F$ are
+\emph{stably equivalent} if $E\oplus\underline{\C}^m\cong
+F\oplus\underline{\C}^n$ for some $m,n$. The group $K^0(X)$ is the
+Grothendieck group of complex vector bundles on compact $X$; define
+$K^1(X)=\widetilde K^0(\Sigma X)$.
+\end{definition}
+
+\begin{exercise}[Bott periodicity and topological phases]
+Prove the clutching description of bundles on spheres. Establish Bott
+periodicity in the form
+$\widetilde K^0(S^{n+2})\cong\widetilde K^0(S^n)$ and compute the complex
+$K$-groups of spheres and tori. Show that a gapped family of finite-rank
+Hamiltonians defines the stable class of its occupied bundle and identify
+the class-A invariants in dimensions one through three.
+\end{exercise}
+
+\begin{definition}[Operator K-theory]
+For a unital $C^*$-algebra $A$, $K_0(A)$ is the Grothendieck group of stable
+homotopy classes of projections in matrix algebras over $A$, and $K_1(A)$ is
+the stable homotopy group of unitaries in matrix algebras over $A$.
+\end{definition}
+
+\begin{exercise}[Topological and operator K-theory]
+Construct the Serre--Swan correspondence between vector bundles over compact
+$X$ and finitely generated projective $C(X)$-modules. Deduce
+$K^j(X)\cong K_j(C(X))$ and formulate Bott periodicity for $C^*$-algebras.
+\end{exercise}
+
+\begin{definition}[Compact and Fredholm operators]
+An operator on a Hilbert space is \emph{compact} if it is a norm limit of
+finite-rank operators. A bounded operator $T:H_0\to H_1$ is \emph{Fredholm}
+if its kernel and cokernel are finite-dimensional and its range is closed;
+its \emph{index} is
+$\operatorname{ind}T=\dim\ker T-\dim\coker T$. The \emph{Calkin algebra} is
+$\mathcal Q(H)=B(H)/\mathcal K(H)$.
+\end{definition}
+
+\begin{exercise}[Fredholm index and the Calkin algebra]
+Prove that $T$ is Fredholm exactly when its image in the Calkin algebra is
+invertible. Prove homotopy invariance, compact-perturbation invariance, and
+additivity of the index. Compute the index of the unilateral shift and
+identify the boundary map $K_1(\mathcal Q(H))\to K_0(\mathcal K(H))$.
+\end{exercise}
+
+\begin{definition}[Elliptic symbols]
+For vector bundles $E,F$ over a compact smooth manifold, the \emph{principal
+symbol} of an order-$m$ differential operator
+$D:\Gamma(E)\to\Gamma(F)$ is the homogeneous bundle map
+$\sigma_D:\pi^*E\to\pi^*F$ on $T^*M$. The operator is \emph{elliptic} if
+$\sigma_D(x,\xi)$ is invertible for every $\xi\ne0$. Its \emph{analytic
+index} is its Fredholm index on Sobolev completions; its \emph{topological
+index} is the K-theoretic pushforward of its symbol class.
+\end{definition}
+
+\begin{exercise}[Atiyah--Singer index theorem]
+Prove elliptic regularity and Fredholmness for elliptic operators on compact
+manifolds. Establish the Atiyah--Singer equality
+$\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$, using Bott
+periodicity and the axiomatic characterization of the index. Derive the
+Riemann--Roch and Dirac-index formulas as special cases.
+\end{exercise}
+
+\chapter{Tensor Categories, Subfactors, and Topological Physics}
+
+\begin{definition}[Monoidal and rigid categories]
+A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
+unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
+of $X$ is an object $X^*$ with evaluation and coevaluation morphisms
+satisfying the snake identities. A monoidal category is \emph{rigid} if
+every object has left and right duals.
+\end{definition}
+
+\begin{definition}[Fusion, braided, and modular categories]
+A \emph{fusion category} over $\C$ is a finite semisimple rigid
+$\C$-linear monoidal category with simple unit. A \emph{braiding} is a
+natural family $c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon
+identities. A ribbon fusion category is \emph{modular} if its braiding is
+nondegenerate.
+\end{definition}
+
+\begin{exercise}[Fusion rules and braiding]
+Prove that simple-object classes of a fusion category form a based ring under
+tensor product. Derive the pentagon and hexagon equations for associativity
+and braiding data. Compute quantum dimensions and braid-group
+representations for the Fibonacci fusion rule
+$\tau\otimes\tau\cong1\oplus\tau$.
+\end{exercise}
+
+\begin{definition}[Subfactors and conditional expectations]
+A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
+unit. A \emph{conditional expectation} $E:M\to N$ is a positive unital
+$N$-bimodule projection. For finite factors with normalized trace, the
+\emph{Jones index} $[M:N]$ is the Murray--von Neumann dimension of
+$L^2(M)$ as a left $N$-module.
+\end{definition}
+
+\begin{definition}[Basic construction]
+On $L^2(M)$, the \emph{Jones projection} $e_N$ is the orthogonal projection
+onto $L^2(N)$. The \emph{basic construction} is
+$M_1=\langle M,e_N\rangle''$. Iteration gives the \emph{Jones tower}
+$N\subseteq M\subseteq M_1\subseteq M_2\subseteq\cdots$.
+\end{definition}
+
+\begin{exercise}[Jones tower and Temperley--Lieb relations]
+For finite-index $N\subseteq M$, derive
+$e_Nxe_N=E(x)e_N$ and construct the canonical trace on the basic
+construction. Prove that the normalized Jones projections in the tower
+satisfy
+\[
+e_i^2=e_i,qquad e_ie_j=e_je_i\ (|i-j|>1),qquad
+e_ie_{i\pm1}e_i=[M:N]^{-1}e_i.
+\]
+\end{exercise}
+
+\begin{exercise}[Diagrammatic calculus and index quantization]
+Construct the Temperley--Lieb diagrammatic category, with composition by
+stacking and each closed loop valued at $\delta=[M:N]^{1/2}$. Use positivity
+of its Markov trace to prove that index values below $4$ are
+$4\cos^2(\pi/n)$ for integers $n\geq3$.
+\end{exercise}
+
+\begin{definition}[Braid groups and Markov traces]
+The \emph{braid group} $B_n$ has generators $\sigma_i$ with relations
+$\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}$ and
+$\sigma_i\sigma_j=\sigma_j\sigma_i$ for $|i-j|>1$. A \emph{Markov trace} on
+a tower of braid-group quotients is a compatible trace satisfying a fixed
+stabilization rule.
+\end{definition}
+
+\begin{exercise}[Jones polynomial]
+Construct a braid-group representation from the Temperley--Lieb generators.
+Use the Markov trace and Markov moves to obtain an invariant of oriented
+links, normalize it to the Jones polynomial, and derive its skein relation.
+Compute it for the unknot, trefoil, and Hopf link.
+\end{exercise}
+
+\begin{definition}[Chern--Simons theory and Wilson loops]
+For a connection $A$ on a principal bundle over an oriented
+three-manifold and an invariant inner product on $\mathfrak g$, the
+\emph{Chern--Simons functional} at level $k$ is
+\[
+S_{CS}(A)=\frac{k}{4\pi}\int_M
+\left\langle A\wedge dA+\frac23A\wedge A\wedge A\right\rangle.
+\]
+For a representation $V$ and closed curve $K$, the \emph{Wilson loop} is
+$W_V(K)=\Tr_V(\operatorname{Hol}_A(K))$.
+\end{definition}
+
+\begin{exercise}[Gauge invariance, level, and knot invariants]
+Compute the change of $S_{CS}$ under a gauge transformation and derive the
+integrality condition on $k$ required for $e^{iS_{CS}}$ to be gauge
+invariant. Derive flatness as the field equation. Relate Wilson-loop
+expectations for $SU(2)$ to the Jones polynomial at a root of unity.
+\end{exercise}
+
+\begin{definition}[Bordisms and topological field theories]
+The \emph{bordism category} has closed oriented $(n-1)$-manifolds as objects,
+oriented $n$-dimensional bordisms as morphisms, and disjoint union as tensor
+product. An \emph{$n$-dimensional topological field theory} is a symmetric
+monoidal functor from this category to vector spaces. An extended theory may
+assign categories to codimension-two manifolds.
+\end{definition}
+
+\begin{exercise}[Functorial gluing]
+Show that the monoidal-functor axioms give multiplicativity under disjoint
+union, composition under gluing, duality under orientation reversal, and
+mapping-class-group representations on state spaces. In two dimensions,
+prove the equivalence with commutative Frobenius algebras.
+\end{exercise}
+
+\begin{definition}[Anyons and topological degeneracy]
+In a two-dimensional gapped phase, an \emph{anyon type} is a simple object of
+its braided fusion category. It is \emph{abelian} if its quantum dimension is
+$1$ and \emph{nonabelian} otherwise. The \emph{topological degeneracy} on a
+closed surface is the dimension of the state space assigned by the
+associated topological field theory.
+\end{definition}
+
+\begin{exercise}[Abelian and nonabelian anyons]
+Compute fusion spaces and braid actions for an abelian category and for the
+Fibonacci category. Prove that nonabelian fusion spaces can have dimension
+greater than one and that braiding acts projectively on them. Compute the
+torus degeneracy from the simple anyon types in a modular category.
+\end{exercise}
+
+\begin{exercise}[Quantum Hall phases and measured topological order]
+Use flux insertion for a Laughlin state at filling $\nu=1/m$ to derive
+quasiparticle charge $e/m$, exchange phase $\pi/m$, Hall conductance
+$\nu e^2/h$, and genus-$g$ degeneracy $m^g$. Compare these consequences
+separately with conductance plateaus, fractional shot-noise charge
+measurements, and interferometric phase data, stating which topological
+predictions each observation tests and which it does not.
+\end{exercise}
+
+\end{document}
