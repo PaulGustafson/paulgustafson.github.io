@@ -1,4 +1,4 @@
-# Coordinate-Free Physics
+# Math Through Experiment
 
 An exercise-only companion manuscript. Each exercise starts from an
 experiment and asks for a coordinate-free explanation.
