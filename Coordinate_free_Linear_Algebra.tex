@@ -526,23 +526,6 @@ M_{r,s}=\exp\left(\frac{2\pi i krs}{m}\right).
 anyon and compare it with \cite{nakamura-anyons}.}
 \end{exercise}
 
-\begin{exercise}[Reshetikhin--Turaev TQFT]
-\label{ex:rt-tqft}\leavevmode\par
-\textit{A ribbon fusion category is a braided fusion category with a
-dual-compatible twist $\theta$ satisfying
-$\theta_{x\otimes y}=M_{x,y}(\theta_x\otimes\theta_y)$. For simple objects
-$x_i$, define $S_{ij}=\trace(M_{x_i,x_j})$ and call the category modular when
-$S$ is invertible. Prove that every modular ribbon fusion category $\mathcal C$
-defines a symmetric monoidal functor} \cite{reshetikhin-turaev}
-\[
-Z_{\mathcal C}:\widehat{\operatorname{Bord}}_3^{\mathcal C}
-\longrightarrow\operatorname{Vect}_{\mathbb C},
-\]
-\textit{where $\widehat{\operatorname{Bord}}_3^{\mathcal C}$ is the
-anomaly-corrected category of oriented three-dimensional bordisms with
-$\mathcal C$-colored ribbon graphs.}
-\end{exercise}
-
 \section{Geometry}
 
 \subsection{Differential forms and cohomology}
@@ -1198,7 +1181,7 @@ representations, and compare them with the original UA1 observations
 \cite{ua1-w,ua1-z}.}
 \end{exercise}
 
-\subsection{Chern--Simons theory and TQFT}
+\subsection{Chern--Simons theory}
 
 \begin{exercise}[Chern--Simons transgression]\leavevmode\par
 \textit{For two connections on $E$, set}
@@ -1332,7 +1315,8 @@ For a framed link, define the formal Chern--Simons expectation value \cite{witte
 \frac{\int e^{iS_k(A)}W_L(A)\,\mathcal DA}
 {\int e^{iS_k(A)}\,\mathcal DA}.
 \]
-\begin{exercise}[Wilson loops and the Jones polynomial]\leavevmode\par
+\begin{exercise}[Wilson loops and the Jones polynomial]
+\label{ex:wilson-jones}\leavevmode\par
 \textit{For normalized $SU(2)$ theory at level $k$, set}
 \[
 q=\exp\left(\frac{2\pi i}{k+2}\right).
@@ -1344,8 +1328,7 @@ q^{-1}\langle W_{L_+}\rangle_k
 =\left(q^{1/2}-q^{-1/2}\right)\langle W_{L_0}\rangle_k
 \]
 \textit{and $\langle W_{\bigcirc}\rangle_k=1$. Show that they determine the
-Jones polynomial, account for framing dependence, and agree with the
-Reshetikhin--Turaev invariant of Exercise~\ref{ex:rt-tqft}.}
+Jones polynomial and account for framing dependence.}
 \end{exercise}
 
 \section{Analysis}
@@ -2429,6 +2412,38 @@ $\delta$ and relate categorical duality to the discrete values in
 Exercise~\ref{ex:jones-index}} \cite{jones-index}.\par
 \end{exercise}
 
+\begin{exercise}[Reshetikhin--Turaev TQFT]
+\label{ex:rt-tqft}\leavevmode\par
+\textit{A ribbon fusion category is a braided fusion category with a
+dual-compatible twist $\theta$ satisfying}
+\[
+\theta_{x\otimes y}=M_{x,y}(\theta_x\otimes\theta_y).
+\]
+\textit{For simple objects $x_i$, define}
+\[
+S_{ij}=\trace(M_{x_i,x_j})
+\]
+\textit{and call the category modular when $S$ is invertible. Prove that
+every modular ribbon fusion category $\mathcal C$ defines a symmetric
+monoidal functor} \cite{reshetikhin-turaev}
+\[
+Z_{\mathcal C}:\widehat{\operatorname{Bord}}_3^{\mathcal C}
+\longrightarrow\operatorname{Vect}_{\mathbb C},
+\]
+\textit{where $\widehat{\operatorname{Bord}}_3^{\mathcal C}$ is the
+anomaly-corrected category of oriented three-dimensional bordisms with
+$\mathcal C$-colored ribbon graphs. Prove that disjoint union is carried to
+tensor product, gluing is carried to composition, and closing a labeled
+ribbon endomorphism is carried to its categorical trace.}
+
+\textit{For the $SU(2)_k$ modular category, compute the local ribbon
+relations and quantum dimensions and recover the skein relation, unknot
+normalization, and framing dependence of
+Exercise~\ref{ex:wilson-jones}. Deduce that its framed-link invariant agrees
+with the Chern--Simons Wilson-loop invariant constructed there}
+\cite{witten-jones,reshetikhin-turaev}.\par
+\end{exercise}
+
 \begin{exercise}[Monoidal functors turn structure into observables]
 \leavevmode\par
 \textit{Express the selection rule of
@@ -2447,10 +2462,14 @@ Exercise~\ref{ex:anyonic-monodromy}, prove that}
 S_{rs}=\trace(M_{a^r,a^s})
 =\exp(2\pi i rs/3)
 \]
-\textit{is an invertible Fourier matrix. Under the symmetric monoidal TQFT
-functor of Exercise~\ref{ex:rt-tqft}, identify disjoint union with tensor
-product and gluing with composition. Relate the entries of $S$ to the
-measured $2\pi/3$ monodromy phase} \cite{nakamura-anyons}.\par
+\textit{is an invertible Fourier matrix. Write
+$d_i=\trace(1_{x_i})$ and
+$\mathcal D=(\sum_i d_i^2)^{1/2}$. Under the symmetric monoidal TQFT functor
+of Exercise~\ref{ex:rt-tqft}, interpret $\mathcal D^{-1}S$ as the operator
+assigned to the mapping cylinder of the modular transformation
+$\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ of the torus.
+Relate its entries to the measured $2\pi/3$ monodromy phase}
+\cite{nakamura-anyons}.\par
 \end{exercise}
 
 \subsection{Generalized cohomology and index}
