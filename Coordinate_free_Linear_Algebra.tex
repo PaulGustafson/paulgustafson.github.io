@@ -2405,9 +2405,9 @@ P_n(2\cos\theta)
 and Chern--Simons Wilson-loop invariants constructed above.}
 \end{exercise}
 
-\section{From structured objects to stable invariants}
+\section{Synthesis: functorial invariants in physics}
 
-\subsection{Monoidal functors transport structure}
+\subsection{From structured objects to stable classes}
 
 A \textbf{strong monoidal functor} $F:\mathcal C\to\mathcal D$ is a functor
 with coherent natural isomorphisms
@@ -2417,171 +2417,37 @@ F(x)\otimes F(y)\cong F(x\otimes y),
 1_{\mathcal D}\cong F(1_{\mathcal C}).
 \]
 It is \textbf{symmetric monoidal} when these isomorphisms intertwine the
-symmetries of $\mathcal C$ and $\mathcal D$.
+symmetries of $\mathcal C$ and $\mathcal D$, and \textbf{additive} when it
+preserves finite direct sums.
 
-Write $\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)$ for finite-dimensional
-complex representations of $G$ and
-$\operatorname{Ch}_{\mathbb C}^{b}$ for bounded cochain complexes of
-finite-dimensional complex vector spaces. For
-$C,D\in\operatorname{Ch}_{\mathbb C}^{b}$, define
-\[
-(C\otimes D)^n=\bigoplus_{p+q=n}C^p\otimes D^q,
-\qquad
-d(c\otimes e)=dc\otimes e+(-1)^pc\otimes de
-\]
-for $c\in C^p$, and define the graded interchange by
-$c\otimes e\mapsto(-1)^{pq}e\otimes c$ for $e\in D^q$. For compact
-Hausdorff $X$, write $\operatorname{Proj}_{\mathrm{fg}}(C(X))$ for finitely
-generated projective $C(X)$-modules, with tensor product over $C(X)$.
-
-For finite factors $M,N$, an \textbf{$M$--$N$ correspondence} is a Hilbert
-space $H$ with commuting normal unital representations of $M$ and
-$N^{\mathrm{op}}$, the algebra with the multiplication of $N$ reversed. Write
-$\operatorname{Corr}(M,N)$ for their category with bounded intertwiners. For
-an $M$--$N$ correspondence $H$ and an $N$--$P$ correspondence $K$, write
-$H\mathbin{\overline\otimes_N}K$ for their \textbf{Connes fusion}, an
-$M$--$P$ correspondence. A \textbf{bicategory} has objects, a category of
-morphisms between each ordered pair of objects, and horizontal composition
-that is associative and unital up to coherent natural isomorphisms.
-
-\begin{exercise}[Associated bundles carry symmetry into geometry]
-\label{ex:monoidal-bridges}\leavevmode\par
-\textit{Let $G$ be a compact matrix group, let $X$ be a compact smooth
-manifold, and let $P\to X$ be a principal $G$-bundle. Prove that}
-\[
-\operatorname{Assoc}_P:
-\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
-\longrightarrow\operatorname{Vect}(X),
-\qquad
-V\longmapsto P\times_GV,
-\]
-\textit{is symmetric monoidal and preserves direct sums, duals, and traces.
-Prove that the section functor is a symmetric monoidal equivalence}
-\cite{swan-vector-bundles}
-\[
-\Gamma:\operatorname{Vect}(X)
-\xrightarrow{\ \simeq\ }
-\operatorname{Proj}_{\mathrm{fg}}(C(X)),
-\qquad
-\Gamma(E\otimes F)\cong
-\Gamma(E)\otimes_{C(X)}\Gamma(F).
-\]
-\textit{For a smooth map $f:Y\to X$, construct the monoidal natural
-isomorphism}
-\[
-f^*\operatorname{Assoc}_P
-\cong\operatorname{Assoc}_{f^*P}.
-\]
-\end{exercise}
-
-\begin{exercise}[Cohomology is monoidal and preserves trace]
-\leavevmode\par
-\textit{Let $\operatorname{GrVect}_{\mathbb C}^{\mathrm{fd}}$ be the category
-of finite-dimensional graded complex vector spaces with graded tensor
-product and Koszul interchange. Prove that the cohomology functor}
-\[
-H^*:\operatorname{Ch}_{\mathbb C}^{b}
-\longrightarrow\operatorname{GrVect}_{\mathbb C}^{\mathrm{fd}}
-\]
-\textit{is symmetric monoidal, with its monoidal isomorphism given by the
-K\"unneth map. Prove that every symmetric monoidal functor preserves duals
-and categorical traces. Apply this to a cochain endomorphism $f=(f^n)_n$ to
-prove the Hopf trace identity}
-\[
-\sum_n(-1)^n\trace(f^n)
-=\sum_n(-1)^n\trace\bigl(H^n(f)\bigr).
-\]
-\end{exercise}
-
-\begin{exercise}[Homomorphisms compose by Connes fusion]
-\label{ex:correspondence-functor}\leavevmode\par
-\textit{Construct the bicategory whose objects are finite factors, whose
-hom-categories are $\operatorname{Corr}(M,N)$, and whose horizontal
-composition is Connes fusion. Prove that $L^2(M)$ is the unit. Show that a
-normal unital $*$-homomorphism $\phi:M\to N$ defines the correspondence}
-\[
-{}_{M}L^2(N)_{N},
-\qquad
-m\cdot\xi=\phi(m)\xi,
-\]
-\textit{and construct the coherent unitary intertwiners}
-\[
-{}_{M}L^2(N)_{N}
-\mathbin{\overline\otimes_N}
-{}_{N}L^2(P)_{P}
-\cong
-{}_{M}L^2(P)_{P}
-\]
-\textit{for composable homomorphisms $M\to N\to P$. Thus prove that normal
-unital $*$-homomorphisms map pseudofunctorially into the correspondence
-bicategory} \cite{jones-sunder}.
-
-\textit{For a finite-index inclusion $N\subseteq M$ of type $\mathrm{II}_1$
-factors, prove that ${}_NL^2(M)_M$ is dualizable. Define the statistical
-dimension of a dualizable correspondence $H$ by $d(H)=\trace(1_H)$ and prove}
-\[
-d({}_NL^2(M)_M)=\sqrt{[M:N]}.
-\]
-\textit{Identify this dimension with the Temperley--Lieb loop parameter
-$\delta$ and relate categorical duality to the discrete values in
-Exercise~\ref{ex:jones-index}} \cite{jones-index}.\par
-\end{exercise}
-
-\begin{exercise}[Reshetikhin--Turaev TQFT]
-\label{ex:rt-tqft}\leavevmode\par
-\textit{A ribbon fusion category is a braided fusion category with a
-dual-compatible twist $\theta$ satisfying}
-\[
-\theta_{x\otimes y}=M_{x,y}(\theta_x\otimes\theta_y).
-\]
-\textit{For simple objects $x_i$, define}
-\[
-S_{ij}=\trace(M_{x_i,x_j})
-\]
-\textit{and call the category modular when $S$ is invertible. Prove that
-every modular ribbon fusion category $\mathcal C$ defines a symmetric
-monoidal functor} \cite{reshetikhin-turaev}
-\[
-Z_{\mathcal C}:\widehat{\operatorname{Bord}}_3^{\mathcal C}
-\longrightarrow\operatorname{Vect}_{\mathbb C},
-\]
-\textit{where $\widehat{\operatorname{Bord}}_3^{\mathcal C}$ is the
-anomaly-corrected category of oriented three-dimensional bordisms with
-$\mathcal C$-colored ribbon graphs. Prove that disjoint union is carried to
-tensor product, gluing is carried to composition, and closing a labeled
-ribbon endomorphism is carried to its categorical trace.}
-
-\textit{For the $SU(2)_k$ modular category, compute the local ribbon
-relations and quantum dimensions and recover the skein relation, unknot
-normalization, and framing dependence of
-Exercise~\ref{ex:wilson-jones}. Deduce that its framed-link invariant agrees
-with the Chern--Simons Wilson-loop invariant constructed there}
-\cite{witten-jones,reshetikhin-turaev}.\par
-\end{exercise}
-
-\subsection{Decategorification}
-
-For a category $\mathcal C$ with finite direct sums, let
-$\pi_0^\oplus(\mathcal C)$ be the commutative monoid of isomorphism classes
-under direct sum. Its \textbf{Grothendieck group} $K_0(\mathcal C)$ consists
-of formal differences $[x]-[y]$, modulo the relations
-$[x\oplus y]=[x]+[y]$. If $\mathcal C$ also has a tensor product distributing
-over direct sums, tensor product defines multiplication on $K_0(\mathcal C)$.
-Write
+For a category $\mathcal C$ with finite direct sums, its
+\textbf{Grothendieck group} $K_0(\mathcal C)$ is generated by isomorphism
+classes $[x]$ with relations $[x\oplus y]=[x]+[y]$. A tensor product
+distributing over direct sums defines multiplication by
+$[x][y]=[x\otimes y]$. Write
 \[
 R(G)=K_0\bigl(\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)\bigr),
 \qquad
 K^0(X)=K_0\bigl(\operatorname{Vect}(X)\bigr).
 \]
-An \textbf{additive functor} preserves finite direct sums.
+For compact Hausdorff $X$, write
+$\operatorname{Proj}_{\mathrm{fg}}(C(X))$ for finitely generated projective
+$C(X)$-modules.
 
-\begin{exercise}[Grothendieck completion produces stable invariants]
-\label{ex:decategorification-bridges}\leavevmode\par
-\textit{Prove that an additive strong monoidal functor induces a ring
-homomorphism on Grothendieck groups. Apply this to
-Exercise~\ref{ex:monoidal-bridges} and prove that the vertical maps in the
-diagram below send objects to their stable classes and that every square
-commutes:}
+\begin{exercise}[Symmetry classes produce topological response]
+\label{ex:monoidal-bridges}\leavevmode\par
+\textit{Let $G$ be a compact matrix group, let $P\to X$ be a principal
+$G$-bundle over a compact smooth manifold, and prove that associated bundles
+and sections define additive symmetric monoidal functors}
+\cite{swan-vector-bundles}
+\[
+\operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
+\xrightarrow{\ \operatorname{Assoc}_P\ }
+\operatorname{Vect}(X)
+\xrightarrow{\ \Gamma\ }
+\operatorname{Proj}_{\mathrm{fg}}(C(X)).
+\]
+\textit{Prove that Grothendieck completion gives the commutative diagram}
 \[
 \begin{array}{ccccc}
 \operatorname{Rep}_{\mathbb C}^{\mathrm{fd}}(G)
@@ -2593,214 +2459,182 @@ commutes:}
 R(G)&\longrightarrow&K^0(X)&\xrightarrow{\ \cong\ }&K_0(C(X)).
 \end{array}
 \]
-\textit{For a representation $V$, identify the image of $[V]$ in each
-model and prove that it depends only on the stable isomorphism class of the
-associated bundle $P\times_GV$.}
-\end{exercise}
-
-\begin{exercise}[Traces descend to stable invariants]
-\leavevmode\par
-\textit{For $C\in\operatorname{Ch}_{\mathbb C}^{b}$, prove that}
-\[
-\sum_n(-1)^n[C^n]
-=\sum_n(-1)^n[H^n(C)]
-\quad\text{in}\quad
-K_0\bigl(\operatorname{Vect}_{\mathbb C}^{\mathrm{fd}}\bigr),
-\]
-\textit{and recover the Euler--Poincar\'e identity by applying dimension.
-For a spherical fusion category $\mathcal C$, prove that categorical
-dimension induces a ring homomorphism}
-\[
-K_0(\mathcal C)\longrightarrow\mathbb C,
-\qquad [x]\longmapsto\trace(1_x).
-\]
-\textit{For dualizable finite-index $M$--$M$ correspondences $H$ and $K$,
-prove that statistical dimension is multiplicative under Connes fusion,}
-\[
-d(H\mathbin{\overline\otimes_M}K)=d(H)d(K),
-\]
-\textit{and interpret the Jones index as the square of this
-decategorified dimension by Exercise~\ref{ex:correspondence-functor}.}
-\end{exercise}
-
-\subsection{Generalized cohomology and stable K-theory}
-
-A pointed space has a distinguished basepoint. Its \textbf{wedge} is the
-disjoint union of pointed spaces with their basepoints identified. For a
-pointed space $(X,x_0)$, its \textbf{reduced suspension} is
-\[
-\Sigma X
-=X\times[0,1]\big/
-\bigl(X\times\{0,1\}\cup\{x_0\}\times[0,1]\bigr).
-\]
-For a pointed space $Y$, its \textbf{loop space} $\Omega Y$ is the space of
-continuous based maps $S^1\to Y$.
-
-A \textbf{reduced generalized cohomology theory} on pointed CW complexes is
-a sequence of contravariant functors $\widetilde E^n$ to abelian groups that
-is invariant under based homotopy, carries wedges to products, has natural
-suspension isomorphisms
-\[
-\widetilde E^n(X)\cong\widetilde E^{n+1}(\Sigma X),
-\]
-and assigns to every pointed CW subcomplex $A\subseteq X$ a natural long
-exact sequence
-\[
-\cdots\longrightarrow\widetilde E^n(X/A)
-\longrightarrow\widetilde E^n(X)
-\longrightarrow\widetilde E^n(A)
-\longrightarrow\widetilde E^{n+1}(X/A)
-\longrightarrow\cdots.
-\]
-It satisfies the \textbf{dimension axiom} if
-$\widetilde E^n(S^0)=0$ for $n\ne0$. For an unpointed space $X$, set
-$E^n(X)=\widetilde E^n(X_+)$, where $X_+$ is $X$ with a disjoint basepoint.
-
-An \textbf{$\Omega$-spectrum} is a sequence of pointed spaces $E_n$ with
-pointed homotopy equivalences $E_n\simeq\Omega E_{n+1}$. It
-\textbf{represents} $\widetilde E$ when
-\[
-\widetilde E^n(X)\cong[X,E_n]_*.
-\]
-A \textbf{map of generalized cohomology theories} is a family of natural
-transformations compatible with suspension and the boundary maps; it is
-\textbf{multiplicative} when it also preserves products and units.
-Let $U=\varinjlim U(n)$ be the stable unitary group.
-
-\begin{exercise}[Spectra represent cohomology and K-theory]
-\leavevmode\par
-\textit{Prove Brown representability: every reduced generalized cohomology
-theory satisfying the wedge axiom is represented by an $\Omega$-spectrum}
-\cite{brown-cohomology}. \textit{For an abelian group $A$, identify ordinary
-cohomology with the Eilenberg--Mac Lane spectrum $HA$, whose $n$th space
-$K(A,n)$ has $\pi_n\cong A$ and all other homotopy groups zero. For a
-discrete group $G$ acting on $A$, let $EG$ be a contractible free $G$-CW
-complex, set $BG=EG/G$, and let $\widetilde A=EG\times_GA$ be the induced
-local coefficient system. Construct the bar model of $BG$ and prove the
-natural identification}
-\[
-H^n(G,A)\cong H^n(BG;\widetilde A).
-\]
-\textit{Identify the spaces of the complex K-theory spectrum $KU$ as}
-\[
-KU_{2j}\simeq\mathbb Z\times BU,
-\qquad
-KU_{2j+1}\simeq U.
-\]
-\textit{Prove that ordinary cohomology satisfies the dimension axiom, that
-complex K-theory does not, and that the two-periodicity of $KU$ is Bott
-periodicity. Construct the multiplicative Chern-character map of spectra}
-\cite{atiyah-k-theory}
-\[
-\operatorname{ch}:KU\longrightarrow
-H\mathbb Q[u,u^{-1}],
-\qquad |u|=2,
-\]
-\textit{and prove that it becomes an equivalence after rationalization. For
-a finite CW complex $X$, deduce the natural rational isomorphisms}
-\[
-K^0(X)\otimes\mathbb Q
-\cong\bigoplus_jH^{2j}(X;\mathbb Q),
-\qquad
-K^1(X)\otimes\mathbb Q
-\cong\bigoplus_jH^{2j+1}(X;\mathbb Q).
-\]
-\end{exercise}
-
-\begin{exercise}[K-theory unifies geometric and analytic models]
-\label{ex:k-models-synthesis}\leavevmode\par
-\textit{For a finite group $G$, let $K_G^0(X)$ be the Grothendieck group
-of finite-rank complex $G$-equivariant vector bundles over a compact
-$G$-space $X$. Apply Exercise~\ref{ex:decategorification-bridges} at a point
-to prove}
-\[
-K_G^0(\mathrm{pt})\cong R(G).
-\]
-\textit{For a compact finite CW complex $X$ and an infinite-dimensional
-separable Hilbert space $H$, prove the natural
-identifications} \cite{atiyah-k-theory,swan-vector-bundles}
-\[
-K^0(X)
-\cong[X,\mathbb Z\times BU]
-\cong K_0(C(X))
-\cong[X,\operatorname{Fred}(H)],
-\]
-\[
-K^1(X)
-\cong[X,U]
-\cong K_1(C(X)).
-\]
-\textit{Given a gapped class A Hamiltonian $H:X\to\End(V)$, follow its
-class through the negative spectral projection, occupied vector bundle,
-classifying map to $\mathbb Z\times BU$, projection over $C(X)$, and
-Fredholm-family models. Prove that the Chern character is independent of the
-chosen model.}
-\end{exercise}
-
-\subsection{Quantized physical observables}
-
-\begin{exercise}[Monoidal functors produce observable amplitudes]
-\leavevmode\par
 \textit{Express the selection rule of
-Exercise~\ref{ex:electric-dipole-selection} as the nonvanishing of}
+Exercise~\ref{ex:electric-dipole-selection} by the nonvanishing of}
 \[
-\operatorname{Hom}_G
-\bigl(1,V_f^*\otimes V_\mu\otimes V_i\bigr).
+\operatorname{Hom}_G(1,V_f^*\otimes V_\mu\otimes V_i),
 \]
-\textit{For $P\to X$ as in Exercise~\ref{ex:monoidal-bridges}, prove that
-$\operatorname{Assoc}_P$ carries such invariant tensors to globally defined
-couplings of the associated bundles.}
+\textit{and show that $\operatorname{Assoc}_P$ carries an invariant tensor
+to a globally defined coupling. For a class A Hamiltonian over the
+Brillouin torus, follow the occupied bundle through the bottom row and prove
+that the TKNN response of Exercise~\ref{ex:class-a-insulators} depends only
+on its stable $K$-class.}
+\end{exercise}
+
+Write $\operatorname{Ch}_{\mathbb C}^{b}$ for bounded cochain complexes of
+finite-dimensional complex vector spaces and
+$\operatorname{GrVect}_{\mathbb C}^{\mathrm{fd}}$ for finite-dimensional
+graded complex vector spaces. For $c\in C^p$ and $e\in D^q$, define
+\[
+(C\otimes D)^n=\bigoplus_{p+q=n}C^p\otimes D^q,
+\qquad
+d(c\otimes e)=dc\otimes e+(-1)^pc\otimes de,
+\]
+with interchange $c\otimes e\mapsto(-1)^{pq}e\otimes c$.
+
+\begin{exercise}[Cohomology preserves supertraces]
+\leavevmode\par
+\textit{Prove that the K\"unneth map makes}
+\[
+H^*:\operatorname{Ch}_{\mathbb C}^{b}
+\longrightarrow\operatorname{GrVect}_{\mathbb C}^{\mathrm{fd}}
+\]
+\textit{symmetric monoidal. Prove that symmetric monoidal functors preserve
+duals and categorical traces, and deduce the Hopf trace identity}
+\[
+\sum_n(-1)^n\trace(f^n)
+=\sum_n(-1)^n\trace\bigl(H^n(f)\bigr).
+\]
+\textit{For $f=1_C$, interpret this equality as the invariance of Euler
+characteristic under passage from a complex to its cohomology.}
+\end{exercise}
+
+For finite factors $M,N$, an \textbf{$M$--$N$ correspondence} is a Hilbert
+space with commuting normal unital representations of $M$ and
+$N^{\mathrm{op}}$. Write $\operatorname{Corr}(M,N)$ for their category and
+$H\mathbin{\overline\otimes_N}K$ for the \textbf{Connes fusion} of an
+$M$--$N$ correspondence $H$ with an $N$--$P$ correspondence $K$.
+
+\begin{exercise}[Connes fusion quantizes statistical dimension]
+\label{ex:correspondence-functor}\leavevmode\par
+\textit{A bicategory has objects, hom-categories, and composition associative
+and unital up to coherent isomorphism. Construct the bicategory of finite
+factors and correspondences, with Connes fusion as composition and $L^2(M)$
+as the unit. Prove that a normal unital $*$-homomorphism $\phi:M\to N$
+defines ${}_ML^2(N)_N$ and that
+composable homomorphisms give coherent unitary intertwiners}
+\[
+{}_{M}L^2(N)_{N}\mathbin{\overline\otimes_N}{}_{N}L^2(P)_{P}
+\cong{}_{M}L^2(P)_{P}
+\]
+\cite{jones-sunder}. \textit{For a finite-index inclusion $N\subseteq M$ of
+type $\mathrm{II}_1$ factors, prove that ${}_NL^2(M)_M$ is dualizable and}
+\[
+d({}_NL^2(M)_M)=\trace(1_{{}_NL^2(M)_M})=\sqrt{[M:N]}.
+\]
+\textit{Prove that statistical dimension is multiplicative under Connes
+fusion. Identify it with the Temperley--Lieb loop parameter and relate the
+values below $2$ to the $SU(2)_k$ braid data and Chern--Simons invariants in
+Exercise~\ref{ex:jones-index}} \cite{jones-index}.\par
+\end{exercise}
+
+\begin{exercise}[Modular categories produce anyon amplitudes]
+\label{ex:rt-tqft}\leavevmode\par
+\textit{A ribbon fusion category is a braided fusion category with a
+dual-compatible twist $\theta$ satisfying
+$\theta_{x\otimes y}=M_{x,y}(\theta_x\otimes\theta_y)$. For simple objects
+$x_i$, set $S_{ij}=\trace(M_{x_i,x_j})$ and call the category modular when
+$S$ is invertible. Prove that every modular ribbon fusion category
+$\mathcal C$ defines a symmetric monoidal functor}
+\cite{reshetikhin-turaev}
+\[
+Z_{\mathcal C}:\widehat{\operatorname{Bord}}_3^{\mathcal C}
+\longrightarrow\operatorname{Vect}_{\mathbb C},
+\]
+\textit{where $\widehat{\operatorname{Bord}}_3^{\mathcal C}$ is the
+anomaly-corrected category of oriented three-dimensional bordisms with
+$\mathcal C$-colored ribbon graphs. Prove that it carries disjoint union to
+tensor product, gluing to composition, and a closed labeled ribbon
+endomorphism to its categorical trace. For the $SU(2)_k$ modular category,
+recover the Wilson-loop invariant of
+Exercise~\ref{ex:wilson-jones}}
+\cite{witten-jones,reshetikhin-turaev}.
 
 \textit{For the pointed $\mathbb Z/3$ category of
-Exercise~\ref{ex:anyonic-monodromy}, prove that}
+Exercise~\ref{ex:anyonic-monodromy}, prove}
 \[
-S_{rs}=\trace(M_{a^r,a^s})
-=\exp(2\pi i rs/3)
+S_{rs}=\trace(M_{a^r,a^s})=\exp(2\pi i rs/3).
 \]
-\textit{is an invertible Fourier matrix. Write
-$d_i=\trace(1_{x_i})$ and
-$\mathcal D=(\sum_i d_i^2)^{1/2}$. Under the symmetric monoidal TQFT functor
-of Exercise~\ref{ex:rt-tqft}, interpret $\mathcal D^{-1}S$ as the operator
-assigned to the mapping cylinder of the modular transformation
-$\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ of the torus.
-Relate its entries to the measured $2\pi/3$ monodromy phase}
+\textit{With $d_i=\trace(1_{x_i})$ and
+$\mathcal D=(\sum_i d_i^2)^{1/2}$, interpret $\mathcal D^{-1}S$ as the
+operator assigned to the modular transformation
+$\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)$ of the torus,
+and compare its entries with the measured $2\pi/3$ monodromy phase}
 \cite{nakamura-anyons}.\par
 \end{exercise}
 
-\begin{exercise}[Stable classes quantize physical observables]
+\subsection{Cohomology theories and quantized observables}
+
+For a pointed space $X$, write $\Sigma X$ for its reduced suspension. For an
+unpointed space $X$, let $X_+$ be $X$ with a disjoint basepoint.
+A \textbf{reduced generalized cohomology theory} on pointed CW complexes is
+a sequence of contravariant homotopy-invariant functors $\widetilde E^n$ to
+abelian groups, equipped with suspension isomorphisms
+\[
+\widetilde E^n(X)\cong\widetilde E^{n+1}(\Sigma X),
+\]
+which carries wedges to products and cofiber sequences to long exact
+sequences, where the cofiber of a pointed CW subcomplex $A\subseteq X$ is
+$X/A$. For an unpointed space $X$, set
+$E^n(X)=\widetilde E^n(X_+)$. A \textbf{multiplicative map} of theories is a
+family of natural transformations compatible with suspension, boundary
+maps, products, and units. Let $U=\varinjlim U(n)$ be the stable unitary
+group.
+
+\begin{exercise}[Cohomology and K-theory give stable invariants]
+\label{ex:k-models-synthesis}\leavevmode\par
+\textit{For a discrete group $G$ acting on $A$, let $EG$ be a contractible
+free $G$-CW complex, set $BG=EG/G$, and let
+$\widetilde A=EG\times_GA$ be the induced local coefficient system.
+Construct the bar model of $BG$ and prove}
+\[
+H^n(G,A)\cong H^n(BG;\widetilde A).
+\]
+\textit{For a compact finite CW complex $X$ and an infinite-dimensional
+separable Hilbert space $H$, prove the natural identifications}
+\cite{atiyah-k-theory,swan-vector-bundles}
+\[
+K^0(X)\cong[X,\mathbb Z\times BU]
+\cong K_0(C(X))\cong[X,\operatorname{Fred}(H)],
+\]
+\[
+K^1(X)\cong[X,U]\cong K_1(C(X)),
+\]
+\textit{and identify their two-periodicity with Bott periodicity. Construct
+the multiplicative natural Chern-character maps}
+\[
+\operatorname{ch}:K^n(X)\longrightarrow
+\bigoplus_jH^{n+2j}(X;\mathbb Q),
+\]
+\textit{and prove, for finite $X$,}
+\[
+K^0(X)\otimes\mathbb Q\cong\bigoplus_jH^{2j}(X;\mathbb Q),
+\qquad
+K^1(X)\otimes\mathbb Q\cong\bigoplus_jH^{2j+1}(X;\mathbb Q).
+\]
+\end{exercise}
+
+\begin{exercise}[Stable classes quantize phase, transport, and index]
 \leavevmode\par
-\textit{Place the following constructions in the generalized-cohomology
-framework above. First, interpret the Aharonov--Bohm phase in
-Exercise~\ref{ex:aharonov-bohm} as the exponential of the pairing between a
-degree-one ordinary cohomology class and a one-cycle. Second, use
-Exercise~\ref{ex:k-models-synthesis} to prove that the first Chern number and
-TKNN Hall response in Exercise~\ref{ex:class-a-insulators} depend only on the
-corresponding $KU$-class. Third, prove that the connecting morphism for the
-Calkin extension in Exercise~\ref{ex:calkin-index} extends the $KU$ cofiber
-boundary from commutative $C^*$-algebras and sends a Fredholm class to its
-integer index.}
+\textit{Interpret the Aharonov--Bohm phase in
+Exercise~\ref{ex:aharonov-bohm} as the exponential of a pairing between an
+ordinary cohomology class and a cycle. Use
+Exercise~\ref{ex:k-models-synthesis} to prove that the Chern number and TKNN
+Hall response in Exercise~\ref{ex:class-a-insulators} depend only on the
+occupied $K$-class. Prove that the boundary map for the Calkin extension in
+Exercise~\ref{ex:calkin-index} sends a Fredholm $K$-class to its integer
+index.}
 
 \textit{For an elliptic operator $D$ on a closed manifold, follow its symbol
-class from $K_c^0(T^*M)$ through K-theoretic pushforward and prove that the
-result agrees with the analytic boundary-map index by
-Exercise~\ref{ex:atiyah-singer}. Deduce that Aharonov--Bohm holonomy is
-invariant under gauge change and homology of loops in the field-free region,
-that the Hall integer is invariant under gap-preserving homotopy, and that
-the Fredholm index is invariant under norm-continuous Fredholm homotopy.
-Identify the generalized cohomology theory responsible for each quantized
-quantity. Compare these stable pairings with the categorical trace
-observables in the preceding exercise by identifying, in every example, the
-structured input, the functorial passage, and the resulting numerical
-invariant.}
+class from $K_c^0(T^*M)$ through K-theoretic pushforward and prove that its
+topological index agrees with the analytic boundary-map index by
+Exercise~\ref{ex:atiyah-singer}. Deduce the deformation invariance of the
+Aharonov--Bohm phase, Hall integer, and Fredholm index. For each physical
+quantity in this section, identify the structured input, functorial passage,
+and numerical invariant.}
 \end{exercise}
 
 \begin{thebibliography}{99}
-
-\bibitem{brown-cohomology}
-Edgar H. Brown, Jr.,
-\textit{Cohomology theories},
-Annals of Mathematics, 75(3):467--484, 1962.
-doi:10.2307/1970209.
 
 \bibitem{aklt}
 Ian Affleck, Tom Kennedy, Elliott H. Lieb, and Hal Tasaki,
