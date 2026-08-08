@@ -1411,6 +1411,42 @@ $\Delta Q_5=2\,\operatorname{ind}D_A^+$, identifying the chirality change
 carried by an instanton transition.
 \end{exercise}
 
+\begin{exercise}[Index theory and invertible free-fermion phases]
+Let $H(k)$ be a continuous family of finite-dimensional self-adjoint
+free-fermion Hamiltonians over a compact momentum space $X$, with a uniform
+gap at zero. Flatten its spectrum to
+\[
+Q(k)=\operatorname{sgn}H(k)=H(k)|H(k)|^{-1},\qquad
+P(k)=\frac{1-Q(k)}2,
+\]
+and prove that the occupied spaces $E_k=\im P(k)$ form a vector bundle
+$E\to X$. Show that its stable class $[E]\in K^0(X)$ is invariant under
+gap-preserving deformations.
+
+When $X$ is an even-dimensional spin manifold, pair this class with its
+Dirac operator and use Atiyah--Singer to obtain
+\[
+\langle[E],[D_X]\rangle
+=\operatorname{ind}(D_X^+\otimes E)
+=\int_X\widehat A(TX)\operatorname{ch}(E).
+\]
+For a two-dimensional Brillouin torus, identify this integer with the first
+Chern number and derive the class-A Hall response
+$\sigma_H=(e^2/h)\langle c_1(E),[X]\rangle$.
+
+Prove that stacking Hamiltonians gives direct sum and addition in $K^0(X)$.
+After passing to reduced $K$-theory, show that spectral reversal replaces
+$E$ by $E^\perp$ and gives the additive inverse because
+$E\oplus E^\perp$ is trivial. Explain why an invertible phase can have
+protected boundary modes or symmetry defects but no nontrivial intrinsic
+bulk fusion sectors. Contrast this group-valued classification with the
+sector-valued noninvertible phases in the next section. With additional
+symmetries, formulate the replacement by the appropriate real, equivariant,
+or twisted $K$-group, following
+\href{https://doi.org/10.1007/s00023-013-0236-x}
+{Freed--Moore, \emph{Annales Henri Poincar\'e} \textbf{14} (2013)}.
+\end{exercise}
+
 \section{Subfactors, Conformal Nets, and Tensor Categories}
 
 \begin{definition}[Subfactors and conditional expectations]
@@ -1575,7 +1611,10 @@ The \emph{bordism category} has closed oriented $(n-1)$-manifolds as objects,
 oriented $n$-dimensional bordisms as morphisms, and disjoint union as tensor
 product. An \emph{$n$-dimensional topological field theory} is a symmetric
 monoidal functor from this category to vector spaces. An extended theory may
-assign categories to codimension-two manifolds.
+assign categories to codimension-two manifolds. A TQFT is \emph{invertible}
+when its state spaces are tensor-invertible (hence one-dimensional over a
+field) and every bordism acts invertibly; noninvertible TQFTs may instead
+carry nontrivial superselection and fusion sectors.
 \end{definition}
 
 \begin{exercise}[Functorial gluing]
