@@ -1440,35 +1440,40 @@ factorizations and compare the minimal, Haagerup, and projective norms on
 finite-dimensional matrix spaces.
 \end{exercise}
 
-\begin{supplied}[Grothendieck domination theorems]
-We take as supplied the following dimension-independent domination results.
-For a bounded bilinear form $u:A\times B\to\C$ on unital $C^*$-algebras,
-there are states $f_1,f_2$ on $A$ and $g_1,g_2$ on $B$ such that
+\begin{exercise}[Noncommutative Grothendieck inequality]
+Assume that for every bounded bilinear form
+$u:A\times B\to\C$ on unital $C^*$-algebras there are states $f_1,f_2$ on
+$A$ and $g_1,g_2$ on $B$ such that
 \[
-|u(a,b)|\leq C_{\rm nc}\|u\|
+|u(a,b)|\leq \|u\|
  \bigl(f_1(a^*a)+f_2(aa^*)\bigr)^{1/2}
  \bigl(g_1(b^*b)+g_2(bb^*)\bigr)^{1/2}.
 \]
-For jointly completely bounded $u$, there are states with
+Specialize this inequality to commutative $C^*$-algebras and recover the
+classical Grothendieck domination of bounded bilinear forms. Apply it to
+matrix algebras and express the two quadratic terms as row and column norms.
+Use
+\href{https://doi.org/10.1016/0001-8708(85)90026-X}
+{Haagerup, \emph{The Grothendieck inequality for bilinear forms on
+$C^*$-algebras}}.
+\end{exercise}
+
+\begin{exercise}[Operator-space Grothendieck inequality]
+Assume that for every jointly completely bounded bilinear form
+$u:A\times B\to\C$ on unital $C^*$-algebras there are states $f_1,f_2$ on
+$A$ and $g_1,g_2$ on $B$ such that
 \[
-|u(a,b)|\leq C_{\rm os}\|u\|_{jcb}
+|u(a,b)|\leq \|u\|_{jcb}
 \left(
  f_1(aa^*)^{1/2}g_1(b^*b)^{1/2}
  +f_2(a^*a)^{1/2}g_2(bb^*)^{1/2}
 \right),
 \]
-where $C_{\rm nc}$ and $C_{\rm os}$ are universal constants.
-For the second inequality one may take $C_{\rm os}=1$ by
+as proved by
 \href{https://arxiv.org/abs/0711.1851}
 {Haagerup--Musat, \emph{The Effros--Ruan conjecture for bilinear forms on
 $C^*$-algebras}}.
-\end{supplied}
-
-\begin{exercise}[Noncommutative and operator-space Grothendieck inequalities]
-Specialize the first supplied inequality to commutative $C^*$-algebras and
-recover the classical Grothendieck domination of bounded bilinear forms.
-Apply it to matrix algebras and express the two quadratic terms as row and
-column norms. Use matrix amplification in the second inequality to explain
+Use matrix amplification to explain
 why $\|u\|_{jcb}$, rather than only $\|u\|$, controls coupling to arbitrary
 ancillas. Give examples showing that both row and column terms are necessary.
 \end{exercise}
