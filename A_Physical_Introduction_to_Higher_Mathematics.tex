@@ -128,19 +128,10 @@ For $T\in\End(V)$, define
 \]
 \end{definition}
 
-\begin{exercise}[Dualizability, bases, and dimension]
-Prove that the preceding coevaluation exists if and only if $V$ has a finite
-basis. For a basis $e_1,\ldots,e_n$ with dual basis
-$e^1,\ldots,e^n$, prove
-\[
-\operatorname{coev}_V(1)=\sum_{i=1}^ne_i\otimes e^i
-\]
-and show that this tensor is independent of the chosen basis. Deduce
-\[
-\operatorname{tr}(T)=\sum_{i=1}^ne^i(Te_i),
-\qquad \dim V=n\,1_k.
-\]
-For finite-dimensional $V,W$, prove
+\begin{exercise}[Duality, trace, and dimension]
+Prove directly from the snake identities that the coevaluation is unique and
+that dualizable vector spaces are closed under direct sums, tensor products,
+and duals. For finite-dimensional $V,W$, prove
 $\operatorname{tr}(gf)=\operatorname{tr}(fg)$ for maps
 $f:V\to W$ and $g:W\to V$, and prove
 \[
@@ -148,8 +139,8 @@ $f:V\to W$ and $g:W\to V$, and prove
 \qquad
 \dim(V\otimes W)=\dim V\,\dim W.
 \]
-Explain why the scalar $\dim V\in k$ alone need not distinguish vector-space
-dimensions when $k$ has positive characteristic.
+Carry out these proofs using evaluation, coevaluation, symmetry, and their
+universal properties, without choosing coordinates.
 \end{exercise}
 
 \begin{exercise}[Duality and multilinearity]
@@ -170,10 +161,13 @@ T(V)=\bigoplus_{r\geq0}V^{\otimes r},
 \qquad
 \Lambda V=T(V)/\langle v\otimes v:v\in V\rangle;
 \]
-write $\Lambda^rV$ for the degree-$r$ component. If $V$ has a basis of
-$n$ vectors, its \emph{determinant line} is $\det(V)=\Lambda^nV$. For
-$T\in\End(V)$, the induced map $\Lambda^nT$ is multiplication by a scalar,
-the \emph{determinant} $\det(T)$. The \emph{characteristic polynomial} is
+write $\Lambda^rV$ for the degree-$r$ component. For finite-dimensional
+$V$, define its \emph{rank} to be the unique integer $n\geq0$ such that
+$\Lambda^nV\ne0$ and $\Lambda^{n+1}V=0$; the exercise below proves that
+this integer exists and that $\Lambda^nV$ is one-dimensional. Its
+\emph{determinant line} is $\det(V)=\Lambda^nV$. For $T\in\End(V)$, the
+induced map $\Lambda^nT$ is multiplication by a scalar, the
+\emph{determinant} $\det(T)$. The \emph{characteristic polynomial} is
 \[
 \chi_T(t)=\det(t\id_V-T).
 \]
@@ -183,43 +177,19 @@ multiplicity}.
 \end{definition}
 
 \begin{exercise}[Top exterior powers and determinant identities]
-For a basis $e_1,\ldots,e_n$, prove that
-$e_1\wedge\cdots\wedge e_n$ spans $\Lambda^nV$, that this space is
+Using only the universal property of alternating maps and the duality maps
+of $V$, prove that the rank $n$ exists, that $\Lambda^nV$ is
 one-dimensional, and that $\Lambda^rV=0$ for $r>n$. Prove
 \[
 \det(ST)=\det(S)\det(T),\qquad
 \det(T\oplus R)=\det(T)\det(R).
 \]
+Relate the scalar dimension to rank by
+$\dim V=(\operatorname{rank}V)1_k$ and explain why the scalar dimension alone
+need not distinguish ranks in positive characteristic.
 For $V=\R^n$, identify $|\det T|$ with the volume-scaling factor and the sign
 with orientation. Deduce the change-of-variables rule for parallelepipeds
 and Cramer's rule.
-\end{exercise}
-
-\begin{definition}[Generalized eigenspaces and Jordan blocks]
-For an eigenvalue $\lambda$ of an endomorphism of a finite-dimensional
-space, its \emph{generalized eigenspace} is
-\[
-G_\lambda=\ker(T-\lambda\id)^N
-\]
-for any sufficiently large $N$. A \emph{Jordan block} $J_m(\lambda)$ has
-$\lambda$ on its diagonal, $1$ on its superdiagonal, and zero elsewhere.
-The characteristic polynomial \emph{splits} over $k$ if it is a product of
-linear factors in $k[t]$.
-\end{definition}
-
-\begin{exercise}[Cayley--Hamilton and Jordan normal form]
-Prove the Cayley--Hamilton theorem $\chi_T(T)=0$. If $\chi_T$ splits, prove
-\[
-V=\bigoplus_\lambda G_\lambda
-\]
-and construct a basis in which $T$ is a direct sum of Jordan blocks. Deduce
-that geometric multiplicity is at most algebraic multiplicity and that
-\[
-\operatorname{tr}(T)=\sum_\lambda m_\lambda\lambda,
-\qquad
-\det(T)=\prod_\lambda\lambda^{m_\lambda},
-\]
-where $m_\lambda$ is algebraic multiplicity.
 \end{exercise}
 
 \begin{definition}[Inner products and orthogonality]
@@ -255,32 +225,47 @@ $\langle v,Av\rangle\geq0$ for every $v$. A scalar $\lambda$ is an
 $\spec(A)$ denotes the set of eigenvalues of $A$ in the scalar field.
 \end{definition}
 
-\begin{definition}[Spectral decomposition]
-A \emph{spectral decomposition} of an endomorphism $A$ is an expression
+\begin{definition}[Complete commuting spectral projections]
+A family $(P_\lambda)$ of commuting orthogonal projections is
+\emph{complete and mutually orthogonal} if
 \[
-A=\sum_{\lambda\in\spec(A)}\lambda P_\lambda,
-\qquad P_\lambda P_\mu=\delta_{\lambda\mu}P_\lambda,
-\qquad \sum_\lambda P_\lambda=\id,
+P_\lambda P_\mu=\delta_{\lambda\mu}P_\lambda,
+\qquad \sum_\lambda P_\lambda=\id.
 \]
-with orthogonal projections $P_\lambda$.
+A \emph{spectral decomposition} of $A$ is such a family satisfying
+\[
+A=\sum_{\lambda\in\spec(A)}\lambda P_\lambda.
+\]
 \end{definition}
 
 \begin{exercise}[Finite-dimensional spectral theorem]
 Prove that adjoints exist uniquely. Prove that a complex endomorphism is
-unitarily diagonalizable if and only if it is normal. Deduce spectral
-decompositions for self-adjoint, unitary, and normal operators, including the
-reality of self-adjoint spectra and the unit modulus of unitary spectra.
+normal if and only if it admits a complete family of mutually orthogonal
+commuting spectral projections. Deduce the reality of self-adjoint spectra,
+the unit modulus of unitary spectra, and nonnegative spectra for positive
+operators.
 Prove that every positive operator $A$ has a unique positive square root
-$A^{1/2}$. For a map $T:V\to W$ between finite-dimensional inner-product
-spaces, diagonalize $T^*T$, construct $|T|=(T^*T)^{1/2}$, and derive the
-singular-value decomposition $T=U\Sigma V^*$ in orthonormal bases.
+$A^{1/2}$ by applying the square-root function to its spectral projections.
+For a map $T:V\to W$ between finite-dimensional inner-product spaces, let
+$(Q_s)$ be the complete spectral projections of
+$|T|=(T^*T)^{1/2}$. For each $s>0$, construct an isometric isomorphism
+$U_s:Q_sV\to T(Q_sV)$ satisfying $TQ_s=sU_sQ_s$, and obtain the
+coordinate-free singular-value decomposition
+\[
+T=\sum_{s>0}sU_sQ_s.
+\]
 \end{exercise}
 
-\begin{exercise}[Diagonalization and invariant subspaces]
-For an endomorphism with split characteristic polynomial, prove that it is
-diagonalizable if and only if the space is the direct sum of its eigenspaces.
-Show that normality removes nontrivial Jordan blocks. Prove that commuting
-normal endomorphisms admit a common orthogonal spectral decomposition.
+\begin{exercise}[Commuting normal operators]
+Prove that every spectral projection of a normal operator is a polynomial in
+that operator and its adjoint. For a finite commuting family of normal
+operators, construct a single complete family of mutually orthogonal
+commuting projections $(P_\alpha)$ and scalars $\lambda_j(\alpha)$ such that
+\[
+A_j=\sum_\alpha\lambda_j(\alpha)P_\alpha
+\]
+for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
+spectral subspaces without choosing coordinates.
 \end{exercise}
 
 \section{Oscillation and Fourier Analysis}
@@ -304,24 +289,28 @@ $E=\frac12m\dot q^2+\frac12kq^2$, determine the period, and deduce from the
 measured period of a small-amplitude mass--spring system the ratio $k/m$.
 \end{exercise}
 
-\begin{exercise}[Critical damping is a Jordan block]
-For $m,b,\kappa>0$, rewrite
-$m\ddot x+b\dot x+\kappa x=0$ as first-order evolution on
-$(x,\dot x)$. Use its characteristic polynomial and Jordan form to solve the
-equation in the underdamped, overdamped, and critically damped regimes. Show
-that critical damping is exactly $b^2=4m\kappa$ and that its nontrivial
-Jordan block produces the solution
-$t e^{-bt/(2m)}$. Among $b^2\geq4m\kappa$, show that the critical value
+\begin{exercise}[Critical damping and a repeated root]
+For $m,b,\kappa>0$, apply the exponential ansatz to
+$m\ddot x+b\dot x+\kappa x=0$ and solve the equation in the underdamped,
+overdamped, and critically damped regimes. Obtain the second critical
+solution $t e^{-bt/(2m)}$ directly from the repeated-root limit. Show that
+critical damping is exactly $b^2=4m\kappa$. Among
+$b^2\geq4m\kappa$, show that the critical value
 maximizes the magnitude of the slow decay rate, explaining the fastest
 asymptotic return without oscillatory eigenvalues.
 \end{exercise}
 
 \begin{exercise}[Coupled oscillators and normal modes]
-Transform $M\ddot q+Kq=0$ by $M^{1/2}$. Apply the spectral theorem to prove
-the existence of an $M$-orthogonal basis of normal modes and derive their
-frequencies. For a fixed-end chain of $N$ equal masses joined by equal
-springs, compute the frequencies and mode shapes and identify the modes seen
-in a Chladni-type standing-wave measurement.
+Set $x=M^{1/2}q$ and
+$L=M^{-1/2}KM^{-1/2}$. Let $(P_\lambda)$ be the complete commuting family of
+mutually orthogonal spectral projections of $L$. Prove that each
+$x_\lambda=P_\lambda x$ satisfies
+$\ddot x_\lambda+\lambda x_\lambda=0$, and transport the $P_\lambda$ back to
+a complete family of $M$-orthogonal projections on the original
+configuration space. Derive the normal-mode frequencies. For a fixed-end
+chain of $N$ equal masses joined by equal springs, compute these projections
+and their mode shapes and identify the components seen in a Chladni-type
+standing-wave measurement.
 \end{exercise}
 
 \begin{definition}[Vibrating string]
@@ -550,8 +539,9 @@ values.
 On $L^2([0,L])$, let $P_\theta=-i\hbar\,d/dx$ on the absolutely continuous
 functions with derivative in $L^2$ and boundary condition
 $\psi(L)=e^{i\theta}\psi(0)$. Use integration by parts and the adjoint domain
-to prove that $P_\theta$ is self-adjoint. Find its orthonormal eigenbasis and
-show
+to prove that $P_\theta$ is self-adjoint. Determine its mutually orthogonal
+spectral projections $(E_n)_{n\in\Z}$, prove that they sum strongly to the
+identity, and show that their spectral values are
 \[
 p_n=\frac{\hbar}{L}(2\pi n+\theta),\qquad n\in\Z.
 \]
@@ -672,8 +662,8 @@ define
 
 \begin{exercise}[Character orthogonality and decomposition]
 Use averaging of linear maps and Schur's lemma to prove orthonormality of the
-irreducible characters. Prove that they form an orthonormal basis of the
-class functions and that
+irreducible characters. Prove that they form a complete orthonormal family
+in the class functions and that
 $\langle\chi_U,\chi_V\rangle_G=\dim\Hom_G(U,V)$. Deduce the multiplicity
 formula and the character table constraints.
 \end{exercise}
@@ -695,7 +685,8 @@ A \emph{topology} on $X$ is a family of subsets containing $\varnothing,X$
 and closed under arbitrary unions and finite intersections. A map is
 \emph{continuous} when inverse images of open sets are open. A space is
 \emph{Hausdorff} when distinct points have disjoint neighborhoods,
-\emph{second countable} when its topology has a countable basis, and
+\emph{second countable} when its topology is generated by a countable family
+of open sets, and
 \emph{compact} when every open cover has a finite subcover.
 \end{definition}
 
@@ -1201,11 +1192,17 @@ regime.
 \section{Quantum and Algebraic States}
 
 \begin{definition}[Quantum states and observables]
+A positive operator $S$ has the coordinate-free trace
+\[
+\Tr S=\sup_P\operatorname{tr}
+ \left((PSP)|_{PH}\right),
+\]
+where $P$ ranges over orthogonal projections with finite-dimensional image.
 A bounded operator $T$ is \emph{trace class} when
-$\sum_n\langle e_n,|T|e_n\rangle<\infty$ for an orthonormal basis, where
-$|T|=(T^*T)^{1/2}$; this condition is basis-independent. For positive $T$,
-the sum defines $\Tr T$. A \emph{density operator} is positive and trace
-class with $\Tr\rho=1$. An \emph{observable} is a self-adjoint operator $A$ with
+$\Tr|T|<\infty$, where $|T|=(T^*T)^{1/2}$; its trace is obtained by linearity
+from the positive and negative parts of its real and imaginary parts. A
+\emph{density operator} is positive and trace class with $\Tr\rho=1$. An
+\emph{observable} is a self-adjoint operator $A$ with
 spectral measure $E_A$. The \emph{Born probability} of an event $B$ is
 $\Tr(\rho E_A(B))$. A closed-system \emph{unitary evolution} is
 $\rho(t)=U_t\rho(0)U_t^*$, where $(U_t)_{t\in\R}$ is a strongly continuous
@@ -1242,8 +1239,9 @@ Heisenberg equation for observables.
 \end{exercise}
 
 \begin{exercise}[Stern--Gerlach projections and the Born rule]
-For a spin-$1/2$ system and unit vector $n$, diagonalize
-$S_n=(\hbar/2)n\cdot\sigma$ and obtain
+For a spin-$1/2$ system and unit vector $n$, use
+$(n\cdot\sigma)^2=\id$ to construct the complete spectral projections of
+$S_n=(\hbar/2)n\cdot\sigma$ as
 $P_\pm(n)=(1\pm n\cdot\sigma)/2$. For
 $\rho=(1+r\cdot\sigma)/2$, derive
 $p_\pm(n)=\Tr(\rho P_\pm(n))=(1\pm r\cdot n)/2$. Model an inhomogeneous
@@ -1289,11 +1287,12 @@ $\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
 \end{definition}
 
 \begin{definition}[Von Neumann and entanglement entropy]
-For a density operator $\rho$ with eigenvalues $\lambda_i$, its
-\emph{von Neumann entropy} is
+For a density operator with discrete spectral resolution
+$\rho=\sum_{\lambda>0}\lambda P_\lambda$, its \emph{von Neumann entropy} is
 \[
 S(\rho)=-k_B\Tr(\rho\log\rho)
-       =-k_B\sum_i\lambda_i\log\lambda_i,
+       =-k_B\sum_{\lambda>0}
+          (\operatorname{rank}P_\lambda)\lambda\log\lambda,
 \]
 with $0\log0=0$; in infinite dimension the value may be $+\infty$. For a
 pure state $\rho=|\psi\rangle\langle\psi|$ on $H_A\otimes H_B$, its
@@ -1301,18 +1300,23 @@ pure state $\rho=|\psi\rangle\langle\psi|$ on $H_A\otimes H_B$, its
 \[
 S_A(\psi)=S(\Tr_B\rho).
 \]
-The Schmidt decomposition will show that this also equals
+The Schmidt spectral data will show that this also equals
 $S(\Tr_A\rho)$.
 \end{definition}
 
-\begin{exercise}[Schmidt decomposition and entanglement]
-Apply the singular-value decomposition to the coefficient matrix of a pure
-vector in a tensor product of finite-dimensional Hilbert spaces and prove the
-Schmidt decomposition. Prove that a pure state is separable
-exactly when its reduced state has rank one, and that the two reduced states
-have the same nonzero spectrum. If the Schmidt coefficients are $s_i$, derive
+\begin{exercise}[Schmidt projections and entanglement]
+For a pure vector $\psi\in H_A\otimes H_B$, apply the projection form of the
+singular-value decomposition to the contraction map
+$C_\psi:H_A^*\to H_B$. If $Q_s$ and $R_s$ are its domain and range
+projections, decompose $\psi$ into mutually orthogonal spectral blocks
+supported on $(Q_sH_A^*)^*\otimes R_sH_B$. Explain why a rank-one refinement
+within a block of multiplicity greater than one is not canonical. Prove that a pure
+state is separable exactly when its reduced state has rank one, and that the
+two reduced states have the same nonzero spectral values with multiplicities
+$\operatorname{rank}Q_s=\operatorname{rank}R_s$. Derive
 \[
-S_A(\psi)=-k_B\sum_i s_i^2\log s_i^2
+S_A(\psi)=-k_B\sum_{s>0}
+ (\operatorname{rank}Q_s)s^2\log s^2
 \]
 and prove that it vanishes exactly for separable pure states. Compute the
 reduced states and entanglement entropy of a Bell state.
@@ -1667,9 +1671,11 @@ For $0<\theta<\pi/4$, define
 \end{aligned}
 \]
 and let $\mathcal M,\mathcal N$ be the two projective measurement channels
-with bases $\{\phi,\phi^\perp\}$ and $\{\psi,\psi^\perp\}$. Use a singlet
-probe, retain the second qubit as an ancilla, and condition on the classical
-measurement outcome. Reduce the task to unambiguous discrimination of
+with rank-one projection families
+$\{P_\phi,P_{\phi^\perp}\}$ and
+$\{P_\psi,P_{\psi^\perp}\}$. Use a singlet probe, retain the second qubit as
+an ancilla, and condition on the classical measurement outcome. Reduce the
+task to unambiguous discrimination of
 $|\phi\rangle$ and $|\psi\rangle$ and prove
 \[
 P_I^{\mathrm{anc}}=\cos(2\theta),\qquad
