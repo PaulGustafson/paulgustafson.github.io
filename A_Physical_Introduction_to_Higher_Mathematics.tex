@@ -2032,24 +2032,12 @@ A \emph{DHR sector} of $\mathcal A$ is represented by a locally normal,
 transportable endomorphism $\rho$ of the quasilocal algebra that acts
 identically on $\mathcal A(I')$ for some interval $I$; transportability
 means that an equivalent representative can be localized in any interval.
-Composition is the tensor product; transporting two localized endomorphisms
-past one another gives their braiding. For a finite-index irreducible sector
+Composition is the tensor product. For a finite-index irreducible sector
 localized in $I$, its statistical dimension satisfies
 \[
 d(\rho)^2=[\mathcal A(I):\rho(\mathcal A(I))].
 \]
 \end{definition}
-
-\begin{supplied}[DHR and complete-rationality theorems]
-We take as supplied that charge transporters for localized finite-index DHR
-endomorphisms produce a unitary braiding. We also use the theorem that a
-split, strongly additive conformal net with finite $\mu$-index has finitely
-many irreducible sectors, nondegenerate braiding, and
-$\mu(\mathcal A)=\sum_i d(\rho_i)^2$; see
-\href{https://doi.org/10.1007/PL00005565}
-{Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
-\textbf{219} (2001)}.
-\end{supplied}
 
 \begin{exercise}[Critical Ising chain, Rydberg spectroscopy, and the Ising net]
 For $J,h>0$, consider the transverse-field Ising chain
@@ -2112,14 +2100,20 @@ with unitary nondegenerate braiding.
 
 \begin{exercise}[From Jones index to a modular category]
 Assume that $\mathcal A$ is completely rational: it is split and strongly
-additive, with finite $\mu$-index. Apply the supplied complete-rationality
-theorem to obtain finitely many irreducible DHR sectors $\rho_i$ with
-nondegenerate braiding and
+additive, with finite $\mu$-index. Assume that charge transporters for
+localized finite-index DHR endomorphisms produce a unitary braiding and that
+the complete-rationality theorem makes their category a unitary modular
+tensor category with finitely many irreducible sectors $\rho_i$ and
 \[
 \mu(\mathcal A)=\sum_i d(\rho_i)^2.
 \]
-Conclude that the sectors form a unitary modular tensor category. For the
-Ising net at $c=1/2$, take the sectors $1,\psi,\sigma$ with dimensions
+Identify composition with tensor product, conjugate endomorphisms with
+duals, and charge transporters with the braiding. Explain where
+nondegeneracy enters modularity. Use
+\href{https://doi.org/10.1007/PL00005565}
+{Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
+\textbf{219} (2001)}. For the Ising net at $c=1/2$, take the sectors
+$1,\psi,\sigma$ with dimensions
 $1,1,\sqrt2$ and fusion rules
 \[
 \psi^2=1,\qquad \psi\sigma=\sigma,\qquad
@@ -2159,20 +2153,16 @@ condition for $e^{iS_{CS}}$ to be gauge invariant. Prove that its critical
 points are flat connections.
 \end{exercise}
 
-\begin{supplied}[Chern--Simons quantization]
-We take as supplied the framed $SU(2)$ Chern--Simons quantum invariant defined
-by the Reshetikhin--Turaev construction. Its Wilson-loop invariant at integer
-level $k$ corresponds, after the standard framing normalization, to the
-colored Jones polynomial at $q=e^{2\pi i/(k+2)}$; the formal path integral
-predicts this correspondence but is not used as its definition.
-\end{supplied}
-
 \begin{exercise}[Wilson loops and Jones evaluations]
-Using the supplied correspondence, identify the representation label of a
-Wilson loop with the color of a Jones invariant. Compute the normalized
-expectations for the unknot, Hopf link, and trefoil from their Jones
-polynomials, and track the framing factor separately from the ambient-isotopy
-invariant.
+Assume that the framed $SU(2)$ Chern--Simons quantum invariant is defined by
+the Reshetikhin--Turaev construction and that, at integer level $k$, its
+Wilson-loop invariant corresponds after the standard framing normalization
+to the colored Jones polynomial at $q=e^{2\pi i/(k+2)}$. Treat the formal
+path integral only as a prediction of this correspondence. Identify the
+representation label of a Wilson loop with the color of a Jones invariant.
+Compute the normalized expectations for the unknot, Hopf link, and trefoil
+from their Jones polynomials, and track the framing factor separately from
+the ambient-isotopy invariant.
 \end{exercise}
 
 \begin{definition}[Bordisms and topological field theories]
