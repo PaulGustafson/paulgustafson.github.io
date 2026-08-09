@@ -73,10 +73,17 @@ of cosets $v+U$. The \emph{direct sum} $V\oplus W$ is $V\times W$ with
 componentwise operations.
 \end{definition}
 
-\begin{exercise}[Universal linear constructions]
-Prove that $\ker T$ and $\im T$ are subspaces. State and prove the universal
-properties of $V/U$ and $V\oplus W$. Deduce
-$V/\ker T\cong\im T$ and the three isomorphism theorems.
+\begin{exercise}[Kernels, images, and quotients]
+Prove that $\ker T$ and $\im T$ are subspaces. Prove that a linear map
+$f:V\to X$ factors uniquely through $V/U$ exactly when $U\subseteq\ker f$.
+Deduce $V/\ker T\cong\im T$.
+\end{exercise}
+
+\begin{exercise}[Direct sums and isomorphism theorems]
+Prove the product and coproduct universal properties of $V\oplus W$. For
+subspaces $A,B\subseteq V$, prove
+$A/(A\cap B)\cong(A+B)/B$. Deduce the remaining vector-space isomorphism
+theorems by applying this identity to nested subspaces.
 \end{exercise}
 
 \begin{definition}[Duals and pairings]
@@ -132,7 +139,8 @@ A linear map is \emph{orthogonal} over $\R$, or \emph{unitary} over $\C$, if
 it preserves the inner product. An endomorphism $A$ is \emph{self-adjoint} if
 $A=A^*$ and \emph{normal} if $AA^*=A^*A$. A scalar $\lambda$ is an
 \emph{eigenvalue} if $\ker(A-\lambda\id)\ne0$; a subspace $U$ is
-\emph{invariant} if $A(U)\subseteq U$.
+\emph{invariant} if $A(U)\subseteq U$. In finite dimensions,
+$\spec(A)$ denotes the set of eigenvalues of $A$ in the scalar field.
 \end{definition}
 
 \begin{definition}[Spectral decomposition]
@@ -168,7 +176,9 @@ $V$ is an equation
 M\ddot q+Kq=0,
 \]
 where $M$ is positive definite and $K$ is self-adjoint and positive
-semidefinite. A \emph{normal mode} is a nonzero $v\in V$ for which
+semidefinite. Here positive definite means that $M$ is self-adjoint and
+$\langle Mv,v\rangle>0$ for $v\ne0$. A \emph{normal mode} is a nonzero
+$v\in V$ for which
 $q(t)=a(t)v$ solves the equation for some nonconstant $a$.
 \end{definition}
 
@@ -203,6 +213,15 @@ $f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
 $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
 
+\begin{definition}[Measure spaces and simple functions]
+A \emph{measure space} is a triple $(X,\Sigma,\mu)$ in which $\Sigma$ is a
+$\sigma$-algebra and $\mu:\Sigma\to[0,\infty]$ is countably additive on
+disjoint families, with $\mu(\varnothing)=0$. A function is \emph{measurable}
+when inverse images of Borel sets are in $\Sigma$. A nonnegative
+\emph{simple function} is a finite sum $\sum_j a_j1_{E_j}$ with $a_j\geq0$
+and $E_j\in\Sigma$.
+\end{definition}
+
 \begin{definition}[Fourier function spaces]
 For $1\leq p<\infty$, the space $L^p(X,\mu)$ consists of measurable
 functions modulo equality almost everywhere with
@@ -216,15 +235,27 @@ $\langle f,g\rangle=(2\pi)^{-1}\int_0^{2\pi}\overline{f(x)}g(x)\,dx$.
 The exercises below establish the analytic properties used in this section.
 \end{definition}
 
-\begin{exercise}[Measure and integration]
-Construct the integral from nonnegative simple functions. Prove monotone
-convergence, Fatou's lemma, dominated convergence, and Tonelli--Fubini.
+\begin{exercise}[Integration and monotone convergence]
+Define the integral of a nonnegative simple function and then of an arbitrary
+nonnegative measurable function by monotone approximation. Prove monotone
+convergence and Fatou's lemma.
 \end{exercise}
 
-\begin{exercise}[$L^p$ analysis]
-Prove H\"older's and Minkowski's inequalities, completeness of $L^p$, and
-density of $C_c(\R^n)$ for $1\leq p<\infty$. Deduce that the inner-product
-norm makes $L^2$ complete.
+\begin{exercise}[Dominated convergence and product measures]
+Construct the integral of an integrable complex function from its positive
+and negative real and imaginary parts. Prove dominated convergence. Construct
+product measure for $\sigma$-finite spaces and prove Tonelli's and Fubini's
+theorems.
+\end{exercise}
+
+\begin{exercise}[$L^p$ inequalities]
+Prove H\"older's and Minkowski's inequalities for $1\leq p<\infty$.
+\end{exercise}
+
+\begin{exercise}[$L^p$ completeness and approximation]
+Prove completeness of $L^p$ for $1\leq p<\infty$. For Lebesgue measure,
+prove density first of simple functions with finite-measure support and then
+of $C_c(\R^n)$. Deduce that the inner-product norm makes $L^2$ complete.
 \end{exercise}
 
 \begin{definition}[Orthogonal expansions]
@@ -236,27 +267,40 @@ $f\sim\sum_{n\in\Z}\widehat f(n)e^{inx}$, where
 $\widehat f(n)=(2\pi)^{-1}\int_0^{2\pi}f(x)e^{-inx}\,dx$.
 \end{definition}
 
-\begin{exercise}[Bessel, completeness, and Parseval]
+\begin{exercise}[Bessel and Parseval criteria]
 Prove Bessel's inequality for every finite orthogonal family. Prove that an
 orthonormal family $(e_n)$ is complete precisely when
 \[
 \|f\|^2=\sum_n|\langle e_n,f\rangle|^2
 \]
-for every $f$. Prove completeness of $(e^{inx})_{n\in\Z}$ in
-$L^2(\T)$ and obtain Parseval's identity and $L^2$ convergence of Fourier
-series.
+for every $f$.
 \end{exercise}
 
-\begin{exercise}[Spectral evolution on an interval]
-Expand suitable fixed-end initial data in string modes and derive the unique
-solution of the wave equation. Expand suitable initial temperature data in
-the same spatial eigenfunctions and derive the fixed-end solution of
-$\partial_tu=\kappa\partial_x^2u$. Prove conservation of wave energy and
-monotone decay of heat energy directly from the spectral coefficients.
+\begin{exercise}[Completeness of Fourier modes]
+Construct the Fej\'er kernels, prove that they form an approximate identity,
+and use convolution with them to prove completeness of
+$(e^{inx})_{n\in\Z}$ in $L^2(\T)$. Deduce Parseval's identity and $L^2$
+convergence of Fourier series.
 \end{exercise}
 
-\begin{definition}[Fourier transform and convolution]
-For $f,g\in C_c(\R^n)$, define the \emph{Fourier transform} and
+\begin{exercise}[Spectral evolution of a string]
+For smooth fixed-end initial displacement and velocity satisfying the
+endpoint compatibility conditions, expand the data in sine modes and derive
+the classical solution of the wave equation. Prove uniqueness and
+conservation of wave energy from the spectral coefficients.
+\end{exercise}
+
+\begin{exercise}[Spectral evolution of heat]
+For smooth fixed-end initial temperature, use the same sine modes to derive
+the heat-equation solution $\partial_tu=\kappa\partial_x^2u$. Prove
+uniqueness and monotone decay of $L^2$ energy from the spectral coefficients.
+\end{exercise}
+
+\begin{definition}[Schwartz functions, Fourier transform, and convolution]
+A \emph{Schwartz function} on $\R^n$ is a smooth function $f$ such that
+$\sup_x|x^\alpha\partial^\beta f(x)|<\infty$ for every pair of multi-indices
+$\alpha,\beta$. The Schwartz space is denoted $\mathcal S(\R^n)$. For
+$f,g\in C_c(\R^n)$, define the \emph{Fourier transform} and
 \emph{convolution} by
 \[
 \mathcal Ff(\xi)=(2\pi)^{-n/2}\int_{\R^n}f(x)e^{-ix\cdot\xi}\,dx,
@@ -268,11 +312,15 @@ $\|f*g\|_1\leq\|f\|_1\|g\|_1$ extend these operations to the $L^1$
 completion.
 \end{definition}
 
-\begin{exercise}[Fourier inversion, convolution, and Plancherel]
+\begin{exercise}[Fourier inversion and convolution]
 For Schwartz functions, prove Fourier inversion and
-$\mathcal F(f*g)=(2\pi)^{n/2}(\mathcal Ff)(\mathcal Fg)$. Prove that
-$\mathcal F$ preserves the $L^2$ inner product and extends uniquely to a
-unitary operator on $L^2(\R^n)$. Deduce the Plancherel theorem.
+$\mathcal F(f*g)=(2\pi)^{n/2}(\mathcal Ff)(\mathcal Fg)$.
+\end{exercise}
+
+\begin{exercise}[Plancherel theorem]
+Prove on $\mathcal S(\R^n)$ that $\mathcal F$ preserves the $L^2$ inner
+product. Prove that $\mathcal S(\R^n)$ is dense in $L^2(\R^n)$ and extend
+$\mathcal F$ uniquely to a unitary operator and deduce Plancherel's identity.
 \end{exercise}
 
 \begin{exercise}[Wave and heat propagators]
@@ -297,12 +345,17 @@ optical diffraction.
 \section{Hilbert Spaces and Spectral Operators}
 
 \begin{definition}[Hilbert spaces and bounded operators]
-A \emph{Hilbert space} is a complete inner-product space. A linear map
+In this section Hilbert spaces are complex. A \emph{Hilbert space} is a
+complete inner-product space. A linear map
 $T:H\to K$ is \emph{bounded} if
-$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Its adjoint is the unique bounded
+$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Write $B(H,K)$ for the space of
+bounded maps and $B(H)=B(H,H)$. The adjoint of $T$ is the unique bounded
 map satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. Projections,
 self-adjoint operators, and unitary operators satisfy respectively
-$P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$.
+$P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$. For $T\in B(H)$, the
+\emph{resolvent set} consists of $\lambda\in\C$ for which
+$T-\lambda\id$ has a bounded inverse; its complement is the
+\emph{spectrum} $\spec(T)$.
 \end{definition}
 
 \begin{exercise}[Hilbert-space foundations]
@@ -331,18 +384,38 @@ and projection spectra.
 A \emph{densely defined operator} $T$ has a dense linear domain
 $\operatorname{Dom}(T)\subset H$. It is \emph{closed} when its graph is
 closed in $H\oplus H$; its graph norm is
-$\|x\|_T^2=\|x\|^2+\|Tx\|^2$. The adjoint $T^*$ is defined on those $y$ for
-which $x\mapsto\langle Tx,y\rangle$ is bounded on
-$\operatorname{Dom}(T)$. The operator is \emph{symmetric} when
+$\|x\|_T^2=\|x\|^2+\|Tx\|^2$. The domain of $T^*$ consists of those $y$
+for which $x\mapsto\langle Tx,y\rangle$ is bounded in the Hilbert norm on
+$\operatorname{Dom}(T)$; for such $y$, the Riesz theorem gives the unique
+$T^*y$ satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. The operator
+is \emph{symmetric} when
 $\langle Tx,y\rangle=\langle x,Ty\rangle$ on its domain and
 \emph{self-adjoint} when $T=T^*$, including equality of domains.
 \end{definition}
 
-\begin{exercise}[Sobolev domains on an interval]
-Show that $H^1([0,L])=\{f\in L^2:f'\in L^2\}$, with $f'$ interpreted weakly,
-is complete. Prove that every class has an absolutely continuous
-representative, endpoint evaluation is continuous, and integration by parts
-holds. Identify $H_0^1$ as the closure of $C_c^\infty(0,L)$.
+\begin{definition}[Weak derivatives and first Sobolev spaces]
+A function $g\in L^1_{\mathrm{loc}}(0,L)$ is the \emph{weak derivative} of
+$f\in L^1_{\mathrm{loc}}(0,L)$ when
+\[
+\int_0^L f\phi'\,dx=-\int_0^L g\phi\,dx
+\qquad(\phi\in C_c^\infty(0,L)).
+\]
+The space $H^1(0,L)$ consists of the $f\in L^2(0,L)$ having weak derivative
+$f'\in L^2(0,L)$, with norm
+$\|f\|_{H^1}^2=\|f\|_2^2+\|f'\|_2^2$.
+\end{definition}
+
+\begin{exercise}[Completeness and representatives of $H^1$]
+Prove that $H^1(0,L)$ is complete. Prove that every class has a unique
+absolutely continuous representative and that its classical derivative
+agrees almost everywhere with its weak derivative.
+\end{exercise}
+
+\begin{exercise}[Traces and $H_0^1$]
+Prove that endpoint evaluation on the absolutely continuous representative
+is continuous, establish integration by parts, and identify $H_0^1(0,L)$ as
+the closure of $C_c^\infty(0,L)$ and as the subspace with zero endpoint
+values.
 \end{exercise}
 
 \begin{exercise}[Self-adjoint momentum and boundary holonomy]
@@ -359,7 +432,7 @@ through a ring, and explain why changing the domain changes the measured
 spectrum.
 \end{exercise}
 
-\begin{exercise}[Unbounded spectral theorem]
+\begin{exercise}[Cayley transform and spectral measure]
 Use the Cayley transform and the bounded spectral theorem to prove that every
 self-adjoint $H$ has a unique projection-valued measure with
 \[
@@ -368,7 +441,17 @@ H=\int_\R\lambda\,dE_H(\lambda),\qquad
 \left\{\psi:\int_\R\lambda^2\,d\langle\psi,E_H(\lambda)\psi\rangle<\infty
 \right\}.
 \]
-Construct the measurable functional calculus on its natural domains.
+\end{exercise}
+
+\begin{exercise}[Measurable functional calculus]
+For a self-adjoint $H$ with spectral measure $E_H$, define $f(H)$ first for
+bounded measurable $f$ and then on the domain
+\[
+\left\{\psi:\int_\R|f(\lambda)|^2\,
+ d\langle\psi,E_H(\lambda)\psi\rangle<\infty\right\}.
+\]
+Prove the algebraic, adjoint, and composition rules wherever the natural
+domains make them meaningful.
 \end{exercise}
 
 \begin{exercise}[Stone's theorem]
@@ -477,7 +560,39 @@ to the displacement space of a molecule whose equilibrium configuration is
 preserved by $G$.
 \end{exercise}
 
-\section{Continuous Symmetry and Angular Momentum}
+\section{Smooth Manifolds and Continuous Symmetry}
+
+\begin{definition}[Topological spaces]
+A \emph{topology} on $X$ is a family of subsets containing $\varnothing,X$
+and closed under arbitrary unions and finite intersections. A map is
+\emph{continuous} when inverse images of open sets are open. A space is
+\emph{Hausdorff} when distinct points have disjoint neighborhoods,
+\emph{second countable} when its topology has a countable basis, and
+\emph{compact} when every open cover has a finite subcover.
+\end{definition}
+
+\begin{definition}[Topological and smooth manifolds]
+A \emph{topological manifold} of dimension $n$ is a Hausdorff,
+second-countable space locally homeomorphic to $\R^n$. A \emph{smooth
+manifold} is a topological manifold with a maximal atlas whose transition
+maps are smooth. A map of smooth manifolds is \emph{smooth} when its chart
+representatives are smooth.
+\end{definition}
+
+\begin{definition}[Tangent and cotangent spaces]
+The \emph{tangent space} $T_pM$ is the vector space of derivations
+$v:C^\infty(M)\to\R$ at $p$, satisfying
+$v(fg)=f(p)v(g)+g(p)v(f)$. The \emph{cotangent space} is
+$T_p^*M=(T_pM)^*$. The differential of $F:M\to N$ is
+$dF_p(v)(f)=v(f\circ F)$.
+\end{definition}
+
+\begin{exercise}[Intrinsic tangent vectors]
+Prove that derivations at $p$, equivalence classes of smooth curves through
+$p$, and the usual coordinate tangent vectors are naturally isomorphic.
+Prove the chain rule $d(G\circ F)_p=dG_{F(p)}\circ dF_p$ and compute tangent
+spaces of level sets $F^{-1}(q)$ at points where $dF$ is surjective.
+\end{exercise}
 
 \begin{definition}[Lie groups and Lie algebras]
 A \emph{Lie group} is a smooth manifold $G$ whose multiplication and
@@ -496,7 +611,8 @@ nontrivial terms of the Baker--Campbell--Hausdorff formula.
 \end{exercise}
 
 \begin{definition}[Infinitesimal representations]
-For a smooth representation $\rho:G\to\operatorname{GL}(V)$, its
+For a finite-dimensional smooth representation
+$\rho:G\to\operatorname{GL}(V)$, its
 \emph{infinitesimal representation} is
 \[
 d\rho:\mathfrak g\to\End(V),\qquad
@@ -534,7 +650,7 @@ a $2\pi$ rotation in integer- and half-integer-spin representations.
 
 \begin{exercise}[Irreducible representations of $SU(2)$]
 Using raising and lowering operators, prove that every finite-dimensional
-irreducible complex representation is indexed by
+irreducible smooth complex representation is indexed by
 $j\in\{0,\frac12,1,\ldots\}$, has dimension $2j+1$, and has
 $J_3$-eigenvalues $m\hbar$ for $m=-j,-j+1,\ldots,j$. Compute the spectrum of
 $J^2=J_1^2+J_2^2+J_3^2$.
@@ -552,18 +668,21 @@ $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
 
 \begin{definition}[Quantum symmetries]
-For a Hilbert space $H$ and self-adjoint Hamiltonian $\mathcal H$, a
-\emph{unitary symmetry} is a unitary $U$ with
-$U\operatorname{Dom}(\mathcal H)=\operatorname{Dom}(\mathcal H)$ and
-$\mathcal HU\psi=U\mathcal H\psi$ on that domain. A \emph{quantum number}
-is an eigenvalue of a self-adjoint operator commuting with $\mathcal H$ in
-this sense. An operator $A$ has \emph{symmetry type} $W$ when its components
-define an intertwiner from $W$ to $\End(H)$ under conjugation.
+Let a compact group $G$ act continuously and unitarily by $U:G\to U(H)$ on
+a Hilbert space with self-adjoint Hamiltonian $\mathcal H$. It is a
+\emph{symmetry group} when
+$U_g\operatorname{Dom}(\mathcal H)=\operatorname{Dom}(\mathcal H)$ and
+$\mathcal HU_g\psi=U_g\mathcal H\psi$ for every $g\in G$. A
+\emph{quantum number} is an eigenvalue of a self-adjoint operator whose
+spectral projections commute with those of $\mathcal H$. A bounded operator
+multiplet $A$ has \emph{symmetry type} $W$ when its components define an
+intertwiner from $W$ to $B(H)$ under conjugation by $G$.
 \end{definition}
 
 \begin{exercise}[Symmetry, degeneracy, and selection rules]
-Prove that every eigenspace of $\mathcal H$ is symmetry-invariant and
-decomposes into irreducibles. Deduce symmetry-forced degeneracies. Prove that
+Prove that every finite-dimensional eigenspace of $\mathcal H$ is
+symmetry-invariant and decomposes into irreducible $G$-representations.
+Deduce symmetry-forced degeneracies. Prove that
 a transition matrix element $\langle f,Ai\rangle$ can be nonzero only if the
 trivial representation occurs in
 $V_f^*\otimes W\otimes V_i$, and derive the angular-momentum rules for an
@@ -590,30 +709,7 @@ fundamental vibrational bands.
 
 \part{Fields}
 
-\section{Manifolds, Forms, and Metrics}
-
-\begin{definition}[Topological and smooth manifolds]
-A \emph{topological manifold} of dimension $n$ is a Hausdorff,
-second-countable space locally homeomorphic to $\R^n$. A \emph{smooth
-manifold} is a topological manifold with a maximal atlas whose transition
-maps are smooth. A map of smooth manifolds is \emph{smooth} when its chart
-representatives are smooth.
-\end{definition}
-
-\begin{definition}[Tangent and cotangent spaces]
-The \emph{tangent space} $T_pM$ is the vector space of derivations
-$v:C^\infty(M)\to\R$ at $p$, satisfying
-$v(fg)=f(p)v(g)+g(p)v(f)$. The \emph{cotangent space} is
-$T_p^*M=(T_pM)^*$. The differential of $F:M\to N$ is
-$dF_p(v)(f)=v(f\circ F)$.
-\end{definition}
-
-\begin{exercise}[Intrinsic tangent vectors]
-Prove that derivations at $p$, equivalence classes of smooth curves through
-$p$, and the usual coordinate tangent vectors are naturally isomorphic.
-Prove the chain rule $d(G\circ F)_p=dG_{F(p)}\circ dF_p$ and compute tangent
-spaces of regular level sets.
-\end{exercise}
+\section{Vector Fields, Forms, and Metrics}
 
 \begin{definition}[Vector fields and flows]
 A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
@@ -683,14 +779,15 @@ orientation define a volume form $\vol_g$.
 \begin{exercise}[Metric volume and proper time]
 Construct $\vol_g$ intrinsically and derive its coordinate expression.
 Prove invariance of length and proper time under reparametrization. In
-Minkowski spacetime, maximize proper time among inertial paths with fixed
-endpoints and derive special-relativistic time dilation.
+Minkowski spacetime, prove that the inertial path maximizes proper time among
+piecewise smooth future-directed timelike paths with fixed timelike-separated
+endpoints, and derive special-relativistic time dilation.
 \end{exercise}
 
 \section{Connections, Curvature, and Field Equations}
 
 \begin{definition}[Connections and geodesics]
-A \emph{connection} on $TM$ is a map
+A \emph{connection} on $TM$ is an $\R$-bilinear map
 $\nabla:\Gamma(TM)\times\Gamma(TM)\to\Gamma(TM)$, linear over smooth
 functions in the first variable and satisfying
 $\nabla_X(fY)=X(f)Y+f\nabla_XY$. Its torsion is
@@ -830,10 +927,15 @@ masses and derive the strain measured by an orthogonal-arm interferometer.
 \begin{exercise}[Gravitational-wave detection]
 For a quasi-circular binary, derive the leading quadrupole waveform and the
 chirp relation between frequency, frequency derivative, and chirp mass.
-Using public values for GW150914, infer the chirp mass and order of magnitude
-of the strain. Compare these predictions with the measured coincident LIGO
-strain, limiting the conclusion to agreement of the waveform with general
-relativity in the observed regime.
+For GW150914, use the reported detector-frame component-mass medians
+$36M_\odot$ and $29M_\odot$ to infer the chirp mass. Compare with the
+model-independent reconstruction $\mathcal M\simeq30M_\odot$ and with the
+reported peak strain $h\simeq10^{-21}$ near $150\,\mathrm{Hz}$ in
+\href{https://doi.org/10.1103/PhysRevD.93.122004}
+{Abbott et al., \emph{Physical Review D} \textbf{93} (2016)} and the
+\href{https://dcc.ligo.org/public/0123/G1600220/010/GW150914-FactSheet.pdf}
+{LIGO GW150914 fact sheet}. Limit the conclusion to agreement of the observed
+waveform with general relativity in that regime.
 \end{exercise}
 
 \part{States}
@@ -858,7 +960,7 @@ $\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}. The
 Prove that the canonical form on $T^*Q$ is symplectic. In canonical
 coordinates, derive Hamilton's equations. Prove antisymmetry, the Leibniz
 rule, and the Jacobi identity for the Poisson bracket, and prove
-$\dot f=\{H,f\}+\partial_tf$ along Hamiltonian flow.
+$\dot f=\{f,H\}+\partial_tf$ along Hamiltonian flow.
 \end{exercise}
 
 \begin{definition}[Symplectic actions and momentum maps]
@@ -972,10 +1074,11 @@ Groenewold--van Hove obstruction to quantizing all observables by this rule.
 \begin{exercise}[Quantized harmonic oscillator]
 \label{ex:quantum-oscillator}
 For $H=P^2/(2m)+m\omega^2Q^2/2$, define creation and annihilation operators
-and prove $[a,a^*]=1$ and
+on the Schwartz core $\mathcal S(\R)$ and prove there that $[a,a^*]=1$ and
 $H=\hbar\omega(a^*a+1/2)$. Construct the eigenstates with
 $E_n=\hbar\omega(n+1/2)$ and use the spectral-lines exercise to obtain the
-frequency spacing $\omega$.
+frequency spacing $\omega$. Prove that their span is a core for the
+self-adjoint closure of $H$.
 \end{exercise}
 
 \begin{exercise}[Born rule and unitary dynamics]
@@ -1026,8 +1129,8 @@ precisely where quantization removes the classical divergence.
 
 \begin{definition}[Composite and reduced states]
 The state space of a composite system is $H_A\otimes H_B$. A state is
-\emph{separable} if it lies in the closed convex hull of product density
-operators and \emph{entangled} otherwise. The \emph{reduced state}
+\emph{separable} if it lies in the trace-norm closed convex hull of product
+density operators and \emph{entangled} otherwise. The \emph{reduced state}
 $\rho_A=\Tr_B\rho$ is determined by
 $\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
 \end{definition}
@@ -1041,18 +1144,20 @@ entropy of a Bell state.
 \end{exercise}
 
 \begin{definition}[$C^*$-algebras and states]
-A \emph{Banach algebra} is a complete normed algebra with
+A \emph{unital Banach algebra} is a complete normed algebra with identity and
 $\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
 $(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
 Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
 if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
-$\varphi$ with $\|\varphi\|=\varphi(1)=1$.
+$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
 \end{definition}
 
 \begin{exercise}[Commutative Gelfand duality]
 For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
-$C^*$-algebra. Prove that every commutative unital $C^*$-algebra $A$ is
-isometrically $*$-isomorphic to $C(\operatorname{Spec}A)$ by the Gelfand
+$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
+nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
+unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
+$C(\operatorname{Spec}A)$ by the Gelfand
 transform, and identify states on $C(X)$ with probability measures.
 \end{exercise}
 
@@ -1235,12 +1340,14 @@ theorem in finite dimensions and derive the measurement channel associated
 to a POVM. Show that state discrimination can require a nonprojective POVM.
 \end{exercise}
 
-\begin{definition}[Operator spaces]
+\begin{definition}[Operator spaces and operator systems]
 An \emph{operator space} is a closed subspace $E\subseteq B(H)$ with matrix
 norms inherited from $M_n(E)\subseteq B(H^{\oplus n})$. A map
 $u:E\to F$ is \emph{completely bounded} if
-$\|u\|_{cb}=\sup_n\|\id_{M_n}\otimes u\|<\infty$. The matrix order of an
-operator system is the family of positive cones $M_n(E)_+$.
+$\|u\|_{cb}=\sup_n\|\id_{M_n}\otimes u\|<\infty$. An \emph{operator
+system} is a closed self-adjoint linear subspace $S\subseteq B(H)$ containing
+the identity. Its matrix order is the family of cones
+$M_n(S)_+=M_n(S)\cap B(H^{\oplus n})_+$.
 \end{definition}
 
 \begin{definition}[Ancilla-assisted channel discrimination]
@@ -1249,7 +1356,7 @@ $\Phi_1,\ldots,\Phi_m$ prepares a state on $H\otimes K$, applies
 $\Phi_j\otimes\id_K$ to the unknown channel input, and measures the output
 with a POVM. The strategy is \emph{ancilla assisted} when $\dim K>1$. It is
 \emph{unambiguous} when every conclusive outcome identifies the channel
-without error.
+without error. Its \emph{inconclusive probability} is denoted $P_I$.
 \end{definition}
 
 \begin{exercise}[An ancilla improves measurement-channel discrimination]
@@ -1277,21 +1384,36 @@ the predicted success and inconclusive probabilities with
 {Mikov\'a et al., \emph{Physical Review A} \textbf{90} (2014)}.
 \end{exercise}
 
-\begin{exercise}[Ruan's theorem]
+\begin{exercise}[Concrete matrix-norm axioms]
 Prove that concrete operator-space norms satisfy
 \[
 \|x\oplus y\|=\max(\|x\|,\|y\|),\qquad
 \|axb\|\leq\|a\|\|x\|\|b\|.
 \]
-Prove conversely that every vector space with matrix norms satisfying these
-axioms admits a complete isometry into $B(H)$.
+Track the matrix sizes and prove that completely bounded maps preserve both
+direct sums and multiplication by scalar matrices at every level.
 \end{exercise}
 
-\begin{exercise}[Arveson--Wittstock extension]
+\begin{supplied}[Ruan separation lemma]
+For matrix norms satisfying the two concrete axioms and each
+$x\in M_n(E)$, we take as supplied the matrix Hahn--Banach separation lemma
+that produces a completely contractive map $\phi_x:E\to B(H_x)$ whose
+$n$th amplification satisfies $\|\phi_x^{(n)}(x)\|=\|x\|$.
+\end{supplied}
+
+\begin{exercise}[Ruan's representation theorem]
+Prove conversely that every vector space with matrix norms satisfying these
+axioms admits a complete isometry into $B(H)$. Apply the supplied separation
+lemma to a norming family of matrices and take the direct sum of the resulting
+maps.
+\end{exercise}
+
+\begin{exercise}[Finite-dimensional Arveson--Wittstock extension]
 Prove in finite dimensions that a completely positive map from an operator
 system extends completely positively to the containing $C^*$-algebra.
 Deduce, by the $2\times2$ operator-system construction, that completely
-bounded maps admit norm-preserving extensions.
+bounded maps between finite-dimensional operator spaces admit norm-preserving
+extensions.
 \end{exercise}
 
 \begin{definition}[Operator-space tensor products]
@@ -1302,7 +1424,13 @@ from concrete inclusions in $B(H\otimes K)$. The \emph{Haagerup norm} is
 \|[y_1\ \cdots\ y_r]^T\|:z=\sum_ix_i\otimes y_i\}.
 \]
 A bilinear form $u:E\times F\to\C$ is \emph{jointly completely bounded}
-when its associated matrix amplifications are uniformly bounded.
+when the maps
+\[
+u_n([x_{ij}],[y_{kl}])=
+ [u(x_{ij},y_{kl})]_{(i,k),(j,l)}
+\]
+from $M_n(E)\times M_n(F)$ to $M_{n^2}$ are uniformly bounded; the supremum
+of their norms is $\|u\|_{jcb}$.
 \end{definition}
 
 \begin{exercise}[Tensor norms linearize bilinear maps]
@@ -1310,6 +1438,39 @@ Prove the universal property of the projective Banach-space tensor norm.
 Prove that the Haagerup tensor product linearizes completely bounded
 factorizations and compare the minimal, Haagerup, and projective norms on
 finite-dimensional matrix spaces.
+\end{exercise}
+
+\begin{supplied}[Grothendieck domination theorems]
+We take as supplied the following dimension-independent domination results.
+For a bounded bilinear form $u:A\times B\to\C$ on unital $C^*$-algebras,
+there are states $f_1,f_2$ on $A$ and $g_1,g_2$ on $B$ such that
+\[
+|u(a,b)|\leq C_{\rm nc}\|u\|
+ \bigl(f_1(a^*a)+f_2(aa^*)\bigr)^{1/2}
+ \bigl(g_1(b^*b)+g_2(bb^*)\bigr)^{1/2}.
+\]
+For jointly completely bounded $u$, there are states with
+\[
+|u(a,b)|\leq C_{\rm os}\|u\|_{jcb}
+\left(
+ f_1(aa^*)^{1/2}g_1(b^*b)^{1/2}
+ +f_2(a^*a)^{1/2}g_2(bb^*)^{1/2}
+\right),
+\]
+where $C_{\rm nc}$ and $C_{\rm os}$ are universal constants.
+For the second inequality one may take $C_{\rm os}=1$ by
+\href{https://arxiv.org/abs/0711.1851}
+{Haagerup--Musat, \emph{The Effros--Ruan conjecture for bilinear forms on
+$C^*$-algebras}}.
+\end{supplied}
+
+\begin{exercise}[Noncommutative and operator-space Grothendieck inequalities]
+Specialize the first supplied inequality to commutative $C^*$-algebras and
+recover the classical Grothendieck domination of bounded bilinear forms.
+Apply it to matrix algebras and express the two quadratic terms as row and
+column norms. Use matrix amplification in the second inequality to explain
+why $\|u\|_{jcb}$, rather than only $\|u\|$, controls coupling to arbitrary
+ancillas. Give examples showing that both row and column terms are necessary.
 \end{exercise}
 
 \begin{definition}[Bell functionals and nonlocal games]
@@ -1379,7 +1540,7 @@ Theory}, \emph{Journal of Mathematical Physics} \textbf{57} (2016)} as a
 guide.
 \end{exercise}
 
-\begin{exercise}[Bounded and unbounded quantum advantages]
+\begin{exercise}[Grothendieck bounds for XOR games]
 For an XOR game, prove that its classical and entangled biases are
 \[
 \beta(G)=\sup_{a_x,b_y=\pm1}\left|\sum M_{xy}a_xb_y\right|,
@@ -1390,7 +1551,9 @@ For an XOR game, prove that its classical and entangled biases are
 Use Tsirelson's vector representation and the real Grothendieck inequality
 to prove $\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$. For CHSH, compute the
 classical bound $2$ and quantum bound $2\sqrt2$.
+\end{exercise}
 
+\begin{exercise}[Unbounded advantages for multi-output games]
 For general multi-output games, take as supplied the Khot--Vishnoi estimates
 $\omega(G_{\rm KV})\leq C/n$ and
 $\omega^*(G_{\rm KV})\geq c/(\log n)^2$, achieved with local entanglement
@@ -1410,10 +1573,15 @@ game tensors require operator-space matrix levels. Consult
 \begin{exercise}[Measured nonclassical correlations]
 For a polarization-entangled two-photon state, choose four polarization
 angles attaining the CHSH value $2\sqrt2$ and derive the predicted
-coincidence correlations. Analyze a loophole-free Bell-test data table with
-its stated uncertainties and determine whether the classical bound is
-excluded, restricting the conclusion to local hidden-variable models
-satisfying the experimental assumptions.
+coincidence correlations. As experimental input, use the adjusted
+local-realistic $p$-value $2.3\times10^{-7}$ reported by
+\href{https://doi.org/10.1103/PhysRevLett.115.250402}
+{Shalm et al., \emph{Physical Review Letters} \textbf{115} (2015)}.
+Determine at the $5\%$, $1\%$, and five-standard-deviation significance
+levels, using the one-sided Gaussian five-sigma threshold
+$2.87\times10^{-7}$, whether the local-realistic null is excluded. State the
+tested freedom-of-choice and spacelike-separation assumptions and explain why
+the result does not exclude arbitrary superdeterministic or signaling models.
 \end{exercise}
 
 \part{Topology}
@@ -1428,7 +1596,9 @@ loops based at $x_0$, with concatenation.
 \end{definition}
 
 \begin{exercise}[Fundamental groups and winding]
-Prove homotopy invariance of $\pi_1$ and the Seifert--van Kampen theorem for a
+Prove invariance of $\pi_1$ under pointed homotopy equivalence and show that
+an unpointed homotopy changes the induced map only by the appropriate
+change-of-basepoint isomorphism. Prove the Seifert--van Kampen theorem for a
 union with path-connected intersection. Compute
 $\pi_1(S^1)\cong\Z$ by lifting loops to $\R$, and prove that the resulting
 integer is the winding number.
@@ -1542,7 +1712,9 @@ closed surface $\Sigma$.
 
 \begin{exercise}[Berry phase and quantized response]
 Compute the Berry curvature of a two-level Hamiltonian
-$H(n)=n\cdot\sigma$ over $S^2$ and its Chern number. For a gapped
+$H(n)=n\cdot\sigma$ over $S^2$ for both the lower and upper eigenline
+bundles. With the standard orientation on $S^2$, compute their opposite
+Chern numbers and state the sign convention used. For a gapped
 two-dimensional periodic Hamiltonian, derive the Kubo formula expressing
 Hall conductance as $e^2/h$ times the occupied-band Chern number. Deduce
 integer quantization under gap-preserving perturbations and compare with
@@ -1555,24 +1727,40 @@ integer quantum Hall plateaus.
 The \emph{Grothendieck group} of a commutative monoid $M$ is the universal
 abelian group receiving a monoid map from $M$. Vector bundles $E,F$ are
 \emph{stably equivalent} if $E\oplus\underline{\C}^m\cong
-F\oplus\underline{\C}^n$ for some $m,n$. The group $K^0(X)$ is the
+F\oplus\underline{\C}^n$ for some $m,n$; this relation forgets rank and
+therefore describes reduced stable classes. The group $K^0(X)$ is the
 Grothendieck group of complex vector bundles on compact $X$; define
 $K^1(X)=\widetilde K^0(\Sigma X)$.
 \end{definition}
 
-\begin{exercise}[Bott periodicity and topological phases]
-Prove the clutching description of bundles on spheres. Establish Bott
-periodicity in the form
-$\widetilde K^0(S^{n+2})\cong\widetilde K^0(S^n)$ and compute the complex
-$K$-groups of spheres and tori. Show that a gapped family of finite-rank
-Hamiltonians defines the stable class of its occupied bundle and identify
-the class-A invariants in dimensions one through three.
+\begin{supplied}[Bott periodicity]
+Let $\beta\in\widetilde K^0(S^2)$ be the class of the Hopf line bundle minus
+the trivial line. For compact based $X$, we take as supplied that external
+product with $\beta$ induces
+$\widetilde K^j(X)\cong\widetilde K^j(S^2\wedge X)$ for $j=0,1$.
+\end{supplied}
+
+\begin{exercise}[Clutching and the Bott generator]
+Prove the clutching description of complex vector bundles on spheres.
+Identify the Hopf line as a generator of $\widetilde K^0(S^2)$ and use the
+supplied periodicity isomorphism to compute the complex $K$-groups of
+spheres.
+\end{exercise}
+
+\begin{exercise}[$K$-theory of tori and class-A phases]
+Derive from the cofibration for $X\times S^1$ and Bott periodicity the split
+formula $K^j(X\times S^1)\cong K^j(X)\oplus K^{j-1}(X)$, with indices taken
+modulo two, and compute the complex $K$-groups of tori. Show that a gapped
+family of finite-rank Hamiltonians defines the stable class of its occupied
+bundle and identify the strong and weak class-A invariants on Brillouin tori
+in dimensions one through three.
 \end{exercise}
 
 \begin{definition}[Operator K-theory]
 For a unital $C^*$-algebra $A$, $K_0(A)$ is the Grothendieck group of stable
-homotopy classes of projections in matrix algebras over $A$, and $K_1(A)$ is
-the stable homotopy group of unitaries in matrix algebras over $A$.
+homotopy classes of projections in matrix algebras over $A$, where orthogonal
+sum gives the underlying monoid, and $K_1(A)$ is the stable homotopy group of
+unitaries in matrix algebras over $A$.
 \end{definition}
 
 \begin{exercise}[Topological and operator K-theory]
@@ -1590,11 +1778,19 @@ $\operatorname{ind}T=\dim\ker T-\dim\coker T$. The \emph{Calkin algebra} is
 $\mathcal Q(H)=B(H)/\mathcal K(H)$.
 \end{definition}
 
-\begin{exercise}[Fredholm index and the Calkin algebra]
-Prove that $T$ is Fredholm exactly when its image in the Calkin algebra is
-invertible. Prove homotopy invariance, compact-perturbation invariance, and
-additivity of the index. Compute the index of the unilateral shift and
-identify the boundary map $K_1(\mathcal Q(H))\to K_0(\mathcal K(H))$.
+\begin{exercise}[Fredholm parametrices and the Calkin algebra]
+For $T:H_0\to H_1$, prove that $T$ is Fredholm exactly when there is a
+bounded $S:H_1\to H_0$ such that $ST-\id_{H_0}$ and $TS-\id_{H_1}$ are
+compact. When $H_0=H_1=H$, identify this condition with invertibility of the
+image of $T$ in $\mathcal Q(H)$. Prove homotopy invariance,
+compact-perturbation invariance, and additivity of the index.
+\end{exercise}
+
+\begin{exercise}[Shift index and the boundary map]
+On an infinite-dimensional separable Hilbert space, compute the index of the
+unilateral shift and identify the connecting map
+$K_1(\mathcal Q(H))\to K_0(\mathcal K(H))$ from the Calkin extension with
+the Fredholm index.
 \end{exercise}
 
 \begin{supplied}[Index-theorem foundations]
@@ -1605,8 +1801,10 @@ spin structures (lifts of oriented orthonormal frame bundles from $SO(n)$
 to $\operatorname{Spin}(n)$), their spinor bundles and Dirac operators, the
 characteristic class
 $\widehat A(TM)=\prod_j(x_j/2)/\sinh(x_j/2)$ in formal curvature roots, and
-the Thom isomorphism and $K$-theoretic pushforward. The following exercises
-apply this analytic and spin-geometric machinery rather than construct it.
+the Thom isomorphism, $K$-theoretic pushforward, and axiomatic uniqueness of
+an index transformation satisfying excision, multiplicativity, and Bott
+normalization. The following exercises apply this analytic and spin-geometric
+machinery rather than construct it.
 \end{supplied}
 
 \begin{definition}[Elliptic symbols]
@@ -1621,10 +1819,17 @@ index} is the K-theoretic pushforward of its symbol class.
 
 \begin{exercise}[Atiyah--Singer index theorem]
 Use the supplied elliptic estimates to deduce Fredholmness on a compact
-manifold. Establish the Atiyah--Singer equality
-$\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$, using Bott
-periodicity and the axiomatic characterization of the index. Derive the
-Riemann--Roch and Dirac-index formulas as special cases.
+manifold. Prove that analytic index satisfies excision, multiplicativity,
+and Bott normalization. Verify the same properties for topological index and
+apply the supplied uniqueness theorem to obtain
+$\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$.
+\end{exercise}
+
+\begin{exercise}[Riemann--Roch and the Dirac index]
+Apply Atiyah--Singer to the Dolbeault operator and derive the
+Hirzebruch--Riemann--Roch formula. Apply it to a spin Dirac operator coupled
+to $E$ and derive
+$\operatorname{ind}(D^+\otimes E)=\int_M\widehat A(TM)\operatorname{ch}(E)$.
 \end{exercise}
 
 \begin{definition}[Chirality and instanton number]
@@ -1907,22 +2112,41 @@ $\tau\otimes\tau\cong1\oplus\tau$.
 \end{exercise}
 
 \begin{definition}[Chern--Simons theory and Wilson loops]
-For a connection $A$ on a principal bundle over an oriented
-three-manifold and an invariant inner product on $\mathfrak g$, the
-\emph{Chern--Simons functional} at level $k$ is
+Let $G$ have an invariant inner product on $\mathfrak g$, and fix a
+trivialization of a principal $G$-bundle over a closed oriented
+three-manifold. For the resulting $\mathfrak g$-valued connection potential
+$A$, the \emph{Chern--Simons functional} at level $k$ is
 \[
 S_{CS}(A)=\frac{k}{4\pi}\int_M
-\left\langle A\wedge dA+\frac23A\wedge A\wedge A\right\rangle.
+\left(\langle A\wedge dA\rangle
++\frac13\langle A\wedge[A\wedge A]\rangle\right).
 \]
 For a representation $V$ and closed curve $K$, the \emph{Wilson loop} is
 $W_V(K)=\Tr_V(\operatorname{Hol}_A(K))$.
 \end{definition}
 
 \begin{exercise}[Gauge invariance, level, and knot invariants]
-Compute the change of $S_{CS}$ under a gauge transformation and derive the
-integrality condition on $k$ required for $e^{iS_{CS}}$ to be gauge
-invariant. Derive flatness as the field equation. Relate Wilson-loop
-expectations for $SU(2)$ to the Jones polynomial at a root of unity.
+For compact, connected, simply connected simple $G$, normalize the inner
+product so that the winding term of a gauge transformation lies in
+$2\pi\Z$. Compute the change of $S_{CS}$ and derive $k\in\Z$ as the
+condition for $e^{iS_{CS}}$ to be gauge invariant. Prove that its critical
+points are flat connections.
+\end{exercise}
+
+\begin{supplied}[Chern--Simons quantization]
+We take as supplied the framed $SU(2)$ Chern--Simons quantum invariant defined
+by the Reshetikhin--Turaev construction. Its Wilson-loop invariant at integer
+level $k$ corresponds, after the standard framing normalization, to the
+colored Jones polynomial at $q=e^{2\pi i/(k+2)}$; the formal path integral
+predicts this correspondence but is not used as its definition.
+\end{supplied}
+
+\begin{exercise}[Wilson loops and Jones evaluations]
+Using the supplied correspondence, identify the representation label of a
+Wilson loop with the color of a Jones invariant. Compute the normalized
+expectations for the unknot, Hopf link, and trefoil from their Jones
+polynomials, and track the framing factor separately from the ambient-isotopy
+invariant.
 \end{exercise}
 
 \begin{definition}[Bordisms and topological field theories]
