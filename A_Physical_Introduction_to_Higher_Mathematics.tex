@@ -359,19 +359,24 @@ through a ring, and explain why changing the domain changes the measured
 spectrum.
 \end{exercise}
 
-\begin{supplied}[Unbounded spectral theorem and Stone's theorem]
-Every self-adjoint operator $H$ has a unique projection-valued measure with
+\begin{exercise}[Unbounded spectral theorem]
+Use the Cayley transform and the bounded spectral theorem to prove that every
+self-adjoint $H$ has a unique projection-valued measure with
 \[
 H=\int_\R\lambda\,dE_H(\lambda),\qquad
 \operatorname{Dom}(H)=
 \left\{\psi:\int_\R\lambda^2\,d\langle\psi,E_H(\lambda)\psi\rangle<\infty
-\right\},
+\right\}.
 \]
-and measurable functional calculus on its natural domains. Stone's theorem
-identifies self-adjoint $H$ with strongly continuous unitary groups
-$U_t=e^{-itH/\hbar}$. We use these theorems without proving their full
-analytic form.
-\end{supplied}
+Construct the measurable functional calculus on its natural domains.
+\end{exercise}
+
+\begin{exercise}[Stone's theorem]
+Prove that $U_t=e^{-itH/\hbar}$ is a strongly continuous unitary group for
+every self-adjoint $H$. Conversely, recover a unique self-adjoint generator
+$H$ from every strongly continuous unitary group and identify its domain by
+the strong derivative at $t=0$.
+\end{exercise}
 
 \begin{exercise}[Fourier spectra and free quantum evolution]
 Use the Fourier transform to realize $-i\hbar\partial_j$ and $-\Delta$ as
