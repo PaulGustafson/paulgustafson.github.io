@@ -1267,12 +1267,25 @@ analogue of requiring ordinary reduced density matrices for all finite
 laboratories.
 \end{exercise}
 
-\begin{definition}[Cyclic and separating vectors; modular Hamiltonians]
+\begin{definition}[Cyclic and separating vectors; modular theory]
 For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
 $\overline{M\Omega}=H$ and \emph{separating} if $a\Omega=0$ implies $a=0$.
-For a faithful density operator $\rho$, its \emph{modular Hamiltonian} is
-$K_\rho=-\log\rho$ and its modular flow on $B(H)$ is
-$\sigma_t(a)=\rho^{it}a\rho^{-it}$.
+For such a pair $(M,\Omega)$, the antilinear operator
+$S_0(a\Omega)=a^*\Omega$ is closable. Write the polar decomposition of its
+closure as $S=J\Delta^{1/2}$. The positive operator $\Delta$ is the
+\emph{modular operator}, and Tomita--Takesaki modular flow is
+\[
+\sigma_t^\Omega(a)=\Delta^{it}a\Delta^{-it}\in M.
+\]
+For a faithful density operator $\rho$ on $H$, this flow on $B(H)$ is
+$\sigma_t^\rho(a)=\rho^{it}a\rho^{-it}$, and
+$K_\rho=-\log\rho$ is its \emph{modular Hamiltonian}. A state $\varphi$ is
+\emph{$\beta$-KMS} for a flow $\alpha_t$ if, with the present sign
+convention and for analytic $a,b$,
+\[
+\varphi(a\alpha_{t-i\beta}(b))=\varphi(\alpha_t(b)a).
+\]
+The vector state of $\Omega$ is $1$-KMS for its modular flow.
 \end{definition}
 
 \begin{exercise}[Finite modular theory and entanglement tomography]
@@ -1290,20 +1303,131 @@ finite-subsystem tomography does not by itself establish continuum modular
 theory.
 \end{exercise}
 
-\begin{definition}[Traces, factors, and noncommutative probability]
+\begin{definition}[Traces and factor types]
 A \emph{trace} on a von Neumann algebra is a normal positive functional
-$\tau$ satisfying $\tau(ab)=\tau(ba)$. A \emph{factor} is a von Neumann
-algebra with center $\C1$; it is \emph{type I} if it is isomorphic to some
-$B(K)$. A \emph{noncommutative probability space} is a pair $(M,\varphi)$
-of a von Neumann algebra and a normal state; its random variables are
-operators affiliated with $M$.
+$\tau$ satisfying $\tau(ab)=\tau(ba)$. Projections $p,q\in M$ are
+\emph{Murray--von Neumann equivalent}, written $p\sim q$, if some $v\in M$
+satisfies $v^*v=p$ and $vv^*=q$. A projection $p$ is \emph{finite} if
+$q\leq p$ and $q\sim p$ imply $q=p$, and it is \emph{minimal} if its only
+subprojections are $0$ and $p$.
+
+A \emph{factor} is a von Neumann algebra with center $\C1$. A factor is
+\emph{type I} if it has a nonzero minimal projection, equivalently if it is
+isomorphic to some $B(K)$; it is \emph{type II} if it has nonzero finite
+projections but no minimal projections; and it is \emph{type III} if it has
+no nonzero finite projection. Thus a type-III factor has no normal tracial
+state and no intrinsic trace-density representation of its normal states. A
+factor is \emph{hyperfinite} if it is the weak closure of an increasing union
+of finite-dimensional $*$-subalgebras.
 \end{definition}
 
 \begin{exercise}[Projection dimension and factors]
 For a finite factor with normalized trace $\tau$, prove additivity and unitary
 invariance of $\tau$ on projections. Relate the possible projection values
-to matrix factors and to diffuse finite factors, and formulate independence
-of commuting subalgebras by factorization of the state.
+to matrix factors and to diffuse finite factors. Prove that $B(K)$ is type I
+and that a factor with a faithful normal tracial state cannot be type III.
+Explain why finite-dimensional quantum systems see only type-I factors,
+whereas the classification permits genuinely different infinite systems.
+\end{exercise}
+
+\begin{definition}[Relative entropy of operator-algebraic states]
+Let $\varphi$ and $\psi$ be faithful normal states on $M$, represented by
+vectors $\Omega_\varphi$ and $\Omega_\psi$ in standard form. Their
+relative Tomita operator is the closure of
+\[
+S_{\varphi\mid\psi,0}(a\Omega_\psi)=a^*\Omega_\varphi,
+\]
+and their \emph{relative modular operator} is
+\[
+\Delta_{\varphi\mid\psi}
+=S_{\varphi\mid\psi}^*S_{\varphi\mid\psi}.
+\]
+The \emph{Araki relative entropy} is the extended nonnegative number
+\[
+D_M(\varphi\Vert\psi)
+=\langle\Omega_\varphi,
+  \log\Delta_{\varphi\mid\psi}\,\Omega_\varphi\rangle.
+\]
+For $M=B(H)$ and faithful density operators $\rho,\sigma$, the standard
+Hilbert--Schmidt representation gives
+$\Delta_{\rho\mid\sigma}(X)=\rho X\sigma^{-1}$ and hence
+\[
+D(\rho\Vert\sigma)=\Tr\!\left(\rho(\log\rho-\log\sigma)\right).
+\]
+Unlike the entropy of an individual density matrix, relative entropy and
+modular flow are intrinsic to an algebra and its states and remain meaningful
+for type-III factors.
+\end{definition}
+
+\begin{exercise}[Type-III localization and the split property]
+Assume the structural theorem that, under the usual nontriviality,
+phase-space, and scaling hypotheses, local observable algebras in
+relativistic continuum quantum field theory are hyperfinite type
+$\mathrm{III}_1$ factors, the full-modular-spectrum case of the type-III
+classification; see
+\href{https://doi.org/10.1016/S0034-4877(05)80009-6}
+{Yngvason, \emph{Reports on Mathematical Physics} \textbf{55} (2005)}.
+Deduce that the restriction of the vacuum to a sharply bounded region has
+no intrinsic reduced density operator and that
+$-\Tr(\rho_A\log\rho_A)$ is therefore not an intrinsic continuum entropy.
+Explain how a split inclusion
+\[
+\mathcal A(O_1)\subset F\subset\mathcal A(O_2),\qquad
+\overline{O_1}\subset O_2,
+\]
+with $F$ type I supplies a density-matrix regulator whose entropy depends on
+the collar $O_2\setminus\overline{O_1}$ and on the choice of $F$. Contrast
+this regulator dependence and the usual ultraviolet divergence as the collar
+shrinks with the intrinsic relative entropy
+$D_{\mathcal A(O_1)}(\varphi\Vert\psi)$.
+\end{exercise}
+
+\begin{exercise}[Bisognano--Wichmann flow and its experimental limit]
+Let $W_R=\{x:x^1>|x^0|\}$ be the right Rindler wedge of Minkowski space,
+and let $\Omega$ be the vacuum of a relativistic local net with stress-energy
+density $T_{00}$. Assume the Bisognano--Wichmann theorem
+\[
+\Delta_{W_R}^{it}=U(\Lambda_{W_R}(-2\pi t)),
+\]
+which identifies vacuum modular flow with the Lorentz boosts preserving
+$W_R$; see
+\href{https://doi.org/10.1063/1.522605}
+{Bisognano--Wichmann, \emph{Journal of Mathematical Physics} \textbf{16}
+(1975)}. In units $\hbar=c=k_B=1$, derive on the time-zero half-space the
+modular Hamiltonian
+\[
+K_{W_R}=2\pi\int_{x^1>0}x^1T_{00}(0,\mathbf x)\,d^{d-1}x
+\]
+up to an additive constant. Use its KMS property to obtain the Unruh
+temperature $T=a/(2\pi)$ for proper acceleration $a$.
+
+Discretize the integral for a half-chain with local energy terms $h_i$ and
+derive the lattice Bisognano--Wichmann ansatz in which the coefficient of
+$h_i$ grows with its distance from the entanglement cut. Compare the
+predicted locality and spatial temperature profile with the entanglement
+Hamiltonians learned in the 51-ion XXZ-chain experiment of
+\href{https://doi.org/10.1038/s41586-023-06768-0}
+{Joshi et al., \emph{Nature} \textbf{624} (2023)}. Explain why this tests a
+finite-lattice consequence of modular QFT but cannot by itself establish
+that a continuum local algebra is type III. Identify the covariance,
+positive-energy, and vacuum hypotheses used by the modular-flow prediction
+that are not consequences of the factor type alone.
+\end{exercise}
+
+\begin{definition}[Noncommutative probability]
+A \emph{noncommutative probability space} is a pair $(M,\varphi)$ of a von
+Neumann algebra and a normal state; its random variables are operators
+affiliated with $M$.
+\end{definition}
+
+\begin{exercise}[Independent noncommutative subsystems]
+For commuting von Neumann subalgebras $M_1,M_2\subseteq M$, formulate
+independence in the state $\varphi$ by factorization
+$\varphi(ab)=\varphi(a)\varphi(b)$. Compare this algebraic condition with a
+tensor-product state when $M_1\vee M_2$ is spatially isomorphic to
+$M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
+the relevant replacement for sharply adjacent local regions in continuum
+QFT.
 \end{exercise}
 
 \section{Completely Bounded Structure and Correlations}
@@ -2015,6 +2139,9 @@ has an invariant vacuum vector $\Omega$, cyclic for the local algebras, and
 $\bigvee_I\mathcal A(I)=B(H)$. Physically, $S^1$ is the compactified chiral
 light ray and $\mathcal A(I)$ consists of observables localized in $I$. The
 norm closure of $\bigcup_I\mathcal A(I)$ is the \emph{quasilocal algebra}.
+For the regular nontrivial conformal nets used below, the local algebras are
+hyperfinite type-$\mathrm{III}_1$ factors; the physical content lies in their
+inclusions and covariance, not in their abstract isomorphism type alone.
 \end{definition}
 
 \begin{definition}[Duality and regularity for conformal nets]
