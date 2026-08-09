@@ -213,9 +213,19 @@ $L^\infty$ uses the essential supremum. For Lebesgue measure on $\R^n$ and
 normalized arc measure on $\T$, write $L^p(\R^n)$ and $L^p(\T)$. The inner
 product on $L^2(\T)$ is
 $\langle f,g\rangle=(2\pi)^{-1}\int_0^{2\pi}\overline{f(x)}g(x)\,dx$.
-The assumed completeness theorem makes $L^2(\T)$ and $L^2(\R^n)$ Hilbert
-spaces.
+The exercises below establish the analytic properties used in this section.
 \end{definition}
+
+\begin{exercise}[Measure and integration]
+Construct the integral from nonnegative simple functions. Prove monotone
+convergence, Fatou's lemma, dominated convergence, and Tonelli--Fubini.
+\end{exercise}
+
+\begin{exercise}[$L^p$ analysis]
+Prove H\"older's and Minkowski's inequalities, completeness of $L^p$, and
+density of $C_c(\R^n)$ for $1\leq p<\infty$. Deduce that $L^2$ is a Hilbert
+space.
+\end{exercise}
 
 \begin{definition}[Orthogonal expansions]
 Let $H$ be an inner-product space. For an orthogonal family $(e_n)$, the
@@ -295,6 +305,12 @@ self-adjoint operators, and unitary operators satisfy respectively
 $P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$.
 \end{definition}
 
+\begin{exercise}[Hilbert-space foundations]
+Prove the projection theorem for closed subspaces and the Riesz
+representation theorem. Deduce $H=M\oplus M^\perp$ for closed $M$ and prove
+existence, uniqueness, and $\|T^*\|=\|T\|$ for bounded adjoints.
+\end{exercise}
+
 \begin{definition}[Projection-valued measures]
 A \emph{projection-valued measure} on a measurable space $X$ assigns an
 orthogonal projection $E(B)$ to each measurable set, with $E(X)=\id$ and
@@ -321,6 +337,13 @@ $\operatorname{Dom}(T)$. The operator is \emph{symmetric} when
 $\langle Tx,y\rangle=\langle x,Ty\rangle$ on its domain and
 \emph{self-adjoint} when $T=T^*$, including equality of domains.
 \end{definition}
+
+\begin{exercise}[Sobolev domains on an interval]
+Show that $H^1([0,L])=\{f\in L^2:f'\in L^2\}$, with $f'$ interpreted weakly,
+is complete. Prove that every class has an absolutely continuous
+representative, endpoint evaluation is continuous, and integration by parts
+holds. Identify $H_0^1$ as the closure of $C_c^\infty(0,L)$.
+\end{exercise}
 
 \begin{exercise}[Self-adjoint momentum and boundary holonomy]
 On $L^2([0,L])$, let $P_\theta=-i\hbar\,d/dx$ on the absolutely continuous
@@ -838,24 +861,30 @@ with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map.
 Its \emph{expectation} is its integral. The \emph{conditional expectation}
 $\mathbb E[X\mid\mathcal G]$ is the $\mathcal G$-measurable integrable random
 variable satisfying
-$\int_G\mathbb E[X\mid\mathcal G]d\mathbb P=\int_GX,d\mathbb P$ for all
+$\int_G\mathbb E[X\mid\mathcal G]\,d\mathbb P=\int_GX\,d\mathbb P$ for all
 $G\in\mathcal G$. Families of $\sigma$-algebras are \emph{independent} when
 the probability of every finite intersection is the product of its
 probabilities.
 \end{definition}
 
+\begin{exercise}[Radon--Nikodym]
+For finite measures $\nu\ll\mu$, prove that
+$\nu(A)=\int_A f\,d\mu$ for a unique $f\in L^1(\mu)$, $f\geq0$. Extend the
+statement to finite signed measures.
+\end{exercise}
+
 \begin{exercise}[Expectation, conditioning, and independence]
-Prove existence and almost-everywhere uniqueness of conditional expectation,
-the tower property, and conditional Jensen inequality. Characterize
-independence by factorization of expectations and derive variance addition
-for independent square-integrable random variables.
+Use Radon--Nikodym to prove existence and almost-everywhere uniqueness of
+conditional expectation. Prove the tower property and conditional Jensen
+inequality. Characterize independence by factorization of expectations and
+derive variance addition for independent square-integrable random variables.
 \end{exercise}
 
 \begin{definition}[Entropy and Gibbs ensembles]
 For a discrete probability vector $p$, its \emph{entropy} is
 $S(p)=-k_B\sum_ip_i\log p_i$. For a phase-space probability density $\rho$
 relative to Liouville measure $\mu_L$, its \emph{statistical entropy} is
-$S(\rho)=-k_B\int\rho\log\rho,d\mu_L$. The \emph{canonical Gibbs ensemble}
+$S(\rho)=-k_B\int\rho\log\rho\,d\mu_L$. The \emph{canonical Gibbs ensemble}
 at inverse temperature $\beta$ is
 $d\mathbb P_\beta=Z(\beta)^{-1}e^{-\beta H}d\mu_L$.
 \end{definition}
