@@ -100,6 +100,58 @@ $\widetilde b:V\otimes W\to X$. Tensor powers and multilinear maps are
 defined by iteration.
 \end{definition}
 
+\begin{definition}[Finite-dimensional duality, trace, and dimension]
+The \emph{evaluation} map is
+\[
+\operatorname{ev}_V:V^*\otimes V\longrightarrow k,
+\qquad \varphi\otimes v\longmapsto\varphi(v).
+\]
+The vector space $V$ is \emph{finite-dimensional} if there is a coevaluation
+map
+$\operatorname{coev}_V:k\to V\otimes V^*$ satisfying the snake identities
+\[
+(\id_V\otimes\operatorname{ev}_V)
+\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
+\]
+\[
+(\operatorname{ev}_V\otimes\id_{V^*})
+\circ(\id_{V^*}\otimes\operatorname{coev}_V)=\id_{V^*}.
+\]
+Let $s_{V,V^*}:V\otimes V^*\to V^*\otimes V$ exchange the tensor factors.
+For $T\in\End(V)$, define
+\[
+\operatorname{tr}(T)
+=\operatorname{ev}_V\circ s_{V,V^*}
+ \circ(T\otimes\id_{V^*})\circ\operatorname{coev}_V\in k,
+\qquad
+\dim V=\operatorname{tr}(\id_V).
+\]
+\end{definition}
+
+\begin{exercise}[Dualizability, bases, and dimension]
+Prove that the preceding coevaluation exists if and only if $V$ has a finite
+basis. For a basis $e_1,\ldots,e_n$ with dual basis
+$e^1,\ldots,e^n$, prove
+\[
+\operatorname{coev}_V(1)=\sum_{i=1}^ne_i\otimes e^i
+\]
+and show that this tensor is independent of the chosen basis. Deduce
+\[
+\operatorname{tr}(T)=\sum_{i=1}^ne^i(Te_i),
+\qquad \dim V=n\,1_k.
+\]
+For finite-dimensional $V,W$, prove
+$\operatorname{tr}(gf)=\operatorname{tr}(fg)$ for maps
+$f:V\to W$ and $g:W\to V$, and prove
+\[
+\dim(V\oplus W)=\dim V+\dim W,
+\qquad
+\dim(V\otimes W)=\dim V\,\dim W.
+\]
+Explain why the scalar $\dim V\in k$ alone need not distinguish vector-space
+dimensions when $k$ has positive characteristic.
+\end{exercise}
+
 \begin{exercise}[Duality and multilinearity]
 For finite-dimensional spaces, construct the natural maps
 \[
