@@ -1798,20 +1798,6 @@ $K_1(\mathcal Q(H))\to K_0(\mathcal K(H))$ from the Calkin extension with
 the Fredholm index.
 \end{exercise}
 
-\begin{supplied}[Index-theorem foundations]
-We take as supplied the construction of Sobolev spaces and completions,
-elliptic estimates and elliptic regularity, and the extension of elliptic
-operators to Fredholm maps between Sobolev spaces. We also take as supplied
-spin structures (lifts of oriented orthonormal frame bundles from $SO(n)$
-to $\operatorname{Spin}(n)$), their spinor bundles and Dirac operators, the
-characteristic class
-$\widehat A(TM)=\prod_j(x_j/2)/\sinh(x_j/2)$ in formal curvature roots, and
-the Thom isomorphism, $K$-theoretic pushforward, and axiomatic uniqueness of
-an index transformation satisfying excision, multiplicativity, and Bott
-normalization. The following exercises apply this analytic and spin-geometric
-machinery rather than construct it.
-\end{supplied}
-
 \begin{definition}[Elliptic symbols]
 For vector bundles $E,F$ over a compact smooth manifold, the \emph{principal
 symbol} of an order-$m$ differential operator
@@ -1822,26 +1808,61 @@ index} is its Fredholm index on Sobolev completions; its \emph{topological
 index} is the K-theoretic pushforward of its symbol class.
 \end{definition}
 
+\begin{exercise}[Elliptic regularity and Fredholmness]
+Assume the construction of Sobolev completions, the Rellich compactness
+theorem, elliptic regularity, and, for an elliptic operator $D$ of order $m$,
+the estimates
+\[
+\|s\|_{H^{r+m}}\leq C_r
+ \bigl(\|Ds\|_{H^r}+\|s\|_{H^r}\bigr)
+\]
+for $D$ and its formal adjoint. Prove that
+$D:H^{r+m}(E)\to H^r(F)$ is Fredholm and that its index is independent of
+$r$.
+\end{exercise}
+
 \begin{exercise}[Atiyah--Singer index theorem]
-Use the supplied elliptic estimates to deduce Fredholmness on a compact
-manifold. Prove that analytic index satisfies excision, multiplicativity,
-and Bott normalization. Verify the same properties for topological index and
-apply the supplied uniqueness theorem to obtain
+Assume the Thom isomorphism, the $K$-theoretic pushforward, and uniqueness of
+an index transformation satisfying excision, multiplicativity, and Bott
+normalization. Prove that analytic index has these three properties. Verify
+them for topological index and conclude
 $\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$.
 \end{exercise}
 
-\begin{exercise}[Riemann--Roch and the Dirac index]
-Apply Atiyah--Singer to the Dolbeault operator and derive the
-Hirzebruch--Riemann--Roch formula. Apply it to a spin Dirac operator coupled
-to $E$ and derive
-$\operatorname{ind}(D^+\otimes E)=\int_M\widehat A(TM)\operatorname{ch}(E)$.
+\begin{definition}[Spin structures and Dirac operators]
+A \emph{spin structure} on an oriented Riemannian $n$-manifold is a lift of
+its oriented orthonormal frame bundle through
+$\operatorname{Spin}(n)\to SO(n)$. Its complex spin representation defines
+the \emph{spinor bundle} $S$, with Clifford action $c$ and spin connection.
+The \emph{Dirac operator} is $D=c\circ\nabla^S$. In even dimensions the
+chirality operator splits $S=S^+\oplus S^-$. In formal curvature roots,
+\[
+\widehat A(TM)=\prod_j\frac{x_j/2}{\sinh(x_j/2)}.
+\]
+\end{definition}
+
+\begin{exercise}[Hirzebruch--Riemann--Roch]
+Assume that the topological index of the Dolbeault symbol on a compact
+complex manifold is
+$\int_M\operatorname{ch}(E)\operatorname{Td}(TM)$, where
+$\operatorname{Td}(TM)=\prod_jx_j/(1-e^{-x_j})$ in formal Chern roots.
+Apply Atiyah--Singer to derive the Hirzebruch--Riemann--Roch formula and
+recover Riemann--Roch for a line bundle on a compact Riemann surface.
+\end{exercise}
+
+\begin{exercise}[Dirac index formula]
+Assume that the topological index of the coupled chiral Dirac symbol is
+$\int_M\widehat A(TM)\operatorname{ch}(E)$. Apply Atiyah--Singer to derive
+\[
+\operatorname{ind}(D^+\otimes E)
+=\int_M\widehat A(TM)\operatorname{ch}(E).
+\]
 \end{exercise}
 
 \begin{definition}[Chirality and instanton number]
-Let $M$ be an oriented even-dimensional Riemannian spin manifold. The
-\emph{chirality operator} splits its complex spinor bundle as
-$S=S^+\oplus S^-$. For a Hermitian vector bundle $E$ with unitary connection
-$A$, the coupled Dirac operator is odd and has a \emph{chiral part}
+Let $M$ be an oriented even-dimensional Riemannian spin manifold with the
+spinor splitting above. For a Hermitian vector bundle $E$ with unitary
+connection $A$, the coupled Dirac operator is odd and has a \emph{chiral part}
 \[
 D_A^+:\Gamma(S^+\otimes E)\longrightarrow\Gamma(S^-\otimes E).
 \]
