@@ -388,6 +388,14 @@ energy, and use this concrete multiplication-operator model to verify the
 preceding spectral and Stone theorems, including their domain statements.
 \end{exercise}
 
+\begin{exercise}[Spectral lines from unitary evolution]
+If $H|n\rangle=E_n|n\rangle$, use $U_t=e^{-itH/\hbar}$ to show that
+$\langle A(t)\rangle$ contains frequencies $(E_m-E_n)/\hbar$. Explain why
+spectroscopic peaks measure energy differences and why line strengths depend
+on matrix elements between the corresponding spectral subspaces. Compare
+with the atomic spectrum exercise below.
+\end{exercise}
+
 \part{Symmetry}
 
 \section{Groups and Representations}
@@ -1202,8 +1210,8 @@ operator system is the family of positive cones $M_n(E)_+$.
 \begin{definition}[Ancilla-assisted channel discrimination]
 A \emph{one-use discrimination strategy} for channels
 $\Phi_1,\ldots,\Phi_m$ prepares a state on $H\otimes K$, applies
-$\Phi_j\otimes\id_K$ to the unknown channel input, and measures the output.
-The strategy is \emph{ancilla assisted} when $\dim K>1$. It is
+$\Phi_j\otimes\id_K$ to the unknown channel input, and measures the output
+with a POVM. The strategy is \emph{ancilla assisted} when $\dim K>1$. It is
 \emph{unambiguous} when every conclusive outcome identifies the channel
 without error.
 \end{definition}
@@ -1275,9 +1283,10 @@ $\langle M,p\rangle=\sum_{a,b,x,y}M_{xy}^{ab}p(a,b\mid x,y)$. A two-player
 \emph{nonlocal game} $G=(\pi,V)$ consists of a question distribution
 $\pi(x,y)$ and a payoff $0\leq V(a,b\mid x,y)\leq1$. Its classical and
 entangled values $\omega(G)$ and $\omega^*(G)$ are the optimal expected
-payoffs using, respectively, shared randomness and local measurements on a
-shared finite-dimensional state. An \emph{XOR game} has binary answers and
-scores only their parity, equivalently a correlation
+payoffs using, respectively, shared randomness and local POVMs
+$\{E_a^x\}_a,\{F_b^y\}_b$ on a shared finite-dimensional state $\rho$, with
+$p(a,b\mid x,y)=\Tr(\rho(E_a^x\otimes F_b^y))$. An \emph{XOR game} has binary
+answers and scores only their parity, equivalently a correlation
 $\sum_{x,y}M_{xy}\mathbb E[a_xb_y]$ for signs $a_x,b_y$.
 \end{definition}
 
