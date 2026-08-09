@@ -768,6 +768,23 @@ gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
 $A\mapsto A+d\chi$ and $F=dA$.
 \end{exercise}
 
+\begin{exercise}[Yang--Mills equations and instantons]
+\label{ex:yang-mills-instantons}
+For $G=SU(r)$, use $\langle X,Y\rangle=-2\Tr(XY)$ and define
+\[
+S_{\rm YM}(A)=\frac1{2g^2}\int_M\langle F_A\wedge *F_A\rangle
+\]
+on a closed oriented Riemannian four-manifold. Prove gauge invariance and
+derive $d_A^*F_A=0$, where $d_A^*=-*d_A*$. Decompose
+$F_A=F_A^++F_A^-$ and, for
+\[
+k(A)=-\frac1{8\pi^2}\int_M\Tr(F_A\wedge F_A),
+\]
+prove $S_{\rm YM}(A)\geq8\pi^2|k(A)|/g^2$, with equality precisely for
+$F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
+the Yang--Mills equation.
+\end{exercise}
+
 \begin{definition}[Electromagnetic field]
 On an oriented Lorentzian four-manifold, an \emph{electromagnetic field
 strength} is a two-form $F$. Given a current one-form $J$ and constants
@@ -942,6 +959,25 @@ expectations, and exponentials use the earlier unbounded spectral calculus
 and its natural domains.
 \end{definition}
 
+\begin{exercise}[Canonical quantization and Weyl relations]
+On $\mathcal S(\R^n)\subset L^2(\R^n)$, set
+$Q_j\psi=x_j\psi$ and $P_j\psi=-i\hbar\partial_j\psi$. Prove
+$[Q_j,P_k]=i\hbar\delta_{jk}$ and derive the Weyl relations for their
+unitary groups. Using symmetric ordering, verify the
+Poisson-bracket--commutator rule for affine and quadratic observables.
+Compare different orderings of $q^2p^2$ and explain the
+Groenewold--van Hove obstruction to quantizing all observables by this rule.
+\end{exercise}
+
+\begin{exercise}[Quantized harmonic oscillator]
+\label{ex:quantum-oscillator}
+For $H=P^2/(2m)+m\omega^2Q^2/2$, define creation and annihilation operators
+and prove $[a,a^*]=1$ and
+$H=\hbar\omega(a^*a+1/2)$. Construct the eigenstates with
+$E_n=\hbar\omega(n+1/2)$ and use the spectral-lines exercise to obtain the
+frequency spacing $\omega$.
+\end{exercise}
+
 \begin{exercise}[Born rule and unitary dynamics]
 Prove that the Born rule defines a probability measure and that its expected
 value is $\Tr(\rho A)$ when defined. Derive the von Neumann equation from
@@ -972,8 +1008,8 @@ For electromagnetic radiation in a large conducting cavity, use its Fourier
 modes and two polarizations to derive the mode density
 $g(\omega)=\omega^2/(\pi^2c^3)$ per unit volume. Show that classical Gibbs
 equipartition assigns mean energy $k_BT$ to each mode and produces the
-ultraviolet divergence. Taking the oscillator levels
-$E_n=\hbar\omega(n+1/2)$ as input, compute the quantum Gibbs partition
+ultraviolet divergence. Using the oscillator levels derived in
+Exercise~\ref{ex:quantum-oscillator}, compute the quantum Gibbs partition
 function and the thermal mean energy
 $\hbar\omega/(e^{\beta\hbar\omega}-1)$. Deduce Planck's law
 \[
@@ -1591,7 +1627,7 @@ periodicity and the axiomatic characterization of the index. Derive the
 Riemann--Roch and Dirac-index formulas as special cases.
 \end{exercise}
 
-\begin{definition}[Chirality and instantons]
+\begin{definition}[Chirality and instanton number]
 Let $M$ be an oriented even-dimensional Riemannian spin manifold. The
 \emph{chirality operator} splits its complex spinor bundle as
 $S=S^+\oplus S^-$. For a Hermitian vector bundle $E$ with unitary connection
@@ -1599,17 +1635,17 @@ $A$, the coupled Dirac operator is odd and has a \emph{chiral part}
 \[
 D_A^+:\Gamma(S^+\otimes E)\longrightarrow\Gamma(S^-\otimes E).
 \]
-On an oriented Riemannian four-manifold, an $SU(r)$-connection is an
-\emph{instanton} or \emph{anti-instanton} when $F_A=*F_A$ or $F_A=-*F_A$.
-Its \emph{instanton number} is
+For an instanton or anti-instanton from
+Exercise~\ref{ex:yang-mills-instantons}, its \emph{instanton number} is
 \[
-k=\int_M\operatorname{ch}_2(E)
-  =-\frac{1}{8\pi^2}\int_M\Tr(F_A\wedge F_A)\in\Z.
+k=-\frac{1}{8\pi^2}\int_M\Tr(F_A\wedge F_A)\in\Z.
 \]
 \end{definition}
 
 \begin{exercise}[Fermion chirality detects instanton number]
-Apply the Dirac-index formula from the preceding exercise to prove
+Identify the characteristic number $k(A)$ from
+Exercise~\ref{ex:yang-mills-instantons} with $\int_M\operatorname{ch}_2(E)$.
+Then apply the Dirac-index formula from the preceding exercise to prove
 \[
 \operatorname{ind}D_A^+
 =\dim\ker D_A^+-\dim\ker(D_A^+)^*
