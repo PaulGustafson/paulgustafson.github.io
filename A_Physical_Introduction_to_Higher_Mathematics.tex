@@ -1135,12 +1135,33 @@ $\rho_A=\Tr_B\rho$ is determined by
 $\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
 \end{definition}
 
+\begin{definition}[Von Neumann and entanglement entropy]
+For a density operator $\rho$ with eigenvalues $\lambda_i$, its
+\emph{von Neumann entropy} is
+\[
+S(\rho)=-k_B\Tr(\rho\log\rho)
+       =-k_B\sum_i\lambda_i\log\lambda_i,
+\]
+with $0\log0=0$; in infinite dimension the value may be $+\infty$. For a
+pure state $\rho=|\psi\rangle\langle\psi|$ on $H_A\otimes H_B$, its
+\emph{entanglement entropy} across the bipartition is
+\[
+S_A(\psi)=S(\Tr_B\rho).
+\]
+The Schmidt decomposition will show that this also equals
+$S(\Tr_A\rho)$.
+\end{definition}
+
 \begin{exercise}[Schmidt decomposition and entanglement]
 Prove the Schmidt decomposition for pure vectors in a tensor product of
 finite-dimensional Hilbert spaces. Prove that a pure state is separable
 exactly when its reduced state has rank one, and that the two reduced states
-have the same nonzero spectrum. Compute the reduced states and entanglement
-entropy of a Bell state.
+have the same nonzero spectrum. If the Schmidt coefficients are $s_i$, derive
+\[
+S_A(\psi)=-k_B\sum_i s_i^2\log s_i^2
+\]
+and prove that it vanishes exactly for separable pure states. Compute the
+reduced states and entanglement entropy of a Bell state.
 \end{exercise}
 
 \begin{definition}[$C^*$-algebras and states]
