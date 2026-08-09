@@ -163,6 +163,65 @@ the tensor--hom adjunction
 $\Hom(U\otimes V,W)\cong\Hom(U,\Hom(V,W))$.
 \end{exercise}
 
+\begin{definition}[Exterior powers, determinant, and characteristic polynomial]
+The \emph{tensor algebra} and \emph{exterior algebra} of $V$ are
+\[
+T(V)=\bigoplus_{r\geq0}V^{\otimes r},
+\qquad
+\Lambda V=T(V)/\langle v\otimes v:v\in V\rangle;
+\]
+write $\Lambda^rV$ for the degree-$r$ component. If $V$ has a basis of
+$n$ vectors, its \emph{determinant line} is $\det(V)=\Lambda^nV$. For
+$T\in\End(V)$, the induced map $\Lambda^nT$ is multiplication by a scalar,
+the \emph{determinant} $\det(T)$. The \emph{characteristic polynomial} is
+\[
+\chi_T(t)=\det(t\id_V-T).
+\]
+Its root multiplicity at $\lambda$ is the \emph{algebraic multiplicity} of
+$\lambda$; the dimension of $\ker(T-\lambda\id_V)$ is its \emph{geometric
+multiplicity}.
+\end{definition}
+
+\begin{exercise}[Top exterior powers and determinant identities]
+For a basis $e_1,\ldots,e_n$, prove that
+$e_1\wedge\cdots\wedge e_n$ spans $\Lambda^nV$, that this space is
+one-dimensional, and that $\Lambda^rV=0$ for $r>n$. Prove
+\[
+\det(ST)=\det(S)\det(T),\qquad
+\det(T\oplus R)=\det(T)\det(R).
+\]
+For $V=\R^n$, identify $|\det T|$ with the volume-scaling factor and the sign
+with orientation. Deduce the change-of-variables rule for parallelepipeds
+and Cramer's rule.
+\end{exercise}
+
+\begin{definition}[Generalized eigenspaces and Jordan blocks]
+For an eigenvalue $\lambda$ of an endomorphism of a finite-dimensional
+space, its \emph{generalized eigenspace} is
+\[
+G_\lambda=\ker(T-\lambda\id)^N
+\]
+for any sufficiently large $N$. A \emph{Jordan block} $J_m(\lambda)$ has
+$\lambda$ on its diagonal, $1$ on its superdiagonal, and zero elsewhere.
+The characteristic polynomial \emph{splits} over $k$ if it is a product of
+linear factors in $k[t]$.
+\end{definition}
+
+\begin{exercise}[Cayley--Hamilton and Jordan normal form]
+Prove the Cayley--Hamilton theorem $\chi_T(T)=0$. If $\chi_T$ splits, prove
+\[
+V=\bigoplus_\lambda G_\lambda
+\]
+and construct a basis in which $T$ is a direct sum of Jordan blocks. Deduce
+that geometric multiplicity is at most algebraic multiplicity and that
+\[
+\operatorname{tr}(T)=\sum_\lambda m_\lambda\lambda,
+\qquad
+\det(T)=\prod_\lambda\lambda^{m_\lambda},
+\]
+where $m_\lambda$ is algebraic multiplicity.
+\end{exercise}
+
 \begin{definition}[Inner products and orthogonality]
 An \emph{inner product} on a real vector space is a positive-definite
 symmetric bilinear form. On a complex vector space it is a positive-definite
@@ -189,7 +248,8 @@ $P$ is an orthogonal projection if and only if $P=P^*=P^2$.
 \begin{definition}[Isometries and spectral classes]
 A linear map is \emph{orthogonal} over $\R$, or \emph{unitary} over $\C$, if
 it preserves the inner product. An endomorphism $A$ is \emph{self-adjoint} if
-$A=A^*$ and \emph{normal} if $AA^*=A^*A$. A scalar $\lambda$ is an
+$A=A^*$, \emph{normal} if $AA^*=A^*A$, and \emph{positive} if
+$\langle v,Av\rangle\geq0$ for every $v$. A scalar $\lambda$ is an
 \emph{eigenvalue} if $\ker(A-\lambda\id)\ne0$; a subspace $U$ is
 \emph{invariant} if $A(U)\subseteq U$. In finite dimensions,
 $\spec(A)$ denotes the set of eigenvalues of $A$ in the scalar field.
@@ -210,12 +270,16 @@ Prove that adjoints exist uniquely. Prove that a complex endomorphism is
 unitarily diagonalizable if and only if it is normal. Deduce spectral
 decompositions for self-adjoint, unitary, and normal operators, including the
 reality of self-adjoint spectra and the unit modulus of unitary spectra.
+Prove that every positive operator $A$ has a unique positive square root
+$A^{1/2}$. For a map $T:V\to W$ between finite-dimensional inner-product
+spaces, diagonalize $T^*T$, construct $|T|=(T^*T)^{1/2}$, and derive the
+singular-value decomposition $T=U\Sigma V^*$ in orthonormal bases.
 \end{exercise}
 
 \begin{exercise}[Diagonalization and invariant subspaces]
 For an endomorphism with split characteristic polynomial, prove that it is
 diagonalizable if and only if the space is the direct sum of its eigenspaces.
-Show that normality removes generalized eigenvectors. Prove that commuting
+Show that normality removes nontrivial Jordan blocks. Prove that commuting
 normal endomorphisms admit a common orthogonal spectral decomposition.
 \end{exercise}
 
@@ -238,6 +302,18 @@ $q(t)=a(t)v$ solves the equation for some nonconstant $a$.
 Solve $m\ddot q+kq=0$ for $m,k>0$. Prove conservation of
 $E=\frac12m\dot q^2+\frac12kq^2$, determine the period, and deduce from the
 measured period of a small-amplitude mass--spring system the ratio $k/m$.
+\end{exercise}
+
+\begin{exercise}[Critical damping is a Jordan block]
+For $m,b,\kappa>0$, rewrite
+$m\ddot x+b\dot x+\kappa x=0$ as first-order evolution on
+$(x,\dot x)$. Use its characteristic polynomial and Jordan form to solve the
+equation in the underdamped, overdamped, and critically damped regimes. Show
+that critical damping is exactly $b^2=4m\kappa$ and that its nontrivial
+Jordan block produces the solution
+$t e^{-bt/(2m)}$. Among $b^2\geq4m\kappa$, show that the critical value
+maximizes the magnitude of the slow decay rate, explaining the fastest
+asymptotic return without oscillatory eigenvalues.
 \end{exercise}
 
 \begin{exercise}[Coupled oscillators and normal modes]
@@ -776,11 +852,11 @@ only if their local flows commute, and that the Lie derivative
 $\mathcal L_XY=[X,Y]$ is natural under diffeomorphisms.
 \end{exercise}
 
-\begin{definition}[Exterior algebra and differential forms]
-The \emph{exterior algebra} of a vector space $V$ is
-$\Lambda V=T(V)/\langle v\otimes v:v\in V\rangle$. A \emph{differential
-$k$-form} on $M$ is a smooth section of $\Lambda^kT^*M$. The \emph{pullback}
-of $\omega\in\Omega^k(N)$ by $F:M\to N$ is
+\begin{definition}[Differential forms and pullback]
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$, using the exterior powers defined above; write
+$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$. The \emph{pullback} of
+$\omega\in\Omega^k(N)$ by $F:M\to N$ is
 \[
 (F^*\omega)_p(v_1,\ldots,v_k)
 =\omega_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
@@ -828,8 +904,33 @@ curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
 orientation define a volume form $\vol_g$.
 \end{definition}
 
-\begin{exercise}[Metric volume and proper time]
-Construct $\vol_g$ intrinsically and derive its coordinate expression.
+\begin{definition}[Hodge star]
+On an oriented pseudo-Riemannian $n$-manifold, the metric induces a
+nondegenerate pairing $\langle\cdot,\cdot\rangle_g$ on differential forms.
+The \emph{Hodge star} is the bundle map
+\[
+*:\Omega^p(M)\longrightarrow\Omega^{n-p}(M)
+\]
+characterized by
+\[
+\alpha\wedge *\beta
+=\langle\alpha,\beta\rangle_g\,\vol_g
+\]
+for $p$-forms $\alpha,\beta$.
+\end{definition}
+
+\begin{exercise}[Metric volume and Hodge star]
+Construct $\vol_g$ and the Hodge star intrinsically and derive their
+coordinate expressions. For a metric with $q$ negative directions, prove on
+$p$-forms that
+\[
+*^2=(-1)^{p(n-p)+q}\id.
+\]
+Compute $*$ on the standard coordinate forms of Euclidean three-space and
+Minkowski four-space, stating the orientation and signature conventions.
+\end{exercise}
+
+\begin{exercise}[Proper time]
 Prove invariance of length and proper time under reparametrization. In
 Minkowski spacetime, prove that the inertial path maximizes proper time among
 piecewise smooth future-directed timelike paths with fixed timelike-separated
@@ -1205,8 +1306,9 @@ $S(\Tr_A\rho)$.
 \end{definition}
 
 \begin{exercise}[Schmidt decomposition and entanglement]
-Prove the Schmidt decomposition for pure vectors in a tensor product of
-finite-dimensional Hilbert spaces. Prove that a pure state is separable
+Apply the singular-value decomposition to the coefficient matrix of a pure
+vector in a tensor product of finite-dimensional Hilbert spaces and prove the
+Schmidt decomposition. Prove that a pure state is separable
 exactly when its reduced state has rank one, and that the two reduced states
 have the same nonzero spectrum. If the Schmidt coefficients are $s_i$, derive
 \[
