@@ -2131,6 +2131,33 @@ representations for the Fibonacci fusion rule
 $\tau\otimes\tau\cong1\oplus\tau$.
 \end{exercise}
 
+\begin{definition}[Bordisms and topological field theories]
+The \emph{bordism category} has closed oriented $(n-1)$-manifolds as objects,
+oriented $n$-dimensional bordisms as morphisms, and disjoint union as tensor
+product. An \emph{$n$-dimensional topological field theory} is a symmetric
+monoidal functor from this category to vector spaces. An extended theory may
+assign categories to codimension-two manifolds. A TQFT is \emph{invertible}
+when its state spaces are tensor-invertible (hence one-dimensional over a
+field) and every bordism acts invertibly; noninvertible TQFTs may instead
+carry nontrivial superselection and fusion sectors.
+\end{definition}
+
+\begin{definition}[The Reshetikhin--Turaev $SU(2)_k$ theory]
+For $k\in\N$, let $\mathcal C_k=SU(2)_k$ be the unitary modular tensor
+category with simple objects $V_0,\ldots,V_k$, where $V_j$ has spin $j/2$.
+The Reshetikhin--Turaev construction uses the colored ribbon-graph calculus
+of $\mathcal C_k$ and surgery to define a symmetric monoidal
+$(2+1)$-dimensional TQFT
+\[
+Z_k^{\rm RT}=Z_{\mathcal C_k}
+\]
+on bordisms equipped with the extra framing data needed to cancel the
+framing anomaly. It assigns invariants to closed framed three-manifolds and
+to framed links colored by the objects $V_j$. We call $Z_k^{\rm RT}$ the
+Reshetikhin--Turaev model of quantum $SU(2)$ Chern--Simons theory at level
+$k$; this terminology does not define it by a functional integral.
+\end{definition}
+
 \begin{definition}[Chern--Simons theory and Wilson loops]
 Let $G$ have an invariant inner product on $\mathfrak g$, and fix a
 trivialization of a principal $G$-bundle over a closed oriented
@@ -2153,28 +2180,37 @@ condition for $e^{iS_{CS}}$ to be gauge invariant. Prove that its critical
 points are flat connections.
 \end{exercise}
 
-\begin{exercise}[Wilson loops and Jones evaluations]
-Assume that the framed $SU(2)$ Chern--Simons quantum invariant is defined by
-the Reshetikhin--Turaev construction and that, at integer level $k$, its
-Wilson-loop invariant corresponds after the standard framing normalization
-to the colored Jones polynomial at $q=e^{2\pi i/(k+2)}$. Treat the formal
-path integral only as a prediction of this correspondence. Identify the
-representation label of a Wilson loop with the color of a Jones invariant.
-Compute the normalized expectations for the unknot, Hopf link, and trefoil
-from their Jones polynomials, and track the framing factor separately from
-the ambient-isotopy invariant.
+\begin{exercise}[Reshetikhin--Turaev links and Jones evaluations]
+Use the Temperley--Lieb realization of $\mathcal C_k$ and its ribbon functor
+to show that the $Z_k^{\rm RT}$ invariant of a framed link in $S^3$, with a
+component colored by $V_j$, is the corresponding $j$-colored Jones
+evaluation at
+\[
+q=e^{2\pi i/(k+2)}.
+\]
+In particular, identify $V_1$ with the fundamental color giving the ordinary
+Jones polynomial. Compute the normalized invariants of the unknot, Hopf
+link, and trefoil, state the normalization of the colored unknot, and track
+the framing factor separately from the ambient-isotopy invariant.
 \end{exercise}
 
-\begin{definition}[Bordisms and topological field theories]
-The \emph{bordism category} has closed oriented $(n-1)$-manifolds as objects,
-oriented $n$-dimensional bordisms as morphisms, and disjoint union as tensor
-product. An \emph{$n$-dimensional topological field theory} is a symmetric
-monoidal functor from this category to vector spaces. An extended theory may
-assign categories to codimension-two manifolds. A TQFT is \emph{invertible}
-when its state spaces are tensor-invertible (hence one-dimensional over a
-field) and every bordism acts invertibly; noninvertible TQFTs may instead
-carry nontrivial superselection and fusion sectors.
-\end{definition}
+\begin{exercise}[Comparison with Chern--Simons quantization]
+Do not use the formal Chern--Simons path integral as a definition. Assume the
+comparison theorem identifying the modular functor underlying
+$Z_k^{\rm RT}$ with the level-$k$ $SU(2)$ Wess--Zumino--Witten
+conformal-block modular functor, the quantization associated with
+$SU(2)$ Chern--Simons theory; see
+\href{https://arxiv.org/abs/1110.5027}
+{Andersen--Ueno, \emph{Construction of the Witten--Reshetikhin--Turaev TQFT
+from conformal field theory}}. Explain why this gives a precise sense in
+which $Z_k^{\rm RT}$ realizes quantum Chern--Simons theory and matches its
+Wilson-loop labels and gluing rules. Also explain why the comparison theorem
+does not by itself construct a nonperturbative measure for the formal path
+integral
+\[
+\int \mathcal DA\,e^{iS_{CS}(A)}\prod_r W_{V_{j_r}}(K_r).
+\]
+\end{exercise}
 
 \begin{exercise}[Functorial gluing]
 Show that the monoidal-functor axioms give multiplicativity under disjoint
