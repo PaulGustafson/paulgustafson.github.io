@@ -51,6 +51,15 @@
 \tableofcontents
 \clearpage
 
+\begin{supplied}[Analytic background]
+We assume elementary measure theory: measurable spaces and functions,
+Lebesgue integration, monotone and dominated convergence, Fatou's lemma,
+product measures and Fubini's theorem, the Radon--Nikodym theorem, and the
+standard integration inequalities, completeness, and duality results for
+$L^p$ spaces. Probability and statistical mechanics will later use this
+background rather than redevelop it.
+\end{supplied}
+
 \part{Waves}
 
 \section{Linear Structure and Spectra}
@@ -204,17 +213,17 @@ $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
 
 \begin{definition}[Fourier function spaces]
-For $p=1,2$, define $L^p(\R^n)$ as the completion of the continuous
-compactly supported functions $C_c(\R^n)$ in
+For $1\leq p<\infty$, the space $L^p(X,\mu)$ consists of measurable
+functions modulo equality almost everywhere with
 \[
-\|f\|_p=\left(\int_{\R^n}|f(x)|^p\,dx\right)^{1/p}.
+\|f\|_p=\left(\int_X|f|^p\,d\mu\right)^{1/p}<\infty;
 \]
-Define $L^2(\T)$ as the completion of $C(\T)$ for the inner product
+$L^\infty$ uses the essential supremum. For Lebesgue measure on $\R^n$ and
+normalized arc measure on $\T$, write $L^p(\R^n)$ and $L^p(\T)$. The inner
+product on $L^2(\T)$ is
 $\langle f,g\rangle=(2\pi)^{-1}\int_0^{2\pi}\overline{f(x)}g(x)\,dx$.
-A complete inner-product space is a \emph{Hilbert space}, so $L^2(\T)$ and
-$L^2(\R^n)$ are Hilbert spaces by construction. Measure theory will later
-identify these completions with measurable functions modulo almost-everywhere
-equality.
+The assumed completeness theorem makes $L^2(\T)$ and $L^2(\R^n)$ Hilbert
+spaces.
 \end{definition}
 
 \begin{definition}[Orthogonal expansions]
@@ -282,6 +291,82 @@ Fraunhofer regime, derive that the far-field amplitude is the Fourier
 transform of the aperture. Compute the single-slit diffraction intensity,
 locate its zeros, and compare the predicted angular spacing with measured
 optical diffraction.
+\end{exercise}
+
+\section{Hilbert Spaces and Spectral Operators}
+
+\begin{definition}[Hilbert spaces and bounded operators]
+A \emph{Hilbert space} is a complete inner-product space. A linear map
+$T:H\to K$ is \emph{bounded} if
+$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Its adjoint is the unique bounded
+map satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. Projections,
+self-adjoint operators, and unitary operators satisfy respectively
+$P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$.
+\end{definition}
+
+\begin{definition}[Projection-valued measures]
+A \emph{projection-valued measure} on a measurable space $X$ assigns an
+orthogonal projection $E(B)$ to each measurable set, with $E(X)=\id$ and
+countable additivity in the strong operator topology. For bounded measurable
+$f$, the operator $\int_Xf\,dE$ is defined by uniform approximation from
+simple functions.
+\end{definition}
+
+\begin{exercise}[Bounded spectral theorem]
+Prove that every bounded self-adjoint operator $A$ has a unique
+projection-valued measure on $\spec(A)\subset\R$ such that
+$A=\int\lambda\,dE(\lambda)$. Extend the statement to bounded normal
+operators, derive continuous functional calculus, and characterize unitary
+and projection spectra.
+\end{exercise}
+
+\begin{definition}[Unbounded operators and domains]
+A \emph{densely defined operator} $T$ has a dense linear domain
+$\operatorname{Dom}(T)\subset H$. It is \emph{closed} when its graph is
+closed in $H\oplus H$; its graph norm is
+$\|x\|_T^2=\|x\|^2+\|Tx\|^2$. The adjoint $T^*$ is defined on those $y$ for
+which $x\mapsto\langle Tx,y\rangle$ is bounded on
+$\operatorname{Dom}(T)$. The operator is \emph{symmetric} when
+$\langle Tx,y\rangle=\langle x,Ty\rangle$ on its domain and
+\emph{self-adjoint} when $T=T^*$, including equality of domains.
+\end{definition}
+
+\begin{exercise}[Self-adjoint momentum and boundary holonomy]
+On $L^2([0,L])$, let $P_\theta=-i\hbar\,d/dx$ on the absolutely continuous
+functions with derivative in $L^2$ and boundary condition
+$\psi(L)=e^{i\theta}\psi(0)$. Use integration by parts and the adjoint domain
+to prove that $P_\theta$ is self-adjoint. Find its orthonormal eigenbasis and
+show
+\[
+p_n=\frac{\hbar}{L}(2\pi n+\theta),\qquad n\in\Z.
+\]
+Interpret $\theta$ as a boundary holonomy, later realized by magnetic flux
+through a ring, and explain why changing the domain changes the measured
+spectrum.
+\end{exercise}
+
+\begin{supplied}[Unbounded spectral theorem and Stone's theorem]
+Every self-adjoint operator $H$ has a unique projection-valued measure with
+\[
+H=\int_\R\lambda\,dE_H(\lambda),\qquad
+\operatorname{Dom}(H)=
+\left\{\psi:\int_\R\lambda^2\,d\langle\psi,E_H(\lambda)\psi\rangle<\infty
+\right\},
+\]
+and measurable functional calculus on its natural domains. Stone's theorem
+identifies self-adjoint $H$ with strongly continuous unitary groups
+$U_t=e^{-itH/\hbar}$. We use these theorems without proving their full
+analytic form.
+\end{supplied}
+
+\begin{exercise}[Fourier spectra and free quantum evolution]
+Use the Fourier transform to realize $-i\hbar\partial_j$ and $-\Delta$ as
+multiplication by $\hbar\xi_j$ and $|\xi|^2$ on their natural domains.
+Deduce self-adjointness, identify their spectral projections, and derive
+the free Schr\"odinger evolution for
+$H=-(\hbar^2/2m)\Delta$. Prove preservation of the domain, norm, and expected
+energy, and contrast these unbounded generators with the bounded operators
+covered by the preceding spectral theorem.
 \end{exercise}
 
 \part{Symmetry}
@@ -438,15 +523,6 @@ Construct coupled angular-momentum eigenstates from highest-weight vectors
 and compute the singlet and triplet decomposition of
 $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
-
-\begin{supplied}[Unbounded Hamiltonians]
-Physical Hamiltonians such as the Coulomb and Schr\"odinger operators are
-generally unbounded. We take as analytic input the theory of densely defined
-closed and self-adjoint operators, their domains, the unbounded spectral
-theorem and functional calculus, and Stone's theorem. All claims below about
-such Hamiltonians are understood on their invariant domains; the later
-bounded spectral theorem does not replace this input.
-\end{supplied}
 
 \begin{definition}[Quantum symmetries]
 For a Hilbert space $H$ and self-adjoint Hamiltonian $\mathcal H$, a
@@ -718,7 +794,7 @@ relativity in the observed regime.
 
 \part{States}
 
-\section{Hamiltonian and Statistical States}
+\section{Hamiltonian States}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -763,27 +839,7 @@ depending only on $H$. Deduce that Hamiltonian evolution cannot compress
 phase volume.
 \end{exercise}
 
-\begin{definition}[Measure and integration]
-A \emph{$\sigma$-algebra} $\Sigma$ on $X$ is closed under complements and
-countable unions. A \emph{measure} is a countably additive map
-$\mu:\Sigma\to[0,\infty]$ with $\mu(\varnothing)=0$. A function is
-\emph{measurable} if inverse images of Borel sets are measurable. Its
-integral is obtained from nonnegative simple functions by monotone limits and
-then by positive and negative parts. For $1\leq p<\infty$,
-$L^p(X,\mu)$ consists of measurable functions modulo equality almost
-everywhere with $\int|f|^p\,d\mu<\infty$; $L^\infty$ uses essential bounds.
-For Lebesgue measure on $\R^n$ or normalized arc measure on $\T$, this
-measurable-function model is canonically isometric to the completions used
-in Fourier analysis.
-\end{definition}
-
-\begin{exercise}[Convergence and $L^p$ spaces]
-Prove monotone and dominated convergence and Fatou's lemma. Prove H\"older's
-and Minkowski's inequalities and completeness of $L^p$. Prove that $L^2$ is
-a Hilbert space, prove the asserted identification with the earlier
-completions, and identify the dual of $L^p$ for $1<p<\infty$ under the
-standard $\sigma$-finiteness hypotheses.
-\end{exercise}
+\section{Probability, Gibbs States, and Ergodicity}
 
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
@@ -837,42 +893,20 @@ compare the pressure law with dilute-gas measurements within the classical
 regime.
 \end{exercise}
 
-\section{Hilbert-Space and Algebraic States}
-
-\begin{definition}[Hilbert spaces and bounded operators]
-A \emph{Hilbert space} is a complete inner-product space. A linear map
-$T:H\to K$ is \emph{bounded} if
-$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Its adjoint is the unique bounded
-map satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. Projections,
-self-adjoint operators, and unitary operators satisfy respectively
-$P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$.
-\end{definition}
-
-\begin{definition}[Projection-valued measures]
-A \emph{projection-valued measure} on a measurable space $X$ is a map
-$E$ from measurable sets to orthogonal projections on $H$ with
-$E(X)=\id$ and countable additivity in the strong operator topology. For a
-bounded measurable $f$, the operator $\int_Xf,dE$ is defined by uniform
-approximation from simple functions.
-\end{definition}
-
-\begin{exercise}[Spectral theorem]
-Prove that every bounded self-adjoint operator $A$ has a unique
-projection-valued measure on $\spec(A)\subset\R$ such that
-$A=\int\lambda,dE(\lambda)$. Extend the statement to bounded normal
-operators, derive continuous functional calculus, and characterize unitary
-and projection spectra.
-\end{exercise}
+\section{Quantum and Algebraic States}
 
 \begin{definition}[Quantum states and observables]
-A \emph{density operator} is a positive trace-class operator $\rho$ with
-$\Tr\rho=1$. An \emph{observable} is a self-adjoint operator $A$ with
+A bounded operator $T$ is \emph{trace class} when
+$\sum_n\langle e_n,|T|e_n\rangle<\infty$ for an orthonormal basis, where
+$|T|=(T^*T)^{1/2}$; this condition is basis-independent. For positive $T$,
+the sum defines $\Tr T$. A \emph{density operator} is positive and trace
+class with $\Tr\rho=1$. An \emph{observable} is a self-adjoint operator $A$ with
 spectral measure $E_A$. The \emph{Born probability} of an event $B$ is
 $\Tr(\rho E_A(B))$. A closed-system \emph{unitary dynamics} is
 $\rho\mapsto U_t\rho U_t^*$ for a strongly continuous unitary group
 $U_t$. For unbounded observables and generators, spectral measures,
-expectations, and exponentials are interpreted using the supplied
-unbounded-operator theory and their natural domains.
+expectations, and exponentials use the earlier unbounded spectral calculus
+and its natural domains.
 \end{definition}
 
 \begin{exercise}[Born rule and unitary dynamics]
