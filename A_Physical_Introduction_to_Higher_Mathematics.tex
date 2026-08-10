@@ -1642,6 +1642,51 @@ theorem in finite dimensions and derive the measurement channel associated
 to a POVM. Show that state discrimination can require a nonprojective POVM.
 \end{exercise}
 
+\begin{definition}[Quantum codes and correctable errors]
+Let $V:K\to H$ be an isometry between finite-dimensional Hilbert spaces. Its
+image $C=\im V$, with projection $P=VV^*$, is a \emph{quantum code}; $K$ is
+the logical system and $H$ the physical system. Write $\mathcal T(H)$ for
+the trace-class operators on $H$. A channel
+$\mathcal N:\mathcal T(H)\to\mathcal T(H')$ is \emph{correctable on $C$} if
+there is a recovery channel $\mathcal R$ such that
+\[
+(\mathcal R\circ\mathcal N)(V\rho V^*)=V\rho V^*
+\]
+for every state $\rho$ on $K$. A \emph{stabilizer code} is the common
+$+1$ spectral subspace of commuting self-adjoint unitaries. When
+$H=\bigotimes_{j=1}^nH_j$, the \emph{distance} of $C$ is the least number
+of tensor factors supporting an operator $E$ for which $PEP$ is not a
+scalar multiple of $P$, or $+\infty$ if there is no such operator.
+\end{definition}
+
+\begin{exercise}[Knill--Laflamme correction and decoupling]
+Let $\mathcal N(\rho)=\sum_aE_a\rho E_a^*$ and let $P$ project onto a code
+$C$. Prove that $\mathcal N$ is correctable on $C$ exactly when there is a
+positive semidefinite matrix $(\lambda_{ab})$ such that
+\[
+PE_a^*E_bP=\lambda_{ab}P
+\qquad\text{for every $a,b$}.
+\]
+Show that this condition is independent of the chosen Kraus representation,
+and construct a recovery from the polar decomposition of the combined error
+map
+\[
+W:C\otimes\ell^2(\{a\})\longrightarrow H',\qquad
+W(\psi\otimes\delta_a)=E_a\psi,
+\]
+together with the spectral projections of $(\lambda_{ab})$. Deduce that a
+code of distance $d$ corrects every error supported on at most
+$\lfloor(d-1)/2\rfloor$ tensor factors.
+
+For an encoding $V:K\to H_A\otimes H_B$, prove that erasure of $B$ is
+correctable exactly when the complementary channel
+$\rho\mapsto\Tr_A(V\rho V^*)$ is constant on logical states. Interpret this
+as the equivalence between recovery from $A$ and absence of encoded
+information in $B$; see
+\href{https://doi.org/10.1103/PhysRevA.55.900}
+{Knill--Laflamme, \emph{Physical Review A} \textbf{55} (1997)}.
+\end{exercise}
+
 \begin{definition}[Operator spaces and operator systems]
 An \emph{operator space} is a closed subspace $E\subseteq B(H)$ with matrix
 norms inherited from $M_n(E)\subseteq B(H^{\oplus n})$. A map
@@ -2613,6 +2658,44 @@ $1$ and \emph{nonabelian} otherwise. The \emph{topological degeneracy} on a
 closed surface is the dimension of the state space assigned by the
 associated topological field theory.
 \end{definition}
+
+\begin{exercise}[The toric code: error correction from topological order]
+Give an $L\times L$ square cellulation of the torus, with $L\geq2$, a qubit
+on every edge. Let $X$ and $Z$ be self-adjoint unitaries satisfying
+$X^2=Z^2=1$ and $XZ=-ZX$ on one qubit. Operators on distinct edges commute.
+For each vertex $v$ and plaquette $p$, set
+\[
+A_v=\prod_{e\ni v}X_e,\qquad
+B_p=\prod_{e\subset\partial p}Z_e,
+\qquad
+H=-\sum_vA_v-\sum_pB_p.
+\]
+Prove that all $A_v$ and $B_p$ commute and that the ground space is their
+common $+1$ spectral subspace. Establish the two relations
+$\prod_vA_v=1$ and $\prod_pB_p=1$, prove that the remaining stabilizers are
+independent, find $E_0=-2L^2$, and compute
+\[
+\dim\ker(H-E_0)=2^{2L^2-(L^2+L^2-2)}=4.
+\]
+
+Show that an open $Z$-string creates violated vertex terms only at its
+endpoints, while an open dual $X$-string creates violated plaquette terms
+only at its endpoints. Prove that contractible closed strings are products
+of stabilizers. Show that strings around the two noncontractible cycles give
+two pairs of logical operators, with a primal $Z$-loop and a dual $X$-loop
+anticommuting exactly when their intersection number is odd. Deduce that the
+code encodes two logical qubits, has distance $L$, and corrects arbitrary
+errors on at most $\lfloor(L-1)/2\rfloor$ edges by the Knill--Laflamme
+criterion.
+
+Interpret the endpoint excitations as anyons $e$ and $m$. Derive
+$e^2=m^2=1$, set $\varepsilon=e m$, and show that taking $e$ once around
+$m$ produces the phase $-1$. Explain how local error syndromes, global
+logical Wilson loops, and the fourfold TQFT degeneracy express the same
+topological structure; see
+\href{https://arxiv.org/abs/quant-ph/9707021}
+{Kitaev, \emph{Fault-tolerant quantum computation by anyons}}.
+\end{exercise}
 
 \begin{exercise}[Abelian and nonabelian anyons]
 Compute fusion spaces and braid actions for an abelian category and for the
