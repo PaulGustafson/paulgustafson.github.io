@@ -16,7 +16,6 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{exercise}{Exercise}[section]
-\newtheorem*{supplied}{Supplied input}
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
@@ -2029,18 +2028,45 @@ Track the matrix sizes and prove that completely bounded maps preserve both
 direct sums and multiplication by scalar matrices at every level.
 \end{exercise}
 
-\begin{supplied}[Ruan separation lemma]
-For matrix norms satisfying the two concrete axioms and each
-$x\in M_n(E)$, we take as supplied the matrix Hahn--Banach separation lemma
-that produces a completely contractive map $\phi_x:E\to B(H_x)$ whose
-$n$th amplification satisfies $\|\phi_x^{(n)}(x)\|=\|x\|$.
-\end{supplied}
+\begin{exercise}[Hahn--Banach separation]
+Let $Y$ be a linear subspace of a complex normed space $X$. Use Zorn's
+lemma, first over the underlying real spaces and then after complexification,
+to prove that every bounded linear functional on $Y$ extends to $X$ without
+increasing its norm. Deduce that each nonzero $x\in X$ has a norm-one
+functional $f\in X^*$ with $f(x)=\|x\|$.
+\end{exercise}
+
+\begin{exercise}[Matrix Hahn--Banach separation]
+Let $E$ carry matrix norms satisfying the two concrete matrix-norm axioms,
+and let $F\in M_n(E)^*$ have norm at most one. Apply geometric
+Hahn--Banach separation to the matrix unit ball and prove that there are
+states $p,q$ on $M_n$ such that
+\[
+ |F(ayb)|\leq p(aa^*)^{1/2}\,\|y\|_n\,q(b^*b)^{1/2}
+ \qquad(a,b\in M_n,\ y\in M_n(E)).
+\]
+Represent $p$ and $q$ by unit vectors in amplifications of $\C^n$. Use the
+displayed inequality to construct a bounded sesquilinear form on their
+cyclic subspaces and hence a contraction
+$T:M_n(E)\to M_n(M_n)$ satisfying
+\[
+T(ayb)=(a\otimes1)T(y)(b\otimes1),\qquad
+F(y)=\langle T(y)\xi,\eta\rangle.
+\]
+Prove from the bimodule identity that $T=\phi^{(n)}$ for a linear map
+$\phi:E\to M_n$, and use the matrix-norm axioms to show that
+$\|\phi\|_{cb}=\|\phi^{(n)}\|\leq1$. Finally, for each
+$x\in M_n(E)$ choose a norming $F$ and deduce
+\[
+\|\phi^{(n)}(x)\|=\|x\|_n.
+\]
+\end{exercise}
 
 \begin{exercise}[Ruan's representation theorem]
 Prove conversely that every vector space with matrix norms satisfying these
-axioms admits a complete isometry into $B(H)$. Apply the supplied separation
-lemma to a norming family of matrices and take the direct sum of the resulting
-maps.
+axioms admits a complete isometry into $B(H)$. Apply matrix Hahn--Banach
+separation to a norming family of matrices and take the direct sum of the
+resulting maps.
 \end{exercise}
 
 \begin{exercise}[Finite-dimensional Arveson--Wittstock extension]
@@ -2311,23 +2337,80 @@ not of a gauge-dependent potential by itself, even though curvature vanishes
 along the electron paths.
 \end{exercise}
 
-\begin{supplied}[Classifying spaces]
-Let $BU(n)=\operatorname{Gr}_n(\C^\infty)$ be the infinite Grassmannian with
-tautological bundle $\gamma_n\to BU(n)$. We take as supplied the
-classification theorem that, for paracompact $X$, pullback gives a bijection
-between $[X,BU(n)]$ and isomorphism classes of rank-$n$ complex vector
-bundles. We also take as supplied the universal classes
-$c_j(\gamma_n)\in H^{2j}(BU(n);\Z)$.
-\end{supplied}
+\begin{definition}[Grassmannians and universal bundles]
+For a finite-dimensional Hermitian space $V$, the \emph{Grassmannian}
+$\operatorname{Gr}_n(V)$ is the space of $n$-dimensional subspaces of $V$.
+Its \emph{tautological bundle} has fiber $W$ over
+$W\in\operatorname{Gr}_n(V)$. Isometric inclusions of Hermitian spaces
+induce compatible inclusions of their Grassmannians and tautological bundles,
+and
+\[
+BU(n)=\varinjlim_N\operatorname{Gr}_n(\C^N),\qquad
+\gamma_n=\varinjlim_N\gamma_{n,N}.
+\]
+\end{definition}
+
+\begin{exercise}[Classifying maps]
+Let $E\to X$ be a rank-$n$ complex vector bundle over a compact Hausdorff
+space. Construct a finite trivializing cover, a subordinate partition of
+unity, a Hermitian metric, and a fiberwise isometric embedding
+$E\hookrightarrow X\times\C^N$. Show that its ranges define a continuous
+map $f_E:X\to\operatorname{Gr}_n(\C^N)$ with
+$E\cong f_E^*\gamma_{n,N}$. Prove that two choices of embedding become
+homotopic after stabilization by placing them in orthogonal summands, and
+prove that homotopic maps have isomorphic pullbacks. Deduce the bijection
+\[
+[X,BU(n)]\longleftrightarrow
+\{\text{rank-$n$ complex bundles over $X$}\}/\cong.
+\]
+\end{exercise}
+
+\begin{exercise}[Universal Chern classes]
+Identify $BU(1)$ with $\mathbb P(\C^\infty)$ and use its even-dimensional cell
+decomposition to compute $H^*(BU(1);\Z)=\Z[x]$, where $x$ evaluates as
+$-1$ on the projective line carrying the tautological line bundle. Let
+\[
+s:BU(1)^n\longrightarrow BU(n)
+\]
+classify the direct sum of the $n$ tautological lines, and set
+$x_i=\operatorname{pr}_i^*x$. Construct the Schubert cell decompositions of
+the finite Grassmannians and their flag bundles. Use the cellular filtration
+and the splitting map $s$ to prove that $s^*$ is injective with image
+\[
+\Z[x_1,\ldots,x_n]^{\mathfrak S_n}
+=\Z[e_1(x),\ldots,e_n(x)].
+\]
+Define $c_j(\gamma_n)\in H^{2j}(BU(n);\Z)$ by
+$s^*c_j(\gamma_n)=e_j(x_1,\ldots,x_n)$. For the block-sum map
+$BU(n)\times BU(m)\to BU(n+m)$, prove
+\[
+c(\gamma_n\oplus\gamma_m)=c(\gamma_n)c(\gamma_m),
+\qquad c=1+c_1+c_2+\cdots.
+\]
+\end{exercise}
 
 \begin{definition}[Chern classes and character]
 If a rank-$n$ complex vector bundle $E\to X$ is classified by
 $f:X\to BU(n)$, its \emph{Chern classes} are
-$c_j(E)=f^*c_j(\gamma_n)\in H^{2j}(X;\Z)$. They are natural and satisfy
-$c(E\oplus F)=c(E)c(F)$. The \emph{Chern character} is the natural ring map
-$\operatorname{ch}:K^0(X)\to H^{\mathrm{even}}(X;\Q)$ whose value on a line
-bundle $L$ is $e^{c_1(L)}$.
+$c_j(E)=f^*c_j(\gamma_n)\in H^{2j}(X;\Z)$. If the formal roots of
+$1+c_1(E)+\cdots+c_n(E)$ are $y_1,\ldots,y_n$, the \emph{Chern character}
+is the degreewise class
+\[
+\operatorname{ch}(E)=\sum_{i=1}^ne^{y_i}\in
+\prod_{k\geq0}H^{2k}(X;\Q),
+\]
+where each symmetric polynomial in the $y_i$ is expressed in the Chern
+classes by the Newton identities and the definition extends additively to
+$K^0(X)$.
 \end{definition}
+
+\begin{exercise}[Naturality, sums, and the Chern character]
+Prove that the classifying-map definition is independent of every choice and
+that $c_j(g^*E)=g^*c_j(E)$. Use the block-sum calculation above to prove the
+Whitney formula $c(E\oplus F)=c(E)c(F)$. Prove that the Chern character is a
+natural ring map and that $\operatorname{ch}(L)=e^{c_1(L)}$ for a line
+bundle.
+\end{exercise}
 
 \begin{exercise}[Curvature representatives]
 For a Hermitian bundle with unitary connection, prove that
@@ -2337,8 +2420,8 @@ For a Hermitian bundle with unitary connection, prove that
 \Tr\exp\!\left(\frac{i}{2\pi}F_\nabla\right)
 \]
 are closed forms whose cohomology classes are independent of the connection.
-Identify them with the Chern classes and Chern character and prove their
-Whitney-sum formulas.
+Identify their de Rham classes with the images of the Chern classes and
+Chern character, and prove their Whitney-sum formulas.
 \end{exercise}
 
 \begin{definition}[Berry geometry]
@@ -2379,18 +2462,67 @@ Grothendieck group of complex vector bundles on compact $X$; define
 $K^1(X)=\widetilde K^0(\Sigma X)$.
 \end{definition}
 
-\begin{supplied}[Bott periodicity]
-Let $\beta\in\widetilde K^0(S^2)$ be the class of the Hopf line bundle minus
-the trivial line. For compact based $X$, we take as supplied that external
-product with $\beta$ induces
-$\widetilde K^j(X)\cong\widetilde K^j(S^2\wedge X)$ for $j=0,1$.
-\end{supplied}
+\begin{definition}[Relative K-theory and the Thom class]
+For a compact pair $(X,A)$ and a locally compact space $Y$, define
+\[
+K^j(X,A)=\widetilde K^j(X/A),\qquad
+K_c^j(Y)=\widetilde K^j(Y^+),
+\]
+where $Y^+$ is the one-point compactification. A triple
+$(F^0,F^1,\sigma)$ of vector bundles on $Y$, with
+$\sigma:F^0\to F^1$ invertible off a compact set, represents a class in
+$K_c^0(Y)$ up to homotopy and stabilization.
 
-\begin{exercise}[Clutching and the Bott generator]
-Prove the clutching description of complex vector bundles on spheres.
-Identify the Hopf line as a generator of $\widetilde K^0(S^2)$ and use the
-supplied periodicity isomorphism to compute the complex $K$-groups of
-spheres.
+Let $\pi:E\to X$ be a rank-$r$ Hermitian complex vector bundle. Exterior
+multiplication by $v$ and its adjoint give the odd endomorphism
+\[
+c(v)=\varepsilon(v)-\iota(v):\Lambda^*E_{\pi(v)}\longrightarrow
+\Lambda^*E_{\pi(v)},\qquad c(v)^2=-\|v\|^2.
+\]
+Writing $c^+(v)$ for its even-to-odd part, the \emph{K-theory Thom class} is
+\[
+u_E=[\pi^*\Lambda^{\mathrm{even}}E,
+     \pi^*\Lambda^{\mathrm{odd}}E,c^+]\in K_c^0(E).
+\]
+\end{definition}
+
+\begin{exercise}[Clutching and the Bott class]
+Prove the clutching description of complex vector bundles on suspensions and
+spheres. For the complex line over a point, identify $u_\C$ under
+$\C^+\cong S^2$ with
+\[
+\beta=[H]-[\underline\C]\in\widetilde K^0(S^2),
+\]
+where $H$ is the Hopf line. Prove that $\beta$ generates
+$\widetilde K^0(S^2)$ and that $\widetilde K^0(S^3)=0$. Deduce that the
+Thom map for a point is an isomorphism in degrees zero and one.
+\end{exercise}
+
+\begin{exercise}[Thom isomorphism and Bott periodicity]
+Prove from bundle gluing that relative K-theory has the cofibration exact
+sequence and the Mayer--Vietoris sequence, and that external product is
+compatible with both. Apply the preceding point calculation, the relative
+sequences, and the five lemma to prove the trivial-line result over finite
+cell complexes. Iterate it for trivial bundles and then use
+Mayer--Vietoris over bundle trivializations to prove the complex Thom
+isomorphism
+\[
+K^j(X)\longrightarrow K_c^j(E),\qquad
+a\longmapsto\pi^*a\,u_E,\qquad j=0,1,
+\]
+for finite CW complexes $X$. For the trivial line over a compact based
+finite CW complex, identify its relative Thom space with $S^2\wedge X$ and
+deduce complex Bott periodicity:
+\[
+\widetilde K^j(X)\xrightarrow{\;\boxtimes\beta\;}
+\widetilde K^j(S^2\wedge X)
+\]
+is an isomorphism.
+\end{exercise}
+
+\begin{exercise}[$K$-theory of spheres]
+Use Bott periodicity and the clutching calculation to compute the complex
+$K$-groups of spheres.
 \end{exercise}
 
 \begin{exercise}[$K$-theory of tori and class-A phases]
@@ -2463,10 +2595,11 @@ $r$.
 \end{exercise}
 
 \begin{exercise}[Atiyah--Singer index theorem]
-Assume the Thom isomorphism, the $K$-theoretic pushforward, and uniqueness of
-an index transformation satisfying excision, multiplicativity, and Bott
-normalization. Prove that analytic index has these three properties. Verify
-them for topological index and conclude
+Use the Thom isomorphism above, and assume the construction of the
+$K$-theoretic pushforward and uniqueness of an index transformation
+satisfying excision, multiplicativity, and Bott normalization. Prove that
+analytic index has these three properties. Verify them for topological index
+and conclude
 $\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$.
 \end{exercise}
 
