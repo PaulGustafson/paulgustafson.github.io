@@ -60,11 +60,10 @@
 \section{Linear Structure and Spectra}
 
 \begin{observations}
-\item Two identical pendulums joined by a weak spring have in-phase and
-out-of-phase normal modes. Generic motions exhibit beats at the two modal
-frequencies.
-\item A driven plate collects sand along nodal curves at its resonant
-frequencies. Different resonances produce different Chladni patterns.
+\item When two small transverse pulses overlap on a taut string, the measured
+displacement is approximately the sum of their separate displacements.
+\item Multiplying a small initial deflection by a scalar multiplies the
+subsequent displacement by the same scalar.
 \end{observations}
 
 \begin{definition}[Vector spaces and linear maps]
@@ -73,6 +72,14 @@ action $k\times V\to V$ satisfying distributivity, associativity, and
 $1v=v$. A map $T:V\to W$ is \emph{linear} if
 $T(av+bw)=aT(v)+bT(w)$.
 \end{definition}
+
+\begin{exercise}[String profiles and superposition]
+Let $V$ be the real-valued functions on $[0,L]$. Prove that the fixed-end
+profiles $u$ satisfying $u(0)=u(L)=0$ form a vector subspace. Express the two
+observations above as closure under addition and scalar multiplication. Show
+that sampling a profile at finitely many points defines a linear map
+$V\to\R^n$.
+\end{exercise}
 
 \begin{definition}[Subspaces, kernels, images, and quotients]
 A \emph{subspace} of $V$ is a subset closed under linear combinations. For a
@@ -279,6 +286,17 @@ for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
 spectral subspaces without choosing coordinates.
 \end{exercise}
 
+\clearpage
+\section{Oscillation and Fourier Analysis}
+
+\begin{observations}
+\item A string fixed at both ends exhibits stationary patterns with nodes at
+the endpoints. Its resonance frequencies are approximately $f_n=nf_1$, with
+$f_1$ proportional to $L^{-1}\sqrt{\tau/\rho}$.
+\item In far-field single-slit diffraction, the intensity vanishes at angles
+satisfying $a\sin\theta=m\lambda$ for nonzero integers $m$.
+\end{observations}
+
 \begin{definition}[Linear oscillator]
 A \emph{linear oscillator} on a finite-dimensional real inner-product space
 $V$ is an equation
@@ -289,25 +307,6 @@ where $M$ is positive definite and $K$ is self-adjoint and positive
 semidefinite. A \emph{normal mode} is a nonzero $v\in V$ for which
 $q(t)=a(t)v$ solves the equation for some nonconstant $a$.
 \end{definition}
-
-\begin{exercise}[Coupled oscillators and normal modes]
-Set $x=M^{1/2}q$ and $L=M^{-1/2}KM^{-1/2}$. Use the spectral projections of
-$L$ to derive the normal-mode decomposition. For two identical pendulums
-coupled by a weak spring, compute the in-phase and out-of-phase projections
-and derive beats from their superposition. For a finite-element model of a
-driven elastic plate, show that resonant forcing selects an eigenspace of
-$K$ and that its zero set gives the observed Chladni nodal curves.
-\end{exercise}
-
-\section{Oscillation and Fourier Analysis}
-
-\begin{observations}
-\item A string fixed at both ends exhibits stationary patterns with nodes at
-the endpoints. Its resonance frequencies are approximately $f_n=nf_1$, with
-$f_1$ proportional to $L^{-1}\sqrt{\tau/\rho}$.
-\item In far-field single-slit diffraction, the intensity vanishes at angles
-satisfying $a\sin\theta=m\lambda$ for nonzero integers $m$.
-\end{observations}
 
 \begin{exercise}[The harmonic oscillator]
 Solve $m\ddot q+kq=0$ for $m,k>0$. Prove conservation of
@@ -324,6 +323,13 @@ critical damping is exactly $b^2=4m\kappa$. Among
 $b^2\geq4m\kappa$, show that the critical value
 maximizes the magnitude of the slow decay rate, explaining the fastest
 asymptotic return without oscillatory eigenvalues.
+\end{exercise}
+
+\begin{exercise}[Coupled oscillators and normal modes]
+Set $x=M^{1/2}q$ and $L=M^{-1/2}KM^{-1/2}$. Use the spectral projections of
+$L$ to derive the normal-mode decomposition. For a fixed-end chain of $N$
+equal masses joined by equal springs, compute the mode shapes and frequencies
+and relate them to the modes of a taut string.
 \end{exercise}
 
 \begin{definition}[Vibrating string]
