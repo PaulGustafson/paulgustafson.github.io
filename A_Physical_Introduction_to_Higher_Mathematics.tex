@@ -279,6 +279,26 @@ for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
 spectral subspaces without choosing coordinates.
 \end{exercise}
 
+\begin{definition}[Linear oscillator]
+A \emph{linear oscillator} on a finite-dimensional real inner-product space
+$V$ is an equation
+\[
+M\ddot q+Kq=0,
+\]
+where $M$ is positive definite and $K$ is self-adjoint and positive
+semidefinite. A \emph{normal mode} is a nonzero $v\in V$ for which
+$q(t)=a(t)v$ solves the equation for some nonconstant $a$.
+\end{definition}
+
+\begin{exercise}[Coupled oscillators and normal modes]
+Set $x=M^{1/2}q$ and $L=M^{-1/2}KM^{-1/2}$. Use the spectral projections of
+$L$ to derive the normal-mode decomposition. For two identical pendulums
+coupled by a weak spring, compute the in-phase and out-of-phase projections
+and derive beats from their superposition. For a finite-element model of a
+driven elastic plate, show that resonant forcing selects an eigenspace of
+$K$ and that its zero set gives the observed Chladni nodal curves.
+\end{exercise}
+
 \section{Oscillation and Fourier Analysis}
 
 \begin{observations}
@@ -288,19 +308,6 @@ $f_1$ proportional to $L^{-1}\sqrt{\tau/\rho}$.
 \item In far-field single-slit diffraction, the intensity vanishes at angles
 satisfying $a\sin\theta=m\lambda$ for nonzero integers $m$.
 \end{observations}
-
-\begin{definition}[Linear oscillator]
-A \emph{linear oscillator} on a finite-dimensional real inner-product space
-$V$ is an equation
-\[
-M\ddot q+Kq=0,
-\]
-where $M$ is positive definite and $K$ is self-adjoint and positive
-semidefinite. Here positive definite means that $M$ is self-adjoint and
-$\langle Mv,v\rangle>0$ for $v\ne0$. A \emph{normal mode} is a nonzero
-$v\in V$ for which
-$q(t)=a(t)v$ solves the equation for some nonconstant $a$.
-\end{definition}
 
 \begin{exercise}[The harmonic oscillator]
 Solve $m\ddot q+kq=0$ for $m,k>0$. Prove conservation of
@@ -317,19 +324,6 @@ critical damping is exactly $b^2=4m\kappa$. Among
 $b^2\geq4m\kappa$, show that the critical value
 maximizes the magnitude of the slow decay rate, explaining the fastest
 asymptotic return without oscillatory eigenvalues.
-\end{exercise}
-
-\begin{exercise}[Coupled oscillators and normal modes]
-Set $x=M^{1/2}q$ and
-$L=M^{-1/2}KM^{-1/2}$. Let $(P_\lambda)$ be the complete commuting family of
-mutually orthogonal spectral projections of $L$. Prove that each
-$x_\lambda=P_\lambda x$ satisfies
-$\ddot x_\lambda+\lambda x_\lambda=0$, and transport the $P_\lambda$ back to
-a complete family of $M$-orthogonal projections on the original
-configuration space. Derive the normal-mode frequencies. For a fixed-end
-chain of $N$ equal masses joined by equal springs, compute these projections
-and their mode shapes and identify the components seen in a Chladni-type
-standing-wave measurement.
 \end{exercise}
 
 \begin{definition}[Vibrating string]
@@ -613,14 +607,17 @@ the free Schr\"odinger evolution for
 $H=-(\hbar^2/2m)\Delta$. Prove preservation of the domain, norm, and expected
 energy, and use this concrete multiplication-operator model to verify the
 preceding spectral and Stone theorems, including their domain statements.
+Identify the continuous energy spectrum and relate it to the continuum of
+outgoing-electron energies above an ionization threshold.
 \end{exercise}
 
 \begin{exercise}[Spectral lines from unitary evolution]
 If $H|n\rangle=E_n|n\rangle$, use $U_t=e^{-itH/\hbar}$ to show that
 $\langle A(t)\rangle$ contains frequencies $(E_m-E_n)/\hbar$. Explain why
 spectroscopic peaks measure energy differences and why line strengths depend
-on matrix elements between the corresponding spectral subspaces. Compare
-with the atomic spectrum exercise below.
+on matrix elements between the corresponding spectral subspaces. Convert the
+observed Balmer wavelengths to energy differences using $E=hc/\lambda$ and
+identify them with atoms of the spectral measure.
 \end{exercise}
 
 \part{Symmetry}
@@ -631,8 +628,8 @@ with the atomic spectrum exercise below.
 \item Water vapor has three fundamental vibrational bands: one bending mode
 and two stretching modes. Infrared and Raman measurements distinguish their
 symmetry types.
-\item Electric and magnetic fields split otherwise degenerate atomic
-spectral lines into reproducible multiplets.
+\item Infrared absorption and Raman scattering select different symmetry
+types of molecular vibration.
 \end{observations}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
@@ -710,6 +707,14 @@ P_\chi=\frac{\dim\chi}{|G|}\sum_{g\in G}\overline{\chi(g)}\rho(g)
 is the projection onto the $\chi$-isotypic subspace. Apply these projections
 to the displacement space of a molecule whose equilibrium configuration is
 preserved by $G$.
+\end{exercise}
+
+\begin{exercise}[Molecular symmetry]
+For the equilibrium geometry of $H_2O$, determine the point-group action on
+nuclear displacements, remove translations and rotations, and decompose the
+vibrational representation into irreducibles. Determine infrared and Raman
+activity from the transformation types of the dipole and polarizability.
+Compare the result with the observed three fundamental vibrational bands.
 \end{exercise}
 
 \section{Smooth Manifolds and Continuous Symmetry}
@@ -805,7 +810,8 @@ $[J_i,J_j]=i\hbar\varepsilon_{ijk}J_k$.
 Let $SU(2)$ act by conjugation on the real space of traceless Hermitian
 $2\times2$ operators. Prove that the resulting homomorphism
 $SU(2)\to SO(3)$ is surjective with kernel $\{\pm\id\}$. Deduce the effect of
-a $2\pi$ rotation in integer- and half-integer-spin representations.
+a $2\pi$ rotation in integer- and half-integer-spin representations and the
+$4\pi$ restoration observed by neutron interferometry.
 \end{exercise}
 
 \begin{exercise}[Irreducible representations of $SU(2)$]
@@ -813,7 +819,8 @@ Using raising and lowering operators, prove that every finite-dimensional
 irreducible smooth complex representation is indexed by
 $j\in\{0,\frac12,1,\ldots\}$, has dimension $2j+1$, and has
 $J_3$-eigenvalues $m\hbar$ for $m=-j,-j+1,\ldots,j$. Compute the spectrum of
-$J^2=J_1^2+J_2^2+J_3^2$.
+$J^2=J_1^2+J_2^2+J_3^2$. For $j=\frac12$, relate the two $J_3$ outcomes to
+the two Stern--Gerlach beams.
 \end{exercise}
 
 \begin{exercise}[Clebsch--Gordan decomposition]
@@ -856,15 +863,6 @@ degeneracies. With the radial spectrum
 $E_n=-m_e e^4/(2(4\pi\varepsilon_0)^2\hbar^2n^2)$ as derived input, compute
 the Balmer wavelengths and compare them with the observed hydrogen lines.
 Apply the electric-dipole rule to identify forbidden transitions.
-\end{exercise}
-
-\begin{exercise}[Molecular symmetry]
-For the equilibrium geometry of $H_2O$, determine the point-group action on
-nuclear displacements, remove translations and rotations, and decompose the
-vibrational representation into irreducibles. Determine infrared and Raman
-activity from the transformation types of the dipole and polarizability.
-Compare the predicted number and symmetry of lines with the observed three
-fundamental vibrational bands.
 \end{exercise}
 
 \part{Fields}
@@ -929,7 +927,14 @@ For an oriented manifold with boundary, prove
 \int_Md\omega=\int_{\partial M}\omega.
 \]
 Deduce the fundamental theorem of calculus, Green's theorem, the divergence
-theorem, and the classical curl theorem.
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
+\[
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
+\]
+recovering the observed flux--emf law.
 \end{exercise}
 
 \begin{definition}[Tensor fields and metrics]
@@ -974,6 +979,9 @@ Prove invariance of length and proper time under reparametrization. In
 Minkowski spacetime, prove that the inertial path maximizes proper time among
 piecewise smooth future-directed timelike paths with fixed timelike-separated
 endpoints, and derive special-relativistic time dilation.
+Using the muon rest lifetime $\tau_\mu\simeq2.2\,\mu\mathrm{s}$, derive the
+mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
+distance $v\tau_\mu$ predicted without time dilation.
 \end{exercise}
 
 \section{Connections, Curvature, and Field Equations}
@@ -1061,7 +1069,9 @@ Choose local sections $s_i$ and derive transition maps
 $g_{ij}:U_i\cap U_j\to G$ and the transformation laws for the local
 potentials $A_i=s_i^*A$ and curvatures $F_i=s_i^*F_A$. Prove $d_AF_A=0$ and
 gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
-$A\mapsto A+d\chi$ and $F=dA$.
+$A\mapsto A+d\chi$ and $F=dA$. On $\R^2\setminus\{0\}$, compute the
+curvature and holonomy of $A=(\Phi/2\pi)d\theta$ and derive the
+Aharonov--Bohm phase shift $q\Phi/\hbar$ despite $F=0$ along the paths.
 \end{exercise}
 
 \begin{exercise}[Yang--Mills equations and instantons]
@@ -1231,6 +1241,8 @@ to
 H_\ell(r,p_r)=\frac{p_r^2}{2m}+V(r)
  +\frac{\|\ell\|^2}{2mr^2}.
 \]
+For $V(r)=-\kappa/r$, derive the elliptical bound orbits and the equal-area
+law.
 \end{exercise}
 
 \begin{exercise}[Gauss constraints and transverse modes]
@@ -1264,6 +1276,13 @@ On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
 preserves $\omega$, the phase-space volume $\omega^n/n!$, and every density
 depending only on $H$. Deduce that Hamiltonian evolution cannot compress
 phase volume.
+\end{exercise}
+
+\begin{exercise}[Betatron phase portraits]
+Model one transverse degree of freedom in a storage ring by
+$H=(p^2+\omega^2q^2)/2$. Derive the closed elliptical phase portraits and
+show that their enclosed area is preserved. Interpret the motion as a
+betatron oscillation about a closed orbit.
 \end{exercise}
 
 \section{Probability, Gibbs States, and Ergodicity}
@@ -1329,8 +1348,9 @@ theorem for equality of time and ensemble averages.
 Compute the classical canonical partition function of $N$ indistinguishable
 noninteracting particles in a box, including the phase-space normalization
 $h^{3N}N!$. Derive the ideal-gas law, internal energy, and entropy, and
-compare the pressure law with dilute-gas measurements within the classical
-regime.
+the one-particle Maxwell--Boltzmann speed distribution. Derive its
+temperature scaling and compare both predictions with dilute-gas
+measurements in the classical regime.
 \end{exercise}
 
 \section{Quantum and Algebraic States}
@@ -2587,6 +2607,9 @@ two-dimensional periodic Hamiltonian, derive the Kubo formula expressing
 Hall conductance as $e^2/h$ times the occupied-band Chern number. Deduce
 integer quantization under gap-preserving perturbations and compare with
 integer quantum Hall plateaus.
+For an adiabatic closed parameter loop, compute the Berry holonomy, show
+that it is independent of traversal rate, and identify the corresponding
+interference-fringe shift.
 \end{exercise}
 
 \section{K-Theory and Index}
