@@ -1697,6 +1697,105 @@ the identity. Its matrix order is the family of cones
 $M_n(S)_+=M_n(S)\cap B(H^{\oplus n})_+$.
 \end{definition}
 
+\begin{definition}[The confusability operator system of a channel]
+Let $H,H'$ be finite-dimensional and let
+$\mathcal N:\mathcal T(H)\to\mathcal T(H')$ be a channel with Kraus
+operators $E_a:H\to H'$. Its \emph{confusability operator system} is
+\[
+S_{\mathcal N}=\operatorname{span}\{E_a^*E_b:a,b\}\subseteq B(H).
+\]
+It is self-adjoint, and it contains the identity because
+$\sum_aE_a^*E_a=1_H$.
+\end{definition}
+
+\begin{exercise}[Kraus independence of the confusability system]
+If $\{E_a\}$ and $\{F_\mu\}$ are two Kraus representations of
+$\mathcal N$, pad the smaller family by zero operators and prove that there
+is a unitary matrix $(u_{\mu a})$ such that
+$F_\mu=\sum_a u_{\mu a}E_a$. Use this relation in both directions to prove
+\[
+\operatorname{span}\{F_\mu^*F_\nu\}
+=\operatorname{span}\{E_a^*E_b\}.
+\]
+Thus $S_{\mathcal N}$ depends only on the channel, not on a choice of
+environment coordinates. Interpret it as the noncommutative analogue of a
+classical channel's confusability graph; see
+\href{https://doi.org/10.1007/s12220-020-00578-w}
+{Weaver, \emph{Quantum Graphs as Quantum Relations}, Journal of Geometric
+Analysis \textbf{31} (2021)}.
+\end{exercise}
+
+\begin{definition}[Protected observable algebras]
+Let $P$ project onto a code $C\subseteq H$. A unital $*$-subalgebra
+$\mathcal A\subseteq PB(H)P$, whose identity is $P$, is \emph{protected} or
+\emph{correctable} for $\mathcal N$ if there is a recovery channel
+$\mathcal R:\mathcal T(H')\to\mathcal T(H)$ such that
+\[
+P(\mathcal R\circ\mathcal N)^*(A)P=A
+\qquad(A\in\mathcal A).
+\]
+Thus every observable in $\mathcal A$, rather than necessarily every encoded
+state, can be recovered. Write
+$\mathcal A'=\{X\in PB(H)P:[X,A]=0\text{ for all }A\in\mathcal A\}$ for
+the commutant in the code corner.
+\end{definition}
+
+\begin{exercise}[Exact operator-algebra quantum error correction]
+Prove that $\mathcal A$ is correctable for $\mathcal N$ if and only if
+\[
+[PE_a^*E_bP,A]=0
+\qquad(a,b,\ A\in\mathcal A),
+\]
+or, equivalently,
+\[
+PS_{\mathcal N}P\subseteq\mathcal A'.
+\]
+Derive necessity by applying a Stinespring dilation to the recovery identity,
+and prove sufficiency by decomposing the finite-dimensional algebra and
+constructing a recovery on each summand. For
+$\mathcal A=PB(H)P\cong B(C)$, use
+$\mathcal A'=\C P$ to recover the ordinary Knill--Laflamme equations
+$PE_a^*E_bP=\lambda_{ab}P$. Show that a commutative algebra protects a
+classical label, while a decomposition
+\[
+\mathcal A\cong\bigoplus_\alpha
+\bigl(B(H_\alpha^A)\otimes 1_{H_\alpha^B}\bigr)
+\]
+protects hybrid information: the central label $\alpha$ is classical, the
+$H_\alpha^A$ factor is quantum, and $H_\alpha^B$ is an unprotected gauge
+subsystem. Compare with
+\href{https://doi.org/10.1103/PhysRevA.76.042303}
+{B\'eny--Kempf--Kribs, \emph{Quantum Error Correction of Observables},
+Physical Review A \textbf{76} (2007)}.
+\end{exercise}
+
+\begin{exercise}[Normal channels and von Neumann protected algebras]
+Let $H,H'$ be arbitrary Hilbert spaces, let
+$\mathcal N:\mathcal T(H)\to\mathcal T(H')$ be a channel whose adjoint is
+normal, and choose a Stinespring isometry
+$V:H\to H'\otimes K$. Define the complementary channel and its adjoint by
+\[
+\mathcal N^c(\rho)=\Tr_{H'}(V\rho V^*),
+\qquad
+(\mathcal N^c)^*(Y)=V^*(1_{H'}\otimes Y)V.
+\]
+For a projection $P$ and a von Neumann algebra
+$\mathcal A\subseteq PB(H)P$, define correctability using a recovery channel
+with normal adjoint and the same observable identity as above. Prove the
+infinite-dimensional exact criterion
+\[
+P(\mathcal N^c)^*(B(K))P\subseteq\mathcal A'.
+\]
+Show from uniqueness of minimal Stinespring dilations that this condition is
+independent of the chosen complementary channel. Explain how it replaces a
+Kraus-index calculation when the environment is not finite-dimensional and
+allows protected algebras of every von Neumann type; see
+\href{https://doi.org/10.1063/1.3155783}
+{B\'eny--Kempf--Kribs, \emph{Quantum Error Correction on
+Infinite-Dimensional Hilbert Spaces}, Journal of Mathematical Physics
+\textbf{50} (2009)}.
+\end{exercise}
+
 \begin{definition}[Ancilla-assisted channel discrimination]
 A \emph{one-use discrimination strategy} for channels
 $\Phi_1,\ldots,\Phi_m$ prepares a state on $H\otimes K$, applies
@@ -2684,9 +2783,27 @@ only at its endpoints. Prove that contractible closed strings are products
 of stabilizers. Show that strings around the two noncontractible cycles give
 two pairs of logical operators, with a primal $Z$-loop and a dual $X$-loop
 anticommuting exactly when their intersection number is odd. Deduce that the
-code encodes two logical qubits, has distance $L$, and corrects arbitrary
-errors on at most $\lfloor(L-1)/2\rfloor$ edges by the Knill--Laflamme
-criterion.
+code encodes two logical qubits and has distance $L$.
+
+Let $\mathcal S$ be the stabilizer group generated by the $A_v$ and $B_p$,
+let $\mathcal S'\subseteq B(H)$ be its commutant, and let $P$ be the ground
+space projection. Prove that the logical observable algebra is
+\[
+\mathcal A_{\rm log}=P\mathcal S'P
+=\operatorname{span}\{P\overline X_1^{i_1}\overline Z_1^{j_1}
+  \overline X_2^{i_2}\overline Z_2^{j_2}P:i_r,j_r\in\{0,1\}\}
+\cong M_2(\C)\otimes M_2(\C),
+\]
+where the barred operators are noncontractible logical loops. Equivalently,
+identify the logical Pauli group as the Pauli centralizer of $\mathcal S$
+modulo $\mathcal S$. If an error channel has Kraus operators $E_a$ for which
+every $E_a^*E_b$ is supported on fewer than $L$ edges, prove that
+\[
+PE_a^*E_bP\in\C P=\mathcal A_{\rm log}'
+\]
+and hence verify the exact OAQEC condition for $\mathcal A_{\rm log}$.
+Deduce in particular that the toric code corrects arbitrary errors on at most
+$\lfloor(L-1)/2\rfloor$ edges.
 
 Interpret the endpoint excitations as anyons $e$ and $m$. Derive
 $e^2=m^2=1$, set $\varepsilon=e m$, and show that taking $e$ once around
@@ -2694,7 +2811,10 @@ $m$ produces the phase $-1$. Explain how local error syndromes, global
 logical Wilson loops, and the fourfold TQFT degeneracy express the same
 topological structure; see
 \href{https://arxiv.org/abs/quant-ph/9707021}
-{Kitaev, \emph{Fault-tolerant quantum computation by anyons}}.
+{Kitaev, \emph{Fault-tolerant quantum computation by anyons}}, and
+\href{https://doi.org/10.22331/q-2024-02-21-1261}
+{Dauphinais--Kribs--Vasmer, \emph{Stabilizer Formalism for Operator Algebra
+Quantum Error Correction}, Quantum \textbf{8} (2024)}.
 \end{exercise}
 
 \begin{exercise}[Abelian and nonabelian anyons]
