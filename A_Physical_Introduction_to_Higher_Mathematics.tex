@@ -1092,6 +1092,20 @@ $\theta_\alpha(v)=\alpha(d\pi(v))$, and its canonical symplectic form is
 $\omega=-d\theta$.
 \end{definition}
 
+\begin{definition}[Classical states and observables]
+On a phase space $M$, a \emph{pure classical state} is a point $x\in M$, and
+a \emph{classical observable} is a smooth real-valued function
+$f\in C^\infty(M,\R)$. A \emph{statistical state} is a Borel probability
+measure $\mu$ on $M$, with expectation
+\[
+\mathbb E_\mu[f]=\int_M f\,d\mu
+\]
+whenever the integral exists. If $\phi_t$ is a Hamiltonian flow, Schr\"odinger
+evolution pushes states forward by $\mu_t=(\phi_t)_*\mu_0$, while Heisenberg
+evolution pulls observables back by $f_t=f\circ\phi_t$; hence
+$\int_Mf\,d\mu_t=\int_Mf_t\,d\mu_0$.
+\end{definition}
+
 \begin{definition}[Symplectic dynamics]
 A \emph{symplectic form} is a closed, nondegenerate two-form $\omega$. The
 \emph{Hamiltonian vector field} of $H\in C^\infty(M)$ is defined by
@@ -1315,10 +1329,11 @@ precisely where quantization removes the classical divergence.
 \end{exercise}
 
 \begin{definition}[Composite and reduced states]
-The state space of a composite system is $H_A\otimes H_B$. A state is
-\emph{separable} if it lies in the trace-norm closed convex hull of product
-density operators and \emph{entangled} otherwise. The \emph{reduced state}
-$\rho_A=\Tr_B\rho$ is determined by
+The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
+states are the density operators on this tensor product. A density operator
+is \emph{separable} if it lies in the trace-norm closed convex hull of
+product density operators and \emph{entangled} otherwise. The \emph{reduced
+state} $\rho_A=\Tr_B\rho$ is determined by
 $\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
 \end{definition}
 
