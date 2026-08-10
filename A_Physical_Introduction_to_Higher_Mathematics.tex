@@ -2226,11 +2226,91 @@ $E$ by $E^\perp$ and gives the additive inverse because
 $E\oplus E^\perp$ is trivial. Explain why an invertible phase can have
 protected boundary modes or symmetry defects but no nontrivial intrinsic
 bulk fusion sectors. Contrast this group-valued classification with the
-sector-valued noninvertible phases in the next section. With additional
-symmetries, formulate the replacement by the appropriate real, equivariant,
-or twisted $K$-group, following
+sector-valued noninvertible phases in the next section.
+\end{exercise}
+
+\begin{exercise}[The free-fermion periodic table of topological insulators and superconductors]
+Let $H(k)$ be a spectrally flattened Bloch or Bogoliubov--de Gennes
+Hamiltonian on the compactified momentum space $S^d$. Time-reversal,
+particle-hole, and chiral symmetries act by
+\[
+\mathsf T H(k)\mathsf T^{-1}=H(-k),\qquad
+\mathsf C H(k)\mathsf C^{-1}=-H(-k),\qquad
+\mathsf S H(k)\mathsf S^{-1}=-H(k),
+\]
+where $\mathsf T$ and $\mathsf C$ are antiunitary, with square $+1$ or
+$-1$ when present, and $\mathsf S$ is unitary, with its phase chosen so that
+$\mathsf S^2=1$. Organize the complex classes
+$\mathrm A,\mathrm{AIII}$ and the real classes in the order
+\[
+\begin{array}{c|cccccccc}
+s&0&1&2&3&4&5&6&7\\ \hline
+\text{class}&\mathrm{AI}&\mathrm{BDI}&\mathrm D&\mathrm{DIII}&
+\mathrm{AII}&\mathrm{CII}&\mathrm C&\mathrm{CI}\\
+\mathsf T^2&+1&+1&0&-1&-1&-1&0&+1\\
+\mathsf C^2&0&+1&+1&+1&0&-1&-1&-1
+\end{array}
+\]
+and verify that when both antiunitary symmetries occur their product gives a
+chiral symmetry, up to an irrelevant phase.
+
+Assume the Atiyah--Bott--Shapiro identification of stable symmetry-compatible
+Hamiltonians with Clifford-extension spaces, as used by
+\href{https://arxiv.org/abs/0901.2686}
+{Kitaev, \emph{Periodic table for topological insulators and superconductors}}.
+In the complex classes the strong classification groups in dimension $d$ are
+\[
+\pi_0(C_{-d})\quad\text{for $\mathrm A$},\qquad
+\pi_0(C_{1-d})\quad\text{for $\mathrm{AIII}$},
+\]
+and in real class $s$ the group is
+\[
+\pi_0(R_{s-d})\cong KO^{d-s}(\mathrm{pt}).
+\]
+Indices are periodic, and their coefficient groups are
+\[
+\pi_0(C_q)=
+\begin{cases}\Z&q\equiv0\pmod2,\\0&q\equiv1\pmod2,
+\end{cases}
+\qquad
+\begin{array}{c|cccccccc}
+q\bmod8&0&1&2&3&4&5&6&7\\ \hline
+\pi_0(R_q)&\Z&\Z/2&\Z/2&0&\Z&0&0&0.
+\end{array}
+\]
+Use these data, rather than a memorized chart, to fill every entry of the
+periodic table:
+\[
+\begin{array}{c|ccc|cccccccc}
+\text{class}&\mathsf T^2&\mathsf C^2&\mathsf S&d=0&1&2&3&4&5&6&7\\ \hline
+\mathrm A&0&0&0&&&&&&&&\\
+\mathrm{AIII}&0&0&1&&&&&&&&\\ \hline
+\mathrm{AI}&+1&0&0&&&&&&&&\\
+\mathrm{BDI}&+1&+1&1&&&&&&&&\\
+\mathrm D&0&+1&0&&&&&&&&\\
+\mathrm{DIII}&-1&+1&1&&&&&&&&\\
+\mathrm{AII}&-1&0&0&&&&&&&&\\
+\mathrm{CII}&-1&-1&1&&&&&&&&\\
+\mathrm C&0&-1&0&&&&&&&&\\
+\mathrm{CI}&+1&-1&1&&&&&&&&
+\end{array}
+\]
+Recover in particular the integer quantum Hall phase in class $\mathrm A$,
+the one-dimensional Majorana chain in class $\mathrm D$, the
+two-dimensional quantum spin Hall phase in class $\mathrm{AII}$, and the
+three-dimensional class-$\mathrm{DIII}$ topological superconductor. Explain
+why an abstract $\Z$ entry coming from $R_4$ is often printed as $2\Z$ when
+its generator maps to twice the corresponding complex invariant; in
+dimension zero this is the even complex dimension forced by Kramers
+degeneracy. Finally, explain why this is only the table of \emph{strong}
+phases: a lattice Brillouin torus can also carry weak invariants. Relate the
+symmetry-free case to the earlier decomposition of $K^*(\T^d)$, and state
+why antiunitary symmetries require real, equivariant, or twisted $K$-theory,
+following
 \href{https://doi.org/10.1007/s00023-013-0236-x}
-{Freed--Moore, \emph{Annales Henri Poincar\'e} \textbf{14} (2013)}.
+{Freed--Moore, \emph{Annales Henri Poincar\'e} \textbf{14} (2013)}. State
+why this stable noninteracting classification need not remain unchanged in
+the presence of strong interactions.
 \end{exercise}
 
 \section{Subfactors, Conformal Nets, and Tensor Categories}
