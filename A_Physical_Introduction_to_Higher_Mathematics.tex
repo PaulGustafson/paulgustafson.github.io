@@ -1128,11 +1128,71 @@ $d\langle J,\xi\rangle=\iota_{\xi_M}\omega$ for every
 $\xi\in\mathfrak g$.
 \end{definition}
 
+\begin{definition}[Symplectic reduction]
+Let $J:M\to\mathfrak g^*$ be a momentum map, let $\xi$ be a regular value,
+and let
+$G_\xi=\{g\in G:\Ad_g^*\xi=\xi\}$. If $G_\xi$ acts freely and properly on
+$J^{-1}(\xi)$, the \emph{reduced phase space} is
+\[
+M//_\xi G=J^{-1}(\xi)/G_\xi.
+\]
+Writing $i:J^{-1}(\xi)\hookrightarrow M$ and
+$q:J^{-1}(\xi)\to M//_\xi G$, its \emph{reduced symplectic form} is the
+form $\omega_\xi$ characterized by $q^*\omega_\xi=i^*\omega$.
+\end{definition}
+
 \begin{exercise}[Noether's theorem]
 Prove that if a Hamiltonian is invariant under a symplectic $G$-action with
 momentum map $J$, then every component of $J$ is conserved. Compute the
 momentum maps for translations and rotations of a particle and recover
 linear and angular momentum conservation.
+\end{exercise}
+
+\begin{exercise}[Reduction and central-force dynamics]
+Under the hypotheses of symplectic reduction, prove that $i^*\omega$ is
+basic for the $G_\xi$-action and that $\omega_\xi$ exists uniquely and is
+symplectic. For a $G$-invariant Hamiltonian $H$, prove that $X_H$ is tangent
+to $J^{-1}(\xi)$, that $H$ descends to a Hamiltonian $H_\xi$, and that the
+flow of $H_\xi$ is the quotient of the flow of $H$.
+
+Apply this to the cotangent-lifted rotation action on
+$T^*(\R^3\setminus\{0\})$, whose momentum map is
+$J(q,p)=q\times p$. For a nonzero angular momentum $\ell$, identify
+$J^{-1}(\ell)/SO(3)_\ell$ with the radial phase space having coordinates
+$(r,p_r)$, prove that its symplectic form is $dr\wedge dp_r$, and reduce
+\[
+H(q,p)=\frac{\|p\|^2}{2m}+V(\|q\|)
+\]
+to
+\[
+H_\ell(r,p_r)=\frac{p_r^2}{2m}+V(r)
+ +\frac{\|\ell\|^2}{2mr^2}.
+\]
+\end{exercise}
+
+\begin{exercise}[Gauss constraints and transverse modes]
+Let $d:V\to W$ be a linear map between finite-dimensional real inner-product
+spaces. On $M=W\oplus W$ set
+\[
+\omega((a,e),(a',e'))=\langle a,e'\rangle-\langle a',e\rangle.
+\]
+Let the additive group $(\ker d)^\perp$ act by
+$\chi\cdot(A,E)=(A+d\chi,E)$. Prove that this action is free and Hamiltonian
+with momentum map
+\[
+\langle J(A,E),\chi\rangle=\langle d\chi,E\rangle
+ =\langle\chi,d^*E\rangle.
+\]
+Show that reduction at zero imposes $d^*E=0$ and identifies
+\[
+M//_0(\ker d)^\perp
+\cong (W/\im d)\oplus\ker d^*
+\cong\ker d^*\oplus\ker d^*.
+\]
+Interpret $d$ as a finite-dimensional approximation to the exterior
+derivative: $d^*E=0$ is the vacuum Gauss constraint, $A\sim A+d\chi$ is
+gauge equivalence, and the reduced variables are the transverse
+electromagnetic modes.
 \end{exercise}
 
 \begin{exercise}[Liouville's theorem]
@@ -1260,6 +1320,36 @@ evaluations and that the extreme points of the quantum state space are the
 rank-one density operators. Explain why mixtures are convex combinations in
 both theories and why the structural distinction is that $C(X)$ is
 commutative whereas $B(H)$ generally is not.
+\end{exercise}
+
+\begin{exercise}[Projective quantum states by reduction]
+\label{ex:projective-reduction}
+Let $K$ be a finite-dimensional complex Hilbert space and regard its
+underlying real vector space as symplectic with
+\[
+\omega(u,v)=-\operatorname{Im}\langle u,v\rangle.
+\]
+For the scalar $U(1)$-action, identify its Lie algebra with $\R$ acting
+infinitesimally by $z\mapsto iz$, and prove that
+$J(z)=\|z\|^2/2$ is a momentum map. Show that reduction at $1/2$ gives
+\[
+K//_{1/2}U(1)=S(K)/U(1)=\mathbb P(K),
+\]
+the space of complex lines in $K$. Identify $[z]\in\mathbb P(K)$ with the
+rank-one density operator
+\[
+P_z:v\longmapsto z\langle z,v\rangle
+\]
+for a unit representative $z$, and hence with the pure state
+$A\mapsto\Tr(P_zA)$. Prove that the reduced symplectic form is the
+Fubini--Study form, characterized on horizontal representatives
+$u,v\in z^\perp$ by
+\[
+(\omega_{\rm FS})_{[z]}([u],[v])
+=-\operatorname{Im}\langle u,v\rangle.
+\]
+Thus normalization and quotient by global phase produce the pure quantum
+state space as a symplectic reduction.
 \end{exercise}
 
 \begin{exercise}[Canonical quantization and Weyl relations]
@@ -2264,7 +2354,13 @@ closed surface $\Sigma$.
 Compute the Berry curvature of a two-level Hamiltonian
 $H(n)=n\cdot\sigma$ over $S^2$ for both the lower and upper eigenline
 bundles. With the standard orientation on $S^2$, compute their opposite
-Chern numbers and state the sign convention used. For a gapped
+Chern numbers and state the sign convention used. Identify the two
+eigenlines with classifying maps $f_\pm:S^2\to\mathbb P(\C^2)$ and, for the
+normalization in Exercise~\ref{ex:projective-reduction}, prove
+\[
+F_{\rm Berry}^{\pm}=-2i f_\pm^*\omega_{\rm FS}.
+\]
+For a gapped
 two-dimensional periodic Hamiltonian, derive the Kubo formula expressing
 Hall conductance as $e^2/h$ times the occupied-band Chern number. Deduce
 integer quantization under gap-preserving perturbations and compare with
