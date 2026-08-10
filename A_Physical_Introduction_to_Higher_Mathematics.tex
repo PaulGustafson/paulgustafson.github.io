@@ -2278,6 +2278,34 @@ The \emph{homology} is $H_n(X;R)=\ker\partial_n/\im\partial_{n+1}$. The
 $\delta\phi=\phi\partial$, and its cohomology is $H^n(X;R)$.
 \end{definition}
 
+\begin{definition}[Cofibers, finite CW complexes, and cohomology theories]
+A based inclusion $A\hookrightarrow X$ is a \emph{cofibration} if every
+homotopy on $A$ that extends at its initial time to $X$ extends over the
+whole homotopy. Its \emph{cofiber} is $X/A$. More generally, the cofiber of
+a based map $f:A\to X$ is the pushout $X\cup_f CA$, where $CA$ is the
+reduced cone; the reduced suspension is $\Sigma A=CA/A$.
+
+A \emph{finite CW complex} is obtained from the empty space by finitely many
+pushouts
+\[
+\begin{array}{ccc}
+\coprod_\alpha S^{n-1}&\longrightarrow&X^{n-1}\\
+\big\downarrow&&\big\downarrow\\
+\coprod_\alpha D^n&\longrightarrow&X^n,
+\end{array}
+\]
+where $X^n$ is the $n$th skeleton. A \emph{reduced cohomology theory} on
+based finite CW complexes is a graded contravariant functor
+$\widetilde E^*$ that is homotopy invariant, vanishes on a point, takes
+finite wedges to direct sums, has natural suspension isomorphisms
+$\widetilde E^{q+1}(\Sigma X)\cong\widetilde E^q(X)$, and makes
+\[
+\widetilde E^q(X/A)\longrightarrow\widetilde E^q(X)
+\longrightarrow\widetilde E^q(A)
+\]
+exact for every cofibration $A\hookrightarrow X$.
+\end{definition}
+
 \begin{definition}[Products and pairings]
 The \emph{Kronecker pairing} is
 $H^n(X;R)\times H_n(X;R)\to R$, $([\phi],[c])\mapsto\phi(c)$. The
@@ -2286,19 +2314,30 @@ face formula on cochains.
 \end{definition}
 
 \begin{exercise}[Homology, cohomology, and degree]
-Prove $\partial^2=0$, $\delta^2=0$, and homotopy invariance. Compute the
-homology and cohomology rings of spheres and tori. For a continuous map
+Prove $\partial^2=0$, $\delta^2=0$, and homotopy invariance. For a CW pair
+$(X,A)$, define $C_*(X,A;R)=C_*(X;R)/C_*(A;R)$, construct barycentric
+subdivision, and use it to prove excision and
+$H^q(X,A;R)\cong\widetilde H^q(X/A;R)$. Construct the Puppe sequence of a
+cofibration and derive the long exact sequence of a pair and the
+Mayer--Vietoris sequence. Deduce that reduced singular cohomology is a
+reduced cohomology theory.
+
+Prove that $X^{n-1}\hookrightarrow X^n$ is a cofibration and
+$X^n/X^{n-1}$ is a finite wedge of $n$-spheres. By induction over the
+skeleta, prove that a natural transformation between reduced cohomology
+theories that is an isomorphism on $S^0$ in every degree is an isomorphism
+on every finite CW complex; prove the required five-term diagram chase.
+Compute the homology and cohomology rings of spheres and tori. For a
+continuous map
 $f:S^n\to S^n$, define its degree by
 $f_*[S^n]=\deg(f)[S^n]$ and prove multiplicativity and agreement with winding
 number for $n=1$.
 \end{exercise}
 
-For the rest of this section, forget the smooth structure on the bundles
-introduced with gauge fields and regard their local trivializations and
-transition maps as continuous. We study them up to topological isomorphism.
-
 \begin{exercise}[Topological bundles from transition functions]
-Prove that continuous transition functions satisfying the cocycle condition
+Forget the smooth structure on the bundles introduced with gauge fields and
+retain their continuous transition maps. Prove that transition functions
+satisfying the cocycle condition
 construct a topological bundle and that changes of local trivialization give
 isomorphic bundles. Prove that a principal bundle is trivial exactly when it
 has a global section. Construct associated vector bundles from
@@ -2458,11 +2497,14 @@ abelian group receiving a monoid map from $M$. Vector bundles $E,F$ are
 \emph{stably equivalent} if $E\oplus\underline{\C}^m\cong
 F\oplus\underline{\C}^n$ for some $m,n$; this relation forgets rank and
 therefore describes reduced stable classes. The group $K^0(X)$ is the
-Grothendieck group of complex vector bundles on compact $X$; define
-$K^1(X)=\widetilde K^0(\Sigma X)$.
+Grothendieck group of complex vector bundles on compact $X$. For based $X$,
+let $\widetilde K^0(X)$ be the kernel of restriction to the basepoint;
+define $\widetilde K^1(X)=\widetilde K^0(\Sigma X)$. For unbased $X$, write
+$X_+=X\sqcup\{*\}$ and set
+$K^j(X)=\widetilde K^j(X_+)$ for $j=0,1$.
 \end{definition}
 
-\begin{definition}[Relative K-theory and the Thom class]
+\begin{definition}[Relative and compactly supported K-theory]
 For a compact pair $(X,A)$ and a locally compact space $Y$, define
 \[
 K^j(X,A)=\widetilde K^j(X/A),\qquad
@@ -2472,7 +2514,18 @@ where $Y^+$ is the one-point compactification. A triple
 $(F^0,F^1,\sigma)$ of vector bundles on $Y$, with
 $\sigma:F^0\to F^1$ invertible off a compact set, represents a class in
 $K_c^0(Y)$ up to homotopy and stabilization.
+\end{definition}
 
+\begin{exercise}[Exactness of K-theory]
+Prove homotopy invariance and finite-wedge additivity for reduced K-theory.
+For a cofibration $A\hookrightarrow X$, use clutching of bundles to prove
+exactness of the cofiber sequence in the degrees defined
+above. Derive the relative and Mayer--Vietoris sequences from the general
+cofiber construction, and prove that external product is compatible with
+them.
+\end{exercise}
+
+\begin{definition}[The K-theory Thom class]
 Let $\pi:E\to X$ be a rank-$r$ Hermitian complex vector bundle. Exterior
 multiplication by $v$ and its adjoint give the odd endomorphism
 \[
@@ -2499,13 +2552,10 @@ Thom map for a point is an isomorphism in degrees zero and one.
 \end{exercise}
 
 \begin{exercise}[Thom isomorphism and Bott periodicity]
-Prove from bundle gluing that relative K-theory has the cofibration exact
-sequence and the Mayer--Vietoris sequence, and that external product is
-compatible with both. Apply the preceding point calculation, the relative
-sequences, and the five lemma to prove the trivial-line result over finite
-cell complexes. Iterate it for trivial bundles and then use
-Mayer--Vietoris over bundle trivializations to prove the complex Thom
-isomorphism
+Apply K-theory exactness and cellular induction to the preceding point
+calculation and prove the trivial-line result over finite CW complexes.
+Iterate it for trivial bundles and then use Mayer--Vietoris over bundle
+trivializations to prove the complex Thom isomorphism
 \[
 K^j(X)\longrightarrow K_c^j(E),\qquad
 a\longmapsto\pi^*a\,u_E,\qquad j=0,1,
@@ -2522,7 +2572,9 @@ is an isomorphism.
 
 \begin{exercise}[$K$-theory of spheres]
 Use Bott periodicity and the clutching calculation to compute the complex
-$K$-groups of spheres.
+$K$-groups of spheres. Extend $K^j$ to all integer degrees by
+two-periodicity and use K-theory exactness to prove that it is a reduced
+cohomology theory on finite CW complexes.
 \end{exercise}
 
 \begin{exercise}[$K$-theory of tori and class-A phases]
