@@ -1136,6 +1136,7 @@ linear and angular momentum conservation.
 \end{exercise}
 
 \begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
 On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
 preserves $\omega$, the phase-space volume $\omega^n/n!$, and every density
 depending only on $H$. Deduce that Hamiltonian evolution cannot compress
@@ -1281,11 +1282,37 @@ frequency spacing $\omega$. Prove that their span is a core for the
 self-adjoint closure of $H$.
 \end{exercise}
 
-\begin{exercise}[Born rule and unitary dynamics]
+\begin{exercise}[Liouville and von Neumann dynamics]
 Prove that the Born rule defines a probability measure and that its expected
-value is $\Tr(\rho A)$ when defined. Derive the von Neumann equation from
-$U_t=e^{-itH/\hbar}$. Prove conservation of expected energy and derive the
-Heisenberg equation for observables.
+value is $\Tr(\rho A)$ when defined. Derive the following classical and
+quantum evolution equations.
+
+Let $\mu_t=(\phi_t)_*\mu_0$ have smooth density $p_t$ relative to the
+Liouville measure $\mu_L$ of a time-independent Hamiltonian system. Using
+Exercise~\ref{ex:liouville-theorem}, prove
+\[
+\partial_t p_t+\{p_t,H\}=0,
+\qquad
+\frac{d}{dt}\int_M f\,d\mu_t
+=\int_M\{f,H\}\,d\mu_t.
+\]
+For $U_t=e^{-itH/\hbar}$, set
+$\rho_t=U_t\rho_0U_t^*$ and $A_t=U_t^*A_0U_t$. Prove
+\[
+\dot\rho_t=-\frac{i}{\hbar}[H,\rho_t],
+\qquad
+\dot A_t=\frac{i}{\hbar}[H,A_t].
+\]
+Prove
+\[
+\int_M f\,d\mu_t=\int_M(f\circ\phi_t)\,d\mu_0,
+\qquad
+\Tr(\rho_tA_0)=\Tr(\rho_0A_t),
+\]
+and identify these as the equivalence of Schr\"odinger and Heisenberg
+pictures. Compare the derivations $f\mapsto\{f,H\}$ and
+$A\mapsto(i\hbar)^{-1}[A,H]$, and prove conservation of expected energy in
+both theories.
 \end{exercise}
 
 \begin{exercise}[Stern--Gerlach projections and the Born rule]
