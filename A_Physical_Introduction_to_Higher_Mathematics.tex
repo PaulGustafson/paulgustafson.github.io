@@ -1083,7 +1083,7 @@ waveform with general relativity in that regime.
 
 \part{States}
 
-\section{Hamiltonian States}
+\section{Classical States and Hamiltonian Dynamics}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -1190,6 +1190,24 @@ regime.
 
 \section{Quantum and Algebraic States}
 
+\begin{definition}[$C^*$-algebras and states]
+A \emph{unital Banach algebra} is a complete normed algebra with identity and
+$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
+$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
+Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
+if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
+$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
+\end{definition}
+
+\begin{exercise}[Commutative Gelfand duality]
+For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
+$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
+nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
+unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
+$C(\operatorname{Spec}A)$ by the Gelfand
+transform, and identify states on $C(X)$ with probability measures.
+\end{exercise}
+
 \begin{definition}[Quantum states and observables]
 A positive operator $S$ has the coordinate-free trace
 \[
@@ -1209,6 +1227,25 @@ one-parameter unitary group. For unbounded observables and generators,
 spectral measures, expectations, and exponentials use the earlier unbounded
 spectral calculus and its natural domains.
 \end{definition}
+
+\begin{exercise}[Classical and quantum state spaces]
+Let $X$ be compact Hausdorff and let $H$ be finite-dimensional. Show that a
+point $x\in X$, a probability measure $\mu$ on $X$, a unit vector
+$\psi\in H$, and a density operator $\rho$ determine states by
+\[
+\delta_x(f)=f(x),\qquad
+\omega_\mu(f)=\int_X f\,d\mu,
+\qquad
+\omega_\psi(A)=\langle\psi,A\psi\rangle,
+\qquad
+\omega_\rho(A)=\Tr(\rho A).
+\]
+Prove that the extreme points of the classical state space are the point
+evaluations and that the extreme points of the quantum state space are the
+rank-one density operators. Explain why mixtures are convex combinations in
+both theories and why the structural distinction is that $C(X)$ is
+commutative whereas $B(H)$ generally is not.
+\end{exercise}
 
 \begin{exercise}[Canonical quantization and Weyl relations]
 On $\mathcal S(\R^n)\subset L^2(\R^n)$, set
@@ -1319,24 +1356,6 @@ S_A(\psi)=-k_B\sum_{s>0}
 \]
 and prove that it vanishes exactly for separable pure states. Compute the
 reduced states and entanglement entropy of a Bell state.
-\end{exercise}
-
-\begin{definition}[$C^*$-algebras and states]
-A \emph{unital Banach algebra} is a complete normed algebra with identity and
-$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
-$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
-Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
-if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
-$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
-\end{definition}
-
-\begin{exercise}[Commutative Gelfand duality]
-For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
-$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
-nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
-unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
-$C(\operatorname{Spec}A)$ by the Gelfand
-transform, and identify states on $C(X)$ with probability measures.
 \end{exercise}
 
 \begin{definition}[Representations and GNS construction]
