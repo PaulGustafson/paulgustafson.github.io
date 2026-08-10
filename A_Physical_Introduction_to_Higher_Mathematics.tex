@@ -17,6 +17,11 @@
 \newtheorem{definition}{Definition}[section]
 \newtheorem{exercise}{Exercise}[section]
 
+\newenvironment{observations}
+{\par\smallskip\noindent\textbf{Experimental observations.}%
+ \begin{itemize}[leftmargin=2em]}
+{\end{itemize}\smallskip}
+
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Q}{\mathbb Q}
@@ -53,6 +58,14 @@
 \part{Waves}
 
 \section{Linear Structure and Spectra}
+
+\begin{observations}
+\item Two identical pendulums joined by a weak spring have in-phase and
+out-of-phase normal modes. Generic motions exhibit beats at the two modal
+frequencies.
+\item A driven plate collects sand along nodal curves at its resonant
+frequencies. Different resonances produce different Chladni patterns.
+\end{observations}
 
 \begin{definition}[Vector spaces and linear maps]
 Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
@@ -268,6 +281,14 @@ spectral subspaces without choosing coordinates.
 
 \section{Oscillation and Fourier Analysis}
 
+\begin{observations}
+\item A string fixed at both ends exhibits stationary patterns with nodes at
+the endpoints. Its resonance frequencies are approximately $f_n=nf_1$, with
+$f_1$ proportional to $L^{-1}\sqrt{\tau/\rho}$.
+\item In far-field single-slit diffraction, the intensity vanishes at angles
+satisfying $a\sin\theta=m\lambda$ for nonzero integers $m$.
+\end{observations}
+
 \begin{definition}[Linear oscillator]
 A \emph{linear oscillator} on a finite-dimensional real inner-product space
 $V$ is an equation
@@ -459,6 +480,13 @@ optical diffraction.
 
 \section{Hilbert Spaces and Spectral Operators}
 
+\begin{observations}
+\item A hydrogen discharge emits sharp Balmer lines, including wavelengths
+near $656.3$, $486.1$, $434.0$, and $410.2\,\mathrm{nm}$.
+\item Atomic ionization spectra contain a threshold followed by a continuum
+of outgoing-electron energies.
+\end{observations}
+
 \begin{definition}[Hilbert spaces and bounded operators]
 In this section Hilbert spaces are complex. A \emph{Hilbert space} is a
 complete inner-product space. A linear map
@@ -599,6 +627,14 @@ with the atomic spectrum exercise below.
 
 \section{Groups and Representations}
 
+\begin{observations}
+\item Water vapor has three fundamental vibrational bands: one bending mode
+and two stretching modes. Infrared and Raman measurements distinguish their
+symmetry types.
+\item Electric and magnetic fields split otherwise degenerate atomic
+spectral lines into reproducible multiplets.
+\end{observations}
+
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
 and inverses. A \emph{homomorphism} $\phi:G\to H$ preserves multiplication.
@@ -677,6 +713,13 @@ preserved by $G$.
 \end{exercise}
 
 \section{Smooth Manifolds and Continuous Symmetry}
+
+\begin{observations}
+\item An inhomogeneous magnetic field splits a beam of silver atoms into two
+components in the Stern--Gerlach experiment.
+\item Neutron interferometry detects the sign change of a spin-$1/2$ state
+after a $2\pi$ rotation and its restoration after a $4\pi$ rotation.
+\end{observations}
 
 \begin{definition}[Topological spaces]
 A \emph{topology} on $X$ is a family of subsets containing $\varnothing,X$
@@ -828,6 +871,13 @@ fundamental vibrational bands.
 
 \section{Vector Fields, Forms, and Metrics}
 
+\begin{observations}
+\item A changing magnetic flux through a conducting loop produces an
+electromotive force proportional to the rate of flux change.
+\item Fast atmospheric muons reach sea level in far greater numbers than
+their rest-frame lifetime permits without relativistic time dilation.
+\end{observations}
+
 \begin{definition}[Vector fields and flows]
 A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
 $X$ is a smooth local action $\Phi$ of $\R$ on $M$ satisfying
@@ -927,6 +977,13 @@ endpoints, and derive special-relativistic time dilation.
 \end{exercise}
 
 \section{Connections, Curvature, and Field Equations}
+
+\begin{observations}
+\item Electron interference fringes shift when the paths enclose shielded
+magnetic flux, even where the magnetic field vanishes along both paths.
+\item GW150914 produced a peak interferometer strain of order $10^{-21}$ near
+$150\,\mathrm{Hz}$ in two widely separated detectors.
+\end{observations}
 
 \begin{definition}[Connections and geodesics]
 A \emph{connection} on $TM$ is an $\R$-bilinear map
@@ -1084,6 +1141,13 @@ waveform with general relativity in that regime.
 
 \section{Classical States and Hamiltonian Dynamics}
 
+\begin{observations}
+\item Planetary positions follow elliptical orbits with equal areas swept in
+equal times to observational accuracy.
+\item Charged particles in storage rings exhibit stable closed orbits and
+transverse betatron oscillations in position--momentum phase portraits.
+\end{observations}
+
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
 space} is the cotangent bundle $T^*Q$. The tautological one-form on $T^*Q$ is
@@ -1204,6 +1268,13 @@ phase volume.
 
 \section{Probability, Gibbs States, and Ergodicity}
 
+\begin{observations}
+\item A dilute gas satisfies $PV\simeq Nk_BT$ over the classical ideal-gas
+regime.
+\item Measured molecular speed distributions in thermal gases have the
+Maxwell--Boltzmann form and broaden as temperature increases.
+\end{observations}
+
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
 with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map.
@@ -1263,6 +1334,15 @@ regime.
 \end{exercise}
 
 \section{Quantum and Algebraic States}
+
+\begin{observations}
+\item Repeated Stern--Gerlach measurements yield two discrete outcomes, with
+relative frequencies determined by the preparation and analyzer directions.
+\item Blackbody cavity spectra follow Planck's law and have finite total
+radiated energy at fixed temperature.
+\item Coincidence measurements of identical fermionic atoms show suppressed
+joint detection in overlapping modes.
+\end{observations}
 
 \begin{definition}[$C^*$-algebras and states]
 A \emph{unital Banach algebra} is a complete normed algebra with identity and
@@ -1779,6 +1859,14 @@ QFT.
 
 \section{Completely Bounded Structure and Correlations}
 
+\begin{observations}
+\item An excited superconducting qubit relaxes approximately as
+$e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
+$e^{-t/(2T_1)}$.
+\item Loophole-free Bell experiments measure correlations that violate CHSH
+bounds satisfied by local hidden-variable models.
+\end{observations}
+
 \begin{definition}[Positive and completely positive maps]
 A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
 preserves positive elements and \emph{completely positive} if every
@@ -2258,6 +2346,13 @@ the result does not exclude arbitrary superdeterministic or signaling models.
 
 \section{Homotopy, Cohomology, and Bundles}
 
+\begin{observations}
+\item The Aharonov--Bohm interference phase is periodic in enclosed flux with
+period $h/|q|$ for particles of charge $q$.
+\item Interference fringes acquire a rate-independent phase shift after an
+adiabatic cyclic change of the Hamiltonian.
+\end{observations}
+
 \begin{definition}[Homotopy and fundamental group]
 A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
 $H:X\times[0,1]\to Y$ with endpoints $f$ and $g$. The \emph{fundamental
@@ -2495,6 +2590,14 @@ integer quantum Hall plateaus.
 \end{exercise}
 
 \section{K-Theory and Index}
+
+\begin{observations}
+\item In the integer quantum Hall regime, transverse conductance forms
+plateaus at integer multiples of $e^2/h$ while longitudinal resistance is
+strongly suppressed.
+\item In two-dimensional quantum spin Hall devices, conduction is
+concentrated in boundary channels while bulk conduction is suppressed.
+\end{observations}
 
 \begin{definition}[Grothendieck completion and stable equivalence]
 The \emph{Grothendieck group} of a commutative monoid $M$ is the universal
@@ -2843,6 +2946,15 @@ the presence of strong interactions.
 \end{exercise}
 
 \section{Subfactors, Conformal Nets, and Tensor Categories}
+
+\begin{observations}
+\item Modulation spectroscopy of critical Rydberg chains resolves
+even-parity excitation ratios $2:4:6:8$ and odd-parity ratios $3:5:7$
+associated with the Ising conformal spectrum.
+\item At filling $\nu=1/3$, shot-noise measurements give quasiparticle charge
+near $e/3$, and interferometry detects phase evolution associated with
+fractional statistics.
+\end{observations}
 
 \begin{definition}[Subfactors and conditional expectations]
 A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
