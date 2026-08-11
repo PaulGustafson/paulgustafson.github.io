@@ -633,14 +633,17 @@ values of the Liouvillian $A\mapsto[H,A]/\hbar$.
 
 \part{Symmetry}
 
-\section{Groups and Representations}
+\section{From Symmetry to Harmonic Analysis}
 
 \begin{observations}
 \item Infrared spectra of gas-phase $NH_3$ contain four fundamental
-vibrational bands.
-\item In partially deuterated $NH_2D$, the bands corresponding to the two
-degenerate $NH_3$ vibrations split into distinct bands.
+vibrational bands, while in $NH_2D$ each band arising from a doubly degenerate
+$NH_3$ vibration splits into distinct bands.
+\item Monochromatic X-rays scattered by a crystal form sharp peaks only at
+selected directions determined by wavelength and lattice spacing.
 \end{observations}
+
+\subsection{Finite Groups and Representations}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
@@ -731,14 +734,10 @@ $E|_{C_s}\cong A'\oplus A''$. Deduce that symmetry no longer enforces either
 degeneracy and compare with the observed band splitting.
 \end{exercise}
 
-\section{Smooth Manifolds and Continuous Symmetry}
+\subsection{Lie Groups, Rotations, and Spin}
 
-\begin{observations}
-\item An inhomogeneous magnetic field splits a beam of silver atoms into two
-components in the Stern--Gerlach experiment.
-\item Neutron interferometry detects the sign change of a spin-$1/2$ state
-after a $2\pi$ rotation and its restoration after a $4\pi$ rotation.
-\end{observations}
+Finite symmetry groups explain discrete degeneracies. Smooth symmetry groups
+add infinitesimal generators, continuous quantum numbers, and spin.
 
 \begin{definition}[Topological spaces]
 A \emph{topology} on $X$ is a family of subsets containing $\varnothing,X$
@@ -879,20 +878,11 @@ the Balmer wavelengths and compare them with the observed hydrogen lines.
 Apply the electric-dipole rule to identify forbidden transitions.
 \end{exercise}
 
-\section{Harmonic Analysis and Reciprocal Space}
+\subsection{Haar Measure, Fourier Analysis, and Reciprocal Space}
 
-\begin{observations}
-\item Monochromatic X-rays scattered by a crystal form sharp peaks only at
-selected directions. Their locations change with wavelength and lattice
-spacing.
-\item Electrons scattered from a nickel crystal form sharply directed beams
-at selected accelerating voltages and angles.
-\item Gas-phase polar molecules absorb microwaves at discrete frequencies.
-A static electric field splits individual absorption lines into multiple
-components.
-\item Angle-resolved photoelectron measurements exhibit reproducible lobes
-and nodal directions associated with different atomic and molecular orbitals.
-\end{observations}
+Invariant integration turns representations into a generalized Fourier
+analysis. For translation symmetry, its dual variables are the reciprocal
+coordinates measured by diffraction.
 
 \begin{definition}[Haar measure and convolution]
 Let $G$ be a locally compact Hausdorff group. A \emph{left Haar measure} is
@@ -1176,14 +1166,16 @@ into operators rather than scalar frequency amplitudes.
 
 \part{Fields}
 
-\section{Vector Fields, Forms, and Metrics}
+\section{Geometry and Dynamics of Fields}
 
 \begin{observations}
 \item A changing magnetic flux through a conducting loop produces an
 electromotive force proportional to the rate of flux change.
-\item Fast atmospheric muons reach sea level in far greater numbers than
-their rest-frame lifetime permits without relativistic time dilation.
+\item GW150914 produced a peak interferometer strain of order $10^{-21}$ near
+$150\,\mathrm{Hz}$ in two widely separated detectors.
 \end{observations}
+
+\subsection{Vector Fields and Differential Forms}
 
 \begin{definition}[Vector fields and flows]
 A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
@@ -1246,6 +1238,11 @@ dE=-\partial_tB,
 recovering the observed flux--emf law.
 \end{exercise}
 
+\subsection{Metrics and Spacetime}
+
+Differential forms describe fluxes without a metric. A metric adds lengths,
+proper times, volume, and the duality between complementary form degrees.
+
 \begin{definition}[Tensor fields and metrics]
 A \emph{$(r,s)$-tensor field} is a smooth section of
 $TM^{\otimes r}\otimes T^*M^{\otimes s}$. A \emph{Riemannian metric} is a
@@ -1293,14 +1290,11 @@ mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
 distance $v\tau_\mu$ predicted without time dilation.
 \end{exercise}
 
-\section{Connections, Curvature, and Field Equations}
+\subsection{Connections, Curvature, and Gauge Fields}
 
-\begin{observations}
-\item Electron interference fringes shift when the paths enclose shielded
-magnetic flux, even where the magnetic field vanishes along both paths.
-\item GW150914 produced a peak interferometer strain of order $10^{-21}$ near
-$150\,\mathrm{Hz}$ in two widely separated detectors.
-\end{observations}
+A connection compares fields at different points. Its curvature records the
+failure of parallel transport to be path independent and supplies the field
+strength for both geometry and gauge theory.
 
 \begin{definition}[Connections and geodesics]
 A \emph{connection} on $TM$ is an $\R$-bilinear map
@@ -1400,6 +1394,11 @@ $F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
 the Yang--Mills equation.
 \end{exercise}
 
+\subsection{Classical Field Equations}
+
+The geometric language now expresses electromagnetism and gravitation as
+equations for curvature constrained by conservation laws.
+
 \begin{definition}[Electromagnetic field]
 On an oriented Lorentzian four-manifold, an \emph{electromagnetic field
 strength} is a two-form $F$. Given a current one-form $J$ and constants
@@ -1458,14 +1457,16 @@ waveform with general relativity in that regime.
 
 \part{States}
 
-\section{Classical States and Hamiltonian Dynamics}
+\section{Classical, Statistical, and Quantum States}
 
 \begin{observations}
-\item Planetary positions follow elliptical orbits with equal areas swept in
-equal times to observational accuracy.
-\item Charged particles in storage rings exhibit stable closed orbits and
-transverse betatron oscillations in position--momentum phase portraits.
+\item A dilute gas obeys the ideal-gas law and exhibits a temperature-dependent
+distribution of molecular speeds.
+\item Repeated Stern--Gerlach measurements yield two outcomes whose relative
+frequencies depend on the preparation and analyzer directions.
 \end{observations}
+
+\subsection{Classical States and Hamiltonian Dynamics}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -1594,16 +1595,10 @@ show that their enclosed area is preserved. Interpret the motion as a
 betatron oscillation about a closed orbit.
 \end{exercise}
 
-\section{Probability, Gibbs States, and Ergodicity}
+\subsection{Probability, Gibbs States, and Ergodicity}
 
-\begin{observations}
-\item A dilute gas satisfies $PV\simeq Nk_BT$ over the classical ideal-gas
-regime.
-\item Time-of-flight measurements in dilute gases show a broad, single-peaked
-speed distribution with a long high-speed tail.
-\item Increasing temperature shifts the distribution toward higher speeds;
-characteristic speeds scale approximately as $\sqrt{T/m}$.
-\end{observations}
+Probability measures enlarge pure classical states to statistical ensembles.
+Entropy and invariance then distinguish equilibrium among those ensembles.
 
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
@@ -1669,19 +1664,11 @@ temperature scaling and compare both predictions with dilute-gas
 measurements in the classical regime.
 \end{exercise}
 
-\section{Quantum States and Quantization}
+\subsection{Quantum States and Quantization}
 
-\begin{observations}
-\item Repeated Stern--Gerlach measurements yield two discrete outcomes, with
-relative frequencies determined by the preparation and analyzer directions.
-\item Sideband spectroscopy of trapped ions resolves discrete motional
-transitions separated by the trap frequency.
-\item Blackbody cavity spectra have a finite peak. As temperature rises, the
-peak shifts to higher frequency and the total radiated power increases.
-\item Balanced optical homodyne measurements at varying local-oscillator
-phases produce quadrature histograms from which a field mode's Wigner
-distribution and density operator can be reconstructed.
-\end{observations}
+Quantum states retain the probabilistic expectation rule while replacing
+commutative observables by operators and classical mixtures by density
+operators.
 
 \begin{definition}[Quantum states and observables]
 A positive operator $S$ has the coordinate-free trace
@@ -1929,10 +1916,6 @@ transform, and identify states on $C(X)$ with probability measures.
 \begin{observations}
 \item Tomography of prepared entangled pairs reconstructs a nearly pure joint
 state while either subsystem alone has nearly equal two-outcome frequencies.
-\item At thermal equilibrium, measured level-population ratios decrease
-exponentially with the energy gap and inverse temperature.
-\item Coincidence measurements of identical fermionic atoms show suppressed
-joint detection in overlapping modes.
 \end{observations}
 
 \begin{definition}[Composite and reduced states]
@@ -2079,14 +2062,17 @@ measurements in
 \clearpage
 \part{Observables}
 
-\section{Operator Algebras and Local Observables}
+\section{Operator Algebras, Channels, and Correlations}
 
 \begin{observations}
-\item Randomized measurements on trapped-ion spin chains reconstruct changing
-eigenvalue spectra of reduced subsystem states during quench dynamics.
-\item In a 51-ion XXZ chain, fits to subsystem data are dominated by local
-energy-density terms whose weights vary across the subsystem.
+\item An excited superconducting qubit relaxes approximately as
+$e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
+$e^{-t/(2T_1)}$.
+\item Loophole-free Bell experiments measure correlations that violate CHSH
+bounds satisfied by local hidden-variable models.
 \end{observations}
+
+\subsection{Operator Algebras and Local Observables}
 
 \begin{definition}[Operator topologies and von Neumann algebras]
 The \emph{weak operator topology} is generated by
@@ -2299,15 +2285,12 @@ the relevant replacement for sharply adjacent local regions in continuum
 QFT.
 \end{exercise}
 
-\section{Channels and Quantum Correlations}
+\subsection{Channels and Quantum Correlations}
 
-\begin{observations}
-\item An excited superconducting qubit relaxes approximately as
-$e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
-$e^{-t/(2T_1)}$.
-\item Loophole-free Bell experiments measure correlations that violate CHSH
-bounds satisfied by local hidden-variable models.
-\end{observations}
+Channels describe how observables and states change under noise, measurement,
+and loss of access to an environment. Matrix amplification detects behavior
+that is invisible at the scalar level and ultimately controls nonlocal
+correlations.
 
 \begin{definition}[Positive and completely positive maps]
 A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
@@ -2786,14 +2769,15 @@ the result does not exclude arbitrary superdeterministic or signaling models.
 
 \part{Topology}
 
-\section{Homotopy, Cohomology, and Bundles}
+\section{Topology, K-Theory, and Index}
 
 \begin{observations}
-\item The Aharonov--Bohm interference phase is periodic in enclosed flux with
-period $h/|q|$ for particles of charge $q$.
-\item Interference fringes acquire a rate-independent phase shift after an
-adiabatic cyclic change of the Hamiltonian.
+\item In the integer quantum Hall regime, transverse conductance forms
+plateaus at integer multiples of $e^2/h$ while longitudinal resistance is
+strongly suppressed.
 \end{observations}
+
+\subsection{Homotopy, Cohomology, and Bundles}
 
 \begin{definition}[Homotopy and fundamental group]
 A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
@@ -3034,15 +3018,11 @@ that it is independent of traversal rate, and identify the corresponding
 interference-fringe shift.
 \end{exercise}
 
-\section{K-Theory and Index}
+\subsection{K-Theory and Index}
 
-\begin{observations}
-\item In the integer quantum Hall regime, transverse conductance forms
-plateaus at integer multiples of $e^2/h$ while longitudinal resistance is
-strongly suppressed.
-\item In two-dimensional quantum spin Hall devices, conduction is
-concentrated in boundary channels while bulk conduction is suppressed.
-\end{observations}
+Cohomology assigns additive classes to bundles. K-theory first makes bundle
+addition invertible and then connects stable topology to the analytic index
+of differential operators.
 
 \begin{definition}[Grothendieck completion and stable equivalence]
 The \emph{Grothendieck group} of a commutative monoid $M$ is the universal
@@ -3390,6 +3370,8 @@ why this stable noninteracting classification need not remain unchanged in
 the presence of strong interactions.
 \end{exercise}
 
+\part{Anyons}
+
 \section{Anyons}
 
 \begin{observations}
@@ -3400,6 +3382,12 @@ associated with the Ising conformal spectrum.
 near $e/3$, and interferometry detects phase evolution associated with
 fractional statistics.
 \end{observations}
+
+\subsection{Subfactors and Conformal Nets}
+
+Subfactor index measures the size of an inclusion of observable algebras.
+For conformal nets, finite index organizes localized charges into a finite
+system of superselection sectors.
 
 \begin{definition}[Subfactors, conditional expectations, and index]
 A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
@@ -3571,6 +3559,12 @@ experiment supports the Ising CFT spectrum but does not directly measure the
 net or all of its superselection sectors.
 \end{exercise}
 
+\subsection{Fusion Categories and Topological Field Theory}
+
+The sector operations abstract to a braided fusion category. Its
+diagrammatic data in turn define topological field theories and link
+invariants.
+
 \begin{definition}[Monoidal and rigid categories]
 A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
 unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
@@ -3709,6 +3703,12 @@ union, composition under gluing, duality under orientation reversal, and
 mapping-class-group representations on state spaces. In two dimensions,
 prove the equivalence with commutative Frobenius algebras.
 \end{exercise}
+
+\subsection{Topological Order and Quantum Codes}
+
+In a gapped two-dimensional phase, the same categorical data describe anyon
+fusion, braiding, topology-dependent state spaces, and protected logical
+observables.
 
 \begin{definition}[Anyons and topological degeneracy]
 In a two-dimensional gapped phase, an \emph{anyon type} is a simple object of
