@@ -1333,9 +1333,9 @@ $\operatorname{Riem}(X,Y,Z,W)=g(R(X,Y)Z,W)$. Its contraction is the
 \end{definition}
 
 \begin{exercise}[Curvature identities and geodesic deviation]
-Prove tensoriality and the algebraic symmetries of the Riemann tensor and the
-first and second Bianchi identities. For a variation through geodesics with
-separation field $J$, prove
+For the Levi--Civita connection, prove tensoriality and the algebraic
+symmetries of the Riemann tensor and the first and second Bianchi identities.
+For a variation through geodesics with separation field $J$, prove
 \[
 \frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
 \]
@@ -2291,7 +2291,7 @@ bounds satisfied by local hidden-variable models.
 A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
 preserves positive elements and \emph{completely positive} if every
 $\id_{M_n}\otimes\Phi$ is positive. A \emph{quantum channel} is a completely
-positive trace-preserving map on trace-class operators, equivalently a
+positive trace-preserving map on trace-class operators, equivalently a normal
 unital completely positive map on observables in the adjoint picture.
 \end{definition}
 
@@ -3219,8 +3219,8 @@ $\int_M\widehat A(TM)\operatorname{ch}(E)$. Apply Atiyah--Singer to derive
 \end{exercise}
 
 \begin{definition}[Chirality and instanton number]
-Let $M$ be an oriented even-dimensional Riemannian spin manifold with the
-spinor splitting above. For a Hermitian vector bundle $E$ with unitary
+Let $M$ be an oriented Riemannian spin four-manifold with the spinor splitting
+above. For a Hermitian vector bundle $E$ with unitary
 connection $A$, the coupled Dirac operator is odd and has a \emph{chiral part}
 \[
 D_A^+:\Gamma(S^+\otimes E)\longrightarrow\Gamma(S^-\otimes E).
@@ -3379,24 +3379,37 @@ near $e/3$, and interferometry detects phase evolution associated with
 fractional statistics.
 \end{observations}
 
-\begin{definition}[Subfactors and conditional expectations]
+\begin{definition}[Subfactors, conditional expectations, and index]
 A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
-unit. A \emph{conditional expectation} $E:M\to N$ is a positive unital
-$N$-bimodule projection. For finite factors with normalized trace, the
-\emph{Jones index} $[M:N]$ is the Murray--von Neumann dimension of
-$L^2(M)$ as a left $N$-module.
+unit. A \emph{normal conditional expectation} $E:M\to N$ is a normal positive
+unital $N$-bimodule projection. For finite factors with normalized trace, the
+\emph{Jones index} $[M:N]$ is the Murray--von Neumann dimension of $L^2(M)$
+as a left $N$-module, and $E_N:M\to N$ denotes the unique trace-preserving
+normal conditional expectation.
+
+For arbitrary factors and a faithful normal conditional expectation $E$, set
+\[
+[M:N]_E=\lambda_E^{-1},\qquad
+\lambda_E=\sup\bigl(\{0\}\cup
+ \{\lambda>0:E(x)\geq\lambda x\text{ for every }x\in M_+\}\bigr).
+\]
+The \emph{minimal index} is
+$[M:N]_{\min}=\inf_E[M:N]_E$, with value $+\infty$ if no finite-index
+expectation exists. For the type-III inclusions below, $[M:N]$ denotes this
+minimal index.
 \end{definition}
 
 \begin{definition}[Basic construction]
-On $L^2(M)$, the \emph{Jones projection} $e_N$ is the orthogonal projection
-onto $L^2(N)$. The \emph{basic construction} is
+For finite factors $N\subseteq M$, the \emph{Jones projection} $e_N$ on
+$L^2(M)$ is the orthogonal projection onto $L^2(N)$. The \emph{basic
+construction} is
 $M_1=\langle M,e_N\rangle''$. Iteration gives the \emph{Jones tower}
 $N\subseteq M\subseteq M_1\subseteq M_2\subseteq\cdots$.
 \end{definition}
 
 \begin{exercise}[Jones tower and Temperley--Lieb relations]
-For finite-index $N\subseteq M$, derive
-$e_Nxe_N=E(x)e_N$ and construct the canonical trace on the basic
+For a finite-index inclusion $N\subseteq M$ of finite factors, derive
+$e_Nxe_N=E_N(x)e_N$ and construct the canonical trace on the basic
 construction. Prove that the normalized Jones projections in the tower
 satisfy
 \[
