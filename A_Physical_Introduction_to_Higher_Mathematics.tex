@@ -478,98 +478,6 @@ locate its zeros, and compare the predicted angular spacing with measured
 optical diffraction.
 \end{exercise}
 
-\section{Harmonic Analysis and Reciprocal Space}
-
-\begin{observations}
-\item Monochromatic X-rays scattered by a crystal form sharp peaks only at
-selected directions. Their locations change with wavelength and lattice
-spacing.
-\item Electrons scattered from a nickel crystal form sharply directed beams
-at selected accelerating voltages and angles.
-\end{observations}
-
-\begin{definition}[Lattices and reciprocal lattices]
-A \emph{lattice} in $\R^n$ is a subset
-$\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
-covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
-$F=A[0,1)^n$. Its \emph{reciprocal lattice} is
-\[
-\Gamma^*=\{\xi\in\R^n:\xi\cdot\gamma\in2\pi\mathbb Z
-\text{ for every }\gamma\in\Gamma\}.
-\]
-\end{definition}
-
-\begin{exercise}[Fourier modes of a lattice]
-Prove $\Gamma^*=2\pi(A^{-1})^*\mathbb Z^n$. Show that
-$e_\xi(x)=e^{i\xi\cdot x}$ is $\Gamma$-periodic exactly when
-$\xi\in\Gamma^*$. With inner product
-\[
-\langle f,g\rangle_F
-=\frac1{\vol(\Gamma)}\int_F\overline{f(x)}g(x)\,dx,
-\]
-prove that $(e_\xi)_{\xi\in\Gamma^*}$ is a complete orthonormal family in
-$L^2(\R^n/\Gamma)$ by transporting the Fourier basis of $\mathbb T^n$.
-\end{exercise}
-
-\begin{definition}[Periodic summation and structure factors]
-For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
-\[
-P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
-\]
-For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its
-\emph{structure factor} is
-\[
-S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
-\]
-\end{definition}
-
-\begin{exercise}[Poisson summation]
-Prove that $P_\Gamma f$ converges with all derivatives and compute its
-Fourier coefficients. With the Fourier-transform normalization above, prove
-\[
-P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
- \sum_{\xi\in\Gamma^*}\mathcal Ff(\xi)e^{i\xi\cdot x}.
-\]
-Set $x=0$ to obtain the Poisson summation formula. Derive the Jacobi theta
-transformation by applying it to a Gaussian.
-\end{exercise}
-
-\begin{exercise}[Crystal diffraction and Bragg peaks]
-Let $\Gamma_N$ be a finite rectangular portion of $\Gamma$. In the
-single-scattering approximation, prove that the amplitude at momentum
-transfer $q$ factors as
-\[
-\mathcal A_N(q)
-=S_B(q)\sum_{\gamma\in\Gamma_N}e^{-iq\cdot\gamma}.
-\]
-Use geometric sums and Poisson summation to show that the normalized
-intensity concentrates at $q\in\Gamma^*$ as the crystal grows. For elastic
-scattering with incident and outgoing wavevectors of magnitude
-$2\pi/\lambda$, derive the Laue condition and, for planes spaced by $d$, the
-Bragg relation
-\[
-2d\sin\theta=m\lambda.
-\]
-Show how zeros of $S_B$ produce missing reflections. Compare the peak
-condition with
-\href{https://doi.org/10.1098/rspa.1913.0040}
-{W.~H. Bragg and W.~L. Bragg, \emph{Proceedings of the Royal Society A}
-\textbf{88} (1913)}.
-\end{exercise}
-
-\begin{exercise}[Electron diffraction]
-For an electron accelerated through voltage $V$, use
-$eV=p^2/(2m_e)$ and $p=h/\lambda$ to derive
-\[
-\lambda=\frac{h}{\sqrt{2m_e eV}}.
-\]
-Combine this relation with the reciprocal-lattice and Bragg conditions to
-predict how the diffraction angles change with $V$. Compare the predicted
-sharply directed beams with
-\href{https://doi.org/10.1103/PhysRev.30.705}
-{Davisson--Germer, \emph{Physical Review} \textbf{30} (1927)}.
-\end{exercise}
-
 \section{Infinite-Dimensional Spectral Theory}
 
 \begin{observations}
@@ -964,6 +872,180 @@ degeneracies. With the radial spectrum
 $E_n=-m_e e^4/(2(4\pi\varepsilon_0)^2\hbar^2n^2)$ as derived input, compute
 the Balmer wavelengths and compare them with the observed hydrogen lines.
 Apply the electric-dipole rule to identify forbidden transitions.
+\end{exercise}
+
+\section{Harmonic Analysis and Reciprocal Space}
+
+\begin{observations}
+\item Monochromatic X-rays scattered by a crystal form sharp peaks only at
+selected directions. Their locations change with wavelength and lattice
+spacing.
+\item Electrons scattered from a nickel crystal form sharply directed beams
+at selected accelerating voltages and angles.
+\end{observations}
+
+\begin{definition}[Haar measure and convolution]
+Let $G$ be a locally compact Hausdorff group. A \emph{left Haar measure} is
+a nonzero regular Borel measure $\mu$ satisfying
+$\mu(gE)=\mu(E)$. Haar's theorem gives such a measure, unique up to a
+positive scalar; on a compact group normalize it by $\mu(G)=1$. For
+$f,g\in C_c(G)$, define
+\[
+(f*g)(x)=\int_G f(y)g(y^{-1}x)\,d\mu(y).
+\]
+The \emph{left regular representation} on $L^2(G)$ is
+$(\lambda_gf)(x)=f(g^{-1}x)$.
+\end{definition}
+
+\begin{exercise}[Haar measure and the regular representation]
+Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$. Construct
+normalized Haar measure on a compact Lie group from a left-invariant metric.
+Prove associativity of convolution, the $L^1$ convolution inequality, and
+$\|f*g\|_2\leq\|f\|_1\|g\|_2$. Prove that $g\mapsto\lambda_g$ is a strongly
+continuous unitary representation. For a finite-dimensional representation
+of a compact group, average an inner product over $G$ to obtain an invariant
+one.
+\end{exercise}
+
+\begin{definition}[Pontryagin duality]
+For a locally compact abelian group $G$, its \emph{Pontryagin dual}
+$\widehat G$ is the group of continuous characters $\chi:G\to U(1)$, with
+pointwise multiplication and the compact-open topology. For $f\in L^1(G)$,
+define
+\[
+\widehat f(\chi)=\int_G f(x)\overline{\chi(x)}\,d\mu(x).
+\]
+With compatible Haar measures on $G$ and $\widehat G$, Fourier inversion and
+Plancherel extend the earlier theorems. Pontryagin duality identifies
+$G$ naturally with $\widehat{\widehat G}$.
+\end{definition}
+
+\begin{exercise}[Abelian Fourier duality]
+Identify
+\[
+\widehat{\R^n}\cong\R^n,
+\qquad
+\widehat{\mathbb Z^n}\cong\mathbb T^n,
+\qquad
+\widehat{\mathbb T^n}\cong\mathbb Z^n,
+\]
+and verify the double-dual map in each case. Show that the group Fourier
+transform recovers Fourier transforms on $\R^n$ and Fourier series on
+$\mathbb T^n$. For a closed subgroup $H\leq G$, define its annihilator
+$H^\perp\subseteq\widehat G$ and prove
+$\widehat{G/H}\cong H^\perp$.
+\end{exercise}
+
+\begin{definition}[Lattices and reciprocal lattices]
+A \emph{lattice} in $\R^n$ is a subgroup
+$\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
+covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
+$F=A[0,1)^n$. Its \emph{reciprocal lattice} is the annihilator
+\[
+\Gamma^*=\{\xi\in\R^n:\xi\cdot\gamma\in2\pi\mathbb Z
+\text{ for every }\gamma\in\Gamma\}.
+\]
+\end{definition}
+
+\begin{exercise}[Fourier modes of a lattice]
+Prove $\Gamma^*=2\pi(A^{-1})^*\mathbb Z^n$. Show that
+$e_\xi(x)=e^{i\xi\cdot x}$ is $\Gamma$-periodic exactly when
+$\xi\in\Gamma^*$. With inner product
+\[
+\langle f,g\rangle_F
+=\frac1{\vol(\Gamma)}\int_F\overline{f(x)}g(x)\,dx,
+\]
+prove that $(e_\xi)_{\xi\in\Gamma^*}$ is a complete orthonormal family in
+$L^2(\R^n/\Gamma)$. Interpret this as
+$\widehat{\R^n/\Gamma}\cong\Gamma^*$.
+\end{exercise}
+
+\begin{definition}[Periodic summation and structure factors]
+For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
+\[
+P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
+\]
+For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its
+\emph{structure factor} is
+\[
+S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
+\]
+\end{definition}
+
+\begin{exercise}[Poisson summation]
+Prove that $P_\Gamma f$ converges with all derivatives and compute its
+Fourier coefficients. With the Fourier-transform normalization above, prove
+\[
+P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
+ \sum_{\xi\in\Gamma^*}\mathcal Ff(\xi)e^{i\xi\cdot x}.
+\]
+Set $x=0$ to obtain the Poisson summation formula. Derive the Jacobi theta
+transformation by applying it to a Gaussian.
+\end{exercise}
+
+\begin{exercise}[Crystal diffraction and Bragg peaks]
+Let $\Gamma_N$ be a finite rectangular portion of $\Gamma$. In the
+single-scattering approximation, prove that the amplitude at momentum
+transfer $q$ factors as
+\[
+\mathcal A_N(q)
+=S_B(q)\sum_{\gamma\in\Gamma_N}e^{-iq\cdot\gamma}.
+\]
+Use geometric sums and Poisson summation to show that the normalized
+intensity concentrates at $q\in\Gamma^*$ as the crystal grows. For elastic
+scattering with incident and outgoing wavevectors of magnitude
+$2\pi/\lambda$, derive the Laue condition and, for planes spaced by $d$, the
+Bragg relation
+\[
+2d\sin\theta=m\lambda.
+\]
+Show how zeros of $S_B$ produce missing reflections. Compare the peak
+condition with
+\href{https://doi.org/10.1098/rspa.1913.0040}
+{W.~H. Bragg and W.~L. Bragg, \emph{Proceedings of the Royal Society A}
+\textbf{88} (1913)}.
+\end{exercise}
+
+\begin{exercise}[Electron diffraction]
+For an electron accelerated through voltage $V$, use
+$eV=p^2/(2m_e)$ and $p=h/\lambda$ to derive
+\[
+\lambda=\frac{h}{\sqrt{2m_e eV}}.
+\]
+Combine this relation with the reciprocal-lattice and Bragg conditions to
+predict how the diffraction angles change with $V$. Compare the predicted
+sharply directed beams with
+\href{https://doi.org/10.1103/PhysRev.30.705}
+{Davisson--Germer, \emph{Physical Review} \textbf{30} (1927)}.
+\end{exercise}
+
+\begin{definition}[Compact-group Fourier transform]
+For a compact group $G$, let $\widehat G$ denote the equivalence classes of
+irreducible finite-dimensional unitary representations. For
+$f\in L^1(G)$ and $\pi\in\widehat G$, define
+\[
+\widehat f(\pi)=\int_G f(g)\pi(g)^*\,dg\in\End(V_\pi).
+\]
+Thus the Fourier transform is scalar-valued for abelian $G$ and
+matrix-valued in general.
+\end{definition}
+
+\begin{exercise}[Peter--Weyl theorem]
+Use Haar averaging and Schur's lemma to prove orthogonality of matrix
+coefficients of irreducible unitary representations of a compact group.
+Prove that their span is dense in $C(G)$ and $L^2(G)$ and obtain
+\[
+L^2(G)\cong\mathop{\widehat{\bigoplus}}_{\pi\in\widehat G}
+V_\pi\otimes V_\pi^*.
+\]
+Derive Fourier inversion, the Plancherel formula
+\[
+\|f\|_2^2=\sum_{\pi\in\widehat G}
+(\dim V_\pi)\|\widehat f(\pi)\|_{\rm HS}^2,
+\]
+and $\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi)$. Recover ordinary
+Fourier series for $G=\mathbb T$ and identify the summands for $G=SU(2)$
+using its irreducible representations above.
 \end{exercise}
 
 \part{Fields}
