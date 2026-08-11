@@ -882,6 +882,11 @@ selected directions. Their locations change with wavelength and lattice
 spacing.
 \item Electrons scattered from a nickel crystal form sharply directed beams
 at selected accelerating voltages and angles.
+\item Gas-phase polar molecules absorb microwaves at discrete frequencies.
+A static electric field splits individual absorption lines into multiple
+components.
+\item Angle-resolved photoelectron measurements exhibit reproducible lobes
+and nodal directions associated with different atomic and molecular orbitals.
 \end{observations}
 
 \begin{definition}[Haar measure and convolution]
@@ -1044,8 +1049,47 @@ Derive Fourier inversion, the Plancherel formula
 (\dim V_\pi)\|\widehat f(\pi)\|_{\rm HS}^2,
 \]
 and $\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi)$. Recover ordinary
-Fourier series for $G=\mathbb T$ and identify the summands for $G=SU(2)$
-using its irreducible representations above.
+Fourier series for $G=\mathbb T$. For $G=SO(3)$, identify the matrix
+coefficients with the Wigner functions $D^\ell_{mn}$.
+\end{exercise}
+
+\begin{exercise}[Spherical harmonics and atomic orbitals]
+Identify $S^2$ with $SO(3)/SO(2)$ and $L^2(S^2)$ with the right
+$SO(2)$-invariant subspace of $L^2(SO(3))$. Use Peter--Weyl to obtain
+\[
+L^2(S^2)\cong\mathop{\widehat{\bigoplus}}_{\ell=0}^\infty V_\ell
+\]
+and identify a basis of $V_\ell$ with
+$Y_{\ell m}\propto D^\ell_{m0}$. Derive
+$\Delta_{S^2}Y_{\ell m}=-\ell(\ell+1)Y_{\ell m}$ and completeness of the
+spherical harmonics. Separate the Coulomb Hamiltonian in spherical
+coordinates to obtain
+$\psi_{n\ell m}(r,\theta,\phi)=R_{n\ell}(r)Y_{\ell m}(\theta,\phi)$.
+Determine the angular nodes of the $s$, $p$, and $d$ orbitals and relate them
+to symmetry-enforced zeros in photoelectron angular distributions in the
+plane-wave final-state approximation. Compare with
+\href{https://doi.org/10.1103/PhysRevB.72.195417}
+{Matsui et al., \emph{Physical Review B} \textbf{72} (2005)}.
+\end{exercise}
+
+\begin{exercise}[Molecular rotational spectra]
+Model a rigid molecule with orientation $R\in SO(3)$ and principal moments
+$I_1,I_2,I_3$. On $L^2(SO(3))$, derive
+\[
+H_{\rm rot}=\frac{J_1^2}{2I_1}+\frac{J_2^2}{2I_2}
++\frac{J_3^2}{2I_3}.
+\]
+Use the Peter--Weyl basis to reduce $H_{\rm rot}$ to finite-dimensional
+blocks. For a symmetric top, derive
+\[
+E_{JK}=\frac{\hbar^2J(J+1)}{2I_\perp}
++\frac{\hbar^2K^2}{2}\left(\frac1{I_\parallel}-\frac1{I_\perp}\right).
+\]
+Derive the electric-dipole selection rules and the splitting in a static
+electric field. Compare the predicted components with microwave
+measurements of the symmetric-top molecule s-trioxane reported in
+\href{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication343.pdf}
+{NBS Special Publication 343 (1971)}.
 \end{exercise}
 
 \part{Fields}
