@@ -237,7 +237,7 @@ $P$ is an orthogonal projection if and only if $P=P^*=P^2$.
 A linear map is \emph{orthogonal} over $\R$, or \emph{unitary} over $\C$, if
 it preserves the inner product. An endomorphism $A$ is \emph{self-adjoint} if
 $A=A^*$, \emph{normal} if $AA^*=A^*A$, and \emph{positive} if
-$\langle v,Av\rangle\geq0$ for every $v$. A scalar $\lambda$ is an
+$A=A^*$ and $\langle v,Av\rangle\geq0$ for every $v$. A scalar $\lambda$ is an
 \emph{eigenvalue} if $\ker(A-\lambda\id)\ne0$; a subspace $U$ is
 \emph{invariant} if $A(U)\subseteq U$. In finite dimensions,
 $\spec(A)$ denotes the set of eigenvalues of $A$ in the scalar field.
@@ -1596,9 +1596,10 @@ characteristic speeds scale approximately as $\sqrt{T/m}$.
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
 with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map.
-Its \emph{expectation} is its integral. The \emph{conditional expectation}
-$\mathbb E[X\mid\mathcal G]$ is the $\mathcal G$-measurable integrable random
-variable satisfying
+Its \emph{expectation} is its integral. For $X\in L^1(\Omega,\mathcal F,
+\mathbb P)$ and a sub-$\sigma$-algebra $\mathcal G\subseteq\mathcal F$, a
+\emph{conditional expectation} $\mathbb E[X\mid\mathcal G]$ is a
+$\mathcal G$-measurable integrable random variable satisfying
 $\int_G\mathbb E[X\mid\mathcal G]\,d\mathbb P=\int_GX\,d\mathbb P$ for all
 $G\in\mathcal G$. Families of $\sigma$-algebras are \emph{independent} when
 the probability of every finite intersection is the product of its
@@ -2151,8 +2152,17 @@ theory.
 \end{exercise}
 
 \begin{definition}[Traces and factor types]
-A \emph{trace} on a von Neumann algebra is a normal positive functional
-$\tau$ satisfying $\tau(ab)=\tau(ba)$. Projections $p,q\in M$ are
+A \emph{finite trace} on a von Neumann algebra is a normal positive functional
+$\tau$ satisfying $\tau(ab)=\tau(ba)$. A possibly unbounded \emph{normal
+tracial weight} is an additive, positively homogeneous map
+$\tau:M_+\to[0,\infty]$ satisfying $\tau(x^*x)=\tau(xx^*)$ and
+$\tau(x_\lambda)\uparrow\tau(x)$ whenever $x_\lambda\uparrow x$. It is
+\emph{semifinite} if every nonzero $x\in M_+$ majorizes a nonzero
+$y\in M_+$ with $\tau(y)<\infty$. Thus the standard traces on infinite
+type-I and type-$\mathrm{II}_\infty$ factors are normal semifinite weights,
+not finite functionals.
+
+Projections $p,q\in M$ are
 \emph{Murray--von Neumann equivalent}, written $p\sim q$, if some $v\in M$
 satisfies $v^*v=p$ and $vv^*=q$. A projection $p$ is \emph{finite} if
 $q\leq p$ and $q\sim p$ imply $q=p$, and it is \emph{minimal} if its only
