@@ -57,14 +57,16 @@
 
 \part{Waves}
 
-\section{Finite-Dimensional Linear Algebra}
+\section{From Superposition to Spectral Theory}
 
 \begin{observations}
-\item When two small transverse pulses overlap on a taut string, the measured
-displacement is approximately the sum of their separate displacements.
-\item Multiplying a small initial deflection by a scalar multiplies the
-subsequent displacement by the same scalar.
+\item Small transverse disturbances on a taut string superpose: overlapping
+pulses add, and scaling an initial deflection scales its later motion. A
+finite string fixed at both ends has discrete resonant modes, while a pulse on
+an effectively infinite string requires a continuous range of frequencies.
 \end{observations}
+
+\subsection{Linear Structure and Superposition}
 
 \begin{definition}[Vector spaces and linear maps]
 Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
@@ -75,10 +77,10 @@ $T(av+bw)=aT(v)+bT(w)$.
 
 \begin{exercise}[String profiles and superposition]
 Let $V$ be the real-valued functions on $[0,L]$. Prove that the fixed-end
-profiles $u$ satisfying $u(0)=u(L)=0$ form a vector subspace. Express the two
-observations above as closure under addition and scalar multiplication. Show
-that sampling a profile at finitely many points defines a linear map
-$V\to\R^n$.
+profiles $u$ satisfying $u(0)=u(L)=0$ form a vector subspace. Express the
+opening string observation as closure under addition and scalar
+multiplication. Show that sampling a profile at finitely many points defines
+a linear map $V\to\R^n$.
 \end{exercise}
 
 \begin{definition}[Subspaces, kernels, images, and quotients]
@@ -210,6 +212,11 @@ with orientation. Deduce the change-of-variables rule for parallelepipeds
 and Cramer's rule.
 \end{exercise}
 
+\subsection{Inner Products and Finite Spectral Theory}
+
+An inner product turns linear superposition into a geometry of orthogonal
+modes and makes spectral decomposition possible.
+
 \begin{definition}[Inner products and orthogonality]
 An \emph{inner product} on a real vector space is a positive-definite
 symmetric bilinear form. On a complex vector space it is a positive-definite
@@ -286,16 +293,11 @@ for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
 spectral subspaces without choosing coordinates.
 \end{exercise}
 
-\clearpage
-\section{Oscillations, Waves, and Fourier Analysis}
+\subsection{Oscillators and Normal Modes}
 
-\begin{observations}
-\item A string fixed at both ends exhibits stationary patterns with nodes at
-the endpoints. Its resonance frequencies are approximately $f_n=nf_1$, with
-$f_1$ proportional to $L^{-1}\sqrt{\tau/\rho}$.
-\item In far-field single-slit diffraction, the intensity vanishes at angles
-satisfying $a\sin\theta=m\lambda$ for nonzero integers $m$.
-\end{observations}
+The finite spectral theorem turns coupled equations of motion into independent
+normal modes. A chain of masses provides a finite approximation to the same
+decomposition for a continuous string.
 
 \begin{definition}[Linear oscillator]
 A \emph{linear oscillator} on a finite-dimensional real inner-product space
@@ -348,6 +350,12 @@ frequencies. Prove that the fundamental frequency is
 $f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
 $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
+
+\subsection{Fourier Analysis and Continuum Modes}
+
+For a continuous string, finite sums of normal modes give way to orthogonal
+series; on an unbounded domain, the mode parameter becomes continuous. The
+required setting is furnished by measure and integration.
 
 \begin{definition}[Measure spaces and simple functions]
 A \emph{measure space} is a triple $(X,\Sigma,\mu)$ in which $\Sigma$ is a
@@ -469,26 +477,15 @@ kernel and its convolution law, and prove finite propagation speed for the
 one-dimensional wave equation.
 \end{exercise}
 
-\begin{exercise}[Interference and Fourier optics]
-For coherent scalar waves with complex amplitudes $a_1,a_2$, derive
-$|a_1+a_2|^2$ and the fringe spacing in Young's double-slit geometry. In the
-Fraunhofer regime, derive that the far-field amplitude is the Fourier
-transform of the aperture. Compute the single-slit diffraction intensity,
-locate its zeros, and compare the predicted angular spacing with measured
-optical diffraction.
-\end{exercise}
+\subsection{Hilbert Spaces and Spectral Measures}
 
-\section{Infinite-Dimensional Spectral Theory}
-
-\begin{observations}
-\item A hydrogen discharge emits sharp Balmer lines, including wavelengths
-near $656.3$, $486.1$, $434.0$, and $410.2\,\mathrm{nm}$.
-\item Atomic ionization spectra contain a threshold followed by a continuum
-of outgoing-electron energies.
-\end{observations}
+Fourier series and transforms are concrete spectral decompositions. Hilbert
+space theory isolates the structure they share and replaces sums over modes
+by integration against projection-valued measures.
 
 \begin{definition}[Hilbert spaces and bounded operators]
-In this section Hilbert spaces are complex. A \emph{Hilbert space} is a
+In this subsection and the next, Hilbert spaces are complex. A \emph{Hilbert
+space} is a
 complete inner-product space. A linear map
 $T:H\to K$ is \emph{bounded} if
 $\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Write $B(H,K)$ for the space of
@@ -522,6 +519,11 @@ $A=\int\lambda\,dE(\lambda)$. Extend the statement to bounded normal
 operators, derive continuous functional calculus, and characterize unitary
 and projection spectra.
 \end{exercise}
+
+\subsection{Unbounded Generators and Physical Spectra}
+
+The differential operators governing waves and translations are generally
+unbounded, so their domains become part of the spectral problem.
 
 \begin{definition}[Unbounded operators and domains]
 A \emph{densely defined operator} $T$ has a dense linear domain
@@ -622,7 +624,8 @@ If $H|n\rangle=E_n|n\rangle$, use $U_t=e^{-itH/\hbar}$ to show that
 $\langle A(t)\rangle$ contains frequencies $(E_m-E_n)/\hbar$. Explain why
 spectroscopic peaks measure energy differences and why line strengths depend
 on matrix elements between the corresponding spectral subspaces. Convert the
-observed Balmer wavelengths to energy differences using $E=hc/\lambda$.
+Balmer wavelengths $656.3$, $486.1$, $434.0$, and $410.2\,\mathrm{nm}$ to
+energy differences using $E=hc/\lambda$.
 Identify the levels $E_n$, rather than their differences, with atoms of the
 spectral measure of $H$, and identify the transition frequencies with spectral
 values of the Liouvillian $A\mapsto[H,A]/\hbar$.
@@ -941,6 +944,15 @@ transform recovers Fourier transforms on $\R^n$ and Fourier series on
 $\mathbb T^n$. For a closed subgroup $H\leq G$, define its annihilator
 $H^\perp\subseteq\widehat G$ and prove
 $\widehat{G/H}\cong H^\perp$.
+\end{exercise}
+
+\begin{exercise}[Interference and Fourier optics]
+For coherent scalar waves with complex amplitudes $a_1,a_2$, derive
+$|a_1+a_2|^2$ and the fringe spacing in Young's double-slit geometry. In the
+Fraunhofer regime, derive that the far-field amplitude is the Fourier
+transform of the aperture. Compute the single-slit diffraction intensity,
+locate its zeros, and compare the predicted angular spacing with measured
+optical diffraction.
 \end{exercise}
 
 \begin{definition}[Lattices and reciprocal lattices]
