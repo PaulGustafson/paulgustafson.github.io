@@ -1094,6 +1094,74 @@ measurements of the symmetric-top molecule s-trioxane reported in
 {NBS Special Publication 343 (1971)}.
 \end{exercise}
 
+\begin{definition}[Noncommutative Plancherel transform]
+A locally compact group is \emph{unimodular} when its left and right Haar
+measures agree. It is \emph{type I} when its unitary representations have
+essentially unique direct-integral decompositions into irreducibles. Let $G$
+be second-countable, unimodular, and type I. For $f\in L^1(G)$ and an
+irreducible unitary representation $\pi:G\to U(H_\pi)$, define the
+operator-valued Fourier transform
+\[
+\widehat f(\pi)=\int_G f(g)\pi(g)^*\,dg.
+\]
+The noncommutative Plancherel theorem supplies a measure $\nu_G$ on the
+unitary dual $\widehat G$ such that, initially for $f\in L^1(G)\cap L^2(G)$,
+\[
+\|f\|_2^2=\int_{\widehat G}
+ \|\widehat f(\pi)\|_{\rm HS}^2\,d\nu_G(\pi),
+\qquad
+\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi).
+\]
+For abelian groups the representation spaces are one-dimensional; for
+compact groups the integral becomes the dimension-weighted Peter--Weyl sum.
+\end{definition}
+
+\begin{definition}[Heisenberg group and Schr\"odinger representations]
+On $\R^{2n}=\R_q^n\oplus\R_p^n$, set
+\[
+\sigma((q,p),(q',p'))=p\cdot q'-q\cdot p'.
+\]
+The \emph{Heisenberg group} is
+$\mathbb H_n=\R^{2n}\times\R$ with multiplication
+\[
+(z,s)(z',s')=(z+z',s+s'+\tfrac12\sigma(z,z')).
+\]
+For $\lambda\ne0$, its \emph{Schr\"odinger representation} on
+$L^2(\R^n)$ is
+\[
+\bigl(\pi_\lambda(q,p,s)\psi\bigr)(x)
+=e^{i\lambda(s+p\cdot(x-q/2))}\psi(x-q).
+\]
+The physical central character is $\lambda=1/\hbar$.
+\end{definition}
+
+\begin{exercise}[Harmonic analysis of the Heisenberg group]
+\label{ex:heisenberg-harmonic-analysis}
+Verify the group law, identify the center, and prove that Lebesgue measure is
+Haar measure on $\mathbb H_n$. Prove that each $\pi_\lambda$ is an
+irreducible unitary representation and derive its Weyl commutation relations.
+At $\lambda=1/\hbar$, differentiate the position and momentum subgroups and
+recover $Q_j$, $P_j$, and $[Q_j,P_k]=i\hbar\delta_{jk}$. Taking the
+Stone--von Neumann theorem as input, show that every irreducible
+representation with central character $e^{i\lambda s}$ is unitarily
+equivalent to $\pi_\lambda$.
+
+Compute the operator-valued group Fourier transform in these representations
+and derive the Plancherel decomposition with measure
+$c_n|\lambda|^n\,d\lambda$, determining $c_n$ from the Haar and Fourier
+normalizations above. Show that the one-dimensional representations with
+trivial central character have zero Plancherel measure. Derive the
+distributional orthogonality relation for Weyl operators and the resulting
+Hilbert--Schmidt Plancherel and inversion formulas. Prove that
+\[
+S\longmapsto
+\chi_S(u,v)=\Tr\!\left(S e^{i(u\cdot X+v\cdot Y)}\right)
+\]
+is injective on trace-class operators, where $[X_j,Y_k]=i\delta_{jk}$.
+Interpret this as noncommutative Fourier analysis turning functions on a group
+into operators rather than scalar frequency amplitudes.
+\end{exercise}
+
 \part{Fields}
 
 \section{Vector Fields, Forms, and Metrics}
@@ -1597,6 +1665,9 @@ relative frequencies determined by the preparation and analyzer directions.
 transitions separated by the trap frequency.
 \item Blackbody cavity spectra have a finite peak. As temperature rises, the
 peak shifts to higher frequency and the total radiated power increases.
+\item Balanced optical homodyne measurements at varying local-oscillator
+phases produce quadrature histograms from which a field mode's Wigner
+distribution and density operator can be reconstructed.
 \end{observations}
 
 \begin{definition}[Quantum states and observables]
@@ -1689,6 +1760,64 @@ self-adjoint closure of $H$. For a two-level internal transition of frequency
 $\Omega_0$ coupled linearly to $Q$, compute the oscillator matrix elements,
 obtain motional sidebands at $\Omega_0\pm\omega$, and compare their spacing
 with trapped-ion spectra.
+\end{exercise}
+
+\begin{definition}[Quadratures, Wigner distributions, and homodyne data]
+For one canonical degree of freedom, choose $q_0,p_0>0$ with
+$q_0p_0=\hbar$ and set
+\[
+X=Q/q_0,\qquad Y=P/p_0,\qquad
+X_\theta=X\cos\theta+Y\sin\theta,
+\]
+so that $[X,Y]=i$. For a density operator $\rho$, its \emph{Weyl
+characteristic function} is
+\[
+\chi_\rho(u,v)=\Tr\!\left(\rho e^{i(uX+vY)}\right),
+\]
+and its \emph{Wigner distribution} is the inverse Fourier transform
+\[
+W_\rho(x,y)=\frac1{(2\pi)^2}\int_{\R^2}
+ \chi_\rho(u,v)e^{-i(ux+vy)}\,du\,dv,
+\]
+interpreted as a tempered distribution when necessary. If $E_\theta$ is the
+spectral measure of $X_\theta$, the \emph{homodyne quadrature distribution}
+is
+\[
+p_\rho(r\mid\theta)\,dr=\Tr\bigl(\rho E_\theta(dr)\bigr).
+\]
+In balanced optical homodyne detection, the local-oscillator phase selects
+$\theta$ and repeated measurements estimate this distribution.
+\end{definition}
+
+\begin{exercise}[Optical homodyne tomography]
+Use Exercise~\ref{ex:heisenberg-harmonic-analysis} and the spectral theorem to
+prove the Fourier-slice identity
+\[
+\widetilde p_\rho(k\mid\theta)
+=\int_\R p_\rho(r\mid\theta)e^{ikr}\,dr
+=\chi_\rho(k\cos\theta,k\sin\theta).
+\]
+Deduce, in the distributional sense, that the measured quadrature density is
+the Radon transform of the Wigner distribution:
+\[
+p_\rho(r\mid\theta)=\int_{\R^2}W_\rho(x,y)
+ \delta(r-x\cos\theta-y\sin\theta)\,dx\,dy.
+\]
+Prove that the data for $0\leq\theta<\pi$ determine $\chi_\rho$, hence
+$W_\rho$ and $\rho$, and derive the filtered-backprojection formula
+\[
+W_\rho(x,y)=\frac1{(2\pi)^2}\int_0^\pi\int_\R
+ |k|\,\widetilde p_\rho(k\mid\theta)
+ e^{-ik(x\cos\theta+y\sin\theta)}\,dk\,d\theta.
+\]
+Show that every $p_\rho(\,\cdot\mid\theta)$ is a genuine probability density
+although $W_\rho$ may be negative. Compute the data and reconstruction for
+vacuum, coherent, squeezed, and one-photon states. Explain why the factor
+$|k|$ amplifies high-frequency noise and why finite-angle experimental data
+require regularization or constrained density-matrix estimation. Compare the
+predicted reconstruction of vacuum and squeezed states with
+\href{https://doi.org/10.1103/PhysRevLett.70.1244}
+{Smithey et al., \emph{Physical Review Letters} \textbf{70} (1993)}.
 \end{exercise}
 
 \begin{exercise}[Liouville and von Neumann dynamics]
