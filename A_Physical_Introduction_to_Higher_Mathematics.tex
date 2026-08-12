@@ -1799,261 +1799,6 @@ measurements in
 \end{exercise}
 
 \clearpage
-\part{Fields}
-
-\begin{observations}
-\item A changing magnetic flux through a conducting loop produces an
-electromotive force proportional to the rate of flux change.
-\item GW150914 produced a peak interferometer strain of order $10^{-21}$ near
-$150\,\mathrm{Hz}$ in two widely separated detectors.
-\end{observations}
-
-\section{Flux}
-
-Integration and Stokes' theorem turn local differential equations into laws
-for flux through regions and their boundaries.
-
-\begin{definition}[Integration of forms]
-An \emph{orientation} of an $n$-manifold is a continuous choice of component
-of nonzero elements in $\Lambda^nT_p^*M$. The integral
-$\int_M\omega$ of a compactly supported top form is defined using
-orientation-preserving charts and a partition of unity.
-\end{definition}
-
-\begin{exercise}[Stokes' theorem]
-Prove that the integral is independent of charts and partition of unity.
-For an oriented manifold with boundary, prove
-\[
-\int_Md\omega=\int_{\partial M}\omega.
-\]
-Deduce the fundamental theorem of calculus, Green's theorem, the divergence
-theorem, and the classical curl theorem. For time-dependent magnetic
-two-form $B$ and electric one-form $E$, prove the equivalence of
-\[
-\int_{\partial S}E=-\frac d{dt}\int_SB
-\qquad\text{and}\qquad
-dE=-\partial_tB,
-\]
-recovering the observed flux--emf law.
-\end{exercise}
-
-\section{Spacetime}
-
-Differential forms describe fluxes without a metric. A metric adds lengths,
-proper times, volume, and the duality between complementary form degrees.
-
-\begin{definition}[Tensor fields and metrics]
-A \emph{$(r,s)$-tensor field} is a smooth section of
-$TM^{\otimes r}\otimes T^*M^{\otimes s}$. A \emph{Riemannian metric} is a
-smooth positive-definite inner product on each $T_pM$. A \emph{Lorentzian
-metric} is a smooth nondegenerate symmetric form of signature
-$(-,+,\ldots,+)$. The length of a curve in a Riemannian manifold is
-$\int\sqrt{g(\dot\gamma,\dot\gamma)}\,dt$; the proper time of a timelike
-curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
-orientation define a volume form $\vol_g$.
-\end{definition}
-
-\begin{definition}[Hodge star]
-On an oriented pseudo-Riemannian $n$-manifold, the metric induces a
-nondegenerate pairing $\langle\cdot,\cdot\rangle_g$ on differential forms.
-The \emph{Hodge star} is the bundle map
-\[
-*:\Omega^p(M)\longrightarrow\Omega^{n-p}(M)
-\]
-characterized by
-\[
-\alpha\wedge *\beta
-=\langle\alpha,\beta\rangle_g\,\vol_g
-\]
-for $p$-forms $\alpha,\beta$.
-\end{definition}
-
-\begin{exercise}[Metric volume and Hodge star]
-Construct $\vol_g$ and the Hodge star intrinsically and derive their
-coordinate expressions. For a metric with $q$ negative directions, prove on
-$p$-forms that
-\[
-*^2=(-1)^{p(n-p)+q}\id.
-\]
-Compute $*$ on the standard coordinate forms of Euclidean three-space and
-Minkowski four-space, stating the orientation and signature conventions.
-\end{exercise}
-
-\begin{exercise}[Proper time]
-Prove invariance of length and proper time under reparametrization. In
-Minkowski spacetime, prove that the inertial path maximizes proper time among
-piecewise smooth future-directed timelike paths with fixed timelike-separated
-endpoints, and derive special-relativistic time dilation.
-Using the muon rest lifetime $\tau_\mu\simeq2.2\,\mu\mathrm{s}$, derive the
-mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
-distance $v\tau_\mu$ predicted without time dilation.
-\end{exercise}
-
-\section{Gauge Fields}
-
-A connection compares fields at different points. Its curvature records the
-failure of parallel transport to be path independent and supplies the field
-strength for both geometry and gauge theory.
-
-\begin{definition}[Connections and geodesics]
-A \emph{connection} on $TM$ is an $\R$-bilinear map
-$\nabla:\Gamma(TM)\times\Gamma(TM)\to\Gamma(TM)$, linear over smooth
-functions in the first variable and satisfying
-$\nabla_X(fY)=X(f)Y+f\nabla_XY$. Its torsion is
-$T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$. A \emph{geodesic} satisfies
-$\nabla_{\dot\gamma}\dot\gamma=0$. A connection is \emph{metric compatible}
-if $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ)$.
-\end{definition}
-
-\begin{exercise}[Levi--Civita connection]
-Prove that every Riemannian or Lorentzian metric has a unique torsion-free,
-metric-compatible connection. Derive the Koszul formula and prove that its
-geodesics are precisely the critical curves of the energy functional with
-fixed endpoints.
-\end{exercise}
-
-\begin{definition}[Covariant derivative and parallel transport]
-For a curve $\gamma$, the connection induces a \emph{covariant derivative}
-$D/dt$ on vector fields along $\gamma$. A field $V$ is \emph{parallel} when
-$DV/dt=0$; the resulting linear isomorphism between endpoint tangent spaces
-is \emph{parallel transport}.
-\end{definition}
-
-\begin{exercise}[Parallel transport and holonomy]
-Prove existence, uniqueness, composition, and inverse properties of parallel
-transport. Show that Levi--Civita transport preserves the metric. Compute the
-rotation obtained by transporting a tangent vector around a latitude on the
-unit sphere and relate it to the enclosed curvature.
-\end{exercise}
-
-\begin{definition}[Curvature]
-The \emph{curvature} of a connection is
-\[
-R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
-\]
-For a metric connection, the \emph{Riemann tensor} is
-$\operatorname{Riem}(X,Y,Z,W)=g(R(X,Y)Z,W)$. Its contraction is the
-\emph{Ricci tensor} $\operatorname{Ric}$; the contraction of Ricci is the
-\emph{scalar curvature} $S$.
-\end{definition}
-
-\begin{exercise}[Curvature identities and geodesic deviation]
-For the Levi--Civita connection, prove tensoriality and the algebraic
-symmetries of the Riemann tensor and the first and second Bianchi identities.
-For a variation through geodesics with separation field $J$, prove
-\[
-\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
-\]
-Deduce the leading relative acceleration of nearby freely falling bodies.
-\end{exercise}
-
-\begin{definition}[Smooth bundles and sections]
-A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
-locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
-bundle} has vector-space fibers and linear transition maps. A \emph{smooth
-principal $G$-bundle} has a free right $G$-action, transitive on each fiber,
-and local equivariant trivializations. A \emph{section} is a smooth map
-$s:M\to E$ with $\pi s=\id_M$. For a representation $G\to GL(V)$, the
-\emph{associated vector bundle} is
-$P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
-\end{definition}
-
-\begin{definition}[Gauge fields]
-Let $G$ be a Lie group and $\pi:P\to M$ a principal $G$-bundle. A
-\emph{gauge connection} is an equivariant $\mathfrak g$-valued one-form
-$A$ on $P$ reproducing fundamental vertical fields. Its \emph{curvature} is
-$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
-$G$-equivariant bundle automorphism covering $\id_M$.
-\end{definition}
-
-\begin{exercise}[Gauge covariance and Bianchi identity]
-Choose local sections $s_i$ and derive transition maps
-$g_{ij}:U_i\cap U_j\to G$ and the transformation laws for the local
-potentials $A_i=s_i^*A$ and curvatures $F_i=s_i^*F_A$. Prove $d_AF_A=0$ and
-gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
-$A\mapsto A+d\chi$ and $F=dA$. On $\R^2\setminus\{0\}$, compute the
-curvature and holonomy of $A=(\Phi/2\pi)d\theta$ and derive the
-Aharonov--Bohm phase shift $q\Phi/\hbar$ despite $F=0$ along the paths.
-\end{exercise}
-
-\begin{exercise}[Yang--Mills equations and instantons]
-\label{ex:yang-mills-instantons}
-For $G=SU(r)$, use $\langle X,Y\rangle=-2\Tr(XY)$ and define
-\[
-S_{\rm YM}(A)=\frac1{2g^2}\int_M\langle F_A\wedge *F_A\rangle
-\]
-on a closed oriented Riemannian four-manifold. Prove gauge invariance and
-derive $d_A^*F_A=0$, where $d_A^*=-*d_A*$. Decompose
-$F_A=F_A^++F_A^-$ and, for
-\[
-k(A)=-\frac1{8\pi^2}\int_M\Tr(F_A\wedge F_A),
-\]
-prove $S_{\rm YM}(A)\geq8\pi^2|k(A)|/g^2$, with equality precisely for
-$F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
-the Yang--Mills equation.
-\end{exercise}
-
-\section{Field Equations}
-
-The geometric language now expresses electromagnetism and gravitation as
-equations for curvature constrained by conservation laws.
-
-\begin{definition}[Electromagnetic field]
-On an oriented Lorentzian four-manifold, an \emph{electromagnetic field
-strength} is a two-form $F$. Given a current one-form $J$ and constants
-$\mu_0,c$, \emph{Maxwell's equations} are
-\[
-dF=0,\qquad d{*F}=\mu_0{*J}.
-\]
-Locally, a \emph{gauge potential} is a one-form $A$ with $F=dA$.
-\end{definition}
-
-\begin{exercise}[Maxwell theory and electromagnetic waves]
-Derive charge conservation from Maxwell's equations. On Minkowski
-spacetime, recover the electric and magnetic vector equations and the Lorentz
-force from $F$. In vacuum, impose Lorenz gauge and derive wave equations with
-speed $c$. Prove transverse polarization and compare the predicted relation
-$c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
-\end{exercise}
-
-\begin{definition}[Einstein equation]
-The \emph{Einstein tensor} of a Lorentzian metric is
-$G=\operatorname{Ric}-\frac12Sg$. A \emph{stress--energy tensor} is a
-symmetric two-tensor $T$ whose contraction with an observer's velocity gives
-the observer's energy--momentum current. The \emph{Einstein equation} with
-cosmological constant $\Lambda$ is
-\[
-G+\Lambda g=\frac{8\pi G_N}{c^4}T.
-\]
-\end{definition}
-
-\begin{exercise}[Conservation and the Newtonian limit]
-Use the contracted Bianchi identity to derive $\nabla^aT_{ab}=0$. Linearize
-$g=\eta+h$ for a static weak field and recover Poisson's equation and the
-Newtonian inverse-square law with the stated coupling constant.
-\end{exercise}
-
-\begin{exercise}[Gravitational radiation]
-Linearize the vacuum Einstein equation about Minkowski spacetime, impose
-transverse--traceless gauge, and obtain two tensor polarizations satisfying a
-wave equation. Apply geodesic deviation to a ring of freely falling test
-masses and derive the strain measured by an orthogonal-arm interferometer.
-\end{exercise}
-
-\begin{exercise}[Gravitational-wave detection]
-For a quasi-circular binary, derive the leading quadrupole waveform and the
-chirp relation between frequency, frequency derivative, and chirp mass.
-For GW150914, use the reported detector-frame component-mass medians
-$36M_\odot$ and $29M_\odot$ to infer the chirp mass. Compare with the
-model-independent reconstruction $\mathcal M\simeq30M_\odot$ and with the
-reported peak strain $h\simeq10^{-21}$ near $150\,\mathrm{Hz}$ in
-\href{https://doi.org/10.1103/PhysRevD.93.122004}
-{Abbott et al., \emph{Physical Review D} \textbf{93} (2016)} and the
-\href{https://dcc.ligo.org/public/0123/G1600220/010/GW150914-FactSheet.pdf}
-{LIGO GW150914 fact sheet}. Limit the conclusion to agreement of the observed
-waveform with general relativity in that regime.
-\end{exercise}
-
 \part{Observables}
 
 \begin{observations}
@@ -2227,38 +1972,6 @@ the collar $O_2\setminus\overline{O_1}$ and on the choice of $F$. Contrast
 this regulator dependence and the usual ultraviolet divergence as the collar
 shrinks with the intrinsic relative entropy
 $D_{\mathcal A(O_1)}(\varphi\Vert\psi)$.
-\end{exercise}
-
-\begin{exercise}[Bisognano--Wichmann flow and its experimental limit]
-Let $W_R=\{x:x^1>|x^0|\}$ be the right Rindler wedge of Minkowski space,
-and let $\Omega$ be the vacuum of a relativistic local net with stress-energy
-density $T_{00}$. Assume the Bisognano--Wichmann theorem
-\[
-\Delta_{W_R}^{it}=U(\Lambda_{W_R}(-2\pi t)),
-\]
-which identifies vacuum modular flow with the Lorentz boosts preserving
-$W_R$; see
-\href{https://doi.org/10.1063/1.522605}
-{Bisognano--Wichmann, \emph{Journal of Mathematical Physics} \textbf{16}
-(1975)}. In units $\hbar=c=k_B=1$, derive on the time-zero half-space the
-modular Hamiltonian
-\[
-K_{W_R}=2\pi\int_{x^1>0}x^1T_{00}(0,\mathbf x)\,d^{d-1}x
-\]
-up to an additive constant. Use its KMS property to obtain the Unruh
-temperature $T=a/(2\pi)$ for proper acceleration $a$.
-
-Discretize the integral for a half-chain with local energy terms $h_i$ and
-derive the lattice Bisognano--Wichmann ansatz in which the coefficient of
-$h_i$ grows with its distance from the entanglement cut. Compare the
-predicted locality and spatial temperature profile with the entanglement
-Hamiltonians learned in the 51-ion XXZ-chain experiment of
-\href{https://doi.org/10.1038/s41586-023-06768-0}
-{Joshi et al., \emph{Nature} \textbf{624} (2023)}. Explain why this tests a
-finite-lattice consequence of modular QFT but cannot by itself establish
-that a continuum local algebra is type III. Identify the covariance,
-positive-energy, and vacuum hypotheses used by the modular-flow prediction
-that are not consequences of the factor type alone.
 \end{exercise}
 
 \begin{definition}[Noncommutative probability]
@@ -2757,6 +2470,293 @@ levels, using the one-sided Gaussian five-sigma threshold
 $2.87\times10^{-7}$, whether the local-realistic null is excluded. State the
 tested freedom-of-choice and spacelike-separation assumptions and explain why
 the result does not exclude arbitrary superdeterministic or signaling models.
+\end{exercise}
+
+\part{Fields}
+
+\begin{observations}
+\item A changing magnetic flux through a conducting loop produces an
+electromotive force proportional to the rate of flux change.
+\item GW150914 produced a peak interferometer strain of order $10^{-21}$ near
+$150\,\mathrm{Hz}$ in two widely separated detectors.
+\end{observations}
+
+\section{Flux}
+
+Integration and Stokes' theorem turn local differential equations into laws
+for flux through regions and their boundaries.
+
+\begin{definition}[Integration of forms]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of nonzero elements in $\Lambda^nT_p^*M$. The integral
+$\int_M\omega$ of a compactly supported top form is defined using
+orientation-preserving charts and a partition of unity.
+\end{definition}
+
+\begin{exercise}[Stokes' theorem]
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
+\[
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
+\]
+recovering the observed flux--emf law.
+\end{exercise}
+
+\section{Spacetime}
+
+Differential forms describe fluxes without a metric. A metric adds lengths,
+proper times, volume, and the duality between complementary form degrees.
+
+\begin{definition}[Tensor fields and metrics]
+A \emph{$(r,s)$-tensor field} is a smooth section of
+$TM^{\otimes r}\otimes T^*M^{\otimes s}$. A \emph{Riemannian metric} is a
+smooth positive-definite inner product on each $T_pM$. A \emph{Lorentzian
+metric} is a smooth nondegenerate symmetric form of signature
+$(-,+,\ldots,+)$. The length of a curve in a Riemannian manifold is
+$\int\sqrt{g(\dot\gamma,\dot\gamma)}\,dt$; the proper time of a timelike
+curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
+orientation define a volume form $\vol_g$.
+\end{definition}
+
+\begin{definition}[Hodge star]
+On an oriented pseudo-Riemannian $n$-manifold, the metric induces a
+nondegenerate pairing $\langle\cdot,\cdot\rangle_g$ on differential forms.
+The \emph{Hodge star} is the bundle map
+\[
+*:\Omega^p(M)\longrightarrow\Omega^{n-p}(M)
+\]
+characterized by
+\[
+\alpha\wedge *\beta
+=\langle\alpha,\beta\rangle_g\,\vol_g
+\]
+for $p$-forms $\alpha,\beta$.
+\end{definition}
+
+\begin{exercise}[Metric volume and Hodge star]
+Construct $\vol_g$ and the Hodge star intrinsically and derive their
+coordinate expressions. For a metric with $q$ negative directions, prove on
+$p$-forms that
+\[
+*^2=(-1)^{p(n-p)+q}\id.
+\]
+Compute $*$ on the standard coordinate forms of Euclidean three-space and
+Minkowski four-space, stating the orientation and signature conventions.
+\end{exercise}
+
+\begin{exercise}[Proper time]
+Prove invariance of length and proper time under reparametrization. In
+Minkowski spacetime, prove that the inertial path maximizes proper time among
+piecewise smooth future-directed timelike paths with fixed timelike-separated
+endpoints, and derive special-relativistic time dilation.
+Using the muon rest lifetime $\tau_\mu\simeq2.2\,\mu\mathrm{s}$, derive the
+mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
+distance $v\tau_\mu$ predicted without time dilation.
+\end{exercise}
+
+\section{Gauge Fields}
+
+A connection compares fields at different points. Its curvature records the
+failure of parallel transport to be path independent and supplies the field
+strength for both geometry and gauge theory.
+
+\begin{definition}[Connections and geodesics]
+A \emph{connection} on $TM$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(TM)\to\Gamma(TM)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fY)=X(f)Y+f\nabla_XY$. Its torsion is
+$T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$. A \emph{geodesic} satisfies
+$\nabla_{\dot\gamma}\dot\gamma=0$. A connection is \emph{metric compatible}
+if $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ)$.
+\end{definition}
+
+\begin{exercise}[Levi--Civita connection]
+Prove that every Riemannian or Lorentzian metric has a unique torsion-free,
+metric-compatible connection. Derive the Koszul formula and prove that its
+geodesics are precisely the critical curves of the energy functional with
+fixed endpoints.
+\end{exercise}
+
+\begin{definition}[Covariant derivative and parallel transport]
+For a curve $\gamma$, the connection induces a \emph{covariant derivative}
+$D/dt$ on vector fields along $\gamma$. A field $V$ is \emph{parallel} when
+$DV/dt=0$; the resulting linear isomorphism between endpoint tangent spaces
+is \emph{parallel transport}.
+\end{definition}
+
+\begin{exercise}[Parallel transport and holonomy]
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Show that Levi--Civita transport preserves the metric. Compute the
+rotation obtained by transporting a tangent vector around a latitude on the
+unit sphere and relate it to the enclosed curvature.
+\end{exercise}
+
+\begin{definition}[Curvature]
+The \emph{curvature} of a connection is
+\[
+R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
+\]
+For a metric connection, the \emph{Riemann tensor} is
+$\operatorname{Riem}(X,Y,Z,W)=g(R(X,Y)Z,W)$. Its contraction is the
+\emph{Ricci tensor} $\operatorname{Ric}$; the contraction of Ricci is the
+\emph{scalar curvature} $S$.
+\end{definition}
+
+\begin{exercise}[Curvature identities and geodesic deviation]
+For the Levi--Civita connection, prove tensoriality and the algebraic
+symmetries of the Riemann tensor and the first and second Bianchi identities.
+For a variation through geodesics with separation field $J$, prove
+\[
+\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
+\]
+Deduce the leading relative acceleration of nearby freely falling bodies.
+\end{exercise}
+
+\begin{definition}[Smooth bundles and sections]
+A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
+locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
+bundle} has vector-space fibers and linear transition maps. A \emph{smooth
+principal $G$-bundle} has a free right $G$-action, transitive on each fiber,
+and local equivariant trivializations. A \emph{section} is a smooth map
+$s:M\to E$ with $\pi s=\id_M$. For a representation $G\to GL(V)$, the
+\emph{associated vector bundle} is
+$P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
+\end{definition}
+
+\begin{definition}[Gauge fields]
+Let $G$ be a Lie group and $\pi:P\to M$ a principal $G$-bundle. A
+\emph{gauge connection} is an equivariant $\mathfrak g$-valued one-form
+$A$ on $P$ reproducing fundamental vertical fields. Its \emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
+\end{definition}
+
+\begin{exercise}[Gauge covariance and Bianchi identity]
+Choose local sections $s_i$ and derive transition maps
+$g_{ij}:U_i\cap U_j\to G$ and the transformation laws for the local
+potentials $A_i=s_i^*A$ and curvatures $F_i=s_i^*F_A$. Prove $d_AF_A=0$ and
+gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
+$A\mapsto A+d\chi$ and $F=dA$. On $\R^2\setminus\{0\}$, compute the
+curvature and holonomy of $A=(\Phi/2\pi)d\theta$ and derive the
+Aharonov--Bohm phase shift $q\Phi/\hbar$ despite $F=0$ along the paths.
+\end{exercise}
+
+\begin{exercise}[Yang--Mills equations and instantons]
+\label{ex:yang-mills-instantons}
+For $G=SU(r)$, use $\langle X,Y\rangle=-2\Tr(XY)$ and define
+\[
+S_{\rm YM}(A)=\frac1{2g^2}\int_M\langle F_A\wedge *F_A\rangle
+\]
+on a closed oriented Riemannian four-manifold. Prove gauge invariance and
+derive $d_A^*F_A=0$, where $d_A^*=-*d_A*$. Decompose
+$F_A=F_A^++F_A^-$ and, for
+\[
+k(A)=-\frac1{8\pi^2}\int_M\Tr(F_A\wedge F_A),
+\]
+prove $S_{\rm YM}(A)\geq8\pi^2|k(A)|/g^2$, with equality precisely for
+$F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
+the Yang--Mills equation.
+\end{exercise}
+
+\section{Field Equations}
+
+The geometric language now expresses electromagnetism and gravitation as
+equations for curvature constrained by conservation laws.
+
+\begin{definition}[Electromagnetic field]
+On an oriented Lorentzian four-manifold, an \emph{electromagnetic field
+strength} is a two-form $F$. Given a current one-form $J$ and constants
+$\mu_0,c$, \emph{Maxwell's equations} are
+\[
+dF=0,\qquad d{*F}=\mu_0{*J}.
+\]
+Locally, a \emph{gauge potential} is a one-form $A$ with $F=dA$.
+\end{definition}
+
+\begin{exercise}[Maxwell theory and electromagnetic waves]
+Derive charge conservation from Maxwell's equations. On Minkowski
+spacetime, recover the electric and magnetic vector equations and the Lorentz
+force from $F$. In vacuum, impose Lorenz gauge and derive wave equations with
+speed $c$. Prove transverse polarization and compare the predicted relation
+$c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
+\end{exercise}
+
+\begin{definition}[Einstein equation]
+The \emph{Einstein tensor} of a Lorentzian metric is
+$G=\operatorname{Ric}-\frac12Sg$. A \emph{stress--energy tensor} is a
+symmetric two-tensor $T$ whose contraction with an observer's velocity gives
+the observer's energy--momentum current. The \emph{Einstein equation} with
+cosmological constant $\Lambda$ is
+\[
+G+\Lambda g=\frac{8\pi G_N}{c^4}T.
+\]
+\end{definition}
+
+\begin{exercise}[Conservation and the Newtonian limit]
+Use the contracted Bianchi identity to derive $\nabla^aT_{ab}=0$. Linearize
+$g=\eta+h$ for a static weak field and recover Poisson's equation and the
+Newtonian inverse-square law with the stated coupling constant.
+\end{exercise}
+
+\begin{exercise}[Gravitational radiation]
+Linearize the vacuum Einstein equation about Minkowski spacetime, impose
+transverse--traceless gauge, and obtain two tensor polarizations satisfying a
+wave equation. Apply geodesic deviation to a ring of freely falling test
+masses and derive the strain measured by an orthogonal-arm interferometer.
+\end{exercise}
+
+\begin{exercise}[Gravitational-wave detection]
+For a quasi-circular binary, derive the leading quadrupole waveform and the
+chirp relation between frequency, frequency derivative, and chirp mass.
+For GW150914, use the reported detector-frame component-mass medians
+$36M_\odot$ and $29M_\odot$ to infer the chirp mass. Compare with the
+model-independent reconstruction $\mathcal M\simeq30M_\odot$ and with the
+reported peak strain $h\simeq10^{-21}$ near $150\,\mathrm{Hz}$ in
+\href{https://doi.org/10.1103/PhysRevD.93.122004}
+{Abbott et al., \emph{Physical Review D} \textbf{93} (2016)} and the
+\href{https://dcc.ligo.org/public/0123/G1600220/010/GW150914-FactSheet.pdf}
+{LIGO GW150914 fact sheet}. Limit the conclusion to agreement of the observed
+waveform with general relativity in that regime.
+\end{exercise}
+
+\begin{exercise}[Bisognano--Wichmann flow and its experimental limit]
+Let $W_R=\{x:x^1>|x^0|\}$ be the right Rindler wedge of Minkowski space,
+and let $\Omega$ be the vacuum of a relativistic local net with stress-energy
+density $T_{00}$. Assume the Bisognano--Wichmann theorem
+\[
+\Delta_{W_R}^{it}=U(\Lambda_{W_R}(-2\pi t)),
+\]
+which identifies vacuum modular flow with the Lorentz boosts preserving
+$W_R$; see
+\href{https://doi.org/10.1063/1.522605}
+{Bisognano--Wichmann, \emph{Journal of Mathematical Physics} \textbf{16}
+(1975)}. In units $\hbar=c=k_B=1$, derive on the time-zero half-space the
+modular Hamiltonian
+\[
+K_{W_R}=2\pi\int_{x^1>0}x^1T_{00}(0,\mathbf x)\,d^{d-1}x
+\]
+up to an additive constant. Use its KMS property to obtain the Unruh
+temperature $T=a/(2\pi)$ for proper acceleration $a$.
+
+Discretize the integral for a half-chain with local energy terms $h_i$ and
+derive the lattice Bisognano--Wichmann ansatz in which the coefficient of
+$h_i$ grows with its distance from the entanglement cut. Compare the
+predicted locality and spatial temperature profile with the entanglement
+Hamiltonians learned in the 51-ion XXZ-chain experiment of
+\href{https://doi.org/10.1038/s41586-023-06768-0}
+{Joshi et al., \emph{Nature} \textbf{624} (2023)}. Explain why this tests a
+finite-lattice consequence of modular QFT but cannot by itself establish
+that a continuum local algebra is type III. Identify the covariance,
+positive-energy, and vacuum hypotheses used by the modular-flow prediction
+that are not consequences of the factor type alone.
 \end{exercise}
 
 \part{Topology}
