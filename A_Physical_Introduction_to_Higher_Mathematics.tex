@@ -1677,36 +1677,37 @@ into operators rather than scalar frequency amplitudes.
 
 \part{Probability}
 
-Probability begins with commuting random variables and equilibrium
-ensembles, becomes noncommutative in quantum mechanics, and is encoded
-intrinsically by operator algebras. Large random matrices lead to free
-probability, while quantum information studies tensor-product systems,
-measurements, and channels.
+A physical theory assigns probabilities to observable outcomes. The intrinsic
+object is an algebra of observables together with a state: classical
+probability is the commutative case, quantum mechanics is noncommutative,
+and representations on Hilbert space arise from the GNS construction.
+Dynamics acts on these algebras, different products encode different notions
+of independence, and positive maps describe the processing of information.
 
-\section{Statistical Mechanics}
+\section{Probability}
 
 \begin{observations}
 \item A dilute gas obeys the ideal-gas law and exhibits a temperature-dependent
 distribution of molecular speeds.
 \end{observations}
 
-A macroscopic observable is a function of the microscopic state. When a
-preparation does not determine that state, repeated measurements are
-predicted by a probability distribution. Entropy measures uncertainty,
-relative entropy measures distinguishability, and equilibrium emerges from
-optimizing these quantities under macroscopic constraints.
+Classical probability describes incomplete information by measures on a
+commutative space of observables. Conditional expectation extracts the part
+visible to a chosen collection of events, while entropy and relative entropy
+quantify uncertainty and distinguishability.
 
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
-with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map.
-Its \emph{expectation} is its integral. For $X\in L^1(\Omega,\mathcal F,
-\mathbb P)$ and a sub-$\sigma$-algebra $\mathcal G\subseteq\mathcal F$, a
-\emph{conditional expectation} $\mathbb E[X\mid\mathcal G]$ is a
-$\mathcal G$-measurable integrable random variable satisfying
-$\int_G\mathbb E[X\mid\mathcal G]\,d\mathbb P=\int_GX\,d\mathbb P$ for all
-$G\in\mathcal G$. Families of $\sigma$-algebras are \emph{independent} when
-the probability of every finite intersection is the product of its
-probabilities.
+with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map,
+and its \emph{expectation} is its integral. For
+$X\in L^1(\Omega,\mathcal F,\mathbb P)$ and a sub-$\sigma$-algebra
+$\mathcal G\subseteq\mathcal F$, a \emph{conditional expectation}
+$\mathbb E[X\mid\mathcal G]$ is a $\mathcal G$-measurable integrable random
+variable satisfying
+\[
+\int_G\mathbb E[X\mid\mathcal G],d\mathbb P=\int_GX,d\mathbb P
+\qquad(G\in\mathcal G).
+\]
 \end{definition}
 
 \begin{exercise}[Radon--Nikodym]
@@ -1715,14 +1716,16 @@ $\nu(A)=\int_A f\,d\mu$ for a unique $f\in L^1(\mu)$, $f\geq0$. Extend the
 statement to finite signed measures.
 \end{exercise}
 
-\begin{exercise}[Expectation, conditioning, and independence]
+\begin{exercise}[Expectation and conditioning]
 Use Radon--Nikodym to prove existence and almost-everywhere uniqueness of
 conditional expectation. Prove the tower property and conditional Jensen
-inequality. Characterize independence by factorization of expectations and
-derive variance addition for independent square-integrable random variables.
+inequality. Show that $\mathbb E[X\mid\mathcal G]$ is the orthogonal
+projection of $X$ onto $L^2(\mathcal G)$ when $X\in L^2$, and interpret
+conditioning as the best mean-square prediction from the information in
+$\mathcal G$.
 \end{exercise}
 
-\begin{definition}[Entropy and Gibbs ensembles]
+\begin{definition}[Entropy]
 For a discrete probability vector $p$, its \emph{entropy} is
 $S(p)=-k_B\sum_ip_i\log p_i$. For probability vectors $p,q$ with
 $p_i=0$ whenever $q_i=0$, their \emph{relative entropy} is
@@ -1733,14 +1736,7 @@ For a joint distribution $p_{XY}$, the \emph{mutual information} is
 $I(X:Y)=D(p_{XY}\Vert p_Xp_Y)$. For a phase-space probability density $\rho$
 relative to Liouville measure $\mu_L$, its \emph{statistical entropy} is
 $S(\rho)=-k_B\int\rho\log\rho\,d\mu_L$; for densities $\rho,\sigma$, set
-$D(\rho\Vert\sigma)=\int\rho\log(\rho/\sigma)\,d\mu_L$ when defined. The
-\emph{canonical Gibbs ensemble}
-at inverse temperature $\beta$ is defined when
-\[
-0<Z(\beta)=\int e^{-\beta H}\,d\mu_L<\infty,
-\]
-and is then the probability measure
-$d\mathbb P_\beta=Z(\beta)^{-1}e^{-\beta H}d\mu_L$.
+$D(\rho\Vert\sigma)=\int\rho\log(\rho/\sigma)\,d\mu_L$ when defined.
 \end{definition}
 
 \begin{exercise}[Relative entropy and data processing]
@@ -1756,103 +1752,7 @@ $I(X:Y)=S(p_X)/k_B+S(p_Y)/k_B-S(p_{XY})/k_B$, and show that it vanishes
 exactly when $X$ and $Y$ are independent.
 \end{exercise}
 
-\begin{definition}[Ergodic dynamics and dynamical entropy]
-A measurable transformation $T$ of a probability space is
-\emph{measure preserving} if $\mu(T^{-1}A)=\mu(A)$. Its \emph{Koopman
-operator} is the isometry $U_Tf=f\circ T$ on $L^2(\mu)$. The system is
-\emph{ergodic} if every invariant measurable set has measure zero or one,
-and \emph{mixing} if
-\[
-\mu(T^{-n}A\cap B)\longrightarrow\mu(A)\mu(B)
-\]
-for all measurable $A,B$. An \emph{equilibrium state} is an invariant
-probability measure for the dynamics.
-
-For a finite measurable partition $\mathcal P$, set
-\[
-H_\mu(\mathcal P)=-\sum_{A\in\mathcal P}\mu(A)\log\mu(A),
-\qquad
-h_\mu(T,\mathcal P)
-=\lim_{n\to\infty}\frac1n
-H_\mu\!\left(\bigvee_{j=0}^{n-1}T^{-j}\mathcal P\right).
-\]
-The \emph{Kolmogorov--Sinai entropy} is
-$h_\mu(T)=\sup_{\mathcal P}h_\mu(T,\mathcal P)$. It measures the asymptotic
-information per time step revealed by successively refined observations.
-\end{definition}
-
-\begin{exercise}[Ergodic averages, mixing, and entropy rate]
-Prove that the fixed vectors of $U_T$ are precisely the invariant
-$L^2$-observables, and that ergodicity is equivalent to all such observables
-being constant almost everywhere. Prove the von Neumann mean ergodic theorem
-\[
-\frac1N\sum_{n=0}^{N-1}U_T^nf
-\longrightarrow P_{\mathrm{inv}}f
-\quad\text{in }L^2(\mu),
-\]
-where $P_{\mathrm{inv}}$ is orthogonal projection onto the invariant
-observables. Taking Birkhoff's pointwise ergodic theorem as input, show for
-$f\in L^1(\mu)$ that these averages converge almost everywhere to the
-conditional expectation onto the invariant $\sigma$-algebra, and hence to
-$\int f\,d\mu$ in an ergodic system. Prove that mixing implies ergodicity and
-that it gives decay of correlations
-$\int(f\circ T^n)g\,d\mu-\int f\,d\mu\int g\,d\mu\to0$ for bounded
-observables.
-
-For every finite partition $\mathcal P$, prove by subadditivity that the
-limit defining $h_\mu(T,\mathcal P)$ exists.
-For the two-sided Bernoulli shift on $\{1,\ldots,r\}^{\mathbb Z}$ with
-product probabilities $p_1,\ldots,p_r$, prove mixing first for cylinder sets
-and then for all measurable sets. Show that the time-zero coordinate
-partition is generating and, taking the Kolmogorov--Sinai generator theorem
-as input, compute
-\[
-h_\mu(T)=-\sum_{i=1}^r p_i\log p_i.
-\]
-Thus Shannon entropy becomes the information production rate of a dynamical
-system.
-\end{exercise}
-
-\begin{exercise}[Entropy and equilibrium]
-For every density $\rho$ with finite mean energy, prove
-\[
-D(\rho\Vert\rho_\beta)
-=-\frac{S(\rho)}{k_B}+\beta\langle H\rangle_\rho+\log Z(\beta).
-\]
-Deduce that the Gibbs ensemble uniquely maximizes entropy at fixed mean
-energy, equivalently minimizes free energy at fixed temperature. Prove
-$\langle H\rangle=-\partial_\beta\log Z$ and
-$\operatorname{Var}(H)=\partial_\beta^2\log Z$. Prove invariance of Gibbs
-measure under Hamiltonian flow. If the flow is ergodic on an invariant
-energy surface, use Birkhoff's theorem to identify long-time averages of
-integrable observables with their microcanonical ensemble averages.
-\end{exercise}
-
-\begin{exercise}[Ideal-gas thermodynamics]
-Compute the classical canonical partition function of $N$ indistinguishable
-noninteracting particles in a box, including the phase-space normalization
-$h^{3N}N!$. Derive the ideal-gas law, internal energy, and entropy, and
-the one-particle Maxwell--Boltzmann speed distribution. Derive its
-temperature scaling and compare both predictions with dilute-gas
-measurements in the classical regime.
-
-For a wall of area $A$, express the pressure measured during time $\tau$ as
-the time-averaged normal momentum transfer
-\[
-P_\tau=\frac1{A\tau}
-\sum_{\substack{\text{collisions with the wall}\\0<t_j\leq\tau}}
-2m|v_{j,\perp}|.
-\]
-Average the collision flux using the Maxwell--Boltzmann distribution and
-recover the same pressure $P=Nk_BT/V$. Identify the stationarity and
-ergodic assumptions that relate the long-time reading of one gas sample to
-the ensemble calculation. Explain why agreement of pressure, velocity
-statistics, and relaxation rates for selected observables and finite times
-tests consequences of those assumptions but does not prove that the full
-microscopic dynamics is mathematically ergodic.
-\end{exercise}
-
-\section{Quantum Mechanics}
+\section{Operator Algebras}
 
 \begin{observations}
 \item When identically prepared spin-$1/2$ particles pass through a
@@ -1861,10 +1761,60 @@ fraction arriving in each region depends on the angle between the preparation
 and analyzer directions.
 \end{observations}
 
-Quantum states retain the probabilistic expectation rule while replacing
-commutative observables by operators and classical mixtures by density
-operators. Measurement produces ordinary outcome distributions, but their
-uncertainty now depends on both the state and the chosen observable.
+Replacing functions by a noncommutative algebra changes the geometry of the
+state space and the possible outcome distributions. States remain normalized
+positive functionals; the GNS construction shows that Hilbert spaces and
+operators are representations of this more intrinsic pairing.
+
+\begin{definition}[$C^*$-algebras and states]
+A \emph{unital Banach algebra} is a complete normed algebra with identity and
+$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
+$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
+Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
+if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
+$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
+\end{definition}
+
+\begin{exercise}[Commutative Gelfand duality]
+For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
+$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
+nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
+unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
+$C(\operatorname{Spec}A)$ by the Gelfand
+transform, and identify states on $C(X)$ with probability measures.
+\end{exercise}
+
+\begin{definition}[Noncommutative probability]
+A \emph{noncommutative probability space} is a unital $*$-algebra $A$ with
+a state $\varphi$. Its random variables are elements of $A$; for
+$X=X^*$ in a von Neumann algebra, its \emph{distribution} is
+\[
+\mu_X(B)=\varphi(E_X(B)),
+\qquad
+\varphi(X^n)=\int_\R t^n\,d\mu_X(t)
+\]
+whenever the moment exists. A \emph{tracial probability space} has
+$\varphi(ab)=\varphi(ba)$. The commutative case
+$A=L^\infty(\Omega,\mathbb P)$ with
+$\varphi(f)=\int_\Omega f\,d\mathbb P$ recovers classical random variables.
+The \emph{joint $*$-distribution} of $X_1,\ldots,X_r$ is the functional
+$p\mapsto\varphi(p(X_1,\ldots,X_r,X_1^*,\ldots,X_r^*))$ on noncommutative
+$*$-polynomials.
+\end{definition}
+
+\begin{definition}[Representations and GNS construction]
+A \emph{representation} of a $C^*$-algebra $A$ is a $*$-homomorphism
+$\pi:A\to B(H)$. For a state $\varphi$, define
+$N_\varphi=\{a:\varphi(a^*a)=0\}$ and
+$\langle[a],[b]\rangle=\varphi(a^*b)$ on $A/N_\varphi$.
+\end{definition}
+
+\begin{exercise}[GNS theorem]
+Complete $A/N_\varphi$ and prove that left multiplication induces a cyclic
+representation $(\pi_\varphi,H_\varphi,\Omega_\varphi)$ satisfying
+$\varphi(a)=\langle\Omega_\varphi,\pi_\varphi(a)\Omega_\varphi\rangle$.
+Prove uniqueness up to a cyclic unitary equivalence.
+\end{exercise}
 
 \begin{definition}[Quantum states and observables]
 A positive operator $S$ has the coordinate-free trace
@@ -1924,20 +1874,7 @@ from its later spin interpretation, and state which discrete outcomes and
 frequency predictions test the projection postulate and Born rule.
 \end{exercise}
 
-\begin{definition}[Measurements]
-A \emph{positive operator-valued measure} is a countably additive map $E$
-from measurable events to positive operators with $E(X)=1$. In state $\rho$,
-its outcome probability is $\Tr(\rho E(B))$.
-\end{definition}
-
-\begin{exercise}[POVMs and dilation]
-Prove that projection-valued measures are POVMs. Prove Naimark's dilation
-theorem in finite dimensions, realizing every POVM's outcome probabilities
-by a projective measurement on a larger Hilbert space. Show that state
-discrimination can require a nonprojective POVM.
-\end{exercise}
-
-\begin{definition}[Von Neumann and relative entropy]
+\begin{definition}[Von Neumann entropy]
 For a density operator with discrete spectral resolution
 $\rho=\sum_{\lambda>0}\lambda P_\lambda$, its \emph{von Neumann entropy} is
 \[
@@ -1947,26 +1884,351 @@ S(\rho)=-k_B\Tr(\rho\log\rho)
 \]
 with $0\log0=0$; in infinite dimension the value may be $+\infty$.
 It is the Shannon entropy of the outcomes of a projective measurement in an
-eigenbasis of $\rho$, and it vanishes exactly for pure states. In finite
-dimensions, for density operators with
-$\supp\rho\leq\supp\sigma$, their \emph{quantum relative entropy} is
-\[
-D(\rho\Vert\sigma)
-=\Tr\!\left(\rho(\log\rho-\log\sigma)\right),
-\]
-and it is $+\infty$ otherwise.
+eigenbasis of $\rho$, and it vanishes exactly for pure states.
 \end{definition}
 
-\begin{exercise}[Entropy of projective measurements]
-For a rank-one projective measurement $(P_i)$ in state $\rho$, let
-$p_i=\Tr(\rho P_i)$. Prove
+\begin{exercise}[Projective quantum states by reduction]
+\label{ex:projective-reduction}
+Let $K$ be a finite-dimensional complex Hilbert space and regard its
+underlying real vector space as symplectic with
 \[
-S(p)\geq S(\rho),
+\omega(u,v)=-\operatorname{Im}\langle u,v\rangle.
 \]
-with equality when the measurement basis diagonalizes $\rho$. Interpret the
-excess as uncertainty introduced by measuring in an incompatible basis.
-Show that unitary evolution preserves $S(\rho)$ even though it can change
-the outcome entropy of a fixed measurement.
+For the scalar $U(1)$-action, identify its Lie algebra with $\R$ acting
+infinitesimally by $z\mapsto iz$, and prove that
+$J(z)=\|z\|^2/2$ is a momentum map. Show that reduction at $1/2$ gives
+\[
+K//_{1/2}U(1)=S(K)/U(1)=\mathbb P(K),
+\]
+the space of complex lines in $K$. Identify $[z]\in\mathbb P(K)$ with the
+rank-one density operator
+\[
+P_z:v\longmapsto z\langle z,v\rangle
+\]
+for a unit representative $z$, and hence with the pure state
+$A\mapsto\Tr(P_zA)$. Prove that the reduced symplectic form is the
+Fubini--Study form, characterized on horizontal representatives
+$u,v\in z^\perp$ by
+\[
+(\omega_{\rm FS})_{[z]}([u],[v])
+=-\operatorname{Im}\langle u,v\rangle.
+\]
+Thus normalization and quotient by global phase produce the pure quantum
+state space as a symplectic reduction.
+\end{exercise}
+
+\begin{exercise}[Canonical quantization and Weyl relations]
+On $\mathcal S(\R^n)\subset L^2(\R^n)$, set
+$Q_j\psi=x_j\psi$ and $P_j\psi=-i\hbar\partial_j\psi$. Prove
+$[Q_j,P_k]=i\hbar\delta_{jk}$ and derive the Weyl relations for their
+unitary groups. Using symmetric ordering, verify the
+Poisson-bracket--commutator rule for affine and quadratic observables.
+Compare different orderings of $q^2p^2$ and explain the
+Groenewold--van Hove obstruction to quantizing all observables by this rule.
+\end{exercise}
+
+\begin{definition}[CAR algebra and fermionic Fock space]
+For a complex Hilbert space $K$, the \emph{canonical anticommutation
+relations algebra} $\operatorname{CAR}(K)$ is the unital $C^*$-algebra
+generated by conjugate-linear symbols $a(f)$ satisfying
+\[
+\{a(f),a(g)\}=0,\qquad
+\{a(f),a(g)^*\}=\langle f,g\rangle1.
+\]
+Let $\Lambda_2^nK$ be the Hilbert-space completion of the $n$th
+antisymmetric tensor power of $K$, with $\Lambda_2^0K=\C$. The
+\emph{antisymmetric Fock space} is the Hilbert direct sum
+\[
+\mathcal F_-(K)=\bigoplus_{n\geq0}\Lambda_2^nK.
+\]
+Its vacuum is $\Omega=1\in\Lambda_2^0K$; creation by $f$ is exterior
+multiplication, and annihilation by $f$ is its Hilbert-space adjoint.
+\end{definition}
+
+\begin{exercise}[CAR and GNS predict fermionic antibunching]
+Prove that creation and annihilation on $\mathcal F_-(K)$ satisfy the CAR and
+that $\omega_0(x)=\langle\Omega,x\Omega\rangle$ is a state. Apply the GNS
+theorem to identify its cyclic representation with the Fock representation.
+Let $\omega_C$ be a gauge-invariant quasifree state with
+one-particle density $0\leq C\leq1$, and use its determinantal Wick rule to
+prove, for orthonormal detector modes $f,g$, that
+\[
+\omega_C(N_fN_g)
+=\omega_C(N_f)\omega_C(N_g)-|\langle f,Cg\rangle|^2,
+\qquad N_f=a(f)^*a(f).
+\]
+Deduce $N_f^2=N_f$ and fermionic antibunching. Compare the sign and
+separation dependence of the correlation deficit with the neutral-atom
+measurements in
+\href{https://doi.org/10.1038/nature05319}
+{F\"olling et al., \emph{Nature} \textbf{444} (2006)}.
+\end{exercise}
+
+\begin{definition}[Operator topologies and von Neumann algebras]
+The \emph{weak operator topology} is generated by
+$T\mapsto\langle x,Ty\rangle$; the \emph{strong operator topology} is
+generated by $T\mapsto\|Tx\|$. For $S\subseteq B(H)$, its \emph{commutant}
+is $S'=\{T:TS=ST\text{ for all }S\in S\}$. A \emph{von Neumann algebra} is
+a unital $*$-subalgebra $M\subseteq B(H)$ with $M=M''$.
+\end{definition}
+
+\begin{exercise}[Bicommutant theorem]
+Prove that for a unital $*$-subalgebra $A\subseteq B(H)$, the strong and weak
+operator closures of $A$ equal $A''$. Deduce that von Neumann algebras have
+sufficient projections to approximate their self-adjoint elements
+spectrally.
+\end{exercise}
+
+\begin{definition}[Normality and spatial tensor products]
+A positive functional $\varphi$ on a von Neumann algebra is \emph{normal} if
+$a_\lambda\uparrow a$ implies
+$\varphi(a_\lambda)\uparrow\varphi(a)$ for every bounded increasing net of
+positive elements. A representation is \emph{normal} if it preserves such
+suprema. For concrete von Neumann algebras $M\subseteq B(H)$ and
+$N\subseteq B(K)$, their \emph{spatial tensor product} is
+\[
+M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
+\]
+\end{definition}
+
+\begin{definition}[Noncommutative conditional expectation]
+For a von Neumann subalgebra $N\subseteq M$, a \emph{conditional
+expectation} is a normal positive unital projection $E:M\to N$ satisfying
+\[
+E(n_1an_2)=n_1E(a)n_2
+\qquad(a\in M,\ n_1,n_2\in N).
+\]
+It is \emph{$\varphi$-preserving} for a normal state $\varphi$ when
+$\varphi\circ E=\varphi$. When
+$M=L^\infty(\Omega,\mathcal F,\mathbb P)$ and
+$N=L^\infty(\Omega,\mathcal G,\mathbb P)$, this recovers classical
+conditional expectation onto $\mathcal G$.
+\end{definition}
+
+\begin{exercise}[Conditioning on subalgebras]
+Show that classical conditional expectation is positive, unital, contractive,
+and satisfies the bimodule identity above. For a normal state $\psi$ on
+$N$, prove that
+\[
+\id_M\mathbin{\overline\otimes}\psi:
+M\mathbin{\overline\otimes}N\longrightarrow M
+\]
+is a normal conditional expectation onto $M\otimes1$ after the canonical
+identification, and determine which product states it preserves. If $M$ is a
+finite von Neumann algebra with normalized trace $\tau$ and $N\subseteq M$,
+show that the orthogonal projection
+$L^2(M,\tau)\to L^2(N,\tau)$ restricts to the unique $\tau$-preserving
+conditional expectation $M\to N$. Derive the tower property for nested
+von Neumann subalgebras.
+\end{exercise}
+
+\begin{definition}[Traces and factor types]
+A \emph{finite trace} on a von Neumann algebra is a normal positive functional
+$\tau$ satisfying $\tau(ab)=\tau(ba)$. A possibly unbounded \emph{normal
+tracial weight} is an additive, positively homogeneous map
+$\tau:M_+\to[0,\infty]$ satisfying $\tau(x^*x)=\tau(xx^*)$ and
+$\tau(x_\lambda)\uparrow\tau(x)$ whenever $x_\lambda\uparrow x$. It is
+\emph{semifinite} if every nonzero $x\in M_+$ majorizes a nonzero
+$y\in M_+$ with $\tau(y)<\infty$. Thus the standard traces on infinite
+type-I and type-$\mathrm{II}_\infty$ factors are normal semifinite weights,
+not finite functionals.
+
+Projections $p,q\in M$ are
+\emph{Murray--von Neumann equivalent}, written $p\sim q$, if some $v\in M$
+satisfies $v^*v=p$ and $vv^*=q$. A projection $p$ is \emph{finite} if
+$q\leq p$ and $q\sim p$ imply $q=p$, and it is \emph{minimal} if its only
+subprojections are $0$ and $p$.
+
+A \emph{factor} is a von Neumann algebra with center $\C1$. A factor is
+\emph{type I} if it has a nonzero minimal projection, equivalently if it is
+isomorphic to some $B(K)$; it is \emph{type II} if it has nonzero finite
+projections but no minimal projections; and it is \emph{type III} if it has
+no nonzero finite projection. Thus a type-III factor has no normal tracial
+state and no intrinsic trace-density representation of its normal states. A
+factor is \emph{hyperfinite} if it is the weak closure of an increasing union
+of finite-dimensional $*$-subalgebras.
+\end{definition}
+
+\begin{exercise}[Projection dimension and factors]
+For a finite factor with normalized trace $\tau$, prove additivity and unitary
+invariance of $\tau$ on projections. Relate the possible projection values
+to matrix factors and to diffuse finite factors. Prove that $B(K)$ is type I
+and that a factor with a faithful normal tracial state cannot be type III.
+Explain why finite-dimensional quantum systems see only type-I factors,
+whereas the classification permits genuinely different infinite systems.
+\end{exercise}
+
+\section{Dynamics}
+
+\begin{observations}
+\item Thermal radiation in a cavity has a high-frequency tail suppressed
+relative to classical equipartition, and its peak shifts to higher frequency
+as the temperature increases.
+\end{observations}
+
+A probability theory becomes dynamical when transformations act on its
+observables and states. In the commutative case this gives ergodic theory and
+Hamiltonian transport; in the noncommutative case it gives unitary evolution,
+KMS equilibrium, and modular flow.
+
+\begin{definition}[Ergodic dynamics and dynamical entropy]
+A measurable transformation $T$ of a probability space is
+\emph{measure preserving} if $\mu(T^{-1}A)=\mu(A)$. Its \emph{Koopman
+operator} is the isometry $U_Tf=f\circ T$ on $L^2(\mu)$. The system is
+\emph{ergodic} if every invariant measurable set has measure zero or one,
+and \emph{mixing} if
+\[
+\mu(T^{-n}A\cap B)\longrightarrow\mu(A)\mu(B)
+\]
+for all measurable $A,B$. An \emph{equilibrium state} is an invariant
+probability measure for the dynamics.
+
+For a finite measurable partition $\mathcal P$, set
+\[
+H_\mu(\mathcal P)=-\sum_{A\in\mathcal P}\mu(A)\log\mu(A),
+\qquad
+h_\mu(T,\mathcal P)
+=\lim_{n\to\infty}\frac1n
+H_\mu\!\left(\bigvee_{j=0}^{n-1}T^{-j}\mathcal P\right).
+\]
+The \emph{Kolmogorov--Sinai entropy} is
+$h_\mu(T)=\sup_{\mathcal P}h_\mu(T,\mathcal P)$. It measures the asymptotic
+information per time step revealed by successively refined observations.
+\end{definition}
+
+\begin{exercise}[Ergodic averages, mixing, and entropy rate]
+Prove that the fixed vectors of $U_T$ are precisely the invariant
+$L^2$-observables, and that ergodicity is equivalent to all such observables
+being constant almost everywhere. Prove the von Neumann mean ergodic theorem
+\[
+\frac1N\sum_{n=0}^{N-1}U_T^nf
+\longrightarrow P_{\mathrm{inv}}f
+\quad\text{in }L^2(\mu),
+\]
+where $P_{\mathrm{inv}}$ is orthogonal projection onto the invariant
+observables. Taking Birkhoff's pointwise ergodic theorem as input, show for
+$f\in L^1(\mu)$ that these averages converge almost everywhere to the
+conditional expectation onto the invariant $\sigma$-algebra, and hence to
+$\int f\,d\mu$ in an ergodic system. Prove that mixing implies ergodicity and
+that it gives decay of correlations
+$\int(f\circ T^n)g\,d\mu-\int f\,d\mu\int g\,d\mu\to0$ for bounded
+observables.
+
+For every finite partition $\mathcal P$, prove by subadditivity that the
+limit defining $h_\mu(T,\mathcal P)$ exists.
+For the two-sided Bernoulli shift on $\{1,\ldots,r\}^{\mathbb Z}$ with
+product probabilities $p_1,\ldots,p_r$, prove mixing first for cylinder sets
+and then for all measurable sets. Show that the time-zero coordinate
+partition is generating and, taking the Kolmogorov--Sinai generator theorem
+as input, compute
+\[
+h_\mu(T)=-\sum_{i=1}^r p_i\log p_i.
+\]
+Thus Shannon entropy becomes the information production rate of a dynamical
+system.
+\end{exercise}
+
+\begin{definition}[Gibbs states]
+For a classical Hamiltonian $H$ on a phase space with Liouville measure
+$\mu_L$, the \emph{canonical Gibbs state} at inverse temperature $\beta$ is
+\[
+d\mathbb P_\beta=Z(\beta)^{-1}e^{-\beta H}\,d\mu_L,
+\qquad
+Z(\beta)=\int e^{-\beta H}\,d\mu_L,
+\]
+provided $0<Z(\beta)<\infty$. For a quantum Hamiltonian $H$, the corresponding
+normal state is represented, when $e^{-\beta H}$ is trace class, by
+\[
+\rho_\beta=Z(\beta)^{-1}e^{-\beta H},
+\qquad
+Z(\beta)=\Tr(e^{-\beta H}).
+\]
+Both are stationary under the dynamics generated by $H$.
+\end{definition}
+
+\begin{exercise}[Entropy and equilibrium]
+For every density $\rho$ with finite mean energy, prove
+\[
+D(\rho\Vert\rho_\beta)
+=-\frac{S(\rho)}{k_B}+\beta\langle H\rangle_\rho+\log Z(\beta).
+\]
+Deduce that the Gibbs ensemble uniquely maximizes entropy at fixed mean
+energy, equivalently minimizes free energy at fixed temperature. Prove
+$\langle H\rangle=-\partial_\beta\log Z$ and
+$\operatorname{Var}(H)=\partial_\beta^2\log Z$. Prove invariance of Gibbs
+measure under Hamiltonian flow. If the flow is ergodic on an invariant
+energy surface, use Birkhoff's theorem to identify long-time averages of
+integrable observables with their microcanonical ensemble averages.
+\end{exercise}
+
+\begin{exercise}[Ideal-gas thermodynamics]
+Compute the classical canonical partition function of $N$ indistinguishable
+noninteracting particles in a box, including the phase-space normalization
+$h^{3N}N!$. Derive the ideal-gas law, internal energy, and entropy, and
+the one-particle Maxwell--Boltzmann speed distribution. Derive its
+temperature scaling and compare both predictions with dilute-gas
+measurements in the classical regime.
+
+For a wall of area $A$, express the pressure measured during time $\tau$ as
+the time-averaged normal momentum transfer
+\[
+P_\tau=\frac1{A\tau}
+\sum_{\substack{\text{collisions with the wall}\\0<t_j\leq\tau}}
+2m|v_{j,\perp}|.
+\]
+Average the collision flux using the Maxwell--Boltzmann distribution and
+recover the same pressure $P=Nk_BT/V$. Identify the stationarity and
+ergodic assumptions that relate the long-time reading of one gas sample to
+the ensemble calculation. Explain why agreement of pressure, velocity
+statistics, and relaxation rates for selected observables and finite times
+tests consequences of those assumptions but does not prove that the full
+microscopic dynamics is mathematically ergodic.
+\end{exercise}
+
+\begin{exercise}[Liouville and von Neumann dynamics]
+Prove that the Born rule defines a probability measure and that its expected
+value is $\Tr(\rho A)$ when defined. Derive the following classical and
+quantum evolution equations.
+
+Let $\mu_t=(\phi_t)_*\mu_0$ have smooth density $p_t$ relative to the
+Liouville measure $\mu_L$ of a time-independent Hamiltonian system. Using
+Exercise~\ref{ex:liouville-theorem}, prove
+\[
+\partial_t p_t+\{p_t,H\}=0,
+\qquad
+\frac{d}{dt}\int_M f\,d\mu_t
+=\int_M\{f,H\}\,d\mu_t.
+\]
+For $U_t=e^{-itH/\hbar}$, set
+$\rho_t=U_t\rho_0U_t^*$ and $A_t=U_t^*A_0U_t$. Prove
+\[
+\dot\rho_t=-\frac{i}{\hbar}[H,\rho_t],
+\qquad
+\dot A_t=\frac{i}{\hbar}[H,A_t].
+\]
+Prove
+\[
+\int_M f\,d\mu_t=\int_M(f\circ\phi_t)\,d\mu_0,
+\qquad
+\Tr(\rho_tA_0)=\Tr(\rho_0A_t),
+\]
+and identify these as the equivalence of Schr\"odinger and Heisenberg
+pictures. Compare the derivations $f\mapsto\{f,H\}$ and
+$A\mapsto(i\hbar)^{-1}[A,H]$, and prove conservation of expected energy in
+both theories.
+\end{exercise}
+
+\begin{exercise}[Quantized harmonic oscillator]
+\label{ex:quantum-oscillator}
+For $H=P^2/(2m)+m\omega^2Q^2/2$, define creation and annihilation operators
+on the Schwartz core $\mathcal S(\R)$ and prove there that $[a,a^*]=1$ and
+$H=\hbar\omega(a^*a+1/2)$. Construct the eigenstates with
+$E_n=\hbar\omega(n+1/2)$ and use the spectral-lines exercise to obtain the
+frequency spacing $\omega$. Prove that their span is a core for the
+self-adjoint closure of $H$. For a two-level internal transition of frequency
+$\Omega_0$ coupled linearly to $Q$, compute the oscillator matrix elements,
+obtain motional sidebands at $\Omega_0\pm\omega$, and compare their spacing
+with trapped-ion spectra.
 \end{exercise}
 
 \begin{exercise}[Entropy and quantum Gibbs states]
@@ -2018,151 +2280,6 @@ individual eigenstates, and compare both formulas with measured
 level-population ratios.
 \end{exercise}
 
-
-\begin{exercise}[Projective quantum states by reduction]
-\label{ex:projective-reduction}
-Let $K$ be a finite-dimensional complex Hilbert space and regard its
-underlying real vector space as symplectic with
-\[
-\omega(u,v)=-\operatorname{Im}\langle u,v\rangle.
-\]
-For the scalar $U(1)$-action, identify its Lie algebra with $\R$ acting
-infinitesimally by $z\mapsto iz$, and prove that
-$J(z)=\|z\|^2/2$ is a momentum map. Show that reduction at $1/2$ gives
-\[
-K//_{1/2}U(1)=S(K)/U(1)=\mathbb P(K),
-\]
-the space of complex lines in $K$. Identify $[z]\in\mathbb P(K)$ with the
-rank-one density operator
-\[
-P_z:v\longmapsto z\langle z,v\rangle
-\]
-for a unit representative $z$, and hence with the pure state
-$A\mapsto\Tr(P_zA)$. Prove that the reduced symplectic form is the
-Fubini--Study form, characterized on horizontal representatives
-$u,v\in z^\perp$ by
-\[
-(\omega_{\rm FS})_{[z]}([u],[v])
-=-\operatorname{Im}\langle u,v\rangle.
-\]
-Thus normalization and quotient by global phase produce the pure quantum
-state space as a symplectic reduction.
-\end{exercise}
-
-\begin{exercise}[Canonical quantization and Weyl relations]
-On $\mathcal S(\R^n)\subset L^2(\R^n)$, set
-$Q_j\psi=x_j\psi$ and $P_j\psi=-i\hbar\partial_j\psi$. Prove
-$[Q_j,P_k]=i\hbar\delta_{jk}$ and derive the Weyl relations for their
-unitary groups. Using symmetric ordering, verify the
-Poisson-bracket--commutator rule for affine and quadratic observables.
-Compare different orderings of $q^2p^2$ and explain the
-Groenewold--van Hove obstruction to quantizing all observables by this rule.
-\end{exercise}
-
-\begin{exercise}[Quantized harmonic oscillator]
-\label{ex:quantum-oscillator}
-For $H=P^2/(2m)+m\omega^2Q^2/2$, define creation and annihilation operators
-on the Schwartz core $\mathcal S(\R)$ and prove there that $[a,a^*]=1$ and
-$H=\hbar\omega(a^*a+1/2)$. Construct the eigenstates with
-$E_n=\hbar\omega(n+1/2)$ and use the spectral-lines exercise to obtain the
-frequency spacing $\omega$. Prove that their span is a core for the
-self-adjoint closure of $H$. For a two-level internal transition of frequency
-$\Omega_0$ coupled linearly to $Q$, compute the oscillator matrix elements,
-obtain motional sidebands at $\Omega_0\pm\omega$, and compare their spacing
-with trapped-ion spectra.
-\end{exercise}
-
-\begin{definition}[Quadratures, Wigner distributions, and homodyne data]
-For one canonical degree of freedom, choose $q_0,p_0>0$ with
-$q_0p_0=\hbar$ and set
-\[
-X=Q/q_0,\qquad Y=P/p_0,\qquad
-X_\theta=X\cos\theta+Y\sin\theta,
-\]
-so that $[X,Y]=i$. For a density operator $\rho$, its \emph{Weyl
-characteristic function} is
-\[
-\chi_\rho(u,v)=\Tr\!\left(\rho e^{i(uX+vY)}\right),
-\]
-and its \emph{Wigner distribution} is the inverse Fourier transform
-\[
-W_\rho(x,y)=\frac1{(2\pi)^2}\int_{\R^2}
- \chi_\rho(u,v)e^{-i(ux+vy)}\,du\,dv,
-\]
-interpreted as a tempered distribution when necessary. If $E_\theta$ is the
-spectral measure of $X_\theta$, the \emph{homodyne quadrature distribution}
-is
-\[
-p_\rho(r\mid\theta)\,dr=\Tr\bigl(\rho E_\theta(dr)\bigr).
-\]
-In balanced optical homodyne detection, the local-oscillator phase selects
-$\theta$ and repeated measurements estimate this distribution.
-\end{definition}
-
-\begin{exercise}[Optical homodyne tomography]
-Use Exercise~\ref{ex:heisenberg-harmonic-analysis} and the spectral theorem to
-prove the Fourier-slice identity
-\[
-\widetilde p_\rho(k\mid\theta)
-=\int_\R p_\rho(r\mid\theta)e^{ikr}\,dr
-=\chi_\rho(k\cos\theta,k\sin\theta).
-\]
-Deduce, in the distributional sense, that the measured quadrature density is
-the Radon transform of the Wigner distribution:
-\[
-p_\rho(r\mid\theta)=\int_{\R^2}W_\rho(x,y)
- \delta(r-x\cos\theta-y\sin\theta)\,dx\,dy.
-\]
-Prove that the data for $0\leq\theta<\pi$ determine $\chi_\rho$, hence
-$W_\rho$ and $\rho$, and derive the filtered-backprojection formula
-\[
-W_\rho(x,y)=\frac1{(2\pi)^2}\int_0^\pi\int_\R
- |k|\,\widetilde p_\rho(k\mid\theta)
- e^{-ik(x\cos\theta+y\sin\theta)}\,dk\,d\theta.
-\]
-Show that every $p_\rho(\,\cdot\mid\theta)$ is a genuine probability density
-although $W_\rho$ may be negative. Compute the data and reconstruction for
-vacuum, coherent, squeezed, and one-photon states. Explain why the factor
-$|k|$ amplifies high-frequency noise and why finite-angle experimental data
-require regularization or constrained density-matrix estimation. Compare the
-predicted reconstruction of vacuum and squeezed states with
-\href{https://doi.org/10.1103/PhysRevLett.70.1244}
-{Smithey et al., \emph{Physical Review Letters} \textbf{70} (1993)}.
-\end{exercise}
-
-\begin{exercise}[Liouville and von Neumann dynamics]
-Prove that the Born rule defines a probability measure and that its expected
-value is $\Tr(\rho A)$ when defined. Derive the following classical and
-quantum evolution equations.
-
-Let $\mu_t=(\phi_t)_*\mu_0$ have smooth density $p_t$ relative to the
-Liouville measure $\mu_L$ of a time-independent Hamiltonian system. Using
-Exercise~\ref{ex:liouville-theorem}, prove
-\[
-\partial_t p_t+\{p_t,H\}=0,
-\qquad
-\frac{d}{dt}\int_M f\,d\mu_t
-=\int_M\{f,H\}\,d\mu_t.
-\]
-For $U_t=e^{-itH/\hbar}$, set
-$\rho_t=U_t\rho_0U_t^*$ and $A_t=U_t^*A_0U_t$. Prove
-\[
-\dot\rho_t=-\frac{i}{\hbar}[H,\rho_t],
-\qquad
-\dot A_t=\frac{i}{\hbar}[H,A_t].
-\]
-Prove
-\[
-\int_M f\,d\mu_t=\int_M(f\circ\phi_t)\,d\mu_0,
-\qquad
-\Tr(\rho_tA_0)=\Tr(\rho_0A_t),
-\]
-and identify these as the equivalence of Schr\"odinger and Heisenberg
-pictures. Compare the derivations $f\mapsto\{f,H\}$ and
-$A\mapsto(i\hbar)^{-1}[A,H]$, and prove conservation of expected energy in
-both theories.
-\end{exercise}
-
 \begin{exercise}[Blackbody radiation from quantized Fourier modes]
 For electromagnetic radiation in a large conducting cavity, use its Fourier
 modes and two polarizations to derive the mode density
@@ -2184,113 +2301,6 @@ the cavity spectra discussed by
 precisely where quantization removes the classical divergence.
 \end{exercise}
 
-\section{Operator Algebras}
-
-Observables form an algebra, while states are normalized positive functionals
-on that algebra. The GNS construction turns this abstract pairing into
-operators and vectors on a Hilbert space. Relative entropy remains an
-intrinsic measure of distinguishability even when no density-matrix entropy
-exists.
-
-\begin{definition}[$C^*$-algebras and states]
-A \emph{unital Banach algebra} is a complete normed algebra with identity and
-$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
-$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
-Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
-if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
-$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
-\end{definition}
-
-\begin{exercise}[Commutative Gelfand duality]
-For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
-$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
-nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
-unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
-$C(\operatorname{Spec}A)$ by the Gelfand
-transform, and identify states on $C(X)$ with probability measures.
-\end{exercise}
-
-\begin{definition}[Representations and GNS construction]
-A \emph{representation} of a $C^*$-algebra $A$ is a $*$-homomorphism
-$\pi:A\to B(H)$. For a state $\varphi$, define
-$N_\varphi=\{a:\varphi(a^*a)=0\}$ and
-$\langle[a],[b]\rangle=\varphi(a^*b)$ on $A/N_\varphi$.
-\end{definition}
-
-\begin{exercise}[GNS theorem]
-Complete $A/N_\varphi$ and prove that left multiplication induces a cyclic
-representation $(\pi_\varphi,H_\varphi,\Omega_\varphi)$ satisfying
-$\varphi(a)=\langle\Omega_\varphi,\pi_\varphi(a)\Omega_\varphi\rangle$.
-Prove uniqueness up to a cyclic unitary equivalence.
-\end{exercise}
-
-\begin{definition}[CAR algebra and fermionic Fock space]
-For a complex Hilbert space $K$, the \emph{canonical anticommutation
-relations algebra} $\operatorname{CAR}(K)$ is the unital $C^*$-algebra
-generated by conjugate-linear symbols $a(f)$ satisfying
-\[
-\{a(f),a(g)\}=0,\qquad
-\{a(f),a(g)^*\}=\langle f,g\rangle1.
-\]
-Let $\Lambda_2^nK$ be the Hilbert-space completion of the $n$th
-antisymmetric tensor power of $K$, with $\Lambda_2^0K=\C$. The
-\emph{antisymmetric Fock space} is the Hilbert direct sum
-\[
-\mathcal F_-(K)=\bigoplus_{n\geq0}\Lambda_2^nK.
-\]
-Its vacuum is $\Omega=1\in\Lambda_2^0K$; creation by $f$ is exterior
-multiplication, and annihilation by $f$ is its Hilbert-space adjoint.
-\end{definition}
-
-\begin{exercise}[CAR and GNS predict fermionic antibunching]
-Prove that creation and annihilation on $\mathcal F_-(K)$ satisfy the CAR and
-that $\omega_0(x)=\langle\Omega,x\Omega\rangle$ is a state. Apply the
-preceding exercise to identify its GNS representation with the Fock
-representation. Let $\omega_C$ be a gauge-invariant quasifree state with
-one-particle density $0\leq C\leq1$, and use its determinantal Wick rule to
-prove, for orthonormal detector modes $f,g$, that
-\[
-\omega_C(N_fN_g)
-=\omega_C(N_f)\omega_C(N_g)-|\langle f,Cg\rangle|^2,
-\qquad N_f=a(f)^*a(f).
-\]
-Deduce $N_f^2=N_f$ and fermionic antibunching. Compare the sign and
-separation dependence of the correlation deficit with the neutral-atom
-measurements in
-\href{https://doi.org/10.1038/nature05319}
-{F\"olling et al., \emph{Nature} \textbf{444} (2006)}.
-\end{exercise}
-
-Representations make observable algebras concrete. Their weak closures encode
-limits, localization, and the structure of infinite quantum systems.
-
-\begin{definition}[Operator topologies and von Neumann algebras]
-The \emph{weak operator topology} is generated by
-$T\mapsto\langle x,Ty\rangle$; the \emph{strong operator topology} is
-generated by $T\mapsto\|Tx\|$. For $S\subseteq B(H)$, its \emph{commutant}
-is $S'=\{T:TS=ST\text{ for all }S\in S\}$. A \emph{von Neumann algebra} is
-a unital $*$-subalgebra $M\subseteq B(H)$ with $M=M''$.
-\end{definition}
-
-\begin{exercise}[Bicommutant theorem]
-Prove that for a unital $*$-subalgebra $A\subseteq B(H)$, the strong and weak
-operator closures of $A$ equal $A''$. Deduce that von Neumann algebras have
-sufficient projections to approximate their self-adjoint elements
-spectrally.
-\end{exercise}
-
-\begin{definition}[Normality and spatial tensor products]
-A positive functional $\varphi$ on a von Neumann algebra is \emph{normal} if
-$a_\lambda\uparrow a$ implies
-$\varphi(a_\lambda)\uparrow\varphi(a)$ for every bounded increasing net of
-positive elements. A representation is \emph{normal} if it preserves such
-suprema. For concrete von Neumann algebras $M\subseteq B(H)$ and
-$N\subseteq B(K)$, their \emph{spatial tensor product} is
-\[
-M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
-\]
-\end{definition}
-
 \begin{definition}[Cyclic and separating vectors; modular theory]
 For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
 $\overline{M\Omega}=H$ and \emph{separating} if $a\Omega=0$ implies $a=0$.
@@ -2311,42 +2321,6 @@ convention and for analytic $a,b$,
 \]
 The vector state of $\Omega$ is $1$-KMS for its modular flow.
 \end{definition}
-
-\begin{definition}[Traces and factor types]
-A \emph{finite trace} on a von Neumann algebra is a normal positive functional
-$\tau$ satisfying $\tau(ab)=\tau(ba)$. A possibly unbounded \emph{normal
-tracial weight} is an additive, positively homogeneous map
-$\tau:M_+\to[0,\infty]$ satisfying $\tau(x^*x)=\tau(xx^*)$ and
-$\tau(x_\lambda)\uparrow\tau(x)$ whenever $x_\lambda\uparrow x$. It is
-\emph{semifinite} if every nonzero $x\in M_+$ majorizes a nonzero
-$y\in M_+$ with $\tau(y)<\infty$. Thus the standard traces on infinite
-type-I and type-$\mathrm{II}_\infty$ factors are normal semifinite weights,
-not finite functionals.
-
-Projections $p,q\in M$ are
-\emph{Murray--von Neumann equivalent}, written $p\sim q$, if some $v\in M$
-satisfies $v^*v=p$ and $vv^*=q$. A projection $p$ is \emph{finite} if
-$q\leq p$ and $q\sim p$ imply $q=p$, and it is \emph{minimal} if its only
-subprojections are $0$ and $p$.
-
-A \emph{factor} is a von Neumann algebra with center $\C1$. A factor is
-\emph{type I} if it has a nonzero minimal projection, equivalently if it is
-isomorphic to some $B(K)$; it is \emph{type II} if it has nonzero finite
-projections but no minimal projections; and it is \emph{type III} if it has
-no nonzero finite projection. Thus a type-III factor has no normal tracial
-state and no intrinsic trace-density representation of its normal states. A
-factor is \emph{hyperfinite} if it is the weak closure of an increasing union
-of finite-dimensional $*$-subalgebras.
-\end{definition}
-
-\begin{exercise}[Projection dimension and factors]
-For a finite factor with normalized trace $\tau$, prove additivity and unitary
-invariance of $\tau$ on projections. Relate the possible projection values
-to matrix factors and to diffuse finite factors. Prove that $B(K)$ is type I
-and that a factor with a faithful normal tracial state cannot be type III.
-Explain why finite-dimensional quantum systems see only type-I factors,
-whereas the classification permits genuinely different infinite systems.
-\end{exercise}
 
 \begin{exercise}[Bisognano--Wichmann flow and its experimental limit]
 Let $W_R=\{x:x^1>|x^0|\}$ be the right Rindler wedge of Minkowski space,
@@ -2380,37 +2354,7 @@ positive-energy, and vacuum hypotheses used by the modular-flow prediction
 that are not consequences of the factor type alone.
 \end{exercise}
 
-
-\begin{definition}[Relative entropy of operator-algebraic states]
-Let $\varphi$ and $\psi$ be faithful normal states on $M$, represented by
-vectors $\Omega_\varphi$ and $\Omega_\psi$ in standard form. Their
-relative Tomita operator is the closure of
-\[
-S_{\varphi\mid\psi,0}(a\Omega_\psi)=a^*\Omega_\varphi,
-\]
-and their \emph{relative modular operator} is
-\[
-\Delta_{\varphi\mid\psi}
-=S_{\varphi\mid\psi}^*S_{\varphi\mid\psi}.
-\]
-The \emph{Araki relative entropy} is the extended nonnegative number
-\[
-D_M(\varphi\Vert\psi)
-=\langle\Omega_\varphi,
-  \log\Delta_{\varphi\mid\psi}\,\Omega_\varphi\rangle.
-\]
-For $M=B(H)$ and faithful density operators $\rho,\sigma$, the standard
-Hilbert--Schmidt representation gives
-$\Delta_{\rho\mid\sigma}(X)=\rho X\sigma^{-1}$ and hence
-\[
-D(\rho\Vert\sigma)=\Tr\!\left(\rho(\log\rho-\log\sigma)\right).
-\]
-Unlike the entropy of an individual density matrix, relative entropy and
-modular flow are intrinsic to an algebra and its states and remain meaningful
-for type-III factors.
-\end{definition}
-
-\section{Random Matrices}
+\section{Independence}
 
 \begin{observations}
 \item Resonance spectra of compound nuclei and chaotic microwave cavities
@@ -2418,27 +2362,56 @@ exhibit level repulsion and universal correlations determined mainly by
 symmetry rather than by the microscopic details of the system.
 \end{observations}
 
-Matrix ensembles are probability distributions on noncommuting observables.
-In large dimension, their normalized traces are governed by a notion of
-independence adapted to multiplication rather than to commuting events.
+Products specify how subsystems combine. Classical and spatial tensor
+products model commuting subsystems, while free products govern normalized
+traces of large independent random matrices. The associated central limit
+law is semicircular rather than Gaussian.
 
-\begin{definition}[Noncommutative probability]
-A \emph{noncommutative probability space} is a unital $*$-algebra $A$ with
-a state $\varphi$. Its random variables are elements of $A$; for
-$X=X^*$ in a von Neumann algebra, its \emph{distribution} is
-\[
-\mu_X(B)=\varphi(E_X(B)),
-\qquad
-\varphi(X^n)=\int_\R t^n\,d\mu_X(t)
-\]
-whenever the moment exists. A \emph{tracial probability space} has
-$\varphi(ab)=\varphi(ba)$. The commutative case
-$A=L^\infty(\Omega,\mathbb P)$ with
-$\varphi(f)=\int_\Omega f\,d\mathbb P$ recovers classical random variables.
-The \emph{joint $*$-distribution} of $X_1,\ldots,X_r$ is the functional
-$p\mapsto\varphi(p(X_1,\ldots,X_r,X_1^*,\ldots,X_r^*))$ on noncommutative
-$*$-polynomials.
+\begin{definition}[Composite and reduced states]
+The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
+states are the density operators on this tensor product. A density operator
+is \emph{separable} if it lies in the trace-norm closed convex hull of
+product density operators and \emph{entangled} otherwise. The \emph{reduced
+state} $\rho_A=\Tr_B\rho$ is determined by
+$\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
 \end{definition}
+
+\begin{definition}[Classical and tensor independence]
+Families of $\sigma$-algebras are \emph{independent} when the probability of
+every finite intersection of events, one from each family, is the product of
+their probabilities. Equivalently, bounded random variables measurable with
+respect to distinct families have factorizing mixed expectations.
+
+Commuting unital subalgebras $M_1,M_2\subseteq M$ are independent in the
+state $\varphi$ when $\varphi(ab)=\varphi(a)\varphi(b)$ for
+$a\in M_1$ and $b\in M_2$. They are \emph{tensor independent} when the
+algebra they generate, together with the state, is a spatial tensor product
+with a product state.
+\end{definition}
+
+\begin{exercise}[Normal states and independent subsystems]
+Show that every density operator $\rho$ gives the normal state
+$a\mapsto\Tr(\rho a)$, and, using trace-class duality, prove the converse on
+$B(H)$. Prove
+$B(H)\mathbin{\overline\otimes}B(K)=B(H\otimes K)$ and identify product
+states and partial traces in this language. Explain why local
+normality---normality on every local algebra---is the infinite-system
+analogue of requiring ordinary reduced density matrices for all finite
+laboratories.
+\end{exercise}
+
+\begin{exercise}[Independent noncommutative subsystems]
+Characterize classical independence by factorization of expectations and
+derive variance addition for independent square-integrable random variables.
+For commuting von Neumann subalgebras $M_1,M_2\subseteq M$, compare
+factorization in a state $\varphi$ with a tensor-product state when
+$M_1\vee M_2$ is spatially isomorphic to
+$M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
+the relevant replacement for sharply adjacent local regions in continuum
+QFT. Contrast this with free independence: show that freely independent
+centered variables satisfy vanishing alternating mixed moments without
+commuting or determining a joint classical law.
+\end{exercise}
 
 \begin{definition}[Free independence and free cumulants]
 Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
@@ -2544,7 +2517,7 @@ mixed in Hilbert--Schmidt norm. Interpret this as a random-matrix explanation
 of why a typical pure state of a large composite system is highly entangled.
 \end{exercise}
 
-\section{Quantum Information}
+\section{Information}
 
 \begin{observations}
 \item Tomography of prepared entangled pairs reconstructs a nearly pure joint
@@ -2556,43 +2529,134 @@ $e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
 $e^{-t/(2T_1)}$.
 \end{observations}
 
-Composing systems produces joint measurements and correlations. Quantum
-information asks which of these correlations can be created, distinguished,
-transmitted, or protected by physical processes. Unlike freeness, physical
-independence of distinct subsystems is expressed by commuting observable
-algebras and tensor products.
+Measurements turn noncommutative observables into classical outcome
+probabilities. Completely positive maps describe every admissible change of
+system, relative entropy measures the distinguishability they can only
+decrease, and matrix amplification detects correlations visible only with
+ancillas.
 
-\begin{definition}[Composite and reduced states]
-The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
-states are the density operators on this tensor product. A density operator
-is \emph{separable} if it lies in the trace-norm closed convex hull of
-product density operators and \emph{entangled} otherwise. The \emph{reduced
-state} $\rho_A=\Tr_B\rho$ is determined by
-$\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
+\begin{definition}[Measurements]
+A \emph{positive operator-valued measure} is a countably additive map $E$
+from measurable events to positive operators with $E(X)=1$. In state $\rho$,
+its outcome probability is $\Tr(\rho E(B))$.
 \end{definition}
 
-\begin{exercise}[Normal states and independent subsystems]
-Show that every density operator $\rho$ gives the normal state
-$a\mapsto\Tr(\rho a)$, and, using trace-class duality, prove the converse on
-$B(H)$. Prove
-$B(H)\mathbin{\overline\otimes}B(K)=B(H\otimes K)$ and identify product
-states and partial traces in this language. Explain why local
-normality---normality on every local algebra---is the infinite-system
-analogue of requiring ordinary reduced density matrices for all finite
-laboratories.
+\begin{exercise}[POVMs and dilation]
+Prove that projection-valued measures are POVMs. Prove Naimark's dilation
+theorem in finite dimensions, realizing every POVM's outcome probabilities
+by a projective measurement on a larger Hilbert space. Show that state
+discrimination can require a nonprojective POVM.
 \end{exercise}
 
-\begin{exercise}[Independent noncommutative subsystems]
-For commuting von Neumann subalgebras $M_1,M_2\subseteq M$, formulate
-independence in the state $\varphi$ by factorization
-$\varphi(ab)=\varphi(a)\varphi(b)$. Compare this algebraic condition with a
-tensor-product state when $M_1\vee M_2$ is spatially isomorphic to
-$M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
-the relevant replacement for sharply adjacent local regions in continuum
-QFT. Contrast this commuting or tensor independence with free independence:
-show that freely independent centered variables satisfy vanishing alternating
-mixed moments without commuting or determining a joint classical law.
+\begin{definition}[Quadratures, Wigner distributions, and homodyne data]
+For one canonical degree of freedom, choose $q_0,p_0>0$ with
+$q_0p_0=\hbar$ and set
+\[
+X=Q/q_0,\qquad Y=P/p_0,\qquad
+X_\theta=X\cos\theta+Y\sin\theta,
+\]
+so that $[X,Y]=i$. For a density operator $\rho$, its \emph{Weyl
+characteristic function} is
+\[
+\chi_\rho(u,v)=\Tr\!\left(\rho e^{i(uX+vY)}\right),
+\]
+and its \emph{Wigner distribution} is the inverse Fourier transform
+\[
+W_\rho(x,y)=\frac1{(2\pi)^2}\int_{\R^2}
+ \chi_\rho(u,v)e^{-i(ux+vy)}\,du\,dv,
+\]
+interpreted as a tempered distribution when necessary. If $E_\theta$ is the
+spectral measure of $X_\theta$, the \emph{homodyne quadrature distribution}
+is
+\[
+p_\rho(r\mid\theta)\,dr=\Tr\bigl(\rho E_\theta(dr)\bigr).
+\]
+In balanced optical homodyne detection, the local-oscillator phase selects
+$\theta$ and repeated measurements estimate this distribution.
+\end{definition}
+
+\begin{exercise}[Optical homodyne tomography]
+Use Exercise~\ref{ex:heisenberg-harmonic-analysis} and the spectral theorem to
+prove the Fourier-slice identity
+\[
+\widetilde p_\rho(k\mid\theta)
+=\int_\R p_\rho(r\mid\theta)e^{ikr}\,dr
+=\chi_\rho(k\cos\theta,k\sin\theta).
+\]
+Deduce, in the distributional sense, that the measured quadrature density is
+the Radon transform of the Wigner distribution:
+\[
+p_\rho(r\mid\theta)=\int_{\R^2}W_\rho(x,y)
+ \delta(r-x\cos\theta-y\sin\theta)\,dx\,dy.
+\]
+Prove that the data for $0\leq\theta<\pi$ determine $\chi_\rho$, hence
+$W_\rho$ and $\rho$, and derive the filtered-backprojection formula
+\[
+W_\rho(x,y)=\frac1{(2\pi)^2}\int_0^\pi\int_\R
+ |k|\,\widetilde p_\rho(k\mid\theta)
+ e^{-ik(x\cos\theta+y\sin\theta)}\,dk\,d\theta.
+\]
+Show that every $p_\rho(\,\cdot\mid\theta)$ is a genuine probability density
+although $W_\rho$ may be negative. Compute the data and reconstruction for
+vacuum, coherent, squeezed, and one-photon states. Explain why the factor
+$|k|$ amplifies high-frequency noise and why finite-angle experimental data
+require regularization or constrained density-matrix estimation. Compare the
+predicted reconstruction of vacuum and squeezed states with
+\href{https://doi.org/10.1103/PhysRevLett.70.1244}
+{Smithey et al., \emph{Physical Review Letters} \textbf{70} (1993)}.
 \end{exercise}
+
+\begin{definition}[Quantum relative entropy]
+For finite-dimensional density operators with
+$\supp\rho\leq\supp\sigma$, their \emph{quantum relative entropy} is
+\[
+D(\rho\Vert\sigma)
+=\Tr\!\left(\rho(\log\rho-\log\sigma)\right),
+\]
+and it is $+\infty$ otherwise. It reduces to classical relative entropy
+when $\rho$ and $\sigma$ commute.
+\end{definition}
+
+\begin{exercise}[Entropy of projective measurements]
+For a rank-one projective measurement $(P_i)$ in state $\rho$, let
+$p_i=\Tr(\rho P_i)$. Prove
+\[
+S(p)\geq S(\rho),
+\]
+with equality when the measurement basis diagonalizes $\rho$. Interpret the
+excess as uncertainty introduced by measuring in an incompatible basis.
+Show that unitary evolution preserves $S(\rho)$ even though it can change
+the outcome entropy of a fixed measurement.
+\end{exercise}
+
+\begin{definition}[Relative entropy of operator-algebraic states]
+Let $\varphi$ and $\psi$ be faithful normal states on $M$, represented by
+vectors $\Omega_\varphi$ and $\Omega_\psi$ in standard form. Their
+relative Tomita operator is the closure of
+\[
+S_{\varphi\mid\psi,0}(a\Omega_\psi)=a^*\Omega_\varphi,
+\]
+and their \emph{relative modular operator} is
+\[
+\Delta_{\varphi\mid\psi}
+=S_{\varphi\mid\psi}^*S_{\varphi\mid\psi}.
+\]
+The \emph{Araki relative entropy} is the extended nonnegative number
+\[
+D_M(\varphi\Vert\psi)
+=\langle\Omega_\varphi,
+  \log\Delta_{\varphi\mid\psi}\,\Omega_\varphi\rangle.
+\]
+For $M=B(H)$ and faithful density operators $\rho,\sigma$, the standard
+Hilbert--Schmidt representation gives
+$\Delta_{\rho\mid\sigma}(X)=\rho X\sigma^{-1}$ and hence
+\[
+D(\rho\Vert\sigma)=\Tr\!\left(\rho(\log\rho-\log\sigma)\right).
+\]
+Unlike the entropy of an individual density matrix, relative entropy and
+modular flow are intrinsic to an algebra and its states and remain meaningful
+for type-III factors.
+\end{definition}
 
 \begin{definition}[Entanglement entropy and mutual information]
 For a pure state $\rho=|\psi\rangle\langle\psi|$ on
@@ -2681,11 +2745,6 @@ tested freedom-of-choice and spacelike-separation assumptions and explain why
 the result does not exclude arbitrary superdeterministic or signaling models.
 \end{exercise}
 
-Channels describe how observables and states change under noise, measurement,
-and loss of access to an environment. Matrix amplification detects behavior
-that is invisible at the scalar level and ultimately controls nonlocal
-correlations.
-
 \begin{definition}[Positive and completely positive maps]
 A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
 preserves positive elements and \emph{completely positive} if every
@@ -2700,6 +2759,8 @@ representation
 $\Phi(a)=V^*\pi(a)V$. In finite dimensions, derive a Kraus representation
 $\Phi(a)=\sum_iK_i^*aK_i$ and its normalization. Prove that every channel is
 unitary evolution on a larger system followed by discarding an environment.
+Use the bimodule identity to prove that every conditional expectation
+introduced earlier is completely positive.
 For a finite POVM $(E_x)_x$, prove that
 \[
 \mathcal M(\rho)=\sum_x\Tr(\rho E_x)|x\rangle\langle x|
