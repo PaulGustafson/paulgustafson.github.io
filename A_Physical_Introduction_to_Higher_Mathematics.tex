@@ -1150,12 +1150,11 @@ Interpret this as noncommutative Fourier analysis turning functions on a group
 into operators rather than scalar frequency amplitudes.
 \end{exercise}
 
-\part{States}
+\section{Symplectic Geometry}
 
-\section{Classical Mechanics}
-
-Classical dynamics requires a geometric language for infinitesimal motion
-and conserved structure.
+The symplectic form underlying the Heisenberg group is the local model for
+classical phase space. Classical dynamics requires this geometry to describe
+infinitesimal motion and conserved structure.
 
 \begin{definition}[Vector fields and flows]
 A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
@@ -1170,9 +1169,12 @@ only if their local flows commute, and that the Lie derivative
 $\mathcal L_XY=[X,Y]$ is natural under diffeomorphisms.
 \end{exercise}
 
+Applying the exterior-power construction from Spectral Theory fiberwise to
+the cotangent bundle produces differential forms.
+
 \begin{definition}[Differential forms and pullback]
 A \emph{differential $k$-form} on $M$ is a smooth section of
-$\Lambda^kT^*M$, using the exterior powers defined above; write
+$\Lambda^kT^*M$; write
 $\Omega^k(M)=\Gamma(\Lambda^kT^*M)$. The \emph{pullback} of
 $\omega\in\Omega^k(N)$ by $F:M\to N$ is
 \[
@@ -1320,6 +1322,8 @@ $H=(p^2+\omega^2q^2)/2$. Derive the closed elliptical phase portraits and
 show that their enclosed area is preserved. Interpret the motion as a
 betatron oscillation about a closed orbit.
 \end{exercise}
+
+\part{States}
 
 \section{Statistical Mechanics}
 
