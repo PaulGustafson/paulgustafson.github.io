@@ -506,6 +506,97 @@ kernel and its convolution law, and prove finite propagation speed for the
 one-dimensional wave equation.
 \end{exercise}
 
+\subsection{Time--bandwidth concentration and Slepian functions}
+
+Real measurements observe a pulse only during a finite time window and
+through a receiver with finite bandwidth.  No nonzero signal can be both
+exactly time-limited and band-limited, so the useful question is
+quantitative: among signals obeying one cutoff, which place the largest
+fraction of their energy inside the other?  The answer turns simultaneous
+localization into an eigenvalue problem.
+
+\begin{definition}[Time and band limiting]
+On $L^2(\R)$, define the time-limiting and band-limiting projections by
+\[
+(Q_Tf)(x)=\mathbf1_{[-T,T]}(x)f(x),
+\qquad
+B_W=\mathcal F^{-1}\mathbf1_{[-W,W]}\mathcal F,
+\]
+where $T,W>0$.  The \emph{time--band concentration operator} is
+\[
+K_{T,W}=Q_TB_WQ_T.
+\]
+After identifying $Q_TL^2(\R)$ with $L^2([-T,T])$, its normalized
+eigenfunctions are the time-limited representatives of the \emph{prolate
+spheroidal wave functions}, also called \emph{Slepian functions}.  The
+dimensionless parameter $c=TW$ is the time--bandwidth product.
+\end{definition}
+
+\begin{exercise}[Optimal simultaneous concentration]
+Use Plancherel's theorem to prove that $Q_T$ and $B_W$ are orthogonal
+projections.  Starting from the Fourier-transform convention above, derive
+\[
+(K_{T,W}f)(x)
+=\int_{-T}^{T}\frac{\sin W(x-y)}{\pi(x-y)}f(y)\,dy,
+\qquad |x|\leq T,
+\]
+where the diagonal value of the kernel is $W/\pi$.  Prove that $K_{T,W}$
+is a positive compact self-adjoint contraction.  If its positive eigenvalues
+are $\lambda_0\geq\lambda_1\geq\cdots>0$, use the Rayleigh--Ritz principle
+to show
+\[
+\lambda_0
+=\sup_{\substack{f\ne0\\\supp f\subseteq[-T,T]}}
+ \frac{\displaystyle\int_{-W}^{W}|\widehat f(\xi)|^2\,d\xi}
+      {\displaystyle\int_{\R}|f(x)|^2\,dx}.
+\]
+Show likewise that $B_WQ_TB_W$ has the same nonzero eigenvalues and that,
+for a band-limited eigenfunction $g_n$, $\lambda_n$ is the fraction of its
+energy lying in $[-T,T]$.  Thus successive eigenfunctions solve the optimal
+concentration problem subject to orthogonality to the preceding solutions.
+\end{exercise}
+
+\begin{exercise}[The prolate equation and the Shannon number]
+Rescale $x=Tt$ to $[-1,1]$ and write the concentration kernel as a function
+of $c=TW$.  Verify, by differentiating the kernel and integrating by parts,
+that its integral operator commutes with the Sturm--Liouville operator
+\[
+\mathcal L_c
+=-\frac{d}{dt}\left((1-t^2)\frac{d}{dt}\right)+c^2t^2.
+\]
+Conclude that the Slepian functions may be chosen to satisfy the prolate
+spheroidal equation
+\[
+-\frac{d}{dt}\left((1-t^2)\psi_n'(t)\right)
+ +c^2t^2\psi_n(t)=\chi_n\psi_n(t),
+\qquad -1<t<1,
+\]
+with the solutions bounded at the endpoints.  Recover the Legendre
+equation when $c=0$.
+
+Use the diagonal of the sinc kernel to prove the exact trace identity
+\[
+\sum_{n\geq0}\lambda_n
+=\operatorname{Tr}K_{T,W}=\frac{2TW}{\pi}.
+\]
+Deduce that at most $2TW/(\pi\alpha)$ mutually orthogonal modes can have
+concentration at least $\alpha$.  Interpret $2TW/\pi$ as the effective
+number of well-concentrated signal degrees of freedom available within the
+time and frequency windows; see
+\href{https://doi.org/10.1002/j.1538-7305.1961.tb03976.x}
+{Slepian--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
+Analysis and Uncertainty---I}} and
+\href{https://doi.org/10.1002/j.1538-7305.1961.tb03977.x}
+{Landau--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
+Analysis and Uncertainty---II}, Bell System Technical Journal
+\textbf{40} (1961)}.
+\end{exercise}
+
+The concentration operator composes a localization projection with a
+spectral projection.  The same mechanism will reappear in Index Theory,
+where a Dirac spectral cutoff compresses an algebra of observables to an
+operator system and turns finite resolution into geometric data.
+
 Fourier series and transforms are concrete spectral decompositions. The
 spectral theorem isolates their common structure and replaces sums over
 modes by integration against projection-valued measures.
