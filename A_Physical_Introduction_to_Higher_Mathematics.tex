@@ -2178,17 +2178,38 @@ limit is $\pm m_\beta I$ under the appropriate ergodic or clustering
 hypotheses.
 \end{exercise}
 
-\begin{definition}[Normality and spatial tensor products]
+The passage to a von Neumann closure introduces limits of observables, so a
+physical state should assign compatible limits to their probabilities.  For
+example, if projections $p_n$ describe an increasing sequence of detector
+acceptance regions with limit $p$, one expects
+$\Pr(p_n)\uparrow\Pr(p)$.  Normality is precisely this continuity
+requirement, extended from sequences to the nets needed for general von
+Neumann algebras.
+
+\begin{definition}[Normality]
 A positive functional $\varphi$ on a von Neumann algebra is \emph{normal} if
 $a_\lambda\uparrow a$ implies
 $\varphi(a_\lambda)\uparrow\varphi(a)$ for every bounded increasing net of
 positive elements. A representation is \emph{normal} if it preserves such
-suprema. For concrete von Neumann algebras $M\subseteq B(H)$ and
+suprema.
+\end{definition}
+
+Independent quantum systems still combine on $H\otimes K$, but their
+observable algebras must now contain the weak limits of finite sums of
+product observables $a\otimes b$.  Taking that closure gives the tensor
+product appropriate to normal states and measurements.
+
+\begin{definition}[Spatial tensor products]
+For concrete von Neumann algebras $M\subseteq B(H)$ and
 $N\subseteq B(K)$, their \emph{spatial tensor product} is
 \[
 M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
 \]
 \end{definition}
+
+Conditioning is the complementary operation: it replaces the full algebra
+by the information retained in a chosen subalgebra while preserving the
+probabilities of the events already visible there.
 
 \begin{definition}[Noncommutative conditional expectation]
 For a von Neumann subalgebra $N\subseteq M$, a \emph{conditional
@@ -2220,6 +2241,15 @@ $L^2(M,\tau)\to L^2(N,\tau)$ restricts to the unique $\tau$-preserving
 conditional expectation $M\to N$. Derive the tower property for nested
 von Neumann subalgebras.
 \end{exercise}
+
+Even factors can describe very different infinite systems.  The operational
+distinction is how finely a yes--no experiment, represented by a projection,
+can be subdivided.  Matrix algebras have atomic projections; type-II factors
+allow a continuous notion of projection size; and in type-III factors every
+nonzero projection is infinite in the Murray--von Neumann sense.  This last
+behavior is typical of local observable algebras in relativistic quantum
+field theory and explains why an intrinsic density matrix and trace need not
+exist for a local region.
 
 \begin{definition}[Traces and factor types]
 A \emph{finite trace} on a von Neumann algebra is a normal positive functional
@@ -2256,6 +2286,16 @@ and that a factor with a faithful normal tracial state cannot be type III.
 Explain why finite-dimensional quantum systems see only type-I factors,
 whereas the classification permits genuinely different infinite systems.
 \end{exercise}
+
+For a finite system in a faithful state $\rho$, the operator
+$K_\rho=-\log\rho$ packages the state into the canonical flow
+$a\mapsto\rho^{it}a\rho^{-it}$.  An infinite system or a local region in
+quantum field theory may have no trace and no density operator belonging to
+its observable algebra, so this formula cannot be the definition.  The
+replacement problem is therefore: can the pair consisting of an observable
+algebra and a faithful state determine its own equilibrium flow?  Modular
+theory answers yes; cyclicity and separation are the vector-state form of
+the needed faithfulness.
 
 \begin{definition}[Cyclic and separating vectors; modular theory]
 For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
@@ -2598,6 +2638,15 @@ excess as uncertainty introduced by measuring in an incompatible basis.
 Show that unitary evolution preserves $S(\rho)$ even though it can change
 the outcome entropy of a fixed measurement.
 \end{exercise}
+
+A detector cannot measure $Q$ and $P$ jointly with arbitrary precision, but
+an optical local oscillator can select any rotated quadrature
+$Q\cos\theta+P\sin\theta$.  This raises a tomography question: do the
+ordinary probability distributions from many such one-dimensional
+measurements determine the unknown continuous-variable state?  The answer
+passes through the Wigner distribution: each quadrature histogram is one of
+its line projections, so varying the angle supplies the data for an inverse
+Radon transform.
 
 \begin{definition}[Quadratures, Wigner distributions, and homodyne data]
 For one canonical degree of freedom, choose $q_0,p_0>0$ with
@@ -2994,6 +3043,14 @@ information in $B$; see
 {Knill--Laflamme, \emph{Physical Review A} \textbf{55} (1997)}.
 \end{exercise}
 
+The Knill--Laflamme condition never uses arbitrary products of noise
+operators.  It uses only the linear span of the pairwise overlaps
+$E_a^*E_b$, which records which input states the environment can confuse.
+This span is self-adjoint and contains the identity, but it need not be an
+algebra.  Operator systems isolate exactly this amount of structure, while
+their matrix-order cones retain positivity when an arbitrary ancilla is
+attached.
+
 \begin{definition}[Operator systems]
 An \emph{operator system} is a closed self-adjoint linear subspace
 $S\subseteq B(H)$ containing the identity. Its matrix order is the family of
@@ -3214,6 +3271,15 @@ axioms admits a complete isometry into $B(H)$. Apply matrix Hahn--Banach
 separation to a norming family of matrices and take the direct sum of the
 resulting maps.
 \end{exercise}
+
+Operator spaces become especially concrete for degrees of freedom labelled
+by a symmetry group $G$.  Left translations $\lambda_s$ generate the
+regular representation, while their matrix coefficients are the associated
+Fourier amplitudes.  Noise that is diagonal in these group modes multiplies
+them by a function on $G$; requiring the same bound after coupling an
+ancilla is exactly a completely bounded multiplier condition.  This returns
+harmonic analysis to the operator-space setting for a physical reason,
+rather than as a separate change of subject.
 
 \begin{definition}[Group von Neumann and Fourier algebras]
 For a locally compact group $G$ with left regular representation $\lambda$
@@ -3497,6 +3563,15 @@ plateaus at integer multiples of $e^2/h$ while longitudinal resistance is
 strongly suppressed.
 \end{observations}
 
+In an idealized gapped Hall system, small changes of fields, hopping
+strengths, or disorder do not change the quantized conductance as long as
+the relevant spectral or mobility gap remains open.  Thus the first
+mathematical question is not the precise Hamiltonian but whether two
+Hamiltonians can be continuously deformed into one another without leaving
+the gapped regime.  Homotopy formalizes such deformations; winding,
+cohomology, vector bundles, $K$-theory, and finally the Fredholm index supply
+successively richer invariants that cannot change along them.
+
 \begin{definition}[Homotopy and fundamental group]
 A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
 $H:X\times[0,1]\to Y$ with endpoints $f$ and $g$. The \emph{fundamental
@@ -3530,6 +3605,16 @@ isomorphism of graded rings
 \[
 H_{\mathrm{dR}}^*(M)\cong H^*(M;\R).
 \]
+
+Ordinary cohomology detects fluxes and characteristic classes, but stable
+band theory asks a more specific question: what remains after trivial bands
+may be added, and how does a bulk invariant become a
+boundary invariant one dimension lower?  The needed invariants must survive
+homotopy, decompose over independent pieces, satisfy excision, and shift
+degree under suspension.  A generalized cohomology theory packages these
+requirements.  Complex $K$-theory, introduced below from stable vector
+bundles, is the example that will classify the stable noninteracting
+symmetry-free band problem.
 
 \begin{definition}[Cofibers, finite CW complexes, and cohomology theories]
 A based inclusion $A\hookrightarrow X$ is a \emph{cofibration} if every
@@ -4103,9 +4188,22 @@ near $e/3$, and interferometry detects phase evolution associated with
 fractional statistics.
 \end{observations}
 
-Subfactor index measures the size of an inclusion of observable algebras.
-For conformal nets, finite index organizes localized charges into a finite
-system of superselection sectors.
+Fractional charge poses an algebraic puzzle.  Neutral local observables can
+create charge--anticharge pairs, but they cannot create a single isolated
+topological charge from the vacuum.  If $N$ is the algebra generated by
+observables in separated regions and $M$ is the larger algebra of everything
+compatible with measurements outside those regions, the inclusion
+$N\subseteq M$ records precisely this missing charged information.  A
+conditional expectation, when available, forgets it, and subfactor index
+measures how much was forgotten.
+
+This is an algebraic prototype rather than a direct model of the Hall
+sample.  In a completely rational conformal-net description of a chiral
+edge, the two-interval index is
+$\sum_a d_a^2$, the total quantum dimension squared of the localized charge
+sectors.  Their transport and exchange then produce fusion and braid data.
+The sequence below develops that bridge from inclusions, through sectors,
+to anyons and topological field theory.
 
 \begin{definition}[Subfactors, conditional expectations, and index]
 A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
