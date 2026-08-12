@@ -1750,12 +1750,62 @@ $I(X:Y)=S(p_X)/k_B+S(p_Y)/k_B-S(p_{XY})/k_B$, and show that it vanishes
 exactly when $X$ and $Y$ are independent.
 \end{exercise}
 
-\begin{definition}[Measure-preserving dynamics and ergodicity]
-A measurable transformation $T$ is \emph{measure preserving} if
-$\mu(T^{-1}A)=\mu(A)$. It is \emph{ergodic} if every invariant measurable
-set has measure zero or full measure. An \emph{equilibrium state} is an
-invariant probability measure for the dynamics.
+\begin{definition}[Ergodic dynamics and dynamical entropy]
+A measurable transformation $T$ of a probability space is
+\emph{measure preserving} if $\mu(T^{-1}A)=\mu(A)$. Its \emph{Koopman
+operator} is the isometry $U_Tf=f\circ T$ on $L^2(\mu)$. The system is
+\emph{ergodic} if every invariant measurable set has measure zero or one,
+and \emph{mixing} if
+\[
+\mu(T^{-n}A\cap B)\longrightarrow\mu(A)\mu(B)
+\]
+for all measurable $A,B$. An \emph{equilibrium state} is an invariant
+probability measure for the dynamics.
+
+For a finite measurable partition $\mathcal P$, set
+\[
+H_\mu(\mathcal P)=-\sum_{A\in\mathcal P}\mu(A)\log\mu(A),
+\qquad
+h_\mu(T,\mathcal P)
+=\lim_{n\to\infty}\frac1n
+H_\mu\!\left(\bigvee_{j=0}^{n-1}T^{-j}\mathcal P\right).
+\]
+The \emph{Kolmogorov--Sinai entropy} is
+$h_\mu(T)=\sup_{\mathcal P}h_\mu(T,\mathcal P)$. It measures the asymptotic
+information per time step revealed by successively refined observations.
 \end{definition}
+
+\begin{exercise}[Ergodic averages, mixing, and entropy rate]
+Prove that the fixed vectors of $U_T$ are precisely the invariant
+$L^2$-observables, and that ergodicity is equivalent to all such observables
+being constant almost everywhere. Prove the von Neumann mean ergodic theorem
+\[
+\frac1N\sum_{n=0}^{N-1}U_T^nf
+\longrightarrow P_{\mathrm{inv}}f
+\quad\text{in }L^2(\mu),
+\]
+where $P_{\mathrm{inv}}$ is orthogonal projection onto the invariant
+observables. Taking Birkhoff's pointwise ergodic theorem as input, show for
+$f\in L^1(\mu)$ that these averages converge almost everywhere to the
+conditional expectation onto the invariant $\sigma$-algebra, and hence to
+$\int f\,d\mu$ in an ergodic system. Prove that mixing implies ergodicity and
+that it gives decay of correlations
+$\int(f\circ T^n)g\,d\mu-\int f\,d\mu\int g\,d\mu\to0$ for bounded
+observables.
+
+For every finite partition $\mathcal P$, prove by subadditivity that the
+limit defining $h_\mu(T,\mathcal P)$ exists.
+For the two-sided Bernoulli shift on $\{1,\ldots,r\}^{\mathbb Z}$ with
+product probabilities $p_1,\ldots,p_r$, prove mixing first for cylinder sets
+and then for all measurable sets. Show that the time-zero coordinate
+partition is generating and, taking the Kolmogorov--Sinai generator theorem
+as input, compute
+\[
+h_\mu(T)=-\sum_{i=1}^r p_i\log p_i.
+\]
+Thus Shannon entropy becomes the information production rate of a dynamical
+system.
+\end{exercise}
 
 \begin{exercise}[Entropy and equilibrium]
 For every density $\rho$ with finite mean energy, prove
@@ -1767,8 +1817,9 @@ Deduce that the Gibbs ensemble uniquely maximizes entropy at fixed mean
 energy, equivalently minimizes free energy at fixed temperature. Prove
 $\langle H\rangle=-\partial_\beta\log Z$ and
 $\operatorname{Var}(H)=\partial_\beta^2\log Z$. Prove invariance of Gibbs
-measure under Hamiltonian flow and formulate the consequence of the ergodic
-theorem for equality of time and ensemble averages.
+measure under Hamiltonian flow. If the flow is ergodic on an invariant
+energy surface, use Birkhoff's theorem to identify long-time averages of
+integrable observables with their microcanonical ensemble averages.
 \end{exercise}
 
 \begin{exercise}[Ideal-gas thermodynamics]
@@ -1778,6 +1829,21 @@ $h^{3N}N!$. Derive the ideal-gas law, internal energy, and entropy, and
 the one-particle Maxwell--Boltzmann speed distribution. Derive its
 temperature scaling and compare both predictions with dilute-gas
 measurements in the classical regime.
+
+For a wall of area $A$, express the pressure measured during time $\tau$ as
+the time-averaged normal momentum transfer
+\[
+P_\tau=\frac1{A\tau}
+\sum_{\substack{\text{collisions with the wall}\\0<t_j\leq\tau}}
+2m|v_{j,\perp}|.
+\]
+Average the collision flux using the Maxwell--Boltzmann distribution and
+recover the same pressure $P=Nk_BT/V$. Identify the stationarity and
+ergodic assumptions that relate the long-time reading of one gas sample to
+the ensemble calculation. Explain why agreement of pressure, velocity
+statistics, and relaxation rates for selected observables and finite times
+tests consequences of those assumptions but does not prove that the full
+microscopic dynamics is mathematically ergodic.
 \end{exercise}
 
 \section{Quantum Mechanics}
