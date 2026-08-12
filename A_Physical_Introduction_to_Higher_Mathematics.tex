@@ -1632,29 +1632,13 @@ the cavity spectra discussed by
 precisely where quantization removes the classical divergence.
 \end{exercise}
 
-\begin{definition}[$C^*$-algebras and states]
-A \emph{unital Banach algebra} is a complete normed algebra with identity and
-$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
-$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
-Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
-if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
-$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
-\end{definition}
-
-\begin{exercise}[Commutative Gelfand duality]
-For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
-$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
-nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
-unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
-$C(\operatorname{Spec}A)$ by the Gelfand
-transform, and identify states on $C(X)$ with probability measures.
-\end{exercise}
-
 \section{Many-Body States}
 
 \begin{observations}
 \item Tomography of prepared entangled pairs reconstructs a nearly pure joint
 state while either subsystem alone has nearly equal two-outcome frequencies.
+\item Loophole-free Bell experiments measure correlations that violate CHSH
+bounds satisfied by local hidden-variable models.
 \end{observations}
 
 \begin{definition}[Composite and reduced states]
@@ -1747,6 +1731,54 @@ joint and reduced states, local outcome frequencies, and entanglement entropy
 of a Bell state, and compare them with entangled-pair tomography.
 \end{exercise}
 
+\begin{exercise}[Bell correlations and CHSH]
+For a polarization-entangled two-photon state, derive the CHSH bound $2$ for
+local hidden-variable models. Choose four polarization angles for which the
+quantum correlations attain $2\sqrt2$, and derive the predicted coincidence
+frequencies. As experimental input, use the adjusted local-realistic
+$p$-value $2.3\times10^{-7}$ reported by
+\href{https://doi.org/10.1103/PhysRevLett.115.250402}
+{Shalm et al., \emph{Physical Review Letters} \textbf{115} (2015)}.
+Determine at the $5\%$, $1\%$, and five-standard-deviation significance
+levels, using the one-sided Gaussian five-sigma threshold
+$2.87\times10^{-7}$, whether the local-realistic null is excluded. State the
+tested freedom-of-choice and spacelike-separation assumptions and explain why
+the result does not exclude arbitrary superdeterministic or signaling models.
+\end{exercise}
+
+\clearpage
+\part{Observables}
+
+\begin{observations}
+\item An excited superconducting qubit relaxes approximately as
+$e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
+$e^{-t/(2T_1)}$.
+\end{observations}
+
+\section{\texorpdfstring{$C^*$-Algebras}{C*-Algebras}}
+
+Observables form an algebra, while states are normalized positive functionals
+on that algebra. The GNS construction turns this abstract pairing into
+operators and vectors on a Hilbert space.
+
+\begin{definition}[$C^*$-algebras and states]
+A \emph{unital Banach algebra} is a complete normed algebra with identity and
+$\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
+$(ab)^*=b^*a^*$ and $(a^*)^*=a$. A \emph{$C^*$-algebra} is an involutive
+Banach algebra satisfying $\|a^*a\|=\|a\|^2$. An element is \emph{positive}
+if it is $b^*b$ for some $b$. A \emph{state} is a positive linear functional
+$\varphi$ with $\varphi(1)=1$; positivity then implies $\|\varphi\|=1$.
+\end{definition}
+
+\begin{exercise}[Commutative Gelfand duality]
+For compact Hausdorff $X$, prove that $C(X)$ is a commutative unital
+$C^*$-algebra. Let $\operatorname{Spec}A$ be the weak-$*$ compact space of
+nonzero unital $*$-homomorphisms $A\to\C$. Prove that every commutative
+unital $C^*$-algebra $A$ is isometrically $*$-isomorphic to
+$C(\operatorname{Spec}A)$ by the Gelfand
+transform, and identify states on $C(X)$ with probability measures.
+\end{exercise}
+
 \begin{definition}[Representations and GNS construction]
 A \emph{representation} of a $C^*$-algebra $A$ is a $*$-homomorphism
 $\pi:A\to B(H)$. For a state $\varphi$, define
@@ -1797,17 +1829,6 @@ measurements in
 \href{https://doi.org/10.1038/nature05319}
 {F\"olling et al., \emph{Nature} \textbf{444} (2006)}.
 \end{exercise}
-
-\clearpage
-\part{Observables}
-
-\begin{observations}
-\item An excited superconducting qubit relaxes approximately as
-$e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
-$e^{-t/(2T_1)}$.
-\item Loophole-free Bell experiments measure correlations that violate CHSH
-bounds satisfied by local hidden-variable models.
-\end{observations}
 
 \section{Operator Algebras}
 
@@ -2437,8 +2458,8 @@ For an XOR game, prove that its classical and entangled biases are
  \left|\sum M_{xy}\langle u_x,v_y\rangle\right|.
 \]
 Use Tsirelson's vector representation and the real Grothendieck inequality
-to prove $\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$. For CHSH, compute the
-classical bound $2$ and quantum bound $2\sqrt2$.
+to prove $\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$. Relate the CHSH values
+derived earlier to this general comparison.
 \end{exercise}
 
 \begin{exercise}[Unbounded advantages for multi-output games]
@@ -2456,20 +2477,6 @@ game tensors require operator-space matrix levels. Consult
 \href{https://doi.org/10.4086/toc.2012.v008a027}
 {Buhrman--Regev--Scarpa--de Wolf, \emph{Theory of Computing} \textbf{8}
 (2012)} for the supplied estimates.
-\end{exercise}
-
-\begin{exercise}[Measured nonclassical correlations]
-For a polarization-entangled two-photon state, choose four polarization
-angles attaining the CHSH value $2\sqrt2$ and derive the predicted
-coincidence correlations. As experimental input, use the adjusted
-local-realistic $p$-value $2.3\times10^{-7}$ reported by
-\href{https://doi.org/10.1103/PhysRevLett.115.250402}
-{Shalm et al., \emph{Physical Review Letters} \textbf{115} (2015)}.
-Determine at the $5\%$, $1\%$, and five-standard-deviation significance
-levels, using the one-sided Gaussian five-sigma threshold
-$2.87\times10^{-7}$, whether the local-realistic null is excluded. State the
-tested freedom-of-choice and spacelike-separation assumptions and explain why
-the result does not exclude arbitrary superdeterministic or signaling models.
 \end{exercise}
 
 \part{Fields}
