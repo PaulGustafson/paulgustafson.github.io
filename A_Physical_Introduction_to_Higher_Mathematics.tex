@@ -57,8 +57,6 @@
 
 \part{Waves}
 
-\section{From Superposition to Spectral Theory}
-
 \begin{observations}
 \item Small transverse disturbances on a taut string superpose: overlapping
 pulses add, and scaling an initial deflection scales its later motion. A
@@ -66,7 +64,7 @@ finite string fixed at both ends has discrete resonant modes, while a pulse on
 an effectively infinite string requires a continuous range of frequencies.
 \end{observations}
 
-\subsection{Linear Structure and Superposition}
+\section{Superposition}
 
 \begin{definition}[Vector spaces and linear maps]
 Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
@@ -212,7 +210,7 @@ with orientation. Deduce the change-of-variables rule for parallelepipeds
 and Cramer's rule.
 \end{exercise}
 
-\subsection{Inner Products and Finite Spectral Theory}
+\section{Spectral Theory}
 
 An inner product turns linear superposition into a geometry of orthogonal
 modes and makes spectral decomposition possible.
@@ -293,7 +291,7 @@ for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
 spectral subspaces without choosing coordinates.
 \end{exercise}
 
-\subsection{Oscillators and Normal Modes}
+\section{Normal Modes}
 
 The finite spectral theorem turns coupled equations of motion into independent
 normal modes. A chain of masses provides a finite approximation to the same
@@ -351,7 +349,7 @@ $f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
 $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
 
-\subsection{Fourier Analysis and Continuum Modes}
+\section{Fourier Analysis}
 
 For a continuous string, finite sums of normal modes give way to orthogonal
 series; on an unbounded domain, the mode parameter becomes continuous. The
@@ -477,14 +475,14 @@ kernel and its convolution law, and prove finite propagation speed for the
 one-dimensional wave equation.
 \end{exercise}
 
-\subsection{Hilbert Spaces and Spectral Measures}
+\section{Hilbert Spaces}
 
 Fourier series and transforms are concrete spectral decompositions. Hilbert
 space theory isolates the structure they share and replaces sums over modes
 by integration against projection-valued measures.
 
 \begin{definition}[Hilbert spaces and bounded operators]
-In this subsection and the next, Hilbert spaces are complex. A \emph{Hilbert
+In this section and the next, Hilbert spaces are complex. A \emph{Hilbert
 space} is a
 complete inner-product space. A linear map
 $T:H\to K$ is \emph{bounded} if
@@ -520,7 +518,7 @@ operators, derive continuous functional calculus, and characterize unitary
 and projection spectra.
 \end{exercise}
 
-\subsection{Unbounded Generators and Physical Spectra}
+\section{Unbounded Operators}
 
 The differential operators governing waves and translations are generally
 unbounded, so their domains become part of the spectral problem.
@@ -633,8 +631,6 @@ values of the Liouvillian $A\mapsto[H,A]/\hbar$.
 
 \part{Symmetry}
 
-\section{From Symmetry to Harmonic Analysis}
-
 \begin{observations}
 \item Infrared spectra of gas-phase $NH_3$ contain four fundamental
 vibrational bands, while in $NH_2D$ each band arising from a doubly degenerate
@@ -643,7 +639,7 @@ $NH_3$ vibration splits into distinct bands.
 selected directions determined by wavelength and lattice spacing.
 \end{observations}
 
-\subsection{Finite Groups and Representations}
+\section{Representations}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
@@ -734,7 +730,7 @@ $E|_{C_s}\cong A'\oplus A''$. Deduce that symmetry no longer enforces either
 degeneracy and compare with the observed band splitting.
 \end{exercise}
 
-\subsection{Lie Groups, Rotations, and Spin}
+\section{Rotations and Spin}
 
 Finite symmetry groups explain discrete degeneracies. Smooth symmetry groups
 add infinitesimal generators, continuous quantum numbers, and spin.
@@ -878,7 +874,7 @@ the Balmer wavelengths and compare them with the observed hydrogen lines.
 Apply the electric-dipole rule to identify forbidden transitions.
 \end{exercise}
 
-\subsection{Haar Measure, Fourier Analysis, and Reciprocal Space}
+\section{Harmonic Analysis}
 
 Invariant integration turns representations into a generalized Fourier
 analysis. For translation symmetry, its dual variables are the reciprocal
@@ -1166,8 +1162,6 @@ into operators rather than scalar frequency amplitudes.
 
 \part{Fields}
 
-\section{Geometry and Dynamics of Fields}
-
 \begin{observations}
 \item A changing magnetic flux through a conducting loop produces an
 electromotive force proportional to the rate of flux change.
@@ -1175,7 +1169,7 @@ electromotive force proportional to the rate of flux change.
 $150\,\mathrm{Hz}$ in two widely separated detectors.
 \end{observations}
 
-\subsection{Vector Fields and Differential Forms}
+\section{Differential Forms}
 
 \begin{definition}[Vector fields and flows]
 A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
@@ -1238,7 +1232,7 @@ dE=-\partial_tB,
 recovering the observed flux--emf law.
 \end{exercise}
 
-\subsection{Metrics and Spacetime}
+\section{Spacetime}
 
 Differential forms describe fluxes without a metric. A metric adds lengths,
 proper times, volume, and the duality between complementary form degrees.
@@ -1290,7 +1284,7 @@ mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
 distance $v\tau_\mu$ predicted without time dilation.
 \end{exercise}
 
-\subsection{Connections, Curvature, and Gauge Fields}
+\section{Gauge Fields}
 
 A connection compares fields at different points. Its curvature records the
 failure of parallel transport to be path independent and supplies the field
@@ -1394,7 +1388,7 @@ $F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
 the Yang--Mills equation.
 \end{exercise}
 
-\subsection{Classical Field Equations}
+\section{Field Equations}
 
 The geometric language now expresses electromagnetism and gravitation as
 equations for curvature constrained by conservation laws.
@@ -1457,8 +1451,6 @@ waveform with general relativity in that regime.
 
 \part{States}
 
-\section{Classical, Statistical, and Quantum States}
-
 \begin{observations}
 \item A dilute gas obeys the ideal-gas law and exhibits a temperature-dependent
 distribution of molecular speeds.
@@ -1466,7 +1458,7 @@ distribution of molecular speeds.
 frequencies depend on the preparation and analyzer directions.
 \end{observations}
 
-\subsection{Classical States and Hamiltonian Dynamics}
+\section{Hamiltonian Dynamics}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -1595,7 +1587,7 @@ show that their enclosed area is preserved. Interpret the motion as a
 betatron oscillation about a closed orbit.
 \end{exercise}
 
-\subsection{Probability, Gibbs States, and Ergodicity}
+\section{Statistical Mechanics}
 
 Probability measures enlarge pure classical states to statistical ensembles.
 Entropy and invariance then distinguish equilibrium among those ensembles.
@@ -1664,7 +1656,7 @@ temperature scaling and compare both predictions with dilute-gas
 measurements in the classical regime.
 \end{exercise}
 
-\subsection{Quantum States and Quantization}
+\section{Quantization}
 
 Quantum states retain the probabilistic expectation rule while replacing
 commutative observables by operators and classical mixtures by density
@@ -1911,7 +1903,7 @@ $C(\operatorname{Spec}A)$ by the Gelfand
 transform, and identify states on $C(X)$ with probability measures.
 \end{exercise}
 
-\section{Composite and Many-Body States}
+\section{Many-Body States}
 
 \begin{observations}
 \item Tomography of prepared entangled pairs reconstructs a nearly pure joint
@@ -2062,8 +2054,6 @@ measurements in
 \clearpage
 \part{Observables}
 
-\section{Operator Algebras, Channels, and Correlations}
-
 \begin{observations}
 \item An excited superconducting qubit relaxes approximately as
 $e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
@@ -2072,7 +2062,7 @@ $e^{-t/(2T_1)}$.
 bounds satisfied by local hidden-variable models.
 \end{observations}
 
-\subsection{Operator Algebras and Local Observables}
+\section{Operator Algebras}
 
 \begin{definition}[Operator topologies and von Neumann algebras]
 The \emph{weak operator topology} is generated by
@@ -2285,7 +2275,7 @@ the relevant replacement for sharply adjacent local regions in continuum
 QFT.
 \end{exercise}
 
-\subsection{Channels and Quantum Correlations}
+\section{Quantum Channels}
 
 Channels describe how observables and states change under noise, measurement,
 and loss of access to an environment. Matrix amplification detects behavior
@@ -2769,15 +2759,13 @@ the result does not exclude arbitrary superdeterministic or signaling models.
 
 \part{Topology}
 
-\section{Topology, K-Theory, and Index}
-
 \begin{observations}
 \item In the integer quantum Hall regime, transverse conductance forms
 plateaus at integer multiples of $e^2/h$ while longitudinal resistance is
 strongly suppressed.
 \end{observations}
 
-\subsection{Homotopy, Cohomology, and Bundles}
+\section{Topology and Bundles}
 
 \begin{definition}[Homotopy and fundamental group]
 A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
@@ -3018,7 +3006,7 @@ that it is independent of traversal rate, and identify the corresponding
 interference-fringe shift.
 \end{exercise}
 
-\subsection{K-Theory and Index}
+\section{K-Theory and Index}
 
 Cohomology assigns additive classes to bundles. K-theory first makes bundle
 addition invertible and then connects stable topology to the analytic index
@@ -3372,8 +3360,6 @@ the presence of strong interactions.
 
 \part{Anyons}
 
-\section{Anyons}
-
 \begin{observations}
 \item Modulation spectroscopy of critical Rydberg chains resolves
 even-parity excitation ratios $2:4:6:8$ and odd-parity ratios $3:5:7$
@@ -3383,7 +3369,7 @@ near $e/3$, and interferometry detects phase evolution associated with
 fractional statistics.
 \end{observations}
 
-\subsection{Subfactors and Conformal Nets}
+\section{Subfactors}
 
 Subfactor index measures the size of an inclusion of observable algebras.
 For conformal nets, finite index organizes localized charges into a finite
@@ -3559,7 +3545,7 @@ experiment supports the Ising CFT spectrum but does not directly measure the
 net or all of its superselection sectors.
 \end{exercise}
 
-\subsection{Fusion Categories and Topological Field Theory}
+\section{Fusion Categories}
 
 The sector operations abstract to a braided fusion category. Its
 diagrammatic data in turn define topological field theories and link
@@ -3704,7 +3690,7 @@ mapping-class-group representations on state spaces. In two dimensions,
 prove the equivalence with commutative Frobenius algebras.
 \end{exercise}
 
-\subsection{Topological Order and Quantum Codes}
+\section{Topological Order}
 
 In a gapped two-dimensional phase, the same categorical data describe anyon
 fusion, braiding, topology-dependent state spaces, and protected logical
