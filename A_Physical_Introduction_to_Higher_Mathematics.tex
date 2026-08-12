@@ -3142,6 +3142,111 @@ separation to a norming family of matrices and take the direct sum of the
 resulting maps.
 \end{exercise}
 
+\begin{definition}[Group von Neumann and Fourier algebras]
+For a locally compact group $G$ with left regular representation $\lambda$
+on $L^2(G)$, its \emph{group von Neumann algebra} is
+\[
+VN(G)=\{\lambda_s:s\in G\}''.
+\]
+The \emph{Fourier algebra} $A(G)$ consists of the coefficient functions
+\[
+u(s)=\langle\xi,\lambda_s\eta\rangle,
+\qquad \xi,\eta\in L^2(G),
+\]
+with norm
+\[
+\|u\|_{A(G)}
+=\inf\{\|\xi\|\,\|\eta\|:
+       u(s)=\langle\xi,\lambda_s\eta\rangle\}.
+\]
+The pairing $\langle u,\lambda_s\rangle=u(s)$ identifies
+$A(G)=VN(G)_*$ and equips $A(G)$ with its canonical predual operator-space
+structure. The normal unital $*$-homomorphism
+\[
+\Delta:VN(G)\longrightarrow
+VN(G)\mathbin{\overline\otimes}VN(G),
+\qquad
+\Delta(\lambda_s)=\lambda_s\otimes\lambda_s,
+\]
+is the \emph{group coproduct}; its preadjoint gives pointwise multiplication
+on $A(G)$. This is the operator-algebraic Fourier duality introduced by
+\href{https://doi.org/10.24033/bsmf.1607}
+{Eymard, \emph{Bulletin de la Soci\'et\'e Math\'ematique de France}
+\textbf{92} (1964)}.
+\end{definition}
+
+\begin{exercise}[Fourier algebras as operator-space preduals]
+For a discrete group $G$, prove that the canonical trace on $VN(G)$ satisfies
+$\tau(\lambda_s)=\delta_{s,e}$ and that the coefficient functions above
+separate the generators $\lambda_s$. Verify the coproduct identities
+\[
+(\Delta\mathbin{\overline\otimes}\id)\Delta
+=(\id\mathbin{\overline\otimes}\Delta)\Delta,
+\qquad
+\Delta(\lambda_s\lambda_t)=\Delta(\lambda_s)\Delta(\lambda_t).
+\]
+Show from the predual matrix norms that pointwise multiplication on $A(G)$
+is completely contractive at every matrix level.
+For abelian $G$, use Pontryagin duality to identify $A(G)$ with
+$L^1(\widehat G)$ under the inverse Fourier transform and show that this
+pointwise product corresponds to convolution on $L^1(\widehat G)$. Compare
+this coefficient-space viewpoint with the operator-valued Plancherel
+transform developed in Harmonic Analysis.
+\end{exercise}
+
+\begin{definition}[Completely bounded Fourier multipliers]
+A function $\phi:G\to\C$ is a \emph{Fourier multiplier} when
+$m_\phi(u)=\phi u$ maps $A(G)$ to itself. It is \emph{completely bounded}
+when $m_\phi$ is completely bounded for the predual operator-space
+structure. Its adjoint is the normal map
+\[
+M_\phi:VN(G)\to VN(G),
+\qquad
+M_\phi(\lambda_s)=\phi(s)\lambda_s.
+\]
+The Bo\.zejko--Fendler transference theorem says that $\phi$ is completely
+bounded exactly when the invariant kernel
+\[
+k_\phi(x,y)=\phi(xy^{-1})
+\]
+defines a Schur multiplier on $B(L^2(G))$. Equivalently, there are a Hilbert
+space $K$ and bounded continuous maps $\xi,\eta:G\to K$ such that
+\[
+\phi(xy^{-1})=\langle\xi(x),\eta(y)\rangle,
+\qquad
+\|m_\phi\|_{cb}
+=\inf\|\xi\|_\infty\|\eta\|_\infty.
+\]
+Such functions are called \emph{Herz--Schur multipliers}.
+\end{definition}
+
+\begin{exercise}[Fourier--Schur transference and quantum channels]
+Let $G$ be discrete. On the matrix units of $B(\ell^2(G))$, define
+\[
+S_\phi(E_{x,y})=\phi(xy^{-1})E_{x,y}.
+\]
+Verify directly that $S_\phi(\lambda_s)=\phi(s)\lambda_s$, so its restriction
+to $VN(G)$ is $M_\phi$. Use the factorization in the preceding definition to
+prove that $S_\phi$ and $M_\phi$ are completely bounded and have the stated
+norm; taking the converse factorization theorem as input, obtain the full
+transference equivalence.
+
+A function $\phi$ is \emph{positive definite} if
+$[\phi(s_i^{-1}s_j)]_{i,j}\geq0$ for every finite family $(s_i)$. Prove that
+if $\phi$ is positive definite and $\phi(e)=1$, then $S_\phi$ and $M_\phi$
+are normal unital completely positive maps. For finite $G$, prove that
+$M_\phi$ preserves the canonical trace and hence is a quantum channel in the
+Schr\"odinger adjoint picture. Show
+\[
+M_\phi M_\psi=M_{\phi\psi}.
+\]
+Taking Schoenberg's theorem as input, let $\ell:G\to[0,\infty)$ be
+conditionally negative definite with $\ell(e)=0$ and prove that
+$M_t(\lambda_s)=e^{-t\ell(s)}\lambda_s$ is a completely positive Markov
+semigroup. Interpret it as symmetry-diagonal decoherence: Fourier modes with
+larger $\ell(s)$ decay faster while the identity mode is preserved.
+\end{exercise}
+
 \begin{exercise}[Finite-dimensional Arveson--Wittstock extension]
 Prove in finite dimensions that a completely positive map from an operator
 system extends completely positively to the containing $C^*$-algebra.
