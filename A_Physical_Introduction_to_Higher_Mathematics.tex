@@ -210,10 +210,11 @@ with orientation. Deduce the change-of-variables rule for parallelepipeds
 and Cramer's rule.
 \end{exercise}
 
-\section{Spectral Theory}
+\section{Inner Products}
 
-An inner product turns linear superposition into a geometry of orthogonal
-modes and makes spectral decomposition possible.
+Throughout this section, the vector spaces are finite-dimensional. An inner
+product turns linear superposition into a geometry of orthogonal modes and
+makes spectral decomposition possible.
 
 \begin{definition}[Inner products and orthogonality]
 An \emph{inner product} on a real vector space is a positive-definite
@@ -349,11 +350,11 @@ $f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
 $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
 
-\section{Fourier Analysis}
+\section{Hilbert Spaces}
 
-For a continuous string, finite sums of normal modes give way to orthogonal
-series; on an unbounded domain, the mode parameter becomes continuous. The
-required setting is furnished by measure and integration.
+A continuous string requires infinite-dimensional spaces of functions.
+Measure and integration produce the spaces $L^p$, and completeness turns
+$L^2$ into a Hilbert space.
 
 \begin{definition}[Measure spaces and simple functions]
 A \emph{measure space} is a triple $(X,\Sigma,\mu)$ in which $\Sigma$ is a
@@ -364,7 +365,7 @@ when inverse images of Borel sets are in $\Sigma$. A nonnegative
 and $E_j\in\Sigma$.
 \end{definition}
 
-\begin{definition}[Fourier function spaces]
+\begin{definition}[$L^p$ spaces]
 For $1\leq p<\infty$, the space $L^p(X,\mu)$ consists of measurable
 functions modulo equality almost everywhere with
 \[
@@ -399,6 +400,29 @@ Prove completeness of $L^p$ for $1\leq p<\infty$. For Lebesgue measure,
 prove density first of simple functions with finite-measure support and then
 of $C_c(\R^n)$. Deduce that the inner-product norm makes $L^2$ complete.
 \end{exercise}
+
+\begin{definition}[Hilbert spaces and bounded operators]
+From this point onward, Hilbert spaces are complex. A \emph{Hilbert space} is
+a complete inner-product space. A linear map
+$T:H\to K$ is \emph{bounded} if
+$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Write $B(H,K)$ for the space of
+bounded maps and $B(H)=B(H,H)$. For $T\in B(H)$, the \emph{resolvent set}
+consists of $\lambda\in\C$ for which
+$T-\lambda\id$ has a bounded inverse; its complement is the
+\emph{spectrum} $\spec(T)$.
+\end{definition}
+
+\begin{exercise}[Hilbert-space foundations]
+Prove the projection theorem for closed subspaces and the Riesz
+representation theorem. Deduce $H=M\oplus M^\perp$ for closed $M$ and prove
+existence, uniqueness, and $\|T^*\|=\|T\|$ for bounded adjoints.
+\end{exercise}
+
+\section{Fourier Analysis}
+
+Orthogonal bases turn infinite-dimensional functions into sequences of
+modes. On a finite string this gives Fourier series; on an unbounded domain,
+the mode parameter becomes continuous and the series becomes a transform.
 
 \begin{definition}[Orthogonal expansions]
 Let $H$ be an inner-product space. For an orthogonal family $(e_n)$, the
@@ -475,32 +499,11 @@ kernel and its convolution law, and prove finite propagation speed for the
 one-dimensional wave equation.
 \end{exercise}
 
-\section{Hilbert Spaces}
+\section{Spectral Theory}
 
-Fourier series and transforms are concrete spectral decompositions. Hilbert
-space theory isolates the structure they share and replaces sums over modes
-by integration against projection-valued measures.
-
-\begin{definition}[Hilbert spaces and bounded operators]
-In this section and the next, Hilbert spaces are complex. A \emph{Hilbert
-space} is a
-complete inner-product space. A linear map
-$T:H\to K$ is \emph{bounded} if
-$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Write $B(H,K)$ for the space of
-bounded maps and $B(H)=B(H,H)$. The adjoint of $T$ is the unique bounded
-map satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. Projections,
-self-adjoint operators, and unitary operators satisfy respectively
-$P=P^*=P^2$, $A=A^*$, and $U^*U=UU^*=\id$. For $T\in B(H)$, the
-\emph{resolvent set} consists of $\lambda\in\C$ for which
-$T-\lambda\id$ has a bounded inverse; its complement is the
-\emph{spectrum} $\spec(T)$.
-\end{definition}
-
-\begin{exercise}[Hilbert-space foundations]
-Prove the projection theorem for closed subspaces and the Riesz
-representation theorem. Deduce $H=M\oplus M^\perp$ for closed $M$ and prove
-existence, uniqueness, and $\|T^*\|=\|T\|$ for bounded adjoints.
-\end{exercise}
+Fourier series and transforms are concrete spectral decompositions. The
+spectral theorem isolates their common structure and replaces sums over
+modes by integration against projection-valued measures.
 
 \begin{definition}[Projection-valued measures]
 A \emph{projection-valued measure} on a measurable space $X$ assigns an
@@ -518,10 +521,9 @@ operators, derive continuous functional calculus, and characterize unitary
 and projection spectra.
 \end{exercise}
 
-\section{Unbounded Operators}
-
-The differential operators governing waves and translations are generally
-unbounded, so their domains become part of the spectral problem.
+The differential operators governing waves and translations are not bounded.
+To extend spectral theory to them, the domain must become part of the
+operator.
 
 \begin{definition}[Unbounded operators and domains]
 A \emph{densely defined operator} $T$ has a dense linear domain
