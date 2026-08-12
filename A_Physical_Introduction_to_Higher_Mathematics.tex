@@ -40,6 +40,7 @@
 \newcommand{\vol}{\operatorname{vol}}
 \newcommand{\ad}{\operatorname{ad}}
 \newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\qbinom}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}_q}
 
 \hypersetup{
   pdftitle={A Physical Introduction to Higher Mathematics},
@@ -1489,6 +1490,7 @@ S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
 \end{definition}
 
 \begin{exercise}[Poisson summation]
+\label{ex:poisson-summation}
 Prove that $P_\Gamma f$ converges with all derivatives and compute its
 Fourier coefficients. With the Fourier-transform normalization above, prove
 \[
@@ -4606,6 +4608,880 @@ $\nu e^2/h$, and genus-$g$ degeneracy $m^g$. Compare these consequences
 separately with conductance plateaus, fractional shot-noise charge
 measurements, and interferometric phase data, stating which topological
 predictions each observation tests and which it does not.
+\end{exercise}
+
+\section{Topological Structures in Holography}
+
+\begin{observations}
+\item Ground states of one-dimensional critical systems have interval
+entanglement that grows logarithmically with interval length, whereas in
+gapped ground states it typically saturates once the interval is much longer
+than the correlation length.
+\item Black-hole thermodynamics assigns entropy proportional to horizon area
+rather than to the volume behind the horizon.
+\end{observations}
+
+Entanglement entropy was introduced earlier as a property of a reduced
+state.  Holography proposes that, in special quantum theories admitting a
+semiclassical gravitational dual, the same number can be computed by a bulk
+surface.  Topology is indispensable even at leading order: the surface must
+not merely have the right boundary, but must be homologous to the chosen
+boundary region.  This section isolates that topological content without
+assuming that every quantum field theory has a useful gravitational dual.
+
+\begin{definition}[Relative homology and the Ryu--Takayanagi surface]
+Let $\Sigma$ be a static bulk time slice with conformal boundary $B$, and let
+$A\subset B$ be a spatial region.  A codimension-one surface
+$\gamma\subset\Sigma$ satisfies the \emph{RT homology constraint} for $A$
+if
+\[
+\partial\gamma=\partial A
+\quad\text{and}\quad
+\partial r_A=A\cup\gamma
+\]
+with the appropriate orientations for some bulk region $r_A\subset\Sigma$.
+Equivalently, after regulating the conformal boundary, the cycle
+$A-\gamma$ is null-homologous in the bulk.
+
+In a static state with a semiclassical asymptotically anti-de Sitter dual,
+the \emph{Ryu--Takayanagi prescription} at leading order is
+\[
+S(A)=\frac{\operatorname{Area}(\gamma_A)}{4G_N},
+\]
+where $\gamma_A$ has least area among surfaces satisfying the anchoring and
+homology conditions.  The cutoff used to regulate its area is the geometric
+counterpart of the field-theory ultraviolet cutoff.
+\end{definition}
+
+\begin{exercise}[An interval in $\mathrm{AdS}_3$]
+On the time-zero slice of Poincar\'e $\mathrm{AdS}_3$, use
+\[
+ds^2=L^2\frac{dz^2+dx^2}{z^2},\qquad z>0,
+\]
+and regulate the boundary at $z=\epsilon$.  Show that the geodesic anchored
+at the endpoints of an interval of length $\ell$ is a semicircle orthogonal
+to $z=0$, and compute
+\[
+\operatorname{Length}(\gamma_A)
+=2L\log\frac{\ell}{\epsilon}+O(\epsilon^2/\ell^2).
+\]
+Using the Brown--Henneaux relation $c=3L/(2G_3)$, derive
+\[
+S(A)=\frac c3\log\frac{\ell}{\epsilon}+O(1).
+\]
+Compare this with the replica calculation for a vacuum interval in a
+two-dimensional CFT.  State clearly that the equality is a test of the
+holographic dictionary in its semiclassical regime, not a derivation of
+AdS/CFT for arbitrary CFTs; see
+\href{https://doi.org/10.1103/PhysRevLett.96.181602}
+{Ryu--Takayanagi, \emph{Physical Review Letters} \textbf{96} (2006)} and
+\href{https://doi.org/10.1007/BF01211590}
+{Brown--Henneaux, \emph{Communications in Mathematical Physics}
+\textbf{104} (1986)}.
+\end{exercise}
+
+\begin{definition}[Entanglement wedges, HRT surfaces, and quantum corrections]
+For a static RT surface, the \emph{entanglement wedge} of $A$ is the domain
+of dependence of the bulk region $r_A$ bounded by $A\cup\gamma_A$.  In a
+time-dependent spacetime, the \emph{Hubeny--Rangamani--Takayanagi surface}
+is instead an extremal codimension-two spacetime surface anchored at
+$\partial A$ and homologous to $A$, with least area among the appropriate
+extremal candidates.
+
+Beyond leading classical order, a \emph{quantum extremal surface} extremizes the
+generalized entropy
+\[
+S_{\rm gen}(\gamma)
+=\frac{\operatorname{Area}(\gamma)}{4G_N}
+ +S_{\rm bulk}(r_A),
+\]
+and the entropy is obtained from the least admissible extremum.  Thus RT is
+the static classical limit, HRT is its covariant classical extension, and
+the quantum-extremal prescription includes bulk entanglement corrections.
+\end{definition}
+
+\begin{exercise}[Topology change for two intervals]
+On a constant-time slice of Poincar\'e $\mathrm{AdS}_3$, let
+$A=[x_1,x_2]$ and $B=[x_3,x_4]$ with
+$x_1<x_2<x_3<x_4$.  The two admissible pairings of boundary endpoints have
+regulated lengths
+\[
+L_{\rm disc}=2L\log\frac{x_2-x_1}{\epsilon}
+             +2L\log\frac{x_4-x_3}{\epsilon},
+\]
+\[
+L_{\rm conn}=2L\log\frac{x_4-x_1}{\epsilon}
+             +2L\log\frac{x_3-x_2}{\epsilon}.
+\]
+Show that the RT surface changes topology when these two expressions cross,
+and derive
+\[
+I(A:B)=\max\!\left\{0,
+ \frac c3\log
+ \frac{(x_2-x_1)(x_4-x_3)}
+      {(x_4-x_1)(x_3-x_2)}\right\}.
+\]
+Explain why vanishing leading-order mutual information corresponds to a
+disconnected classical entanglement wedge, while finite-$G_N$ bulk
+correlations need not vanish exactly.
+\end{exercise}
+
+\begin{exercise}[Entropy inequalities from cutting and regluing]
+For disjoint $A$ and $B$ in a static bulk slice, draw minimal representatives
+for the regions needed
+in subadditivity and strong subadditivity.  Cut the surfaces where they
+intersect and reglue the pieces into admissible, not necessarily minimal,
+surfaces for the opposite sides of
+\[
+S(A)+S(B)\geq S(A\cup B),
+\]
+and
+\[
+S(AB)+S(BC)\geq S(B)+S(ABC).
+\]
+Use minimality to prove the inequalities.  Identify where the relative
+homology constraint is needed to ensure that the reglued surfaces are
+admissible.  Explain why this argument is geometric and classical and why
+the bulk-entropy term must be included at quantum order.
+\end{exercise}
+
+\begin{definition}[The BTZ horizon and thermofield-double topology]
+The nonrotating BTZ black hole has metric
+\[
+ds^2=-\frac{r^2-r_+^2}{L^2}\,dt^2
+ +\frac{L^2}{r^2-r_+^2}\,dr^2+r^2d\phi^2,
+\qquad \phi\sim\phi+2\pi,
+\]
+temperature $T=r_+/(2\pi L^2)$, and horizon entropy
+\[
+S_{\rm BH}=\frac{2\pi r_+}{4G_3}.
+\]
+Its maximally extended geometry has two asymptotic boundaries and is dual,
+in the standard semiclassical dictionary, to a thermofield-double state of
+two CFT copies.  The bifurcation circle is homologous to either complete
+boundary separately, but not to the union of both boundaries.
+\end{definition}
+
+\begin{exercise}[Homology, horizons, and black-hole entropy]
+For the pure thermofield-double state on $H_L\otimes H_R$, prove for its
+reduced states that $S(\rho_L)=S(\rho_R)$ while the joint entropy vanishes.
+Apply the RT homology constraint to show
+that the surface for one complete boundary is the bifurcation circle, while
+the empty surface is admissible for the union of both boundaries.  Recover
+$S(H_L)=2\pi r_+/(4G_3)$ and interpret the result as entanglement between the
+two boundary theories.
+
+For a boundary circle of circumference $2\pi L$, use
+$\beta=2\pi L^2/r_+$ and $c=3L/(2G_3)$ to verify that the high-temperature
+CFT expression
+\[
+S_{\rm thermal}=\frac{\pi c}{3}\frac{2\pi L}{\beta}
+\]
+equals $S_{\rm BH}$.  In the Arithmetic part this thermal formula will be
+recovered from modular invariance and asymptotic state counting.  Consult
+\href{https://doi.org/10.1088/1126-6708/2007/07/062}
+{Hubeny--Rangamani--Takayanagi, \emph{Journal of High Energy Physics}
+\textbf{07} (2007)} for the covariant prescription and
+\href{https://doi.org/10.1007/JHEP11(2013)074}
+{Faulkner--Lewkowycz--Maldacena, \emph{Journal of High Energy Physics}
+\textbf{11} (2013)} for the bulk quantum correction, and
+\href{https://doi.org/10.1007/JHEP01(2015)073}
+{Engelhardt--Wall, \emph{Journal of High Energy Physics} \textbf{01}
+(2015)} for quantum extremal surfaces.
+\end{exercise}
+
+\part{Arithmetic}
+
+\section{Partitions and Generating Functions}
+
+\begin{observations}
+\item When independent bosonic modes have equally spaced excitation
+energies, many occupation patterns have exactly the same total energy; the
+degeneracy grows rapidly with the excitation number.
+\item Finite-size spectra at criticality organize into towers whose repeated
+level degeneracies can be read as coefficients of power series.
+\end{observations}
+
+Arithmetic enters physics first as exact counting.  A generating function
+does more than list degeneracies: its product form records independent
+modes, its sum form records constrained many-body states, and its analytic
+behavior controls the entropy of highly excited states.  The tension
+between these descriptions is the source of the $q$-series identities used
+later in conformal field theory and integrable models.
+
+\begin{definition}[Partitions and $q$-Pochhammer symbols]
+An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
+$\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
+$|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
+with $p(0)=1$.  For a formal variable $q$, set
+\[
+(a;q)_n=\prod_{j=0}^{n-1}(1-aq^j),
+\qquad
+(a;q)_\infty=\prod_{j=0}^{\infty}(1-aq^j).
+\]
+Analytically, the infinite product converges for $|q|<1$.  Euler's partition
+generating function is
+\[
+P(q)=\sum_{n\geq0}p(n)q^n=\frac1{(q;q)_\infty}.
+\]
+\end{definition}
+
+\begin{exercise}[Bosonic and fermionic occupation numbers]
+Consider oscillator modes with one-particle energies
+$\hbar\omega,2\hbar\omega,3\hbar\omega,\ldots$.  Show that a bosonic Fock
+state of excitation energy $n\hbar\omega$ is a partition of $n$, and derive
+\[
+\prod_{m\geq1}\frac1{1-q^m}=\sum_{n\geq0}p(n)q^n.
+\]
+For fermionic occupation numbers in $\{0,1\}$, show that
+$\prod_{m\geq1}(1+q^m)$ counts partitions into distinct parts.  Construct a
+bijection, by separating powers of two in the multiplicities, between
+partitions into distinct parts and partitions into odd parts, and conclude
+\[
+\prod_{m\geq1}(1+q^m)
+=\prod_{m\geq1}\frac1{1-q^{2m-1}}.
+\]
+Interpret the two products as different quasiparticle descriptions with the
+same exact degeneracies.
+\end{exercise}
+
+\begin{definition}[Gaussian binomial coefficients]
+For $0\leq r\leq n$, the \emph{Gaussian binomial coefficient} is
+\[
+\qbinom{n}{r}
+=\frac{(q;q)_n}{(q;q)_r(q;q)_{n-r}},
+\]
+and it is zero outside this range.  Despite its quotient presentation, it is
+a polynomial in $q$ with nonnegative integer coefficients.
+\end{definition}
+
+\begin{exercise}[Partitions in a box]
+Prove the recurrence
+\[
+\qbinom{n}{r}=\qbinom{n-1}{r}
+ +q^{n-r}\qbinom{n-1}{r-1}.
+\]
+Use either this recurrence or Ferrers-diagram conjugation to show that
+\(\qbinom{a+b}{a}\) is the generating polynomial for partitions whose diagram
+fits in an $a\times b$ rectangle.  Deduce
+\(\qbinom{a+b}{a}=\qbinom{a+b}{b}\) and prove the finite $q$-binomial theorem
+\[
+\prod_{j=0}^{n-1}(1+zq^j)
+=\sum_{r=0}^n q^{r(r-1)/2}\qbinom{n}{r}z^r.
+\]
+Explain why finite-volume state counts are polynomials even when their
+thermodynamic limits are infinite products.
+\end{exercise}
+
+\begin{definition}[The Rogers--Ramanujan functions]
+For $|q|<1$, define
+\[
+G(q)=\sum_{r\geq0}\frac{q^{r^2}}{(q;q)_r},
+\qquad
+H(q)=\sum_{r\geq0}\frac{q^{r(r+1)}}{(q;q)_r}.
+\]
+The Rogers--Ramanujan identities are
+\[
+G(q)=\frac1{(q;q^5)_\infty(q^4;q^5)_\infty},
+\qquad
+H(q)=\frac1{(q^2;q^5)_\infty(q^3;q^5)_\infty}.
+\]
+They equate fermionic-looking sums, in which $r$ behaves like a particle
+number subject to exclusion, with bosonic-looking products over allowed
+mode numbers.
+\end{definition}
+
+\begin{exercise}[Difference conditions and Rogers--Ramanujan counting]
+Fix the number $r$ of parts.  Subtract the staircase
+$(2r-1,2r-3,\ldots,1)$ to prove that
+$q^{r^2}/(q;q)_r$ generates partitions with exactly $r$ parts whose
+successive parts differ by at least two.  Use the staircase
+$(2r,2r-2,\ldots,2)$ for the same difference condition with smallest part at
+least two.  Interpret the product sides as partitions into parts congruent
+to $1$ or $4$ modulo $5$, and to $2$ or $3$ modulo $5$, respectively.
+Taking the analytic Rogers--Ramanujan identities as supplied, deduce the two
+partition theorems.  Later, identify the same functions as exact CFT
+characters and as functions occurring in an integrable lattice model; see
+\href{https://doi.org/10.1073/pnas.78.9.5290}
+{Andrews, \emph{Proceedings of the National Academy of Sciences}
+\textbf{78} (1981)}.
+\end{exercise}
+
+\section{Theta Functions and Modular Forms}
+
+\begin{observations}
+\item Diffraction by a crystal produces sharp peaks on a reciprocal lattice,
+so real-space lattice geometry is encoded by arithmetic data in momentum
+space.
+\item A particle on a compact circle admits both a momentum-mode expansion
+and a winding-path expansion; Poisson summation makes the two thermal
+partition functions equal.
+\end{observations}
+
+The same dual description appears throughout arithmetic physics.  Lattice
+points may be counted directly, or reorganized through the dual lattice.
+The modular transformation $\tau\mapsto-1/\tau$ is the complex-analytic form
+of this exchange, while $\tau\mapsto\tau+1$ records integrality and parity.
+
+\begin{definition}[Integral lattices and theta series]
+A \emph{Euclidean lattice} $L\subset\R^d$ is the integer span of a basis of
+$\R^d$.  Its dual is
+\[
+L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
+\text{ for every }x\in L\}.
+\]
+It is \emph{integral} if $L\subseteq L^*$, \emph{unimodular} if
+$L=L^*$, and \emph{even} if $\|x\|^2\in2\Z$ for every $x\in L$.
+For $\tau$ in the upper half-plane and $q=e^{2\pi i\tau}$, its theta series
+is
+\[
+\Theta_L(\tau)=\sum_{x\in L}q^{\|x\|^2/2}.
+\]
+Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
+\end{definition}
+
+\begin{exercise}[Poisson duality for lattice theta series]
+Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
+\[
+\Theta_L(-1/\tau)
+=\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^*}(\tau),
+\]
+using the branch positive on the positive imaginary axis.  Show that
+evenness gives $\Theta_L(\tau+1)=\Theta_L(\tau)$.  Interpret the first
+identity as momentum--winding duality for a compact free boson and as the
+reciprocal-lattice relation behind diffraction.  Explain why a general
+lattice theta series transforms with its dual rather than being a scalar
+modular form by itself.
+\end{exercise}
+
+\begin{definition}[The modular group and modular forms]
+The modular group $SL_2(\Z)$ acts on the upper half-plane by
+\[
+\gamma\tau=\frac{a\tau+b}{c\tau+d},
+\qquad
+\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+\]
+and is generated by $S:\tau\mapsto-1/\tau$ and
+$T:\tau\mapsto\tau+1$.  A \emph{modular form of integral weight $k$} for
+$SL_2(\Z)$ is a holomorphic function $f$ on the upper half-plane satisfying
+\[
+f(\gamma\tau)=(c\tau+d)^k f(\tau)
+\]
+and holomorphic at the cusp, meaning that its Fourier expansion
+$f(\tau)=\sum_{n\geq0}a_nq^n$ has no negative powers.  It is a
+\emph{cusp form} if $a_0=0$.
+\end{definition}
+
+\begin{definition}[Jacobi theta functions and the Dedekind eta function]
+Set
+\[
+\begin{aligned}
+\vartheta_2(\tau)&=\sum_{n\in\Z}q^{(n+1/2)^2/2},\\
+\vartheta_3(\tau)&=\sum_{n\in\Z}q^{n^2/2},\\
+\vartheta_4(\tau)&=\sum_{n\in\Z}(-1)^nq^{n^2/2},
+\end{aligned}
+\qquad
+\eta(\tau)=q^{1/24}(q;q)_\infty.
+\]
+These functions have weight $1/2$ transformation laws with phases or
+permutations, rather than being integral-weight scalar modular forms for the
+full modular group.  In particular,
+\[
+\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
+\qquad
+\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau).
+\]
+\end{definition}
+
+\begin{exercise}[Theta transformations and the Jacobi triple product]
+Use Poisson summation on shifted and phase-twisted Gaussians to derive
+\[
+\vartheta_2(-1/\tau)=(-i\tau)^{1/2}\vartheta_4(\tau),
+\quad
+\vartheta_3(-1/\tau)=(-i\tau)^{1/2}\vartheta_3(\tau),
+\quad
+\vartheta_4(-1/\tau)=(-i\tau)^{1/2}\vartheta_2(\tau).
+\]
+Prove the $T$-transformation laws directly from the series.  Establish the
+Jacobi triple product, first as an identity of formal Laurent series,
+\[
+\sum_{n\in\Z}z^nq^{n^2/2}
+=\prod_{m\geq1}(1-q^m)
+ (1+zq^{m-1/2})(1+z^{-1}q^{m-1/2}),
+\]
+and use specializations to recover product forms for the theta functions.
+Explain how the two sides encode charge sectors and independent oscillator
+modes, respectively.
+\end{exercise}
+
+\begin{definition}[Eisenstein series and the discriminant]
+Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
+weights four and six are
+\[
+E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
+\qquad
+E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
+\]
+The modular discriminant is the weight-twelve cusp form
+\[
+\Delta(\tau)=\eta(\tau)^{24}
+=q\prod_{n\geq1}(1-q^n)^{24}
+=\frac{E_4(\tau)^3-E_6(\tau)^2}{1728}.
+\]
+\end{definition}
+
+\begin{exercise}[The ring of modular forms and the $E_8$ lattice]
+Construct Eisenstein series by summing $(m\tau+n)^{-k}$ over nonzero lattice
+points for even $k>2$, prove their modular transformation law, and obtain the
+displayed Fourier expansions for $E_4$ and $E_6$.  Taking the valence formula
+as supplied, prove
+\[
+M_*(SL_2(\Z))\cong\C[E_4,E_6]
+\]
+as a graded ring.  For a positive-definite even unimodular lattice, first use
+consistency of the $S$ and $T$ laws to prove that its dimension $d$ is
+divisible by eight, and then show that its theta series is a modular form of
+weight $d/2$.
+For the $E_8$ lattice, use $\dim M_4=1$ to deduce
+$\Theta_{E_8}=E_4$, and conclude that $E_8$ has $240$ vectors of squared
+length two.
+\end{exercise}
+
+\begin{exercise}[Partition asymptotics from modular inversion]
+Put $q=e^{-t}$ and use the modular transformation of $\eta$ to prove
+\[
+P(e^{-t})
+\sim\sqrt{\frac{t}{2\pi}}
+\exp\!\left(\frac{\pi^2}{6t}\right)
+\qquad(t\downarrow0).
+\]
+Apply a saddle-point argument, or an appropriate Tauberian theorem with its
+hypotheses stated, to derive the Hardy--Ramanujan formula
+\[
+p(n)\sim\frac1{4n\sqrt3}
+ \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
+\]
+Interpret $\log p(n)$ as the microcanonical entropy of the bosonic modes in
+the first exercise of this part.  Distinguish this asymptotic result from an
+exact coefficient formula; see
+\href{https://doi.org/10.1112/plms/s2-17.1.75}
+{Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
+\textbf{17} (1918)}.
+\end{exercise}
+
+\section{CFT Characters and Integrable Models}
+
+\begin{observations}
+\item At a one-dimensional quantum critical point, finite-size energy levels
+fall into conformal towers with reproducible degeneracies rather than an
+unstructured continuum.
+\item Exactly solved lattice models exhibit identities between constrained
+particle configurations and infinite products that are invisible in a
+generic numerical diagonalization.
+\end{observations}
+
+The coefficients of a CFT character count states, while its modular
+transformation law relates low and high energies.  This makes characters a
+meeting point of representation theory, statistical mechanics, and
+arithmetic.  They are generally components of a vector-valued modular
+function, not scalar modular forms in the preceding definition.
+
+\begin{definition}[The Virasoro algebra and its characters]
+The \emph{Virasoro algebra} has generators $L_n$ for $n\in\Z$ and a central
+element acting by $c$, with
+\[
+[L_m,L_n]=(m-n)L_{m+n}
+ +\frac c{12}(m^3-m)\delta_{m+n,0}.
+\]
+A highest-weight vector $|h\rangle$ satisfies
+$L_0|h\rangle=h|h\rangle$ and $L_n|h\rangle=0$ for $n>0$.
+For a positive-energy module $H_a$ with finite-dimensional $L_0$
+eigenspaces, its \emph{character} is
+\[
+\chi_a(\tau)=\Tr_{H_a}q^{L_0-c/24}.
+\]
+The shift by $-c/24$ is the Casimir energy produced by mapping the plane to
+the cylinder.
+\end{definition}
+
+\begin{exercise}[Descendants, partitions, and null states]
+Use the Poincar\'e--Birkhoff--Witt theorem to order Virasoro descendants as
+\[
+L_{-\lambda_1}\cdots L_{-\lambda_r}|h\rangle,
+\qquad \lambda_1\geq\cdots\geq\lambda_r\geq1.
+\]
+Before quotienting by null vectors, deduce the Verma-module character
+\[
+\chi_{c,h}^{\rm Verma}(\tau)
+=\frac{q^{h-c/24}}{(q;q)_\infty}.
+\]
+For the vacuum, impose $L_{-1}|0\rangle=0$ and find the resulting generic
+vacuum descendant product.  Explain why additional null vectors subtract
+states and turn unrestricted partition numbers into the more structured
+$q$-series of minimal models.
+\end{exercise}
+
+\begin{definition}[Rational characters and modular invariants]
+In a rational chiral CFT, assume there are finitely many irreducible
+positive-energy sectors $H_a$ and that their characters span a representation
+of the modular group,
+\[
+\chi_a(-1/\tau)=\sum_bS_{ab}\chi_b(\tau),
+\qquad
+\chi_a(\tau+1)=\sum_bT_{ab}\chi_b(\tau).
+\]
+A full torus partition function has the form
+\[
+Z(\tau,\bar\tau)
+=\sum_{a,b}M_{ab}\chi_a(\tau)\overline{\chi_b(\tau)}
+\]
+with nonnegative integer multiplicities.  It is modular invariant when
+$M$ commutes with $S$ and $T$.  Under the standard rationality hypotheses,
+these matrices agree with the modular data governing the associated
+superselection category developed in Quantum Topology.
+\end{definition}
+
+\begin{exercise}[Exact state counting in the Ising CFT]
+For the Ising theory with $c=1/2$ and primary weights
+$0,1/2,1/16$, take
+\[
+\begin{aligned}
+\chi_0&=\frac12\left(
+ \sqrt{\frac{\vartheta_3}{\eta}}+
+ \sqrt{\frac{\vartheta_4}{\eta}}\right),\\
+\chi_{1/2}&=\frac12\left(
+ \sqrt{\frac{\vartheta_3}{\eta}}-
+ \sqrt{\frac{\vartheta_4}{\eta}}\right),\\
+\chi_{1/16}&=\frac1{\sqrt2}
+ \sqrt{\frac{\vartheta_2}{\eta}}.
+\end{aligned}
+\]
+Expand each as $q^{h-c/24}$ times a power series and interpret its first
+coefficients as exact descendant degeneracies.  Derive
+\[
+S=\frac12
+\begin{pmatrix}
+1&1&\sqrt2\\
+1&1&-\sqrt2\\
+\sqrt2&-\sqrt2&0
+\end{pmatrix},
+\qquad
+T_{aa}=e^{2\pi i(h_a-c/24)}.
+\]
+Verify the modular invariance of
+$|\chi_0|^2+|\chi_{1/2}|^2+|\chi_{1/16}|^2$ and recover the Ising fusion
+rules from the Verlinde formula.  Relate these towers to the critical Ising
+spectroscopy exercise in Quantum Topology.
+\end{exercise}
+
+\begin{exercise}[The Cardy density of states]
+Assume a modular-invariant unitary CFT with discrete spectrum, unique vacuum,
+and left and right central charges $c,\bar c$.  Set
+$\tau=i\beta/(2\pi)$ and use $S$-invariance to show that the
+high-temperature partition function is controlled by the vacuum at inverse
+temperature $4\pi^2/\beta$.  A saddle-point inverse Laplace transform then
+gives, for large left and right excitation numbers,
+\[
+\log\rho(N,\bar N)
+\sim2\pi\sqrt{\frac{cN}{6}}
+    +2\pi\sqrt{\frac{\bar c\bar N}{6}}.
+\]
+State how $c$ is replaced by
+$c_{\rm eff}=c-24h_{\min}$ in a nonunitary theory.  For a nonrotating state
+with $c=\bar c$ and $N=\bar N$, recover the thermal entropy used in the BTZ
+exercise and hence reproduce the horizon entropy from boundary-state
+counting; see
+\href{https://doi.org/10.1016/0550-3213(86)90552-3}
+{Cardy, \emph{Nuclear Physics B} \textbf{270} (1986)}.
+\end{exercise}
+
+\begin{exercise}[Rogers--Ramanujan characters of the Yang--Lee model]
+The nonunitary minimal model $M(2,5)$ has
+$c=-22/5$ and primary weights $0$ and $-1/5$.  Show, by comparing leading
+powers and null-state degeneracies, that its two irreducible characters are
+\[
+\chi_0(\tau)=q^{11/60}H(q),
+\qquad
+\chi_{-1/5}(\tau)=q^{-1/60}G(q).
+\]
+Use both the sum and product sides of the Rogers--Ramanujan identities to
+give exclusion-rule and allowed-mode descriptions of the same conformal
+towers.  Compute $c_{\rm eff}=2/5$ and explain why high-energy growth is
+controlled by the lowest conformal weight rather than by the vacuum in this
+nonunitary example.  Do not interpret the model as a unitary quantum
+Hamiltonian despite its exact arithmetic structure.
+\end{exercise}
+
+\begin{definition}[Transfer matrices and integrability]
+For a two-dimensional lattice model on a cylinder, a \emph{row transfer
+matrix} $T_N(u)$ propagates one width-$N$ row to the next and depends on a
+spectral parameter $u$.  The model is \emph{integrable} when it admits a
+nontrivial commuting family
+\[
+[T_N(u),T_N(v)]=0
+\qquad\text{for every }u,v,
+\]
+usually obtained from a Yang--Baxter or star--triangle relation.  Commuting
+transfer matrices permit simultaneous spectral analysis, but integrability
+alone does not guarantee that every finite-size degeneracy has a simple
+closed formula.
+\end{definition}
+
+\begin{exercise}[Hard hexagons and exact finite-volume counting]
+In the hard-hexagon model, occupied vertices of a triangular lattice may not
+be adjacent.  On an $N\times M$ torus define
+\[
+Z_{N,M}(z)=\sum_{I\text{ independent}}z^{|I|}.
+\]
+Index a row transfer matrix by cyclic binary rows and set its matrix element
+to zero when two consecutive rows violate nearest-neighbor exclusion, and
+otherwise to $z^{(|a|+|b|)/2}$.  Prove
+$Z_{N,M}(z)=\Tr(T_N(z)^M)$ and compute the polynomial for several small
+sizes.  Show that the coefficients are exact state counts, whereas the
+largest eigenvalue controls the thermodynamic free energy.
+
+Take Baxter's commuting deformation and exact thermodynamic solution as
+input.  Verify that its critical activity is
+\[
+z_c=\frac{11+5\sqrt5}{2}=\left(\frac{1+\sqrt5}{2}\right)^5,
+\]
+and identify where Rogers--Ramanujan functions enter the solution.  Explain
+why their appearance is a special consequence of the integrable structure,
+not a feature of arbitrary lattice gases; see
+\href{https://doi.org/10.1088/0305-4470/13/3/007}
+{Baxter, \emph{Journal of Physics A} \textbf{13} (1980)}.
+\end{exercise}
+
+\section{Cyclotomic and Aperiodic Structure}
+
+\begin{observations}
+\item Electron diffraction from rapidly cooled aluminum--manganese alloys
+shows sharp Bragg peaks with icosahedral symmetry, even though no
+three-dimensional periodic lattice can have that rotational symmetry.
+\item Spectra of quasiperiodically modulated chains develop recursively
+organized gaps whose labels are constrained by irrational frequencies.
+\end{observations}
+
+Arithmetic order lies between periodicity and randomness.  Roots of unity
+produce the algebraic phases and quantum dimensions of finite topological
+data, while irrational algebraic numbers generate substitutions and
+cut-and-project structures with long-range order but no translation period.
+The resulting diffraction and spectral gaps are experimentally visible.
+
+\begin{definition}[Algebraic numbers and cyclotomic fields]
+A complex number $\alpha$ is \emph{algebraic} over $\Q$ if it is a root of a
+nonzero polynomial in $\Q[x]$, and an \emph{algebraic integer} if it is a
+root of a monic polynomial in $\Z[x]$.  Its \emph{minimal polynomial} is the
+monic irreducible polynomial in $\Q[x]$ that it satisfies.  A
+\emph{Galois conjugate} is another root of that polynomial.
+
+For $n\geq1$, let $\zeta_n=e^{2\pi i/n}$.  The \emph{$n$th cyclotomic
+field} is $\Q(\zeta_n)$, and the \emph{$n$th cyclotomic polynomial}
+$\Phi_n(x)$ is the minimal polynomial of $\zeta_n$.  It satisfies
+\[
+x^n-1=\prod_{d\mid n}\Phi_d(x),
+\qquad
+[\Q(\zeta_n):\Q]=\varphi(n).
+\]
+\end{definition}
+
+\begin{exercise}[Roots of unity in topological data]
+Prove the cyclotomic factorization recursively and show that
+$\operatorname{Gal}(\Q(\zeta_n)/\Q)\cong(\Z/n\Z)^\times$ by
+$\zeta_n\mapsto\zeta_n^a$.  For the $SU(2)_k$ theory from Quantum Topology,
+put $\xi=e^{\pi i/(k+2)}$ and prove that the quantum dimensions
+\[
+d_j=\frac{\sin((j+1)\pi/(k+2))}
+          {\sin(\pi/(k+2))},
+\qquad 0\leq j\leq k,
+\]
+belong to the real subfield of $\Q(\xi)$ and are algebraic integers.  At
+$k=3$, identify the nontrivial dimension
+$2\cos(\pi/5)=(1+\sqrt5)/2$ and recover its polynomial
+$x^2-x-1$.  Show directly that the topological twists in $SU(2)_k$ are
+roots of unity up to the common framing phase.  Explain what this proves for
+this family without asserting that arbitrary algebraic numbers are physical
+topological data.
+\end{exercise}
+
+\begin{definition}[Continued fractions and Pisot numbers]
+For irrational $\alpha$, its simple continued fraction is
+\[
+\alpha=[a_0;a_1,a_2,\ldots]
+=a_0+\cfrac1{a_1+\cfrac1{a_2+\cdots}},
+\]
+with convergents $p_n/q_n=[a_0;\ldots,a_n]$.  A real algebraic integer
+$\beta>1$ is a \emph{Pisot number} if every other Galois conjugate has
+absolute value less than one.
+\end{definition}
+
+\begin{exercise}[The golden ratio as a Diophantine scale]
+Let $\phi=(1+\sqrt5)/2$.  Prove
+\[
+\phi=[1;1,1,1,\ldots],
+\qquad
+\frac{F_{n+1}}{F_n}\longrightarrow\phi,
+\qquad
+F_{n+1}F_{n-1}-F_n^2=(-1)^n.
+\]
+Derive the convergent estimate
+$|\phi-F_{n+1}/F_n|<1/F_n^2$ and the corresponding near recurrences of
+phases $e^{2\pi i m/\phi}$.  Show that $\phi$ is a Pisot number because its
+other conjugate is $-1/\phi$.  Explain why good rational approximants produce
+large approximate periods without producing an exact translation period.
+\end{exercise}
+
+\begin{definition}[Substitutions and the Fibonacci word]
+A \emph{substitution} on a finite alphabet replaces each letter by a finite
+word and extends by concatenation.  Its incidence matrix records how many
+copies of each letter occur in every substituted letter.  The Fibonacci
+substitution is
+\[
+\sigma(a)=ab,
+\qquad
+\sigma(b)=a,
+\qquad
+M_\sigma=\begin{pmatrix}1&1\\1&0\end{pmatrix}.
+\]
+Its one-sided fixed word is the limit of
+$a,ab,aba,abaab,\ldots$.
+\end{definition}
+
+\begin{exercise}[Frequencies and aperiodicity of the Fibonacci chain]
+Diagonalize $M_\sigma$, prove that its Perron--Frobenius eigenvalue is
+$\phi$, and derive letter frequencies
+\[
+\operatorname{freq}(a)=\frac1\phi,
+\qquad
+\operatorname{freq}(b)=\frac1{\phi^2}.
+\]
+Prove that every finite subword recurs with bounded gaps.  Show that the
+infinite word cannot be periodic because a periodic word has rational letter
+frequencies.  If tiles of lengths $\phi$ and $1$ replace $a$ and $b$, show
+that substitution followed by rescaling by $\phi$ reproduces the tiling.
+Separate exact inflation symmetry from ordinary translation symmetry.
+\end{exercise}
+
+\begin{definition}[Cut-and-project sets]
+Let $\mathcal L$ be a lattice in
+$\R^d\times\R^m$, with projections $\pi_\parallel$ and $\pi_\perp$ onto
+physical and internal space.  Assume $\pi_\parallel$ is injective on
+$\mathcal L$ and $\pi_\perp(\mathcal L)$ is dense.  For a compact window
+$W\subset\R^m$ with nonempty interior, define the \emph{model set}
+\[
+\Lambda(W)=\{\pi_\parallel(x):x\in\mathcal L,
+\ \pi_\perp(x)\in W\}.
+\]
+It is \emph{regular} when the boundary of $W$ has measure zero.  The
+higher-dimensional lattice supplies long-range order, while the irrational
+orientation of physical space generally destroys translation periodicity.
+\end{definition}
+
+\begin{exercise}[The Fibonacci chain by cut and project]
+Let $\phi'=-1/\phi$ and embed $\Z^2$ by
+\[
+(m,n)\longmapsto(m+n\phi,\,m+n\phi')
+\in\R_\parallel\times\R_\perp.
+\]
+Prove the injectivity and density conditions in the definition.  Choose a
+generic half-open interval window of length $1+1/\phi$, with boundary
+disjoint from the projected lattice, and order the resulting
+physical points.  Determine the two possible nearest-neighbor spacings and
+show, after an overall rescaling and a possible exchange of letters, that
+their sequence is a Fibonacci tiling.  Track how translating the window
+changes the local pattern without changing its set of finite patches.
+Interpret the internal coordinate as an arithmetic phase invisible in
+physical space.
+\end{exercise}
+
+\begin{definition}[Autocorrelation and diffraction]
+For a uniformly discrete point set $\Lambda\subset\R^d$, its Dirac comb is
+$\omega=\sum_{x\in\Lambda}\delta_x$.  When the vague limit exists, its
+\emph{autocorrelation} is
+\[
+\gamma=\lim_{R\to\infty}
+ \frac{\omega|_{B_R}*\widetilde{\omega|_{B_R}}}{\vol(B_R)},
+\qquad
+\widetilde\mu(f)=\overline{\mu(\widetilde f)},
+\quad \widetilde f(x)=\overline{f(-x)}.
+\]
+The positive measure $\widehat\gamma$ is its \emph{diffraction measure}; its
+atoms are Bragg peaks.  A regular model set has pure-point diffraction
+supported on a projected dual-lattice module, although that module need not
+be a periodic reciprocal lattice.
+\end{definition}
+
+\begin{exercise}[Sharp diffraction without periodicity]
+For a finite sample $\Lambda_R$, show that the kinematic scattering
+intensity is
+\[
+I_R(k)=\left|\sum_{x\in\Lambda_R}e^{-ik\cdot x}\right|^2
+\]
+and relate its volume-normalized limit to $\widehat\gamma$.  Recover the
+ordinary reciprocal lattice for a periodic crystal.  Taking the pure-point
+diffraction theorem for regular model sets as supplied, derive the projected
+dual module and window Fourier-transform intensities for a cut-and-project
+set.  Explain how a dense Fourier module can carry locally finite intensity
+and sharp peaks without implying real-space periodicity.
+
+Compare this mechanism with the sharp noncrystallographic diffraction
+reported in
+\href{https://doi.org/10.1103/PhysRevLett.53.1951}
+{Shechtman et al., \emph{Physical Review Letters}
+\textbf{53} (1984)}.  State what diffraction establishes---long-range
+coherent order and its symmetry---and what it does not establish without a
+structural model.
+\end{exercise}
+
+\begin{definition}[The Fibonacci Hamiltonian and integrated density of states]
+Let $\alpha=1/\phi$ and
+\[
+v_\theta(n)=\mathbf1_{[1-\alpha,1)}
+ \bigl(\theta+n\alpha\bmod1\bigr).
+\]
+The \emph{Fibonacci Hamiltonian} on $\ell^2(\Z)$ is
+\[
+(H_\theta\psi)_n=\psi_{n+1}+\psi_{n-1}
+ +\lambda v_\theta(n)\psi_n.
+\]
+For the uniquely ergodic rotation of $\theta$, its \emph{integrated density
+of states} is
+\[
+N(E)=\int_0^1
+ \langle\delta_0,
+ \mathbf1_{(-\infty,E]}(H_\theta)\delta_0\rangle\,d\theta.
+\]
+It is the limiting number of states below $E$ per lattice site.
+
+Let $\Omega$ be the closure of the shift orbit of a Fibonacci sequence in
+$\{0,1\}^{\Z}$, and let $S:\Omega\to\Omega$ be the shift.  The associated
+observable algebra is the crossed product
+$\mathcal A_\alpha=C(\Omega)\rtimes_S\Z$, generated by $C(\Omega)$ and a
+unitary $U$ satisfying $UfU^*=f\circ S^{-1}$.  The unique invariant measure
+$\mu$ gives the canonical trace
+\[
+\tau\!\left(\sum_n f_nU^n\right)=\int_\Omega f_0\,d\mu.
+\]
+The Hamiltonians above are the covariant representations of one element of
+this algebra.
+\end{definition}
+
+\begin{exercise}[Diophantine gap labels]
+Prove that $N(E)$ is nondecreasing and is constant on every open spectral
+gap.  Approximate $\alpha$ by Fibonacci convergents and interpret the finite
+periodic approximants as large-unit-cell crystals.  Taking the one-dimensional
+gap-labeling theorem as supplied, show that every gap value satisfies
+\[
+N(E)\in(\Z+\alpha\Z)\cap[0,1].
+\]
+Explain why the theorem restricts possible labels but, by itself, does not
+assert that every allowed gap is open.  Relate the label group to the range
+of $\tau_*$ on $K_0(\mathcal A_\alpha)$, thereby connecting
+Diophantine frequency to the operator $K$-theory developed in Index Theory;
+see
+\href{https://doi.org/10.1142/S0129055X92000029}
+{Bellissard--Bovier--Ghez, \emph{Reviews in Mathematical Physics}
+\textbf{4} (1992)}.
 \end{exercise}
 
 \end{document}
