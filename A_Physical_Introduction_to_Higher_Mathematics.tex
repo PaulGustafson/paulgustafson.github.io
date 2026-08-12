@@ -12,6 +12,7 @@
 \setlength{\parskip}{0.35em}
 \setlength{\emergencystretch}{3em}
 \setlist{nosep}
+\setcounter{tocdepth}{2}
 
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
@@ -53,7 +54,11 @@
 
 \begin{document}
 \maketitle
+\begingroup
+\small
+\setlength{\parskip}{0pt}
 \tableofcontents
+\endgroup
 \clearpage
 
 \part{Symmetry}
@@ -66,6 +71,8 @@ pulses add, and scaling an initial deflection scales its later motion. A
 finite string fixed at both ends has discrete resonant modes, while a pulse on
 an effectively infinite string requires a continuous range of frequencies.
 \end{observations}
+
+\subsection{Linear structures, duality, and determinants}
 
 \begin{definition}[Vector spaces and linear maps]
 Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
@@ -214,6 +221,8 @@ and Cramer's rule.
 In finite dimensions, an inner product turns linear superposition into a
 geometry of orthogonal modes and makes spectral decomposition possible.
 
+\subsection{Inner products and finite-dimensional spectral theory}
+
 \begin{definition}[Inner products and orthogonality]
 An \emph{inner product} on a real vector space is a positive-definite
 symmetric bilinear form. On a complex vector space it is a positive-definite
@@ -294,6 +303,8 @@ The finite spectral theorem turns coupled equations of motion into independent
 normal modes. A chain of masses provides a finite approximation to the same
 decomposition for a continuous string.
 
+\subsection{Oscillators, normal modes, and vibrating strings}
+
 \begin{definition}[Linear oscillator]
 A \emph{linear oscillator} on a finite-dimensional real inner-product space
 $V$ is an equation
@@ -349,6 +360,8 @@ $f_n/f_1=n$ with the harmonics of a stretched string.
 A continuous string requires infinite-dimensional spaces of functions.
 Measure and integration produce the spaces $L^p$, and completeness turns
 $L^2$ into a Hilbert space.
+
+\subsection{Measure, integration, and Hilbert spaces}
 
 \begin{definition}[Measure spaces and simple functions]
 A \emph{measure space} is a triple $(X,\Sigma,\mu)$ in which $\Sigma$ is a
@@ -454,6 +467,8 @@ the heat-equation solution $\partial_tu=\kappa\partial_x^2u$. Prove
 uniqueness and monotone decay of $L^2$ energy from the spectral coefficients.
 \end{exercise}
 
+\subsection{Fourier analysis and spectral evolution}
+
 \begin{definition}[Schwartz functions, Fourier transform, and convolution]
 A \emph{Schwartz function} on $\R^n$ is a smooth function $f$ such that
 $\sup_x|x^\alpha\partial^\beta f(x)|<\infty$ for every pair of multi-indices
@@ -494,6 +509,8 @@ one-dimensional wave equation.
 Fourier series and transforms are concrete spectral decompositions. The
 spectral theorem isolates their common structure and replaces sums over
 modes by integration against projection-valued measures.
+
+\subsection{Spectral measures and unbounded operators}
 
 \begin{definition}[Projection-valued measures]
 A \emph{projection-valued measure} on a measurable space $X$ assigns an
@@ -629,6 +646,8 @@ frequency. Replacing one atom can lower the symmetry and split the
 corresponding spectral lines.
 \end{observations}
 
+\subsection{Groups, actions, and linear representations}
+
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
 and inverses. A \emph{homomorphism} $\phi:G\to H$ preserves multiplication.
@@ -721,6 +740,8 @@ degeneracy and compare with the observed band splitting.
 The molecular examples use finite groups. Rotations vary continuously, so
 their symmetry groups require compatible topological and smooth structures.
 
+\subsection{Topological groups and infinitesimal symmetry}
+
 \begin{definition}[Topological spaces]
 A \emph{topology} on $X$ is a family of subsets containing $\varnothing,X$
 and closed under arbitrary unions and finite intersections. A map is
@@ -799,6 +820,8 @@ $\rho(\exp X)=\exp(d\rho(X))$. Prove that a connected Lie-group
 representation is determined by its infinitesimal representation whenever
 the latter integrates uniquely.
 \end{exercise}
+
+\subsection{Rotations, spin, and quantum selection rules}
 
 \begin{definition}[Rotations and spin]
 Define
@@ -880,6 +903,8 @@ transformations and invariants. For classical mechanics the basic model is a
 vector space with an alternating form, and its transformation group is the
 symplectic group.
 
+\subsection{Symplectic linear algebra and differential forms}
+
 \begin{definition}[Symplectic vector spaces and groups]
 A \emph{symplectic vector space} is a finite-dimensional real vector space
 $V$ equipped with a nondegenerate alternating bilinear form $\omega$. Its
@@ -926,6 +951,8 @@ $\mathcal L_X=d\iota_X+\iota_Xd$ and the naturality of $d$, wedge products,
 and pullbacks.
 \end{exercise}
 
+\subsection{Hamiltonian dynamics and phase space}
+
 \begin{definition}[Symplectic manifolds and dynamics]
 A \emph{symplectic form} on a manifold $M$ is a closed, nondegenerate
 two-form $\omega$. Darboux's theorem states that every point has local
@@ -962,6 +989,8 @@ coordinates, derive Hamilton's equations. Prove antisymmetry, the Leibniz
 rule, and the Jacobi identity for the Poisson bracket, and prove
 $\dot f=\{f,H\}+\partial_tf$ along Hamiltonian flow.
 \end{exercise}
+
+\subsection{Momentum maps, reduction, and conservation laws}
 
 \begin{definition}[Symplectic actions and momentum maps]
 An action of a Lie group $G$ on $(M,\omega)$ is \emph{symplectic} if it
@@ -1067,6 +1096,8 @@ $150\,\mathrm{Hz}$ in two widely separated detectors.
 To define geometry by its allowed transformations at each point, first
 assemble the local models and their changes of frame into bundles.
 
+\subsection{Bundles, sections, and geometric structures}
+
 \begin{definition}[Smooth bundles and sections]
 A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
 locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
@@ -1136,6 +1167,8 @@ distance $v\tau_\mu$ predicted without time dilation.
 
 Integration and Stokes' theorem turn local differential equations into laws
 for flux through regions and their boundaries.
+
+\subsection{Differential forms, cohomology, and Hodge theory}
 
 \begin{definition}[Integration of forms]
 An \emph{orientation} of an $n$-manifold is a reduction of its frame bundle
@@ -1220,6 +1253,8 @@ Minkowski four-space, stating the orientation and signature conventions.
 
 A connection compares fields in different fibers. Its curvature measures
 the failure of parallel transport to be path independent.
+
+\subsection{Connections, curvature, and gauge fields}
 
 \begin{definition}[Connections and parallel transport]
 A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
@@ -1311,6 +1346,8 @@ Gravity is carried by the Lorentz reduction of the frame bundle itself. Its
 connection compares local inertial frames, and its curvature measures the
 departure from the flat Minkowski model.
 
+\subsection{Riemannian geometry and gravitation}
+
 \begin{definition}[Levi--Civita geometry]
 An $O(p,q)$-structure determines a unique torsion-free connection preserving
 the metric, the \emph{Levi--Civita connection}. On the orthonormal frame
@@ -1395,6 +1432,8 @@ measured by diffraction. Applied to phase-space translations, the same idea
 will turn the symplectic structure of classical mechanics into the operator
 relations of quantum mechanics.
 
+\subsection{Haar measure and abelian Fourier duality}
+
 \begin{definition}[Haar measure and convolution]
 Let $G$ be a locally compact Hausdorff group. A \emph{left Haar measure} is
 a nonzero regular Borel measure $\mu$ satisfying
@@ -1455,6 +1494,8 @@ transform of the aperture. Compute the single-slit diffraction intensity,
 locate its zeros, and compare the predicted angular spacing with measured
 optical diffraction.
 \end{exercise}
+
+\subsection{Lattices, Poisson summation, and diffraction}
 
 \begin{definition}[Lattices and reciprocal lattices]
 A \emph{lattice} in $\R^n$ is a subgroup
@@ -1540,6 +1581,8 @@ sharply directed beams with
 {Davisson--Germer, \emph{Physical Review} \textbf{30} (1927)}.
 \end{exercise}
 
+\subsection{Compact-group harmonic analysis}
+
 \begin{definition}[Compact-group Fourier transform]
 For a compact group $G$, let $\widehat G$ denote the equivalence classes of
 irreducible finite-dimensional unitary representations. For
@@ -1614,6 +1657,8 @@ homogeneous space $SL_2(\R)/SO(2)$, and freely propagating waves on it have a
 continuous spectral parameter.  Harish-Chandra theory explains what replaces
 the Peter--Weyl sum for this and, more generally, for noncompact semisimple
 symmetry groups.
+
+\subsection{Semisimple groups and Harish--Chandra theory}
 
 \begin{definition}[Cartan and Iwasawa decompositions]
 Let $G$ be a connected real semisimple Lie group with finite center and let
@@ -1812,6 +1857,8 @@ limits.  Consult
 \textbf{119} (1965)} for invariant eigendistributions.
 \end{exercise}
 
+\subsection{Noncommutative Plancherel theory}
+
 \begin{definition}[Noncommutative Plancherel transform]
 A locally compact group is \emph{unimodular} when its left and right Haar
 measures agree. It is \emph{type I} when its unitary representations have
@@ -1907,6 +1954,8 @@ measure-preserving evolution. Conditional expectation extracts invariant
 information, ergodic theorems relate time averages to ensemble averages, and
 entropy selects equilibrium states.
 
+\subsection{Probability, conditioning, and entropy}
+
 \begin{definition}[Probability and conditioning]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
 with $\mathbb P(\Omega)=1$. A \emph{random variable} is a measurable map,
@@ -1942,6 +1991,8 @@ $D(\rho\Vert\sigma)=\int\rho\log(\rho/\sigma)\,d\mu_L$ when defined.
 Rescaling the reference measure changes $S(\rho)$ by an additive constant,
 whereas $D(\rho\Vert\sigma)$ is independent of that normalization.
 \end{definition}
+
+\subsection{Ergodic dynamics and equilibrium states}
 
 \begin{definition}[Ergodic dynamics and dynamical entropy]
 A measurable transformation $T$ of a probability space is
@@ -2068,6 +2119,8 @@ GNS construction produces their Hilbert-space realizations, and von Neumann
 algebras supply the limits, conditional expectations, and modular flows needed
 for infinite quantum systems.
 
+\subsection{\texorpdfstring{$C^*$-algebras}{C*-algebras}, states, and GNS representations}
+
 \begin{definition}[$C^*$-algebras and states]
 A \emph{unital Banach algebra} is a complete normed algebra with identity and
 $\|ab\|\leq\|a\|\|b\|$. An \emph{involution} satisfies
@@ -2106,6 +2159,8 @@ representation $(\pi_\varphi,H_\varphi,\Omega_\varphi)$ satisfying
 $\varphi(a)=\langle\Omega_\varphi,\pi_\varphi(a)\Omega_\varphi\rangle$.
 Prove uniqueness up to a cyclic unitary equivalence.
 \end{exercise}
+
+\subsection{Quantum mechanics and canonical quantization}
 
 \begin{definition}[Quantum states and observables]
 A positive operator $S$ has the coordinate-free trace
@@ -2272,6 +2327,8 @@ the cavity spectra discussed by
 precisely where quantization removes the classical divergence.
 \end{exercise}
 
+\subsection{Fermionic statistics and the CAR algebra}
+
 \begin{definition}[CAR algebra and fermionic Fock space]
 For a complex Hilbert space $K$, the \emph{canonical anticommutation
 relations algebra} $\operatorname{CAR}(K)$ is the unital $C^*$-algebra
@@ -2321,6 +2378,8 @@ of phases instead produces a central limiting observable whose spectral
 projections distinguish the macroscopic alternatives. This is the physical
 reason to pass from the local $C^*$-algebra to its strong or weak operator
 closure.
+
+\subsection{Von Neumann algebras and noncommutative conditioning}
 
 \begin{definition}[Operator topologies and von Neumann algebras]
 The \emph{weak operator topology} is generated by
@@ -2459,6 +2518,8 @@ nonzero projection is infinite in the Murray--von Neumann sense.  This last
 behavior is typical of local observable algebras in relativistic quantum
 field theory and explains why an intrinsic density matrix and trace need not
 exist for a local region.
+
+\subsection{Factor types, modular theory, and relative entropy}
 
 \begin{definition}[Traces and factor types]
 A \emph{finite trace} on a von Neumann algebra is a normal positive functional
@@ -2601,6 +2662,8 @@ independence. Free products govern normalized traces of large random matrices:
 free cumulants determine their global laws, while Dyson's symmetry classes
 govern the local eigenvalue correlations seen in resonance experiments.
 
+\subsection{Free independence and additive convolution}
+
 \begin{definition}[Free independence and free cumulants]
 Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
 if
@@ -2689,6 +2752,8 @@ sum of semicircular variables of variances $\sigma_1^2$ and $\sigma_2^2$ is
 semicircular of variance $\sigma_1^2+\sigma_2^2$, and rederive the free
 central limit theorem at the level of transforms.
 \end{exercise}
+
+\subsection{Random matrices and spectral statistics}
 
 \begin{definition}[Wigner and Gaussian matrix ensembles]
 A \emph{Wigner matrix} $H_N$ is an $N\times N$ Hermitian random matrix whose
@@ -2807,6 +2872,8 @@ Physical subsystems combine by tensor products rather than free products.
 Measurements turn noncommutative states into classical distributions,
 relative entropy quantifies distinguishability, and completely positive maps
 describe the processing, loss, and protection of quantum information.
+
+\subsection{Measurements, entropy, and tomography}
 
 \begin{definition}[Measurements]
 A \emph{positive operator-valued measure} is a map $E$ from measurable events
@@ -2975,6 +3042,8 @@ individual eigenstates, and compare both formulas with measured
 level-population ratios.
 \end{exercise}
 
+\subsection{Composite systems and entanglement}
+
 \begin{definition}[Composite and reduced states]
 The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
 states are the density operators on this tensor product. A density operator
@@ -3126,6 +3195,8 @@ tested freedom-of-choice and spacelike-separation assumptions and explain why
 the result does not exclude arbitrary superdeterministic or signaling models.
 \end{exercise}
 
+\subsection{Quantum channels and data processing}
+
 \begin{definition}[Positive and completely positive maps]
 A linear map $\Phi:A\to B$ between $C^*$-algebras is \emph{positive} if it
 preserves positive elements and \emph{completely positive} if every
@@ -3206,6 +3277,8 @@ environmental dependence of $T_1$ with the transmon measurements in
 \href{https://doi.org/10.1103/PhysRevLett.101.080502}
 {Houck et al., \emph{Physical Review Letters} \textbf{101} (2008)}.
 \end{exercise}
+
+\subsection{Quantum error correction and operator systems}
 
 \begin{definition}[Quantum codes and correctable errors]
 Let $V:K\to H$ be an isometry between finite-dimensional Hilbert spaces. Its
@@ -3383,6 +3456,8 @@ scalar level. Operator spaces encode every such matrix amplification; their
 tensor norms and completely bounded maps quantify assisted discrimination
 and the strength of nonlocal correlations.
 
+\subsection{Matrix norms and channel discrimination}
+
 \begin{definition}[Operator spaces]
 An \emph{operator space} is a closed subspace $E\subseteq B(H)$ with matrix
 norms inherited from $M_n(E)\subseteq B(H^{\oplus n})$. A map $u:E\to F$ is
@@ -3489,6 +3564,8 @@ them by a function on $G$; requiring the same bound after coupling an
 ancilla is exactly a completely bounded multiplier condition.  This returns
 harmonic analysis to the operator-space setting for a physical reason,
 rather than as a separate change of subject.
+
+\subsection{Fourier algebras and completely bounded multipliers}
 
 \begin{definition}[Group von Neumann and Fourier algebras]
 For a locally compact group $G$ with left regular representation $\lambda$
@@ -3601,6 +3678,8 @@ suggests keeping the operator algebra and coproduct while allowing the
 algebra itself to become noncommutative.  Harmonic analysis survives this
 passage: Haar measure becomes a state, functions become operators, and
 Fourier coefficients become matrix coefficients of corepresentations.
+
+\subsection{Compact quantum groups and quantum Peter--Weyl theory}
 
 \begin{definition}[Compact quantum groups and their Haar states]
 A \emph{compact quantum group} $\mathbb G$ consists of a unital
@@ -3750,6 +3829,8 @@ analysis that will reappear in Arithmetic: quantum spherical matrix
 coefficients become Macdonald polynomials, while their radial operators are
 organized by affine and double affine Hecke algebras.
 
+\subsection{Extension theorems, tensor norms, and Grothendieck inequalities}
+
 \begin{exercise}[Finite-dimensional Arveson--Wittstock extension]
 Prove in finite dimensions that a completely positive map from an operator
 system extends completely positively to the containing $C^*$-algebra.
@@ -3819,6 +3900,8 @@ Use matrix amplification to explain
 why $\|u\|_{jcb}$, rather than only $\|u\|$, controls coupling to arbitrary
 ancillas. Give examples showing that both row and column terms are necessary.
 \end{exercise}
+
+\subsection{Nonlocal games as operator-space tensors}
 
 \begin{definition}[Bell functionals and nonlocal games]
 A \emph{Bell functional} is an array $M=(M_{xy}^{ab})$ evaluated on
@@ -3936,6 +4019,8 @@ the gapped regime.  Homotopy formalizes such deformations; winding,
 cohomology, vector bundles, $K$-theory, and finally the Fredholm index supply
 successively richer invariants that cannot change along them.
 
+\subsection{Homotopy, homology, and generalized cohomology}
+
 \begin{definition}[Homotopy and fundamental group]
 A \emph{homotopy} from $f:X\to Y$ to $g:X\to Y$ is a continuous map
 $H:X\times[0,1]\to Y$ with endpoints $f$ and $g$. The \emph{fundamental
@@ -4035,6 +4120,8 @@ $f:S^n\to S^n$, define its degree by
 $f_*[S^n]=\deg(f)[S^n]$ and prove multiplicativity and agreement with winding
 number for $n=1$.
 \end{exercise}
+
+\subsection{Bundles, holonomy, and characteristic classes}
 
 \begin{exercise}[Topological bundles from transition functions]
 Forget the smooth structure on the bundles introduced with gauge fields and
@@ -4164,6 +4251,8 @@ are closed forms whose cohomology classes are independent of the connection.
 Identify their de Rham classes with the images of the Chern classes and
 Chern character, and prove their Whitney-sum formulas.
 \end{exercise}
+
+\subsection{Berry geometry and topological K-theory}
 
 \begin{definition}[Berry geometry]
 For a smooth family of one-dimensional spectral projections
@@ -4308,6 +4397,8 @@ $X$ and finitely generated projective $C(X)$-modules. Deduce
 $K^j(X)\cong K_j(C(X))$ and formulate Bott periodicity for $C^*$-algebras.
 \end{exercise}
 
+\subsection{Fredholm operators and elliptic index theory}
+
 \begin{definition}[Compact and Fredholm operators]
 An operator on a Hilbert space is \emph{compact} if it is a norm limit of
 finite-rank operators. A bounded operator $T:H_0\to H_1$ is \emph{Fredholm}
@@ -4363,6 +4454,8 @@ analytic index has these three properties. Verify them for topological index
 and conclude
 $\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$.
 \end{exercise}
+
+\subsection{Dirac operators, anomalies, and topological phases}
 
 \begin{definition}[Spin structures and Dirac operators]
 A \emph{spin structure} on an oriented Riemannian $n$-manifold is a lift of
@@ -4569,6 +4662,8 @@ sectors.  Their transport and exchange then produce fusion and braid data.
 The sequence below develops that bridge from inclusions, through sectors,
 to anyons and topological field theory.
 
+\subsection{Subfactors, Temperley--Lieb algebras, and the Jones polynomial}
+
 \begin{definition}[Subfactors, conditional expectations, and index]
 A \emph{subfactor} is an inclusion $N\subseteq M$ of factors with common
 unit. A \emph{normal conditional expectation} $E:M\to N$ is a normal positive
@@ -4629,6 +4724,8 @@ Use the Markov trace and Markov moves to obtain an invariant of oriented
 links, normalize it to the Jones polynomial, and derive its skein relation.
 Compute it for the unknot, trefoil, and Hopf link.
 \end{exercise}
+
+\subsection{Conformal nets and superselection sectors}
 
 \begin{definition}[Local conformal nets]
 Let $\mathcal I$ be the proper open intervals of $S^1$. A \emph{local
@@ -4743,6 +4840,8 @@ The sector operations abstract to a braided fusion category. Its
 diagrammatic data in turn define topological field theories and link
 invariants.
 
+\subsection{Fusion, braiding, and modular tensor categories}
+
 \begin{definition}[Monoidal and rigid categories]
 A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
 unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
@@ -4793,6 +4892,8 @@ and braiding data. Compute quantum dimensions and braid-group
 representations for the Fibonacci fusion rule
 $\tau\otimes\tau\cong1\oplus\tau$.
 \end{exercise}
+
+\subsection{TQFT, Reshetikhin--Turaev theory, and Chern--Simons theory}
 
 \begin{definition}[Bordisms and topological field theories]
 The \emph{bordism category} has closed oriented $(n-1)$-manifolds as objects,
@@ -4885,6 +4986,8 @@ prove the equivalence with commutative Frobenius algebras.
 In a gapped two-dimensional phase, the same categorical data describe anyon
 fusion, braiding, topology-dependent state spaces, and protected logical
 observables.
+
+\subsection{Anyons, topological order, and quantum Hall phases}
 
 \begin{definition}[Anyons and topological degeneracy]
 In a two-dimensional gapped phase, an \emph{anyon type} is a simple object of
@@ -4990,6 +5093,8 @@ surface.  Topology is indispensable even at leading order: the surface must
 not merely have the right boundary, but must be homologous to the chosen
 boundary region.  This section isolates that topological content without
 assuming that every quantum field theory has a useful gravitational dual.
+
+\subsection{Ryu--Takayanagi surfaces and entanglement wedges}
 
 \begin{definition}[Relative homology and the Ryu--Takayanagi surface]
 Let $\Sigma$ be a static bulk time slice with conformal boundary $B$, and let
@@ -5107,6 +5212,8 @@ admissible.  Explain why this argument is geometric and classical and why
 the bulk-entropy term must be included at quantum order.
 \end{exercise}
 
+\subsection{Black-hole topology and entropy}
+
 \begin{definition}[The BTZ horizon and thermofield-double topology]
 The nonrotating BTZ black hole has metric
 \[
@@ -5170,6 +5277,8 @@ modes, its sum form records constrained many-body states, and its analytic
 behavior controls the entropy of highly excited states.  The tension
 between these descriptions is the source of the $q$-series identities used
 later in conformal field theory and integrable models.
+
+\subsection{Partition generating functions and finite boxes}
 
 \begin{definition}[Partitions and $q$-Pochhammer symbols]
 An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
@@ -5235,6 +5344,8 @@ Explain why finite-volume state counts are polynomials even when their
 thermodynamic limits are infinite products.
 \end{exercise}
 
+\subsection{Rogers--Ramanujan identities and exclusion rules}
+
 \begin{definition}[The Rogers--Ramanujan functions]
 For $|q|<1$, define
 \[
@@ -5285,6 +5396,8 @@ points may be counted directly, or reorganized through the dual lattice.
 The modular transformation $\tau\mapsto-1/\tau$ is the complex-analytic form
 of this exchange, while $\tau\mapsto\tau+1$ records integrality and parity.
 
+\subsection{Lattice theta series and Poisson duality}
+
 \begin{definition}[Integral lattices and theta series]
 A \emph{Euclidean lattice} $L\subset\R^d$ is the integer span of a basis of
 $\R^d$.  Its dual is
@@ -5315,6 +5428,8 @@ reciprocal-lattice relation behind diffraction.  Explain why a general
 lattice theta series transforms with its dual rather than being a scalar
 modular form by itself.
 \end{exercise}
+
+\subsection{Modular forms, theta functions, and eta products}
 
 \begin{definition}[The modular group and modular forms]
 The modular group $SL_2(\Z)$ acts on the upper half-plane by
@@ -5375,6 +5490,8 @@ and use specializations to recover product forms for the theta functions.
 Explain how the two sides encode charge sectors and independent oscillator
 modes, respectively.
 \end{exercise}
+
+\subsection{Eisenstein series and arithmetic applications}
 
 \begin{definition}[Eisenstein series and the discriminant]
 Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
@@ -5448,6 +5565,8 @@ meeting point of representation theory, statistical mechanics, and
 arithmetic.  They are generally components of a vector-valued modular
 function, not scalar modular forms in the preceding definition.
 
+\subsection{Virasoro representations and character formulas}
+
 \begin{definition}[The Virasoro algebra and its characters]
 The \emph{Virasoro algebra} has generators $L_n$ for $n\in\Z$ and a central
 element acting by $c$, with
@@ -5482,6 +5601,8 @@ vacuum descendant product.  Explain why additional null vectors subtract
 states and turn unrestricted partition numbers into the more structured
 $q$-series of minimal models.
 \end{exercise}
+
+\subsection{Modular invariance and exact state counting}
 
 \begin{definition}[Rational characters and modular invariants]
 In a rational chiral CFT, assume there are finitely many irreducible
@@ -5574,6 +5695,8 @@ nonunitary example.  Do not interpret the model as a unitary quantum
 Hamiltonian despite its exact arithmetic structure.
 \end{exercise}
 
+\subsection{Integrable lattice models}
+
 \begin{definition}[Transfer matrices and integrability]
 For a two-dimensional lattice model on a cylinder, a \emph{row transfer
 matrix} $T_N(u)$ propagates one width-$N$ row to the next and depends on a
@@ -5643,6 +5766,8 @@ a Hecke algebra.  Putting the particles on a periodic space makes the walls
 affine, while quantizing both periodic position and momentum produces two
 lattice directions.  A DAHA packages those two directions and generates
 commuting difference Hamiltonians.
+
+\subsection{Root systems, scattering, and Hecke algebras}
 
 \begin{definition}[Root systems and affine Weyl groups]
 Let $V$ be a finite-dimensional Euclidean space.  A finite set
@@ -5720,6 +5845,8 @@ why those operators coexist with a coproduct, tensor-product
 representations, and commuting transfer matrices.  The algebraic dual of
 the compact quantum-group picture from Operator Space Theory supplies that
 missing symmetry.
+
+\subsection{Quantum groups and the Yang--Baxter equation}
 
 \begin{definition}[Quantized enveloping algebras and $R$-matrices]
 For generic $q$, the Hopf algebra $U_q(\mathfrak{sl}_2)$ is generated by
@@ -5812,6 +5939,8 @@ two-dimensional Temperley--Lieb reduction of the Yang--Baxter equation, not
 the full representation theory of a quantum group or DAHA.
 \end{exercise}
 
+\subsection{Quantum spherical functions and qKZ transport}
+
 \begin{definition}[Quantum spherical functions]
 Let $H=U_q(\mathfrak g)$ and let $B\subseteq H$ be a right coideal
 subalgebra, so $\Delta(B)\subseteq B\otimes H$.  It plays the role of the
@@ -5898,6 +6027,8 @@ functions arise as spherical functions, but only on constrained parameter
 families.  DAHA is not itself a compact quantum group.  Its role is to
 organize the full two-parameter difference harmonic analysis, including two
 affine directions and the Fourier-like exchange between them.
+
+\subsection{DAHA and Macdonald spectral theory}
 
 \begin{definition}[The $GL_n$ form of type-$A$ DAHA]
 Let
@@ -6053,6 +6184,8 @@ data, while irrational algebraic numbers generate substitutions and
 cut-and-project structures with long-range order but no translation period.
 The resulting diffraction and spectral gaps are experimentally visible.
 
+\subsection{Algebraic numbers, roots of unity, and cyclotomic fields}
+
 \begin{definition}[Algebraic numbers and cyclotomic fields]
 A complex number $\alpha$ is \emph{algebraic} over $\Q$ if it is a root of a
 nonzero polynomial in $\Q[x]$, and an \emph{algebraic integer} if it is a
@@ -6088,6 +6221,8 @@ roots of unity up to the common framing phase.  Explain what this proves for
 this family without asserting that arbitrary algebraic numbers are physical
 topological data.
 \end{exercise}
+
+\subsection{Diophantine structure and substitutions}
 
 \begin{definition}[Continued fractions and Pisot numbers]
 For irrational $\alpha$, its simple continued fraction is
@@ -6146,6 +6281,8 @@ frequencies.  If tiles of lengths $\phi$ and $1$ replace $a$ and $b$, show
 that substitution followed by rescaling by $\phi$ reproduces the tiling.
 Separate exact inflation symmetry from ordinary translation symmetry.
 \end{exercise}
+
+\subsection{Cut-and-project order and diffraction}
 
 \begin{definition}[Cut-and-project sets]
 Let $\mathcal L$ be a lattice in
@@ -6217,6 +6354,8 @@ reported in
 coherent order and its symmetry---and what it does not establish without a
 structural model.
 \end{exercise}
+
+\subsection{Quasicrystal spectra and gap labelling}
 
 \begin{definition}[The Fibonacci Hamiltonian and integrated density of states]
 Let $\alpha=1/\phi$ and
