@@ -1734,17 +1734,6 @@ M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
 \]
 \end{definition}
 
-\begin{exercise}[Normal states and independent subsystems]
-Show that every density operator $\rho$ gives the normal state
-$a\mapsto\Tr(\rho a)$, and, using trace-class duality, prove the converse on
-$B(H)$. Prove
-$B(H)\mathbin{\overline\otimes}B(K)=B(H\otimes K)$ and identify product
-states and partial traces in this language. Explain why local
-normality---normality on every local algebra---is the infinite-system
-analogue of requiring ordinary reduced density matrices for all finite
-laboratories.
-\end{exercise}
-
 \begin{definition}[Cyclic and separating vectors; modular theory]
 For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
 $\overline{M\Omega}=H$ and \emph{separating} if $a\Omega=0$ implies $a=0$.
@@ -1765,22 +1754,6 @@ convention and for analytic $a,b$,
 \]
 The vector state of $\Omega$ is $1$-KMS for its modular flow.
 \end{definition}
-
-\begin{exercise}[Finite modular theory and entanglement tomography]
-For finite-dimensional $H$, let $B(H)$ act on itself by left multiplication
-with inner product $\langle X,Y\rangle=\Tr(X^*Y)$, and set
-$\Omega_\rho=\rho^{1/2}$ for faithful $\rho$. Prove that
-$\Omega_\rho$ is cyclic and separating. For
-$S_0(a\Omega_\rho)=a^*\Omega_\rho$, compute the polar decomposition and show
-that its modular operator is $\Delta(X)=\rho X\rho^{-1}$, yielding the flow
-above. If $\rho$ is a reduced state, recover its entanglement spectrum from
-$K_\rho$. Apply this reconstruction at successive times after a quench and
-compare the resulting spectrum with the trapped-ion data analyzed by
-\href{https://doi.org/10.1038/s41567-021-01260-w}
-{Kokail et al., \emph{Nature Physics} \textbf{17} (2021)}, and explain why
-finite-subsystem tomography does not by itself establish continuum modular
-theory.
-\end{exercise}
 
 \begin{definition}[Traces and factor types]
 A \emph{finite trace} on a von Neumann algebra is a normal positive functional
@@ -1847,44 +1820,11 @@ modular flow are intrinsic to an algebra and its states and remain meaningful
 for type-III factors.
 \end{definition}
 
-\begin{exercise}[Type-III localization and the split property]
-Assume the structural theorem that, under the usual nontriviality,
-phase-space, and scaling hypotheses, local observable algebras in
-relativistic continuum quantum field theory are hyperfinite type
-$\mathrm{III}_1$ factors, the full-modular-spectrum case of the type-III
-classification; see
-\href{https://doi.org/10.1016/S0034-4877(05)80009-6}
-{Yngvason, \emph{Reports on Mathematical Physics} \textbf{55} (2005)}.
-Deduce that the restriction of the vacuum to a sharply bounded region has
-no intrinsic reduced density operator and that
-$-\Tr(\rho_A\log\rho_A)$ is therefore not an intrinsic continuum entropy.
-Explain how a split inclusion
-\[
-\mathcal A(O_1)\subset F\subset\mathcal A(O_2),\qquad
-\overline{O_1}\subset O_2,
-\]
-with $F$ type I supplies a density-matrix regulator whose entropy depends on
-the collar $O_2\setminus\overline{O_1}$ and on the choice of $F$. Contrast
-this regulator dependence and the usual ultraviolet divergence as the collar
-shrinks with the intrinsic relative entropy
-$D_{\mathcal A(O_1)}(\varphi\Vert\psi)$.
-\end{exercise}
-
 \begin{definition}[Noncommutative probability]
 A \emph{noncommutative probability space} is a pair $(M,\varphi)$ of a von
 Neumann algebra and a normal state; its random variables are operators
 affiliated with $M$.
 \end{definition}
-
-\begin{exercise}[Independent noncommutative subsystems]
-For commuting von Neumann subalgebras $M_1,M_2\subseteq M$, formulate
-independence in the state $\varphi$ by factorization
-$\varphi(ab)=\varphi(a)\varphi(b)$. Compare this algebraic condition with a
-tensor-product state when $M_1\vee M_2$ is spatially isomorphic to
-$M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
-the relevant replacement for sharply adjacent local regions in continuum
-QFT.
-\end{exercise}
 
 \section{Quantum Information}
 
@@ -1906,6 +1846,27 @@ product density operators and \emph{entangled} otherwise. The \emph{reduced
 state} $\rho_A=\Tr_B\rho$ is determined by
 $\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
 \end{definition}
+
+\begin{exercise}[Normal states and independent subsystems]
+Show that every density operator $\rho$ gives the normal state
+$a\mapsto\Tr(\rho a)$, and, using trace-class duality, prove the converse on
+$B(H)$. Prove
+$B(H)\mathbin{\overline\otimes}B(K)=B(H\otimes K)$ and identify product
+states and partial traces in this language. Explain why local
+normality---normality on every local algebra---is the infinite-system
+analogue of requiring ordinary reduced density matrices for all finite
+laboratories.
+\end{exercise}
+
+\begin{exercise}[Independent noncommutative subsystems]
+For commuting von Neumann subalgebras $M_1,M_2\subseteq M$, formulate
+independence in the state $\varphi$ by factorization
+$\varphi(ab)=\varphi(a)\varphi(b)$. Compare this algebraic condition with a
+tensor-product state when $M_1\vee M_2$ is spatially isomorphic to
+$M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
+the relevant replacement for sharply adjacent local regions in continuum
+QFT.
+\end{exercise}
 
 \begin{definition}[Von Neumann and entanglement entropy]
 For a density operator with discrete spectral resolution
@@ -1986,6 +1947,45 @@ S_A(\psi)=-k_B\sum_{s>0}
 and prove that it vanishes exactly for separable pure states. Compute the
 joint and reduced states, local outcome frequencies, and entanglement entropy
 of a Bell state, and compare them with entangled-pair tomography.
+\end{exercise}
+
+\begin{exercise}[Finite modular theory and entanglement tomography]
+For finite-dimensional $H$, let $B(H)$ act on itself by left multiplication
+with inner product $\langle X,Y\rangle=\Tr(X^*Y)$, and set
+$\Omega_\rho=\rho^{1/2}$ for faithful $\rho$. Prove that
+$\Omega_\rho$ is cyclic and separating. For
+$S_0(a\Omega_\rho)=a^*\Omega_\rho$, compute the polar decomposition and show
+that its modular operator is $\Delta(X)=\rho X\rho^{-1}$, yielding the flow
+above. If $\rho$ is a reduced state, recover its entanglement spectrum from
+$K_\rho$. Apply this reconstruction at successive times after a quench and
+compare the resulting spectrum with the trapped-ion data analyzed by
+\href{https://doi.org/10.1038/s41567-021-01260-w}
+{Kokail et al., \emph{Nature Physics} \textbf{17} (2021)}, and explain why
+finite-subsystem tomography does not by itself establish continuum modular
+theory.
+\end{exercise}
+
+\begin{exercise}[Type-III localization and the split property]
+Assume the structural theorem that, under the usual nontriviality,
+phase-space, and scaling hypotheses, local observable algebras in
+relativistic continuum quantum field theory are hyperfinite type
+$\mathrm{III}_1$ factors, the full-modular-spectrum case of the type-III
+classification; see
+\href{https://doi.org/10.1016/S0034-4877(05)80009-6}
+{Yngvason, \emph{Reports on Mathematical Physics} \textbf{55} (2005)}.
+Deduce that the restriction of the vacuum to a sharply bounded region has
+no intrinsic reduced density operator and that
+$-\Tr(\rho_A\log\rho_A)$ is therefore not an intrinsic continuum entropy.
+Explain how a split inclusion
+\[
+\mathcal A(O_1)\subset F\subset\mathcal A(O_2),\qquad
+\overline{O_1}\subset O_2,
+\]
+with $F$ type I supplies a density-matrix regulator whose entropy depends on
+the collar $O_2\setminus\overline{O_1}$ and on the choice of $F$. Contrast
+this regulator dependence and the usual ultraviolet divergence as the collar
+shrinks with the intrinsic relative entropy
+$D_{\mathcal A(O_1)}(\varphi\Vert\psi)$.
 \end{exercise}
 
 \begin{exercise}[Bell correlations and CHSH]
