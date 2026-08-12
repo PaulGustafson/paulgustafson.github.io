@@ -2512,14 +2512,85 @@ electromotive force proportional to the rate of flux change.
 $150\,\mathrm{Hz}$ in two widely separated detectors.
 \end{observations}
 
+To define geometry by its allowed transformations at each point, first
+assemble the local models and their changes of frame into bundles.
+
+\begin{definition}[Smooth bundles and sections]
+A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
+locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
+bundle} has vector-space fibers and linear transition maps. A \emph{smooth
+principal $G$-bundle} has a free right $G$-action, transitive on each fiber,
+and local equivariant trivializations. A \emph{section} is a smooth map
+$s:M\to E$ with $\pi s=\id_M$. For a representation
+$G\to\operatorname{GL}(V)$, the
+\emph{associated vector bundle} is
+$P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
+\end{definition}
+
+The transformation group specifies which frames, and therefore which
+measurements, are geometrically equivalent.
+
+\begin{definition}[Frame bundles and $G$-structures]
+The \emph{frame bundle} of an $n$-manifold is the principal
+$\operatorname{GL}(n,\R)$-bundle
+\[
+\operatorname{Fr}(M)_p
+=\operatorname{Iso}(\R^n,T_pM).
+\]
+For a closed subgroup $G\leq\operatorname{GL}(n,\R)$, a
+\emph{$G$-structure} is a principal $G$-subbundle of
+$\operatorname{Fr}(M)$. It is a choice of the frames related by the
+transformations in $G$. Riemannian, Lorentzian, and almost symplectic
+structures correspond respectively to reductions to
+$O(n)$, $O(1,n-1)$, and $\operatorname{Sp}(2n,\R)$; an oriented,
+time-oriented spacetime has structure group $SO^+(1,3)$.
+\end{definition}
+
+\begin{exercise}[Geometry from transformation groups]
+Prove the stated correspondences by identifying the stabilizers of a
+positive inner product, a form of signature $(1,n-1)$, and a nondegenerate
+alternating form. Explain why an $\operatorname{Sp}(2n,\R)$-structure is
+only almost symplectic until its associated two-form is closed. Show that
+the proper orthochronous Poincar\'e group acts transitively on Minkowski
+spacetime and identify
+\[
+\R^{1,3}\cong
+\bigl(\R^{1,3}\rtimes SO^+(1,3)\bigr)/SO^+(1,3).
+\]
+Explain why a curved spacetime retains local Lorentz frames but generally
+has no transitive Poincar\'e action.
+\end{exercise}
+
+\begin{definition}[Tensor fields and metrics]
+A \emph{$(r,s)$-tensor field} is a smooth section of
+$TM^{\otimes r}\otimes T^*M^{\otimes s}$. Equivalently, an
+$O(p,q)$-structure is a smooth nondegenerate symmetric tensor $g$ of
+signature $(p,q)$. The cases $(n,0)$ and $(1,n-1)$ give Riemannian and
+Lorentzian metrics. The length of a Riemannian curve is
+$\int\sqrt{g(\dot\gamma,\dot\gamma)}\,dt$; the proper time of a timelike
+curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
+orientation define a volume form $\vol_g$.
+\end{definition}
+
+\begin{exercise}[Proper time]
+Prove invariance of length and proper time under reparametrization. In
+Minkowski spacetime, prove that the inertial path maximizes proper time among
+piecewise smooth future-directed timelike paths with fixed timelike-separated
+endpoints, and derive special-relativistic time dilation.
+Using the muon rest lifetime $\tau_\mu\simeq2.2\,\mu\mathrm{s}$, derive the
+mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
+distance $v\tau_\mu$ predicted without time dilation.
+\end{exercise}
+
 Integration and Stokes' theorem turn local differential equations into laws
 for flux through regions and their boundaries.
 
 \begin{definition}[Integration of forms]
-An \emph{orientation} of an $n$-manifold is a continuous choice of component
-of nonzero elements in $\Lambda^nT_p^*M$. The integral
-$\int_M\omega$ of a compactly supported top form is defined using
-orientation-preserving charts and a partition of unity.
+An \emph{orientation} of an $n$-manifold is a reduction of its frame bundle
+to $\operatorname{GL}^+(n,\R)$, equivalently a continuous choice of component
+of nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+compactly supported top form is defined using orientation-preserving charts
+and a partition of unity.
 \end{definition}
 
 \begin{exercise}[Stokes' theorem]
@@ -2538,20 +2609,6 @@ dE=-\partial_tB,
 \]
 recovering the observed flux--emf law.
 \end{exercise}
-
-Differential forms describe fluxes without a metric. A metric adds lengths,
-proper times, volume, and the duality between complementary form degrees.
-
-\begin{definition}[Tensor fields and metrics]
-A \emph{$(r,s)$-tensor field} is a smooth section of
-$TM^{\otimes r}\otimes T^*M^{\otimes s}$. A \emph{Riemannian metric} is a
-smooth positive-definite inner product on each $T_pM$. A \emph{Lorentzian
-metric} is a smooth nondegenerate symmetric form of signature
-$(-,+,\ldots,+)$. The length of a curve in a Riemannian manifold is
-$\int\sqrt{g(\dot\gamma,\dot\gamma)}\,dt$; the proper time of a timelike
-curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
-orientation define a volume form $\vol_g$.
-\end{definition}
 
 \begin{definition}[Hodge star]
 On an oriented pseudo-Riemannian $n$-manifold, the metric induces a
@@ -2579,89 +2636,48 @@ Compute $*$ on the standard coordinate forms of Euclidean three-space and
 Minkowski four-space, stating the orientation and signature conventions.
 \end{exercise}
 
-\begin{exercise}[Proper time]
-Prove invariance of length and proper time under reparametrization. In
-Minkowski spacetime, prove that the inertial path maximizes proper time among
-piecewise smooth future-directed timelike paths with fixed timelike-separated
-endpoints, and derive special-relativistic time dilation.
-Using the muon rest lifetime $\tau_\mu\simeq2.2\,\mu\mathrm{s}$, derive the
-mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
-distance $v\tau_\mu$ predicted without time dilation.
-\end{exercise}
+A connection compares fields in different fibers. Its curvature measures
+the failure of parallel transport to be path independent.
 
-A connection compares fields at different points. Its curvature records the
-failure of parallel transport to be path independent and supplies the field
-strength for both geometry and gauge theory.
-
-\begin{definition}[Connections and geodesics]
-A \emph{connection} on $TM$ is an $\R$-bilinear map
-$\nabla:\Gamma(TM)\times\Gamma(TM)\to\Gamma(TM)$, linear over smooth
+\begin{definition}[Connections and parallel transport]
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
 functions in the first variable and satisfying
-$\nabla_X(fY)=X(f)Y+f\nabla_XY$. Its torsion is
-$T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$. A \emph{geodesic} satisfies
-$\nabla_{\dot\gamma}\dot\gamma=0$. A connection is \emph{metric compatible}
-if $Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ)$.
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers. On $TM$, the torsion is
+$T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$, and a \emph{geodesic} satisfies
+$D\dot\gamma/dt=0$.
 \end{definition}
 
-\begin{exercise}[Levi--Civita connection]
-Prove that every Riemannian or Lorentzian metric has a unique torsion-free,
-metric-compatible connection. Derive the Koszul formula and prove that its
-geodesics are precisely the critical curves of the energy functional with
-fixed endpoints.
-\end{exercise}
-
-\begin{definition}[Covariant derivative and parallel transport]
-For a curve $\gamma$, the connection induces a \emph{covariant derivative}
-$D/dt$ on vector fields along $\gamma$. A field $V$ is \emph{parallel} when
-$DV/dt=0$; the resulting linear isomorphism between endpoint tangent spaces
-is \emph{parallel transport}.
+\begin{definition}[Curvature and holonomy]
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
 \end{definition}
 
-\begin{exercise}[Parallel transport and holonomy]
+\begin{exercise}[Parallel transport and curvature]
 Prove existence, uniqueness, composition, and inverse properties of parallel
-transport. Show that Levi--Civita transport preserves the metric. Compute the
-rotation obtained by transporting a tangent vector around a latitude on the
-unit sphere and relate it to the enclosed curvature.
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
 \end{exercise}
 
-\begin{definition}[Curvature]
-The \emph{curvature} of a connection is
-\[
-R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z.
-\]
-For a metric connection, the \emph{Riemann tensor} is
-$\operatorname{Riem}(X,Y,Z,W)=g(R(X,Y)Z,W)$. Its contraction is the
-\emph{Ricci tensor} $\operatorname{Ric}$; the contraction of Ricci is the
-\emph{scalar curvature} $S$.
-\end{definition}
-
-\begin{exercise}[Curvature identities and geodesic deviation]
-For the Levi--Civita connection, prove tensoriality and the algebraic
-symmetries of the Riemann tensor and the first and second Bianchi identities.
-For a variation through geodesics with separation field $J$, prove
-\[
-\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
-\]
-Deduce the leading relative acceleration of nearby freely falling bodies.
-\end{exercise}
-
-\begin{definition}[Smooth bundles and sections]
-A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
-locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
-bundle} has vector-space fibers and linear transition maps. A \emph{smooth
-principal $G$-bundle} has a free right $G$-action, transitive on each fiber,
-and local equivariant trivializations. A \emph{section} is a smooth map
-$s:M\to E$ with $\pi s=\id_M$. For a representation $G\to GL(V)$, the
-\emph{associated vector bundle} is
-$P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
-\end{definition}
-
-\begin{definition}[Gauge fields]
-Let $G$ be a Lie group and $\pi:P\to M$ a principal $G$-bundle. A
-\emph{gauge connection} is an equivariant $\mathfrak g$-valued one-form
-$A$ on $P$ reproducing fundamental vertical fields. Its \emph{curvature} is
+\begin{definition}[Principal connections and gauge fields]
+Let $P\to M$ be a principal $G$-bundle. A \emph{principal connection} is an
+equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
+vertical fields. It induces connections on every associated bundle, and its
+\emph{curvature} is
 $F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
-$G$-equivariant bundle automorphism covering $\id_M$.
+$G$-equivariant bundle automorphism covering $\id_M$. A reduction of the
+frame bundle describes spacetime geometry; a separate principal bundle
+describes an internal gauge symmetry.
 \end{definition}
 
 \begin{exercise}[Gauge covariance and Bianchi identity]
@@ -2672,6 +2688,24 @@ gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
 $A\mapsto A+d\chi$ and $F=dA$. On $\R^2\setminus\{0\}$, compute the
 curvature and holonomy of $A=(\Phi/2\pi)d\theta$ and derive the
 Aharonov--Bohm phase shift $q\Phi/\hbar$ despite $F=0$ along the paths.
+\end{exercise}
+
+\begin{definition}[Electromagnetic field]
+An \emph{electromagnetic gauge field} is a connection on an internal
+principal $U(1)$-bundle over an oriented Lorentzian four-manifold. Its field
+strength is the curvature two-form $F$; locally $F=dA$. Given a current
+one-form $J$, Maxwell's equations are
+\[
+dF=0,\qquad d{*F}=\mu_0{*J}.
+\]
+\end{definition}
+
+\begin{exercise}[Maxwell theory and electromagnetic waves]
+Derive charge conservation from Maxwell's equations. On Minkowski
+spacetime, recover the electric and magnetic vector equations and the Lorentz
+force from $F$. In vacuum, impose Lorenz gauge and derive wave equations with
+speed $c$. Prove transverse polarization and compare the predicted relation
+$c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
 \end{exercise}
 
 \begin{exercise}[Yang--Mills equations and instantons]
@@ -2691,25 +2725,37 @@ $F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
 the Yang--Mills equation.
 \end{exercise}
 
-The geometric language now expresses electromagnetism and gravitation as
-equations for curvature constrained by conservation laws.
+Gravity is carried by the Lorentz reduction of the frame bundle itself. Its
+connection compares local inertial frames, and its curvature measures the
+departure from the flat Minkowski model.
 
-\begin{definition}[Electromagnetic field]
-On an oriented Lorentzian four-manifold, an \emph{electromagnetic field
-strength} is a two-form $F$. Given a current one-form $J$ and constants
-$\mu_0,c$, \emph{Maxwell's equations} are
-\[
-dF=0,\qquad d{*F}=\mu_0{*J}.
-\]
-Locally, a \emph{gauge potential} is a one-form $A$ with $F=dA$.
+\begin{definition}[Levi--Civita geometry]
+An $O(p,q)$-structure determines a unique torsion-free connection preserving
+the metric, the \emph{Levi--Civita connection}. On the orthonormal frame
+bundle it is a principal $O(p,q)$-connection; the solder form identifies its
+associated vector bundle with $TM$. Its curvature gives the
+\emph{Riemann tensor}
+$\operatorname{Riem}(X,Y,Z,W)=g(R^\nabla(X,Y)Z,W)$, whose contractions are
+the \emph{Ricci tensor} $\operatorname{Ric}$ and scalar curvature $S$.
 \end{definition}
 
-\begin{exercise}[Maxwell theory and electromagnetic waves]
-Derive charge conservation from Maxwell's equations. On Minkowski
-spacetime, recover the electric and magnetic vector equations and the Lorentz
-force from $F$. In vacuum, impose Lorenz gauge and derive wave equations with
-speed $c$. Prove transverse polarization and compare the predicted relation
-$c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
+\begin{exercise}[Levi--Civita connection and holonomy]
+Prove existence and uniqueness of the Levi--Civita connection and derive the
+Koszul formula. Prove that its geodesics are precisely the critical curves of
+the energy functional with fixed endpoints and that its parallel transport
+preserves the metric. Compute the rotation obtained by transporting a tangent
+vector around a latitude on the unit sphere and relate it to the enclosed
+curvature.
+\end{exercise}
+
+\begin{exercise}[Curvature identities and geodesic deviation]
+For the Levi--Civita connection, prove the algebraic symmetries of the
+Riemann tensor and the first and second Bianchi identities. For a variation
+through geodesics with separation field $J$, prove
+\[
+\frac{D^2J}{dt^2}+R^\nabla(J,\dot\gamma)\dot\gamma=0.
+\]
+Deduce the leading relative acceleration of nearby freely falling bodies.
 \end{exercise}
 
 \begin{definition}[Einstein equation]
