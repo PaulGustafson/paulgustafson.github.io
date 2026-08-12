@@ -1161,6 +1161,36 @@ dE=-\partial_tB,
 recovering the observed flux--emf law.
 \end{exercise}
 
+\begin{definition}[de Rham cohomology]
+A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
+\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
+\emph{de Rham cohomology} of $M$ is
+\[
+H_{\mathrm{dR}}^k(M)
+=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
+{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
+\]
+Pullback induces maps on de Rham cohomology, and the wedge product makes
+$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
+\end{definition}
+
+\begin{exercise}[de Rham classes and periods]
+On a star-shaped open subset of $\R^n$, construct a homotopy operator and
+prove the Poincar\'e lemma: every closed form of positive degree is exact.
+Use Stokes' theorem to prove that an exact $k$-form has zero integral over
+every closed oriented $k$-manifold mapped smoothly into $M$. Prove
+$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
+
+On $\R^2\setminus\{0\}$, show that
+\[
+\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
+\]
+is closed and has integral $2\pi$ around the unit circle, hence is not exact.
+Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
+closed electromagnetic field strength has local potentials, while it has a
+global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
 \begin{definition}[Hodge star]
 On an oriented pseudo-Riemannian $n$-manifold, the metric induces a
 nondegenerate pairing $\langle\cdot,\cdot\rangle_g$ on differential forms.
@@ -2862,6 +2892,15 @@ The \emph{homology} is $H_n(X;R)=\ker\partial_n/\im\partial_{n+1}$. The
 \emph{cochain complex} is $C^n(X;R)=\Hom_R(C_n(X;R),R)$ with coboundary
 $\delta\phi=\phi\partial$, and its cohomology is $H^n(X;R)$.
 \end{definition}
+
+For a smooth manifold $M$, integration over smooth singular simplices sends
+a form $\omega$ to the cochain
+$\sigma\mapsto\int_{\Delta^k}\sigma^*\omega$. Stokes' theorem makes this a
+cochain map. The de Rham theorem states that it induces a natural
+isomorphism of graded rings
+\[
+H_{\mathrm{dR}}^*(M)\cong H^*(M;\R).
+\]
 
 \begin{definition}[Cofibers, finite CW complexes, and cohomology theories]
 A based inclusion $A\hookrightarrow X$ is a \emph{cofibration} if every
