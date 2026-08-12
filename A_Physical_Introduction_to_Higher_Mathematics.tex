@@ -1675,7 +1675,7 @@ Interpret this as noncommutative Fourier analysis turning functions on a group
 into operators rather than scalar frequency amplitudes.
 \end{exercise}
 
-\part{Measurement}
+\part{Entropy}
 
 \section{Statistical Mechanics}
 
@@ -1686,8 +1686,9 @@ distribution of molecular speeds.
 
 A macroscopic observable is a function of the microscopic state. When a
 preparation does not determine that state, repeated measurements are
-predicted by a probability distribution; entropy and invariance then
-distinguish equilibrium distributions.
+predicted by a probability distribution. Entropy measures uncertainty,
+relative entropy measures distinguishability, and equilibrium emerges from
+optimizing these quantities under macroscopic constraints.
 
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
@@ -1717,9 +1718,17 @@ derive variance addition for independent square-integrable random variables.
 
 \begin{definition}[Entropy and Gibbs ensembles]
 For a discrete probability vector $p$, its \emph{entropy} is
-$S(p)=-k_B\sum_ip_i\log p_i$. For a phase-space probability density $\rho$
+$S(p)=-k_B\sum_ip_i\log p_i$. For probability vectors $p,q$ with
+$p_i=0$ whenever $q_i=0$, their \emph{relative entropy} is
+\[
+D(p\Vert q)=\sum_i p_i\log\frac{p_i}{q_i}.
+\]
+For a joint distribution $p_{XY}$, the \emph{mutual information} is
+$I(X:Y)=D(p_{XY}\Vert p_Xp_Y)$. For a phase-space probability density $\rho$
 relative to Liouville measure $\mu_L$, its \emph{statistical entropy} is
-$S(\rho)=-k_B\int\rho\log\rho\,d\mu_L$. The \emph{canonical Gibbs ensemble}
+$S(\rho)=-k_B\int\rho\log\rho\,d\mu_L$; for densities $\rho,\sigma$, set
+$D(\rho\Vert\sigma)=\int\rho\log(\rho/\sigma)\,d\mu_L$ when defined. The
+\emph{canonical Gibbs ensemble}
 at inverse temperature $\beta$ is defined when
 \[
 0<Z(\beta)=\int e^{-\beta H}\,d\mu_L<\infty,
@@ -1727,6 +1736,19 @@ at inverse temperature $\beta$ is defined when
 and is then the probability measure
 $d\mathbb P_\beta=Z(\beta)^{-1}e^{-\beta H}d\mu_L$.
 \end{definition}
+
+\begin{exercise}[Relative entropy and data processing]
+Prove the log-sum inequality and deduce $D(p\Vert q)\geq0$, with equality
+exactly when $p=q$. For a stochastic map $K(y\mid x)$, prove
+\[
+D(Kp\Vert Kq)\leq D(p\Vert q).
+\]
+Interpret a random variable, finite-resolution detector, or forgotten label
+as a stochastic map and explain why none can increase distinguishability.
+Prove
+$I(X:Y)=S(p_X)/k_B+S(p_Y)/k_B-S(p_{XY})/k_B$, and show that it vanishes
+exactly when $X$ and $Y$ are independent.
+\end{exercise}
 
 \begin{definition}[Measure-preserving dynamics and ergodicity]
 A measurable transformation $T$ is \emph{measure preserving} if
@@ -1736,8 +1758,13 @@ invariant probability measure for the dynamics.
 \end{definition}
 
 \begin{exercise}[Entropy and equilibrium]
-Maximize entropy under normalization and fixed mean energy to derive the
-Gibbs ensemble. Prove
+For every density $\rho$ with finite mean energy, prove
+\[
+D(\rho\Vert\rho_\beta)
+=-\frac{S(\rho)}{k_B}+\beta\langle H\rangle_\rho+\log Z(\beta).
+\]
+Deduce that the Gibbs ensemble uniquely maximizes entropy at fixed mean
+energy, equivalently minimizes free energy at fixed temperature. Prove
 $\langle H\rangle=-\partial_\beta\log Z$ and
 $\operatorname{Var}(H)=\partial_\beta^2\log Z$. Prove invariance of Gibbs
 measure under Hamiltonian flow and formulate the consequence of the ergodic
@@ -1764,7 +1791,8 @@ and analyzer directions.
 
 Quantum states retain the probabilistic expectation rule while replacing
 commutative observables by operators and classical mixtures by density
-operators.
+operators. Measurement produces ordinary outcome distributions, but their
+uncertainty now depends on both the state and the chosen observable.
 
 \begin{definition}[Quantum states and observables]
 A positive operator $S$ has the coordinate-free trace
@@ -1836,6 +1864,88 @@ theorem in finite dimensions, realizing every POVM's outcome probabilities
 by a projective measurement on a larger Hilbert space. Show that state
 discrimination can require a nonprojective POVM.
 \end{exercise}
+
+\begin{definition}[Von Neumann and relative entropy]
+For a density operator with discrete spectral resolution
+$\rho=\sum_{\lambda>0}\lambda P_\lambda$, its \emph{von Neumann entropy} is
+\[
+S(\rho)=-k_B\Tr(\rho\log\rho)
+       =-k_B\sum_{\lambda>0}
+          (\operatorname{rank}P_\lambda)\lambda\log\lambda,
+\]
+with $0\log0=0$; in infinite dimension the value may be $+\infty$.
+It is the Shannon entropy of the outcomes of a projective measurement in an
+eigenbasis of $\rho$, and it vanishes exactly for pure states. In finite
+dimensions, for density operators with
+$\supp\rho\leq\supp\sigma$, their \emph{quantum relative entropy} is
+\[
+D(\rho\Vert\sigma)
+=\Tr\!\left(\rho(\log\rho-\log\sigma)\right),
+\]
+and it is $+\infty$ otherwise.
+\end{definition}
+
+\begin{exercise}[Entropy of projective measurements]
+For a rank-one projective measurement $(P_i)$ in state $\rho$, let
+$p_i=\Tr(\rho P_i)$. Prove
+\[
+S(p)\geq S(\rho),
+\]
+with equality when the measurement basis diagonalizes $\rho$. Interpret the
+excess as uncertainty introduced by measuring in an incompatible basis.
+Show that unitary evolution preserves $S(\rho)$ even though it can change
+the outcome entropy of a fixed measurement.
+\end{exercise}
+
+\begin{exercise}[Entropy and quantum Gibbs states]
+Let $K$ be $n$-dimensional, let $P_1,\ldots,P_n$ be mutually orthogonal
+rank-one projections with sum $1_K$, and let
+$\mathcal D=\operatorname{span}\{P_1,\ldots,P_n\}\cong\C^n$. Identify a
+state on $\mathcal D$ with a probability vector $p=(p_i)$ and the density operator
+$\rho_p=\sum_i p_iP_i$. Prove
+\[
+S(\rho_p)=-k_B\sum_i p_i\log p_i,
+\]
+so von Neumann entropy restricts to classical entropy on a commutative
+observable algebra. Prove more generally that
+$S(U\rho U^*)=S(\rho)$ for every unitary $U$.
+
+Let $H=H^*\in B(K)$ have at least two distinct eigenvalues, and let the
+prescribed energy $E$ lie strictly between its smallest and largest
+eigenvalues. Prove that there is a unique $\beta\in\R$ for which
+\[
+\rho_\beta=\frac{e^{-\beta H}}{Z(\beta)},
+\qquad
+Z(\beta)=\Tr(e^{-\beta H}),
+\qquad
+\Tr(\rho_\beta H)=E.
+\]
+Prove
+\[
+D(\rho\Vert\rho_\beta)
+=-\frac{S(\rho)}{k_B}+\beta\Tr(\rho H)+\log Z(\beta),
+\]
+and use nonnegativity to show that $\rho_\beta$ uniquely maximizes entropy
+at fixed mean energy, equivalently minimizes free energy at fixed
+temperature.
+Derive
+\[
+\Tr(\rho_\beta H)=-\partial_\beta\log Z,
+\qquad
+\operatorname{Var}_{\rho_\beta}(H)=\partial_\beta^2\log Z.
+\]
+Finally, restrict $\rho_\beta$ to the commutative algebra generated by the
+spectral projections of $H$ and recover the classical Gibbs probabilities,
+including their energy-level degeneracies. If $g_i$ is the degeneracy of
+$E_i$ and $p_i$ is the total population of that energy level, derive
+\[
+\frac{p_i}{p_j}=\frac{g_i}{g_j}e^{-\beta(E_i-E_j)}.
+\]
+Explain why the degeneracy factor is absent for the ratio of populations of
+individual eigenstates, and compare both formulas with measured
+level-population ratios.
+\end{exercise}
+
 
 \begin{exercise}[Projective quantum states by reduction]
 \label{ex:projective-reduction}
@@ -2006,7 +2116,9 @@ precisely where quantization removes the classical divergence.
 
 Observables form an algebra, while states are normalized positive functionals
 on that algebra. The GNS construction turns this abstract pairing into
-operators and vectors on a Hilbert space.
+operators and vectors on a Hilbert space. Relative entropy remains an
+intrinsic measure of distinguishability even when no density-matrix entropy
+exists.
 
 \begin{definition}[$C^*$-algebras and states]
 A \emph{unital Banach algebra} is a complete normed algebra with identity and
@@ -2288,66 +2400,18 @@ the relevant replacement for sharply adjacent local regions in continuum
 QFT.
 \end{exercise}
 
-\begin{definition}[Von Neumann and entanglement entropy]
-For a density operator with discrete spectral resolution
-$\rho=\sum_{\lambda>0}\lambda P_\lambda$, its \emph{von Neumann entropy} is
+\begin{definition}[Entanglement entropy and mutual information]
+For a pure state $\rho=|\psi\rangle\langle\psi|$ on
+$H_A\otimes H_B$, its \emph{entanglement entropy} is
+$S_A(\psi)=S(\rho_A)$; the Schmidt spectral data will show that this also
+equals $S(\rho_B)$. For an arbitrary bipartite state, its \emph{quantum
+mutual information} is
 \[
-S(\rho)=-k_B\Tr(\rho\log\rho)
-       =-k_B\sum_{\lambda>0}
-          (\operatorname{rank}P_\lambda)\lambda\log\lambda,
+I(A:B)_\rho=D(\rho\Vert\rho_A\otimes\rho_B)
+=\frac{S(\rho_A)+S(\rho_B)-S(\rho)}{k_B}.
 \]
-with $0\log0=0$; in infinite dimension the value may be $+\infty$. For a
-pure state $\rho=|\psi\rangle\langle\psi|$ on $H_A\otimes H_B$, its
-\emph{entanglement entropy} across the bipartition is
-\[
-S_A(\psi)=S(\Tr_B\rho).
-\]
-The Schmidt spectral data will show that this also equals
-$S(\Tr_A\rho)$.
+It measures total correlation and vanishes exactly for product states.
 \end{definition}
-
-\begin{exercise}[Classical and quantum Gibbs states]
-Let $K$ be $n$-dimensional, let $P_1,\ldots,P_n$ be mutually orthogonal
-rank-one projections with sum $1_K$, and let
-$D=\operatorname{span}\{P_1,\ldots,P_n\}\cong\C^n$. Identify a state on
-$D$ with a probability vector $p=(p_i)$ and the density operator
-$\rho_p=\sum_i p_iP_i$. Prove
-\[
-S(\rho_p)=-k_B\sum_i p_i\log p_i,
-\]
-so von Neumann entropy restricts to classical entropy on a commutative
-observable algebra. Prove more generally that
-$S(U\rho U^*)=S(\rho)$ for every unitary $U$.
-
-Let $H=H^*\in B(K)$ have at least two distinct eigenvalues, and let the
-prescribed energy $E$ lie strictly between its smallest and largest
-eigenvalues. Prove that there is a unique $\beta\in\R$ for which
-\[
-\rho_\beta=\frac{e^{-\beta H}}{Z(\beta)},
-\qquad
-Z(\beta)=\Tr(e^{-\beta H}),
-\qquad
-\Tr(\rho_\beta H)=E.
-\]
-Prove strict concavity of $S$ and use it with the normalization and energy
-constraints to show that $\rho_\beta$ is their unique entropy maximizer.
-Derive
-\[
-\Tr(\rho_\beta H)=-\partial_\beta\log Z,
-\qquad
-\operatorname{Var}_{\rho_\beta}(H)=\partial_\beta^2\log Z.
-\]
-Finally, restrict $\rho_\beta$ to the commutative algebra generated by the
-spectral projections of $H$ and recover the classical Gibbs probabilities,
-including their energy-level degeneracies. If $g_i$ is the degeneracy of
-$E_i$ and $p_i$ is the total population of that energy level, derive
-\[
-\frac{p_i}{p_j}=\frac{g_i}{g_j}e^{-\beta(E_i-E_j)}.
-\]
-Explain why the degeneracy factor is absent for the ratio of populations of
-individual eigenstates, and compare both formulas with measured
-level-population ratios.
-\end{exercise}
 
 \begin{exercise}[Schmidt projections and entanglement]
 Let $H_A$ and $H_B$ be finite-dimensional. For a pure vector
@@ -2448,6 +2512,25 @@ For a finite POVM $(E_x)_x$, prove that
 \]
 is a quantum-to-classical channel, compute its adjoint, and identify its
 Stinespring dilation with the Naimark dilation constructed earlier.
+\end{exercise}
+
+\begin{exercise}[Quantum data processing]
+In finite dimensions, prove unitary invariance and joint convexity of quantum
+relative entropy. Average over a unitary error basis on $H_B$ to prove
+\[
+D(\Tr_B\rho\Vert\Tr_B\sigma)
+\leq D(\rho\Vert\sigma).
+\]
+Use a Stinespring dilation to deduce, for every channel $\mathcal N$,
+\[
+D(\mathcal N(\rho)\Vert\mathcal N(\sigma))
+\leq D(\rho\Vert\sigma).
+\]
+Interpret this as the impossibility of increasing distinguishability by a
+physical process. If one recovery channel reverses $\mathcal N$ on both
+$\rho$ and $\sigma$, prove that equality holds. Apply data processing to a
+measurement channel and recover the classical inequality for its outcome
+distributions.
 \end{exercise}
 
 \begin{exercise}[Amplitude damping reproduces spontaneous emission]
