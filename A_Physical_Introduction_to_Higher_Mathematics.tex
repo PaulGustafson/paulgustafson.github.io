@@ -1710,9 +1710,13 @@ variable satisfying
 \]
 \end{definition}
 
-\begin{definition}[Entropy]
-For a discrete probability vector $p$, its \emph{entropy} is
-$S(p)=-k_B\sum_ip_i\log p_i$. For probability vectors $p,q$ with
+\begin{definition}[Shannon entropy]
+For a discrete probability vector $p$, its \emph{Shannon entropy} is
+\[
+H(p)=-\sum_i p_i\log p_i.
+\]
+The corresponding physical entropy is $S(p)=k_BH(p)$. For probability
+vectors $p,q$ with
 $p_i=0$ whenever $q_i=0$, their \emph{relative entropy} is
 \[
 D(p\Vert q)=\sum_i p_i\log\frac{p_i}{q_i}.
@@ -1775,10 +1779,10 @@ and then for all measurable sets. Show that the time-zero coordinate
 partition is generating and, taking the Kolmogorov--Sinai generator theorem
 as input, compute
 \[
-h_\mu(T)=-\sum_{i=1}^r p_i\log p_i.
+h_\mu(T)=-\sum_{i=1}^r p_i\log p_i=H(p).
 \]
-Thus Shannon entropy becomes the information production rate of a dynamical
-system.
+Thus the Shannon entropy of one symbol equals the information production per
+time step of the Bernoulli shift.
 \end{exercise}
 
 \begin{definition}[Gibbs states]
@@ -2068,8 +2072,9 @@ S(\rho)=-k_B\Tr(\rho\log\rho)
           (\operatorname{rank}P_\lambda)\lambda\log\lambda,
 \]
 with $0\log0=0$; in infinite dimension the value may be $+\infty$.
-It is the Shannon entropy of the outcomes of a projective measurement in an
-eigenbasis of $\rho$, and it vanishes exactly for pure states.
+It is $k_B$ times the Shannon entropy of the outcomes of a projective
+measurement in an eigenbasis of $\rho$, and it vanishes exactly for pure
+states.
 \end{definition}
 
 \begin{exercise}[Entropy of projective measurements]
