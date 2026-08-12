@@ -753,6 +753,19 @@ Prove the chain rule $d(G\circ F)_p=dG_{F(p)}\circ dF_p$ and compute tangent
 spaces of level sets $F^{-1}(q)$ at points where $dF$ is surjective.
 \end{exercise}
 
+\begin{definition}[Vector fields and flows]
+A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
+$X$ is a smooth local action $\Phi$ of $\R$ on $M$ satisfying
+$\left.\frac d{dt}\right|_0\Phi_t(p)=X_p$. The \emph{Lie bracket} is the
+vector field $[X,Y](f)=X(Yf)-Y(Xf)$.
+\end{definition}
+
+\begin{exercise}[Flows and brackets]
+Prove local existence and uniqueness of flows. Prove that $[X,Y]=0$ if and
+only if their local flows commute, and that the Lie derivative
+$\mathcal L_XY=[X,Y]$ is natural under diffeomorphisms.
+\end{exercise}
+
 \begin{definition}[Lie groups and Lie algebras]
 A \emph{Lie group} is a smooth manifold $G$ whose multiplication and
 inversion are smooth. Its \emph{Lie algebra} is
@@ -859,6 +872,192 @@ the Balmer wavelengths and compare them with the observed hydrogen lines.
 Apply the electric-dipole rule to identify forbidden transitions.
 \end{exercise}
 
+\section{Symplectic Geometry}
+
+The Kleinian, or Erlangen, viewpoint studies a geometry through its
+transformations and invariants. For classical mechanics the basic model is a
+vector space with an alternating form, and its transformation group is the
+symplectic group.
+
+\begin{definition}[Symplectic vector spaces and groups]
+A \emph{symplectic vector space} is a finite-dimensional real vector space
+$V$ equipped with a nondegenerate alternating bilinear form $\omega$. Its
+\emph{symplectic group} is
+\[
+\operatorname{Sp}(V,\omega)
+=\{A\in\operatorname{GL}(V):\omega(Au,Av)=\omega(u,v)\}.
+\]
+For $V=\R_q^n\oplus\R_p^n$, the standard form is
+$\omega_0((q,p),(q',p'))=p\cdot q'-q\cdot p'$.
+\end{definition}
+
+\begin{exercise}[Symplectic bases and transformations]
+Prove that every symplectic vector space has even dimension and admits a
+basis in which the form has matrix
+$\left(\begin{smallmatrix}0&-I\\ I&0\end{smallmatrix}\right)$. Show that
+$A$ is symplectic exactly when $A^*JA=J$, and compute the Lie algebra of
+$\operatorname{Sp}(2n,\R)$. Identify translations and linear symplectic
+maps as the transformations preserving the affine symplectic geometry of
+$\R^{2n}$.
+\end{exercise}
+
+Applying the exterior-power construction from Spectral Theory fiberwise to
+the cotangent bundle produces differential forms, the language needed to
+pass from the affine model to nonlinear geometry.
+
+\begin{definition}[Differential forms and pullback]
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write
+$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$. The \emph{pullback} of
+$\omega\in\Omega^k(N)$ by $F:M\to N$ is
+\[
+(F^*\omega)_p(v_1,\ldots,v_k)
+=\omega_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+\end{definition}
+
+\begin{definition}[Exterior derivative]
+The \emph{exterior derivative} is the unique family of maps
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded Leibniz
+rule, $d^2=0$, and naturality $F^*d=dF^*$.
+\end{definition}
+
+\begin{exercise}[Cartan calculus]
+Construct $d$ locally and prove its uniqueness. For contraction $\iota_X$,
+prove Cartan's identity
+$\mathcal L_X=d\iota_X+\iota_Xd$ and the naturality of $d$, wedge products,
+and pullbacks.
+\end{exercise}
+
+\begin{definition}[Symplectic manifolds and dynamics]
+A \emph{symplectic form} on a manifold $M$ is a closed, nondegenerate
+two-form $\omega$. Darboux's theorem states that every point has local
+coordinates in which $\omega$ is the standard form $\omega_0$. The
+\emph{Hamiltonian vector field} of $H\in C^\infty(M)$ is defined by
+$\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}, and the
+\emph{Poisson bracket} is $\{f,g\}=\omega(X_f,X_g)$.
+\end{definition}
+
+\begin{definition}[Configuration and phase spaces]
+A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
+space} is the cotangent bundle $T^*Q$. The tautological one-form on $T^*Q$ is
+$\theta_\alpha(v)=\alpha(d\pi(v))$, and its canonical symplectic form is
+$\omega=-d\theta$.
+\end{definition}
+
+\begin{definition}[Classical states and observables]
+On a phase space $M$, a \emph{pure classical state} is a point $x\in M$, and
+a \emph{classical observable} is a smooth real-valued function
+$f\in C^\infty(M,\R)$. A \emph{statistical state} is a Borel probability
+measure $\mu$ on $M$, with expectation
+\[
+\mathbb E_\mu[f]=\int_M f\,d\mu
+\]
+whenever the integral exists. If $\phi_t$ is a Hamiltonian flow, Schr\"odinger
+evolution pushes states forward by $\mu_t=(\phi_t)_*\mu_0$, while Heisenberg
+evolution pulls observables back by $f_t=f\circ\phi_t$; hence
+$\int_Mf\,d\mu_t=\int_Mf_t\,d\mu_0$.
+\end{definition}
+
+\begin{exercise}[Hamilton's equations and Poisson algebra]
+Prove that the canonical form on $T^*Q$ is symplectic. In canonical
+coordinates, derive Hamilton's equations. Prove antisymmetry, the Leibniz
+rule, and the Jacobi identity for the Poisson bracket, and prove
+$\dot f=\{f,H\}+\partial_tf$ along Hamiltonian flow.
+\end{exercise}
+
+\begin{definition}[Symplectic actions and momentum maps]
+An action of a Lie group $G$ on $(M,\omega)$ is \emph{symplectic} if it
+preserves $\omega$. A \emph{momentum map} is an equivariant map
+$J:M\to\mathfrak g^*$ such that
+$d\langle J,\xi\rangle=\iota_{\xi_M}\omega$ for every
+$\xi\in\mathfrak g$.
+\end{definition}
+
+\begin{definition}[Symplectic reduction]
+Let $J:M\to\mathfrak g^*$ be a momentum map, let $\xi$ be a regular value,
+and let
+$G_\xi=\{g\in G:\Ad_g^*\xi=\xi\}$. If $G_\xi$ acts freely and properly on
+$J^{-1}(\xi)$, the \emph{reduced phase space} is
+\[
+M//_\xi G=J^{-1}(\xi)/G_\xi.
+\]
+Writing $i:J^{-1}(\xi)\hookrightarrow M$ and
+$q:J^{-1}(\xi)\to M//_\xi G$, its \emph{reduced symplectic form} is the
+form $\omega_\xi$ characterized by $q^*\omega_\xi=i^*\omega$.
+\end{definition}
+
+\begin{exercise}[Noether's theorem]
+Prove that if a Hamiltonian is invariant under a symplectic $G$-action with
+momentum map $J$, then every component of $J$ is conserved. Compute the
+momentum maps for translations and rotations of a particle and recover
+linear and angular momentum conservation.
+\end{exercise}
+
+\begin{exercise}[Reduction and central-force dynamics]
+Under the hypotheses of symplectic reduction, prove that $i^*\omega$ is
+basic for the $G_\xi$-action and that $\omega_\xi$ exists uniquely and is
+symplectic. For a $G$-invariant Hamiltonian $H$, prove that $X_H$ is tangent
+to $J^{-1}(\xi)$, that $H$ descends to a Hamiltonian $H_\xi$, and that the
+flow of $H_\xi$ is the quotient of the flow of $H$.
+
+Apply this to the cotangent-lifted rotation action on
+$T^*(\R^3\setminus\{0\})$, whose momentum map is
+$J(q,p)=q\times p$. For a nonzero angular momentum $\ell$, identify
+$J^{-1}(\ell)/SO(3)_\ell$ with the radial phase space having coordinates
+$(r,p_r)$, prove that its symplectic form is $dr\wedge dp_r$, and reduce
+\[
+H(q,p)=\frac{\|p\|^2}{2m}+V(\|q\|)
+\]
+to
+\[
+H_\ell(r,p_r)=\frac{p_r^2}{2m}+V(r)
+ +\frac{\|\ell\|^2}{2mr^2}.
+\]
+For $V(r)=-\kappa/r$, derive the elliptical bound orbits and the equal-area
+law.
+\end{exercise}
+
+\begin{exercise}[Gauss constraints and transverse modes]
+Let $d:V\to W$ be a linear map between finite-dimensional real inner-product
+spaces. On $M=W\oplus W$ set
+\[
+\omega((a,e),(a',e'))=\langle a,e'\rangle-\langle a',e\rangle.
+\]
+Let the additive group $(\ker d)^\perp$ act by
+$\chi\cdot(A,E)=(A+d\chi,E)$. Prove that this action is free and Hamiltonian
+with momentum map
+\[
+\langle J(A,E),\chi\rangle=\langle d\chi,E\rangle
+ =\langle\chi,d^*E\rangle.
+\]
+Show that reduction at zero imposes $d^*E=0$ and identifies
+\[
+M//_0(\ker d)^\perp
+\cong (W/\im d)\oplus\ker d^*
+\cong\ker d^*\oplus\ker d^*.
+\]
+Interpret $d$ as a finite-dimensional approximation to the exterior
+derivative: $d^*E=0$ is the vacuum Gauss constraint, $A\sim A+d\chi$ is
+gauge equivalence, and the reduced variables are the transverse
+electromagnetic modes.
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the phase-space volume $\omega^n/n!$, and every density
+depending only on $H$. Deduce that Hamiltonian evolution cannot compress
+phase volume.
+\end{exercise}
+
+\begin{exercise}[Betatron phase portraits]
+Model one transverse degree of freedom in a storage ring by
+$H=(p^2+\omega^2q^2)/2$. Derive the closed elliptical phase portraits and
+show that their enclosed area is preserved. Interpret the motion as a
+betatron oscillation about a closed orbit.
+\end{exercise}
+
 \section{Harmonic Analysis}
 
 \begin{observations}
@@ -868,7 +1067,9 @@ selected directions determined by wavelength and lattice spacing.
 
 Invariant integration turns representations into a generalized Fourier
 analysis. For translation symmetry, its dual variables are the reciprocal
-coordinates measured by diffraction.
+coordinates measured by diffraction. Applied to phase-space translations,
+the same idea will turn the symplectic structure of classical mechanics into
+the operator relations of quantum mechanics.
 
 \begin{definition}[Haar measure and convolution]
 Let $G$ be a locally compact Hausdorff group. A \emph{left Haar measure} is
@@ -1104,8 +1305,12 @@ For abelian groups the representation spaces are one-dimensional; for
 compact groups the integral becomes the dimension-weighted Peter--Weyl sum.
 \end{definition}
 
+The standard symplectic form on classical phase space determines a central
+extension of its translation group. Harmonic analysis of this noncommutative
+group is the bridge from classical phase space to quantization.
+
 \begin{definition}[Heisenberg group and Schr\"odinger representations]
-On $\R^{2n}=\R_q^n\oplus\R_p^n$, set
+On the standard symplectic space $\R^{2n}=\R_q^n\oplus\R_p^n$, set
 \[
 \sigma((q,p),(q',p'))=p\cdot q'-q\cdot p'.
 \]
@@ -1148,179 +1353,6 @@ S\longmapsto
 is injective on trace-class operators, where $[X_j,Y_k]=i\delta_{jk}$.
 Interpret this as noncommutative Fourier analysis turning functions on a group
 into operators rather than scalar frequency amplitudes.
-\end{exercise}
-
-\section{Symplectic Geometry}
-
-The symplectic form underlying the Heisenberg group is the local model for
-classical phase space. Classical dynamics requires this geometry to describe
-infinitesimal motion and conserved structure.
-
-\begin{definition}[Vector fields and flows]
-A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
-$X$ is a smooth local action $\Phi$ of $\R$ on $M$ satisfying
-$\left.\frac d{dt}\right|_0\Phi_t(p)=X_p$. The \emph{Lie bracket} is the
-vector field $[X,Y](f)=X(Yf)-Y(Xf)$.
-\end{definition}
-
-\begin{exercise}[Flows and brackets]
-Prove local existence and uniqueness of flows. Prove that $[X,Y]=0$ if and
-only if their local flows commute, and that the Lie derivative
-$\mathcal L_XY=[X,Y]$ is natural under diffeomorphisms.
-\end{exercise}
-
-Applying the exterior-power construction from Spectral Theory fiberwise to
-the cotangent bundle produces differential forms.
-
-\begin{definition}[Differential forms and pullback]
-A \emph{differential $k$-form} on $M$ is a smooth section of
-$\Lambda^kT^*M$; write
-$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$. The \emph{pullback} of
-$\omega\in\Omega^k(N)$ by $F:M\to N$ is
-\[
-(F^*\omega)_p(v_1,\ldots,v_k)
-=\omega_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
-\]
-\end{definition}
-
-\begin{definition}[Exterior derivative]
-The \emph{exterior derivative} is the unique family of maps
-$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded Leibniz
-rule, $d^2=0$, and naturality $F^*d=dF^*$.
-\end{definition}
-
-\begin{exercise}[Cartan calculus]
-Construct $d$ locally and prove its uniqueness. For contraction $\iota_X$,
-prove Cartan's identity
-$\mathcal L_X=d\iota_X+\iota_Xd$ and the naturality of $d$, wedge products,
-and pullbacks.
-\end{exercise}
-
-\begin{definition}[Configuration and phase spaces]
-A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
-space} is the cotangent bundle $T^*Q$. The tautological one-form on $T^*Q$ is
-$\theta_\alpha(v)=\alpha(d\pi(v))$, and its canonical symplectic form is
-$\omega=-d\theta$.
-\end{definition}
-
-\begin{definition}[Classical states and observables]
-On a phase space $M$, a \emph{pure classical state} is a point $x\in M$, and
-a \emph{classical observable} is a smooth real-valued function
-$f\in C^\infty(M,\R)$. A \emph{statistical state} is a Borel probability
-measure $\mu$ on $M$, with expectation
-\[
-\mathbb E_\mu[f]=\int_M f\,d\mu
-\]
-whenever the integral exists. If $\phi_t$ is a Hamiltonian flow, Schr\"odinger
-evolution pushes states forward by $\mu_t=(\phi_t)_*\mu_0$, while Heisenberg
-evolution pulls observables back by $f_t=f\circ\phi_t$; hence
-$\int_Mf\,d\mu_t=\int_Mf_t\,d\mu_0$.
-\end{definition}
-
-\begin{definition}[Symplectic dynamics]
-A \emph{symplectic form} is a closed, nondegenerate two-form $\omega$. The
-\emph{Hamiltonian vector field} of $H\in C^\infty(M)$ is defined by
-$\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}. The
-\emph{Poisson bracket} is $\{f,g\}=\omega(X_f,X_g)$.
-\end{definition}
-
-\begin{exercise}[Hamilton's equations and Poisson algebra]
-Prove that the canonical form on $T^*Q$ is symplectic. In canonical
-coordinates, derive Hamilton's equations. Prove antisymmetry, the Leibniz
-rule, and the Jacobi identity for the Poisson bracket, and prove
-$\dot f=\{f,H\}+\partial_tf$ along Hamiltonian flow.
-\end{exercise}
-
-\begin{definition}[Symplectic actions and momentum maps]
-An action of a Lie group $G$ on $(M,\omega)$ is \emph{symplectic} if it
-preserves $\omega$. A \emph{momentum map} is an equivariant map
-$J:M\to\mathfrak g^*$ such that
-$d\langle J,\xi\rangle=\iota_{\xi_M}\omega$ for every
-$\xi\in\mathfrak g$.
-\end{definition}
-
-\begin{definition}[Symplectic reduction]
-Let $J:M\to\mathfrak g^*$ be a momentum map, let $\xi$ be a regular value,
-and let
-$G_\xi=\{g\in G:\Ad_g^*\xi=\xi\}$. If $G_\xi$ acts freely and properly on
-$J^{-1}(\xi)$, the \emph{reduced phase space} is
-\[
-M//_\xi G=J^{-1}(\xi)/G_\xi.
-\]
-Writing $i:J^{-1}(\xi)\hookrightarrow M$ and
-$q:J^{-1}(\xi)\to M//_\xi G$, its \emph{reduced symplectic form} is the
-form $\omega_\xi$ characterized by $q^*\omega_\xi=i^*\omega$.
-\end{definition}
-
-\begin{exercise}[Noether's theorem]
-Prove that if a Hamiltonian is invariant under a symplectic $G$-action with
-momentum map $J$, then every component of $J$ is conserved. Compute the
-momentum maps for translations and rotations of a particle and recover
-linear and angular momentum conservation.
-\end{exercise}
-
-\begin{exercise}[Reduction and central-force dynamics]
-Under the hypotheses of symplectic reduction, prove that $i^*\omega$ is
-basic for the $G_\xi$-action and that $\omega_\xi$ exists uniquely and is
-symplectic. For a $G$-invariant Hamiltonian $H$, prove that $X_H$ is tangent
-to $J^{-1}(\xi)$, that $H$ descends to a Hamiltonian $H_\xi$, and that the
-flow of $H_\xi$ is the quotient of the flow of $H$.
-
-Apply this to the cotangent-lifted rotation action on
-$T^*(\R^3\setminus\{0\})$, whose momentum map is
-$J(q,p)=q\times p$. For a nonzero angular momentum $\ell$, identify
-$J^{-1}(\ell)/SO(3)_\ell$ with the radial phase space having coordinates
-$(r,p_r)$, prove that its symplectic form is $dr\wedge dp_r$, and reduce
-\[
-H(q,p)=\frac{\|p\|^2}{2m}+V(\|q\|)
-\]
-to
-\[
-H_\ell(r,p_r)=\frac{p_r^2}{2m}+V(r)
- +\frac{\|\ell\|^2}{2mr^2}.
-\]
-For $V(r)=-\kappa/r$, derive the elliptical bound orbits and the equal-area
-law.
-\end{exercise}
-
-\begin{exercise}[Gauss constraints and transverse modes]
-Let $d:V\to W$ be a linear map between finite-dimensional real inner-product
-spaces. On $M=W\oplus W$ set
-\[
-\omega((a,e),(a',e'))=\langle a,e'\rangle-\langle a',e\rangle.
-\]
-Let the additive group $(\ker d)^\perp$ act by
-$\chi\cdot(A,E)=(A+d\chi,E)$. Prove that this action is free and Hamiltonian
-with momentum map
-\[
-\langle J(A,E),\chi\rangle=\langle d\chi,E\rangle
- =\langle\chi,d^*E\rangle.
-\]
-Show that reduction at zero imposes $d^*E=0$ and identifies
-\[
-M//_0(\ker d)^\perp
-\cong (W/\im d)\oplus\ker d^*
-\cong\ker d^*\oplus\ker d^*.
-\]
-Interpret $d$ as a finite-dimensional approximation to the exterior
-derivative: $d^*E=0$ is the vacuum Gauss constraint, $A\sim A+d\chi$ is
-gauge equivalence, and the reduced variables are the transverse
-electromagnetic modes.
-\end{exercise}
-
-\begin{exercise}[Liouville's theorem]
-\label{ex:liouville-theorem}
-On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
-preserves $\omega$, the phase-space volume $\omega^n/n!$, and every density
-depending only on $H$. Deduce that Hamiltonian evolution cannot compress
-phase volume.
-\end{exercise}
-
-\begin{exercise}[Betatron phase portraits]
-Model one transverse degree of freedom in a storage ring by
-$H=(p^2+\omega^2q^2)/2$. Derive the closed elliptical phase portraits and
-show that their enclosed area is preserved. Interpret the motion as a
-betatron oscillation about a closed orbit.
 \end{exercise}
 
 \part{States}
