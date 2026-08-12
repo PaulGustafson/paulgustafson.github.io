@@ -1675,7 +1675,13 @@ Interpret this as noncommutative Fourier analysis turning functions on a group
 into operators rather than scalar frequency amplitudes.
 \end{exercise}
 
-\part{Entropy}
+\part{Probability}
+
+Probability begins with commuting random variables and equilibrium
+ensembles, becomes noncommutative in quantum mechanics, and is encoded
+intrinsically by operator algebras. Large random matrices lead to free
+probability, while quantum information studies tensor-product systems,
+measurements, and channels.
 
 \section{Statistical Mechanics}
 
@@ -2404,21 +2410,133 @@ modular flow are intrinsic to an algebra and its states and remain meaningful
 for type-III factors.
 \end{definition}
 
+\section{Random Matrices}
+
+Matrix ensembles are probability distributions on noncommuting observables.
+In large dimension, their normalized traces are governed by a notion of
+independence adapted to multiplication rather than to commuting events.
+
 \begin{definition}[Noncommutative probability]
-A \emph{noncommutative probability space} is a pair $(M,\varphi)$ of a von
-Neumann algebra and a normal state; its random variables are operators
-affiliated with $M$. If $X=X^*$ has spectral measure $E_X$, its
-\emph{distribution} in the state $\varphi$ is
+A \emph{noncommutative probability space} is a unital $*$-algebra $A$ with
+a state $\varphi$. Its random variables are elements of $A$; for
+$X=X^*$ in a von Neumann algebra, its \emph{distribution} is
 \[
-\mu_X(B)=\varphi(E_X(B)).
+\mu_X(B)=\varphi(E_X(B)),
+\qquad
+\varphi(X^n)=\int_\R t^n\,d\mu_X(t)
 \]
-Thus measurement turns a noncommutative observable into an ordinary
-probability distribution. When defined, its expectation is
-$\varphi(X)=\int_\R t\,d\mu_X(t)$. The commutative case
-$M=L^\infty(\Omega,\mathbb P)$ with
-$\varphi(f)=\int_\Omega f\,d\mathbb P$ recovers classical random variables
-and their laws.
+whenever the moment exists. A \emph{tracial probability space} has
+$\varphi(ab)=\varphi(ba)$. The commutative case
+$A=L^\infty(\Omega,\mathbb P)$ with
+$\varphi(f)=\int_\Omega f\,d\mathbb P$ recovers classical random variables.
+The \emph{joint $*$-distribution} of $X_1,\ldots,X_r$ is the functional
+$p\mapsto\varphi(p(X_1,\ldots,X_r,X_1^*,\ldots,X_r^*))$ on noncommutative
+$*$-polynomials.
 \end{definition}
+
+\begin{definition}[Free independence and free cumulants]
+Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
+if
+\[
+\varphi(a_1\cdots a_m)=0
+\]
+whenever $a_j\in A_{i_j}$, $\varphi(a_j)=0$, and neighboring indices are
+distinct. Variables are free when their generated unital subalgebras are.
+
+Let $NC(n)$ be the lattice of noncrossing partitions of
+$\{1,\ldots,n\}$. The \emph{free cumulants} $\kappa_n$ are the multilinear
+functionals determined recursively by
+\[
+\varphi(a_1\cdots a_n)
+=\sum_{\pi\in NC(n)}\kappa_\pi(a_1,\ldots,a_n),
+\]
+where $\kappa_\pi$ is the product of the cumulants associated to the blocks
+of $\pi$. Freeness is equivalently the vanishing of every mixed free
+cumulant.
+\end{definition}
+
+\begin{definition}[Semicircular variables]
+A self-adjoint variable $S$ is \emph{semicircular} with variance $\sigma^2$
+if its distribution is
+\[
+d\mu_{\mathrm{sc},\sigma}(x)
+=\frac{1}{2\pi\sigma^2}
+ \sqrt{4\sigma^2-x^2}\,
+ \mathbf 1_{[-2\sigma,2\sigma]}(x)\,dx.
+\]
+Equivalently, its only nonzero free cumulant is
+$\kappa_2(S,S)=\sigma^2$.
+\end{definition}
+
+\begin{exercise}[Free central limit theorem]
+Use noncrossing pairings to prove
+\[
+\varphi(S^{2m+1})=0,
+\qquad
+\varphi(S^{2m})=C_m\sigma^{2m},
+\qquad
+C_m=\frac1{m+1}\binom{2m}{m}.
+\]
+Let $X_1,X_2,\ldots$ be freely independent, identically distributed,
+centered variables of variance $\sigma^2$ with moments of every order. Use
+multilinearity and vanishing mixed cumulants to prove that the moments of
+$n^{-1/2}(X_1+\cdots+X_n)$ converge to these semicircular moments. Compare
+this free central limit theorem with the Gaussian limit for classically
+independent variables.
+\end{exercise}
+
+\begin{definition}[Wigner and Gaussian matrix ensembles]
+A \emph{Wigner matrix} $H_N$ is an $N\times N$ Hermitian random matrix whose
+upper-triangular entries are independent and centered, with
+$\mathbb E|H_{ij}|^2=\sigma^2/N$ off the diagonal and, for each fixed $m$,
+\[
+\sup_{N,i,j}\mathbb E|\sqrt N H_{ij}|^m<\infty.
+\]
+Its \emph{empirical spectral measure} is
+\[
+L_{H_N}=\frac1N\sum_{j=1}^N\delta_{\lambda_j(H_N)},
+\qquad
+\int x^k\,dL_{H_N}(x)=\frac1N\Tr(H_N^k).
+\]
+The \emph{Gaussian unitary ensemble} is the unitarily invariant Wigner
+ensemble with density proportional to
+$\exp[-N\Tr(H^2)/(2\sigma^2)]$ on Hermitian matrices.
+Sequences of random matrices are \emph{asymptotically free} when their
+normalized joint trace moments converge to those of freely independent
+variables.
+\end{definition}
+
+\begin{exercise}[Wigner semicircle law and asymptotic freeness]
+Expand $N^{-1}\mathbb E\Tr(H_N^k)$ as a sum over closed index walks. Show
+that only pair-matched walks survive as $N\to\infty$, that crossing pairings
+are lower order, and that the limiting moments are the semicircular moments.
+Prove that the variance tends to zero and hence that $L_{H_N}$ converges in
+probability, in moments, to $\mu_{\mathrm{sc},\sigma}$.
+
+For independent GUE matrices $H_N^{(1)},\ldots,H_N^{(r)}$, apply Wick's rule
+to normalized mixed traces of centered polynomials and prove that the family
+converges in joint moments to freely independent semicircular variables.
+Explain why ordinary independence of matrix entries becomes free
+independence of the limiting noncommuting matrices.
+\end{exercise}
+
+\begin{exercise}[Wishart matrices and typical entanglement]
+Let $G$ be a $d_A\times d_B$ matrix of independent standard complex Gaussian
+entries and set
+\[
+W=GG^*,\qquad \rho_A=\frac{W}{\Tr W}.
+\]
+Show that $\rho_A$ has the same distribution as the reduced state of a
+Haar-random unit vector in $\C^{d_A}\otimes\C^{d_B}$. Using Gaussian or
+Haar integration, prove
+\[
+\mathbb E\Tr(\rho_A^2)
+=\frac{d_A+d_B}{d_Ad_B+1}.
+\]
+Deduce that when $d_B\gg d_A$, a typical reduced state is close to maximally
+mixed in Hilbert--Schmidt norm. Interpret this as a random-matrix explanation
+of why a typical pure state of a large composite system is highly entangled.
+\end{exercise}
 
 \section{Quantum Information}
 
@@ -2434,7 +2552,9 @@ $e^{-t/(2T_1)}$.
 
 Composing systems produces joint measurements and correlations. Quantum
 information asks which of these correlations can be created, distinguished,
-transmitted, or protected by physical processes.
+transmitted, or protected by physical processes. Unlike freeness, physical
+independence of distinct subsystems is expressed by commuting observable
+algebras and tensor products.
 
 \begin{definition}[Composite and reduced states]
 The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
@@ -2463,7 +2583,9 @@ $\varphi(ab)=\varphi(a)\varphi(b)$. Compare this algebraic condition with a
 tensor-product state when $M_1\vee M_2$ is spatially isomorphic to
 $M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
 the relevant replacement for sharply adjacent local regions in continuum
-QFT.
+QFT. Contrast this commuting or tensor independence with free independence:
+show that freely independent centered variables satisfy vanishing alternating
+mixed moments without commuting or determining a joint classical law.
 \end{exercise}
 
 \begin{definition}[Entanglement entropy and mutual information]
