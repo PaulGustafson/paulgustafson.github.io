@@ -1675,7 +1675,7 @@ Interpret this as noncommutative Fourier analysis turning functions on a group
 into operators rather than scalar frequency amplitudes.
 \end{exercise}
 
-\part{States}
+\part{Measurement}
 
 \section{Statistical Mechanics}
 
@@ -1684,8 +1684,10 @@ into operators rather than scalar frequency amplitudes.
 distribution of molecular speeds.
 \end{observations}
 
-Probability measures enlarge pure classical states to statistical ensembles.
-Entropy and invariance then distinguish equilibrium among those ensembles.
+A macroscopic observable is a function of the microscopic state. When a
+preparation does not determine that state, repeated measurements are
+predicted by a probability distribution; entropy and invariance then
+distinguish equilibrium distributions.
 
 \begin{definition}[Probability]
 A \emph{probability space} is a measure space $(\Omega,\mathcal F,\mathbb P)$
@@ -1751,7 +1753,7 @@ temperature scaling and compare both predictions with dilute-gas
 measurements in the classical regime.
 \end{exercise}
 
-\section{Operator Algebras}
+\section{Quantum Mechanics}
 
 \begin{observations}
 \item When identically prepared spin-$1/2$ particles pass through a
@@ -1801,6 +1803,38 @@ evaluations and that the extreme points of the quantum state space are the
 rank-one density operators. Explain why mixtures are convex combinations in
 both theories and why the structural distinction is that $C(X)$ is
 commutative whereas $B(H)$ generally is not.
+\end{exercise}
+
+\begin{exercise}[Stern--Gerlach projections and the Born rule]
+For a spin-$1/2$ system and unit vector $n$, use
+$(n\cdot\sigma)^2=\id$ to construct the complete spectral projections of
+$S_n=(\hbar/2)n\cdot\sigma$ as
+$P_\pm(n)=(1\pm n\cdot\sigma)/2$. For
+$\rho=(1+r\cdot\sigma)/2$, derive
+$p_\pm(n)=\Tr(\rho P_\pm(n))=(1\pm r\cdot n)/2$. Model an inhomogeneous
+magnetic field by $H_{\rm int}=-\boldsymbol\mu\cdot\mathbf B$ and explain
+the separation into discrete beams. For successive analyzers along axes
+$n$ and $m$, derive the transition probability
+$\Tr(P_+(n)P_+(m))=(1+n\cdot m)/2$ and interpret the intermediate projection.
+Compare the two-way splitting with
+\href{https://doi.org/10.1007/BF01326983}
+{Gerlach--Stern, \emph{Zeitschrift f\"ur Physik} \textbf{9} (1922)}.
+Distinguish the original observation of space quantization in silver atoms
+from its later spin interpretation, and state which discrete outcomes and
+frequency predictions test the projection postulate and Born rule.
+\end{exercise}
+
+\begin{definition}[Measurements]
+A \emph{positive operator-valued measure} is a countably additive map $E$
+from measurable events to positive operators with $E(X)=1$. In state $\rho$,
+its outcome probability is $\Tr(\rho E(B))$.
+\end{definition}
+
+\begin{exercise}[POVMs and dilation]
+Prove that projection-valued measures are POVMs. Prove Naimark's dilation
+theorem in finite dimensions, realizing every POVM's outcome probabilities
+by a projective measurement on a larger Hilbert space. Show that state
+discrimination can require a nonprojective POVM.
 \end{exercise}
 
 \begin{exercise}[Projective quantum states by reduction]
@@ -1947,25 +1981,6 @@ $A\mapsto(i\hbar)^{-1}[A,H]$, and prove conservation of expected energy in
 both theories.
 \end{exercise}
 
-\begin{exercise}[Stern--Gerlach projections and the Born rule]
-For a spin-$1/2$ system and unit vector $n$, use
-$(n\cdot\sigma)^2=\id$ to construct the complete spectral projections of
-$S_n=(\hbar/2)n\cdot\sigma$ as
-$P_\pm(n)=(1\pm n\cdot\sigma)/2$. For
-$\rho=(1+r\cdot\sigma)/2$, derive
-$p_\pm(n)=\Tr(\rho P_\pm(n))=(1\pm r\cdot n)/2$. Model an inhomogeneous
-magnetic field by $H_{\rm int}=-\boldsymbol\mu\cdot\mathbf B$ and explain
-the separation into discrete beams. For successive analyzers along axes
-$n$ and $m$, derive the transition probability
-$\Tr(P_+(n)P_+(m))=(1+n\cdot m)/2$ and interpret the intermediate projection.
-Compare the two-way splitting with
-\href{https://doi.org/10.1007/BF01326983}
-{Gerlach--Stern, \emph{Zeitschrift f\"ur Physik} \textbf{9} (1922)}.
-Distinguish the original observation of space quantization in silver atoms
-from its later spin interpretation, and state which discrete outcomes and
-frequency predictions test the projection postulate and Born rule.
-\end{exercise}
-
 \begin{exercise}[Blackbody radiation from quantized Fourier modes]
 For electromagnetic radiation in a large conducting cavity, use its Fourier
 modes and two polarizations to derive the mode density
@@ -1986,6 +2001,8 @@ the cavity spectra discussed by
 {Planck, \emph{Annalen der Physik} \textbf{309} (1901)}, and identify
 precisely where quantization removes the classical divergence.
 \end{exercise}
+
+\section{Operator Algebras}
 
 Observables form an algebra, while states are normalized positive functionals
 on that algebra. The GNS construction turns this abstract pairing into
@@ -2212,7 +2229,17 @@ for type-III factors.
 \begin{definition}[Noncommutative probability]
 A \emph{noncommutative probability space} is a pair $(M,\varphi)$ of a von
 Neumann algebra and a normal state; its random variables are operators
-affiliated with $M$.
+affiliated with $M$. If $X=X^*$ has spectral measure $E_X$, its
+\emph{distribution} in the state $\varphi$ is
+\[
+\mu_X(B)=\varphi(E_X(B)).
+\]
+Thus measurement turns a noncommutative observable into an ordinary
+probability distribution. When defined, its expectation is
+$\varphi(X)=\int_\R t\,d\mu_X(t)$. The commutative case
+$M=L^\infty(\Omega,\mathbb P)$ with
+$\varphi(f)=\int_\Omega f\,d\mathbb P$ recovers classical random variables
+and their laws.
 \end{definition}
 
 \section{Quantum Information}
@@ -2226,6 +2253,10 @@ bounds satisfied by local hidden-variable models.
 $e^{-t/T_1}$; in the amplitude-damping limit its coherence decays as
 $e^{-t/(2T_1)}$.
 \end{observations}
+
+Composing systems produces joint measurements and correlations. Quantum
+information asks which of these correlations can be created, distinguished,
+transmitted, or protected by physical processes.
 
 \begin{definition}[Composite and reduced states]
 The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
@@ -2411,6 +2442,12 @@ representation
 $\Phi(a)=V^*\pi(a)V$. In finite dimensions, derive a Kraus representation
 $\Phi(a)=\sum_iK_i^*aK_i$ and its normalization. Prove that every channel is
 unitary evolution on a larger system followed by discarding an environment.
+For a finite POVM $(E_x)_x$, prove that
+\[
+\mathcal M(\rho)=\sum_x\Tr(\rho E_x)|x\rangle\langle x|
+\]
+is a quantum-to-classical channel, compute its adjoint, and identify its
+Stinespring dilation with the Naimark dilation constructed earlier.
 \end{exercise}
 
 \begin{exercise}[Amplitude damping reproduces spontaneous emission]
@@ -2436,18 +2473,6 @@ $\rho_{01}(t)=e^{-t/(2T_1)}\rho_{01}(0)$. Compare the predicted decay and the
 environmental dependence of $T_1$ with the transmon measurements in
 \href{https://doi.org/10.1103/PhysRevLett.101.080502}
 {Houck et al., \emph{Physical Review Letters} \textbf{101} (2008)}.
-\end{exercise}
-
-\begin{definition}[Measurements]
-A \emph{positive operator-valued measure} is a countably additive map $E$
-from measurable events to positive operators with $E(X)=1$. In state $\rho$,
-its outcome probability is $\Tr(\rho E(B))$.
-\end{definition}
-
-\begin{exercise}[POVMs and dilation]
-Prove that projection-valued measures are POVMs. Prove Naimark's dilation
-theorem in finite dimensions and derive the measurement channel associated
-to a POVM. Show that state discrimination can require a nonprojective POVM.
 \end{exercise}
 
 \begin{definition}[Quantum codes and correctable errors]
