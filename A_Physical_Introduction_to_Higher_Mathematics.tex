@@ -17,13 +17,6 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{exercise}{Exercise}[section]
-\theoremstyle{plain}
-\newtheorem{theorem}[definition]{Theorem}
-
-\newenvironment{observations}
-{\par\smallskip\noindent\textbf{Experimental observations.}%
- \begin{itemize}[leftmargin=2em]}
-{\end{itemize}\smallskip}
 
 \newcommand{\R}{\mathbb R}
 \newcommand{\C}{\mathbb C}
@@ -66,13 +59,6 @@
 \part{Symmetry}
 
 \section{Spectral Theory}
-
-\begin{observations}
-\item Small transverse disturbances on a taut string superpose: overlapping
-pulses add, and scaling an initial deflection scales its later motion. A
-finite string fixed at both ends has discrete resonant modes, while a pulse on
-an effectively infinite string requires a continuous range of frequencies.
-\end{observations}
 
 \subsection{Linear structures, duality, and determinants}
 
@@ -231,9 +217,6 @@ with orientation. Deduce the change-of-variables rule for parallelepipeds
 and Cramer's rule.
 \end{exercise}
 
-In finite dimensions, an inner product turns linear superposition into a
-geometry of orthogonal modes and makes spectral decomposition possible.
-
 \subsection{Inner products and finite-dimensional spectral theory}
 
 \begin{definition}[Inner products and orthogonality]
@@ -312,10 +295,6 @@ for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
 spectral subspaces without choosing coordinates.
 \end{exercise}
 
-The finite spectral theorem turns coupled equations of motion into independent
-normal modes. A chain of masses provides a finite approximation to the same
-decomposition for a continuous string.
-
 \subsection{Oscillators, normal modes, and vibrating strings}
 
 \begin{definition}[Linear oscillator]
@@ -369,10 +348,6 @@ frequencies. Prove that the fundamental frequency is
 $f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
 $f_n/f_1=n$ with the harmonics of a stretched string.
 \end{exercise}
-
-A continuous string requires infinite-dimensional spaces of functions.
-Measure and integration produce the spaces $L^p$, and completeness turns
-$L^2$ into a Hilbert space.
 
 \subsection{Measure, integration, and Hilbert spaces}
 
@@ -437,10 +412,6 @@ Prove the projection theorem for closed subspaces and the Riesz
 representation theorem. Deduce $H=M\oplus M^\perp$ for closed $M$ and prove
 existence, uniqueness, and $\|T^*\|=\|T\|$ for bounded adjoints.
 \end{exercise}
-
-Orthogonal bases turn infinite-dimensional functions into sequences of
-modes. On a finite string this gives Fourier series; on an unbounded domain,
-the mode parameter becomes continuous and the series becomes a transform.
 
 \begin{definition}[Orthogonal expansions]
 Let $H$ be an inner-product space. For an orthogonal family $(e_n)$, the
@@ -521,13 +492,6 @@ one-dimensional wave equation.
 
 \subsection{Time--bandwidth concentration and Slepian functions}
 
-Real measurements observe a pulse only during a finite time window and
-through a receiver with finite bandwidth.  No nonzero signal can be both
-exactly time-limited and band-limited, so the useful question is
-quantitative: among signals obeying one cutoff, which place the largest
-fraction of their energy inside the other?  The answer turns simultaneous
-localization into an eigenvalue problem.
-
 \begin{definition}[Time and band limiting]
 On $L^2(\R)$, define the time-limiting and band-limiting projections by
 \[
@@ -605,15 +569,6 @@ Analysis and Uncertainty---II}, Bell System Technical Journal
 \textbf{40} (1961)}.
 \end{exercise}
 
-The concentration operator composes a localization projection with a
-spectral projection.  The same mechanism will reappear in Index Theory,
-where a Dirac spectral cutoff compresses an algebra of observables to an
-operator system and turns finite resolution into geometric data.
-
-Fourier series and transforms are concrete spectral decompositions. The
-spectral theorem isolates their common structure and replaces sums over
-modes by integration against projection-valued measures.
-
 \subsection{Spectral measures and unbounded operators}
 
 \begin{definition}[Projection-valued measures]
@@ -632,18 +587,15 @@ operators, derive continuous functional calculus, and characterize unitary
 and projection spectra.
 \end{exercise}
 
-The differential operators governing waves and translations are not bounded.
-To extend spectral theory to them, the domain must become part of the
-operator.
-
 \begin{definition}[Unbounded operators and domains]
 A \emph{densely defined operator} $T$ has a dense linear domain
 $\operatorname{Dom}(T)\subset H$. It is \emph{closed} when its graph is
 closed in $H\oplus H$; its graph norm is
 $\|x\|_T^2=\|x\|^2+\|Tx\|^2$. The domain of $T^*$ consists of those $y$
 for which $x\mapsto\langle Tx,y\rangle$ is bounded in the Hilbert norm on
-$\operatorname{Dom}(T)$; for such $y$, the Riesz theorem gives the unique
-$T^*y$ satisfying $\langle Tx,y\rangle=\langle x,T^*y\rangle$. The operator
+$\operatorname{Dom}(T)$; for such $y$, define $T^*y$ by
+$\langle Tx,y\rangle=\langle x,T^*y\rangle$ for all
+$x\in\operatorname{Dom}(T)$. Density of the domain makes $T^*y$ unique. The operator
 is \emph{symmetric} when
 $\langle Tx,y\rangle=\langle x,Ty\rangle$ on its domain and
 \emph{self-adjoint} when $T=T^*$, including equality of domains.
@@ -744,18 +696,6 @@ values of the Liouvillian $A\mapsto[H,A]/\hbar$.
 
 \section{Representation Theory}
 
-\begin{observations}
-\item Symmetric molecules can have distinct vibrational modes with the same
-frequency. Replacing one atom can lower the symmetry and split the
-corresponding spectral lines.
-\end{observations}
-
-Spectral theory decomposes a Hamiltonian into energy subspaces, but by
-itself does not explain why a degeneracy persists or why some transitions
-are absent.  A symmetry commuting with the Hamiltonian preserves each
-energy subspace; its representation there organizes degeneracies, while the
-symmetry type of an observable constrains its matrix elements.
-
 \subsection{Groups, actions, and linear representations}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
@@ -846,9 +786,6 @@ $NH_2D$, restrict to $C_s$ and prove
 $E|_{C_s}\cong A'\oplus A''$. Deduce that symmetry no longer enforces either
 degeneracy and compare with the observed band splitting.
 \end{exercise}
-
-The molecular examples use finite groups. Rotations vary continuously, so
-their symmetry groups require compatible topological and smooth structures.
 
 \subsection{Topological groups and infinitesimal symmetry}
 
@@ -1008,22 +945,17 @@ electric-dipole operator.
 \end{exercise}
 
 \begin{exercise}[Atomic spectra]
-For the Coulomb Hamiltonian, use rotational symmetry and separation into
-irreducible $SO(3)$-types to obtain the quantum numbers $\ell,m$ and their
-degeneracies. With the radial spectrum
-$E_n=-m_e e^4/(2(4\pi\varepsilon_0)^2\hbar^2n^2)$ as derived input, compute
+For the Coulomb Hamiltonian, separate the Schr\"odinger equation in spherical
+coordinates, obtain the quantum numbers $n,\ell,m$, and derive
+\[
+E_n=-\frac{m_e e^4}{2(4\pi\varepsilon_0)^2\hbar^2n^2}.
+\]
+Compute
 the Balmer wavelengths and compare them with the observed hydrogen lines.
 Apply the electric-dipole rule to identify forbidden transitions.
 \end{exercise}
 
 \section{Symplectic Geometry}
-
-Representation theory studies how transformations act on states and
-observables.  Classical mechanics singles out a more specific question:
-which transformations of phase space preserve the structure that determines
-Hamilton's equations and Poisson brackets?  In the Kleinian, or Erlangen,
-viewpoint, that preserved structure is an alternating form and its linear
-transformation group is the symplectic group.
 
 \subsection{Symplectic linear algebra and differential forms}
 
@@ -1082,11 +1014,6 @@ $H\in C^\infty(M)$ is defined by
 $\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}, and the
 \emph{Poisson bracket} is $\{f,g\}=\omega(X_f,X_g)$.
 \end{definition}
-
-\begin{theorem}[Darboux; used without proof]
-Every point of a symplectic manifold has local coordinates in which
-$\omega$ is the standard symplectic form $\omega_0$.
-\end{theorem}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -1212,16 +1139,6 @@ betatron oscillation about a closed orbit.
 
 \section{Differential Geometry}
 
-\begin{observations}
-\item A changing magnetic flux through a conducting loop produces an
-electromotive force proportional to the rate of flux change.
-\item GW150914 produced a peak interferometer strain of order $10^{-21}$ near
-$150\,\mathrm{Hz}$ in two widely separated detectors.
-\end{observations}
-
-To define geometry by its allowed transformations at each point, first
-assemble the local models and their changes of frame into bundles.
-
 \subsection{Bundles, sections, and geometric structures}
 
 \begin{definition}[Smooth bundles and sections]
@@ -1235,9 +1152,6 @@ $G\to\operatorname{GL}(V)$, the
 \emph{associated vector bundle} is
 $P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
 \end{definition}
-
-The transformation group specifies which frames, and therefore which
-measurements, are geometrically equivalent.
 
 \begin{definition}[Frame bundles and $G$-structures]
 The \emph{frame bundle} of an $n$-manifold is the principal
@@ -1290,9 +1204,6 @@ Using the muon rest lifetime $\tau_\mu\simeq2.2\,\mu\mathrm{s}$, derive the
 mean laboratory travel distance $\gamma v\tau_\mu$ and compare it with the
 distance $v\tau_\mu$ predicted without time dilation.
 \end{exercise}
-
-Integration and Stokes' theorem turn local differential equations into laws
-for flux through regions and their boundaries.
 
 \subsection{Differential forms, cohomology, and Hodge theory}
 
@@ -1376,9 +1287,6 @@ $p$-forms that
 Compute $*$ on the standard coordinate forms of Euclidean three-space and
 Minkowski four-space, stating the orientation and signature conventions.
 \end{exercise}
-
-A connection compares fields in different fibers. Its curvature measures
-the failure of parallel transport to be path independent.
 
 \subsection{Connections, curvature, and gauge fields}
 
@@ -1487,10 +1395,6 @@ $F_A=\pm *F_A$. Use the Bianchi identity to show that these instantons solve
 the Yang--Mills equation.
 \end{exercise}
 
-Gravity is carried by the Lorentz reduction of the frame bundle itself. Its
-connection compares local inertial frames, and its curvature measures the
-departure from the flat Minkowski model.
-
 \subsection{Riemannian geometry and gravitation}
 
 \begin{definition}[Levi--Civita geometry]
@@ -1562,21 +1466,6 @@ waveform with general relativity in that regime.
 
 \section{Harmonic Analysis}
 
-\begin{observations}
-\item Monochromatic X-rays scattered by a crystal form sharp peaks only at
-selected directions determined by wavelength and lattice spacing.
-\item Electrical networks patterned on a hyperbolic tiling have been used as
-``hyperbolic drums'': their measured modes and pulse propagation distinguish
-negative curvature from an ordinary planar circuit.
-\end{observations}
-
-Wave fields decompose into modes adapted to spacetime symmetry. Invariant
-integration turns representations into a generalized Fourier analysis. For
-translation symmetry, its dual variables are the reciprocal coordinates
-measured by diffraction. Applied to phase-space translations, the same idea
-will turn the symplectic structure of classical mechanics into the operator
-relations of quantum mechanics.
-
 \subsection{Haar measure and abelian Fourier duality}
 
 \begin{definition}[Haar measure and convolution]
@@ -1592,11 +1481,6 @@ The \emph{left regular representation} on $L^2(G)$ is
 $(\lambda_gf)(x)=f(g^{-1}x)$.
 \end{definition}
 
-\begin{theorem}[Haar; used without proof]
-Every locally compact Hausdorff group has a left Haar measure, unique up to
-multiplication by a positive scalar.
-\end{theorem}
-
 \begin{exercise}[Haar measure and the regular representation]
 Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$. Construct
 normalized Haar measure on a compact Lie group from a left-invariant metric.
@@ -1607,7 +1491,7 @@ of a compact group, average an inner product over $G$ to obtain an invariant
 one.
 \end{exercise}
 
-\begin{definition}[Pontryagin duality]
+\begin{definition}[Pontryagin dual]
 For a locally compact abelian group $G$, its \emph{Pontryagin dual}
 $\widehat G$ is the group of continuous characters $\chi:G\to U(1)$, with
 pointwise multiplication and the compact-open topology. For $f\in L^1(G)$,
@@ -1615,9 +1499,8 @@ define
 \[
 \widehat f(\chi)=\int_G f(x)\overline{\chi(x)}\,d\mu(x).
 \]
-With compatible Haar measures on $G$ and $\widehat G$, Fourier inversion and
-Plancherel extend the earlier theorems. Pontryagin duality identifies
-$G$ naturally with $\widehat{\widehat G}$.
+The \emph{double-dual map} sends
+$x\in G$ to the character $\chi\mapsto\chi(x)$ of $\widehat G$.
 \end{definition}
 
 \begin{exercise}[Abelian Fourier duality]
@@ -1801,13 +1684,6 @@ measurements of the symmetric-top molecule s-trioxane reported in
 {NBS Special Publication 343 (1971)}.
 \end{exercise}
 
-A rigid rotor has compact configuration space $SO(3)$, so Peter--Weyl gives
-discrete angular modes.  By contrast, the hyperbolic plane is the noncompact
-homogeneous space $SL_2(\R)/SO(2)$, and freely propagating waves on it have a
-continuous spectral parameter.  Harish-Chandra theory explains what replaces
-the Peter--Weyl sum for this and, more generally, for noncompact semisimple
-symmetry groups.
-
 \subsection{Semisimple groups and Harish--Chandra theory}
 
 \begin{definition}[Cartan and Iwasawa decompositions]
@@ -1885,19 +1761,6 @@ asymptotics of $\varphi_\lambda(\exp H)$ as
 $H\to\infty$ in a positive chamber.
 \end{definition}
 
-\begin{theorem}[Spherical Plancherel and inversion; used without proof]
-With compatible Haar and Lebesgue normalizations, the spherical transform
-satisfies
-\[
-\|f\|_2^2
-=C_G\int_{\mathfrak a^*/W}
- |\widetilde f(\lambda)|^2|c(\lambda)|^{-2}\,d\lambda,
-\]
-with the corresponding inverse integral. Thus $|c(\lambda)|^{-2}$ is the
-curvature- and root-dependent density replacing the dimension weights in
-the Peter--Weyl sum.
-\end{theorem}
-
 \begin{exercise}[Harish-Chandra transform on $\mathbb H^2$]
 For the sign convention in which the Laplace--Beltrami operator is
 \[
@@ -1924,25 +1787,12 @@ For a smooth compactly supported radial function, define
 =2\pi\int_0^\infty
  f(r)\varphi_\lambda(r)\sinh r\,dr.
 \]
-Taking the Mehler--Fock inversion theorem as input, prove
-\[
-f(r)=\frac1{2\pi}\int_0^\infty
- \widetilde f(\lambda)\varphi_\lambda(r)
- \lambda\tanh(\pi\lambda)\,d\lambda
-\]
-and
-\[
-\|f\|_{L^2(\mathbb H^2)}^2
-=\frac1{2\pi}\int_0^\infty
- |\widetilde f(\lambda)|^2
- \lambda\tanh(\pi\lambda)\,d\lambda.
-\]
-Deduce that the radial sector has continuous spectrum $[1/4,\infty)$; using
-the full Helgason transform, conclude the same for $-\Delta$ on
-$L^2(\mathbb H^2)$.  Compare the high-frequency density
-$\lambda\tanh(\pi\lambda)\sim\lambda$ with the radial Fourier density in
-the Euclidean plane.  Use the transform to solve the radial wave equation
-from compactly supported initial data.
+Prove directly from the differential equation that distinct real values of
+$\lambda^2$ give orthogonal generalized eigenfunctions after truncation to
+$[0,R]$ with a common self-adjoint boundary condition.  Compare the
+large-$r$ equation with a constant-coefficient wave equation and show that
+its oscillation parameter is continuous.  Contrast this with the discrete
+Dirichlet spectrum in the finite hyperbolic-drum exercise below.
 \end{exercise}
 
 \begin{exercise}[A finite hyperbolic drum]
@@ -1971,16 +1821,8 @@ conjugation-invariant distribution
 \[
 \Theta_\pi(f)=\Tr(\pi(f)).
 \]
-The regularity theorem represents it by a locally integrable function,
-real analytic on the regular semisimple set.
-
 An irreducible unitary representation belongs to the \emph{discrete series}
-if it has a nonzero matrix coefficient square-integrable modulo the center;
-then the corresponding coefficients satisfy the discrete-series
-orthogonality relations.  Such
-representations contribute discrete summands, with formal-degree weights, to
-the Plancherel decomposition; continuous tempered families contribute
-integrals.
+if it has a nonzero matrix coefficient square-integrable modulo the center.
 \end{definition}
 
 \begin{exercise}[From compact characters to the semisimple Plancherel formula]
@@ -1991,18 +1833,14 @@ For a compact group, prove
 and recover the ordinary character used in Peter--Weyl theory.  Show that a
 unitary operator on an infinite-dimensional Hilbert space is not trace class,
 which explains the distributional definition above.  Prove directly that
-$\Theta_\pi$ is invariant under conjugation.  Taking Harish-Chandra's
-regularity theorem as input, explain why it nevertheless has pointwise values
-almost everywhere.
+$\Theta_\pi$ is invariant under conjugation.
 
 For $SL_2(\R)$, identify the $K$-types of the spherical principal series and
 show that they contain a $K$-fixed vector.  Contrast them with the holomorphic
 and antiholomorphic discrete series, whose nonzero one-sided $K$-types imply
 that they have no $K$-fixed vector.  Deduce that spherical analysis on
-$G/K$ sees the class-one principal series but not the discrete series, while
-the full Plancherel formula for $L^2(G)$ contains both the appropriate
-principal-series integrals and discrete-series sums, up to measure-zero
-limits.  Consult
+$G/K$ sees the class-one principal series but not the discrete series.
+Compare the two families tabulated in
 \href{https://doi.org/10.1073/pnas.43.5.408}
 {Harish-Chandra, \emph{Proceedings of the National Academy of Sciences}
 \textbf{43} (1957)} for spherical functions and
@@ -2023,8 +1861,8 @@ operator-valued Fourier transform
 \[
 \widehat f(\pi)=\int_G f(g)\pi(g)^*\,dg.
 \]
-The noncommutative Plancherel theorem supplies a measure $\nu_G$ on the
-unitary dual $\widehat G$ such that, initially for $f\in L^1(G)\cap L^2(G)$,
+A \emph{Plancherel measure} for $G$ is a measure $\nu_G$ on the unitary dual
+$\widehat G$ such that, initially for $f\in L^1(G)\cap L^2(G)$,
 \[
 \|f\|_2^2=\int_{\widehat G}
  \|\widehat f(\pi)\|_{\rm HS}^2\,d\nu_G(\pi),
@@ -2034,10 +1872,6 @@ unitary dual $\widehat G$ such that, initially for $f\in L^1(G)\cap L^2(G)$,
 For abelian groups the representation spaces are one-dimensional; for
 compact groups the integral becomes the dimension-weighted Peter--Weyl sum.
 \end{definition}
-
-The standard symplectic form on classical phase space determines a central
-extension of its translation group. Harmonic analysis of this noncommutative
-group is the bridge from classical phase space to quantization.
 
 \begin{definition}[Heisenberg group and Schr\"odinger representations]
 On the standard symplectic space $\R^{2n}=\R_q^n\oplus\R_p^n$, set
@@ -2066,10 +1900,7 @@ Verify the group law, identify the center, and prove that Lebesgue measure is
 Haar measure on $\mathbb H_n$. Prove that each $\pi_\lambda$ is an
 irreducible unitary representation and derive its Weyl commutation relations.
 At $\lambda=1/\hbar$, differentiate the position and momentum subgroups and
-recover $Q_j$, $P_j$, and $[Q_j,P_k]=i\hbar\delta_{jk}$. Taking the
-Stone--von Neumann theorem as input, show that every irreducible
-representation with central character $e^{i\lambda s}$ is unitarily
-equivalent to $\pi_\lambda$.
+recover $Q_j$, $P_j$, and $[Q_j,P_k]=i\hbar\delta_{jk}$.
 
 Compute the operator-valued group Fourier transform in these representations
 and derive the Plancherel decomposition with measure
@@ -2089,24 +1920,7 @@ into operators rather than scalar frequency amplitudes.
 
 \part{Probability}
 
-Probability assigns expectations to observables. Dynamics describes repeated
-observations, algebraic products describe how systems combine, and positive
-maps describe how information is transformed or lost. The theory progresses
-from commuting observables through time to noncommutative states, free and
-tensor independence, and finally the matrix amplification produced by
-arbitrary ancillary systems.
-
 \section{Ergodic Theory}
-
-\begin{observations}
-\item A dilute gas obeys the ideal-gas law and exhibits a temperature-dependent
-distribution of molecular speeds.
-\end{observations}
-
-Statistical mechanics begins with commuting observables on phase space and a
-measure-preserving evolution. Conditional expectation extracts invariant
-information, ergodic theorems relate time averages to ensemble averages, and
-entropy selects equilibrium states.
 
 \subsection{Probability, conditioning, and entropy}
 
@@ -2146,6 +1960,16 @@ Rescaling the reference measure changes $S(\rho)$ by an additive constant,
 whereas $D(\rho\Vert\sigma)$ is independent of that normalization.
 \end{definition}
 
+\begin{exercise}[From repeated samples to a shift]
+Let $\Omega=\{1,\ldots,r\}^{\Z}$ with product probabilities
+$p_1,\ldots,p_r$, and let $X_n(\omega)=\omega_n$.  Prove that the coordinate
+variables are identically distributed and independent.  Define
+$(T\omega)_n=\omega_{n+1}$ and show that $X_n=X_0\circ T^n$ and that $T$
+preserves product measure.  Compute the Shannon entropy of
+$(X_0,\ldots,X_{N-1})$ and divide by $N$.  This converts repeated sampling
+into the dynamical system defined next.
+\end{exercise}
+
 \subsection{Ergodic dynamics and equilibrium states}
 
 \begin{definition}[Ergodic dynamics and dynamical entropy]
@@ -2183,10 +2007,7 @@ being constant almost everywhere. Prove the von Neumann mean ergodic theorem
 \quad\text{in }L^2(\mu),
 \]
 where $P_{\mathrm{inv}}$ is orthogonal projection onto the invariant
-observables. Taking Birkhoff's pointwise ergodic theorem as input, show for
-$f\in L^1(\mu)$ that these averages converge almost everywhere to the
-conditional expectation onto the invariant $\sigma$-algebra, and hence to
-$\int f\,d\mu$ in an ergodic system. Prove that mixing implies ergodicity and
+observables. Prove that mixing implies ergodicity and
 that it gives decay of correlations
 $\int(f\circ T^n)g\,d\mu-\int f\,d\mu\int g\,d\mu\to0$ for bounded
 observables.
@@ -2196,13 +2017,11 @@ limit defining $h_\mu(T,\mathcal P)$ exists.
 For the two-sided Bernoulli shift on $\{1,\ldots,r\}^{\mathbb Z}$ with
 product probabilities $p_1,\ldots,p_r$, prove mixing first for cylinder sets
 and then for all measurable sets. Show that the time-zero coordinate
-partition is generating and, taking the Kolmogorov--Sinai generator theorem
-as input, compute
+partition satisfies
 \[
-h_\mu(T)=-\sum_{i=1}^r p_i\log p_i=H(p).
+h_\mu(T,\mathcal P)=-\sum_{i=1}^r p_i\log p_i=H(p).
 \]
-Thus the Shannon entropy of one symbol equals the information production per
-time step of the Bernoulli shift.
+Interpret this equality as the information produced per observed symbol.
 \end{exercise}
 
 \begin{definition}[Gibbs states]
@@ -2227,9 +2046,9 @@ Deduce that the Gibbs ensemble uniquely maximizes entropy at fixed mean
 energy, equivalently minimizes free energy at fixed temperature. Prove
 $\langle H\rangle=-\partial_\beta\log Z$ and
 $\operatorname{Var}(H)=\partial_\beta^2\log Z$. Prove invariance of Gibbs
-measure under Hamiltonian flow. If the flow is ergodic on an invariant
-energy surface, use Birkhoff's theorem to identify long-time averages of
-integrable observables with their microcanonical ensemble averages.
+measure under Hamiltonian flow. For a finite measure-preserving system,
+apply the $L^2$ mean ergodic result proved above to an observable and
+identify the long-time mean-square limit in the ergodic case.
 \end{exercise}
 
 \begin{exercise}[Ideal-gas thermodynamics]
@@ -2257,21 +2076,6 @@ microscopic dynamics is mathematically ergodic.
 \end{exercise}
 
 \section{Operator Algebras}
-
-\begin{observations}
-\item When identically prepared spin-$1/2$ particles pass through a
-Stern--Gerlach analyzer, they arrive at one of two detector regions whose
-relative frequencies depend on the analyzer direction.
-\item Below its Curie temperature, a ferromagnet can retain nonzero
-magnetization after a weak aligning field is removed; reversing the field
-selects the opposite macroscopic magnetization.
-\end{observations}
-
-Replacing commuting functions by an algebra of noncommuting observables
-changes both probability and dynamics. States still assign expectations, the
-GNS construction produces their Hilbert-space realizations, and von Neumann
-algebras supply the limits, conditional expectations, and modular flows needed
-for infinite quantum systems.
 
 \subsection{\texorpdfstring{$C^*$-algebras}{C*-algebras}, states, and GNS representations}
 
@@ -2503,8 +2307,9 @@ multiplication, and annihilation by $f$ is its Hilbert-space adjoint.
 
 \begin{exercise}[CAR and GNS predict fermionic antibunching]
 Prove that creation and annihilation on $\mathcal F_-(K)$ satisfy the CAR and
-that $\omega_0(x)=\langle\Omega,x\Omega\rangle$ is a state. Apply the GNS
-theorem to identify its cyclic representation with the Fock representation.
+that $\omega_0(x)=\langle\Omega,x\Omega\rangle$ is a state. Construct the
+cyclic map $[x]\mapsto x\Omega$ from its GNS pre-Hilbert space and prove that
+its completion is the Fock representation.
 Let $\omega_C$ be a gauge-invariant quasifree state with
 one-particle density $0\leq C\leq1$, and use its determinantal Wick rule to
 prove, for orthonormal detector modes $f,g$, that
@@ -2519,19 +2324,6 @@ measurements in
 \href{https://doi.org/10.1038/nature05319}
 {F\"olling et al., \emph{Nature} \textbf{444} (2006)}.
 \end{exercise}
-
-Finite systems use matrix algebras, but a thermodynamic phase contains
-effectively infinitely many degrees of freedom. Its norm-closed algebra
-records all observables localized in finite regions. Macroscopic averages
-need not converge in norm, because the norm tests their action in every
-state, including configurations that differ arbitrarily far away. Once a
-physical state is chosen, however, its GNS representation supplies a weaker
-notion of convergence: in an up- or down-magnetized phase, the spatially
-averaged spin can converge strongly to the measured magnetization. A mixture
-of phases instead produces a central limiting observable whose spectral
-projections distinguish the macroscopic alternatives. This is the physical
-reason to pass from the local $C^*$-algebra to its strong or weak operator
-closure.
 
 \subsection{Von Neumann algebras and noncommutative conditioning}
 
@@ -2600,14 +2392,6 @@ limit is $\pm m_\beta I$ under the appropriate ergodic or clustering
 hypotheses.
 \end{exercise}
 
-The passage to a von Neumann closure introduces limits of observables, so a
-physical state should assign compatible limits to their probabilities.  For
-example, if projections $p_n$ describe an increasing sequence of detector
-acceptance regions with limit $p$, one expects
-$\Pr(p_n)\uparrow\Pr(p)$.  Normality is precisely this continuity
-requirement, extended from sequences to the nets needed for general von
-Neumann algebras.
-
 \begin{definition}[Normality]
 A positive functional $\varphi$ on a von Neumann algebra is \emph{normal} if
 $a_\lambda\uparrow a$ implies
@@ -2616,11 +2400,6 @@ positive elements. A representation is \emph{normal} if it preserves such
 suprema.
 \end{definition}
 
-Independent quantum systems still combine on $H\otimes K$, but their
-observable algebras must now contain the weak limits of finite sums of
-product observables $a\otimes b$.  Taking that closure gives the tensor
-product appropriate to normal states and measurements.
-
 \begin{definition}[Spatial tensor products]
 For concrete von Neumann algebras $M\subseteq B(H)$ and
 $N\subseteq B(K)$, their \emph{spatial tensor product} is
@@ -2628,10 +2407,6 @@ $N\subseteq B(K)$, their \emph{spatial tensor product} is
 M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
 \]
 \end{definition}
-
-Conditioning is the complementary operation: it replaces the full algebra
-by the information retained in a chosen subalgebra while preserving the
-probabilities of the events already visible there.
 
 \begin{definition}[Noncommutative conditional expectation]
 For a von Neumann subalgebra $N\subseteq M$, a \emph{conditional
@@ -2663,15 +2438,6 @@ $L^2(M,\tau)\to L^2(N,\tau)$ restricts to the unique $\tau$-preserving
 conditional expectation $M\to N$. Derive the tower property for nested
 von Neumann subalgebras.
 \end{exercise}
-
-Even factors can describe very different infinite systems.  The operational
-distinction is how finely a yes--no experiment, represented by a projection,
-can be subdivided.  Matrix algebras have atomic projections; type-II factors
-allow a continuous notion of projection size; and in type-III factors every
-nonzero projection is infinite in the Murray--von Neumann sense.  This last
-behavior is typical of local observable algebras in relativistic quantum
-field theory and explains why an intrinsic density matrix and trace need not
-exist for a local region.
 
 \subsection{Factor types, modular theory, and relative entropy}
 
@@ -2711,16 +2477,6 @@ Explain why finite-dimensional quantum systems see only type-I factors,
 whereas the classification permits genuinely different infinite systems.
 \end{exercise}
 
-For a finite system in a faithful state $\rho$, the operator
-$K_\rho=-\log\rho$ packages the state into the canonical flow
-$a\mapsto\rho^{it}a\rho^{-it}$.  An infinite system or a local region in
-quantum field theory may have no trace and no density operator belonging to
-its observable algebra, so this formula cannot be the definition.  The
-replacement problem is therefore: can the pair consisting of an observable
-algebra and a faithful state determine its own equilibrium flow?  Modular
-theory answers yes; cyclicity and separation are the vector-state form of
-the needed faithfulness.
-
 \begin{definition}[Cyclic and separating vectors]
 For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
 $\overline{M\Omega}=H$ and \emph{separating} if $a\Omega=0$ implies $a=0$.
@@ -2736,53 +2492,19 @@ With the present sign convention, a state $\varphi$ is
 \]
 \end{definition}
 
-\begin{theorem}[Tomita--Takesaki; used without proof]
-The operator $S_0$ is closable. Write the polar decomposition of its closure
-as $S=J\Delta^{1/2}$. Then
+\begin{exercise}[Finite modular flow and Gibbs equilibrium]
+Let $H=H^*$ on a finite-dimensional Hilbert space and
+$\rho=Z^{-1}e^{-\beta H}$.  On $B(H)$ define
+$\alpha_t(a)=e^{itH}ae^{-itH}$.  Prove directly, first on matrix units in an
+energy eigenbasis and then by linearity, that
 \[
-\Delta^{it}M\Delta^{-it}=M,
-\qquad
-\sigma_t^\Omega(a)=\Delta^{it}a\Delta^{-it}
+ \Tr\!\bigl(\rho a\alpha_{t-i\beta}(b)\bigr)
+ =\Tr\!\bigl(\rho\alpha_t(b)a\bigr).
 \]
-defines an automorphism group of $M$. The positive operator $\Delta$ is the
-\emph{modular operator}, and $\sigma^\Omega$ is the \emph{modular flow}.
-The vector state of $\Omega$ is $1$-KMS for this flow.
-\end{theorem}
-
-For a faithful density operator $\rho$ on $H$, modular flow on $B(H)$ is
-$\sigma_t^\rho(a)=\rho^{it}a\rho^{-it}$, and
-$K_\rho=-\log\rho$ is its \emph{modular Hamiltonian}.
-
-\begin{exercise}[Bisognano--Wichmann flow and its experimental limit]
-Let $W_R=\{x:x^1>|x^0|\}$ be the right Rindler wedge of Minkowski space,
-and let $\Omega$ be the vacuum of a relativistic local net with stress-energy
-density $T_{00}$. Assume the Bisognano--Wichmann theorem
-\[
-\Delta_{W_R}^{it}=U(\Lambda_{W_R}(-2\pi t)),
-\]
-which identifies vacuum modular flow with the Lorentz boosts preserving
-$W_R$; see
-\href{https://doi.org/10.1063/1.522605}
-{Bisognano--Wichmann, \emph{Journal of Mathematical Physics} \textbf{16}
-(1975)}. In units $\hbar=c=k_B=1$, derive on the time-zero half-space the
-modular Hamiltonian
-\[
-K_{W_R}=2\pi\int_{x^1>0}x^1T_{00}(0,\mathbf x)\,d^{d-1}x
-\]
-up to an additive constant. Use its KMS property to obtain the Unruh
-temperature $T=a/(2\pi)$ for proper acceleration $a$.
-
-Discretize the integral for a half-chain with local energy terms $h_i$ and
-derive the lattice Bisognano--Wichmann ansatz in which the coefficient of
-$h_i$ grows with its distance from the entanglement cut. Compare the
-predicted locality and spatial temperature profile with the entanglement
-Hamiltonians learned in the 51-ion XXZ-chain experiment of
-\href{https://doi.org/10.1038/s41586-023-06768-0}
-{Joshi et al., \emph{Nature} \textbf{624} (2023)}. Explain why this tests a
-finite-lattice consequence of modular QFT but cannot by itself establish
-that a continuum local algebra is type III. Identify the covariance,
-positive-energy, and vacuum hypotheses used by the modular-flow prediction
-that are not consequences of the factor type alone.
+Show that the modular flow of $\rho$ is
+$a\mapsto\rho^{it}a\rho^{-it}=\alpha_{-\beta t}(a)$ and that
+$-\log\rho=\beta H+\log Z$.  Deduce that the same spectral data determine
+energy gaps, equilibrium weights, and modular frequencies.
 \end{exercise}
 
 \begin{definition}[Relative entropy of operator-algebraic states]
@@ -2814,18 +2536,18 @@ modular flow are intrinsic to an algebra and its states and remain meaningful
 for type-III factors.
 \end{definition}
 
+\begin{exercise}[Mixed moments distinguish noncommutative independence]
+Let $A=M_2(\C)\otimes M_2(\C)$ with normalized trace and set
+$x=\sigma_x\otimes1$, $y=1\otimes\sigma_z$.  Compute every mixed moment of
+$x$ and $y$ of total degree at most four and verify tensor factorization.
+Now set $y'=\sigma_z\otimes1$ and compute
+$\tau(xy'xy')$.  Compare it with the alternating centered moments of
+$(x,y)$.  Conclude that specifying marginals and ordinary scalar
+correlations does not determine a noncommutative joint law; the next
+subsection introduces a moment condition adapted to large random matrices.
+\end{exercise}
+
 \section{Free Probability}
-
-\begin{observations}
-\item Resonance spectra of compound nuclei and chaotic microwave cavities
-exhibit level repulsion and universal correlations determined mainly by
-symmetry rather than by the microscopic details of the system.
-\end{observations}
-
-A noncommutative probability space admits several inequivalent notions of
-independence. Free products govern normalized traces of large random matrices:
-free cumulants determine their global laws, while Dyson's symmetry classes
-govern the local eigenvalue correlations seen in resonance experiments.
 
 \subsection{Free independence and additive convolution}
 
@@ -3000,17 +2722,6 @@ Explain from the joint density why the full ensembles satisfy
 $P_\beta(s)\sim c_\beta s^\beta$ as $s\downarrow0$, in contrast with the
 Poisson spacing law $e^{-s}$ for uncorrelated levels.
 
-For the GUE, take the orthogonal-polynomial determinant formula for the
-$k$-point correlation functions and the bulk asymptotics of the Hermite
-kernel as input. Show that unfolding gives the sine kernel
-\[
-K_{\sin}(x,y)=\frac{\sin\pi(x-y)}{\pi(x-y)},
-\qquad
-R_2(s)=1-\left(\frac{\sin\pi s}{\pi s}\right)^2.
-\]
-This local limit is universal even though the global density depends on the
-matrix ensemble.
-
 Finally, describe how one must separate nuclear levels by spin and parity,
 or microwave resonances by exact cavity symmetry, fit $\overline N(E)$,
 unfold, and then compare spacing and correlation statistics with the
@@ -3027,13 +2738,6 @@ as experimental effects that can imitate deviations from universality.
 \end{exercise}
 
 \subsection{Bulk and edge universality}
-
-The GUE calculation above is exact because unitary invariance converts its
-eigenvalues into a determinantal point process.  Universality is the much
-stronger assertion that the same microscopic limits survive after Gaussian
-entries and unitary invariance are removed.  The matrix does not become
-Gaussian: only selected local eigenvalue statistics forget the entry
-distribution.
 
 \begin{definition}[Global, bulk, and edge scales]
 Order the eigenvalues of a Wigner matrix as
@@ -3077,47 +2781,6 @@ $s$ is of order $\sigma N^{-2/3}$.  Explain why a single rescaling cannot
 describe both the bulk and the edge.
 \end{exercise}
 
-\begin{theorem}[Bulk GUE universality; used without proof]
-Let $H_N$ be a genuinely complex Hermitian Wigner ensemble satisfying the
-moment assumptions above and the standard nondegeneracy hypotheses.  Fix
-$E\in(-2\sigma,2\sigma)$.  Its local eigenvalue process, rescaled by
-$N\rho_{\rm sc}(E)$, converges in the sense of smooth compactly supported
-test functions to the GUE sine process.  When the $k$-point correlation
-density $\rho_N^{(k)}$ exists, this says
-\[
- \begin{aligned}
- &\frac1{[N\rho_{\rm sc}(E)]^k}
- \rho_N^{(k)}\left(
- E+\frac{u_1}{N\rho_{\rm sc}(E)},\ldots,
- E+\frac{u_k}{N\rho_{\rm sc}(E)}\right)\\
- &\hspace{4em}\longrightarrow
- \det\!\left[K_{\sin}(u_a,u_b)\right]_{a,b=1}^k .
- \end{aligned}                                      \tag{BU}
-\]
-For discrete entry laws, the same statement is formulated using correlation
-measures or observables of consecutive gaps.  The corresponding real
-symmetric limit is GOE rather than GUE.  Thus the symmetry index $\beta$,
-not Gaussianity of the entries, determines the bulk limit.
-
-This theorem is a deep input.  A broad version is proved in
-\href{https://doi.org/10.1007/s00440-011-0390-3}
-{Erd\H{o}s--Yau--Yin, \emph{Probability Theory and Related Fields}
-\textbf{154} (2012)}.
-\end{theorem}
-
-The proof has three conceptual layers.  First, a \emph{local semicircle law}
-controls
-\[
- G_N(z)=\frac1N\Tr(z-H_N)^{-1}
-\]
-even when $\operatorname{Im}z$ is only slightly larger than $N^{-1}$; this
-implies eigenvalue rigidity near the classical locations.  Second, adding a
-tiny Gaussian matrix evolves the eigenvalues by Dyson Brownian motion, whose
-local statistics rapidly relax to the appropriate Gaussian ensemble.
-Third, a resolvent comparison removes the small Gaussian component.  This
-explains the mechanism without pretending that the estimates needed for a
-proof follow from the elementary moment calculation of the semicircle law.
-
 \begin{definition}[Airy kernel and the Tracy--Widom law]
 Let $\operatorname{Ai}$ be the solution of
 $y''=xy$ that decays as $x\to+\infty$.  The \emph{Airy kernel} is
@@ -3137,29 +2800,6 @@ where the right side is the Fredholm determinant of the Airy integral
 operator.  This formula is taken as a definition here; its analysis requires
 more operator theory than the present section develops.
 \end{definition}
-
-\begin{theorem}[Edge universality; used without proof]
-Under the Wigner hypotheses above,
-\[
- \frac{N^{2/3}}{\sigma}
- \bigl(\lambda_N-2\sigma\bigr)
- \ \xrightarrow{\ d\ }\ \chi_2,
- \qquad
- \Pr(\chi_2\leq s)=F_2(s)
-                                                        \tag{EU}
-\]
-for the complex Hermitian symmetry class.  More strongly, the joint process
-of the top eigenvalues converges to the Airy point process.  The lower edge is
-analogous, while the real and quaternionic classes have the
-Tracy--Widom laws $F_1$ and $F_4$.  The Airy-kernel formula was obtained by
-\href{https://doi.org/10.1007/BF02100489}
-{Tracy and Widom, \emph{Communications in Mathematical Physics}
-\textbf{159} (1994)}; edge universality for Wigner matrices was established,
-under successively weakened hypotheses, beginning with
-\href{https://doi.org/10.1007/s002200050743}
-{Soshnikov, \emph{Communications in Mathematical Physics}
-\textbf{207} (1999)}.
-\end{theorem}
 
 \begin{exercise}[The Airy diagonal]
 Use the Airy equation and l'H\^opital's rule to show
@@ -3186,33 +2826,15 @@ For indices $j/N\to\alpha\in(0,1)$, use the inverse function theorem to show
  N\rho_{\rm sc}(\gamma_j)
    (\gamma_{j+1}-\gamma_j)\longrightarrow1.
 \]
-Thus the unfolded spectrum of $D_N$ approaches a rigid clock, whereas GUE
-has the random sine process and level repulsion.  Identify precisely why
-the moment proof of the global semicircle law cannot distinguish these
-local behaviors.
+Thus the unfolded spectrum of $D_N$ approaches a rigid clock.  Compare this
+with the level repulsion derived from the Gaussian joint density above and
+identify precisely why the moment proof of the global semicircle law cannot
+distinguish these local behaviors.  Formulate a bulk-universality statement
+as convergence of rescaled $k$-point correlations and list the hypotheses
+that such a statement must specify.
 \end{exercise}
 
-Universality therefore has a definite domain, not a claim that every large
-Hamiltonian is described by GUE.  Exact symmetry sectors must still be
-separated; time-reversal symmetry changes $\beta$; integrable or localized
-systems commonly have Poisson rather than Wigner--Dyson statistics; and
-sparse, banded, or heavy-tailed ensembles can require different hypotheses
-or exhibit crossovers.  Within the mean-field Wigner class, however, (BU)
-and (EU) make precise the physical statement that microscopic spectral
-fluctuations depend chiefly on symmetry and spectral location, not on the
-detailed distribution of matrix entries.
-
 \section{Quantum Information Theory}
-
-\begin{observations}
-\item Tomography of prepared entangled pairs reconstructs a nearly pure joint
-state while either subsystem alone has nearly equal two-outcome frequencies.
-\end{observations}
-
-Physical subsystems combine by tensor products rather than free products.
-Measurements turn noncommutative states into classical distributions,
-relative entropy quantifies distinguishability, and completely positive maps
-describe the processing, loss, and protection of quantum information.
 
 \subsection{Measurements, entropy, and tomography}
 
@@ -3255,15 +2877,6 @@ excess as uncertainty introduced by measuring in an incompatible basis.
 Show that unitary evolution preserves $S(\rho)$ even though it can change
 the outcome entropy of a fixed measurement.
 \end{exercise}
-
-A detector cannot measure $Q$ and $P$ jointly with arbitrary precision, but
-an optical local oscillator can select any rotated quadrature
-$Q\cos\theta+P\sin\theta$.  This raises a tomography question: do the
-ordinary probability distributions from many such one-dimensional
-measurements determine the unknown continuous-variable state?  The answer
-passes through the Wigner distribution: each quadrature histogram is one of
-its line projections, so varying the angle supplies the data for an inverse
-Radon transform.
 
 \begin{definition}[Quadratures, Wigner distributions, and homodyne data]
 For one canonical degree of freedom, choose $q_0,p_0>0$ with
@@ -3498,29 +3111,6 @@ finite-subsystem tomography does not by itself establish continuum modular
 theory.
 \end{exercise}
 
-\begin{exercise}[Type-III localization and the split property]
-Assume the structural theorem that, under the usual nontriviality,
-phase-space, and scaling hypotheses, local observable algebras in
-relativistic continuum quantum field theory are hyperfinite type
-$\mathrm{III}_1$ factors, the full-modular-spectrum case of the type-III
-classification; see
-\href{https://doi.org/10.1016/S0034-4877(05)80009-6}
-{Yngvason, \emph{Reports on Mathematical Physics} \textbf{55} (2005)}.
-Deduce that the restriction of the vacuum to a sharply bounded region has
-no intrinsic reduced density operator and that
-$-\Tr(\rho_A\log\rho_A)$ is therefore not an intrinsic continuum entropy.
-Explain how a split inclusion
-\[
-\mathcal A(O_1)\subset F\subset\mathcal A(O_2),\qquad
-\overline{O_1}\subset O_2,
-\]
-with $F$ type I supplies a density-matrix regulator whose entropy depends on
-the collar $O_2\setminus\overline{O_1}$ and on the choice of $F$. Contrast
-this regulator dependence and the usual ultraviolet divergence as the collar
-shrinks with the intrinsic relative entropy
-$D_{\mathcal A(O_1)}(\varphi\Vert\psi)$.
-\end{exercise}
-
 \begin{exercise}[Bell correlations and CHSH]
 For a polarization-entangled two-photon state, derive the CHSH bound $2$ for
 local hidden-variable models. Choose four polarization angles for which the
@@ -3677,14 +3267,6 @@ information in $B$; see
 {Knill--Laflamme, \emph{Physical Review A} \textbf{55} (1997)}.
 \end{exercise}
 
-The Knill--Laflamme condition never uses arbitrary products of noise
-operators.  It uses only the linear span of the pairwise overlaps
-$E_a^*E_b$, which records which input states the environment can confuse.
-This span is self-adjoint and contains the identity, but it need not be an
-algebra.  Operator systems isolate exactly this amount of structure, while
-their matrix-order cones retain positivity when an arbitrary ancilla is
-attached.
-
 \begin{definition}[Operator systems]
 An \emph{operator system} is a closed self-adjoint linear subspace
 $S\subseteq B(H)$ containing the identity. Its matrix order is the family of
@@ -3797,24 +3379,6 @@ Infinite-Dimensional Hilbert Spaces}, Journal of Mathematical Physics
 
 \section{Operator Space Theory}
 
-\begin{observations}
-\item Entanglement-assisted probes distinguish certain measurement devices
-with a lower inconclusive probability than any unentangled single-system
-probe.
-\end{observations}
-
-Tensoring a map with an ancillary identity exposes behavior invisible at the
-scalar level. Operator spaces encode every such matrix amplification; their
-tensor norms and completely bounded maps quantify assisted discrimination
-and the strength of nonlocal correlations.
-
-After establishing this operational meaning of matrix norms, the section
-follows complete boundedness in two directions.  One studies Fourier
-multipliers and then compact quantum groups as generalized symmetries; its
-simplest classical example also admits finite symmetry-preserving
-compressions.  The other uses extension theorems and tensor norms to return
-to the comparison between classical and entangled correlations.
-
 \subsection{Matrix norms and channel discrimination}
 
 \begin{definition}[Operator spaces]
@@ -3915,15 +3479,6 @@ separation to a norming family of matrices and take the direct sum of the
 resulting maps.
 \end{exercise}
 
-Operator spaces become especially concrete for degrees of freedom labelled
-by a symmetry group $G$.  Left translations $\lambda_s$ generate the
-regular representation, while their matrix coefficients are the associated
-Fourier amplitudes.  Noise that is diagonal in these group modes multiplies
-them by a function on $G$; requiring the same bound after coupling an
-ancilla is exactly a completely bounded multiplier condition.  This returns
-harmonic analysis to the operator-space setting for a physical reason,
-rather than as a separate change of subject.
-
 \subsection{Fourier algebras and completely bounded multipliers}
 
 \begin{definition}[Group von Neumann and Fourier algebras]
@@ -3953,10 +3508,7 @@ VN(G)\mathbin{\overline\otimes}VN(G),
 \Delta(\lambda_s)=\lambda_s\otimes\lambda_s,
 \]
 is the \emph{group coproduct}; its preadjoint gives pointwise multiplication
-on $A(G)$. This is the operator-algebraic Fourier duality introduced by
-\href{https://doi.org/10.24033/bsmf.1607}
-{Eymard, \emph{Bulletin de la Soci\'et\'e Math\'ematique de France}
-\textbf{92} (1964)}.
+on $A(G)$.
 \end{definition}
 
 \begin{exercise}[Fourier algebras as operator-space preduals]
@@ -3978,7 +3530,7 @@ this coefficient-space viewpoint with the operator-valued Plancherel
 transform developed in Harmonic Analysis.
 \end{exercise}
 
-\begin{definition}[Completely bounded Fourier multipliers]
+\begin{definition}[Factorizable Fourier multipliers]
 A function $\phi:G\to\C$ is a \emph{Fourier multiplier} when
 $m_\phi(u)=\phi u$ maps $A(G)$ to itself. It is \emph{completely bounded}
 when $m_\phi$ is completely bounded for the predual operator-space
@@ -3988,20 +3540,16 @@ M_\phi:VN(G)\to VN(G),
 \qquad
 M_\phi(\lambda_s)=\phi(s)\lambda_s.
 \]
-The Bo\.zejko--Fendler transference theorem says that $\phi$ is completely
-bounded exactly when the invariant kernel
+A Fourier multiplier is \emph{factorizable} when the invariant kernel
 \[
 k_\phi(x,y)=\phi(xy^{-1})
 \]
-defines a Schur multiplier on $B(L^2(G))$. Equivalently, there are a Hilbert
-space $K$ and bounded continuous maps $\xi,\eta:G\to K$ such that
+has the form
 \[
-\phi(xy^{-1})=\langle\xi(x),\eta(y)\rangle,
-\qquad
-\|m_\phi\|_{cb}
-=\inf\|\xi\|_\infty\|\eta\|_\infty.
+\phi(xy^{-1})=\langle\xi(x),\eta(y)\rangle
 \]
-Such functions are called \emph{Herz--Schur multipliers}.
+Its \emph{factorization norm} is the infimum of
+$\|\xi\|_\infty\|\eta\|_\infty$ over all such factorizations.
 \end{definition}
 
 \begin{exercise}[Fourier--Schur transference and quantum channels]
@@ -4011,9 +3559,8 @@ S_\phi(E_{x,y})=\phi(xy^{-1})E_{x,y}.
 \]
 Verify directly that $S_\phi(\lambda_s)=\phi(s)\lambda_s$, so its restriction
 to $VN(G)$ is $M_\phi$. Use the factorization in the preceding definition to
-prove that $S_\phi$ and $M_\phi$ are completely bounded and have the stated
-norm; taking the converse factorization theorem as input, obtain the full
-transference equivalence.
+prove that $S_\phi$ and $M_\phi$ are completely bounded and obtain the bound
+$\|M_\phi\|_{cb}\leq\|\xi\|_\infty\|\eta\|_\infty$.
 
 A function $\phi$ is \emph{positive definite} if
 $[\phi(s_i^{-1}s_j)]_{i,j}\geq0$ for every finite family $(s_i)$. Prove that
@@ -4024,19 +3571,12 @@ Schr\"odinger adjoint picture. Show
 \[
 M_\phi M_\psi=M_{\phi\psi}.
 \]
-Taking Schoenberg's theorem as input, let $\ell:G\to[0,\infty)$ be
-conditionally negative definite with $\ell(e)=0$ and prove that
-$M_t(\lambda_s)=e^{-t\ell(s)}\lambda_s$ is a completely positive Markov
-semigroup. Interpret it as symmetry-diagonal decoherence: Fourier modes with
-larger $\ell(s)$ decay faster while the identity mode is preserved.
+Let $(\phi_t)_{t\geq0}$ be normalized positive-definite functions satisfying
+$\phi_{s+t}=\phi_s\phi_t$.  Prove that $(M_{\phi_t})_{t\geq0}$ is a completely
+positive Markov semigroup.  When $\phi_t(s)=e^{-t\ell(s)}$, interpret it as
+symmetry-diagonal decoherence: modes with larger $\ell(s)$ decay faster while
+the identity mode is preserved.
 \end{exercise}
-
-The coproduct, rather than the existence of individual group elements, is
-the structure that tells a symmetry how to act on a composite system.  This
-suggests keeping the operator algebra and coproduct while allowing the
-algebra itself to become noncommutative.  Harmonic analysis survives this
-passage: Haar measure becomes a state, functions become operators, and
-Fourier coefficients become matrix coefficients of corepresentations.
 
 \subsection{Compact quantum groups and quantum Peter--Weyl theory}
 
@@ -4058,7 +3598,7 @@ $\Delta(C(\mathbb G))(C(\mathbb G)\otimes1)$ are dense in the minimal
 tensor product.  The density conditions are the cancellation laws without
 points.
 
-There is a unique \emph{Haar state} $h$ satisfying
+A \emph{Haar state} is a state $h$ satisfying
 \[
 (h\otimes\id)\Delta(a)=h(a)1
 =(\id\otimes h)\Delta(a)
@@ -4069,18 +3609,12 @@ In the GNS representation of the reduced compact quantum group, set
 L^\infty(\mathbb G)=\pi_h(C(\mathbb G))'',
 \qquad L^1(\mathbb G)=L^\infty(\mathbb G)_*.
 \]
-The coproduct extends normally to $L^\infty(\mathbb G)$, and its preadjoint
-defines the completely contractive convolution
+When the coproduct has a normal extension to $L^\infty(\mathbb G)$, its
+preadjoint convolution is
 \[
 (\omega*\eta)(a)=(\omega\otimes\eta)(\Delta a)
 \qquad(\omega,\eta\in L^1(\mathbb G)).
 \]
-Thus $L^1(\mathbb G)$ is simultaneously a Banach algebra and a canonical
-operator space.  This analytic formulation of compact quantum groups is due
-to
-\href{https://doi.org/10.1007/BF01219077}
-{Woronowicz, \emph{Communications in Mathematical Physics}
-\textbf{111} (1987)}.
 \end{definition}
 
 \begin{exercise}[The two classical faces of a compact quantum group]
@@ -4109,7 +3643,7 @@ at matrix levels that its preadjoint product on $L^1(\mathbb G)$ is
 completely contractive.
 \end{exercise}
 
-\begin{definition}[Quantum Peter--Weyl theory]
+\begin{definition}[Unitary corepresentations and quantum dimension]
 A finite-dimensional \emph{unitary corepresentation} of $\mathbb G$ on
 $H_U$ is a unitary
 \[
@@ -4124,16 +3658,13 @@ $\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Tensor products are formed
 using the coproduct; their order can matter because $\Delta$ need not equal
 its opposite.
 
-The quantum Peter--Weyl theorem states that the coefficients of irreducible
-unitary corepresentations span a dense Hopf $*$-subalgebra
-$\operatorname{Pol}(\mathbb G)\subset C(\mathbb G)$.  Haar orthogonality
-decomposes $L^2(\mathbb G,h)$ into finite-dimensional coefficient spaces.
-For an irreducible corepresentation $U^\alpha$, the failure of $h$ to be a
-trace is measured by a positive matrix $Q_\alpha$.  Normalizing it so that
+A \emph{coefficient algebra} is the $*$-algebra generated by the matrix
+coefficients $u_{ij}$.  For an irreducible corepresentation $U^\alpha$ and a
+positive matrix $Q_\alpha$ satisfying
 \[
 \Tr(Q_\alpha)=\Tr(Q_\alpha^{-1}),
 \]
-this common value is the \emph{quantum dimension} $d_q(\alpha)$.  In the
+this common value is its \emph{quantum dimension} $d_q(\alpha)$.  In the
 tracial, classical compact-group case, $Q_\alpha=1$ and
 $d_q(\alpha)=\dim H_\alpha$.
 \end{definition}
@@ -4161,14 +3692,13 @@ that $\Delta$ preserves the relations and is coassociative.  Explain why the
 noncommuting coordinate functions describe a noncommutative compact space,
 while the matrix $u$ still transforms like a fundamental representation.
 
-Taking the classification of irreducible corepresentations as supplied,
-write them as $U^\ell$ for
-$\ell=0,\tfrac12,1,\ldots$, with fusion rule
+Let symbols $U^\ell$, $\ell=0,\tfrac12,1,\ldots$, obey the fusion recurrence
 \[
 U^{1/2}\mathbin{\boxtimes}U^\ell
 \cong U^{\ell+1/2}\oplus U^{\ell-1/2}.
 \]
-Use $d_q(1/2)=q+q^{-1}$ and multiplicativity of quantum dimension to derive
+Set $d_q(0)=1$, $d_q(1/2)=q+q^{-1}$, and require dimension to be additive on
+$\oplus$ and multiplicative on $\boxtimes$.  Derive
 \[
 d_q(\ell)=[2\ell+1]_q
 =\frac{q^{2\ell+1}-q^{-(2\ell+1)}}{q-q^{-1}}.
@@ -4177,25 +3707,7 @@ Recover the ordinary dimensions as $q\to1$.  Distinguish the Hilbert-space
 dimension $2\ell+1$ from the arithmetic Laurent polynomial $[2\ell+1]_q$.
 \end{exercise}
 
-The dense coordinate algebra $\operatorname{Pol}(\mathbb G)$ has an
-algebraic Hopf dual, typified by the quantized enveloping algebra
-$U_q(\mathfrak g)$.  The function-algebra side leads to $C^*$- and von
-Neumann completions, Haar states, preduals, and completely bounded maps.
-The enveloping-algebra side controls tensor products, $R$-matrices, and
-$q$-difference equations.  Their pairing is the noncommutative harmonic
-analysis that will reappear in Arithmetic: quantum spherical matrix
-coefficients become Macdonald polynomials, while their radial operators are
-organized by affine and double affine Hecke algebras.
-
 \subsection{Equivariant compression and Toeplitz operator systems}
-
-A generalized symmetry is encoded by its algebraic and analytic structure,
-but an experiment may resolve only finitely many modes of a representation.
-Already for an ordinary compact group, compressing observables to an
-invariant finite-dimensional subspace can preserve the group action while
-destroying closure under multiplication.  The operator systems introduced
-in quantum error correction provide exactly the remaining matrix-ordered
-structure.
 
 \begin{definition}[Equivariant compression]
 Let a compact group $G$ act on a Hilbert space $H$ by a unitary
@@ -4245,22 +3757,12 @@ is the full matrix algebra $B(H_N)$.
 
 Finally, let rotations act by
 $(U_\phi\xi)(\theta)=\xi(\theta-\phi)$.  Prove that $P_N$ commutes with
-$U_\phi$ and that conjugation by $U_\phi|_{H_N}$ preserves $S_N$.  Thus this
-Fourier cutoff retains the continuous rotation symmetry even though the
-compressed observables no longer form an algebra.  This is a classical
-compact-group example; equivariant compressions for quantum-group actions
-require compatible coaction data and are not assumed here.
+$U_\phi$ and that conjugation by $U_\phi|_{H_N}$ preserves $S_N$.  Verify
+directly that the cutoff retains rotation covariance although its compressed
+observables do not form an algebra.
 \end{exercise}
 
-Equivariant compression gives a concrete reason to study maps defined only
-on operator systems: finite resolution may retain symmetry, positivity, and
-matrix order after multiplication has been lost.  The next question is
-whether completely positive and completely bounded maps on such subspaces
-extend to the surrounding operator algebras.  The resulting extension
-theorems lead in turn to tensor norms and their application to nonlocal
-correlations.
-
-\subsection{Extension theorems, tensor norms, and Grothendieck inequalities}
+\subsection{Extension, tensor norms, and bilinear forms}
 
 \begin{exercise}[Finite-dimensional Arveson--Wittstock extension]
 Prove in finite dimensions that a completely positive map from an operator
@@ -4294,42 +3796,14 @@ factorizations and compare the minimal, Haagerup, and projective norms on
 finite-dimensional matrix spaces.
 \end{exercise}
 
-\begin{exercise}[Noncommutative Grothendieck inequality]
-Assume that for every bounded bilinear form
-$u:A\times B\to\C$ on unital $C^*$-algebras there are states $f_1,f_2$ on
-$A$ and $g_1,g_2$ on $B$ such that
-\[
-|u(a,b)|\leq \|u\|
- \bigl(f_1(a^*a)+f_2(aa^*)\bigr)^{1/2}
- \bigl(g_1(b^*b)+g_2(bb^*)\bigr)^{1/2}.
-\]
-Specialize this inequality to commutative $C^*$-algebras and recover the
-classical Grothendieck domination of bounded bilinear forms. Apply it to
-matrix algebras and express the two quadratic terms as row and column norms.
-Use
-\href{https://doi.org/10.1016/0001-8708(85)90026-X}
-{Haagerup, \emph{The Grothendieck inequality for bilinear forms on
-$C^*$-algebras}}.
-\end{exercise}
-
-\begin{exercise}[Operator-space Grothendieck inequality]
-Assume that for every jointly completely bounded bilinear form
-$u:A\times B\to\C$ on unital $C^*$-algebras there are states $f_1,f_2$ on
-$A$ and $g_1,g_2$ on $B$ such that
-\[
-|u(a,b)|\leq \|u\|_{jcb}
-\left(
- f_1(aa^*)^{1/2}g_1(b^*b)^{1/2}
- +f_2(a^*a)^{1/2}g_2(bb^*)^{1/2}
-\right),
-\]
-as proved by
-\href{https://arxiv.org/abs/0711.1851}
-{Haagerup--Musat, \emph{The Effros--Ruan conjecture for bilinear forms on
-$C^*$-algebras}}.
-Use matrix amplification to explain
-why $\|u\|_{jcb}$, rather than only $\|u\|$, controls coupling to arbitrary
-ancillas. Give examples showing that both row and column terms are necessary.
+\begin{exercise}[Row, column, and ancillary tests]
+For $a_1,\ldots,a_r\in M_n$, compare the norms of the row
+$[a_1\ \cdots\ a_r]$ and column $[a_1\ \cdots\ a_r]^T$ with
+$\|\sum_i a_ia_i^*\|^{1/2}$ and $\|\sum_i a_i^*a_i\|^{1/2}$.
+For $u:M_n\times M_n\to\C$, compute $\|u\|$ and the first two amplified
+norms for the bilinear forms $u(a,b)=\Tr(ab)/n$ and
+$u(a,b)=\Tr(a^Tb)/n$.  Exhibit a choice for which amplification changes the
+norm, and identify the row and column terms responsible for the change.
 \end{exercise}
 
 \subsection{Nonlocal games as operator-space tensors}
@@ -4364,9 +3838,7 @@ experiment of
 {Xu et al., \emph{Physical Review Letters} \textbf{129} (2022)}. Explain
 separately the locality and fair-sampling assumptions in that experiment.
 Show why a score above $8/9$ is a device-independent witness under the
-stated assumptions; then, assuming a robust magic-square rigidity theorem,
-explain how a score $1-\varepsilon$ certifies two Bell pairs up to local
-isometries and errors controlled by $\varepsilon$.
+stated assumptions.
 \end{exercise}
 
 \begin{definition}[The tensor of a game]
@@ -4401,7 +3873,7 @@ Theory}, \emph{Journal of Mathematical Physics} \textbf{57} (2016)} as a
 guide.
 \end{exercise}
 
-\begin{exercise}[Grothendieck bounds for XOR games]
+\begin{exercise}[XOR games as vector optimizations]
 For an XOR game, prove that its classical and entangled biases are
 \[
 \beta(G)=\sup_{a_x,b_y=\pm1}\left|\sum M_{xy}a_xb_y\right|,
@@ -4409,54 +3881,15 @@ For an XOR game, prove that its classical and entangled biases are
 \beta^*(G)=\sup_{\|u_x\|,\|v_y\|\leq1}
  \left|\sum M_{xy}\langle u_x,v_y\rangle\right|.
 \]
-Use Tsirelson's vector representation and the real Grothendieck inequality
-to prove $\beta^*(G)\leq K_G^{\mathbb R}\beta(G)$. Relate the CHSH values
-derived earlier to this general comparison.
-\end{exercise}
-
-\begin{exercise}[Unbounded advantages for multi-output games]
-For general multi-output games, take as supplied the Khot--Vishnoi estimates
-$\omega(G_{\rm KV})\leq C/n$ and
-$\omega^*(G_{\rm KV})\geq c/(\log n)^2$, achieved with local entanglement
-dimension $n$. Use the preceding norm dictionary to deduce
-\[
-\frac{\|\widehat G_{\rm KV}\|_{\min}}
-     {\|\widehat G_{\rm KV}\|_\varepsilon}
-\geq c'\frac{n}{(\log n)^2}.
-\]
-Explain why the XOR comparison remains dimension independent while general
-game tensors require operator-space matrix levels. Consult
-\href{https://doi.org/10.4086/toc.2012.v008a027}
-{Buhrman--Regev--Scarpa--de Wolf, \emph{Theory of Computing} \textbf{8}
-(2012)} for the supplied estimates.
+Derive the vector form from observables with eigenvalues in $\{\pm1\}$ and a
+shared state.  Compute both optimizations for CHSH and recover the values
+derived earlier.  Identify the scalar optimization with an injective tensor
+norm and the vector optimization with a matrix-level norm.
 \end{exercise}
 
 \part{Topology}
 
-Probability and operator-space theory distinguish states, channels, and
-correlations by quantities that generally vary under perturbation.  Some
-physical responses instead remain quantized while the Hamiltonian changes
-continuously, provided a gap does not close.  Topology supplies invariants
-adapted to this stability.  This part passes from homotopy and characteristic
-classes to index theory, then from group-valued invariants of invertible
-phases to the fusion and braiding data of topological order.
-
 \section{Index Theory}
-
-\begin{observations}
-\item In the integer quantum Hall regime, transverse conductance forms
-plateaus at integer multiples of $e^2/h$ while longitudinal resistance is
-strongly suppressed.
-\end{observations}
-
-In an idealized gapped Hall system, small changes of fields, hopping
-strengths, or disorder do not change the quantized conductance as long as
-the relevant spectral or mobility gap remains open.  Thus the first
-mathematical question is not the precise Hamiltonian but whether two
-Hamiltonians can be continuously deformed into one another without leaving
-the gapped regime.  Homotopy formalizes such deformations; winding,
-cohomology, vector bundles, $K$-theory, and finally the Fredholm index supply
-successively richer invariants that cannot change along them.
 
 \subsection{Homotopy, homology, and generalized cohomology}
 
@@ -4484,29 +3917,6 @@ The \emph{homology} is $H_n(X;R)=\ker\partial_n/\im\partial_{n+1}$. The
 \emph{cochain complex} is $C^n(X;R)=\Hom_R(C_n(X;R),R)$ with coboundary
 $\delta\phi=\phi\partial$, and its cohomology is $H^n(X;R)$.
 \end{definition}
-
-For a smooth manifold $M$, integration over smooth singular simplices sends
-a form $\omega$ to the cochain
-$\sigma\mapsto\int_{\Delta^k}\sigma^*\omega$. Stokes' theorem makes this a
-cochain map.
-
-\begin{theorem}[de Rham; used without proof]
-Integration over smooth singular simplices induces a natural isomorphism of
-graded rings
-\[
-H_{\mathrm{dR}}^*(M)\cong H^*(M;\R).
-\]
-\end{theorem}
-
-Ordinary cohomology detects fluxes and characteristic classes, but stable
-band theory asks a more specific question: what remains after trivial bands
-may be added, and how does a bulk invariant become a
-boundary invariant one dimension lower?  The needed invariants must survive
-homotopy, decompose over independent pieces, satisfy excision, and shift
-degree under suspension.  A generalized cohomology theory packages these
-requirements.  Complex $K$-theory, introduced below from stable vector
-bundles, is the example that will classify the stable noninteracting
-symmetry-free band problem.
 
 \begin{definition}[Cofibers, finite CW complexes, and cohomology theories]
 A based inclusion $A\hookrightarrow X$ is a \emph{cofibration} if every
@@ -4726,10 +4136,6 @@ that it is independent of traversal rate, and identify the corresponding
 interference-fringe shift.
 \end{exercise}
 
-Cohomology assigns additive classes to bundles. K-theory first makes bundle
-addition invertible and then connects stable topology to the analytic index
-of differential operators.
-
 \begin{definition}[Grothendieck completion and stable equivalence]
 The \emph{Grothendieck group} of a commutative monoid $M$ is the universal
 abelian group receiving a monoid map from $M$. Vector bundles $E,F$ are
@@ -4871,31 +4277,24 @@ For vector bundles $E,F$ over a compact smooth manifold, the \emph{principal
 symbol} of an order-$m$ differential operator
 $D:\Gamma(E)\to\Gamma(F)$ is the homogeneous bundle map
 $\sigma_D:\pi^*E\to\pi^*F$ on $T^*M$. The operator is \emph{elliptic} if
-$\sigma_D(x,\xi)$ is invertible for every $\xi\ne0$. Its \emph{analytic
-index} is its Fredholm index on Sobolev completions; its \emph{topological
-index} is the K-theoretic pushforward of its symbol class.
+$\sigma_D(x,\xi)$ is invertible for every $\xi\ne0$. When the Sobolev
+extension of $D$ is Fredholm, its Fredholm index is the \emph{analytic
+index}.  The symbol defines a compactly supported K-class on $T^*M$.
 \end{definition}
 
-\begin{exercise}[Elliptic regularity and Fredholmness]
-Assume the construction of Sobolev completions, the Rellich compactness
-theorem, elliptic regularity, and, for an elliptic operator $D$ of order $m$,
-the estimates
+\begin{exercise}[Symbol winding and Toeplitz index]
+Let $H^2(S^1)$ be the closed span of $1,z,z^2,\ldots$ in $L^2(S^1)$ and
+let $P_+$ be the orthogonal projection onto it.  For $m\in\Z$, compute the
+kernel and cokernel of
+$T_{z^m}=P_+M_{z^m}P_+$ and prove
 \[
-\|s\|_{H^{r+m}}\leq C_r
- \bigl(\|Ds\|_{H^r}+\|s\|_{H^r}\bigr)
+ \operatorname{ind}(T_{z^m})=-m.
 \]
-for $D$ and its formal adjoint. Prove that
-$D:H^{r+m}(E)\to H^r(F)$ is Fredholm and that its index is independent of
-$r$.
-\end{exercise}
-
-\begin{exercise}[Atiyah--Singer index theorem]
-Use the Thom isomorphism above, and assume the construction of the
-$K$-theoretic pushforward and uniqueness of an index transformation
-satisfying excision, multiplicativity, and Bott normalization. Prove that
-analytic index has these three properties. Verify them for topological index
-and conclude
-$\operatorname{ind}_{an}D=\operatorname{ind}_{top}(\sigma_D)$.
+Identify $m$ with the winding number of the symbol $z^m$.  Use compact-
+perturbation invariance and multiplication of monomials to show that this
+index is stable under finite-rank spectral truncations away from the two
+cutoff edges.  Compare this compression with
+Exercise~\ref{ex:toeplitz-compression}.
 \end{exercise}
 
 \subsection{Dirac operators, anomalies, and topological phases}
@@ -4912,22 +4311,14 @@ chirality operator splits $S=S^+\oplus S^-$. In formal curvature roots,
 \]
 \end{definition}
 
-\begin{exercise}[Hirzebruch--Riemann--Roch]
-Assume that the topological index of the Dolbeault symbol on a compact
-complex manifold is
-$\int_M\operatorname{ch}(E)\operatorname{Td}(TM)$, where
-$\operatorname{Td}(TM)=\prod_jx_j/(1-e^{-x_j})$ in formal Chern roots.
-Apply Atiyah--Singer to derive the Hirzebruch--Riemann--Roch formula and
-recover Riemann--Roch for a line bundle on a compact Riemann surface.
-\end{exercise}
-
-\begin{exercise}[Dirac index formula]
-Assume that the topological index of the coupled chiral Dirac symbol is
-$\int_M\widehat A(TM)\operatorname{ch}(E)$. Apply Atiyah--Singer to derive
-\[
-\operatorname{ind}(D^+\otimes E)
-=\int_M\widehat A(TM)\operatorname{ch}(E).
-\]
+\begin{exercise}[Dirac spectra on flat tori]
+On $S^1=\R/2\pi\Z$, diagonalize
+$D_\alpha=-i\,d/d\theta+\alpha$ on periodic spinors and determine exactly
+when it has a zero mode.  On the flat two-torus, choose Pauli matrices for
+Clifford multiplication, write the Dirac operator on Fourier modes, and
+compute its spectrum and chiral zero modes.  Show directly that nonzero
+eigenvalues occur in opposite-chirality pairs.  Vary the two flat holonomies
+and locate the parameter values at which a zero mode crosses the origin.
 \end{exercise}
 
 \begin{definition}[Chirality and instanton number]
@@ -4949,26 +4340,6 @@ $\operatorname{ch}_2(E)=-c_2(E)$; conventions that call
 $\int_Mc_2(E)$ the instanton charge use the opposite sign.
 \end{definition}
 
-\begin{exercise}[Fermion chirality detects instanton number]
-Identify the characteristic number $k(A)$ from
-Exercise~\ref{ex:yang-mills-instantons} with $\int_M\operatorname{ch}_2(E)$.
-Then apply the Dirac-index formula from the preceding exercise to prove
-\[
-\operatorname{ind}D_A^+
-=\dim\ker D_A^+-\dim\ker(D_A^+)^*
-=\int_M\bigl[\widehat A(TM)\operatorname{ch}(E)\bigr]_4.
-\]
-For the fundamental $SU(2)$ bundle over $S^4$, show that this index is $k$
-with the orientation convention in the definition. Use the Weitzenb\"ock
-formula for a self-dual or anti-self-dual connection to determine which
-chirality has no zero modes and deduce that the other has exactly $|k|$
-zero modes. For a fermion in a representation $R$, derive the factor
-$2T(R)k$. Finally, compute the fermionic measure under the axial rotation
-$\psi\mapsto e^{i\alpha\gamma_5}\psi$ and obtain the integrated anomaly
-$\Delta Q_5=2\,\operatorname{ind}D_A^+$, identifying the chirality change
-carried by an instanton transition.
-\end{exercise}
-
 \begin{exercise}[Index theory and invertible free-fermion phases]
 Let $H(k)$ be a continuous family of finite-dimensional self-adjoint
 free-fermion Hamiltonians over a compact momentum space $X$, with a uniform
@@ -4980,17 +4351,6 @@ P(k)=\frac{1-Q(k)}2,
 and prove that the occupied spaces $E_k=\im P(k)$ form a vector bundle
 $E\to X$. Show that its stable class $[E]\in K^0(X)$ is invariant under
 gap-preserving deformations.
-
-When $X$ is an even-dimensional spin manifold, pair this class with its
-Dirac operator and use Atiyah--Singer to obtain
-\[
-\langle[E],[D_X]\rangle
-=\operatorname{ind}(D_X^+\otimes E)
-=\int_X\widehat A(TX)\operatorname{ch}(E).
-\]
-For a two-dimensional Brillouin torus, identify this integer with the first
-Chern number and derive the class-A Hall response
-$\sigma_H=(e^2/h)\langle c_1(E),[X]\rangle$.
 
 Prove that stacking Hamiltonians gives direct sum and addition in $K^0(X)$.
 After passing to reduced $K$-theory, show that spectral reversal replaces
@@ -5026,16 +4386,13 @@ s&0&1&2&3&4&5&6&7\\ \hline
 and verify that when both antiunitary symmetries occur their product gives a
 chiral symmetry, up to an irrelevant phase.
 
-Assume the Atiyah--Bott--Shapiro identification of stable symmetry-compatible
-Hamiltonians with Clifford-extension spaces, as used by
-\href{https://arxiv.org/abs/0901.2686}
-{Kitaev, \emph{Periodic table for topological insulators and superconductors}}.
-In the complex classes the strong classification groups in dimension $d$ are
+For this exercise, define the complex strong-classification entries in
+dimension $d$ by
 \[
 \pi_0(C_{-d})\quad\text{for $\mathrm A$},\qquad
 \pi_0(C_{1-d})\quad\text{for $\mathrm{AIII}$},
 \]
-and in real class $s$ the group is
+and define the entry in real class $s$ by
 \[
 \pi_0(R_{s-d})\cong KO^{d-s}(\mathrm{pt}).
 \]
@@ -5086,19 +4443,6 @@ the presence of strong interactions.
 \end{exercise}
 
 \subsection{Spectral triples, ultraviolet cutoffs, and operator systems}
-
-The preceding uses of Dirac operators extracted stable topological indices.
-Their spectrum and commutators also answer a different question: how much
-metric information is accessible at a finite energy resolution?
-
-On a compact spin manifold, smooth functions act on square-integrable
-spinors while the Dirac operator measures their variation.  This replaces
-coordinates by spectral data: the algebra records observables, the Hilbert
-space records their representation, and the spectrum of the Dirac operator
-sets the available length scales.  Restricting that spectrum models the
-finite energy range of an experiment.  Equivariant Toeplitz compression
-earlier isolated the resulting operator-system structure; a spectral triple
-now adds metric information through commutators with the Dirac operator.
 
 \begin{definition}[Spectral triples and spectral distance]
 A \emph{spectral triple} $(A,H,D)$ consists of a unital $*$-algebra $A$
@@ -5213,49 +4557,7 @@ Geometry and Operator Systems}, Communications in Mathematical Physics
 \textbf{383} (2021)}.
 \end{exercise}
 
-There is a parallel position-space description.  For a finite metric space
-$X$ and resolution $\varepsilon>0$, define
-\[
-E_\varepsilon
-=\operatorname{span}\{|x\rangle\langle y|:
- d(x,y)<\varepsilon\}\subseteq B(\ell^2(X)).
-\]
-Reflexivity and symmetry of the relation $d(x,y)<\varepsilon$ make
-$E_\varepsilon$ an operator system.  Matrix-unit multiplication shows that
-it is an algebra exactly when the relation is also transitive.  The usual
-failure of transitivity therefore records finite resolution algebraically:
-two steps individually shorter than $\varepsilon$ may connect points that
-the chosen resolution does not identify in one step.
-
-Spectral truncation concerns metric information retained after a cutoff.
-We now return to topological phases, passing from the group-valued
-classification of invertible phases to noninvertible phases whose localized
-excitations have fusion and braiding.
-
 \section{Quantum Topology}
-
-\begin{observations}
-\item At filling $\nu=1/3$, shot-noise measurements give quasiparticle charge
-near $e/3$, and interferometry detects phase evolution associated with
-fractional statistics.
-\end{observations}
-
-Fractional charge poses an algebraic puzzle.  Neutral local observables can
-create charge--anticharge pairs, but they cannot create a single isolated
-topological charge from the vacuum.  If $N$ is the algebra generated by
-observables in separated regions and $M$ is the larger algebra of everything
-compatible with measurements outside those regions, the inclusion
-$N\subseteq M$ records precisely this missing charged information.  A
-conditional expectation, when available, forgets it, and subfactor index
-measures how much was forgotten.
-
-This is an algebraic prototype rather than a direct model of the Hall
-sample.  In a completely rational conformal-net description of a chiral
-edge, the two-interval index is
-$\sum_a d_a^2$, the total quantum dimension squared of the localized charge
-sectors.  Their transport and exchange then produce fusion and braid data.
-The sequence below develops that bridge from inclusions, through sectors,
-to anyons and topological field theory.
 
 \subsection{Subfactors, Temperley--Lieb algebras, and the Jones polynomial}
 
@@ -5342,9 +4644,6 @@ norm-closed $C^*$-algebra
 \mathfrak A=C^*\!\left(\bigcup_{I\in\mathcal I}\mathcal A(I)\right)
 \]
 generated by the local algebras is the \emph{quasilocal algebra}.
-For the regular nontrivial conformal nets used below, the local algebras are
-hyperfinite type-$\mathrm{III}_1$ factors; the physical content lies in their
-inclusions and covariance, not in their abstract isomorphism type alone.
 \end{definition}
 
 \begin{definition}[Duality and regularity for conformal nets]
@@ -5400,40 +4699,25 @@ Use the Jordan--Wigner transformation and a Bogoliubov rotation to obtain
 \varepsilon(k)=2\sqrt{J^2+h^2-2Jh\cos k}.
 \]
 Show that the gap is $2|J-h|$ and closes at $h=J$, where the long-wavelength
-modes are massless Majorana fermions. Taking the standard fermionic
-determinant asymptotics as input, obtain
-$\langle Z_iZ_{i+r}\rangle\sim Cr^{-1/4}$ and a connected energy-density
-correlator proportional to $r^{-2}$. Identify the bulk Ising fields
-$1,\sigma,\varepsilon$ with scaling dimensions $0,1/8,1$, respectively.
+modes have linear dispersion.  For open chains of lengths
+$L=8,10,12,14$, diagonalize the finite Hamiltonian at $h=J$, separate the
+$\Z/2\Z$ parity sectors, and rescale gaps by the lowest even-parity gap.
 
 The Rydberg experiment realizes a different microscopic chain,
 \[
 H_{\rm R}=\sum_i\left(\frac{\Omega}{2}P_{i-1}X_iP_{i+1}-\Delta n_i\right)
  +\sum_{j-i\geq2}V_{ij}n_in_j,
 \]
-in the nearest-neighbor blockade regime. Explain why equality of microscopic
-Hamiltonians is unnecessary for the two critical points to share the Ising
-universality class; here $n_i$ projects onto the Rydberg state and
-$P_i=1-n_i$. Take as input the open-chain CFT spectrum, including its
-conformal towers and
-$E_a(L)-E_0(L)=\pi v x_a/L+o(L^{-1})$, and recover the universal even-parity
-ratios $2:4:6:8$ and odd-parity ratios $3:5:7$. Compare them with the reported
+in the nearest-neighbor blockade regime, where $n_i$ projects onto the
+Rydberg state and $P_i=1-n_i$.  At finite $L$, numerically diagonalize the
+blockaded Hilbert space, separate reflection and parity sectors, and compare
+the rescaled gaps with the ratios $2:4:6:8$ and $3:5:7$ reported in the
 modulation-spectroscopy peaks of
 \href{https://arxiv.org/abs/2601.16275}
 {Sun et al., \emph{Experimental observation of conformal field theory
-spectra} (2026)}, stating the finite-size and experimental limitations.
-
-Identify the chiral continuum theory with the $c=1/2$ Ising conformal net.
-Its DHR sectors $1,\psi,\sigma$ have conformal weights
-$0,1/2,1/16$; relate the bulk energy field to $\psi\bar\psi$ and distinguish
-these chiral weights from the bulk scaling dimensions above. Explain why the
-experiment supports the Ising CFT spectrum but does not directly measure the
-net or all of its superselection sectors.
+spectra} (2026)}.  Plot the deviations against $1/L$ and distinguish a
+finite-size extrapolation from an exact finite-chain identity.
 \end{exercise}
-
-The sector operations abstract to a braided fusion category. Its
-diagrammatic data in turn define topological field theories and link
-invariants.
 
 \subsection{Fusion, braiding, and modular tensor categories}
 
@@ -5455,29 +4739,18 @@ $c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon identities. A
 with unitary nondegenerate braiding.
 \end{definition}
 
-\begin{exercise}[From Jones index to a modular category]
-Assume that $\mathcal A$ is completely rational: it is split and strongly
-additive, with finite $\mu$-index. Assume that charge transporters for
-localized finite-index DHR endomorphisms produce a unitary braiding and that
-the complete-rationality theorem makes their category a unitary modular
-tensor category with finitely many irreducible sectors $\rho_i$ and
-\[
-\mu(\mathcal A)=\sum_i d(\rho_i)^2.
-\]
-Identify composition with tensor product, conjugate endomorphisms with
-duals, and charge transporters with the braiding. Explain where
-nondegeneracy enters modularity. Use
-\href{https://doi.org/10.1007/PL00005565}
-{Kawahigashi--Longo--M\"uger, \emph{Communications in Mathematical Physics}
-\textbf{219} (2001)}. For the Ising net at $c=1/2$, take the sectors
-$1,\psi,\sigma$ with dimensions
+\begin{exercise}[Ising sector arithmetic]
+Let $1,\psi,\sigma$ be symbols with dimensions
 $1,1,\sqrt2$ and fusion rules
 \[
 \psi^2=1,\qquad \psi\sigma=\sigma,\qquad
 \sigma^2=1\oplus\psi.
 \]
-Compute $\mu(\mathcal A)$ and interpret $\psi$ and $\sigma$ as the chiral
-Majorana and spin sectors.
+Form the three fusion matrices and prove that dimension is their common
+positive eigenvector.  Compute
+$\sum_i d_i^2=4$, find the dual of each symbol, and verify associativity of
+all products.  Determine which additional data beyond this based ring are
+required by the definition of a unitary modular tensor category.
 \end{exercise}
 
 \begin{exercise}[Fusion rules and braiding]
@@ -5553,34 +4826,12 @@ link, and trefoil, state the normalization of the colored unknot, and track
 the framing factor separately from the ambient-isotopy invariant.
 \end{exercise}
 
-\begin{exercise}[Comparison with Chern--Simons quantization]
-Do not use the formal Chern--Simons path integral as a definition. Assume the
-comparison theorem identifying the modular functor underlying
-$Z_k^{\rm RT}$ with the level-$k$ $SU(2)$ Wess--Zumino--Witten
-conformal-block modular functor, the quantization associated with
-$SU(2)$ Chern--Simons theory; see
-\href{https://arxiv.org/abs/1110.5027}
-{Andersen--Ueno, \emph{Construction of the Witten--Reshetikhin--Turaev TQFT
-from conformal field theory}}. Explain why this gives a precise sense in
-which $Z_k^{\rm RT}$ realizes quantum Chern--Simons theory and matches its
-Wilson-loop labels and gluing rules. Also explain why the comparison theorem
-does not by itself construct a nonperturbative measure for the formal path
-integral
-\[
-\int \mathcal DA\,e^{iS_{CS}(A)}\prod_r W_{V_{j_r}}(K_r).
-\]
-\end{exercise}
-
 \begin{exercise}[Functorial gluing]
 Show that the monoidal-functor axioms give multiplicativity under disjoint
 union, composition under gluing, duality under orientation reversal, and
 mapping-class-group representations on state spaces. In two dimensions,
 prove the equivalence with commutative Frobenius algebras.
 \end{exercise}
-
-In a gapped two-dimensional phase, the same categorical data describe anyon
-fusion, braiding, topology-dependent state spaces, and protected logical
-observables.
 
 \subsection{Anyons, topological order, and quantum Hall phases}
 
@@ -5673,27 +4924,6 @@ predictions each observation tests and which it does not.
 \end{exercise}
 
 \section{Topological Structures in Holography}
-
-\begin{observations}
-\item Ground states of one-dimensional critical systems have interval
-entanglement that grows logarithmically with interval length, whereas in
-gapped ground states it typically saturates once the interval is much longer
-than the correlation length.
-\item Black-hole thermodynamics assigns entropy proportional to horizon area
-rather than to the volume behind the horizon.
-\end{observations}
-
-Entanglement entropy was introduced earlier as a property of a reduced
-state.  Holography proposes that, in special quantum theories admitting a
-semiclassical gravitational dual, the same number can be computed by a bulk
-surface.  Topology is indispensable even at leading order: the surface must
-not merely have the right boundary, but must be homologous to the chosen
-boundary region.  This section isolates that topological content without
-assuming that every quantum field theory has a useful gravitational dual.
-
-Throughout this section, use natural units $\hbar=c=k_B=1$; in particular,
-entropy symbols denote the dimensionless entropy $S/k_B$ relative to the
-thermodynamic convention used earlier.
 
 \subsection{Ryu--Takayanagi surfaces and entanglement wedges}
 
@@ -5862,41 +5092,6 @@ recovered from modular invariance and asymptotic state counting.  Consult
 
 \section{Gauge Duality and the Geometric Langlands Program}
 
-\begin{observations}
-\item In empty space Maxwell's equations treat electric and magnetic fields
-as two components of one field strength, and electromagnetic waves carry
-both.  Electric sources break the continuous electric--magnetic rotation;
-a magnetic source would restore a more symmetric charge lattice.
-\item Electric charge is quantized, but no elementary magnetic monopole or
-supersymmetric partner has been observed.  The supersymmetric duality used
-below is therefore a sharply constrained theoretical model, not an
-experimentally established extension of the Standard Model.
-\end{observations}
-
-The gauge theory developed in Differential Geometry already supplies
-connections, curvature, Yang--Mills action, instantons, and characteristic
-classes.  What it does not yet explain is how the same quantum gauge theory
-can admit two complementary descriptions, one organized by electric probes
-and the other by magnetic probes.  Supersymmetry makes that proposed duality
-precise enough to survive a topological twist.  On a product of two surfaces,
-the twisted four-dimensional theory reduces to a sigma model whose target is
-a moduli space of solutions to Hitchin's equations.  Electric--magnetic
-duality then becomes mirror symmetry, and its exchange of Wilson and
-'t~Hooft lines becomes the Hecke-eigenvalue condition of geometric
-Langlands.  This is the physical chain developed in this section:
-\[
- \begin{aligned}
- \mathcal N=4\text{ Yang--Mills}
- &\longrightarrow \text{topological twist}
- \longrightarrow \text{Kapustin--Witten equations}\\
- &\longrightarrow \mathcal M_H
- \longrightarrow \text{branes and Hecke eigensheaves}.
- \end{aligned}
-\]
-We use natural units $\hbar=c=1$ in this section.  Ordinary Yang--Mills
-facts refer back to Exercise~\ref{ex:yang-mills-instantons}; the genuinely
-new physical input is stated explicitly rather than hidden in exercises.
-
 \subsection{Supersymmetry and electric--magnetic duality}
 
 \begin{definition}[$\mathcal N=4$ super Yang--Mills]
@@ -5920,17 +5115,8 @@ supercharges.  Its gauge coupling and theta angle combine into
 \]
 The potential is minimized when the $X_I$ commute, so scalar expectation
 values can break $G$ to a maximal torus and make electric and magnetic
-charges visible simultaneously.  A protected property special to this
-theory is that its beta function vanishes: $\tau$ does not run with energy.
-This scale independence is essential to the proposed exact duality below.
+charges visible simultaneously.
 \end{definition}
-
-Supersymmetry is not being introduced merely to enlarge the particle list.
-It protects masses and operator products from uncontrolled quantum
-corrections, allowing a weakly coupled calculation to constrain a strongly
-coupled description.  It also permits a scalar supercharge after twisting,
-which is the mechanism that will remove metric-dependent information while
-retaining topology.
 
 \begin{definition}[Langlands dual group]
 Let $T\subset G$ be a maximal torus.  Its character and cocharacter lattices
@@ -5947,26 +5133,17 @@ and roots are exchanged with coroots.  Thus
 Ignoring global-form refinements, $U(1)$ is self-dual,
 ${}^LSU(n)=PSU(n)$, and the root systems $B_n$ and $C_n$ are exchanged.
 The complex reductive group used in geometric Langlands is ${}^LG_\C$.
-The definition is forced physically by Dirac quantization: magnetic charges
-of $G$ are weights of ${}^LG$.
 \end{definition}
 
-\begin{definition}[Montonen--Olive duality as physical input]
-The $S$-duality conjecture asserts an exact quantum equivalence between
-$\mathcal N=4$ theories with dual gauge groups.  For simply laced root
-systems its basic transformation is
+\begin{definition}[Electric--magnetic duality transformation]
+The basic \emph{$S$-transformation} on gauge-theory parameters is
 \[
  (G,\tau)\longmapsto({}^LG,-1/\tau).
 \]
-It exchanges electrically charged states with magnetically charged states
-and Wilson line operators with 't~Hooft line operators.  For a
-non-simply-laced root system a root-length factor $n_G$ enters,
-$\tau\mapsto-1/(n_G\tau)$.  Global forms of the gauge group and discrete
-theta angles must also be tracked in a complete statement.  We use the
-duality as a physical input, not as a proved theorem.  Its origin is the
-proposal of
-\href{https://doi.org/10.1016/0370-2693(77)90076-4}
-{Montonen and Olive, \emph{Physics Letters B} \textbf{72} (1977)}.
+It exchanges character and cocharacter lattices, and hence electric and
+magnetic charge labels.  For a non-simply-laced root system define the
+transformation by $\tau\mapsto-1/(n_G\tau)$, where $n_G$ is the ratio of
+squared long- and short-root lengths.
 \end{definition}
 
 \begin{exercise}[Charge lattices and the dual group]
@@ -5986,35 +5163,26 @@ global dual group is adjoint rather than simply connected.
 
 \subsection{The geometric Langlands twist}
 
-\begin{definition}[Topological twisting and $Q$-cohomology]
+\begin{definition}[Cohomological twist data]
 In Euclidean signature the rotation group is locally
 $\operatorname{Spin}(4)=SU(2)_+\times SU(2)_-$.  A \emph{topological twist}
 replaces it by a diagonal combination with a
-$\operatorname{Spin}(4)$ subgroup of $\operatorname{Spin}(6)_R$.  Under the
-new rotation group, two combinations of the supersymmetry generators become
-scalars, say $Q_\ell$ and $Q_r$.  Their projective linear combinations
+$\operatorname{Spin}(4)$ subgroup of $\operatorname{Spin}(6)_R$.
+The \emph{cohomological twist data} include scalar odd operators
+$Q_\ell,Q_r$ whose projective linear combinations
 \[
  Q_t=Q_\ell+tQ_r,\qquad t\in\mathbb P^1,
 \]
-satisfy $Q_t^2=0$ on gauge-invariant quantities, up to a gauge
-transformation.  Physical observables of the twisted theory are classes
+satisfy $Q_t^2=0$ on gauge-invariant quantities.  The associated observables
+are classes
 \[
  H_{Q_t}=\ker Q_t/\im Q_t.
 \]
-Because $Q_t$ is a scalar, this cohomology can be defined on a curved
-four-manifold.  Metric-dependent terms in the action become $Q_t$-exact,
-which is why the surviving correlation functions are topological.
 \end{definition}
 
-After the twist, four of the six scalar fields transform as an
-adjoint-valued one-form $\phi\in\Omega^1(M,\ad P)$; the other two form a
-complex adjoint scalar.  Thus the equations below use only geometric
-objects already available in the manuscript: a connection, its curvature,
-the covariant exterior derivative, and the Hodge decomposition of two-forms.
-
 \begin{definition}[Canonical parameter]
-Although the twisted theory is presented using $(\tau,t)$, its topological
-sector depends on them through the single parameter
+For $(\tau,t)\in\mathbb H\times\mathbb P^1$, define the \emph{canonical
+parameter}
 \[
  \Psi=\frac{\tau+\bar\tau}{2}
  +\frac{\tau-\bar\tau}{2}\,
@@ -6022,23 +5190,17 @@ sector depends on them through the single parameter
  =\frac{\theta}{2\pi}
  +\frac{4\pi i}{g^2}\frac{t-t^{-1}}{t+t^{-1}}.
 \]
-For the basic $S$ transformation, the compatible twist parameter changes by
+Under the $S$-transformation, define the twist-parameter change by
 $t\mapsto\pm t\tau/|\tau|$; the sign is immaterial because $t$ and $-t$
 define equivalent twists.  This rule and
 $\tau\mapsto-1/(n_G\tau)$ give
 $\Psi\mapsto-1/(n_G\Psi)$, where $n_G$ is the ratio of the squared lengths
 of long and short roots and equals one in the simply laced case.
-Formally, the twisted action has the structure
-\[
- S=\{Q_t,V\}+\frac{i\Psi}{4\pi}\int_M\Tr(F_A\wedge F_A).
-\]
-Consequently, varying the coefficient of the first term does not change
-correlators of $Q_t$-closed observables, provided the measure and boundary
-conditions preserve $Q_t$.
 \end{definition}
 
-\begin{theorem}[Kapustin--Witten localization; used without proof]
-The bosonic localization equations of the geometric Langlands twist are
+\begin{definition}[Kapustin--Witten equations]
+For a connection $A$, an adjoint-valued one-form $\phi$, and
+$t\in\mathbb P^1$, the \emph{Kapustin--Witten equations} are
 \[
  \begin{aligned}
  (F_A-\phi\wedge\phi+t\,d_A\phi)^+&=0,\\
@@ -6046,25 +5208,14 @@ The bosonic localization equations of the geometric Langlands twist are
  d_A^*\phi&=0.
  \end{aligned}                                      \tag{KW}
 \]
-The values $t=0,\infty$ are interpreted by taking the corresponding limits.
-At $t=\pm i$, the first two equations say that the complex connection
-\[
- \mathcal A=A\pm i\phi
-\]
-is flat; the last equation is a real moment-map condition selecting a
-well-behaved representative modulo compact $G$-gauge transformations.
-The construction and conventions are those of
-\href{https://doi.org/10.4310/CNTP.2007.v1.n1.a1}
-{Kapustin and Witten, \emph{Communications in Number Theory and Physics}
-\textbf{1} (2007)}.
-\end{theorem}
+At $t=0$ and $t=\infty$, multiply the appropriate equation by $t$ or
+$t^{-1}$ before taking the limit.
+\end{definition}
 
-\begin{exercise}[Why $Q$-exact deformations disappear]
-Let $S_s=S_0+s\{Q,V\}$ and let $\mathcal O$ be $Q$-closed.  Assuming a
-$Q$-invariant measure and no boundary contribution in field space,
-differentiate $\langle\mathcal O\rangle_s$ with respect to $s$ and prove
-that the result vanishes.  Explain why the same calculation fails for an
-observable that is not $Q$-closed.  Next substitute $t=i$ into (KW) and
+\begin{exercise}[$Q$-cohomology and the Kapustin--Witten parameter]
+Let $Q^2=0$.  Prove that adding $QV$ to a $Q$-closed element does not change
+its class in $\ker Q/\im Q$, and determine why the same statement is
+undefined outside $\ker Q$.  Next substitute $t=i$ into (KW) and
 verify directly that its first two lines combine into
 \[
  F_{A+i\phi}=F_A-\phi\wedge\phi+i\,d_A\phi=0.
@@ -6074,13 +5225,6 @@ that $S$-duality acts by $\Psi\mapsto-1/(n_G\Psi)$.
 \end{exercise}
 
 \subsection{Dimensional reduction and Hitchin moduli space}
-
-Let the four-manifold be $M=\Sigma\times C$, where $C$ is a closed Riemann
-surface.  When $C$ is made small compared with $\Sigma$, finite-energy
-fields vary slowly along $\Sigma$ and at each point of $\Sigma$ solve a
-two-dimensional gauge equation on $C$.  The remaining field is therefore a
-map from $\Sigma$ into a moduli space.  This is the physical reason that a
-four-dimensional gauge theory produces a two-dimensional sigma model.
 
 \begin{definition}[Hitchin equations and Higgs bundles]
 For a connection $A$ on a principal $G$-bundle over $C$ and
@@ -6120,38 +5264,6 @@ exhibits the same dimensional-reduction mechanism using the instantons
 already studied in Exercise~\ref{ex:yang-mills-instantons}.
 \end{exercise}
 
-\begin{theorem}[Hyperk\"ahler descriptions; used without proof]
-On its smooth locus, $\mathcal M_H(G,C)$ carries a metric and complex
-structures $I,J,K$ obeying the quaternion relations.  In complex structure
-$I$ it is the moduli space of Higgs bundles.  In complex structure $J$ it is
-the moduli space of reductive flat $G_\C$-connections, represented by
-$\mathcal A=A+i\phi$.  If $p_1,\ldots,p_r$ generate the invariant
-polynomials on $\mathfrak g_\C$ and have degrees $d_1,\ldots,d_r$, the
-\emph{Hitchin map} is
-\[
- h:\mathcal M_H(G,C)\longrightarrow
- \mathcal B_G=\bigoplus_{j=1}^rH^0(C,K_C^{d_j}),\qquad
- (E,\varphi)\longmapsto(p_1(\varphi),\ldots,p_r(\varphi)).
-\]
-Its generic fibers are abelian varieties.  The generic fibers for $G$ and
-${}^LG$ are dual, which is the geometric seed of mirror symmetry.  These
-facts originate in
-\href{https://doi.org/10.1112/plms/s3-55.1.59}
-{Hitchin, \emph{Proceedings of the London Mathematical Society}
-\textbf{55} (1987)}.
-\end{theorem}
-
-There is a useful symplectic explanation of the three equations.  The
-affine space of pairs $(A,\phi)$ has three symplectic forms, and the gauge
-group acts with three moment maps.  Their simultaneous vanishing is exactly
-(H), so
-\[
- \mathcal M_H(G,C)=\{(A,\phi):\text{(H)}\}/\mathcal G
-\]
-is an infinite-dimensional hyperk\"ahler quotient.  This extends the
-ordinary symplectic reduction developed earlier: one now imposes three
-compatible moment-map equations rather than one.
-
 \begin{exercise}[The abelian Hitchin system]
 Take $G=U(1)$ and let $C$ have genus $g_C$.  Show that all commutator terms
 vanish and that a solution consists of a flat unitary line bundle together
@@ -6184,27 +5296,15 @@ $\Psi=\infty$ it is the $B$-model in complex structure $J$; at $\Psi=0$ it
 is the $A$-model with symplectic form $\omega_K$.
 \end{definition}
 
-The $B$-model remembers complex geometry: its basic branes are described,
-schematically, by holomorphic subspaces carrying complexes of coherent
-sheaves.  The $A$-model remembers symplectic geometry: a basic brane may be
-supported on a Lagrangian submanifold with a flat bundle, while more general
-coisotropic branes carry curvature compatible with the symplectic form.
-These are boundary conditions for the sigma model, not additional particles
-in four-dimensional spacetime.
-
-\begin{definition}[Mirror-symmetry form of $S$-duality]
-Compactification converts the four-dimensional $S$-duality input into the
-equivalence
+\begin{definition}[Mirror-dual Hitchin targets]
+The Hitchin targets for $G$ and ${}^LG$ are \emph{mirror-dual at the
+canonical parameters} when there is an equivalence
 \[
  B_J\bigl(\mathcal M_H(G,C)\bigr)
  \simeq
  A_K\bigl(\mathcal M_H({}^LG,C)\bigr),                 \tag{M}
 \]
-where the subscripts record the complex or symplectic structure.  Reversing
-$G$ and ${}^LG$ gives the direction used below: a point brane associated to
-a flat ${}^LG_\C$-connection is transformed into an $A$-brane on
-$\mathcal M_H(G,C)$.  Equation (M) is the physical mirror-symmetry input;
-it is not proved by the preceding finite-dimensional theory.
+where the subscripts record the complex or symplectic structure.
 \end{definition}
 
 \begin{exercise}[Elementary brane geometry]
@@ -6242,10 +5342,9 @@ isomorphism
  E|_{C\setminus\{x\}}\cong E'|_{C\setminus\{x\}}.
 \]
 Its relative position at $x$ is labeled by a dominant coweight of $G$.
-Under dimensional reduction, the singular boundary condition of an
-'t~Hooft line changes $E$ in precisely this way.  Thus magnetic line
-operators become \emph{Hecke functors} $\mathsf H_V$, labeled by
-representations $V$ of ${}^LG$.
+A \emph{Hecke functor} $\mathsf H_V$ is the correspondence on bundles and
+sheaves obtained by summing modifications with dominant coweight labeled by
+the representation $V$ of ${}^LG$.
 \end{definition}
 
 \begin{exercise}[Local Hecke modifications for $GL_n$]
@@ -6281,34 +5380,22 @@ $\mathcal E$ through $V$.  Compatibility with tensor products of
 representations is part of the definition.
 \end{definition}
 
-The word ``eigen'' in (HE) is literal but categorified.  A commuting family
-of operators ordinarily sends an eigenvector to scalar multiples of itself.
-Here the operators are Hecke functors, the eigenvector is a sheaf, and the
-eigenvalues form the fibers of a flat vector bundle as the insertion point
-$x$ moves around $C$.  Flatness follows physically because moving a
-topological line on $C$ cannot change its local action, though it can produce
-global monodromy.
-
 \begin{definition}[The Kapustin--Witten dictionary]
-Begin on the ${}^LG$ side at $\Psi=\infty$.  A flat
-${}^LG_\C$-connection $\mathcal E$ is a point of
-$\mathcal M_H({}^LG,C)$ in complex structure $J$, so it supports a
-$B$-brane.  Wilson lines act on this point brane through the vector spaces
-$V_{\mathcal E,x}$.  Mirror symmetry carries it to an $A$-brane on
-$\mathcal M_H(G,C)$, while $S$-duality carries Wilson lines to 't~Hooft
-lines.  The image is therefore a simultaneous eigenbrane for the Hecke
-operators.
-
-To turn that eigenbrane into a $D$-module, one studies its open strings with
-the \emph{canonical coisotropic brane} $\mathcal B_{cc}$.  The endomorphism
-algebra of $\mathcal B_{cc}$ quantizes functions along the cotangent
-directions and yields a sheaf of differential operators on
-$\operatorname{Bun}_G(C)$, with a canonical twisting by a determinant or
-half-canonical line.  Open strings from $\mathcal B_{cc}$ to the eigenbrane
-then form the twisted $D$-module $\mathcal F_{\mathcal E}$ satisfying (HE).
-This is the physical construction relating electric--magnetic duality to
-the geometric Langlands correspondence.  Derived, stack-theoretic, and
-singular-locus refinements are suppressed here.
+The \emph{Kapustin--Witten dictionary} is the chain of labels
+\[
+ \begin{array}{c}
+ \text{flat ${}^LG_\C$-connection $\mathcal E$}\\
+ \updownarrow\\
+ \text{point $B$-brane on $\mathcal M_H({}^LG,C)$}\\
+ \updownarrow\\
+ \text{Hecke eigenbrane on $\mathcal M_H(G,C)$}\\
+ \updownarrow\\
+ \text{Hecke eigensheaf $\mathcal F_{\mathcal E}$ on
+ $\operatorname{Bun}_G(C)$}.
+ \end{array}
+\]
+The line-operator labels on the two middle entries are exchanged by
+character--cocharacter duality.
 \end{definition}
 
 \begin{exercise}[From an eigenbrane to the Hecke condition]
@@ -6322,38 +5409,12 @@ $L_V(x)\mathcal B\cong\mathcal B\otimes E_{V,x}$.  Show that the spaces
 $E_{V,x}$ must satisfy
 $E_{V\otimes W,x}\cong E_{V,x}\otimes E_{W,x}$.  Explain why topological
 motion of $x$ makes $E_V$ a local system on $C$.  After Wilson--'t~Hooft
-duality, rewrite this statement as (HE).  Identify exactly which step uses
-the unproved physical duality input.
+label exchange, rewrite this statement as (HE).
 \end{exercise}
-
-This endpoint also clarifies the relation to the Arithmetic part.  The
-geometric Langlands program is a categorical correspondence for bundles and
-local systems on a curve; the arithmetic Langlands program relates
-automorphic representations to Galois data over number fields and function
-fields.  They share dual groups, Hecke operators, and harmonic-analysis
-structures, but the four-dimensional gauge theory above directly motivates
-the \emph{geometric} correspondence.  Passing from this picture to
-arithmetic Langlands requires additional algebro-geometric and
-number-theoretic machinery; it is not a consequence of supersymmetry alone.
 
 \part{Arithmetic}
 
 \section{Partitions and Generating Functions}
-
-\begin{observations}
-\item When independent bosonic modes have equally spaced excitation
-energies, many occupation patterns have exactly the same total energy; the
-degeneracy grows rapidly with the excitation number.
-\item Finite-size spectra at criticality organize into towers whose repeated
-level degeneracies can be read as coefficients of power series.
-\end{observations}
-
-Arithmetic enters physics first as exact counting.  A generating function
-does more than list degeneracies: its product form records independent
-modes, its sum form records constrained many-body states, and its analytic
-behavior controls the entropy of highly excited states.  The tension
-between these descriptions is the source of the $q$-series identities used
-later in conformal field theory and integrable models.
 
 \subsection{Partition generating functions and finite boxes}
 
@@ -6423,22 +5484,18 @@ thermodynamic limits are infinite products.
 
 \subsection{Rogers--Ramanujan identities and exclusion rules}
 
-\begin{definition}[The Rogers--Ramanujan functions]
+\begin{definition}[Rogers--Ramanujan sum and product series]
 For $|q|<1$, define
 \[
-G(q)=\sum_{r\geq0}\frac{q^{r^2}}{(q;q)_r},
+G_{\rm sum}(q)=\sum_{r\geq0}\frac{q^{r^2}}{(q;q)_r},
 \qquad
-H(q)=\sum_{r\geq0}\frac{q^{r(r+1)}}{(q;q)_r}.
+H_{\rm sum}(q)=\sum_{r\geq0}\frac{q^{r(r+1)}}{(q;q)_r},
 \]
-The Rogers--Ramanujan identities are
 \[
-G(q)=\frac1{(q;q^5)_\infty(q^4;q^5)_\infty},
+G_{\rm prod}(q)=\frac1{(q;q^5)_\infty(q^4;q^5)_\infty},
 \qquad
-H(q)=\frac1{(q^2;q^5)_\infty(q^3;q^5)_\infty}.
+H_{\rm prod}(q)=\frac1{(q^2;q^5)_\infty(q^3;q^5)_\infty}.
 \]
-They equate fermionic-looking sums, in which $r$ behaves like a particle
-number subject to exclusion, with bosonic-looking products over allowed
-mode numbers.
 \end{definition}
 
 \begin{exercise}[Difference conditions and Rogers--Ramanujan counting]
@@ -6449,29 +5506,15 @@ successive parts differ by at least two.  Use the staircase
 $(2r,2r-2,\ldots,2)$ for the same difference condition with smallest part at
 least two.  Interpret the product sides as partitions into parts congruent
 to $1$ or $4$ modulo $5$, and to $2$ or $3$ modulo $5$, respectively.
-Taking the analytic Rogers--Ramanujan identities as supplied, deduce the two
-partition theorems.  Later, identify the same functions as exact CFT
-characters and as functions occurring in an integrable lattice model; see
-\href{https://doi.org/10.1073/pnas.78.9.5290}
-{Andrews, \emph{Proceedings of the National Academy of Sciences}
-\textbf{78} (1981)}.
+Compute all four series through $q^{30}$ using finite products and finite
+sums, and verify coefficientwise that
+$G_{\rm sum}=G_{\rm prod}$ and $H_{\rm sum}=H_{\rm prod}$ to that order.
+Translate the coefficient equalities into finite tests of the two partition
+identities and identify which further step would be required for a proof in
+all degrees.
 \end{exercise}
 
 \section{Theta Functions and Modular Forms}
-
-\begin{observations}
-\item Diffraction by a crystal produces sharp peaks on a reciprocal lattice,
-so real-space lattice geometry is encoded by arithmetic data in momentum
-space.
-\item A particle on a compact circle admits both a momentum-mode expansion
-and a winding-path expansion; Poisson summation makes the two thermal
-partition functions equal.
-\end{observations}
-
-The same dual description appears throughout arithmetic physics.  Lattice
-points may be counted directly, or reorganized through the dual lattice.
-The modular transformation $\tau\mapsto-1/\tau$ is the complex-analytic form
-of this exchange, while $\tau\mapsto\tau+1$ records integrality and parity.
 
 \subsection{Lattice theta series and Poisson duality}
 
@@ -6586,21 +5629,22 @@ The modular discriminant is the weight-twelve cusp form
 \]
 \end{definition}
 
-\begin{exercise}[The ring of modular forms and the $E_8$ lattice]
+\begin{exercise}[Eisenstein series and the $E_8$ shell]
 Construct Eisenstein series by summing $(m\tau+n)^{-k}$ over nonzero lattice
 points for even $k>2$, prove their modular transformation law, and obtain the
-displayed Fourier expansions for $E_4$ and $E_6$.  Taking the valence formula
-as supplied, prove
-\[
-M_*(SL_2(\Z))\cong\C[E_4,E_6]
-\]
-as a graded ring.  For a positive-definite even unimodular lattice, first use
+displayed Fourier expansions for $E_4$ and $E_6$.  For a positive-definite
+even unimodular lattice, first use
 consistency of the $S$ and $T$ laws to prove that its dimension $d$ is
 divisible by eight, and then show that its theta series is a modular form of
 weight $d/2$.
-For the $E_8$ lattice, use $\dim M_4=1$ to deduce
-$\Theta_{E_8}=E_4$, and conclude that $E_8$ has $240$ vectors of squared
-length two.
+Construct the $E_8$ lattice as
+\[
+ \{x\in\Z^8:\textstyle\sum_i x_i\equiv0\pmod2\}
+ \cup
+ \{x\in(\Z+\tfrac12)^8:\textstyle\sum_i x_i\equiv0\pmod2\}.
+\]
+Enumerate its vectors of squared length two and obtain $240$, matching the
+coefficient of $q$ in $E_4$.
 \end{exercise}
 
 \begin{exercise}[Partition asymptotics from modular inversion]
@@ -6626,25 +5670,6 @@ exact coefficient formula; see
 \end{exercise}
 
 \section{Automorphic Harmonic Analysis and Arithmetic Langlands}
-
-Arithmetic Langlands begins where the preceding modular-form discussion
-ends.  A modular eigenform is not merely a holomorphic function with a
-transformation law: it is one component of an irreducible representation of
-$GL_2$ over all completions of $\Q$ at once.  Its Hecke eigenvalues can also
-appear as traces of Frobenius acting on an $\ell$-adic Galois
-representation.  The Langlands program predicts that this agreement between
-harmonic and Galois data persists for much larger groups.
-
-The physical motivation is structural and should not be overstated.  No
-laboratory experiment establishes an automorphic--Galois correspondence or
-selects the adeles as physical spacetime.  What physics supplies is a
-familiar pattern: construct a configuration space, decompose its
-$L^2$-space into irreducible modes, diagonalize commuting observables, and
-compare a spectral expansion with a sum over geometric orbits.  Adelic
-harmonic analysis applies that pattern to arithmetic quotients.  In
-idealized arithmetic quantum systems Hecke operators behave like additional
-commuting conserved quantities, but they are not symmetries of a generic
-Hamiltonian.
 
 \subsection{Places, local fields, and adeles}
 
@@ -6693,18 +5718,6 @@ allows one to define the \emph{idele class group}
 \]
 \end{definition}
 
-\begin{theorem}[Adelic compactness; used without proof]
-The diagonal copy of $F$ is discrete in $\mathbb A_F$, and the additive
-quotient $\mathbb A_F/F$ is compact.  These facts make ordinary locally
-compact harmonic analysis available on the arithmetic quotient.
-\end{theorem}
-
-An adele is not an infinite collection of unrelated choices.  It packages
-the real and all prime-adic resolutions of the same arithmetic problem.
-The restricted product is analogous to choosing a reference vacuum at
-almost every mode: only finitely many components may depart from the
-distinguished compact subgroup.
-
 \begin{exercise}[The product formula]
 Compute the $p$-adic absolute values of $x=12/25$.  For arbitrary
 $x\in\Q^\times$, use unique factorization to prove
@@ -6750,50 +5763,6 @@ is locally constant with compact support at each finite place, and equals
 the indicator of $\mathcal O_v$ for almost every finite $v$.
 \end{definition}
 
-\begin{theorem}[Tate's adelic Fourier transform; used without proof]
-Let $\Phi$ be a Schwartz--Bruhat function on $\mathbb A_F$.  The zeta
-integral
-\[
- Z(\Phi,\chi,s)
- =\int_{\mathbb A_F^\times}
- \Phi(x)\chi(x)|x|_{\mathbb A}^{s}\,d^\times x
-\]
-factorizes into local integrals.  Fourier inversion and Poisson summation on
-the compact quotient $\mathbb A_F/F$ give its meromorphic continuation and
-functional equation.  For $F=\Q$ and the trivial character, suitable local
-test functions yield
-\[
- \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s),
- \qquad \Lambda(s)=\Lambda(1-s).
-\]
-Thus the functional equation is a global Fourier-duality statement, while
-the Euler product records independent local prime data.
-\end{theorem}
-
-\begin{theorem}[Class field theory as $GL_1$ Langlands; used without proof]
-The local Weil group $W_{F_v}$ is the locally compact form of the local
-Galois group in which the powers of Frobenius remain visible.
-Local reciprocity identifies the abelianized local Weil group with the
-multiplicative group of the field,
-\[
- W_{F_v}^{\rm ab}\cong F_v^\times.
-\]
-Global Artin reciprocity similarly identifies the maximal profinite quotient
-of the idele class group with the Galois group of the maximal abelian
-extension:
-\[
- C_F/C_F^0
- \cong\operatorname{Gal}(F^{\rm ab}/F),
-\]
-where $C_F^0$ is the identity component.  Consequently, one-dimensional
-automorphic characters and one-dimensional Galois or Weil characters carry
-the same local data and the same $L$-functions.  This is the established
-$GL_1$ case that higher-rank Langlands generalizes.  For $F=\Q$, the
-Kronecker--Weber theorem realizes every finite abelian extension inside a
-cyclotomic field, connecting this statement to the final section of the
-Arithmetic part.
-\end{theorem}
-
 \begin{exercise}[Euler products from multiplicativity]
 For $\operatorname{Re}s>1$, use unique factorization and absolute
 convergence to prove
@@ -6833,42 +5802,8 @@ $N_P$.
 
 Right translation by $G(\mathbb A_F)$ acts on automorphic forms.  An
 \emph{automorphic representation} is an irreducible constituent $\pi$ of
-this representation.  Cuspidal constituents form the discrete spectrum;
-Eisenstein series supply continuous and residual spectra.
+this representation.
 \end{definition}
-
-\begin{theorem}[Local factorization; used without proof]
-After choosing compatible local data, an irreducible automorphic
-representation factors as a restricted tensor product
-\[
- \pi\cong\mathop{\bigotimes\nolimits'}_v\pi_v,
-\]
-with $\pi_v$ unramified at almost every finite place.
-\end{theorem}
-
-This is the arithmetic analogue of the harmonic decompositions developed in
-the Symmetry part.  Compact groups give a Peter--Weyl sum; noncompact real
-groups require continuous principal series; arithmetic quotients combine
-all local groups $G(F_v)$ and impose the single global periodicity
-$G(F)$.
-
-\begin{theorem}[Arthur--Selberg trace formula; schematic input]
-For a test function $h$ on $G(\mathbb A_F)$, convolution defines an operator
-$R(h)$ on the automorphic spectrum.  Formally its kernel is
-\[
- K_h(x,y)=\sum_{\gamma\in G(F)}h(x^{-1}\gamma y).
-\]
-Computing the trace spectrally gives a sum or integral over automorphic
-representations; grouping the diagonal kernel geometrically gives orbital
-integrals indexed by conjugacy classes in $G(F)$.  The equality
-\[
- \text{spectral side}=\text{geometric side}
-\]
-is the trace formula.  Noncompact quotients require truncation and several
-additional terms, so this schematic identity is not a proof-ready statement.
-It generalizes both Poisson summation and the Selberg trace formula and is a
-central comparison tool in the Langlands program.
-\end{theorem}
 
 \begin{exercise}[Poisson summation as an abelian trace formula]
 For $f\in\mathcal S(\R)$, use the Fourier normalization
@@ -6886,8 +5821,8 @@ $\int_0^1K_f(x,x)\,dx$, obtaining
  \sum_{m\in\Z}\widehat f(m)=\sum_{n\in\Z}f(n).
 \]
 Identify the two sides as the spectral and geometric expansions.  Explain
-why the nonabelian trace formula replaces lattice points by conjugacy
-classes and scalar Fourier modes by representations.
+which features of this calculation depend on commutativity and which survive
+for an operator defined by convolution on a nonabelian quotient.
 \end{exercise}
 
 \subsection{Modular eigenforms as automorphic representations}
@@ -6907,16 +5842,12 @@ Then
  \left(a_{pn}+p^{k-1}a_{n/p}\right)q^n,
 \]
 where $a_{n/p}=0$ if $p\nmid n$.
-\end{definition}
-
-\begin{theorem}[Hecke algebra relations; supplied]
-Operators $T_n$ for general $n$ are defined by the analogous index-$n$
-lattice correspondences.  They commute and obey
+For $n\geq1$, define $T_n$ on Fourier coefficients by
 \[
- T_mT_n
- =\sum_{d\mid(m,n)}d^{k-1}T_{mn/d^2}.
+ T_n f=\sum_{m\geq1}
+ \left(\sum_{d\mid(m,n)}d^{k-1}a_{mn/d^2}\right)q^m.
 \]
-\end{theorem}
+\end{definition}
 
 \begin{definition}[Normalized Hecke eigenform]
 A \emph{normalized Hecke eigenform} has $a_1=1$ and
@@ -6930,7 +5861,8 @@ normalized eigenform, compare coefficients to prove
  a_{p^{r+1}}=a_pa_{p^r}-p^{k-1}a_{p^{r-1}}
  \qquad(r\geq1).
 \]
-Use the Hecke algebra relation to prove $a_{mn}=a_ma_n$ for
+Derive $T_mT_n=\sum_{d\mid(m,n)}d^{k-1}T_{mn/d^2}$ from the coefficient
+formula, and use it to prove $a_{mn}=a_ma_n$ for
 $(m,n)=1$, and then show
 \[
  L(f,s)=\sum_{n\geq1}\frac{a_n}{n^s}
@@ -6941,24 +5873,6 @@ in a right half-plane.  Factor the denominator as
 $(1-\alpha_pp^{-s})(1-\beta_pp^{-s})$ and derive
 $\alpha_p+\beta_p=a_p$ and $\alpha_p\beta_p=p^{k-1}$.
 \end{exercise}
-
-\begin{theorem}[Classical-to-adelic correspondence; used without proof]
-A normalized weight-$k$ eigenform $f$ determines an automorphic form
-$\varphi_f$ on
-\[
- GL_2(\Q)\backslash GL_2(\mathbb A_\Q).
-\]
-Its transformation of weight $k$ is encoded in the Archimedean component,
-while invariance under $GL_2(\Z_p)$ encodes level one at each finite prime.
-The representation generated by right translates factors as
-\[
- \pi_f=\mathop{\bigotimes\nolimits'}_v\pi_{f,v}.
-\]
-The classical operator $T_p$ is the action of a $p$-adic double coset on the
-one-dimensional space of $GL_2(\Z_p)$-fixed vectors in $\pi_{f,p}$.
-Consequently, the coefficient $a_p$ is local spectral data of a global
-representation.
-\end{theorem}
 
 \begin{exercise}[The $GL_2$ Hecke correspondence at $p$]
 Let $K_p=GL_2(\Z_p)$.  Show that index-$p$ sublattices of
@@ -6983,56 +5897,11 @@ $K_v=G(\mathcal O_v)$.  The \emph{spherical Hecke algebra} is
  \mathcal H_v(G,K_v)
  =C_c(K_v\backslash G(F_v)/K_v)
 \]
-with convolution.  If an irreducible representation $\pi_v$ has a nonzero
-$K_v$-fixed vector, it is \emph{unramified}; the fixed space is
-one-dimensional, so $\mathcal H_v(G,K_v)$ acts through a character.
+with convolution.  An irreducible representation $\pi_v$ with a nonzero
+$K_v$-fixed vector is \emph{unramified}.  A one-dimensional simultaneous
+eigenspace for $\mathcal H_v(G,K_v)$ defines a \emph{spherical Hecke
+character}.
 \end{definition}
-
-\begin{theorem}[Satake isomorphism; used without proof]
-Let $T\subset G$ be a split maximal torus with Weyl group $W$, and let
-$\widehat G$ be the complex reductive group with dual root datum.  After the
-standard $q_v^\rho$ normalization,
-\[
- \mathcal H_v(G,K_v)
- \cong\C[X_*(T)]^W
- \cong R(\widehat G)\otimes_\Z\C.
-\]
-Thus a character of the spherical Hecke algebra determines a semisimple
-conjugacy class
-\[
- c(\pi_v)\subset\widehat G,
-\]
-the \emph{Satake parameter}.  For a finite-dimensional representation $r$
-of $\widehat G$, define
-\[
- L_v(s,\pi_v,r)
- =\det\!\left(1-r(c(\pi_v))q_v^{-s}\right)^{-1}.
-\]
-This is the arithmetic appearance of the same dual root datum used in the
-geometric Langlands section: in the split case, its complex group
-${}^LG_\C$ is the present $\widehat G$.  For a nonsplit group, the arithmetic
-\emph{$L$-group} is
-\[
- {}^LG=\widehat G\rtimes W_F,
-\]
-where the Weil group $W_F$ records the Galois action on the root datum.
-See
-\href{https://doi.org/10.1007/BF02684781}
-{Satake, \emph{Publications Math\'ematiques de l'IH\'ES}
-\textbf{18} (1963)}.
-\end{theorem}
-
-For $G=GL_2$ one has $\widehat G=GL_2(\C)$.  In the arithmetic
-normalization of a weight-$k$ eigenform, the unramified parameter at $p$ has
-eigenvalues $\alpha_p,\beta_p$ and hence
-\[
- \Tr c(\pi_{f,p})=a_p,\qquad
- \det c(\pi_{f,p})=p^{k-1}.
-\]
-The local standard $L$-factor is exactly the quadratic Euler factor computed
-above.  The unitary normalization divides both eigenvalues by
-$p^{(k-1)/2}$; keeping these normalizations distinct prevents an apparent
-contradiction between determinant one and determinant $p^{k-1}$ conventions.
 
 \begin{exercise}[Recovering a local factor from a conjugacy class]
 Let $c\in GL_n(\C)$ be semisimple with eigenvalues
@@ -7074,28 +5943,6 @@ convention by declaring the local polynomial to be
 The Galois local factor is $P_v(q_v^{-s})^{-1}$.
 \end{definition}
 
-\begin{theorem}[Deligne's representation of an eigenform; used without proof]
-Let $f=\sum_{n\geq1}a_nq^n$ be a normalized level-one eigenform of weight
-$k\geq2$, and let $E_f$ be the number field generated by its coefficients.
-For every finite place $\lambda\mid\ell$ of $E_f$, there is a continuous
-representation
-\[
- \rho_{f,\lambda}:G_\Q\longrightarrow GL_2(E_{f,\lambda})
-\]
-unramified at every $p\ne\ell$ and satisfying
-\[
- \det\!\left(1-X\rho_{f,\lambda}
-  (\operatorname{Frob}_p)\right)
- =1-a_pX+p^{k-1}X^2.                         \tag{AG}
-\]
-Under any complex embedding, the two Frobenius eigenvalues have absolute
-value $p^{(k-1)/2}$.  Hence the Galois and automorphic Euler factors agree,
-and $|a_p|\leq2p^{(k-1)/2}$.  This deep theorem is not a consequence of the
-formal Hecke recurrences; see
-\href{https://www.numdam.org/item/SB_1968-1969__11__139_0/}
-{Deligne, S\'eminaire Bourbaki, Expos\'e 355 (1968--69)}.
-\end{theorem}
-
 \begin{exercise}[Ramanujan's $\Delta$ on both sides]
 Write
 \[
@@ -7111,106 +5958,51 @@ For an arbitrary prime $p$, write the Euler factor
  L_p(s,\Delta)
  =\frac1{1-\tau(p)p^{-s}+p^{11-2s}}
 \]
-both in terms of its Satake eigenvalues and as the characteristic polynomial
-of $\rho_{\Delta,\ell}(\operatorname{Frob}_p)$.  Use the purity statement in
-the theorem to derive $|\tau(p)|\leq2p^{11/2}$, and identify why proving
-purity cannot be replaced by manipulating the $q$-product for $\Delta$.
+in terms of its Satake eigenvalues.  Construct a $2\times2$ companion matrix
+$c_p$ with trace $\tau(p)$ and determinant $p^{11}$, and recover the same
+factor as $\det(1-c_pp^{-s})^{-1}$.  List the compatibility conditions across
+primes that would be needed before the matrices $c_p$ could be Frobenius
+classes of one $\ell$-adic representation.
 \end{exercise}
 
-\begin{theorem}[Modularity of elliptic curves over $\Q$; used without proof]
-Let $E/\Q$ be an elliptic curve of conductor $N$.  At a prime of good
-reduction set
-\[
- a_p(E)=p+1-\#E(\mathbb F_p).
-\]
-There is a normalized weight-two newform $f_E$ of level $N$ such that
-\[
- a_p(f_E)=a_p(E)
-\]
-at every good prime, and consequently $L(E,s)=L(f_E,s)$ after the bad local
-factors are included.  This is a concrete $GL_2/\Q$ case of arithmetic
-Langlands: point counts on an algebraic curve match Hecke eigenvalues in an
-automorphic spectrum.  The semistable case was central to Wiles's work; the
-general result is due to
-\href{https://doi.org/10.1090/S0894-0347-01-00370-8}
-{Breuil--Conrad--Diamond--Taylor, \emph{Journal of the American
-Mathematical Society} \textbf{14} (2001)}.
-\end{theorem}
-
 \begin{exercise}[Local zeta function of an elliptic curve]
-Let $E$ have good reduction at $p$, and let $\alpha_p,\beta_p$ be roots of
-$X^2-a_p(E)X+p$.  Assuming
+Let $\alpha_p,\beta_p$ be roots of $X^2-a_pX+p$ and define a sequence
+$N_r$ by
 \[
- \#E(\mathbb F_{p^r})
+ N_r
  =p^r+1-\alpha_p^r-\beta_p^r,
 \]
 use $\sum_{r\geq1}z^r/r=-\log(1-z)$ to prove
 \[
  \exp\!\left(
- \sum_{r\geq1}\#E(\mathbb F_{p^r})\frac{T^r}{r}\right)
+ \sum_{r\geq1}N_r\frac{T^r}{r}\right)
  =\frac{1-a_p(E)T+pT^2}{(1-T)(1-pT)}.
 \]
-Show that the numerator yields the same degree-two local factor as the
-weight-two modular form supplied by the modularity theorem.  Separate the
-elementary generating-function calculation from the deep assertion that
-the same $a_p$ occurs on both sides.
+For the curve $E:y^2=x^3-x$ at $p=5$, count $E(\mathbb F_5)$, determine
+$a_5=5+1-\#E(\mathbb F_5)$, and compute the first three $N_r$.  Compare the
+resulting degree-two factor with any weight-two Hecke eigenform having the
+same coefficient $a_5$.
 \end{exercise}
 
 \subsection{The Langlands correspondence and its status}
 
-\begin{theorem}[Local Langlands for $GL_n$; used without proof]
-For $GL_n$ over a non-Archimedean local field $F_v$, the \emph{local
-Langlands correspondence} matches irreducible admissible representations of
-$GL_n(F_v)$ with $n$-dimensional Frobenius-semisimple Weil--Deligne
-representations, preserving local $L$- and epsilon factors.  At an
-Archimedean place, the analogous parameters are representations of the real
-or complex Weil group.  In the unramified non-Archimedean case the
-correspondence reduces to the Satake parameter above.
-\end{theorem}
-
-\begin{definition}[Global correspondence and functoriality]
-Globally, the number-field Langlands program predicts that suitably
-algebraic cuspidal automorphic representations of
-$GL_n(\mathbb A_F)$ correspond to compatible systems of $n$-dimensional
-$\ell$-adic Galois representations, with matching characteristic
-polynomials at almost every place.  For general reductive groups, an
-$L$-homomorphism
+\begin{definition}[Langlands matching and functoriality]
+An automorphic representation $\pi$ of $GL_n(\mathbb A_F)$ and an
+$n$-dimensional $\ell$-adic representation $\rho$ are \emph{matched} at an
+unramified place $v$ when their local polynomials agree:
+\[
+ L_v(s,\pi_v)=
+ \det\!\left(1-q_v^{-s}\rho(\operatorname{Frob}_v)\right)^{-1}.
+\]
+They are \emph{globally matched} when this holds at all but finitely many
+places.  For reductive groups, an $L$-homomorphism
 \[
  {}^LH\longrightarrow{}^LG
 \]
-should transfer automorphic representations of $H$ to those of $G$ while
-preserving the associated $L$-functions.  This is \emph{Langlands
-functoriality}.  It is a program containing many theorems and many open
-conjectures, not one established universal bijection over number fields.
-The original representation-theoretic formulation is developed in
-\href{https://publications.ias.edu/node/37}
-{Langlands, \emph{Euler Products} (1967)}.
+defines \emph{functorial transfer data} when it maps almost all unramified
+conjugacy classes compatibly and preserves their associated local
+$L$-factors.
 \end{definition}
-
-\begin{theorem}[The function-field correspondence for $GL_n$; used without
-proof]
-Let $F=\mathbb F_q(C)$ be the function field of a smooth projective curve.
-After fixing the usual determinant and central-character conditions,
-cuspidal automorphic representations of $GL_n(\mathbb A_F)$ correspond to
-irreducible rank-$n$ $\ell$-adic representations of $G_F$, unramified at
-almost every place, with matching local characteristic polynomials and
-$L$-functions.  Drinfeld proved the
-rank-two case, and Laurent Lafforgue proved general rank; see
-\href{https://doi.org/10.1007/s002220100174}
-{Lafforgue, \emph{Inventiones Mathematicae} \textbf{147} (2002)}.
-\end{theorem}
-
-Function fields also explain why geometric and arithmetic Langlands are
-adjacent rather than identical.  A place of $\mathbb F_q(C)$ is a closed
-point of $C$; an unramified Galois representation behaves like an
-$\ell$-adic local system on the curve; and automorphic functions can be
-viewed on the finite-field points of the moduli stack
-$\operatorname{Bun}_G(C)$.  The sheaf--function dictionary takes traces of
-Frobenius on sheaves to functions.  Under this decategorification, a Hecke
-eigensheaf is expected to produce a Hecke eigenfunction.  Geometric
-Langlands replaces functions by sheaves and Galois representations by local
-systems, while arithmetic Langlands retains Frobenius and its numerical
-eigenvalues.
 
 \begin{exercise}[Places of the rational function field]
 Let $F=\mathbb F_q(t)$.  For each monic irreducible polynomial
@@ -7232,42 +6024,7 @@ product formula with the one for $\Q$, and explain why a curve over a finite
 field plays the role of an arithmetic base.
 \end{exercise}
 
-The completed arc is therefore
-\[
-\begin{aligned}
-\text{Fourier analysis on }\mathbb A_F/F
-&\longrightarrow
-\text{automorphic spectrum on }G(F)\backslash G(\mathbb A_F)\\
-&\longrightarrow
-\text{Hecke eigenvalues and Satake parameters}\\
-&\longleftrightarrow
-\text{Frobenius eigenvalues of Galois representations}.
-\end{aligned}
-\]
-This is why arithmetic Langlands belongs in a manuscript organized around
-harmonic analysis.  Its experimentally relevant neighbors---spectral
-decomposition, trace formulas, modular functions, and symmetry
-operators---are genuine tools of physics.  The Galois--automorphic
-correspondence itself remains a mathematical structure, not an experimentally
-tested law of nature.  We now return to modular functions in their distinct
-role as exact state-counting characters of conformal field theory.
-
 \section{CFT Characters and Integrable Models}
-
-\begin{observations}
-\item At a one-dimensional quantum critical point, finite-size energy levels
-fall into conformal towers with reproducible degeneracies rather than an
-unstructured continuum.
-\item Exactly solved lattice models exhibit identities between constrained
-particle configurations and infinite products that are invisible in a
-generic numerical diagonalization.
-\end{observations}
-
-The coefficients of a CFT character count states, while its modular
-transformation law relates low and high energies.  This makes characters a
-meeting point of representation theory, statistical mechanics, and
-arithmetic.  They are generally components of a vector-valued modular
-function, not scalar modular forms in the preceding definition.
 
 \subsection{Virasoro representations and character formulas}
 
@@ -7309,9 +6066,9 @@ $q$-series of minimal models.
 \subsection{Modular invariance and exact state counting}
 
 \begin{definition}[Rational characters and modular invariants]
-In a rational chiral CFT, assume there are finitely many irreducible
-positive-energy sectors $H_a$ and that their characters span a representation
-of the modular group,
+A finite family of positive-energy sectors $H_a$ is a \emph{rational modular
+character system} when its characters span a representation of the modular
+group,
 \[
 \chi_a(-1/\tau)=\sum_bS_{ab}\chi_b(\tau),
 \qquad
@@ -7323,9 +6080,7 @@ Z(\tau,\bar\tau)
 =\sum_{a,b}M_{ab}\chi_a(\tau)\overline{\chi_b(\tau)}
 \]
 with nonnegative integer multiplicities.  It is modular invariant when
-$M$ commutes with $S$ and $T$.  Under the standard rationality hypotheses,
-these matrices agree with the modular data governing the associated
-superselection category developed in Quantum Topology.
+$M$ commutes with $S$ and $T$.
 \end{definition}
 
 \begin{exercise}[Exact state counting in the Ising CFT]
@@ -7362,7 +6117,7 @@ spectroscopy exercise in Quantum Topology.
 \end{exercise}
 
 \begin{exercise}[The Cardy density of states]
-Assume a modular-invariant unitary CFT with discrete spectrum, unique vacuum,
+Let a modular-invariant unitary CFT have discrete spectrum, unique vacuum,
 and left and right central charges $c,\bar c$.  Set
 $\tau=i\beta/(2\pi)$ and use $S$-invariance to show that the
 high-temperature partition function is controlled by the vacuum at inverse
@@ -7382,21 +6137,18 @@ counting; see
 {Cardy, \emph{Nuclear Physics B} \textbf{270} (1986)}.
 \end{exercise}
 
-\begin{exercise}[Rogers--Ramanujan characters of the Yang--Lee model]
-The nonunitary minimal model $M(2,5)$ has
-$c=-22/5$ and primary weights $0$ and $-1/5$.  Show, by comparing leading
-powers and null-state degeneracies, that its two irreducible characters are
+\begin{exercise}[Rogers--Ramanujan character series]
+Set $c=-22/5$, $h_0=0$, and $h_1=-1/5$, and define
 \[
-\chi_0(\tau)=q^{11/60}H(q),
+\chi_0(\tau)=q^{11/60}H_{\rm sum}(q),
 \qquad
-\chi_{-1/5}(\tau)=q^{-1/60}G(q).
+\chi_{-1/5}(\tau)=q^{-1/60}G_{\rm sum}(q).
 \]
-Use both the sum and product sides of the Rogers--Ramanujan identities to
-give exclusion-rule and allowed-mode descriptions of the same conformal
-towers.  Compute $c_{\rm eff}=2/5$ and explain why high-energy growth is
-controlled by the lowest conformal weight rather than by the vacuum in this
-nonunitary example.  Do not interpret the model as a unitary quantum
-Hamiltonian despite its exact arithmetic structure.
+Compute their coefficients through level $30$ and use the coefficient tests
+from the Rogers--Ramanujan exercise to give both difference-condition and
+allowed-congruence descriptions at every tested level.  Compute
+$c_{\rm eff}=c-24h_1=2/5$ and compare the two leading powers
+$q^{h-c/24}$.
 \end{exercise}
 
 \subsection{Integrable lattice models}
@@ -7429,47 +6181,17 @@ $Z_{N,M}(z)=\Tr(T_N(z)^M)$ and compute the polynomial for several small
 sizes.  Show that the coefficients are exact state counts, whereas the
 largest eigenvalue controls the thermodynamic free energy.
 
-Take Baxter's commuting deformation and exact thermodynamic solution as
-input.  Verify that its critical activity is
+Verify the algebraic identity
 \[
 z_c=\frac{11+5\sqrt5}{2}=\left(\frac{1+\sqrt5}{2}\right)^5,
 \]
-and identify where Rogers--Ramanujan functions enter the solution.  Explain
-why their appearance is a special consequence of the integrable structure,
-not a feature of arbitrary lattice gases; see
-\href{https://doi.org/10.1088/0305-4470/13/3/007}
-{Baxter, \emph{Journal of Physics A} \textbf{13} (1980)}.
+and, for the finite matrices already constructed, evaluate the largest
+eigenvalue and its first two $z$-derivatives near $z_c$.  Plot their change
+with $N$ and explain why finite matrices remain analytic even when their
+large-size limit may develop a singularity.
 \end{exercise}
 
 \section{Root Systems, DAHA, and Macdonald Operators}
-
-\begin{observations}
-\item A linear-optics simulator sent the same photon polarization through
-two wave-plate circuits representing the two sides of a spectral
-Yang--Baxter equation.  The measured output fidelity reached one, within
-error, precisely along the predicted relation among the three spectral
-parameters; away from it the two circuits produced different outputs.
-\end{observations}
-
-\textbf{Thought experiment.}
-Place $n$ identical particles on a line and temporarily label them so that
-their trajectories can be followed.  The coincidence sets $x_i=x_j$ divide
-the labeled configuration space into $n!$ chambers, one for each ordering of
-the particles.  Crossing a wall exchanges two labels.  If many-body
-scattering factorizes into two-body exchanges, two different sequences with
-the same net exchange must give the same operator; this is the braid
-relation.  In models where a two-body exchange has two eigenamplitudes, its
-normalized operator may also satisfy a quadratic Hecke relation.  Closing
-the line into a ring repeats the collision walls periodically and introduces
-the affine translations below.
-
-Thus the route to double affine Hecke algebras is not ``introduce a large
-algebra and hope it is useful.''  Collision walls first produce a reflection
-group.  In suitable factorized-scattering models its group algebra deforms to
-a Hecke algebra.  Putting the particles on a periodic space makes the walls
-affine, while quantizing both periodic position and momentum produces two
-lattice directions.  A DAHA packages those two directions and generates
-commuting difference Hamiltonians.
 
 \subsection{Root systems, scattering, and Hecke algebras}
 
@@ -7534,7 +6256,7 @@ collisions.
 \end{definition}
 
 \begin{exercise}[From factorized exchange to a Hecke algebra]
-Let $R_i$ be operators describing adjacent exchanges.  Assume distant
+Let $R_i$ be operators describing adjacent exchanges such that distant
 exchanges commute, three-particle consistency gives
 $R_iR_{i+1}R_i=R_{i+1}R_iR_{i+1}$, and every $R_i$ has the same two nonzero
 eigenvalues $a$ and $b$.  Rescale the $R_i$ so that the eigenvalues become
@@ -7543,12 +6265,6 @@ operators define a representation of $\mathcal H_t(S_n)$.  Explain exactly
 which assumption would fail for a two-body scattering matrix with three
 distinct eigenchannels.
 \end{exercise}
-
-The Hecke algebra describes the exchange operators, but it does not yet say
-why those operators coexist with a coproduct, tensor-product
-representations, and commuting transfer matrices.  The algebraic dual of
-the compact quantum-group picture from Operator Space Theory supplies that
-missing symmetry.
 
 \subsection{Quantum groups and the Yang--Baxter equation}
 
@@ -7661,52 +6377,19 @@ is a \emph{quantum zonal spherical function}.  It belongs to the coordinate
 Hopf dual of $H$ and is invariant under the left and right quantum
 stabilizer actions.
 
-Radial parts of central or invariant elements act on these coefficients by
-commuting $q$-difference operators.  For important quantum symmetric pairs,
-their Weyl-invariant joint eigenfunctions are Macdonald polynomials on
-special parameter subfamilies.  This is the quantum-group deformation of
-the Harish--Chandra spherical transform developed earlier.
 \end{definition}
 
-\begin{exercise}[From spherical analysis to Macdonald polynomials]
+\begin{exercise}[Classical and quantum fixed-vector coefficients]
+Use the coideal identity and $bv=\varepsilon(b)v$ to verify the left and
+right stabilizer invariance of $\varphi_V$ directly.  Show that tensoring two
+fixed vectors produces a fixed vector for the tensor-product action whenever
+the coideal data are compatible with the coproduct.
+
 First let $q\to1$ and replace $B$ by the enveloping algebra of a compact
 subgroup $K\subseteq G$.  Recover the $K$-fixed vector and zonal spherical
 coefficient used in Harish--Chandra theory.  Explain why the radial parts of
 invariant operators commute on $G/K$.
-
-Taking quantum symmetric-pair harmonic analysis as supplied, identify in
-Noumi's conventions the zonal spherical functions of the quantum analogues
-of $GL(n)/SO(n)$ and $GL(2n)/Sp(2n)$ with type-$A$ Macdonald polynomials on
-the parameter lines $t=q^{1/2}$ and $t=q^2$, respectively; see
-\href{https://doi.org/10.1006/aima.1996.0066}
-{Noumi, \emph{Advances in Mathematics} \textbf{123} (1996)}.
-Compare their radial eigenvalue with the eigenvalue of $D_{q,t}$ below.
-Taking the general quantum symmetric-pair result as input, explain how the
-same mechanism extends across root systems; see
-\href{https://doi.org/10.1016/j.aim.2003.11.007}
-{Letzter, \emph{Advances in Mathematics} \textbf{189} (2004)}.
-
-On the separate nonarchimedean branch, take as supplied that spherical
-functions of split reductive groups over a $p$-adic field are
-Hall--Littlewood-type functions whose parameters are fixed by root
-multiplicities and the residue-field cardinality.  Explain why this is a
-genuinely arithmetic specialization, whereas a quantum symmetric space
-usually imposes a relation between $q$ and $t$.  Conclude that neither
-construction alone supplies two independent generic parameters.
 \end{exercise}
-
-An $R$-matrix with spectral parameter also defines a difference connection:
-its exchange equations transport a vector-valued function between adjacent
-ordering chambers, and the Yang--Baxter equation is precisely the flatness
-condition for three successive exchanges.  With periodic transport these
-become quantum Knizhnik--Zamolodchikov (qKZ) equations.  For affine Hecke
-modules, the Matsuo--Cherednik correspondence converts suitable qKZ
-solutions into joint eigenfunctions of Cherednik--Macdonald difference
-operators.  In spin representations the same equations become the qKZ
-equations of XXZ-type integrable chains; see
-\href{https://doi.org/10.1007/s00220-015-2375-z}
-{Stokman, \emph{Communications in Mathematical Physics}
-\textbf{338} (2015)}.
 
 \begin{exercise}[Flatness, qKZ transport, and affine Hecke monodromy]
 Let a vector-valued function satisfy the adjacent exchange rule
@@ -7720,17 +6403,9 @@ is exactly the spectral Yang--Baxter equation.  Add a periodic rule that
 returns $z_1$ at the end as $qz_1$, and explain why translations enlarge the
 finite braid action to an affine one.  If the $R$-matrices satisfy a Hecke
 quadratic, prove that the exchange monodromy factors through an affine Hecke
-algebra.  Taking the Matsuo--Cherednik correspondence as supplied, track how
-Weyl-invariant qKZ solutions become scalar joint eigenfunctions of the
-commuting difference operators.  This is the precise bridge from
-quantum-group scattering data to the Macdonald spectral problem.
+algebra.  Write the resulting reflection and translation operators in the
+same generators used in the polynomial representation below.
 \end{exercise}
-
-Quantum groups and $p$-adic groups therefore explain why Macdonald-type
-functions arise as spherical functions, but only on constrained parameter
-families.  DAHA is not itself a compact quantum group.  Its role is to
-organize the full two-parameter difference harmonic analysis, including two
-affine directions and the Fourier-like exchange between them.
 
 \subsection{DAHA and Macdonald spectral theory}
 
@@ -7753,7 +6428,7 @@ and the affine cyclic shift
 \]
 The quotients in the formula for $T_i$ are Laurent polynomials because
 $s_if-f$ vanishes when $x_i=x_{i+1}$.  For generic $q,t$, the operator
-algebra generated by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ is the faithful
+algebra generated by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ is called the
 polynomial realization of the $GL_n$ form of the type-$A_{n-1}$
 \emph{double affine Hecke algebra}, or DAHA.  Passing to the semisimple
 $A_{n-1}$ version removes the common center-of-mass coordinate.
@@ -7762,11 +6437,7 @@ The first affine lattice is visible in the commuting multiplication
 operators $X_j$.  Words in the $T_i$ and $\pi$ produce a second commuting
 family $Y_j$ of $q$-difference-reflection operators.  The Hecke generators
 mediate between the two.  This $X$--$Y$ symmetry is the meaning of
-``double affine''; it does not mean merely that the algebra has two
-parameters.  Cherednik used this structure to prove Macdonald's inner-product
-and constant-term conjectures; see
-\href{https://doi.org/10.2307/2118632}
-{Cherednik, \emph{Annals of Mathematics} \textbf{141} (1995)}.
+``double affine.''
 \end{definition}
 
 \begin{exercise}[Checking the polynomial representation]
@@ -7801,8 +6472,8 @@ polynomials.  In DAHA it comes from a Weyl-invariant symmetric function of
 the commuting $Y$-operators; higher symmetric functions give a full
 commuting family.
 
-For generic $q,t$, the \emph{Macdonald polynomial} $P_\lambda(x;q,t)$ is the
-unique symmetric polynomial triangular in the monomial-symmetric basis and
+For generic $q,t$, a \emph{Macdonald polynomial} $P_\lambda(x;q,t)$ is a
+symmetric polynomial triangular in the monomial-symmetric basis and
 satisfying
 \[
 D_{q,t}P_\lambda
@@ -7810,11 +6481,6 @@ D_{q,t}P_\lambda
 \qquad
 \lambda_1\geq\cdots\geq\lambda_n\geq0.
 \]
-Thus partitions label exact joint eigenstates of commuting arithmetic
-difference operators.  These polynomials simultaneously deform Schur,
-Hall--Littlewood, and Jack polynomials; see
-\href{https://www.mat.univie.ac.at/~slc/opapers/s20macdonald.html}
-{Macdonald, \emph{S\'eminaire Lotharingien de Combinatoire} B20a (1988)}.
 \end{definition}
 
 \begin{exercise}[The two-particle Macdonald spectrum]
@@ -7829,18 +6495,6 @@ $x_1^2+x_2^2+c(q,t)x_1x_2$ is an eigenfunction with leading partition
 $(2,0)$.  Investigate the specializations $q=t$, $q=0$, and
 $q\to1$ with $t=q^g$.  Which familiar symmetric-polynomial families appear?
 \end{exercise}
-
-The physical payoff is now visible.  Multiplication by $x_i$ is a periodic
-position observable, while $T_{q,x_i}$ is a finite translation in its
-conjugate logarithmic coordinate.  The Macdonald operators are therefore
-finite-difference many-body Hamiltonians.  After a change of measure they
-are the trigonometric Ruijsenaars operators, the relativistic deformation of
-Calogero--Sutherland dynamics.  Their mutual commutativity is inherited from
-the commuting $Y$-family rather than guessed from the displayed formula;
-see
-\href{https://doi.org/10.1007/BF01207363}
-{Ruijsenaars, \emph{Communications in Mathematical Physics}
-\textbf{110} (1987)}.
 
 \begin{exercise}[The Calogero--Sutherland limit]
 Write $x_i=e^{z_i}$, set $q=e^\epsilon$ and $t=e^{g\epsilon}$, and expand
@@ -7864,39 +6518,26 @@ H_g=-\sum_i\partial_{\theta_i}^2
 +\frac{g(g-1)}2\sum_{i<j}
  \frac1{\sin^2((\theta_i-\theta_j)/2)}.
 \]
-Show that
-$P_\lambda(x;q,q^g)\to P_\lambda^{(1/g)}(x)$ as $q\to1$, with the stated
-Jack-parameter convention.  This limit explains physically why root
-systems, partitions, $q$-difference operators, and an exactly solvable
-many-body spectrum occur in the same theory.
+For the degree-zero, degree-one, and two-particle degree-two eigenfunctions
+computed above, take the same limit explicitly and identify the resulting
+polynomials and Sutherland eigenvalues.
 \end{exercise}
 
 \subsection{From Gustafson integrals to elliptic Yang--Baxter identities}
 
-The Macdonald operators are the spectral side of root-system harmonic
-analysis.  Their orthogonality measures and normalization constants form a
-parallel integral side.  In rank one this begins with the Askey--Wilson
-$q$-beta integral; Gustafson's multivariable extensions expose the root
-system in its integrand.  Elliptic deformation then replaces each
-$q$-factor by a theta factor.  At that level the resulting identities also
-become local consistency relations for exactly solvable lattice models.
-
+\begin{definition}[Askey--Wilson and Gustafson weights]
 For a list of parameters write
-$(a_1,\ldots,a_r;q)_\infty=\prod_s(a_s;q)_\infty$, and use the shorthand
+$(a_1,\ldots,a_r;q)_\infty=\prod_s(a_s;q)_\infty$, and set
 $f(z^{\pm1})=f(z)f(z^{-1})$ and
-$f(z_i^{\pm1}z_j^{\pm1})=\prod_{\epsilon,\delta=\pm1}
-f(z_i^\epsilon z_j^\delta)$.
-
-\begin{theorem}[Askey--Wilson and Gustafson; used without proof]
-Let $|q|,|t|,|a_r|<1$.  The rank-one Askey--Wilson integral is
+$f(z_i^{\pm1}z_j^{\pm1})=
+\prod_{\epsilon,\delta=\pm1}f(z_i^\epsilon z_j^\delta)$.
+For $|q|,|t|,|a_r|<1$, the \emph{Askey--Wilson weight} is
 \[
-\frac1{2\pi i}\oint_{|z|=1}
+ \Delta_{AW}(z)=
  \frac{(z^{\pm2};q)_\infty}
-      {\prod_{r=1}^4(a_rz^{\pm1};q)_\infty}\,\frac{dz}{z}
-=2\frac{(a_1a_2a_3a_4;q)_\infty}
-{(q;q)_\infty\prod_{1\leq r<s\leq4}(a_ra_s;q)_\infty}.
+      {\prod_{r=1}^4(a_rz^{\pm1};q)_\infty},
 \]
-Its $BC_n$ extension is obtained from the Weyl-invariant density
+and the \emph{$BC_n$ Gustafson weight} is
 \[
 \begin{aligned}
 \Delta_{BC_n}(z)={}&
@@ -7909,139 +6550,52 @@ Its $BC_n$ extension is obtained from the Weyl-invariant density
       {(t z_i^{\pm1}z_j^{\pm1};q)_\infty}.
 \end{aligned}
 \]
-With unit circles separating the two sequences of poles, Gustafson's
-evaluation is
-\[
-\begin{aligned}
-&\frac1{2^n n!}
- \oint_{\mathbb T^n}\Delta_{BC_n}(z)
- \prod_{i=1}^n\frac{dz_i}{2\pi i z_i}\\
-&\qquad=
-\prod_{j=1}^n
-\frac{(t,t^{n+j-2}a_1a_2a_3a_4;q)_\infty}
-{(t^j,q;q)_\infty
- \prod_{1\leq r<s\leq4}(t^{j-1}a_ra_s;q)_\infty}.
-\end{aligned}
-\]
-The factor $2^nn!$ is the order of the $BC_n$ Weyl group.  Related
-$A_n$, $SU(n)$, and $Sp(n)$ integrals and multilateral sums give
-root-system extensions of classical beta integrals and bilateral
-hypergeometric identities; see
-\href{https://doi.org/10.1137/S0036141092248614}
-{Gustafson, \emph{SIAM Journal on Mathematical Analysis} \textbf{25}
-(1994)}.
-\end{theorem}
-
-The variables $z_i$ lie on a maximal torus.  Permutations and inversions
-$z_i\mapsto z_i^{-1}$ form its $BC_n$ Weyl symmetry, while the factors
-$z_i^{\pm1}z_j^{\pm1}$ run over the pair roots $\pm e_i\pm e_j$.
-Consequently the integral can be read as the exact normalization of a
-$q$-deformed interacting eigenvalue ensemble.  It is also the constant
-term giving the norm of the zero-partition polynomial in the
-Macdonald--Koornwinder orthogonality measure.  Thus the appearance of the
-same root systems on the operator and integral sides is structural rather
-than a coincidence of formulas.
+A \emph{Gustafson integral} is a torus integral of such a root-system
+weight with the normalized measure
+$(2^nn!)^{-1}\prod_i dz_i/(2\pi iz_i)$.
+\end{definition}
 
 \begin{exercise}[Root systems in the Gustafson integral]
 Prove directly that $\Delta_{BC_n}$ is invariant under permutations and
 independent inversions of the $z_i$.  Identify its factors with the roots
-$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  Set $n=1$ in Gustafson's
-formula and recover the displayed Askey--Wilson integral, including the
-Weyl-group factor.  Set $t=q^g$, use
-\[
-\frac{(q^x;q)_\infty}{(q^{x+g};q)_\infty}
-\sim(1-q)^g\frac{\Gamma(x+g)}{\Gamma(x)}
-\qquad(q\to1^-),
-\]
-and explain how the pair factors tend to the power-law repulsion of a
-Selberg-type density.  Interpret the product evaluation as an exactly known
-partition-function normalization, without claiming that a generic
-interacting ensemble is integrable.
+$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  Set $n=1$ and recover the
+Askey--Wilson weight and the order-two Weyl normalization.  For an integer
+$g\geq0$, set $t=q^g$, cancel the quotient of $q$-products into a finite
+product, and take $q\to1^-$ after writing $z_i=e^{i\theta_i}$.  Identify the
+resulting power-law pair repulsion and its $BC_n$ reflection symmetry.
 \end{exercise}
 
-For $|p|<1$, define the multiplicative theta function and elliptic shifted
-factorial by
+\begin{definition}[Elliptic weights and star--triangle data]
+For $|p|<1$, define
 \[
-\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
-\qquad
-(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p).
+ \theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
+ \qquad
+ (a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
 \]
-Since $\theta(z;0)=1-z$, the limit $p\to0$ recovers the $q$-shifted
-factorial.  The elliptic gamma function
+and
 \[
-\Gamma(z;p,q)
-=\prod_{j,k\geq0}
- \frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}
+ \Gamma(z;p,q)=\prod_{j,k\geq0}
+ \frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
 \]
-satisfies
-$\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q)$ and the analogous equation with
-$p$ and $q$ exchanged.  It is therefore the two-period deformation of the
-$q$-gamma factors appearing in beta integrals.
-
-\begin{theorem}[Elliptic beta integral and star--triangle relation; used without proof]
-If $|p|,|q|,|t_r|<1$ and $\prod_{r=1}^6t_r=pq$, then
+A family of edge weights $W_u(x,y)$ and one-spin weights $S(x)$ is
+\emph{star--triangle data} when
 \[
-\frac{(p;p)_\infty(q;q)_\infty}{4\pi i}
-\oint_{\mathbb T}
- \frac{\prod_{r=1}^6\Gamma(t_rz^{\pm1};p,q)}
-      {\Gamma(z^{\pm2};p,q)}\,\frac{dz}{z}
-=\prod_{1\leq r<s\leq6}\Gamma(t_rt_s;p,q).
+ \int S(x)W_u(a,x)W_v(b,x)W_w(c,x)\,dx
+ =R(u,v,w)W_{u'}(b,c)W_{v'}(a,c)W_{w'}(a,b)
 \]
-With a suitable grouping of the six parameters into three rapidity pairs,
-this evaluation is the star--triangle relation: integration over the spin
-at a star gives the product of weights on the dual triangle.  The same
-identity supplies a Coxeter relation for elliptic integral transforms and
-hence an integral-operator solution of the Yang--Baxter equation.  These
-statements, including the required contours and positivity regimes, are
-taken as input; see
-\href{https://arxiv.org/abs/1011.3798}
-{Spiridonov, \emph{Elliptic beta integrals and solvable models of
-statistical mechanics}} and
-\href{https://arxiv.org/abs/1205.3520}
-{Derkachov--Spiridonov, \emph{Yang--Baxter equation, parameter
-permutations, and the elliptic beta integral}}.
-\end{theorem}
+for its stated parameter constraint and contour.  Elliptic star--triangle
+data are those for which the weights are finite products and ratios of
+$\Gamma(\,cdot\,;p,q)$.
 
-Multivariable elliptic beta integrals on root systems similarly degenerate
-to Gustafson-type $q$-beta integrals as $p\to0$, sometimes after parameters
-are scaled.  In rank one the displayed elliptic integral first gives the
-Nassrallah--Rahman integral; a further specialization gives Askey--Wilson.
-This qualification matters: the arrows below describe families and their
-degenerations, not a claim that every displayed formula limits directly to
-the next displayed formula without parameter choices.
-
-There is a complementary finite-sum branch.  In additive notation set
+In additive notation define the \emph{elliptic number}
 \[
-[x]_{h,\tau}
-=\frac{\vartheta_{11}(hx,\tau)}{\vartheta_{11}(h,\tau)}.
+ [x]_{h,\tau}=
+ \frac{\vartheta_{11}(hx,\tau)}{\vartheta_{11}(h,\tau)}.
 \]
-Products of these elliptic numbers replace ordinary rising factorials in
-terminating balanced very-well-poised series.  Frenkel and Turaev call the
-resulting functions \emph{modular hypergeometric functions}: ``modular''
-refers to the simultaneous transformation of the elliptic parameters
-$(h,\tau)$, not to an ordinary scalar modular form in $\tau$ alone.
-
-\begin{theorem}[Frenkel--Turaev; used without proof]
-Elliptic $6j$-symbols with spectral parameter can be expressed by
-terminating balanced very-well-poised modular hypergeometric series.  Their
-tetrahedral symmetries give elliptic Bailey transformations and Jackson-type
-summations, while their recoupling consistency gives an elliptic spectral
-Yang--Baxter equation.  Under degeneration they yield trigonometric
-$6j$-symbols and basic hypergeometric identities.  These spectral-parameter
-symbols deform recoupling data of solvable face models; they are not being
-identified with the fixed $F$-symbols of an arbitrary modular tensor
-category.  See
-\href{https://doi.org/10.1007/978-1-4612-4122-5_9}
-{Frenkel--Turaev, \emph{Elliptic solutions of the Yang--Baxter equation
-and modular hypergeometric functions}}.
-\end{theorem}
-
-At the trigonometric level, the corresponding Bailey transformations are
-the same kind of iteration mechanism that produces Rogers--Ramanujan-type
-$q$-series.  The identities used earlier for exclusion-rule counting and
-the identities enforcing integrable recoupling therefore belong to one
-deformation framework, even though a particular Rogers--Ramanujan identity
-need not itself be a Yang--Baxter equation.
+A terminating series whose successive-term ratio is a balanced product of
+elliptic numbers is a \emph{modular hypergeometric series}; termination makes
+it a finite algebraic expression in theta values.
+\end{definition}
 
 \begin{exercise}[The rational--trigonometric--elliptic hierarchy]
 Use the Jacobi triple product to prove
@@ -8069,26 +6623,13 @@ rational data}.
 Explain why the integral/star--triangle branch and the
 $6j$-symbol/recoupling branch are complementary realizations of
 Yang--Baxter consistency rather than two names for the same construction.
-Finally relate the trigonometric middle level to the Macdonald--Ruijsenaars
-operators above and the elliptic level to their elliptic deformation.
+Use the star--triangle identity twice on a three-row lattice strip to derive
+the equality of the two local reorderings that underlies commuting transfer
+matrices.  Finally relate the trigonometric middle level to the
+Macdonald--Ruijsenaars operators above.
 \end{exercise}
 
-\clearpage
 \section{Cyclotomic and Aperiodic Structure}
-
-\begin{observations}
-\item Electron diffraction from rapidly cooled aluminum--manganese alloys
-shows sharp Bragg peaks with icosahedral symmetry, even though no
-three-dimensional periodic lattice can have that rotational symmetry.
-\item Spectra of quasiperiodically modulated chains develop recursively
-organized gaps whose labels are constrained by irrational frequencies.
-\end{observations}
-
-Arithmetic order lies between periodicity and randomness.  Roots of unity
-produce the algebraic phases and quantum dimensions of finite topological
-data, while irrational algebraic numbers generate substitutions and
-cut-and-project structures with long-range order but no translation period.
-The resulting diffraction and spectral gaps are experimentally visible.
 
 \subsection{Algebraic numbers, roots of unity, and cyclotomic fields}
 
@@ -8193,8 +6734,9 @@ Separate exact inflation symmetry from ordinary translation symmetry.
 \begin{definition}[Cut-and-project sets]
 Let $\mathcal L$ be a lattice in
 $\R^d\times\R^m$, with projections $\pi_\parallel$ and $\pi_\perp$ onto
-physical and internal space.  Assume $\pi_\parallel$ is injective on
-$\mathcal L$ and $\pi_\perp(\mathcal L)$ is dense.  For a compact window
+physical and internal space.  A \emph{cut-and-project scheme} requires
+$\pi_\parallel$ to be injective on $\mathcal L$ and
+$\pi_\perp(\mathcal L)$ to be dense.  For a compact window
 $W\subset\R^m$ with nonempty interior, define the \emph{model set}
 \[
 \Lambda(W)=\{\pi_\parallel(x):x\in\mathcal L,
@@ -8234,9 +6776,7 @@ $\omega=\sum_{x\in\Lambda}\delta_x$.  When the vague limit exists, its
 \quad \widetilde f(x)=\overline{f(-x)}.
 \]
 The positive measure $\widehat\gamma$ is its \emph{diffraction measure}; its
-atoms are Bragg peaks.  A regular model set has pure-point diffraction
-supported on a projected dual-lattice module, although that module need not
-be a periodic reciprocal lattice.
+atoms are Bragg peaks.
 \end{definition}
 
 \begin{exercise}[Sharp diffraction without periodicity]
@@ -8246,11 +6786,11 @@ intensity is
 I_R(k)=\left|\sum_{x\in\Lambda_R}e^{-ik\cdot x}\right|^2
 \]
 and relate its volume-normalized limit to $\widehat\gamma$.  Recover the
-ordinary reciprocal lattice for a periodic crystal.  Taking the pure-point
-diffraction theorem for regular model sets as supplied, derive the projected
-dual module and window Fourier-transform intensities for a cut-and-project
-set.  Explain how a dense Fourier module can carry locally finite intensity
-and sharp peaks without implying real-space periodicity.
+ordinary reciprocal lattice for a periodic crystal.  For Fibonacci
+approximants obtained from the first $F_n$ tiles, compute $I_R(k)$ on a grid
+of wave numbers and track the largest peaks as $n$ increases.  Express the
+observed peak locations as integer combinations of $1$ and $1/\phi$, and
+verify directly that no finite reciprocal lattice contains all of them.
 
 Compare this mechanism with the sharp noncrystallographic diffraction
 reported in
@@ -8296,22 +6836,21 @@ The Hamiltonians above are the covariant representations of one element of
 this algebra.
 \end{definition}
 
-\begin{exercise}[Diophantine gap labels]
+\begin{exercise}[Diophantine trace labels]
 Prove that $N(E)$ is nondecreasing and is constant on every open spectral
 gap.  Approximate $\alpha$ by Fibonacci convergents and interpret the finite
-periodic approximants as large-unit-cell crystals.  Taking the one-dimensional
-gap-labeling theorem as supplied, show that every gap value satisfies
+periodic approximants as large-unit-cell crystals.  Define the Fibonacci
+label group
 \[
-N(E)\in(\Z+\alpha\Z)\cap[0,1].
+ \mathcal L_\alpha=(\Z+\alpha\Z)\cap[0,1].
 \]
-Explain why the theorem restricts possible labels but, by itself, does not
-assert that every allowed gap is open.  Relate the label group to the range
-of $\tau_*$ on $K_0(\mathcal A_\alpha)$, thereby connecting
-Diophantine frequency to the operator $K$-theory developed in Index Theory;
-see
-\href{https://doi.org/10.1142/S0129055X92000029}
-{Bellissard--Bovier--Ghez, \emph{Reviews in Mathematical Physics}
-\textbf{4} (1992)}.
+Use the substitution recurrence to show that the measures of one-letter and
+two-letter cylinder sets belong to $\Z+\alpha\Z$.  Prove the same for every
+finite disjoint union of cylinder sets.  For the corresponding projections
+in $C(\Omega)\subset\mathcal A_\alpha$, compute their traces and identify
+them with elements of $\mathcal L_\alpha$.  Compare these values with the
+plateaus of the finite-approximant integrated density of states, without
+asserting that every allowed label is an open spectral gap.
 \end{exercise}
 
 \end{document}
