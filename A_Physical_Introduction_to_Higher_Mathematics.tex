@@ -5684,6 +5684,482 @@ recovered from modular invariance and asymptotic state counting.  Consult
 (2015)} for quantum extremal surfaces.
 \end{exercise}
 
+\section{Gauge Duality and the Geometric Langlands Program}
+
+\begin{observations}
+\item In empty space Maxwell's equations treat electric and magnetic fields
+as two components of one field strength, and electromagnetic waves carry
+both.  Electric sources break the continuous electric--magnetic rotation;
+a magnetic source would restore a more symmetric charge lattice.
+\item Electric charge is quantized, but no elementary magnetic monopole or
+supersymmetric partner has been observed.  The supersymmetric duality used
+below is therefore a sharply constrained theoretical model, not an
+experimentally established extension of the Standard Model.
+\end{observations}
+
+The gauge theory developed in Differential Geometry already supplies
+connections, curvature, Yang--Mills action, instantons, and characteristic
+classes.  What it does not yet explain is how the same quantum gauge theory
+can admit two complementary descriptions, one organized by electric probes
+and the other by magnetic probes.  Supersymmetry makes that proposed duality
+precise enough to survive a topological twist.  On a product of two surfaces,
+the twisted four-dimensional theory reduces to a sigma model whose target is
+a moduli space of solutions to Hitchin's equations.  Electric--magnetic
+duality then becomes mirror symmetry, and its exchange of Wilson and
+'t~Hooft lines becomes the Hecke-eigenvalue condition of geometric
+Langlands.  This is the physical chain developed in this section:
+\[
+ \begin{aligned}
+ \mathcal N=4\text{ Yang--Mills}
+ &\longrightarrow \text{topological twist}
+ \longrightarrow \text{Kapustin--Witten equations}\\
+ &\longrightarrow \mathcal M_H
+ \longrightarrow \text{branes and Hecke eigensheaves}.
+ \end{aligned}
+\]
+We use natural units $\hbar=c=1$ in this section.  Ordinary Yang--Mills
+facts refer back to Exercise~\ref{ex:yang-mills-instantons}; the genuinely
+new physical input is stated explicitly rather than hidden in exercises.
+
+\subsection{Supersymmetry and electric--magnetic duality}
+
+\begin{definition}[$\mathcal N=4$ super Yang--Mills]
+Let $G$ be a compact Lie group and let $P\to M$ be a principal $G$-bundle
+over an oriented Riemannian four-manifold.  The bosonic fields of
+$\mathcal N=4$ super Yang--Mills theory are a connection $A$ and six
+adjoint-valued scalar fields $X_1,\ldots,X_6$.  With an invariant positive
+inner product on $\mathfrak g$, the bosonic action has the form
+\[
+ \frac1{g^2}\int_M\left(
+ \frac12|F_A|^2+\frac12\sum_I|d_AX_I|^2
+ +\frac12\sum_{I<J}|[X_I,X_J]|^2\right)\vol
+ -i\theta k(A),
+\]
+supplemented by fermions and Yukawa couplings fixed by supersymmetry.  The
+six scalars transform under the $R$-symmetry group
+$\operatorname{Spin}(6)_R\cong SU(4)_R$, and the theory has sixteen real
+supercharges.  Its gauge coupling and theta angle combine into
+\[
+ \tau=\frac{\theta}{2\pi}+\frac{4\pi i}{g^2}.
+\]
+The potential is minimized when the $X_I$ commute, so scalar expectation
+values can break $G$ to a maximal torus and make electric and magnetic
+charges visible simultaneously.  A protected property special to this
+theory is that its beta function vanishes: $\tau$ does not run with energy.
+This scale independence is essential to the proposed exact duality below.
+\end{definition}
+
+Supersymmetry is not being introduced merely to enlarge the particle list.
+It protects masses and operator products from uncontrolled quantum
+corrections, allowing a weakly coupled calculation to constrain a strongly
+coupled description.  It also permits a scalar supercharge after twisting,
+which is the mechanism that will remove metric-dependent information while
+retaining topology.
+
+\begin{definition}[Langlands dual group]
+Let $T\subset G$ be a maximal torus.  Its character and cocharacter lattices
+are
+\[
+ X^*(T)=\Hom(T,U(1)),\qquad X_*(T)=\Hom(U(1),T).
+\]
+The \emph{Langlands dual group} ${}^LG$ is the compact form whose complexified
+root datum is dual to that of $G$: characters and cocharacters are exchanged,
+and roots are exchanged with coroots.  Thus
+\[
+ X^*({}^LT)=X_*(T),\qquad X_*({}^LT)=X^*(T).
+\]
+Ignoring global-form refinements, $U(1)$ is self-dual,
+${}^LSU(n)=PSU(n)$, and the root systems $B_n$ and $C_n$ are exchanged.
+The complex reductive group used in geometric Langlands is ${}^LG_\C$.
+The definition is forced physically by Dirac quantization: magnetic charges
+of $G$ are weights of ${}^LG$.
+\end{definition}
+
+\begin{definition}[Montonen--Olive duality as physical input]
+The $S$-duality conjecture asserts an exact quantum equivalence between
+$\mathcal N=4$ theories with dual gauge groups.  For simply laced root
+systems its basic transformation is
+\[
+ (G,\tau)\longmapsto({}^LG,-1/\tau).
+\]
+It exchanges electrically charged states with magnetically charged states
+and Wilson line operators with 't~Hooft line operators.  For a
+non-simply-laced root system a root-length factor $n_G$ enters,
+$\tau\mapsto-1/(n_G\tau)$.  Global forms of the gauge group and discrete
+theta angles must also be tracked in a complete statement.  We use the
+duality as a physical input, not as a proved theorem.  Its origin is the
+proposal of
+\href{https://doi.org/10.1016/0370-2693(77)90076-4}
+{Montonen and Olive, \emph{Physics Letters B} \textbf{72} (1977)}.
+\end{definition}
+
+\begin{exercise}[Charge lattices and the dual group]
+For a torus $T=U(1)^r$, prove that a representation restricts to characters
+$\lambda:T\to U(1)$ with $\lambda\in X^*(T)$.  A magnetic monopole defines
+a transition map around its equator, hence a cocharacter
+$\mu:U(1)\to T$ with $\mu\in X_*(T)$.  Show that composition gives an
+integer pairing
+\[
+ \langle\lambda,\mu\rangle\in\Z,
+\]
+which is the Dirac quantization condition.  Verify directly that exchanging
+$X^*(T)$ and $X_*(T)$ exchanges electric and magnetic labels.  For
+$G=SU(2)$, compare the weight and coweight lattices and explain why the
+global dual group is adjoint rather than simply connected.
+\end{exercise}
+
+\subsection{The geometric Langlands twist}
+
+\begin{definition}[Topological twisting and $Q$-cohomology]
+In Euclidean signature the rotation group is locally
+$\operatorname{Spin}(4)=SU(2)_+\times SU(2)_-$.  A \emph{topological twist}
+replaces it by a diagonal combination with a
+$\operatorname{Spin}(4)$ subgroup of $\operatorname{Spin}(6)_R$.  Under the
+new rotation group, two combinations of the supersymmetry generators become
+scalars, say $Q_\ell$ and $Q_r$.  Their projective linear combinations
+\[
+ Q_t=Q_\ell+tQ_r,\qquad t\in\mathbb P^1,
+\]
+satisfy $Q_t^2=0$ on gauge-invariant quantities, up to a gauge
+transformation.  Physical observables of the twisted theory are classes
+\[
+ H_{Q_t}=\ker Q_t/\im Q_t.
+\]
+Because $Q_t$ is a scalar, this cohomology can be defined on a curved
+four-manifold.  Metric-dependent terms in the action become $Q_t$-exact,
+which is why the surviving correlation functions are topological.
+\end{definition}
+
+After the twist, four of the six scalar fields transform as an
+adjoint-valued one-form $\phi\in\Omega^1(M,\ad P)$; the other two form a
+complex adjoint scalar.  Thus the equations below use only geometric
+objects already available in the manuscript: a connection, its curvature,
+the covariant exterior derivative, and the Hodge decomposition of two-forms.
+
+\begin{definition}[Canonical parameter]
+Although the twisted theory is presented using $(\tau,t)$, its topological
+sector depends on them through the single parameter
+\[
+ \Psi=\frac{\tau+\bar\tau}{2}
+ +\frac{\tau-\bar\tau}{2}\,
+   \frac{t-t^{-1}}{t+t^{-1}}
+ =\frac{\theta}{2\pi}
+ +\frac{4\pi i}{g^2}\frac{t-t^{-1}}{t+t^{-1}}.
+\]
+For the basic $S$ transformation, the compatible twist parameter changes by
+$t\mapsto\pm t\tau/|\tau|$; the sign is immaterial because $t$ and $-t$
+define equivalent twists.  This rule and
+$\tau\mapsto-1/(n_G\tau)$ give
+$\Psi\mapsto-1/(n_G\Psi)$, where $n_G$ is the ratio of the squared lengths
+of long and short roots and equals one in the simply laced case.
+Formally, the twisted action has the structure
+\[
+ S=\{Q_t,V\}+\frac{i\Psi}{4\pi}\int_M\Tr(F_A\wedge F_A).
+\]
+Consequently, varying the coefficient of the first term does not change
+correlators of $Q_t$-closed observables, provided the measure and boundary
+conditions preserve $Q_t$.
+\end{definition}
+
+\begin{theorem}[Kapustin--Witten localization; used without proof]
+The bosonic localization equations of the geometric Langlands twist are
+\[
+ \begin{aligned}
+ (F_A-\phi\wedge\phi+t\,d_A\phi)^+&=0,\\
+ (F_A-\phi\wedge\phi-t^{-1}d_A\phi)^-&=0,\\
+ d_A^*\phi&=0.
+ \end{aligned}                                      \tag{KW}
+\]
+The values $t=0,\infty$ are interpreted by taking the corresponding limits.
+At $t=\pm i$, the first two equations say that the complex connection
+\[
+ \mathcal A=A\pm i\phi
+\]
+is flat; the last equation is a real moment-map condition selecting a
+well-behaved representative modulo compact $G$-gauge transformations.
+The construction and conventions are those of
+\href{https://doi.org/10.4310/CNTP.2007.v1.n1.a1}
+{Kapustin and Witten, \emph{Communications in Number Theory and Physics}
+\textbf{1} (2007)}.
+\end{theorem}
+
+\begin{exercise}[Why $Q$-exact deformations disappear]
+Let $S_s=S_0+s\{Q,V\}$ and let $\mathcal O$ be $Q$-closed.  Assuming a
+$Q$-invariant measure and no boundary contribution in field space,
+differentiate $\langle\mathcal O\rangle_s$ with respect to $s$ and prove
+that the result vanishes.  Explain why the same calculation fails for an
+observable that is not $Q$-closed.  Next substitute $t=i$ into (KW) and
+verify directly that its first two lines combine into
+\[
+ F_{A+i\phi}=F_A-\phi\wedge\phi+i\,d_A\phi=0.
+\]
+Finally, compute $\Psi$ at $t=\pm1$ and at $t=\pm i$, and verify algebraically
+that $S$-duality acts by $\Psi\mapsto-1/(n_G\Psi)$.
+\end{exercise}
+
+\subsection{Dimensional reduction and Hitchin moduli space}
+
+Let the four-manifold be $M=\Sigma\times C$, where $C$ is a closed Riemann
+surface.  When $C$ is made small compared with $\Sigma$, finite-energy
+fields vary slowly along $\Sigma$ and at each point of $\Sigma$ solve a
+two-dimensional gauge equation on $C$.  The remaining field is therefore a
+map from $\Sigma$ into a moduli space.  This is the physical reason that a
+four-dimensional gauge theory produces a two-dimensional sigma model.
+
+\begin{definition}[Hitchin equations and Higgs bundles]
+For a connection $A$ on a principal $G$-bundle over $C$ and
+$\phi\in\Omega^1(C,\ad P)$, the \emph{Hitchin equations} are
+\[
+ F_A-\phi\wedge\phi=0,\qquad d_A\phi=0,\qquad d_A^*\phi=0.    \tag{H}
+\]
+Writing the $(1,0)$ part of $\phi$ as $\varphi$, these become, up to a
+conventional normalization of $\varphi$,
+\[
+ \bar\partial_A\varphi=0,\qquad
+ F_A+[\varphi,\varphi^\dagger]=0.
+\]
+Thus $(E,\varphi)$ is a \emph{$G_\C$-Higgs bundle}: $E$ is a holomorphic
+principal $G_\C$-bundle and
+\[
+ \varphi\in H^0(C,K_C\otimes\ad E).
+\]
+The quotient of solutions to (H) by compact gauge transformations is the
+\emph{Hitchin moduli space} $\mathcal M_H(G,C)$.  Equivalently, after the
+appropriate stability condition is imposed, it is the moduli space of
+polystable $G_\C$-Higgs bundles.
+\end{definition}
+
+\begin{exercise}[Hitchin equations from four-dimensional instantons]
+On $\R^4$ take a connection invariant under translations in $x^3,x^4$ and
+write $X=A_3$, $Y=A_4$.  Decompose the anti-self-duality equations into
+\[
+ F_{12}+[X,Y]=0,\qquad D_1X-D_2Y=0,\qquad D_1Y+D_2X=0,
+\]
+up to the sign determined by the chosen orientation.  With
+$z=x^1+ix^2$ and a suitable choice of
+$\varphi=(X+iY)\,dz$, show that the last two equations give
+$\bar\partial_A\varphi=0$ and the first gives the real Hitchin equation.
+This calculation is not the full supersymmetric compactification, but it
+exhibits the same dimensional-reduction mechanism using the instantons
+already studied in Exercise~\ref{ex:yang-mills-instantons}.
+\end{exercise}
+
+\begin{theorem}[Hyperk\"ahler descriptions; used without proof]
+On its smooth locus, $\mathcal M_H(G,C)$ carries a metric and complex
+structures $I,J,K$ obeying the quaternion relations.  In complex structure
+$I$ it is the moduli space of Higgs bundles.  In complex structure $J$ it is
+the moduli space of reductive flat $G_\C$-connections, represented by
+$\mathcal A=A+i\phi$.  If $p_1,\ldots,p_r$ generate the invariant
+polynomials on $\mathfrak g_\C$ and have degrees $d_1,\ldots,d_r$, the
+\emph{Hitchin map} is
+\[
+ h:\mathcal M_H(G,C)\longrightarrow
+ \mathcal B_G=\bigoplus_{j=1}^rH^0(C,K_C^{d_j}),\qquad
+ (E,\varphi)\longmapsto(p_1(\varphi),\ldots,p_r(\varphi)).
+\]
+Its generic fibers are abelian varieties.  The generic fibers for $G$ and
+${}^LG$ are dual, which is the geometric seed of mirror symmetry.  These
+facts originate in
+\href{https://doi.org/10.1112/plms/s3-55.1.59}
+{Hitchin, \emph{Proceedings of the London Mathematical Society}
+\textbf{55} (1987)}.
+\end{theorem}
+
+There is a useful symplectic explanation of the three equations.  The
+affine space of pairs $(A,\phi)$ has three symplectic forms, and the gauge
+group acts with three moment maps.  Their simultaneous vanishing is exactly
+(H), so
+\[
+ \mathcal M_H(G,C)=\{(A,\phi):\text{(H)}\}/\mathcal G
+\]
+is an infinite-dimensional hyperk\"ahler quotient.  This extends the
+ordinary symplectic reduction developed earlier: one now imposes three
+compatible moment-map equations rather than one.
+
+\begin{exercise}[The abelian Hitchin system]
+Take $G=U(1)$ and let $C$ have genus $g_C$.  Show that all commutator terms
+vanish and that a solution consists of a flat unitary line bundle together
+with a holomorphic one-form.  Define
+\[
+ \operatorname{Jac}(C)=H^1(C;\R)/H^1(C;\Z)
+\]
+as the torus of degree-zero unitary flat line bundles, using Hodge theory to
+identify the displayed quotient with its usual complex structure.  Deduce
+\[
+ \mathcal M_H(U(1),C)\cong T^*\operatorname{Jac}(C)
+\]
+as a complex manifold in complex structure $I$, and compute its real
+dimension as $4g_C$.  Identify the Hitchin map and its fibers.  Explain why
+the duality of these fibers reduces here to the self-duality of a torus.
+\end{exercise}
+
+\subsection{From gauge theory to branes}
+
+\begin{definition}[Sigma-model reduction]
+A two-dimensional sigma model on $\Sigma$ with target $X$ has fields
+$\Phi:\Sigma\to X$.  In the adiabatic limit of the twisted gauge theory on
+$\Sigma\times C$, its low-energy configurations are slowly varying
+solutions of (H), hence maps
+\[
+ \Phi:\Sigma\longrightarrow\mathcal M_H(G,C).
+\]
+The twist determines which topological sigma model survives.  At
+$\Psi=\infty$ it is the $B$-model in complex structure $J$; at $\Psi=0$ it
+is the $A$-model with symplectic form $\omega_K$.
+\end{definition}
+
+The $B$-model remembers complex geometry: its basic branes are described,
+schematically, by holomorphic subspaces carrying complexes of coherent
+sheaves.  The $A$-model remembers symplectic geometry: a basic brane may be
+supported on a Lagrangian submanifold with a flat bundle, while more general
+coisotropic branes carry curvature compatible with the symplectic form.
+These are boundary conditions for the sigma model, not additional particles
+in four-dimensional spacetime.
+
+\begin{definition}[Mirror-symmetry form of $S$-duality]
+Compactification converts the four-dimensional $S$-duality input into the
+equivalence
+\[
+ B_J\bigl(\mathcal M_H(G,C)\bigr)
+ \simeq
+ A_K\bigl(\mathcal M_H({}^LG,C)\bigr),                 \tag{M}
+\]
+where the subscripts record the complex or symplectic structure.  Reversing
+$G$ and ${}^LG$ gives the direction used below: a point brane associated to
+a flat ${}^LG_\C$-connection is transformed into an $A$-brane on
+$\mathcal M_H(G,C)$.  Equation (M) is the physical mirror-symmetry input;
+it is not proved by the preceding finite-dimensional theory.
+\end{definition}
+
+\begin{exercise}[Elementary brane geometry]
+Let $X$ be a smooth manifold.  Prove that the zero section of $T^*X$ is
+Lagrangian for the canonical symplectic form, and that the graph of a
+one-form $\alpha$ is Lagrangian exactly when $d\alpha=0$.  If $X$ is a
+complex manifold, show that a point is a complex submanifold and hence is a
+possible support for a $B$-brane.  Apply both observations to the local
+cotangent-bundle model of $\mathcal M_H(G,C)$ to see why mirror symmetry can
+exchange branes with supports of very different dimensions.
+\end{exercise}
+
+\subsection{Line operators, Hecke modifications, and eigensheaves}
+
+\begin{definition}[Wilson and 't~Hooft lines]
+A Wilson line measures the holonomy of a connection in a representation
+$R$:
+\[
+ W_R(\gamma)=\Tr_R\operatorname{Hol}_\gamma(\mathcal A).
+\]
+At $\Psi=\infty$, the topological line uses the flat complex connection
+$\mathcal A=A+i\phi$ and is labeled by a representation of $G$.  A
+\emph{'t~Hooft line} is defined instead by prescribing a magnetic
+singularity transverse to the line.  Its charge is a cocharacter of $G$,
+equivalently a weight of ${}^LG$.  The $S$ transformation exchanges these
+two kinds of probes.  When a line lies along a curve in $\Sigma$ at a point
+$x\in C$, it acts on branes in the reduced sigma model.
+\end{definition}
+
+\begin{definition}[Hecke modification]
+Let $x\in C$.  A \emph{Hecke modification} of a holomorphic principal
+$G_\C$-bundle $E$ at $x$ is another bundle $E'$ together with an
+isomorphism
+\[
+ E|_{C\setminus\{x\}}\cong E'|_{C\setminus\{x\}}.
+\]
+Its relative position at $x$ is labeled by a dominant coweight of $G$.
+Under dimensional reduction, the singular boundary condition of an
+'t~Hooft line changes $E$ in precisely this way.  Thus magnetic line
+operators become \emph{Hecke functors} $\mathsf H_V$, labeled by
+representations $V$ of ${}^LG$.
+\end{definition}
+
+\begin{exercise}[Local Hecke modifications for $GL_n$]
+Let $z$ be a coordinate centered at $x$ and let
+$\mathcal O=\C[[z]]$.  For integers $m_1\geq\cdots\geq m_n$, compare the
+lattices
+\[
+ \mathcal O^n,
+ \qquad z^{m_1}\mathcal O e_1\oplus\cdots\oplus
+ z^{m_n}\mathcal O e_n
+\]
+inside $\C((z))^n$.  Prove that they define vector bundles isomorphic away
+from $x$, and compute the change of degree as $\sum_i m_i$, with the sign
+fixed by your convention for $\mathcal O(x)$.  Identify
+$(m_1,\ldots,m_n)$ as a coweight.  For $n=1$, show that every modification
+is tensoring by $\mathcal O(mx)$.
+\end{exercise}
+
+\begin{definition}[$D$-modules and Hecke eigensheaves]
+Let $\operatorname{Bun}_G(C)$ denote the moduli stack of holomorphic
+$G_\C$-bundles on $C$; a stack is needed because bundles can have
+automorphisms.  A $D$-module on it is, schematically, a sheaf carrying a
+compatible action of differential operators.  Let $\mathcal E$ be a flat
+${}^LG_\C$-bundle on $C$.  A \emph{Hecke eigensheaf} with eigenvalue
+$\mathcal E$ is a $D$-module $\mathcal F_{\mathcal E}$ equipped, for every
+representation $V$ of ${}^LG$, with compatible isomorphisms
+\[
+ \mathsf H_V(\mathcal F_{\mathcal E})
+ \cong V_{\mathcal E}\boxtimes\mathcal F_{\mathcal E},          \tag{HE}
+\]
+where $V_{\mathcal E}$ is the flat vector bundle obtained from
+$\mathcal E$ through $V$.  Compatibility with tensor products of
+representations is part of the definition.
+\end{definition}
+
+The word ``eigen'' in (HE) is literal but categorified.  A commuting family
+of operators ordinarily sends an eigenvector to scalar multiples of itself.
+Here the operators are Hecke functors, the eigenvector is a sheaf, and the
+eigenvalues form the fibers of a flat vector bundle as the insertion point
+$x$ moves around $C$.  Flatness follows physically because moving a
+topological line on $C$ cannot change its local action, though it can produce
+global monodromy.
+
+\begin{definition}[The Kapustin--Witten dictionary]
+Begin on the ${}^LG$ side at $\Psi=\infty$.  A flat
+${}^LG_\C$-connection $\mathcal E$ is a point of
+$\mathcal M_H({}^LG,C)$ in complex structure $J$, so it supports a
+$B$-brane.  Wilson lines act on this point brane through the vector spaces
+$V_{\mathcal E,x}$.  Mirror symmetry carries it to an $A$-brane on
+$\mathcal M_H(G,C)$, while $S$-duality carries Wilson lines to 't~Hooft
+lines.  The image is therefore a simultaneous eigenbrane for the Hecke
+operators.
+
+To turn that eigenbrane into a $D$-module, one studies its open strings with
+the \emph{canonical coisotropic brane} $\mathcal B_{cc}$.  The endomorphism
+algebra of $\mathcal B_{cc}$ quantizes functions along the cotangent
+directions and yields a sheaf of differential operators on
+$\operatorname{Bun}_G(C)$, with a canonical twisting by a determinant or
+half-canonical line.  Open strings from $\mathcal B_{cc}$ to the eigenbrane
+then form the twisted $D$-module $\mathcal F_{\mathcal E}$ satisfying (HE).
+This is the physical construction relating electric--magnetic duality to
+the geometric Langlands correspondence.  Derived, stack-theoretic, and
+singular-locus refinements are suppressed here.
+\end{definition}
+
+\begin{exercise}[From an eigenbrane to the Hecke condition]
+Suppose topological line operators $L_V(x)$ obey the representation-ring
+law
+\[
+ L_V(x)L_W(x)\cong L_{V\otimes W}(x)
+\]
+and a brane $\mathcal B$ obeys
+$L_V(x)\mathcal B\cong\mathcal B\otimes E_{V,x}$.  Show that the spaces
+$E_{V,x}$ must satisfy
+$E_{V\otimes W,x}\cong E_{V,x}\otimes E_{W,x}$.  Explain why topological
+motion of $x$ makes $E_V$ a local system on $C$.  After Wilson--'t~Hooft
+duality, rewrite this statement as (HE).  Identify exactly which step uses
+the unproved physical duality input.
+\end{exercise}
+
+This endpoint also clarifies the relation to the Arithmetic part.  The
+geometric Langlands program is a categorical correspondence for bundles and
+local systems on a curve; the arithmetic Langlands program relates
+automorphic representations to Galois data over number fields and function
+fields.  They share dual groups, Hecke operators, and harmonic-analysis
+structures, but the four-dimensional gauge theory above directly motivates
+the \emph{geometric} correspondence.  Passing from this picture to
+arithmetic Langlands requires additional algebro-geometric and
+number-theoretic machinery; it is not a consequence of supersymmetry alone.
+
 \part{Arithmetic}
 
 \section{Partitions and Generating Functions}
