@@ -6592,6 +6592,208 @@ systems, partitions, $q$-difference operators, and an exactly solvable
 many-body spectrum occur in the same theory.
 \end{exercise}
 
+\subsection{From Gustafson integrals to elliptic Yang--Baxter identities}
+
+The Macdonald operators are the spectral side of root-system harmonic
+analysis.  Their orthogonality measures and normalization constants form a
+parallel integral side.  In rank one this begins with the Askey--Wilson
+$q$-beta integral; Gustafson's multivariable extensions expose the root
+system in its integrand.  Elliptic deformation then replaces each
+$q$-factor by a theta factor.  At that level the resulting identities also
+become local consistency relations for exactly solvable lattice models.
+
+For a list of parameters write
+$(a_1,\ldots,a_r;q)_\infty=\prod_s(a_s;q)_\infty$, and use the shorthand
+$f(z^{\pm1})=f(z)f(z^{-1})$ and
+$f(z_i^{\pm1}z_j^{\pm1})=\prod_{\epsilon,\delta=\pm1}
+f(z_i^\epsilon z_j^\delta)$.
+
+\begin{theorem}[Askey--Wilson and Gustafson; used without proof]
+Let $|q|,|t|,|a_r|<1$.  The rank-one Askey--Wilson integral is
+\[
+\frac1{2\pi i}\oint_{|z|=1}
+ \frac{(z^{\pm2};q)_\infty}
+      {\prod_{r=1}^4(a_rz^{\pm1};q)_\infty}\,\frac{dz}{z}
+=2\frac{(a_1a_2a_3a_4;q)_\infty}
+{(q;q)_\infty\prod_{1\leq r<s\leq4}(a_ra_s;q)_\infty}.
+\]
+Its $BC_n$ extension is obtained from the Weyl-invariant density
+\[
+\begin{aligned}
+\Delta_{BC_n}(z)={}&
+\prod_{i=1}^n
+ \frac{(z_i^{\pm2};q)_\infty}
+      {\prod_{r=1}^4(a_rz_i^{\pm1};q)_\infty}\\
+&\times
+\prod_{1\leq i<j\leq n}
+ \frac{(z_i^{\pm1}z_j^{\pm1};q)_\infty}
+      {(t z_i^{\pm1}z_j^{\pm1};q)_\infty}.
+\end{aligned}
+\]
+With unit circles separating the two sequences of poles, Gustafson's
+evaluation is
+\[
+\begin{aligned}
+&\frac1{2^n n!}
+ \oint_{\mathbb T^n}\Delta_{BC_n}(z)
+ \prod_{i=1}^n\frac{dz_i}{2\pi i z_i}\\
+&\qquad=
+\prod_{j=1}^n
+\frac{(t,t^{n+j-2}a_1a_2a_3a_4;q)_\infty}
+{(t^j,q;q)_\infty
+ \prod_{1\leq r<s\leq4}(t^{j-1}a_ra_s;q)_\infty}.
+\end{aligned}
+\]
+The factor $2^nn!$ is the order of the $BC_n$ Weyl group.  Related
+$A_n$, $SU(n)$, and $Sp(n)$ integrals and multilateral sums give
+root-system extensions of classical beta integrals and bilateral
+hypergeometric identities; see
+\href{https://doi.org/10.1137/S0036141092248614}
+{Gustafson, \emph{SIAM Journal on Mathematical Analysis} \textbf{25}
+(1994)}.
+\end{theorem}
+
+The variables $z_i$ lie on a maximal torus.  Permutations and inversions
+$z_i\mapsto z_i^{-1}$ form its $BC_n$ Weyl symmetry, while the factors
+$z_i^{\pm1}z_j^{\pm1}$ run over the pair roots $\pm e_i\pm e_j$.
+Consequently the integral can be read as the exact normalization of a
+$q$-deformed interacting eigenvalue ensemble.  It is also the constant
+term giving the norm of the zero-partition polynomial in the
+Macdonald--Koornwinder orthogonality measure.  Thus the appearance of the
+same root systems on the operator and integral sides is structural rather
+than a coincidence of formulas.
+
+\begin{exercise}[Root systems in the Gustafson integral]
+Prove directly that $\Delta_{BC_n}$ is invariant under permutations and
+independent inversions of the $z_i$.  Identify its factors with the roots
+$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  Set $n=1$ in Gustafson's
+formula and recover the displayed Askey--Wilson integral, including the
+Weyl-group factor.  Set $t=q^g$, use
+\[
+\frac{(q^x;q)_\infty}{(q^{x+g};q)_\infty}
+\sim(1-q)^g\frac{\Gamma(x+g)}{\Gamma(x)}
+\qquad(q\to1^-),
+\]
+and explain how the pair factors tend to the power-law repulsion of a
+Selberg-type density.  Interpret the product evaluation as an exactly known
+partition-function normalization, without claiming that a generic
+interacting ensemble is integrable.
+\end{exercise}
+
+For $|p|<1$, define the multiplicative theta function and elliptic shifted
+factorial by
+\[
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
+\qquad
+(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p).
+\]
+Since $\theta(z;0)=1-z$, the limit $p\to0$ recovers the $q$-shifted
+factorial.  The elliptic gamma function
+\[
+\Gamma(z;p,q)
+=\prod_{j,k\geq0}
+ \frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}
+\]
+satisfies
+$\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q)$ and the analogous equation with
+$p$ and $q$ exchanged.  It is therefore the two-period deformation of the
+$q$-gamma factors appearing in beta integrals.
+
+\begin{theorem}[Elliptic beta integral and star--triangle relation; used without proof]
+If $|p|,|q|,|t_r|<1$ and $\prod_{r=1}^6t_r=pq$, then
+\[
+\frac{(p;p)_\infty(q;q)_\infty}{4\pi i}
+\oint_{\mathbb T}
+ \frac{\prod_{r=1}^6\Gamma(t_rz^{\pm1};p,q)}
+      {\Gamma(z^{\pm2};p,q)}\,\frac{dz}{z}
+=\prod_{1\leq r<s\leq6}\Gamma(t_rt_s;p,q).
+\]
+With a suitable grouping of the six parameters into three rapidity pairs,
+this evaluation is the star--triangle relation: integration over the spin
+at a star gives the product of weights on the dual triangle.  The same
+identity supplies a Coxeter relation for elliptic integral transforms and
+hence an integral-operator solution of the Yang--Baxter equation.  These
+statements, including the required contours and positivity regimes, are
+taken as input; see
+\href{https://arxiv.org/abs/1011.3798}
+{Spiridonov, \emph{Elliptic beta integrals and solvable models of
+statistical mechanics}} and
+\href{https://arxiv.org/abs/1205.3520}
+{Derkachov--Spiridonov, \emph{Yang--Baxter equation, parameter
+permutations, and the elliptic beta integral}}.
+\end{theorem}
+
+Multivariable elliptic beta integrals on root systems similarly degenerate
+to Gustafson-type $q$-beta integrals as $p\to0$, sometimes after parameters
+are scaled.  In rank one the displayed elliptic integral first gives the
+Nassrallah--Rahman integral; a further specialization gives Askey--Wilson.
+This qualification matters: the arrows below describe families and their
+degenerations, not a claim that every displayed formula limits directly to
+the next displayed formula without parameter choices.
+
+There is a complementary finite-sum branch.  In additive notation set
+\[
+[x]_{h,\tau}
+=\frac{\vartheta_{11}(hx,\tau)}{\vartheta_{11}(h,\tau)}.
+\]
+Products of these elliptic numbers replace ordinary rising factorials in
+terminating balanced very-well-poised series.  Frenkel and Turaev call the
+resulting functions \emph{modular hypergeometric functions}: ``modular''
+refers to the simultaneous transformation of the elliptic parameters
+$(h,\tau)$, not to an ordinary scalar modular form in $\tau$ alone.
+
+\begin{theorem}[Frenkel--Turaev; used without proof]
+Elliptic $6j$-symbols with spectral parameter can be expressed by
+terminating balanced very-well-poised modular hypergeometric series.  Their
+tetrahedral symmetries give elliptic Bailey transformations and Jackson-type
+summations, while their recoupling consistency gives an elliptic spectral
+Yang--Baxter equation.  Under degeneration they yield trigonometric
+$6j$-symbols and basic hypergeometric identities.  These spectral-parameter
+symbols deform recoupling data of solvable face models; they are not being
+identified with the fixed $F$-symbols of an arbitrary modular tensor
+category.  See
+\href{https://doi.org/10.1007/978-1-4612-4122-5_9}
+{Frenkel--Turaev, \emph{Elliptic solutions of the Yang--Baxter equation
+and modular hypergeometric functions}}.
+\end{theorem}
+
+At the trigonometric level, the corresponding Bailey transformations are
+the same kind of iteration mechanism that produces Rogers--Ramanujan-type
+$q$-series.  The identities used earlier for exclusion-rule counting and
+the identities enforcing integrable recoupling therefore belong to one
+deformation framework, even though a particular Rogers--Ramanujan identity
+need not itself be a Yang--Baxter equation.
+
+\begin{exercise}[The rational--trigonometric--elliptic hierarchy]
+Use the Jacobi triple product to prove
+\[
+[x]_{h,\tau}
+\longrightarrow\frac{\sin(\pi hx)}{\sin(\pi h)}
+\quad(\operatorname{Im}\tau\to\infty),
+\qquad
+\frac{\sin(\pi hx)}{\sin(\pi h)}\longrightarrow x
+\quad(h\to0).
+\]
+Prove $\theta(z;0)=1-z$ and
+$(a;q,p)_m\to(a;q)_m$ as $p\to0$.  Hence organize the three levels as
+\[
+\begin{array}{c}
+\text{elliptic hypergeometric identities and elliptic Yang--Baxter data}
+\\ \downarrow\ p\to0\\
+\text{basic hypergeometric identities, Gustafson integrals, and
+trigonometric }R\text{-matrices}
+\\ \downarrow\ q\to1\\
+\text{ordinary hypergeometric identities, Selberg integrals, and
+rational data}.
+\end{array}
+\]
+Explain why the integral/star--triangle branch and the
+$6j$-symbol/recoupling branch are complementary realizations of
+Yang--Baxter consistency rather than two names for the same construction.
+Finally relate the trigonometric middle level to the Macdonald--Ruijsenaars
+operators above and the elliptic level to their elliptic deformation.
+\end{exercise}
+
 \clearpage
 \section{Cyclotomic and Aperiodic Structure}
 
