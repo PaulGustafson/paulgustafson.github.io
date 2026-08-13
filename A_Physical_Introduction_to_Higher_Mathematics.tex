@@ -6625,6 +6625,633 @@ exact coefficient formula; see
 \textbf{17} (1918)}.
 \end{exercise}
 
+\section{Automorphic Harmonic Analysis and Arithmetic Langlands}
+
+Arithmetic Langlands begins where the preceding modular-form discussion
+ends.  A modular eigenform is not merely a holomorphic function with a
+transformation law: it is one component of an irreducible representation of
+$GL_2$ over all completions of $\Q$ at once.  Its Hecke eigenvalues can also
+appear as traces of Frobenius acting on an $\ell$-adic Galois
+representation.  The Langlands program predicts that this agreement between
+harmonic and Galois data persists for much larger groups.
+
+The physical motivation is structural and should not be overstated.  No
+laboratory experiment establishes an automorphic--Galois correspondence or
+selects the adeles as physical spacetime.  What physics supplies is a
+familiar pattern: construct a configuration space, decompose its
+$L^2$-space into irreducible modes, diagonalize commuting observables, and
+compare a spectral expansion with a sum over geometric orbits.  Adelic
+harmonic analysis applies that pattern to arithmetic quotients.  In
+idealized arithmetic quantum systems Hecke operators behave like additional
+commuting conserved quantities, but they are not symmetries of a generic
+Hamiltonian.
+
+\subsection{Places, local fields, and adeles}
+
+\begin{definition}[$p$-adic completions]
+For a prime $p$ and nonzero $x\in\Q$, write
+$x=p^{v_p(x)}a/b$ with $p\nmid ab$ and define
+\[
+ |x|_p=p^{-v_p(x)},\qquad |0|_p=0.
+\]
+This is a non-Archimedean absolute value:
+\[
+ |x+y|_p\leq\max\{|x|_p,|y|_p\}.
+\]
+The completion is the locally compact field $\Q_p$, and its compact open
+subring of integers is
+\[
+ \Z_p=\{x\in\Q_p:|x|_p\leq1\}.
+\]
+The ordinary absolute value gives the Archimedean completion $\R$.  A
+\emph{number field} is a finite extension $F/\Q$.  It has completions $F_v$
+indexed by its Archimedean and non-Archimedean places $v$; at a finite place,
+$\mathcal O_v\subset F_v$ is the ring of integers and the residue field has
+some cardinality $q_v$.
+\end{definition}
+
+\begin{definition}[Adeles and ideles]
+The \emph{adele ring} of $\Q$ is the restricted product
+\[
+ \mathbb A_\Q
+ =\R\times\prod_p' \Q_p
+ =\left\{(x_\infty,x_2,x_3,\ldots):
+ x_p\in\Z_p\text{ for all but finitely many }p\right\}.
+\]
+The restriction makes $\mathbb A_\Q$ a locally compact ring.  Its group of
+units is the \emph{idele group}
+\[
+ \mathbb A_\Q^\times
+ =\R^\times\times\prod_p'\Q_p^\times,
+\]
+where the finite components lie in $\Z_p^\times$ for almost every $p$.
+For a number field $F$, define $\mathbb A_F$ and
+$\mathbb A_F^\times$ in the same way.  The diagonal embedding of $F^\times$
+allows one to define the \emph{idele class group}
+\[
+ C_F=F^\times\backslash\mathbb A_F^\times.
+\]
+\end{definition}
+
+\begin{theorem}[Adelic compactness; used without proof]
+The diagonal copy of $F$ is discrete in $\mathbb A_F$, and the additive
+quotient $\mathbb A_F/F$ is compact.  These facts make ordinary locally
+compact harmonic analysis available on the arithmetic quotient.
+\end{theorem}
+
+An adele is not an infinite collection of unrelated choices.  It packages
+the real and all prime-adic resolutions of the same arithmetic problem.
+The restricted product is analogous to choosing a reference vacuum at
+almost every mode: only finitely many components may depart from the
+distinguished compact subgroup.
+
+\begin{exercise}[The product formula]
+Compute the $p$-adic absolute values of $x=12/25$.  For arbitrary
+$x\in\Q^\times$, use unique factorization to prove
+\[
+ |x|_\infty\prod_p|x|_p=1,
+\]
+noting that only finitely many factors differ from one.  Show that the
+diagonal image of $x$ is an idele, and prove that the idelic norm
+\[
+ |(x_v)|_{\mathbb A}=
+ |x_\infty|_\infty\prod_p|x_p|_p
+\]
+is trivial on $\Q^\times$.  Explain why it therefore descends to the idele
+class group.
+\end{exercise}
+
+\begin{definition}[Hecke characters and their $L$-functions]
+A \emph{Hecke character} is a continuous character
+\[
+ \chi:F^\times\backslash\mathbb A_F^\times\longrightarrow\C^\times
+\]
+with the usual unitary or quasicharacter growth condition.  It factors into
+local characters $\chi_v:F_v^\times\to\C^\times$.  At an unramified finite
+place its local Euler factor is
+\[
+ L_v(s,\chi_v)=\frac1{1-\chi_v(\varpi_v)q_v^{-s}},
+\]
+where $\varpi_v$ is a uniformizer, characterized up to a unit by
+$|\varpi_v|_v=q_v^{-1}$.  The global $L$-function is the product of these
+factors, supplemented at ramified and Archimedean places by the appropriate
+local factors.  For the trivial character of $\Q$, its finite part is the
+Riemann zeta function.
+\end{definition}
+
+\begin{definition}[Schwartz--Bruhat functions]
+A \emph{Schwartz--Bruhat function} on $\mathbb A_F$ is a finite linear
+combination of restricted tensor products
+\[
+ \Phi=\bigotimes_v\Phi_v,
+\]
+where $\Phi_v$ is an ordinary Schwartz function at each Archimedean place,
+is locally constant with compact support at each finite place, and equals
+the indicator of $\mathcal O_v$ for almost every finite $v$.
+\end{definition}
+
+\begin{theorem}[Tate's adelic Fourier transform; used without proof]
+Let $\Phi$ be a Schwartz--Bruhat function on $\mathbb A_F$.  The zeta
+integral
+\[
+ Z(\Phi,\chi,s)
+ =\int_{\mathbb A_F^\times}
+ \Phi(x)\chi(x)|x|_{\mathbb A}^{s}\,d^\times x
+\]
+factorizes into local integrals.  Fourier inversion and Poisson summation on
+the compact quotient $\mathbb A_F/F$ give its meromorphic continuation and
+functional equation.  For $F=\Q$ and the trivial character, suitable local
+test functions yield
+\[
+ \Lambda(s)=\pi^{-s/2}\Gamma(s/2)\zeta(s),
+ \qquad \Lambda(s)=\Lambda(1-s).
+\]
+Thus the functional equation is a global Fourier-duality statement, while
+the Euler product records independent local prime data.
+\end{theorem}
+
+\begin{theorem}[Class field theory as $GL_1$ Langlands; used without proof]
+The local Weil group $W_{F_v}$ is the locally compact form of the local
+Galois group in which the powers of Frobenius remain visible.
+Local reciprocity identifies the abelianized local Weil group with the
+multiplicative group of the field,
+\[
+ W_{F_v}^{\rm ab}\cong F_v^\times.
+\]
+Global Artin reciprocity similarly identifies the maximal profinite quotient
+of the idele class group with the Galois group of the maximal abelian
+extension:
+\[
+ C_F/C_F^0
+ \cong\operatorname{Gal}(F^{\rm ab}/F),
+\]
+where $C_F^0$ is the identity component.  Consequently, one-dimensional
+automorphic characters and one-dimensional Galois or Weil characters carry
+the same local data and the same $L$-functions.  This is the established
+$GL_1$ case that higher-rank Langlands generalizes.  For $F=\Q$, the
+Kronecker--Weber theorem realizes every finite abelian extension inside a
+cyclotomic field, connecting this statement to the final section of the
+Arithmetic part.
+\end{theorem}
+
+\begin{exercise}[Euler products from multiplicativity]
+For $\operatorname{Re}s>1$, use unique factorization and absolute
+convergence to prove
+\[
+ \zeta(s)=\sum_{n\geq1}\frac1{n^s}
+ =\prod_p\frac1{1-p^{-s}}.
+\]
+More generally, if $\chi:\N\to\C$ is completely multiplicative and bounded,
+prove
+\[
+ \sum_{n\geq1}\frac{\chi(n)}{n^s}
+ =\prod_p\frac1{1-\chi(p)p^{-s}}
+\]
+in its half-plane of absolute convergence.  Identify which part of this
+calculation is local at each prime and which step assembles the global
+object.
+\end{exercise}
+
+\subsection{Automorphic representations and the trace formula}
+
+\begin{definition}[Automorphic forms and representations]
+Let $G$ be a reductive group over a number field $F$.  An
+\emph{automorphic form} is, roughly, a smooth function on
+\[
+ G(F)\backslash G(\mathbb A_F)
+\]
+that is finite under a maximal compact subgroup and under the center of the
+Archimedean universal enveloping algebra, has moderate growth, and satisfies
+an appropriate central-character condition.  It is
+\emph{cuspidal} when its constant term
+\[
+ \int_{N_P(F)\backslash N_P(\mathbb A_F)}
+ \varphi(ng)\,dn
+\]
+vanishes for every proper parabolic subgroup $P$ with unipotent radical
+$N_P$.
+
+Right translation by $G(\mathbb A_F)$ acts on automorphic forms.  An
+\emph{automorphic representation} is an irreducible constituent $\pi$ of
+this representation.  Cuspidal constituents form the discrete spectrum;
+Eisenstein series supply continuous and residual spectra.
+\end{definition}
+
+\begin{theorem}[Local factorization; used without proof]
+After choosing compatible local data, an irreducible automorphic
+representation factors as a restricted tensor product
+\[
+ \pi\cong\mathop{\bigotimes\nolimits'}_v\pi_v,
+\]
+with $\pi_v$ unramified at almost every finite place.
+\end{theorem}
+
+This is the arithmetic analogue of the harmonic decompositions developed in
+the Symmetry part.  Compact groups give a Peter--Weyl sum; noncompact real
+groups require continuous principal series; arithmetic quotients combine
+all local groups $G(F_v)$ and impose the single global periodicity
+$G(F)$.
+
+\begin{theorem}[Arthur--Selberg trace formula; schematic input]
+For a test function $h$ on $G(\mathbb A_F)$, convolution defines an operator
+$R(h)$ on the automorphic spectrum.  Formally its kernel is
+\[
+ K_h(x,y)=\sum_{\gamma\in G(F)}h(x^{-1}\gamma y).
+\]
+Computing the trace spectrally gives a sum or integral over automorphic
+representations; grouping the diagonal kernel geometrically gives orbital
+integrals indexed by conjugacy classes in $G(F)$.  The equality
+\[
+ \text{spectral side}=\text{geometric side}
+\]
+is the trace formula.  Noncompact quotients require truncation and several
+additional terms, so this schematic identity is not a proof-ready statement.
+It generalizes both Poisson summation and the Selberg trace formula and is a
+central comparison tool in the Langlands program.
+\end{theorem}
+
+\begin{exercise}[Poisson summation as an abelian trace formula]
+For $f\in\mathcal S(\R)$, use the Fourier normalization
+\[
+ \widehat f(m)=\int_\R f(x)e^{-2\pi imx}\,dx
+\]
+and define on $L^2(\R/\Z)$ the integral operator with kernel
+\[
+ K_f(x,y)=\sum_{n\in\Z}f(x-y+n).
+\]
+Diagonalize it in the Fourier basis $e^{2\pi imx}$.  Compute its trace once
+as the sum of its eigenvalues and once as
+$\int_0^1K_f(x,x)\,dx$, obtaining
+\[
+ \sum_{m\in\Z}\widehat f(m)=\sum_{n\in\Z}f(n).
+\]
+Identify the two sides as the spectral and geometric expansions.  Explain
+why the nonabelian trace formula replaces lattice points by conjugacy
+classes and scalar Fourier modes by representations.
+\end{exercise}
+
+\subsection{Modular eigenforms as automorphic representations}
+
+\begin{definition}[Classical Hecke operators]
+Let $f(\tau)=\sum_{n\geq1}a_nq^n$ be a cusp form of weight $k$ for
+$SL_2(\Z)$.  For a prime $p$, define
+\[
+ (T_pf)(\tau)
+ =p^{k-1}f(p\tau)
+ +\frac1p\sum_{a=0}^{p-1}
+ f\left(\frac{\tau+a}{p}\right).
+\]
+Then
+\[
+ T_pf=\sum_{n\geq1}
+ \left(a_{pn}+p^{k-1}a_{n/p}\right)q^n,
+\]
+where $a_{n/p}=0$ if $p\nmid n$.
+\end{definition}
+
+\begin{theorem}[Hecke algebra relations; supplied]
+Operators $T_n$ for general $n$ are defined by the analogous index-$n$
+lattice correspondences.  They commute and obey
+\[
+ T_mT_n
+ =\sum_{d\mid(m,n)}d^{k-1}T_{mn/d^2}.
+\]
+\end{theorem}
+
+\begin{definition}[Normalized Hecke eigenform]
+A \emph{normalized Hecke eigenform} has $a_1=1$ and
+$T_nf=a_nf$ for every $n$.
+\end{definition}
+
+\begin{exercise}[Hecke recurrences and the Euler product]
+Derive the displayed Fourier-coefficient formula for $T_p$.  If $f$ is a
+normalized eigenform, compare coefficients to prove
+\[
+ a_{p^{r+1}}=a_pa_{p^r}-p^{k-1}a_{p^{r-1}}
+ \qquad(r\geq1).
+\]
+Use the Hecke algebra relation to prove $a_{mn}=a_ma_n$ for
+$(m,n)=1$, and then show
+\[
+ L(f,s)=\sum_{n\geq1}\frac{a_n}{n^s}
+ =\prod_p
+ \frac1{1-a_pp^{-s}+p^{k-1-2s}}
+\]
+in a right half-plane.  Factor the denominator as
+$(1-\alpha_pp^{-s})(1-\beta_pp^{-s})$ and derive
+$\alpha_p+\beta_p=a_p$ and $\alpha_p\beta_p=p^{k-1}$.
+\end{exercise}
+
+\begin{theorem}[Classical-to-adelic correspondence; used without proof]
+A normalized weight-$k$ eigenform $f$ determines an automorphic form
+$\varphi_f$ on
+\[
+ GL_2(\Q)\backslash GL_2(\mathbb A_\Q).
+\]
+Its transformation of weight $k$ is encoded in the Archimedean component,
+while invariance under $GL_2(\Z_p)$ encodes level one at each finite prime.
+The representation generated by right translates factors as
+\[
+ \pi_f=\mathop{\bigotimes\nolimits'}_v\pi_{f,v}.
+\]
+The classical operator $T_p$ is the action of a $p$-adic double coset on the
+one-dimensional space of $GL_2(\Z_p)$-fixed vectors in $\pi_{f,p}$.
+Consequently, the coefficient $a_p$ is local spectral data of a global
+representation.
+\end{theorem}
+
+\begin{exercise}[The $GL_2$ Hecke correspondence at $p$]
+Let $K_p=GL_2(\Z_p)$.  Show that index-$p$ sublattices of
+$\Z_p^2$ are parametrized by
+$\mathbb P^1(\mathbb F_p)$ and use this to obtain a decomposition of
+\[
+ K_p\begin{pmatrix}p&0\\0&1\end{pmatrix}K_p
+\]
+into $p+1$ one-sided cosets.  Relate these representatives to the $p+1$
+terms in the formula for $T_p$.  Explain why simultaneous Hecke
+diagonalization resembles a complete family of commuting observables, and
+why this analogy does not make Hecke symmetry generic in quantum mechanics.
+\end{exercise}
+
+\subsection{Satake parameters and the dual group}
+
+\begin{definition}[Spherical Hecke algebra]
+Let $F_v$ be a non-Archimedean local field, let $G$ be split reductive over
+$F_v$, and choose a hyperspecial compact subgroup
+$K_v=G(\mathcal O_v)$.  The \emph{spherical Hecke algebra} is
+\[
+ \mathcal H_v(G,K_v)
+ =C_c(K_v\backslash G(F_v)/K_v)
+\]
+with convolution.  If an irreducible representation $\pi_v$ has a nonzero
+$K_v$-fixed vector, it is \emph{unramified}; the fixed space is
+one-dimensional, so $\mathcal H_v(G,K_v)$ acts through a character.
+\end{definition}
+
+\begin{theorem}[Satake isomorphism; used without proof]
+Let $T\subset G$ be a split maximal torus with Weyl group $W$, and let
+$\widehat G$ be the complex reductive group with dual root datum.  After the
+standard $q_v^\rho$ normalization,
+\[
+ \mathcal H_v(G,K_v)
+ \cong\C[X_*(T)]^W
+ \cong R(\widehat G)\otimes_\Z\C.
+\]
+Thus a character of the spherical Hecke algebra determines a semisimple
+conjugacy class
+\[
+ c(\pi_v)\subset\widehat G,
+\]
+the \emph{Satake parameter}.  For a finite-dimensional representation $r$
+of $\widehat G$, define
+\[
+ L_v(s,\pi_v,r)
+ =\det\!\left(1-r(c(\pi_v))q_v^{-s}\right)^{-1}.
+\]
+This is the arithmetic appearance of the same dual root datum used in the
+geometric Langlands section: in the split case, its complex group
+${}^LG_\C$ is the present $\widehat G$.  For a nonsplit group, the arithmetic
+\emph{$L$-group} is
+\[
+ {}^LG=\widehat G\rtimes W_F,
+\]
+where the Weil group $W_F$ records the Galois action on the root datum.
+See
+\href{https://doi.org/10.1007/BF02684781}
+{Satake, \emph{Publications Math\'ematiques de l'IH\'ES}
+\textbf{18} (1963)}.
+\end{theorem}
+
+For $G=GL_2$ one has $\widehat G=GL_2(\C)$.  In the arithmetic
+normalization of a weight-$k$ eigenform, the unramified parameter at $p$ has
+eigenvalues $\alpha_p,\beta_p$ and hence
+\[
+ \Tr c(\pi_{f,p})=a_p,\qquad
+ \det c(\pi_{f,p})=p^{k-1}.
+\]
+The local standard $L$-factor is exactly the quadratic Euler factor computed
+above.  The unitary normalization divides both eigenvalues by
+$p^{(k-1)/2}$; keeping these normalizations distinct prevents an apparent
+contradiction between determinant one and determinant $p^{k-1}$ conventions.
+
+\begin{exercise}[Recovering a local factor from a conjugacy class]
+Let $c\in GL_n(\C)$ be semisimple with eigenvalues
+$\alpha_1,\ldots,\alpha_n$.  Prove
+\[
+ \det(1-cq^{-s})^{-1}
+ =\prod_{j=1}^n(1-\alpha_jq^{-s})^{-1}.
+\]
+Expand the logarithm as a power series and show
+\[
+ \log L(s,c)
+ =\sum_{r\geq1}\frac{\Tr(c^r)}r q^{-rs}.
+\]
+Interpret the traces of powers as the local spectral data that determine
+the Euler factor.  Specialize to the $GL_2$ parameter
+$\operatorname{diag}(\alpha_p,\beta_p)$ of a modular eigenform.
+\end{exercise}
+
+\subsection{Galois representations and matching
+\texorpdfstring{$L$}{L}-functions}
+
+\begin{definition}[$\ell$-adic representations and Frobenius]
+Let
+\[
+ G_F=\operatorname{Gal}(\overline F/F)
+\]
+be the absolute Galois group.  An \emph{$\ell$-adic representation} is a
+continuous homomorphism
+\[
+ \rho_\ell:G_F\longrightarrow GL_n(\overline\Q_\ell).
+\]
+At a finite place $v\nmid\ell$ where inertia acts trivially, the
+representation is \emph{unramified}; a Frobenius element
+$\operatorname{Frob}_v$ is then defined up to conjugacy.  Fix the Frobenius
+convention by declaring the local polynomial to be
+\[
+ P_v(X)=\det\!\left(1-X\rho_\ell(\operatorname{Frob}_v)\right).
+\]
+The Galois local factor is $P_v(q_v^{-s})^{-1}$.
+\end{definition}
+
+\begin{theorem}[Deligne's representation of an eigenform; used without proof]
+Let $f=\sum_{n\geq1}a_nq^n$ be a normalized level-one eigenform of weight
+$k\geq2$, and let $E_f$ be the number field generated by its coefficients.
+For every finite place $\lambda\mid\ell$ of $E_f$, there is a continuous
+representation
+\[
+ \rho_{f,\lambda}:G_\Q\longrightarrow GL_2(E_{f,\lambda})
+\]
+unramified at every $p\ne\ell$ and satisfying
+\[
+ \det\!\left(1-X\rho_{f,\lambda}
+  (\operatorname{Frob}_p)\right)
+ =1-a_pX+p^{k-1}X^2.                         \tag{AG}
+\]
+Under any complex embedding, the two Frobenius eigenvalues have absolute
+value $p^{(k-1)/2}$.  Hence the Galois and automorphic Euler factors agree,
+and $|a_p|\leq2p^{(k-1)/2}$.  This deep theorem is not a consequence of the
+formal Hecke recurrences; see
+\href{https://www.numdam.org/item/SB_1968-1969__11__139_0/}
+{Deligne, S\'eminaire Bourbaki, Expos\'e 355 (1968--69)}.
+\end{theorem}
+
+\begin{exercise}[Ramanujan's $\Delta$ on both sides]
+Write
+\[
+ \Delta(\tau)=\sum_{n\geq1}\tau(n)q^n
+ =q-24q^2+252q^3-1472q^4+\cdots.
+\]
+Use the weight-$12$ Hecke recurrence to verify
+\[
+ \tau(4)=\tau(2)^2-2^{11}.
+\]
+For an arbitrary prime $p$, write the Euler factor
+\[
+ L_p(s,\Delta)
+ =\frac1{1-\tau(p)p^{-s}+p^{11-2s}}
+\]
+both in terms of its Satake eigenvalues and as the characteristic polynomial
+of $\rho_{\Delta,\ell}(\operatorname{Frob}_p)$.  Use the purity statement in
+the theorem to derive $|\tau(p)|\leq2p^{11/2}$, and identify why proving
+purity cannot be replaced by manipulating the $q$-product for $\Delta$.
+\end{exercise}
+
+\begin{theorem}[Modularity of elliptic curves over $\Q$; used without proof]
+Let $E/\Q$ be an elliptic curve of conductor $N$.  At a prime of good
+reduction set
+\[
+ a_p(E)=p+1-\#E(\mathbb F_p).
+\]
+There is a normalized weight-two newform $f_E$ of level $N$ such that
+\[
+ a_p(f_E)=a_p(E)
+\]
+at every good prime, and consequently $L(E,s)=L(f_E,s)$ after the bad local
+factors are included.  This is a concrete $GL_2/\Q$ case of arithmetic
+Langlands: point counts on an algebraic curve match Hecke eigenvalues in an
+automorphic spectrum.  The semistable case was central to Wiles's work; the
+general result is due to
+\href{https://doi.org/10.1090/S0894-0347-01-00370-8}
+{Breuil--Conrad--Diamond--Taylor, \emph{Journal of the American
+Mathematical Society} \textbf{14} (2001)}.
+\end{theorem}
+
+\begin{exercise}[Local zeta function of an elliptic curve]
+Let $E$ have good reduction at $p$, and let $\alpha_p,\beta_p$ be roots of
+$X^2-a_p(E)X+p$.  Assuming
+\[
+ \#E(\mathbb F_{p^r})
+ =p^r+1-\alpha_p^r-\beta_p^r,
+\]
+use $\sum_{r\geq1}z^r/r=-\log(1-z)$ to prove
+\[
+ \exp\!\left(
+ \sum_{r\geq1}\#E(\mathbb F_{p^r})\frac{T^r}{r}\right)
+ =\frac{1-a_p(E)T+pT^2}{(1-T)(1-pT)}.
+\]
+Show that the numerator yields the same degree-two local factor as the
+weight-two modular form supplied by the modularity theorem.  Separate the
+elementary generating-function calculation from the deep assertion that
+the same $a_p$ occurs on both sides.
+\end{exercise}
+
+\subsection{The Langlands correspondence and its status}
+
+\begin{theorem}[Local Langlands for $GL_n$; used without proof]
+For $GL_n$ over a non-Archimedean local field $F_v$, the \emph{local
+Langlands correspondence} matches irreducible admissible representations of
+$GL_n(F_v)$ with $n$-dimensional Frobenius-semisimple Weil--Deligne
+representations, preserving local $L$- and epsilon factors.  At an
+Archimedean place, the analogous parameters are representations of the real
+or complex Weil group.  In the unramified non-Archimedean case the
+correspondence reduces to the Satake parameter above.
+\end{theorem}
+
+\begin{definition}[Global correspondence and functoriality]
+Globally, the number-field Langlands program predicts that suitably
+algebraic cuspidal automorphic representations of
+$GL_n(\mathbb A_F)$ correspond to compatible systems of $n$-dimensional
+$\ell$-adic Galois representations, with matching characteristic
+polynomials at almost every place.  For general reductive groups, an
+$L$-homomorphism
+\[
+ {}^LH\longrightarrow{}^LG
+\]
+should transfer automorphic representations of $H$ to those of $G$ while
+preserving the associated $L$-functions.  This is \emph{Langlands
+functoriality}.  It is a program containing many theorems and many open
+conjectures, not one established universal bijection over number fields.
+The original representation-theoretic formulation is developed in
+\href{https://publications.ias.edu/node/37}
+{Langlands, \emph{Euler Products} (1967)}.
+\end{definition}
+
+\begin{theorem}[The function-field correspondence for $GL_n$; used without
+proof]
+Let $F=\mathbb F_q(C)$ be the function field of a smooth projective curve.
+After fixing the usual determinant and central-character conditions,
+cuspidal automorphic representations of $GL_n(\mathbb A_F)$ correspond to
+irreducible rank-$n$ $\ell$-adic representations of $G_F$, unramified at
+almost every place, with matching local characteristic polynomials and
+$L$-functions.  Drinfeld proved the
+rank-two case, and Laurent Lafforgue proved general rank; see
+\href{https://doi.org/10.1007/s002220100174}
+{Lafforgue, \emph{Inventiones Mathematicae} \textbf{147} (2002)}.
+\end{theorem}
+
+Function fields also explain why geometric and arithmetic Langlands are
+adjacent rather than identical.  A place of $\mathbb F_q(C)$ is a closed
+point of $C$; an unramified Galois representation behaves like an
+$\ell$-adic local system on the curve; and automorphic functions can be
+viewed on the finite-field points of the moduli stack
+$\operatorname{Bun}_G(C)$.  The sheaf--function dictionary takes traces of
+Frobenius on sheaves to functions.  Under this decategorification, a Hecke
+eigensheaf is expected to produce a Hecke eigenfunction.  Geometric
+Langlands replaces functions by sheaves and Galois representations by local
+systems, while arithmetic Langlands retains Frobenius and its numerical
+eigenvalues.
+
+\begin{exercise}[Places of the rational function field]
+Let $F=\mathbb F_q(t)$.  For each monic irreducible polynomial
+$P\in\mathbb F_q[t]$, define
+\[
+ |f|_P=q^{-\deg(P)\operatorname{ord}_P(f)},
+\]
+and define
+\[
+ |f|_\infty=q^{\deg(\text{numerator})-\deg(\text{denominator})}
+\]
+for a reduced rational function.  Factor numerator and denominator to prove
+\[
+ |f|_\infty\prod_P|f|_P=1.
+\]
+Identify the finite places with closed points of the affine line and the
+remaining place with the point at infinity of $\mathbb P^1$.  Compare this
+product formula with the one for $\Q$, and explain why a curve over a finite
+field plays the role of an arithmetic base.
+\end{exercise}
+
+The completed arc is therefore
+\[
+\begin{aligned}
+\text{Fourier analysis on }\mathbb A_F/F
+&\longrightarrow
+\text{automorphic spectrum on }G(F)\backslash G(\mathbb A_F)\\
+&\longrightarrow
+\text{Hecke eigenvalues and Satake parameters}\\
+&\longleftrightarrow
+\text{Frobenius eigenvalues of Galois representations}.
+\end{aligned}
+\]
+This is why arithmetic Langlands belongs in a manuscript organized around
+harmonic analysis.  Its experimentally relevant neighbors---spectral
+decomposition, trace formulas, modular functions, and symmetry
+operators---are genuine tools of physics.  The Galois--automorphic
+correspondence itself remains a mathematical structure, not an experimentally
+tested law of nature.  We now return to modular functions in their distinct
+role as exact state-counting characters of conformal field theory.
+
 \section{CFT Characters and Integrable Models}
 
 \begin{observations}
