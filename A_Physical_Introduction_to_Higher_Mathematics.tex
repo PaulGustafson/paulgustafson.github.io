@@ -737,6 +737,12 @@ frequency. Replacing one atom can lower the symmetry and split the
 corresponding spectral lines.
 \end{observations}
 
+Spectral theory decomposes a Hamiltonian into energy subspaces, but by
+itself does not explain why a degeneracy persists or why some transitions
+are absent.  A symmetry commuting with the Hamiltonian preserves each
+energy subspace; its representation there organizes degeneracies, while the
+symmetry type of an observable constrains its matrix elements.
+
 \subsection{Groups, actions, and linear representations}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
@@ -989,10 +995,12 @@ Apply the electric-dipole rule to identify forbidden transitions.
 
 \section{Symplectic Geometry}
 
-The Kleinian, or Erlangen, viewpoint studies a geometry through its
-transformations and invariants. For classical mechanics the basic model is a
-vector space with an alternating form, and its transformation group is the
-symplectic group.
+Representation theory studies how transformations act on states and
+observables.  Classical mechanics singles out a more specific question:
+which transformations of phase space preserve the structure that determines
+Hamilton's equations and Poisson brackets?  In the Kleinian, or Erlangen,
+viewpoint, that preserved structure is an alternating form and its linear
+transformation group is the symplectic group.
 
 \subsection{Symplectic linear algebra and differential forms}
 
@@ -4172,6 +4180,14 @@ game tensors require operator-space matrix levels. Consult
 
 \part{Topology}
 
+Probability and operator-space theory distinguish states, channels, and
+correlations by quantities that generally vary under perturbation.  Some
+physical responses instead remain quantized while the Hamiltonian changes
+continuously, provided a gap does not close.  Topology supplies invariants
+adapted to this stability.  This part passes from homotopy and characteristic
+classes to index theory, then from group-valued invariants of invertible
+phases to the fusion and braiding data of topological order.
+
 \section{Index Theory}
 
 \begin{observations}
@@ -4809,6 +4825,10 @@ the presence of strong interactions.
 
 \subsection{Spectral triples, ultraviolet cutoffs, and operator systems}
 
+The preceding uses of Dirac operators extracted stable topological indices.
+Their spectrum and commutators also answer a different question: how much
+metric information is accessible at a finite energy resolution?
+
 On a compact spin manifold, smooth functions act on square-integrable
 spinors while the Dirac operator measures their variation.  This replaces
 coordinates by spectral data: the algebra records observables, the Hilbert
@@ -4944,6 +4964,11 @@ it is an algebra exactly when the relation is also transitive.  The usual
 failure of transitivity therefore records finite resolution algebraically:
 two steps individually shorter than $\varepsilon$ may connect points that
 the chosen resolution does not identify in one step.
+
+Spectral truncation concerns metric information retained after a cutoff.
+We now return to topological phases, passing from the group-valued
+classification of invertible phases to noninvertible phases whose localized
+excitations have fusion and braiding.
 
 \section{Quantum Topology}
 
