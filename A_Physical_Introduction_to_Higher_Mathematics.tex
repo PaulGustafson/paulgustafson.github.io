@@ -17,6 +17,8 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}[section]
 \newtheorem{exercise}{Exercise}[section]
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Theorem}
 
 \newenvironment{observations}
 {\par\smallskip\noindent\textbf{Experimental observations.}%
@@ -124,7 +126,18 @@ A \emph{tensor product} of $V$ and $W$ is a vector space $V\otimes W$ with a
 bilinear map $(v,w)\mapsto v\otimes w$ such that every bilinear map
 $b:V\times W\to X$ factors uniquely through a linear map
 $\widetilde b:V\otimes W\to X$. Tensor powers and multilinear maps are
-defined by iteration.
+defined by iteration. Such a space exists: let $k^{(V\times W)}$ be the free
+vector space on symbols $[v,w]$, and quotient by the span of
+\[
+\begin{gathered}
+[v+v',w]-[v,w]-[v',w],\qquad [v,w+w']-[v,w]-[v,w'],\\
+[av,w]-a[v,w],\qquad [v,aw]-a[v,w]
+\end{gathered}
+\]
+for $a\in k$. The class of $[v,w]$ is $v\otimes w$, and sending
+$[v,w]$ to $b(v,w)$ proves the universal property. It also shows that any
+two tensor products are uniquely isomorphic in a way preserving pure
+tensors.
 \end{definition}
 
 \begin{definition}[Finite-dimensional duality, trace, and dimension]
@@ -862,7 +875,17 @@ The \emph{tangent space} $T_pM$ is the vector space of derivations
 $v:C^\infty(M)\to\R$ at $p$, satisfying
 $v(fg)=f(p)v(g)+g(p)v(f)$. The \emph{cotangent space} is
 $T_p^*M=(T_pM)^*$. The differential of $F:M\to N$ is
-$dF_p(v)(f)=v(f\circ F)$.
+$dF_p(v)(f)=v(f\circ F)$. The disjoint union
+$TM=\coprod_{p\in M}T_pM$ has a canonical smooth vector-bundle structure:
+if $x=(x^1,\ldots,x^n)$ is a coordinate chart on $U$, its bundle chart is
+\[
+TM|_U\longrightarrow x(U)\times\R^n,
+\qquad
+v\in T_pM\longmapsto
+\bigl(x(p),v(x^1),\ldots,v(x^n)\bigr).
+\]
+The chain rule makes the transition maps smooth and fiberwise linear. The
+dual bundle charts similarly define the cotangent bundle $T^*M$.
 \end{definition}
 
 \begin{exercise}[Intrinsic tangent vectors]
@@ -1054,12 +1077,16 @@ and pullbacks.
 
 \begin{definition}[Symplectic manifolds and dynamics]
 A \emph{symplectic form} on a manifold $M$ is a closed, nondegenerate
-two-form $\omega$. Darboux's theorem states that every point has local
-coordinates in which $\omega$ is the standard form $\omega_0$. The
-\emph{Hamiltonian vector field} of $H\in C^\infty(M)$ is defined by
+two-form $\omega$. The \emph{Hamiltonian vector field} of
+$H\in C^\infty(M)$ is defined by
 $\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}, and the
 \emph{Poisson bracket} is $\{f,g\}=\omega(X_f,X_g)$.
 \end{definition}
+
+\begin{theorem}[Darboux; used without proof]
+Every point of a symplectic manifold has local coordinates in which
+$\omega$ is the standard symplectic form $\omega_0$.
+\end{theorem}
 
 \begin{definition}[Configuration and phase spaces]
 A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
@@ -1414,14 +1441,33 @@ one-form $J$, Maxwell's equations are
 \[
 dF=0,\qquad d{*F}=\mu_0{*J}.
 \]
+For the SI vector decomposition on Minkowski spacetime, fix
+\[
+(x^0,x^1,x^2,x^3)=(ct,x,y,z),\qquad
+g=-(dx^0)^2+dx^2+dy^2+dz^2,
+\]
+with orientation $dx^0\wedge dx\wedge dy\wedge dz$, and set
+\[
+\begin{aligned}
+F={}&\frac1c\,dx^0\wedge(E_x\,dx+E_y\,dy+E_z\,dz)\\
+&{}-(B_x\,dy\wedge dz+B_y\,dz\wedge dx+B_z\,dx\wedge dy),\\
+J={}&c\rho\,dx^0-j_x\,dx-j_y\,dy-j_z\,dz.
+\end{aligned}
+\]
+With these sign conventions, the force law for a particle of charge $q$ and
+four-velocity $u$ is $m\nabla_u u=q(\iota_uF)^\sharp$.
 \end{definition}
 
 \begin{exercise}[Maxwell theory and electromagnetic waves]
-Derive charge conservation from Maxwell's equations. On Minkowski
-spacetime, recover the electric and magnetic vector equations and the Lorentz
-force from $F$. In vacuum, impose Lorenz gauge and derive wave equations with
-speed $c$. Prove transverse polarization and compare the predicted relation
-$c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
+Derive charge conservation from Maxwell's equations. Using the stated
+Minkowski conventions, recover the electric and magnetic vector equations
+and verify that the covariant force law reduces to
+$q(\mathbf E+\mathbf v\times\mathbf B)$. Define the experimentally measured
+vacuum permittivity $\varepsilon_0$ by the electrostatic Gauss law
+$\nabla\cdot\mathbf E=\rho/\varepsilon_0$; comparison with the covariant
+equation should give $\mu_0\varepsilon_0c^2=1$. In vacuum, impose Lorenz
+gauge and derive wave equations with speed $c$. Prove transverse polarization
+and compare $c=(\mu_0\varepsilon_0)^{-1/2}$ with the measured speed of light.
 \end{exercise}
 
 \begin{exercise}[Yang--Mills equations and instantons]
@@ -1536,8 +1582,8 @@ relations of quantum mechanics.
 \begin{definition}[Haar measure and convolution]
 Let $G$ be a locally compact Hausdorff group. A \emph{left Haar measure} is
 a nonzero regular Borel measure $\mu$ satisfying
-$\mu(gE)=\mu(E)$. Haar's theorem gives such a measure, unique up to a
-positive scalar; on a compact group normalize it by $\mu(G)=1$. For
+$\mu(gE)=\mu(E)$. On a compact group, a Haar measure may be normalized by
+$\mu(G)=1$. For
 $f,g\in C_c(G)$, define
 \[
 (f*g)(x)=\int_G f(y)g(y^{-1}x)\,d\mu(y).
@@ -1545,6 +1591,11 @@ $f,g\in C_c(G)$, define
 The \emph{left regular representation} on $L^2(G)$ is
 $(\lambda_gf)(x)=f(g^{-1}x)$.
 \end{definition}
+
+\begin{theorem}[Haar; used without proof]
+Every locally compact Hausdorff group has a left Haar measure, unique up to
+multiplication by a positive scalar.
+\end{theorem}
 
 \begin{exercise}[Haar measure and the regular representation]
 Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$. Construct
@@ -1831,17 +1882,21 @@ For $f\in C_c^\infty(K\backslash G/K)$, its \emph{spherical transform} is
 \]
 Harish-Chandra's $c$-function is the coefficient governing the leading
 asymptotics of $\varphi_\lambda(\exp H)$ as
-$H\to\infty$ in a positive chamber.  With compatible Haar and Lebesgue
-normalizations, spherical Plancherel and inversion have the form
+$H\to\infty$ in a positive chamber.
+\end{definition}
+
+\begin{theorem}[Spherical Plancherel and inversion; used without proof]
+With compatible Haar and Lebesgue normalizations, the spherical transform
+satisfies
 \[
 \|f\|_2^2
 =C_G\int_{\mathfrak a^*/W}
  |\widetilde f(\lambda)|^2|c(\lambda)|^{-2}\,d\lambda,
 \]
-with the corresponding inverse integral.  Thus $|c(\lambda)|^{-2}$ is the
+with the corresponding inverse integral. Thus $|c(\lambda)|^{-2}$ is the
 curvature- and root-dependent density replacing the dimension weights in
 the Peter--Weyl sum.
-\end{definition}
+\end{theorem}
 
 \begin{exercise}[Harish-Chandra transform on $\mathbb H^2$]
 For the sign convention in which the Laplace--Beltrami operator is
@@ -2666,26 +2721,37 @@ algebra and a faithful state determine its own equilibrium flow?  Modular
 theory answers yes; cyclicity and separation are the vector-state form of
 the needed faithfulness.
 
-\begin{definition}[Cyclic and separating vectors; modular theory]
+\begin{definition}[Cyclic and separating vectors]
 For $M\subseteq B(H)$, a vector $\Omega$ is \emph{cyclic} if
 $\overline{M\Omega}=H$ and \emph{separating} if $a\Omega=0$ implies $a=0$.
-For such a pair $(M,\Omega)$, the antilinear operator
-$S_0(a\Omega)=a^*\Omega$ is closable. Write the polar decomposition of its
-closure as $S=J\Delta^{1/2}$. The positive operator $\Delta$ is the
-\emph{modular operator}, and Tomita--Takesaki modular flow is
-\[
-\sigma_t^\Omega(a)=\Delta^{it}a\Delta^{-it}\in M.
-\]
-For a faithful density operator $\rho$ on $H$, this flow on $B(H)$ is
-$\sigma_t^\rho(a)=\rho^{it}a\rho^{-it}$, and
-$K_\rho=-\log\rho$ is its \emph{modular Hamiltonian}. A state $\varphi$ is
-\emph{$\beta$-KMS} for a flow $\alpha_t$ if, with the present sign
-convention and for analytic $a,b$,
+For such a pair $(M,\Omega)$, define the densely defined antilinear operator
+$S_0(a\Omega)=a^*\Omega$.
+\end{definition}
+
+\begin{definition}[KMS states]
+With the present sign convention, a state $\varphi$ is
+\emph{$\beta$-KMS} for a flow $\alpha_t$ if, for analytic $a,b$,
 \[
 \varphi(a\alpha_{t-i\beta}(b))=\varphi(\alpha_t(b)a).
 \]
-The vector state of $\Omega$ is $1$-KMS for its modular flow.
 \end{definition}
+
+\begin{theorem}[Tomita--Takesaki; used without proof]
+The operator $S_0$ is closable. Write the polar decomposition of its closure
+as $S=J\Delta^{1/2}$. Then
+\[
+\Delta^{it}M\Delta^{-it}=M,
+\qquad
+\sigma_t^\Omega(a)=\Delta^{it}a\Delta^{-it}
+\]
+defines an automorphism group of $M$. The positive operator $\Delta$ is the
+\emph{modular operator}, and $\sigma^\Omega$ is the \emph{modular flow}.
+The vector state of $\Omega$ is $1$-KMS for this flow.
+\end{theorem}
+
+For a faithful density operator $\rho$ on $H$, modular flow on $B(H)$ is
+$\sigma_t^\rho(a)=\rho^{it}a\rho^{-it}$, and
+$K_\rho=-\log\rho$ is its \emph{modular Hamiltonian}.
 
 \begin{exercise}[Bisognano--Wichmann flow and its experimental limit]
 Let $W_R=\{x:x^1>|x^0|\}$ be the right Rindler wedge of Minkowski space,
@@ -3307,9 +3373,18 @@ unital completely positive map on observables in the adjoint picture.
 \begin{exercise}[Stinespring and Kraus representations]
 Prove that a unital completely positive map $\Phi:A\to B(H)$ has a
 representation
-$\Phi(a)=V^*\pi(a)V$. In finite dimensions, derive a Kraus representation
-$\Phi(a)=\sum_iK_i^*aK_i$ and its normalization. Prove that every channel is
-unitary evolution on a larger system followed by discarding an environment.
+$\Phi(a)=V^*\pi(a)V$. In finite dimensions, when $\Phi=\mathcal N^*$ is the
+Heisenberg adjoint of a Schr\"odinger-picture channel $\mathcal N$, derive
+the paired Kraus formulas
+\[
+\mathcal N(\rho)=\sum_iK_i\rho K_i^*,
+\qquad
+\Phi(a)=\sum_iK_i^*aK_i,
+\qquad
+\sum_iK_i^*K_i=1.
+\]
+Prove that every channel is unitary evolution on a larger system followed by
+discarding an environment.
 Use the bimodule identity to prove that every conditional expectation
 introduced earlier is completely positive.
 For a finite POVM $(E_x)_x$, prove that
@@ -3363,11 +3438,13 @@ V_t|1\rangle&=\sqrt{\eta_t}\,|1\rangle|0\rangle_E
 \qquad \eta_t=e^{-t/T_1}.
 \end{aligned}
 \]
-Trace out the environment and derive
+In the Schr\"odinger picture, trace out the environment and derive
 \[
 K_0=|0\rangle\langle0|+\sqrt{\eta_t}|1\rangle\langle1|,
 \qquad
-K_1=\sqrt{1-\eta_t}|0\rangle\langle1|.
+K_1=\sqrt{1-\eta_t}|0\rangle\langle1|,
+\qquad
+\mathcal N_t(\rho)=K_0\rho K_0^*+K_1\rho K_1^*.
 \]
 Prove complete positivity, trace preservation, and the semigroup law.
 Derive $\rho_{11}(t)=e^{-t/T_1}\rho_{11}(0)$ and
@@ -4235,11 +4312,15 @@ $\delta\phi=\phi\partial$, and its cohomology is $H^n(X;R)$.
 For a smooth manifold $M$, integration over smooth singular simplices sends
 a form $\omega$ to the cochain
 $\sigma\mapsto\int_{\Delta^k}\sigma^*\omega$. Stokes' theorem makes this a
-cochain map. The de Rham theorem states that it induces a natural
-isomorphism of graded rings
+cochain map.
+
+\begin{theorem}[de Rham; used without proof]
+Integration over smooth singular simplices induces a natural isomorphism of
+graded rings
 \[
 H_{\mathrm{dR}}^*(M)\cong H^*(M;\R).
 \]
+\end{theorem}
 
 Ordinary cohomology detects fluxes and characteristic classes, but stable
 band theory asks a more specific question: what remains after trivial bands
@@ -4685,6 +4766,11 @@ Exercise~\ref{ex:yang-mills-instantons}, its \emph{instanton number} is
 \[
 k=-\frac{1}{8\pi^2}\int_M\Tr(F_A\wedge F_A)\in\Z.
 \]
+With the Chern--Weil convention
+$\operatorname{ch}(E)=\Tr\exp(iF_A/2\pi)$ used above,
+$k=\int_M\operatorname{ch}_2(E)$. Thus for an $SU(r)$ bundle,
+$\operatorname{ch}_2(E)=-c_2(E)$; conventions that call
+$\int_Mc_2(E)$ the instanton charge use the opposite sign.
 \end{definition}
 
 \begin{exercise}[Fermion chirality detects instanton number]
@@ -5374,7 +5460,9 @@ every $E_a^*E_b$ is supported on fewer than $L$ edges, prove that
 \[
 PE_a^*E_bP\in\C P=\mathcal A_{\rm log}'
 \]
-and hence verify the exact OAQEC condition for $\mathcal A_{\rm log}$.
+where, as in the definition of protected observable algebras, the prime is
+taken inside the code corner $PB(\mathcal H)P$, and hence verify the exact
+OAQEC condition for $\mathcal A_{\rm log}$.
 Deduce in particular that the toric code corrects arbitrary errors on at most
 $\lfloor(L-1)/2\rfloor$ edges.
 
