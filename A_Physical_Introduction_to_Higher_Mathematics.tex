@@ -3026,6 +3026,182 @@ Identify missing or misassigned levels and an inaccurate unfolding function
 as experimental effects that can imitate deviations from universality.
 \end{exercise}
 
+\subsection{Bulk and edge universality}
+
+The GUE calculation above is exact because unitary invariance converts its
+eigenvalues into a determinantal point process.  Universality is the much
+stronger assertion that the same microscopic limits survive after Gaussian
+entries and unitary invariance are removed.  The matrix does not become
+Gaussian: only selected local eigenvalue statistics forget the entry
+distribution.
+
+\begin{definition}[Global, bulk, and edge scales]
+Order the eigenvalues of a Wigner matrix as
+$\lambda_1\leq\cdots\leq\lambda_N$, and let
+\[
+ \rho_{\rm sc}(x)=\frac1{2\pi\sigma^2}
+ \sqrt{4\sigma^2-x^2}\,
+ \mathbf1_{[-2\sigma,2\sigma]}(x).
+\]
+The \emph{classical location} $\gamma_j$ is defined by
+\[
+ \frac jN=\int_{-2\sigma}^{\gamma_j}\rho_{\rm sc}(x)\,dx.
+\]
+The semicircle law is a \emph{global law}: it concerns intervals containing
+order $N$ eigenvalues.  At a bulk energy
+$E\in(-2\sigma,2\sigma)$, the microscopic coordinate is
+\[
+ u=N\rho_{\rm sc}(E)(\lambda-E),
+\]
+so the mean spacing is normalized to one.  At the upper edge the density
+vanishes as a square root and the microscopic coordinate is
+\[
+ \xi=\frac{N^{2/3}}{\sigma}(\lambda-2\sigma).
+\]
+Bulk and edge universality concern the limiting point processes in these
+coordinates, not merely convergence of the empirical measure.
+\end{definition}
+
+\begin{exercise}[Deriving the microscopic scales]
+At a bulk point $E$, use the expected count
+$N\rho_{\rm sc}(E)\,dE$ to derive the spacing scale
+$[N\rho_{\rm sc}(E)]^{-1}$.  Next put $x=2\sigma-s$ and show
+\[
+ \rho_{\rm sc}(2\sigma-s)
+ \sim\frac1{\pi\sigma^{3/2}}\sqrt{s}
+ \qquad(s\downarrow0).
+\]
+Estimate the expected number of eigenvalues in
+$[2\sigma-s,2\sigma]$ and show that it becomes order one when
+$s$ is of order $\sigma N^{-2/3}$.  Explain why a single rescaling cannot
+describe both the bulk and the edge.
+\end{exercise}
+
+\begin{theorem}[Bulk GUE universality; used without proof]
+Let $H_N$ be a genuinely complex Hermitian Wigner ensemble satisfying the
+moment assumptions above and the standard nondegeneracy hypotheses.  Fix
+$E\in(-2\sigma,2\sigma)$.  Its local eigenvalue process, rescaled by
+$N\rho_{\rm sc}(E)$, converges in the sense of smooth compactly supported
+test functions to the GUE sine process.  When the $k$-point correlation
+density $\rho_N^{(k)}$ exists, this says
+\[
+ \begin{aligned}
+ &\frac1{[N\rho_{\rm sc}(E)]^k}
+ \rho_N^{(k)}\left(
+ E+\frac{u_1}{N\rho_{\rm sc}(E)},\ldots,
+ E+\frac{u_k}{N\rho_{\rm sc}(E)}\right)\\
+ &\hspace{4em}\longrightarrow
+ \det\!\left[K_{\sin}(u_a,u_b)\right]_{a,b=1}^k .
+ \end{aligned}                                      \tag{BU}
+\]
+For discrete entry laws, the same statement is formulated using correlation
+measures or observables of consecutive gaps.  The corresponding real
+symmetric limit is GOE rather than GUE.  Thus the symmetry index $\beta$,
+not Gaussianity of the entries, determines the bulk limit.
+
+This theorem is a deep input.  A broad version is proved in
+\href{https://doi.org/10.1007/s00440-011-0390-3}
+{Erd\H{o}s--Yau--Yin, \emph{Probability Theory and Related Fields}
+\textbf{154} (2012)}.
+\end{theorem}
+
+The proof has three conceptual layers.  First, a \emph{local semicircle law}
+controls
+\[
+ G_N(z)=\frac1N\Tr(z-H_N)^{-1}
+\]
+even when $\operatorname{Im}z$ is only slightly larger than $N^{-1}$; this
+implies eigenvalue rigidity near the classical locations.  Second, adding a
+tiny Gaussian matrix evolves the eigenvalues by Dyson Brownian motion, whose
+local statistics rapidly relax to the appropriate Gaussian ensemble.
+Third, a resolvent comparison removes the small Gaussian component.  This
+explains the mechanism without pretending that the estimates needed for a
+proof follow from the elementary moment calculation of the semicircle law.
+
+\begin{definition}[Airy kernel and the Tracy--Widom law]
+Let $\operatorname{Ai}$ be the solution of
+$y''=xy$ that decays as $x\to+\infty$.  The \emph{Airy kernel} is
+\[
+ K_{\rm Ai}(x,y)
+ =\frac{\operatorname{Ai}(x)\operatorname{Ai}'(y)
+       -\operatorname{Ai}'(x)\operatorname{Ai}(y)}
+       {x-y},
+\]
+with the diagonal defined by continuity.  It determines the Airy
+determinantal point process at the soft edge.  The GUE Tracy--Widom
+distribution is
+\[
+ F_2(s)=\det\!\left(I-K_{\rm Ai}\right)_{L^2(s,\infty)},
+\]
+where the right side is the Fredholm determinant of the Airy integral
+operator.  This formula is taken as a definition here; its analysis requires
+more operator theory than the present section develops.
+\end{definition}
+
+\begin{theorem}[Edge universality; used without proof]
+Under the Wigner hypotheses above,
+\[
+ \frac{N^{2/3}}{\sigma}
+ \bigl(\lambda_N-2\sigma\bigr)
+ \ \xrightarrow{\ d\ }\ \chi_2,
+ \qquad
+ \Pr(\chi_2\leq s)=F_2(s)
+                                                        \tag{EU}
+\]
+for the complex Hermitian symmetry class.  More strongly, the joint process
+of the top eigenvalues converges to the Airy point process.  The lower edge is
+analogous, while the real and quaternionic classes have the
+Tracy--Widom laws $F_1$ and $F_4$.  The Airy-kernel formula was obtained by
+\href{https://doi.org/10.1007/BF02100489}
+{Tracy and Widom, \emph{Communications in Mathematical Physics}
+\textbf{159} (1994)}; edge universality for Wigner matrices was established,
+under successively weakened hypotheses, beginning with
+\href{https://doi.org/10.1007/s002200050743}
+{Soshnikov, \emph{Communications in Mathematical Physics}
+\textbf{207} (1999)}.
+\end{theorem}
+
+\begin{exercise}[The Airy diagonal]
+Use the Airy equation and l'H\^opital's rule to show
+\[
+ K_{\rm Ai}(x,x)
+ =\operatorname{Ai}'(x)^2-x\operatorname{Ai}(x)^2.
+\]
+For a determinantal point process, the integral of the diagonal kernel over
+an interval is the expected number of points there.  Interpret
+\[
+ \int_s^\infty K_{\rm Ai}(x,x)\,dx
+\]
+as the expected number of rescaled edge eigenvalues above $s$.  Explain why
+this contains information that the semicircle density, which vanishes at
+the edge, cannot resolve.
+\end{exercise}
+
+\begin{exercise}[A global law does not determine local statistics]
+Let $D_N$ be the deterministic diagonal matrix with entries
+$\gamma_1,\ldots,\gamma_N$.  Prove from Riemann sums that its empirical
+spectral measure converges to the same semicircle law as a Wigner matrix.
+For indices $j/N\to\alpha\in(0,1)$, use the inverse function theorem to show
+\[
+ N\rho_{\rm sc}(\gamma_j)
+   (\gamma_{j+1}-\gamma_j)\longrightarrow1.
+\]
+Thus the unfolded spectrum of $D_N$ approaches a rigid clock, whereas GUE
+has the random sine process and level repulsion.  Identify precisely why
+the moment proof of the global semicircle law cannot distinguish these
+local behaviors.
+\end{exercise}
+
+Universality therefore has a definite domain, not a claim that every large
+Hamiltonian is described by GUE.  Exact symmetry sectors must still be
+separated; time-reversal symmetry changes $\beta$; integrable or localized
+systems commonly have Poisson rather than Wigner--Dyson statistics; and
+sparse, banded, or heavy-tailed ensembles can require different hypotheses
+or exhibit crossovers.  Within the mean-field Wigner class, however, (BU)
+and (EU) make precise the physical statement that microscopic spectral
+fluctuations depend chiefly on symmetry and spectral location, not on the
+detailed distribution of matrix entries.
+
 \section{Quantum Information Theory}
 
 \begin{observations}
