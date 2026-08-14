@@ -184,7 +184,7 @@ Show that an orthonormal family $(e_j)$ is complete exactly when
 $\|x\|^2=\sum_j|\langle e_j,x\rangle|^2$ for every $x\in H$.
 \end{exercise}
 
-\section{\texorpdfstring{$C^*$-Algebras and Spectral Theory}{C*-Algebras and Spectral Theory}}
+\section{\texorpdfstring{$C^*$-Algebras and Functional Calculus}{C*-Algebras and Functional Calculus}}
 
 \subsection{\texorpdfstring{$C^*$-algebras, spectrum, and positivity}{C*-algebras, spectrum, and positivity}}
 
@@ -219,18 +219,18 @@ $\spec_A(a)\subseteq[0,\infty)$.
 \subsection{Commutative Gelfand theory and functional calculus}
 
 \begin{definition}[Gelfand spectrum]
-For a unital commutative $C^*$-algebra $A$, let $\widehat A$ be the space of
+For a commutative $C^*$-algebra $A$, let $\widehat A$ be the space of
 nonzero homomorphisms $\chi:A\to\C$ with its weak-* topology.  The
 \emph{Gelfand transform} is
 \[
-\Gamma:A\longrightarrow C(\widehat A),
+\Gamma:A\longrightarrow C_0(\widehat A),
 \qquad \Gamma(a)(\chi)=\chi(a).
 \]
 \end{definition}
 
 \begin{exercise}[Gelfand duality and continuous functional calculus]
-Prove that $\widehat A$ is compact and that the Gelfand transform is an
-isometric $*$-isomorphism, including
+Prove that $\widehat A$ is locally compact, compact when $A$ is unital, and
+that the Gelfand transform is an isometric $*$-isomorphism.  Prove
 surjectivity by the Stone--Weierstrass theorem.  Show that unital $*$-homomorphisms
 $C(X)\to C(Y)$ are contravariantly induced by continuous maps $Y\to X$.
 For every normal element $a$ of a unital $C^*$-algebra, prove that there is
@@ -244,66 +244,6 @@ sending the coordinate function to $a$, and prove
 \overline f(a)=f(a)^*,\qquad
 \spec(f(a))=f(\spec(a)).
 \]
-\end{exercise}
-
-\subsection{Bounded normal and unbounded self-adjoint operators}
-
-\begin{definition}[Projection-valued measures]
-A \emph{projection-valued measure} on a measurable space $X$ assigns an
-orthogonal projection $E(B)$ to each measurable set $B\subseteq X$, is countably
-additive in the strong operator topology, and satisfies
-$E(X)=I$.
-\end{definition}
-
-\begin{exercise}[Bounded normal spectral theorem]
-For every normal $T\in B(H)$, prove that there is a unique projection-valued
-measure $E_T$ on $\spec(T)$ satisfying
-\[
-T=\int_{\spec(T)}z\,dE_T(z),
-\qquad
-f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
-\]
-\end{exercise}
-
-\begin{definition}[Unbounded self-adjoint operators]
-An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
-domain.  Its adjoint has domain
-\[
-\mathcal D(A^*)=
-\{y\in H:x\mapsto\langle y,Ax\rangle
-\text{ is bounded on }\mathcal D(A)\}.
-\]
-For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
-$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
-$x\in\mathcal D(A)$.
-It is \emph{self-adjoint} when $A=A^*$, including equality of domains, and
-\emph{closed} when its graph is closed in $H\oplus H$.
-\end{definition}
-
-\begin{exercise}[Unbounded spectral theorem and Stone's theorem]
-For every self-adjoint operator $A$, prove that there is a unique
-projection-valued measure $E_A$ on $\R$ satisfying
-\[
-A=\int_\R\lambda\,dE_A(\lambda),\qquad
-\mathcal D(A)=
-\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
-\]
-Define $f(A)=\int f(\lambda)\,dE_A(\lambda)$ on its natural domain.  Prove
-that $e^{-itA}$ is a strongly continuous unitary group and that every
-strongly continuous one-parameter unitary group has a unique self-adjoint
-generator.
-\end{exercise}
-
-\begin{exercise}[Spectral lines and time evolution]
-\label{ex:spectral-lines}
-If $A\psi_n=\lambda_n\psi_n$ and an observable $B$ has matrix elements
-$B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
-\[
-\langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
-=e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
-\]
-Extend the calculation from pure point spectrum to the projection-valued
-spectral measure.
 \end{exercise}
 
 \section{Von Neumann Algebras}
@@ -344,8 +284,7 @@ M\mathbin{\overline\otimes}N=(M\odot N)''\subseteq B(H\otimes K).
 Prove that the strong and weak operator closures of every nondegenerate
 $*$-subalgebra $A\subseteq B(H)$ equal $A''$.  Prove that $M\cong(M_*)^*$
 isometrically and that the induced weak-$*$ topology is the ultraweak
-operator topology.  Prove that a von Neumann algebra contains the spectral
-projections of each of its self-adjoint elements.
+operator topology.
 \end{exercise}
 
 \section{Operator Spaces}
@@ -392,6 +331,14 @@ the operator-space structure dual to $M$.
 \end{exercise}
 
 \section{Group Operator Algebras}
+
+\begin{definition}[Pontryagin dual]
+For a locally compact abelian group $G$, its \emph{Pontryagin dual} is
+\[
+\widehat G=\{\chi:G\to\T:\chi\text{ is a continuous homomorphism}\}
+\]
+with pointwise multiplication and the compact-open topology.
+\end{definition}
 
 \begin{definition}[Full and reduced group $C^*$-algebras]
 Let $G$ be a locally compact group with left Haar measure and modular
@@ -506,6 +453,100 @@ Prove that the three completely bounded norms equal the infimum of
 $\|\xi\|_\infty\|\eta\|_\infty$ over all such factorizations.  If $\phi$ is
 positive definite and $\phi(e)=1$, prove that $M_\phi$ and $S_\phi$ are
 unital completely positive.
+\end{exercise}
+
+\section{Spectral Theorems from Harmonic Analysis}
+
+\begin{definition}[Projection-valued measures]
+A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
+from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
+\[
+E(\varnothing)=0,\qquad E(X)=I,
+\qquad
+E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
+=\sum_{j=1}^\infty E(B_j)
+\]
+for pairwise disjoint measurable sets, where the sum converges in the strong
+operator topology.  The spectral integral $\int_X f\,dE$ for bounded
+measurable $f$ is defined by uniform approximation from simple functions.
+\end{definition}
+
+\begin{exercise}[Representations of \texorpdfstring{$C_0(X)$}{C0(X)} and the SNAG theorem]
+Let $X$ be locally compact Hausdorff.  Prove that every nondegenerate
+$*$-representation $\pi:C_0(X)\to B(H)$ has a unique regular
+projection-valued measure $E_\pi$ satisfying
+\[
+\pi(f)=\int_X f(x)\,dE_\pi(x),
+\qquad f\in C_0(X).
+\]
+Let $G$ be locally compact abelian.  Use
+$C^*(G)\cong C_0(\widehat G)$ to prove the SNAG theorem: every strongly
+continuous unitary representation $U:G\to U(H)$ has a unique
+projection-valued measure $E_U$ on $\widehat G$ satisfying
+\[
+U_s=\int_{\widehat G}\chi(s)\,dE_U(\chi),
+\qquad s\in G.
+\]
+\end{exercise}
+
+\begin{exercise}[Bounded normal spectral theorem]
+For a normal operator $T\in B(H)$, apply the preceding representation
+theorem to the continuous functional calculus
+$C(\spec(T))\to B(H)$ and prove that there is a unique projection-valued
+measure $E_T$ on $\spec(T)$ satisfying
+\[
+T=\int_{\spec(T)}z\,dE_T(z),
+\qquad
+f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
+\]
+\end{exercise}
+
+\begin{definition}[Unbounded self-adjoint operators]
+An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
+domain.  Its adjoint has domain
+\[
+\mathcal D(A^*)=
+\{y\in H:x\mapsto\langle y,Ax\rangle
+\text{ is bounded on }\mathcal D(A)\}.
+\]
+For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
+$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
+$x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
+including equality of domains, and \emph{closed} when its graph is closed
+in $H\oplus H$.
+\end{definition}
+
+\begin{exercise}[Unbounded spectral theorem and Stone's theorem]
+For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
+$\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
+\[
+C_A=(A-iI)(A+iI)^{-1}
+\]
+is unitary with $\ker(I-C_A)=0$.  Apply the bounded normal spectral theorem
+to $C_A$ and the inverse Cayley map to prove that there is a unique
+projection-valued measure $E_A$ on $\R$ satisfying
+\[
+A=\int_\R\lambda\,dE_A(\lambda),\qquad
+\mathcal D(A)=
+\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
+\]
+Use $E_A$ to prove that $e^{-itA}$ is a strongly continuous unitary group.
+Under $\widehat\R\cong\R$, with
+$\lambda\mapsto(t\mapsto e^{-it\lambda})$, apply the SNAG theorem to prove
+that every strongly continuous one-parameter unitary group has a unique
+self-adjoint generator.
+\end{exercise}
+
+\begin{exercise}[Spectral lines and time evolution]
+\label{ex:spectral-lines}
+If $A\psi_n=\lambda_n\psi_n$ and an observable $B$ has matrix elements
+$B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
+\[
+\langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
+=e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
+\]
+Extend the calculation from pure point spectrum to the projection-valued
+spectral measure.
 \end{exercise}
 
 \part{Symmetry and Applications}
