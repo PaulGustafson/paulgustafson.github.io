@@ -611,12 +611,110 @@ Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
 continuous irreducible unitary representation of
 $\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
 $\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
-For $V=\R^n$ and $\lambda=1/\hbar$, differentiate the translation and
-modulation subgroups and prove
+\end{exercise}
+
+\subsection{Weyl quantization}
+
+\begin{definition}[Weyl quantization]
+For $a\in\mathcal S(\R^{2n})$, define
+$\operatorname{Op}_\hbar^W(a):\mathcal S(\R^n)\to\mathcal S(\R^n)$ by
 \[
-[Q_j,P_k]=i\hbar\delta_{jk}I
+\bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
+=\frac{1}{(2\pi\hbar)^n}
+\int_{\R^n\times\R^n}
+e^{i(x-y)\cdot p/\hbar}
+a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
 \]
-on the Schwartz core.
+For polynomial symbols, use the same formula as an oscillatory integral on
+$\mathcal S(\R^n)$.
+For the coordinate functions $q_j$ and $p_j$, set
+\[
+Q_j=\operatorname{Op}_\hbar^W(q_j),
+\qquad P_j=\operatorname{Op}_\hbar^W(p_j).
+\]
+The canonical Poisson bracket on $\R^{2n}$ is
+\[
+\{a,b\}
+=\sum_{j=1}^n
+\left(
+\frac{\partial a}{\partial q_j}\frac{\partial b}{\partial p_j}
+-\frac{\partial a}{\partial p_j}\frac{\partial b}{\partial q_j}
+\right).
+\]
+\end{definition}
+
+\begin{definition}[Wigner distributions]
+For $\psi,\varphi\in\mathcal S(\R^n)$, define
+\[
+W_\hbar(\psi,\varphi)(q,p)
+=\frac{1}{(2\pi\hbar)^n}
+\int_{\R^n}e^{-ip\cdot y/\hbar}
+\overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
+\]
+Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
+\end{definition}
+
+\begin{exercise}[Weyl calculus and the Moyal product]
+Prove on $\mathcal S(\R^n)$ that
+\[
+Q_j\psi(x)=x_j\psi(x),
+\qquad P_j\psi(x)=-i\hbar\partial_j\psi(x),
+\qquad [Q_j,P_k]=i\hbar\delta_{jk}I.
+\]
+Derive the Weyl relations and recover the Schr\"odinger representation of
+the Heisenberg group.  Prove
+\[
+\operatorname{Op}_\hbar^W(a)^*
+=\operatorname{Op}_\hbar^W(\overline a),
+\qquad
+\|\operatorname{Op}_\hbar^W(a)\|_{\rm HS}
+=(2\pi\hbar)^{-n/2}\|a\|_2,
+\]
+and
+\[
+\langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
+=\int_{\R^{2n}}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
+\]
+Prove that for $a,b\in\mathcal S(\R^{2n})$ there is a unique
+$a\star_\hbar b\in\mathcal S(\R^{2n})$ satisfying
+\[
+\operatorname{Op}_\hbar^W(a\star_\hbar b)
+=\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
+\]
+Derive the oscillatory-integral formula for $\star_\hbar$ and prove
+\[
+a\star_\hbar b
+=ab+\frac{i\hbar}{2}\{a,b\}+O(\hbar^2),
+\qquad
+\frac{a\star_\hbar b-b\star_\hbar a}{i\hbar}
+=\{a,b\}+O(\hbar^2)
+\]
+in the Schwartz-symbol topology.
+\end{exercise}
+
+\begin{exercise}[Groenewold--van Hove obstruction]
+Prove that Weyl quantization carries Poisson brackets to
+$(i\hbar)^{-1}$ times commutators exactly for affine and quadratic
+polynomials.  Quantize $q^2p^2$ using
+\[
+q^2p^2=\frac19\{q^3,p^3\}
+=\frac13\{q^2p,qp^2\}
+\]
+and prove that there is no linear quantization of the polynomial Poisson
+algebra satisfying
+\[
+\mathcal Q(1)=I,\qquad
+\mathcal Q(q)=Q,\qquad
+\mathcal Q(p)=P,\qquad
+\mathcal Q(q^m)=Q^m,\qquad
+\mathcal Q(p^m)=P^m,
+\]
+together with
+\[
+\mathcal Q(\{f,g\})=(i\hbar)^{-1}
+[\mathcal Q(f),\mathcal Q(g)]
+\]
+on a common invariant domain.
 \end{exercise}
 
 \subsection{Heisenberg Plancherel theory}
@@ -2199,20 +2297,12 @@ $\varphi(ab)=\varphi(ba)$. Random Hermitian matrices form such spaces after
 combining expectation with the normalized trace.
 \end{definition}
 
-\subsection{Quantum mechanics and canonical quantization}
+\subsection{Quantum states and dynamics}
 
 \begin{definition}[Quantum states and observables]
-A positive operator $S$ has the coordinate-free trace
-\[
-\Tr S=\sup_P\operatorname{tr}
- \left((PSP)|_{PH}\right),
-\]
-where $P$ ranges over orthogonal projections with finite-dimensional image.
-A bounded operator $T$ is \emph{trace class} when
-$\Tr|T|<\infty$, where $|T|=(T^*T)^{1/2}$; its trace is obtained by linearity
-from the positive and negative parts of its real and imaginary parts. A
-\emph{density operator} is positive and trace class with $\Tr\rho=1$. An
-\emph{observable} is a self-adjoint operator $A$ with
+A \emph{density operator} on $H$ is a positive element
+$\rho\in S_1(H)$ with $\Tr\rho=1$.  An \emph{observable} is a self-adjoint
+operator $A$ with
 spectral measure $E_A$. The \emph{Born probability} of an event $B$ is
 $\Tr(\rho E_A(B))$. A closed-system \emph{unitary evolution} is
 $\rho(t)=U_t\rho(0)U_t^*$, where $(U_t)_{t\in\R}$ is a strongly continuous
@@ -2220,16 +2310,6 @@ one-parameter unitary group. For unbounded observables and generators,
 spectral measures, expectations, and exponentials use the earlier unbounded
 spectral calculus and its natural domains.
 \end{definition}
-
-\begin{exercise}[Canonical quantization and Weyl relations]
-On $\mathcal S(\R^n)\subset L^2(\R^n)$, set
-$Q_j\psi=x_j\psi$ and $P_j\psi=-i\hbar\partial_j\psi$. Prove
-$[Q_j,P_k]=i\hbar\delta_{jk}$ and derive the Weyl relations for their
-unitary groups. Using symmetric ordering, verify the
-Poisson-bracket--commutator rule for affine and quadratic observables.
-Compare different orderings of $q^2p^2$ and explain the
-Groenewold--van Hove obstruction to quantizing all observables by this rule.
-\end{exercise}
 
 \begin{exercise}[Quantized harmonic oscillator]
 \label{ex:quantum-oscillator}
