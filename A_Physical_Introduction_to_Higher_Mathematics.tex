@@ -490,85 +490,6 @@ kernel and its convolution law, and prove finite propagation speed for the
 one-dimensional wave equation.
 \end{exercise}
 
-\subsection{Time--bandwidth concentration and Slepian functions}
-
-\begin{definition}[Time and band limiting]
-On $L^2(\R)$, define the time-limiting and band-limiting projections by
-\[
-(Q_Tf)(x)=\mathbf1_{[-T,T]}(x)f(x),
-\qquad
-B_W=\mathcal F^{-1}\mathbf1_{[-W,W]}\mathcal F,
-\]
-where $T,W>0$.  The \emph{time--band concentration operator} is
-\[
-K_{T,W}=Q_TB_WQ_T.
-\]
-After identifying $Q_TL^2(\R)$ with $L^2([-T,T])$, its normalized
-eigenfunctions are the time-limited representatives of the \emph{prolate
-spheroidal wave functions}, also called \emph{Slepian functions}.  The
-dimensionless parameter $c=TW$ is the time--bandwidth product.
-\end{definition}
-
-\begin{exercise}[Optimal simultaneous concentration]
-Use Plancherel's theorem to prove that $Q_T$ and $B_W$ are orthogonal
-projections.  Starting from the Fourier-transform convention above, derive
-\[
-(K_{T,W}f)(x)
-=\int_{-T}^{T}\frac{\sin W(x-y)}{\pi(x-y)}f(y)\,dy,
-\qquad |x|\leq T,
-\]
-where the diagonal value of the kernel is $W/\pi$.  Prove that $K_{T,W}$
-is a positive compact self-adjoint contraction.  If its positive eigenvalues
-are $\lambda_0\geq\lambda_1\geq\cdots>0$, use the Rayleigh--Ritz principle
-to show
-\[
-\lambda_0
-=\sup_{\substack{f\ne0\\\supp f\subseteq[-T,T]}}
- \frac{\displaystyle\int_{-W}^{W}|\widehat f(\xi)|^2\,d\xi}
-      {\displaystyle\int_{\R}|f(x)|^2\,dx}.
-\]
-Show likewise that $B_WQ_TB_W$ has the same nonzero eigenvalues and that,
-for a band-limited eigenfunction $g_n$, $\lambda_n$ is the fraction of its
-energy lying in $[-T,T]$.  Thus successive eigenfunctions solve the optimal
-concentration problem subject to orthogonality to the preceding solutions.
-\end{exercise}
-
-\begin{exercise}[The prolate equation and the Shannon number]
-Rescale $x=Tt$ to $[-1,1]$ and write the concentration kernel as a function
-of $c=TW$.  Verify, by differentiating the kernel and integrating by parts,
-that its integral operator commutes with the Sturm--Liouville operator
-\[
-\mathcal L_c
-=-\frac{d}{dt}\left((1-t^2)\frac{d}{dt}\right)+c^2t^2.
-\]
-Conclude that the Slepian functions may be chosen to satisfy the prolate
-spheroidal equation
-\[
--\frac{d}{dt}\left((1-t^2)\psi_n'(t)\right)
- +c^2t^2\psi_n(t)=\chi_n\psi_n(t),
-\qquad -1<t<1,
-\]
-with the solutions bounded at the endpoints.  Recover the Legendre
-equation when $c=0$.
-
-Use the diagonal of the sinc kernel to prove the exact trace identity
-\[
-\sum_{n\geq0}\lambda_n
-=\operatorname{Tr}K_{T,W}=\frac{2TW}{\pi}.
-\]
-Deduce that at most $2TW/(\pi\alpha)$ mutually orthogonal modes can have
-concentration at least $\alpha$.  Interpret $2TW/\pi$ as the effective
-number of well-concentrated signal degrees of freedom available within the
-time and frequency windows; see
-\href{https://doi.org/10.1002/j.1538-7305.1961.tb03976.x}
-{Slepian--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
-Analysis and Uncertainty---I}} and
-\href{https://doi.org/10.1002/j.1538-7305.1961.tb03977.x}
-{Landau--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
-Analysis and Uncertainty---II}, Bell System Technical Journal
-\textbf{40} (1961)}.
-\end{exercise}
-
 \subsection{Spectral measures and unbounded operators}
 
 \begin{definition}[Projection-valued measures]
@@ -1965,6 +1886,130 @@ Rescaling the reference measure changes $S(\rho)$ by an additive constant,
 whereas $D(\rho\Vert\sigma)$ is independent of that normalization.
 \end{definition}
 
+\subsection{Time--bandwidth concentration and Gaussian channels}
+
+\begin{definition}[Time and band limiting]
+On $L^2(\R)$, define the time-limiting and band-limiting projections by
+\[
+(Q_Tf)(x)=\mathbf1_{[-T,T]}(x)f(x),
+\qquad
+B_W=\mathcal F^{-1}\mathbf1_{[-W,W]}\mathcal F,
+\]
+where $T,W>0$.  The \emph{time--band concentration operator} is
+\[
+K_{T,W}=Q_TB_WQ_T.
+\]
+After identifying $Q_TL^2(\R)$ with $L^2([-T,T])$, its normalized
+eigenfunctions are the time-limited representatives of the \emph{prolate
+spheroidal wave functions}, also called \emph{Slepian functions}.  The
+dimensionless parameter $c=TW$ is the time--bandwidth product.
+\end{definition}
+
+\begin{exercise}[Optimal simultaneous concentration]
+Use Plancherel's theorem to prove that $Q_T$ and $B_W$ are orthogonal
+projections.  Starting from the Fourier-transform convention in Spectral
+Theory, derive
+\[
+(K_{T,W}f)(x)
+=\int_{-T}^{T}\frac{\sin W(x-y)}{\pi(x-y)}f(y)\,dy,
+\qquad |x|\leq T,
+\]
+where the diagonal value of the kernel is $W/\pi$.  Prove that $K_{T,W}$
+is a positive compact self-adjoint contraction.  If its positive eigenvalues
+are $\lambda_0\geq\lambda_1\geq\cdots>0$, use the Rayleigh--Ritz principle
+to show
+\[
+\lambda_0
+=\sup_{\substack{f\ne0\\\supp f\subseteq[-T,T]}}
+ \frac{\displaystyle\int_{-W}^{W}|\widehat f(\xi)|^2\,d\xi}
+      {\displaystyle\int_{\R}|f(x)|^2\,dx}.
+\]
+Show likewise that $B_WQ_TB_W$ has the same nonzero eigenvalues and that,
+for a band-limited eigenfunction $g_n$, $\lambda_n$ is the fraction of its
+energy lying in $[-T,T]$.  Thus successive eigenfunctions solve the optimal
+concentration problem subject to orthogonality to the preceding solutions.
+\end{exercise}
+
+\begin{exercise}[The prolate equation and the Shannon number]
+Rescale $x=Tt$ to $[-1,1]$ and write the concentration kernel as a function
+of $c=TW$.  Verify, by differentiating the kernel and integrating by parts,
+that its integral operator commutes with the Sturm--Liouville operator
+\[
+\mathcal L_c
+=-\frac{d}{dt}\left((1-t^2)\frac{d}{dt}\right)+c^2t^2.
+\]
+Conclude that the Slepian functions may be chosen to satisfy the prolate
+spheroidal equation
+\[
+-\frac{d}{dt}\left((1-t^2)\psi_n'(t)\right)
+ +c^2t^2\psi_n(t)=\chi_n\psi_n(t),
+\qquad -1<t<1,
+\]
+with the solutions bounded at the endpoints.  Recover the Legendre
+equation when $c=0$.
+
+Use the diagonal of the sinc kernel to prove the exact trace identity
+\[
+\sum_{n\geq0}\lambda_n
+=\operatorname{Tr}K_{T,W}=\frac{2TW}{\pi}.
+\]
+Deduce that at most $2TW/(\pi\alpha)$ mutually orthogonal modes can have
+concentration at least $\alpha$.  Interpret $2TW/\pi$ as the effective
+number of well-concentrated signal degrees of freedom available within the
+time and frequency windows; see
+\href{https://doi.org/10.1002/j.1538-7305.1961.tb03976.x}
+{Slepian--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
+Analysis and Uncertainty---I}} and
+\href{https://doi.org/10.1002/j.1538-7305.1961.tb03977.x}
+{Landau--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
+Analysis and Uncertainty---II}, Bell System Technical Journal
+\textbf{40} (1961)}.
+\end{exercise}
+
+\begin{exercise}[Slepian modes and Gaussian channel capacity]
+Let
+\[
+A_{T,W}=B_WQ_T:Q_TL^2(\R)\longrightarrow B_WL^2(\R).
+\]
+Show that $A_{T,W}^*A_{T,W}=K_{T,W}$.  If $f_n$ is a normalized
+$\lambda_n$-eigenfunction of $K_{T,W}$, prove that
+$g_n=\lambda_n^{-1/2}A_{T,W}f_n$ is normalized, that the $g_n$ are mutually
+orthogonal, and that
+\[
+A_{T,W}f_n=\sqrt{\lambda_n}\,g_n.
+\]
+Thus the numbers $\sqrt{\lambda_n}$ are the singular gains of the
+time--bandwidth channel.
+
+Restrict to the first $N$ real modes and add independent Gaussian noise:
+\[
+Y_n=\sqrt{\lambda_n}\,X_n+Z_n,
+\qquad Z_n\sim\mathcal N(0,N_0),\qquad 0\leq n<N.
+\]
+For a real random vector with density $p$, write
+$h(p)=-\int p\log p$.  Prove nonnegativity of relative entropy for such
+densities from $\log u\leq u-1$, and use it to prove that a Gaussian
+maximizes $h$ among densities with fixed covariance.  Taking channel
+capacity to be the supremum of $I(X:Y)$, show that under the power constraint
+$\sum_n\mathbb E[X_n^2]\leq P$ it is, in nats per channel use,
+\[
+C_N(P)=\max_{\substack{p_n\geq0\\\sum_np_n\leq P}}
+ \frac12\sum_{n=0}^{N-1}
+ \log\left(1+\frac{\lambda_np_n}{N_0}\right).
+\]
+Show that independent centered Gaussian inputs attain the maximum and use
+Lagrange multipliers to obtain the water-filling allocation
+\[
+p_n=\left(\nu-\frac{N_0}{\lambda_n}\right)_+,
+\qquad \sum_np_n=P.
+\]
+Explain why $2TW/\pi=\sum_n\lambda_n$ estimates the number of useful modal
+channels, while capacity depends on the full eigenvalue distribution, the
+noise level, and the power constraint.
+\end{exercise}
+
+\subsection{Ergodic dynamics and equilibrium states}
+
 \begin{exercise}[From repeated samples to a shift]
 Let $\Omega=\{1,\ldots,r\}^{\Z}$ with product probabilities
 $p_1,\ldots,p_r$, and let $X_n(\omega)=\omega_n$.  Prove that the coordinate
@@ -1974,8 +2019,6 @@ preserves product measure.  Compute the Shannon entropy of
 $(X_0,\ldots,X_{N-1})$ and divide by $N$.  This converts repeated sampling
 into the dynamical system defined next.
 \end{exercise}
-
-\subsection{Ergodic dynamics and equilibrium states}
 
 \begin{definition}[Ergodic dynamics and dynamical entropy]
 A measurable transformation $T$ of a probability space is
