@@ -56,778 +56,418 @@
 \endgroup
 \clearpage
 
-\part{Operator Harmonic Analysis}
+\part{Operator Analysis and Harmonic Analysis}
 
-This opening part uses Hilbert spaces, bounded operators, and unitary
-representations as working language.  Their linear-algebraic and analytic
-foundations are developed systematically in the next part.  The point here is
-to expose the main spine immediately: symmetry turns scalar Fourier
-coefficients into operators, phase space produces the Heisenberg group, and
-completion in different operator topologies produces group $C^*$-algebras
-and von Neumann algebras.
+This part takes the shortest route from linear superposition to
+noncommutative Fourier analysis.  It records only the analytic structure
+needed later: Hilbert spaces, operator algebras and their spectra, Fourier
+analysis, and the Heisenberg representation of phase space.
 
-\section{Compact Groups and Operator-Valued Fourier Analysis}
+\section{Linear and Hilbert Spaces}
 
-\subsection{Peter--Weyl theory for compact groups}
-
-\begin{definition}[Compact symmetry data]
-Let $G$ be a compact Hausdorff group with normalized Haar measure $dg$.  A
-\emph{unitary representation} of $G$ is a continuous homomorphism
-$\pi:G\to U(H_\pi)$.  It is \emph{irreducible} when it has no proper nonzero
-closed invariant subspace.  Write $\widehat G$ for the unitary-equivalence
-classes of irreducible unitary representations.  For compact $G$, every
-irreducible representation is finite-dimensional.
-
-If $\xi,\eta\in H_\pi$, the function
-$g\mapsto\langle\xi,\pi(g)\eta\rangle$ is a \emph{matrix coefficient} of
-$\pi$.  The left and right regular representations on $L^2(G)$ are
+\begin{definition}[Linear spaces and maps]
+Let $k$ be $\R$ or $\C$.  A \emph{linear space} over $k$ is an abelian group
+$V$ with scalar multiplication satisfying
 \[
- (L_xf)(g)=f(x^{-1}g),
- \qquad
- (R_xf)(g)=f(gx).
+a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
+(ab)v=a(bv),\quad 1v=v.
 \]
-\end{definition}
-
-\begin{exercise}[Peter--Weyl theorem]
-Use Haar averaging and Schur's lemma to prove orthogonality of matrix
-coefficients of inequivalent irreducible representations and the
-orthogonality relations within one irreducible representation.  Prove that
-their span is dense in $C(G)$ and $L^2(G)$ and obtain the
-$G\times G$-equivariant decomposition
-\[
-L^2(G)\cong\mathop{\widehat{\bigoplus}}_{\pi\in\widehat G}
-H_\pi\otimes H_\pi^*.
-\]
-Recover ordinary Fourier modes when $G=\mathbb T$, and for $G=SO(3)$
-identify the matrix coefficients with the Wigner functions
-$D^\ell_{mn}$.
-\end{exercise}
-
-\subsection{The operator-valued Fourier transform}
-
-\begin{definition}[Compact-group Fourier transform]
-For $f\in L^1(G)$ and $\pi\in\widehat G$, define
-\[
-\widehat f(\pi)=\int_G f(g)\pi(g)^*\,dg\in\End(H_\pi).
-\]
-Thus a frequency is an irreducible representation and its Fourier
-coefficient is an operator.  When $G$ is abelian, every $H_\pi$ is
-one-dimensional and the transform is scalar-valued.
-\end{definition}
-
-\begin{exercise}[Compact Fourier inversion and Plancherel]
-For
-\[
-(f*g)(x)=\int_G f(y)g(y^{-1}x)\,dy,
-\]
-prove
-\[
-\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi).
-\]
-Starting with finite linear combinations of matrix coefficients, derive
-\[
-f(g)=\sum_{\pi\in\widehat G}
-(\dim H_\pi)\Tr\!\bigl(\widehat f(\pi)\pi(g)\bigr)
-\]
-in its natural modes of convergence, and prove
-\[
-\|f\|_2^2=\sum_{\pi\in\widehat G}
-(\dim H_\pi)\|\widehat f(\pi)\|_{\rm HS}^2.
-\]
-Explain how the factor $\dim H_\pi$ records the multiplicity of $H_\pi$ in
-the regular representation.
-\end{exercise}
-
-\section{Phase Space and the Heisenberg Group}
-
-\subsection{Translation--modulation and symplectic phase space}
-
-\begin{definition}[Symplectic vector spaces and groups]
-A \emph{symplectic vector space} is a finite-dimensional real vector space
-$V$ equipped with a nondegenerate alternating bilinear form $\omega$. Its
-\emph{symplectic group} is
-\[
-\operatorname{Sp}(V,\omega)
-=\{A\in\operatorname{GL}(V):\omega(Au,Av)=\omega(u,v)\}.
-\]
-For $V=\R_q^n\oplus\R_p^n$, the standard form is
-\[
-\omega_0((q,p),(q',p'))=q\cdot p'-p\cdot q'.
-\]
-\end{definition}
-
-\begin{definition}[Translations, modulations, and Weyl operators]
-On $L^2(\R^n)$ define
-\[
-(T_q\psi)(x)=\psi(x-q),
-\qquad
-(M_p\psi)(x)=e^{ip\cdot x}\psi(x).
-\]
-They obey
-\[
-M_pT_q=e^{ip\cdot q}T_qM_p.
-\]
-For $\lambda\ne0$ and $z=(q,p)$, the \emph{Weyl operator}
-\[
-W_\lambda(q,p)
-=e^{-i\lambda p\cdot q/2}M_{\lambda p}T_q
-\]
-satisfies the projective composition law
-\[
-W_\lambda(z)W_\lambda(z')
-=e^{i\lambda\sigma(z,z')/2}W_\lambda(z+z'),
-\qquad
-\sigma=-\omega_0.
-\]
-\end{definition}
-
-\begin{exercise}[Symplectic bases and Weyl phases]
-Prove that every symplectic vector space has even dimension and admits a
-basis in which the form has matrix
-$\left(\begin{smallmatrix}0&I\\-I&0\end{smallmatrix}\right)$.  Show that
-$A$ is symplectic exactly when $A^*JA=J$, and compute the Lie algebra of
-$\operatorname{Sp}(2n,\R)$.  Verify the translation--modulation relation and
-the displayed Weyl composition law.  Prove that its phase is invariant
-under linear symplectic changes of variables.
-\end{exercise}
-
-\subsection{The Heisenberg group and Stone--von Neumann theorem}
-
-\begin{definition}[Heisenberg group and Schr\"odinger representations]
-On $\R^{2n}$ use
-\[
-\sigma((q,p),(q',p'))=p\cdot q'-q\cdot p'.
-\]
-The \emph{Heisenberg group} is
-$\mathbb H_n=\R^{2n}\times\R$ with multiplication
-\[
-(z,s)(z',s')=(z+z',s+s'+\tfrac12\sigma(z,z')).
-\]
-For $\lambda\ne0$, its \emph{Schr\"odinger representation} on
-$L^2(\R^n)$ is
-\[
-\bigl(\pi_\lambda(q,p,s)\psi\bigr)(x)
-=e^{i\lambda(s+p\cdot(x-q/2))}\psi(x-q)
-=e^{i\lambda s}W_\lambda(q,p)\psi(x).
-\]
-The physical central character is $\lambda=1/\hbar$.
-\end{definition}
-
-\begin{exercise}[Stone--von Neumann theorem]
-Verify the Heisenberg group law, identify its center, and prove that
-Lebesgue measure is Haar measure.  Prove that $\pi_\lambda$ is a strongly
-continuous irreducible unitary representation and that
-\[
-\pi_\lambda(0,s)=e^{i\lambda s}\id.
-\]
-Prove the Stone--von Neumann theorem: every strongly continuous irreducible
-unitary representation of $\mathbb H_n$ with this nontrivial central
-character is unitarily equivalent to $\pi_\lambda$.  At
-$\lambda=1/\hbar$, differentiate the position and momentum subgroups and
-recover $Q_j$, $P_j$, and
-$[Q_j,P_k]=i\hbar\delta_{jk}$ on a common invariant core.
-\end{exercise}
-
-\subsection{Plancherel theorem for the Heisenberg group}
-
-\begin{exercise}[Heisenberg Plancherel and inversion]
-\label{ex:heisenberg-harmonic-analysis}
-Compute the operator-valued Fourier transform
-\[
-\widehat f(\lambda)
-=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg
-\]
-and derive the Plancherel decomposition with measure
-$c_n|\lambda|^n\,d\lambda$, determining $c_n$ from the Haar and Fourier
-normalizations above.  Show that the one-dimensional representations with
-trivial central character have zero Plancherel measure.  Derive the
-distributional orthogonality relation for Weyl operators and the resulting
-Hilbert--Schmidt Plancherel and inversion formulas.  Prove that
-\[
-S\longmapsto
-\chi_S(u,v)=\Tr\!\left(S e^{i(u\cdot X+v\cdot Y)}\right)
-\]
-is injective on trace-class operators, where
-$[X_j,Y_k]=i\delta_{jk}$.  Interpret this as noncommutative Fourier analysis
-turning functions on a group into operators rather than scalar frequency
-amplitudes.
-\end{exercise}
-
-\section{Direct Integrals and Group Operator Algebras}
-
-\subsection{General noncommutative Plancherel theory}
-
-\begin{definition}[Direct integrals and the Plancherel transform]
-A locally compact group is \emph{unimodular} when its left and right Haar
-measures agree. It is \emph{type I} when its unitary representations have
-essentially unique direct-integral decompositions into irreducibles.  If
-$(H_\pi)_{\pi\in\widehat G}$ is a measurable field of Hilbert spaces over a
-measure $\nu$, its \emph{direct integral} consists of measurable vector
-fields $\xi=(\xi_\pi)$ satisfying
-\[
-\int_{\widehat G}\|\xi_\pi\|^2\,d\nu(\pi)<\infty,
-\]
-modulo equality almost everywhere, and is denoted
-$\int_{\widehat G}^{\oplus}H_\pi\,d\nu(\pi)$.
-
-Let $G$ be second-countable, unimodular, and type I. For
-$f\in L^1(G)$ and an irreducible unitary representation
-$\pi:G\to U(H_\pi)$, set
-\[
-\widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg.
-\]
-The noncommutative Plancherel theorem provides a measure $\nu_G$ on
-$\widehat G$ for which this transform extends to a unitary
-\[
-L^2(G)\longrightarrow
-\int_{\widehat G}^{\oplus}\operatorname{HS}(H_\pi)\,d\nu_G(\pi)
-\]
-and
-\[
-\|f\|_2^2=\int_{\widehat G}
-\|\widehat f(\pi)\|_{\rm HS}^2\,d\nu_G(\pi).
-\]
-\end{definition}
-
-\begin{exercise}[From sums to direct integrals]
-Prove $\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi)$ and derive the
-direct-integral decomposition of the regular representation from the
-Plancherel transform.  Show that for compact groups $\nu_G$ is atomic with
-mass $\dim H_\pi$ at $\pi$, so the direct integral becomes the
-Peter--Weyl sum.  Show that for abelian groups the fibers are
-one-dimensional and recover Pontryagin Fourier analysis.  For
-$\mathbb H_n$, recover the measure $c_n|\lambda|^n\,d\lambda$ and explain
-why the Plancherel support omits the one-dimensional representations.
-\end{exercise}
-
-\subsection{\texorpdfstring{Group $C^*$-algebras}{Group C*-algebras} and von Neumann algebras}
-
-\begin{definition}[$C^*$-algebras, representations, and states]
-A \emph{Banach algebra} is a complete normed algebra satisfying
-$\|ab\|\leq\|a\|\|b\|$; it is \emph{unital} when it has an identity.  A
-\emph{involution} is a conjugate-linear map satisfying
-$(ab)^*=b^*a^*$ and $(a^*)^*=a$.  A \emph{$C^*$-algebra} is an involutive
-Banach algebra satisfying $\|a^*a\|=\|a\|^2$.  An element is
-\emph{positive} if it is $b^*b$ for some $b$.  A \emph{representation} of
-a $C^*$-algebra $A$ is a $*$-homomorphism $\pi:A\to B(H)$.  A
-\emph{state} is a positive linear functional of norm one; for unital $A$,
-this is equivalent to $\varphi(1)=1$.
-\end{definition}
-
-\begin{definition}[Group $C^*$-algebras]
-Let $G$ be a locally compact group with left Haar measure and modular
-function $\Delta_G$. On $C_c(G)$ set
-\[
-(f*g)(x)=\int_Gf(y)g(y^{-1}x)\,dy,
-\qquad
-f^*(x)=\Delta_G(x^{-1})\overline{f(x^{-1})}.
-\]
-Every strongly continuous unitary representation $U$ has an integrated
-form $U(f)=\int_Gf(g)U_g\,dg$.  The \emph{full group $C^*$-algebra}
-$C^*(G)$ is the completion in the norm
-\[
-\|f\|_{\max}=\sup_U\|U(f)\|.
-\]
-The left regular representation $\lambda$ gives the
-\emph{reduced group $C^*$-algebra}
-\[
-C_r^*(G)=\overline{\lambda(C_c(G))}^{\|\cdot\|}.
-\]
-The regular representation induces a canonical quotient
-$C^*(G)\twoheadrightarrow C_r^*(G)$.
-\end{definition}
-
-\begin{definition}[Group von Neumann algebras]
-The \emph{weak operator topology} is generated by
-$T\mapsto\langle x,Ty\rangle$, and the \emph{strong operator topology} by
-$T\mapsto\|Tx\|$.  For $S\subseteq B(H)$, its commutant is
-$S'=\{T:TS=ST\text{ for every }S\in S\}$.  A \emph{von Neumann algebra} is
-a unital $*$-subalgebra $M\subseteq B(H)$ with $M=M''$.  The
-\emph{group von Neumann algebra} is
-\[
-VN(G)=\{\lambda_g:g\in G\}''
-=C_r^*(G)''\subseteq B(L^2(G)).
-\]
-\end{definition}
-
-\begin{exercise}[Bicommutant theorem]
-Prove that for a unital, or more generally nondegenerate,
-$*$-subalgebra $A\subseteq B(H)$, the strong and weak operator closures of
-$A$ equal $A''$.  Deduce
-\[
-VN(G)=\overline{C_r^*(G)}^{\,\mathrm{SOT}}
-     =\overline{C_r^*(G)}^{\,\mathrm{WOT}}
-\]
-and explain why von Neumann algebras contain the spectral projections of
-their self-adjoint elements.
-\end{exercise}
-
-\begin{definition}[GNS construction]
-For a state $\varphi$ on a $C^*$-algebra $A$, set
-\[
-N_\varphi=\{a:\varphi(a^*a)=0\},
-\qquad
-\langle[a],[b]\rangle=\varphi(a^*b)
-\]
-on $A/N_\varphi$.
-\end{definition}
-
-\begin{exercise}[GNS and the regular representation]
-Complete $A/N_\varphi$ and prove that left multiplication induces a cyclic
-representation $(\pi_\varphi,H_\varphi,\Omega_\varphi)$ satisfying
-\[
-\varphi(a)=
-\langle\Omega_\varphi,\pi_\varphi(a)\Omega_\varphi\rangle.
-\]
-Prove uniqueness up to cyclic unitary equivalence.  For a discrete group,
-apply the construction to the coefficient-at-the-identity state on
-$C_r^*(G)$ and recover the left regular representation on $\ell^2(G)$.
-Explain how $C^*(G)$ retains all unitary representations, $C_r^*(G)$ retains
-the regular norm, and $VN(G)$ adds the weak limits needed for spectral
-projections and direct-integral decompositions.
-\end{exercise}
-
-\part{Foundations and Symmetry}
-
-\section{Superposition}
-
-\begin{definition}[Vector spaces and linear maps]
-Let $k$ be a field. A \emph{$k$-vector space} is an abelian group $V$ with an
-action $k\times V\to V$ satisfying distributivity, associativity, and
-$1v=v$. A map $T:V\to W$ is \emph{linear} if
-$T(av+bw)=aT(v)+bT(w)$.
-\end{definition}
-
-\begin{definition}[Subspaces, kernels, images, and quotients]
-A \emph{subspace} of $V$ is a subset closed under linear combinations. For a
-linear map $T:V\to W$, define
+A map $T:V\to W$ is \emph{linear} when
+$T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
 \[
 \ker T=\{v:T(v)=0\},\qquad \im T=\{T(v):v\in V\}.
 \]
-For a subspace $U\subseteq V$, the \emph{quotient} $V/U$ is the vector space
-of cosets $v+U$. The \emph{direct sum} $V\oplus W$ is $V\times W$ with
-componentwise operations.
+Subspaces, quotients, and direct sums are formed by requiring these same
+linear operations to be well defined.
 \end{definition}
 
-\begin{definition}[Duals and pairings]
-The \emph{dual} of $V$ is $V^*=\Hom_k(V,k)$. A \emph{pairing} of $V$ and
-$W$ is a bilinear map $V\times W\to k$. It is \emph{nondegenerate} if each
-nonzero argument pairs nontrivially with some argument in the other space.
+\begin{definition}[Hilbert spaces and orthogonality]
+An \emph{inner product} on a complex linear space is conjugate-linear in its
+first argument, linear in its second, positive definite, and satisfies
+$\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
+$\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
+space complete for this norm.  The basic examples are
+$\C^n$, $\ell^2(\N)$, and $L^2(X,\mu)$.
+
+Vectors are \emph{orthogonal} when their inner product is zero.  For a closed
+subspace $M\subseteq H$,
+\[
+M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\},
+\qquad H=M\oplus M^\perp.
+\]
+The corresponding bounded map $P_M:H\to M$ is the orthogonal projection.
 \end{definition}
 
-\begin{definition}[Tensor products]
-A \emph{tensor product} of $V$ and $W$ is a vector space $V\otimes W$ with a
-bilinear map $(v,w)\mapsto v\otimes w$ such that every bilinear map
-$b:V\times W\to X$ factors uniquely through a linear map
-$\widetilde b:V\otimes W\to X$. Tensor powers and multilinear maps are
-defined by iteration. Such a space exists: let $k^{(V\times W)}$ be the free
-vector space on symbols $[v,w]$, and quotient by the span of
+\begin{definition}[Bounded operators and adjoints]
+A linear map $T:H\to K$ between Hilbert spaces is \emph{bounded} when
 \[
-\begin{gathered}
-[v+v',w]-[v,w]-[v',w],\qquad [v,w+w']-[v,w]-[v,w'],\\
-[av,w]-a[v,w],\qquad [v,aw]-a[v,w]
-\end{gathered}
+\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty.
 \]
-for $a\in k$. The class of $[v,w]$ is $v\otimes w$, and sending
-$[v,w]$ to $b(v,w)$ proves the universal property. It also shows that any
-two tensor products are uniquely isomorphic in a way preserving pure
-tensors.
-\end{definition}
-
-\begin{definition}[Finite-dimensional duality, trace, and dimension]
-The \emph{evaluation} map is
+Every bounded operator has a unique \emph{adjoint} $T^*:K\to H$ satisfying
 \[
-\operatorname{ev}_V:V^*\otimes V\longrightarrow k,
-\qquad \varphi\otimes v\longmapsto\varphi(v).
+\langle x,Ty\rangle=\langle T^*x,y\rangle.
 \]
-The vector space $V$ is \emph{finite-dimensional} if there is a coevaluation
-map
-$\operatorname{coev}_V:k\to V\otimes V^*$ satisfying the snake identities
-\[
-(\id_V\otimes\operatorname{ev}_V)
-\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
-\]
-\[
-(\operatorname{ev}_V\otimes\id_{V^*})
-\circ(\id_{V^*}\otimes\operatorname{coev}_V)=\id_{V^*}.
-\]
-Let $s_{V,V^*}:V\otimes V^*\to V^*\otimes V$ exchange the tensor factors.
-For $T\in\End(V)$, define
-\[
-\operatorname{tr}(T)
-=\operatorname{ev}_V\circ s_{V,V^*}
- \circ(T\otimes\id_{V^*})\circ\operatorname{coev}_V\in k,
-\qquad
-\dim V=\operatorname{tr}(\id_V).
-\]
-\end{definition}
-
-\begin{definition}[Exterior powers, determinant, and characteristic polynomial]
-The \emph{tensor algebra} and \emph{exterior algebra} of $V$ are
-\[
-T(V)=\bigoplus_{r\geq0}V^{\otimes r},
-\qquad
-\Lambda V=T(V)/\langle v\otimes v:v\in V\rangle;
-\]
-write $\Lambda^rV$ for the degree-$r$ component. The alternating map
-\[
-V^r\longrightarrow\Lambda^rV,
-\qquad
-(v_1,\ldots,v_r)\longmapsto v_1\wedge\cdots\wedge v_r,
-\]
-is universal: every alternating $r$-linear map from $V^r$ factors uniquely
-through a linear map from $\Lambda^rV$. For finite-dimensional
-$V$, define its \emph{rank} to be the unique integer $n\geq0$ such that
-$\Lambda^nV\ne0$ and $\Lambda^{n+1}V=0$; the exercise below proves that
-this integer exists and that $\Lambda^nV$ is one-dimensional. For
-$T\in\End(V)$, the induced map $\Lambda^nT$ is multiplication by a scalar, the
-\emph{determinant} $\det(T)$. The \emph{characteristic polynomial} is
-\[
-\chi_T(t)=\det(t\id_V-T).
-\]
-Its root multiplicity at $\lambda$ is the \emph{algebraic multiplicity} of
-$\lambda$; the dimension of $\ker(T-\lambda\id_V)$ is its \emph{geometric
-multiplicity}.
-\end{definition}
-
-\begin{exercise}[Top exterior powers and determinant identities]
-Using only the universal property of alternating maps and the duality maps
-of $V$, prove that the rank $n$ exists, that $\Lambda^nV$ is
-one-dimensional, and that $\Lambda^rV=0$ for $r>n$. Prove
-\[
-\det(ST)=\det(S)\det(T),\qquad
-\det(T\oplus R)=\det(T)\det(R).
-\]
-Relate the scalar dimension to rank by
-$\dim V=(\operatorname{rank}V)1_k$ and explain why the scalar dimension alone
-need not distinguish ranks in positive characteristic.
-For $V=\R^n$, identify $|\det T|$ with the volume-scaling factor and the sign
-with orientation. Deduce the change-of-variables rule for parallelepipeds
-and Cramer's rule.
-\end{exercise}
-
-\begin{definition}[Inner products and orthogonality]
-An \emph{inner product} on a real vector space is a positive-definite
-symmetric bilinear form. On a complex vector space it is a positive-definite
-sesquilinear form, conjugate-linear in the first variable. Write
-$\|v\|=\sqrt{\langle v,v\rangle}$. Vectors are \emph{orthogonal} when their
-inner product is zero, and
-$U^\perp=\{v:\langle u,v\rangle=0\text{ for every }u\in U\}$.
-\end{definition}
-
-\begin{definition}[Projections and adjoints]
-A \emph{projection} is an endomorphism $P$ with $P^2=P$. An \emph{orthogonal
-projection} is a projection with $\ker P=(\im P)^\perp$. The \emph{adjoint}
-of $T:V\to W$ is a map $T^*:W\to V$ satisfying
-$\langle Tv,w\rangle=\langle v,T^*w\rangle$.
-\end{definition}
-
-\begin{exercise}[Orthogonal decomposition and best approximation]
-Let $V$ be finite-dimensional and $U\subseteq V$. Prove
-$V=U\oplus U^\perp$, construct the orthogonal projection $P_U$, and prove
-that $P_Uv$ is the unique element of $U$ minimizing $\|v-u\|$. Prove that
-$P$ is an orthogonal projection if and only if $P=P^*=P^2$.
-\end{exercise}
-
-\begin{definition}[Isometries and spectral classes]
-A linear map is \emph{orthogonal} over $\R$, or \emph{unitary} over $\C$, if
-it preserves the inner product. An endomorphism $A$ is \emph{self-adjoint} if
-$A=A^*$, \emph{normal} if $AA^*=A^*A$, and \emph{positive} if
-$A=A^*$ and $\langle v,Av\rangle\geq0$ for every $v$. A scalar $\lambda$ is an
-\emph{eigenvalue} if $\ker(A-\lambda\id)\ne0$; a subspace $U$ is
-\emph{invariant} if $A(U)\subseteq U$. In finite dimensions,
-$\spec(A)$ denotes the set of eigenvalues of $A$ in the scalar field.
-\end{definition}
-
-\begin{definition}[Complete commuting spectral projections]
-A family $(P_\lambda)$ of commuting orthogonal projections is
-\emph{complete and mutually orthogonal} if
-\[
-P_\lambda P_\mu=\delta_{\lambda\mu}P_\lambda,
-\qquad \sum_\lambda P_\lambda=\id.
-\]
-A \emph{spectral decomposition} of $A$ is such a family satisfying
-\[
-A=\sum_{\lambda\in\spec(A)}\lambda P_\lambda.
-\]
-\end{definition}
-
-\begin{exercise}[Finite-dimensional spectral theorem]
-Prove that adjoints exist uniquely. Prove that a complex endomorphism is
-normal if and only if it admits a complete family of mutually orthogonal
-commuting spectral projections. Deduce the reality of self-adjoint spectra,
-the unit modulus of unitary spectra, and nonnegative spectra for positive
-operators.
-Prove that every positive operator $A$ has a unique positive square root
-$A^{1/2}$ by applying the square-root function to its spectral projections.
-For a map $T:V\to W$ between finite-dimensional inner-product spaces, let
-$(Q_s)$ be the complete spectral projections of
-$|T|=(T^*T)^{1/2}$. For each $s>0$, construct an isometric isomorphism
-$U_s:Q_sV\to T(Q_sV)$ satisfying $TQ_s=sU_sQ_s$, and obtain the
-coordinate-free singular-value decomposition
-\[
-T=\sum_{s>0}sU_sQ_s.
-\]
-\end{exercise}
-
-\begin{definition}[Linear oscillator]
-A \emph{linear oscillator} on a finite-dimensional real inner-product space
-$V$ is an equation
-\[
-M\ddot q+Kq=0,
-\]
-where $M$ is positive definite and $K$ is self-adjoint and positive
-semidefinite. A \emph{normal mode} is a nonzero $v\in V$ for which
-$q(t)=a(t)v$ solves the equation for some nonconstant $a$.
-\end{definition}
-
-\begin{exercise}[Coupled oscillators and normal modes]
-Set $x=M^{1/2}q$ and $L=M^{-1/2}KM^{-1/2}$. Use the spectral projections of
-$L$ to derive the normal-mode decomposition. For a fixed-end chain of $N$
-equal masses joined by equal springs, compute the mode shapes and frequencies
-and relate them to the modes of a taut string.
-\end{exercise}
-
-\begin{definition}[Vibrating string]
-For length $L$, tension $\tau$, and linear density $\rho$, a \emph{vibrating
-string} is a function $u:[0,L]\times\R\to\R$ satisfying fixed-end conditions
-$u(0,t)=u(L,t)=0$ and
-\[
-\rho\,\partial_t^2u=\tau\,\partial_x^2u.
-\]
-\end{definition}
-
-\begin{exercise}[String modes and measured pitch]
-Derive the vibrating-string equation from transverse force balance in the
-small-slope limit. Determine all separated normal modes and their
-frequencies. Prove that the fundamental frequency is
-$f_1=(2L)^{-1}\sqrt{\tau/\rho}$ and compare the predicted ratios
-$f_n/f_1=n$ with the harmonics of a stretched string.
-\end{exercise}
-
-\begin{definition}[Orthogonal expansions]
-Let $H$ be an inner-product space. For an orthogonal family $(e_n)$, the
-\emph{orthogonal coefficients} of $f$ are
-$\widehat f(n)=\langle e_n,f\rangle/\|e_n\|^2$. A \emph{Fourier series} on
-$\T=\R/(2\pi\Z)$ is the formal expansion
-$f\sim\sum_{n\in\Z}\widehat f(n)e^{inx}$, where
-$\widehat f(n)=(2\pi)^{-1}\int_0^{2\pi}f(x)e^{-inx}\,dx$.
-\end{definition}
-
-\section{Hilbert Space}
-
-\subsection{Measure, integration, and Hilbert space}
-
-\begin{definition}[Measure spaces and simple functions]
-A \emph{measure space} is a triple $(X,\Sigma,\mu)$ in which $\Sigma$ is a
-$\sigma$-algebra and $\mu:\Sigma\to[0,\infty]$ is countably additive on
-disjoint families, with $\mu(\varnothing)=0$. A function is \emph{measurable}
-when inverse images of Borel sets are in $\Sigma$. A nonnegative
-\emph{simple function} is a finite sum $\sum_j a_j1_{E_j}$ with $a_j\geq0$
-and $E_j\in\Sigma$.
-\end{definition}
-
-\begin{definition}[$L^p$ spaces]
-For $1\leq p<\infty$, the space $L^p(X,\mu)$ consists of measurable
-functions modulo equality almost everywhere with
-\[
-\|f\|_p=\left(\int_X|f|^p\,d\mu\right)^{1/p}<\infty;
-\]
-$L^\infty$ uses the essential supremum. For Lebesgue measure on $\R^n$ and
-normalized arc measure on $\T$, write $L^p(\R^n)$ and $L^p(\T)$. The inner
-product on $L^2(\T)$ is
-$\langle f,g\rangle=(2\pi)^{-1}\int_0^{2\pi}\overline{f(x)}g(x)\,dx$.
-The exercises below establish the analytic properties used in this section.
-\end{definition}
-
-\begin{exercise}[Integration and monotone convergence]
-Define the integral of a nonnegative simple function and then of an arbitrary
-nonnegative measurable function by monotone approximation. Prove monotone
-convergence and Fatou's lemma.
-\end{exercise}
-
-\begin{exercise}[Dominated convergence and product measures]
-Construct the integral of an integrable complex function from its positive
-and negative real and imaginary parts. Prove dominated convergence. Construct
-product measure for $\sigma$-finite spaces and prove Tonelli's and Fubini's
-theorems.
-\end{exercise}
-
-\begin{definition}[Hilbert spaces and bounded operators]
-From this point onward, Hilbert spaces are complex. A \emph{Hilbert space} is
-a complete inner-product space. A linear map
-$T:H\to K$ is \emph{bounded} if
-$\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty$. Write $B(H,K)$ for the space of
-bounded maps and $B(H)=B(H,H)$. For $T\in B(H)$, the \emph{resolvent set}
-consists of $\lambda\in\C$ for which
-$T-\lambda\id$ has a bounded inverse; its complement is the
-\emph{spectrum} $\spec(T)$.
+An operator is self-adjoint when $T=T^*$, unitary when $T^*T=TT^*=I$, and
+normal when $T^*T=TT^*$.
 \end{definition}
 
 \begin{exercise}[Hilbert-space foundations]
-Prove the projection theorem for closed subspaces and the Riesz
-representation theorem. Deduce $H=M\oplus M^\perp$ for closed $M$ and prove
-existence, uniqueness, and $\|T^*\|=\|T\|$ for bounded adjoints.
+Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
+representation theorem.  Deduce the existence of adjoints and prove
+\[
+\|T\|^2=\|T^*T\|,\qquad
+(\im T)^\perp=\ker T^*.
+\]
+Show that an orthonormal family $(e_j)$ is complete exactly when
+$\|x\|^2=\sum_j|\langle e_j,x\rangle|^2$ for every $x\in H$.
 \end{exercise}
 
-\begin{exercise}[Completeness of Fourier modes]
-Construct the Fej\'er kernels, prove that they form an approximate identity,
-and use convolution with them to prove completeness of
-$(e^{inx})_{n\in\Z}$ in $L^2(\T)$. Deduce Parseval's identity and $L^2$
-convergence of Fourier series.
-\end{exercise}
+\section{\texorpdfstring{$C^*$-Algebras and Spectral Theory}{C*-Algebras and Spectral Theory}}
 
-\subsection{Spectral measures and quantum evolution}
+\subsection{\texorpdfstring{$C^*$-algebras, spectrum, and positivity}{C*-algebras, spectrum, and positivity}}
 
-\begin{definition}[Projection-valued measures]
-A \emph{projection-valued measure} on a measurable space $X$ assigns an
-orthogonal projection $E(B)$ to each measurable set, with $E(X)=\id$ and
-countable additivity in the strong operator topology. For bounded measurable
-$f$, the operator $\int_Xf\,dE$ is defined by uniform approximation from
-simple functions.
+\begin{definition}[$C^*$-algebras and spectrum]
+A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
+conjugate-linear involution such that
+\[
+(ab)^*=b^*a^*,\qquad \|ab\|\leq\|a\|\|b\|,\qquad
+\|a^*a\|=\|a\|^2.
+\]
+The model is $B(H)$ with the operator norm.  For a unital $C^*$-algebra,
+\[
+\spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
+\]
+An element is \emph{positive}, written $a\geq0$, when $a=b^*b$ for some
+$b\in A$; equivalently, $a=a^*$ and $\spec_A(a)\subseteq[0,\infty)$.
 \end{definition}
 
-\begin{exercise}[Bounded spectral theorem]
-Prove that every bounded self-adjoint operator $A$ has a unique
-projection-valued measure on $\spec(A)\subset\R$ such that
-$A=\int\lambda\,dE(\lambda)$. Extend the statement to bounded normal
-operators, derive continuous functional calculus, and characterize unitary
-and projection spectra.
+\begin{exercise}[Elementary spectral theory]
+Prove that $\spec_A(a)$ is nonempty and compact and that its spectral radius
+is
+\[
+r(a)=\lim_{n\to\infty}\|a^n\|^{1/n}.
+\]
+For normal $a$, prove $r(a)=\|a\|$.  Show that positive elements have unique
+positive square roots and that $a^*a\geq0$.
 \end{exercise}
 
-\begin{definition}[Unbounded operators and domains]
-A \emph{densely defined operator} $T$ has a dense linear domain
-$\operatorname{Dom}(T)\subset H$. It is \emph{closed} when its graph is
-closed in $H\oplus H$; its graph norm is
-$\|x\|_T^2=\|x\|^2+\|Tx\|^2$. The domain of $T^*$ consists of those $y$
-for which $x\mapsto\langle Tx,y\rangle$ is bounded in the Hilbert norm on
-$\operatorname{Dom}(T)$; for such $y$, define $T^*y$ by
-$\langle Tx,y\rangle=\langle x,T^*y\rangle$ for all
-$x\in\operatorname{Dom}(T)$. Density of the domain makes $T^*y$ unique. The operator
-is \emph{symmetric} when
-$\langle Tx,y\rangle=\langle x,Ty\rangle$ on its domain and
-\emph{self-adjoint} when $T=T^*$, including equality of domains.
-For a self-adjoint operator $H$, its \emph{Cayley transform} is
+\subsection{Commutative Gelfand theory and functional calculus}
+
+\begin{definition}[Gelfand spectrum]
+For a unital commutative $C^*$-algebra $A$, let $\widehat A$ be the compact
+space of nonzero homomorphisms $\chi:A\to\C$ with its weak-* topology.  The
+\emph{Gelfand transform} is
 \[
-C_H=(H-i\id)(H+i\id)^{-1}.
+\Gamma:A\longrightarrow C(\widehat A),
+\qquad \Gamma(a)(\chi)=\chi(a).
 \]
+The commutative Gelfand theorem says that $\Gamma$ is an isometric
+$*$-isomorphism.
 \end{definition}
 
-\begin{definition}[Weak derivatives and first Sobolev spaces]
-A function $f:[0,L]\to\C$ is \emph{absolutely continuous} if there is a
-$g\in L^1(0,L)$ such that
+\begin{definition}[Continuous functional calculus]
+If $a$ is normal in a unital $C^*$-algebra, the algebra
+$C^*(1,a)$ is commutative and there is a unique unital isometric
+$*$-homomorphism
 \[
-f(x)=f(0)+\int_0^xg(t)\,dt.
+C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
 \]
-A function $g\in L^1_{\mathrm{loc}}(0,L)$ is the \emph{weak derivative} of
-$f\in L^1_{\mathrm{loc}}(0,L)$ when
+sending the coordinate function $z$ to $a$.  It satisfies
 \[
-\int_0^L f\phi'\,dx=-\int_0^L g\phi\,dx
-\qquad(\phi\in C_c^\infty(0,L)).
+(fg)(a)=f(a)g(a),\quad
+\overline f(a)=f(a)^*,\quad
+\spec(f(a))=f(\spec(a)).
 \]
-The space $H^1(0,L)$ consists of the $f\in L^2(0,L)$ having weak derivative
-$f'\in L^2(0,L)$, with norm
-$\|f\|_{H^1}^2=\|f\|_2^2+\|f'\|_2^2$.
+In particular, positivity and square roots are consequences of ordinary
+continuous functions on the spectrum.
 \end{definition}
 
-\begin{exercise}[Self-adjoint momentum and boundary holonomy]
-On $L^2([0,L])$, let $P_\theta=-i\hbar\,d/dx$ on the absolutely continuous
-functions with derivative in $L^2$ and boundary condition
-$\psi(L)=e^{i\theta}\psi(0)$. Use integration by parts and the adjoint domain
-to prove that $P_\theta$ is self-adjoint. Determine its mutually orthogonal
-spectral projections $(E_n)_{n\in\Z}$, prove that they sum strongly to the
-identity, and show that their spectral values are
+\begin{exercise}[Gelfand duality]
+Prove the commutative Gelfand theorem, including surjectivity by the
+Stone--Weierstrass theorem.  Show that unital $*$-homomorphisms
+$C(X)\to C(Y)$ are contravariantly induced by continuous maps $Y\to X$.
+Derive the continuous functional calculus and the spectral mapping theorem.
+\end{exercise}
+
+\subsection{Bounded normal and unbounded self-adjoint operators}
+
+\begin{definition}[Spectral theorem for bounded normal operators]
+A \emph{projection-valued measure} on a compact space $X$ assigns an
+orthogonal projection $E(B)$ to each Borel set $B\subseteq X$, is countably
+additive in the strong operator topology, and satisfies
+$E(X)=I$.  If $T\in B(H)$ is normal, there is a unique projection-valued
+measure $E_T$ on $\spec(T)$ such that
 \[
-p_n=\frac{\hbar}{L}(2\pi n+\theta),\qquad n\in\Z.
-\]
-Interpret $\theta$ as a boundary holonomy, later realized by magnetic flux
-through a ring, and explain why changing the domain changes the measured
-spectrum.
-\end{exercise}
-
-\begin{exercise}[Cayley transform and spectral measure]
-Prove that $C_H$ is unitary and $\ker(\id-C_H)=0$. Conversely, show that a
-unitary $U$ with $\ker(\id-U)=0$ determines the self-adjoint operator
-$H=i(\id+U)(\id-U)^{-1}$ on
-$\operatorname{Dom}(H)=\operatorname{Ran}(\id-U)$. Use this correspondence
-and the bounded spectral theorem to prove that every self-adjoint $H$ has a
-unique projection-valued measure with
-\[
-H=\int_\R\lambda\,dE_H(\lambda),\qquad
-\operatorname{Dom}(H)=
-\left\{\psi:\int_\R\lambda^2\,d\langle\psi,E_H(\lambda)\psi\rangle<\infty
-\right\}.
-\]
-\end{exercise}
-
-\begin{exercise}[Stone's theorem]
-Prove that $U_t=e^{-itH/\hbar}$ is a strongly continuous unitary group for
-every self-adjoint $H$. Conversely, recover a unique self-adjoint generator
-$H$ from every strongly continuous unitary group and identify its domain by
-the strong derivative at $t=0$.
-\end{exercise}
-
-\begin{exercise}[Spectral lines from unitary evolution]
-\label{ex:spectral-lines}
-If $H|n\rangle=E_n|n\rangle$, use $U_t=e^{-itH/\hbar}$ to show that
-$\langle A(t)\rangle$ contains frequencies $(E_m-E_n)/\hbar$. Explain why
-spectroscopic peaks measure energy differences and why line strengths depend
-on matrix elements between the corresponding spectral subspaces. Convert the
-Balmer wavelengths $656.3$, $486.1$, $434.0$, and $410.2\,\mathrm{nm}$ to
-energy differences using $E=hc/\lambda$.
-Identify the levels $E_n$, rather than their differences, with atoms of the
-spectral measure of $H$, and identify the transition frequencies with spectral
-values of the Liouvillian $A\mapsto[H,A]/\hbar$.
-\end{exercise}
-
-\section{Harmonic Analysis}
-
-\subsection{Euclidean Fourier analysis}
-
-\begin{definition}[Schwartz functions, Fourier transform, and convolution]
-A \emph{Schwartz function} on $\R^n$ is a smooth function $f$ such that
-$\sup_x|x^\alpha\partial^\beta f(x)|<\infty$ for every pair of multi-indices
-$\alpha,\beta$. The Schwartz space is denoted $\mathcal S(\R^n)$. For
-$f,g\in C_c(\R^n)$, define the \emph{Fourier transform} and
-\emph{convolution} by
-\[
-\mathcal Ff(\xi)=(2\pi)^{-n/2}\int_{\R^n}f(x)e^{-ix\cdot\xi}\,dx,
+T=\int_{\spec(T)}z\,dE_T(z),
 \qquad
-(f*g)(x)=\int_{\R^n}f(y)g(x-y)\,dy.
+f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
 \]
-The estimates $\|\mathcal Ff\|_\infty\leq(2\pi)^{-n/2}\|f\|_1$ and
-$\|f*g\|_1\leq\|f\|_1\|g\|_1$ extend these operations to the $L^1$
-completion.
+This is the bounded normal spectral theorem.
 \end{definition}
 
-\begin{exercise}[Plancherel theorem]
-Prove on $\mathcal S(\R^n)$ that $\mathcal F$ preserves the $L^2$ inner
-product. Prove that $\mathcal S(\R^n)$ is dense in $L^2(\R^n)$ and extend
-$\mathcal F$ uniquely to a unitary operator and deduce Plancherel's identity.
-\end{exercise}
-
-\begin{exercise}[Fourier spectra and free quantum evolution]
-Use the Fourier transform to realize $-i\hbar\partial_j$ and $-\Delta$ as
-multiplication by $\hbar\xi_j$ and $|\xi|^2$ on their natural domains.
-Deduce self-adjointness, identify their spectral projections, and derive
-the free Schr\"odinger evolution for
-$H=-(\hbar^2/2m)\Delta$. Prove preservation of the domain, norm, and expected
-energy, and use this concrete multiplication-operator model to verify the
-preceding spectral and Stone theorems, including their domain statements.
-Identify the continuous energy spectrum and relate it to the continuum of
-outgoing-electron energies above an ionization threshold.
-\end{exercise}
-
-\begin{exercise}[Wave and heat propagators]
-Use the Fourier transform to solve the Cauchy problems for
+\begin{definition}[Unbounded self-adjoint operators]
+An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
+domain.  Its adjoint has domain
 \[
-\partial_t^2u=c^2\Delta u,\qquad \partial_tu=\kappa\Delta u
+\mathcal D(A^*)=
+\{y\in H:x\mapsto\langle y,Ax\rangle
+\text{ is bounded on }\mathcal D(A)\}.
 \]
-on $\R^n$. Identify their spectral-mode evolution, derive the Gaussian heat
-kernel and its convolution law, and prove finite propagation speed for the
-one-dimensional wave equation.
+It is \emph{self-adjoint} when $A=A^*$, including equality of domains.  The
+spectral theorem gives a unique projection-valued measure $E_A$ on $\R$ with
+\[
+A=\int_\R\lambda\,dE_A(\lambda),\qquad
+\mathcal D(A)=
+\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
+\]
+More generally, $f(A)=\int f(\lambda)\,dE_A(\lambda)$ on its natural domain.
+In particular $e^{-itA}$ is a strongly continuous unitary group.  Conversely,
+Stone's theorem assigns a unique self-adjoint generator to every strongly
+continuous one-parameter unitary group.
+\end{definition}
+
+\begin{exercise}[Spectral lines and time evolution]
+\label{ex:spectral-lines}
+If $A\psi_n=\lambda_n\psi_n$ and an observable $B$ has matrix elements
+$B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
+\[
+\langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
+=e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
+\]
+Thus measured transition frequencies are energy differences divided by
+$\hbar$.  Extend the calculation from pure point spectrum to the
+projection-valued spectral measure, and prove Stone's theorem using the
+spectral calculus.
 \end{exercise}
 
+\section{Abelian Harmonic Analysis and Phase Space}
+
+\subsection{Fourier series and Fourier transform}
+
+\begin{definition}[Fourier series]
+With normalized Haar measure on $\T=\R/2\pi\Z$, define
+\[
+\widehat f(k)=\int_\T f(x)e^{-ikx}\,dx,\qquad k\in\Z.
+\]
+The characters $e^{ikx}$ form an orthonormal basis of $L^2(\T)$, so
+\[
+f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
+\qquad
+\|f\|_2^2=\sum_{k\in\Z}|\widehat f(k)|^2
+\]
+in $L^2$.  Fourier series are therefore the spectral resolution of
+translation on a compact abelian group.
+\end{definition}
+
+\begin{definition}[Fourier transform]
+For $f\in\mathcal S(\R^n)$, the semiclassical Fourier transform is
+\[
+(\mathcal F_\hbar f)(p)
+=(2\pi\hbar)^{-n/2}\int_{\R^n}e^{-ip\cdot x/\hbar}f(x)\,dx.
+\]
+It extends uniquely to a unitary operator on $L^2(\R^n)$ and has inverse
+obtained by changing the sign in the exponential.  The Plancherel identity
+is $\|\mathcal F_\hbar f\|_2=\|f\|_2$.
+\end{definition}
+
+\begin{exercise}[Fourier inversion and Plancherel]
+Prove inversion first for Schwartz functions and derive Plancherel by
+density.  Show that convolution becomes multiplication and differentiation
+becomes multiplication by frequency.  Obtain the Fourier-series formulas
+from the transform on the compact group $\T$.
+\end{exercise}
+
+\subsection{Position, momentum, translation, and modulation}
+
+\begin{definition}[Position and momentum]
+On the common invariant core $\mathcal S(\R^n)\subset L^2(\R^n)$ define
+\[
+(Q_jf)(x)=x_jf(x),\qquad
+(P_jf)(x)=-i\hbar\,\partial_jf(x).
+\]
+The Fourier transform exchanges multiplication and differentiation:
+\[
+\mathcal F_\hbar P_j\mathcal F_\hbar^{-1}=M_{p_j},
+\qquad
+\mathcal F_\hbar Q_j\mathcal F_\hbar^{-1}
+=i\hbar\,\partial_{p_j}.
+\]
+Thus position and momentum are the same spectral geometry viewed in dual
+coordinates.
+\end{definition}
+
+\begin{definition}[Translation and modulation]
+For $q,p\in\R^n$, set
+\[
+(T_qf)(x)=f(x-q),\qquad
+(M_pf)(x)=e^{ip\cdot x/\hbar}f(x).
+\]
+These unitary operators satisfy
+\[
+M_pT_q=e^{ip\cdot q/\hbar}T_qM_p.
+\]
+The noncommuting phase is the first indication that position--frequency
+space is not merely the product $\R_q^n\times\R_p^n$.
+\end{definition}
+
+\subsection{Linear symplectic geometry}
+
+\begin{definition}[The commutation form]
+For $z=(q,p)$ and $z'=(q',p')$ in
+$\R_q^n\oplus(\R_q^n)^*$, define
+\[
+\omega(z,z')=p(q')-p'(q)
+            =p\cdot q'-p'\cdot q.
+\]
+This alternating nondegenerate bilinear form makes phase space symplectic.
+The Weyl operators
+\[
+W(q,p)=e^{-ip\cdot q/(2\hbar)}M_pT_q
+\]
+obey
+\[
+W(z)W(z')
+=e^{i\omega(z,z')/(2\hbar)}W(z+z').
+\]
+Hence the commutation phase recovers the symplectic form.
+\end{definition}
+
+\begin{exercise}[Symplectic bases and Weyl relations]
+Verify the Weyl relation directly.  Prove that every finite-dimensional
+symplectic space has a basis in which the form has matrix
+$\left(\begin{smallmatrix}0&-I\\I&0\end{smallmatrix}\right)$ for the
+$(q,p)$ ordering used here.  Characterize the linear maps preserving
+$\omega$ and show that the Weyl phase is invariant under them.
+\end{exercise}
+
+\section{The Heisenberg Group and Noncommutative Harmonic Analysis}
+
+\subsection{Central extension and Stone--von Neumann theorem}
+
+\begin{definition}[Heisenberg group]
+The \emph{Heisenberg group} is
+$\mathbb H_n=\R^{2n}\times\R$ with multiplication
+\[
+(z,s)(z',s')
+=(z+z',s+s'+\tfrac12\omega(z,z')).
+\]
+The Weyl cocycle has become an ordinary central coordinate.  For
+$\lambda\ne0$, the Schr\"odinger representation is
+\[
+\bigl(\pi_\lambda(q,p,s)f\bigr)(x)
+=e^{i\lambda(s+p\cdot(x-q/2))}f(x-q).
+\]
+Its restriction to the center is
+$\pi_\lambda(0,0,s)=e^{i\lambda s}I$; the physical representation has
+$\lambda=1/\hbar$.
+\end{definition}
+
+\begin{exercise}[Stone--von Neumann theorem]
+Verify the group and representation laws and prove irreducibility of
+$\pi_\lambda$.  Prove the Stone--von Neumann theorem: every strongly
+continuous irreducible unitary representation of $\mathbb H_n$ with fixed
+nonzero central character $e^{i\lambda s}$ is unitarily equivalent to
+$\pi_\lambda$.  Differentiate its position and momentum subgroups to recover
+\[
+[Q_j,P_k]=i\hbar\delta_{jk}I
+\]
+on the Schwartz core when $\lambda=1/\hbar$.
+\end{exercise}
+
+\subsection{Operator-valued Fourier transforms}
+
+\begin{definition}[Noncommutative Fourier transform]
+Let $G$ be a locally compact group with Haar measure.  For
+$f\in L^1(G)$ and a unitary representation $\pi:G\to U(H_\pi)$, define
+\[
+\widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg\in B(H_\pi).
+\]
+A frequency is now an irreducible representation and a Fourier coefficient
+is an operator.  If
+$(f*g)(x)=\int_Gf(y)g(y^{-1}x)\,dy$, then
+\[
+\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi).
+\]
+For abelian $G$ the irreducible spaces are one-dimensional, so this reduces
+to the scalar Fourier transform.
+\end{definition}
+
+\begin{exercise}[Peter--Weyl as discrete noncommutative Fourier analysis]
+For a compact group $G$, use Haar averaging and Schur orthogonality to prove
+\[
+L^2(G)\cong
+\mathop{\widehat{\bigoplus}}_{\pi\in\widehat G}
+H_\pi\otimes H_\pi^*.
+\]
+Derive
+\[
+f(g)=\sum_{\pi\in\widehat G}
+(\dim H_\pi)\Tr\!\bigl(\widehat f(\pi)\pi(g)\bigr),
+\qquad
+\|f\|_2^2=\sum_{\pi\in\widehat G}
+(\dim H_\pi)\|\widehat f(\pi)\|_{\rm HS}^2.
+\]
+Recover Fourier series when $G=\T$.
+\end{exercise}
+
+\subsection{Heisenberg Plancherel theorem}
+
+\begin{exercise}[Heisenberg Plancherel and inversion]
+\label{ex:heisenberg-harmonic-analysis}
+For $f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, compute
+\[
+\widehat f(\lambda)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
+\]
+Derive the Plancherel measure $c_n|\lambda|^n\,d\lambda$, determining $c_n$
+from the chosen Haar and Fourier normalizations, and prove
+\[
+\|f\|_2^2
+=c_n\int_{\R\setminus\{0\}}
+\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
+\]
+Show that the representations with trivial central character have zero
+Plancherel measure.  Derive inversion and the distributional orthogonality
+of Weyl operators.
+\end{exercise}
+
+\subsection{Direct integrals and general Plancherel theory}
+
+\begin{definition}[Direct-integral Plancherel transform]
+A locally compact group is \emph{unimodular} when its left and right Haar
+measures agree and \emph{type I} when its representations admit essentially
+unique decompositions into irreducibles.  A measurable field
+$(H_\pi)_{\pi\in\widehat G}$ has direct integral
+\[
+\int_{\widehat G}^{\oplus}H_\pi\,d\nu(\pi)
+=\left\{(\xi_\pi):
+\int_{\widehat G}\|\xi_\pi\|^2\,d\nu(\pi)<\infty\right\}\big/\text{a.e.}
+\]
+For a second-countable unimodular type-I group, there is a Plancherel measure
+$\nu_G$ for which
+\[
+L^2(G)\cong
+\int_{\widehat G}^{\oplus}\operatorname{HS}(H_\pi)\,d\nu_G(\pi),
+\qquad
+\|f\|_2^2=
+\int_{\widehat G}\|\widehat f(\pi)\|_{\rm HS}^2\,d\nu_G(\pi).
+\]
+Thus Fourier series, Euclidean Plancherel, Peter--Weyl theory, and the
+Heisenberg formula are discrete or continuous instances of one
+decomposition principle.
+\end{definition}
+
+\begin{exercise}[The regular representation as a direct integral]
+Derive the direct-integral decomposition of the regular representation.
+Show that $\nu_G$ is counting measure with weights $\dim H_\pi$ for compact
+groups, ordinary dual Haar measure for abelian groups, and
+$c_n|\lambda|^n\,d\lambda$ on the nontrivial Schr\"odinger representations
+of $\mathbb H_n$.
+\end{exercise}
+
+\part{Symmetry and Applications}
+
+\section{Harmonic and Representation-Theoretic Applications}
 \subsection{Lattices, Poisson summation, and diffraction}
 
 \begin{definition}[Lattices and reciprocal lattices]
@@ -2061,6 +1701,71 @@ microscopic dynamics is mathematically ergodic.
 
 \section{Operator Algebras}
 
+\subsection{Representations and group operator algebras}
+
+\begin{definition}[Representations, states, and the GNS construction]
+A \emph{representation} of a $C^*$-algebra $A$ is a $*$-homomorphism
+$\pi:A\to B(H)$.  A \emph{state} is a positive linear functional of norm
+one.  For a state $\varphi$, set
+\[
+N_\varphi=\{a:\varphi(a^*a)=0\},\qquad
+\langle[a],[b]\rangle=\varphi(a^*b)
+\]
+on $A/N_\varphi$.  Completing this pre-Hilbert space and letting $A$ act by
+left multiplication gives the cyclic \emph{GNS representation}
+$(\pi_\varphi,H_\varphi,\Omega_\varphi)$, characterized by
+\[
+\varphi(a)=
+\langle\Omega_\varphi,\pi_\varphi(a)\Omega_\varphi\rangle.
+\]
+\end{definition}
+
+\begin{definition}[Group $C^*$-algebras]
+Let $G$ be a locally compact group with left Haar measure and modular
+function $\Delta_G$.  On $C_c(G)$ set
+\[
+(f*g)(x)=\int_Gf(y)g(y^{-1}x)\,dy,
+\qquad
+f^*(x)=\Delta_G(x^{-1})\overline{f(x^{-1})}.
+\]
+Every strongly continuous unitary representation $U$ has integrated form
+$U(f)=\int_Gf(g)U_g\,dg$.  Completing in
+\[
+\|f\|_{\max}=\sup_U\|U(f)\|
+\]
+gives the \emph{full group $C^*$-algebra} $C^*(G)$.  The left regular
+representation $\lambda$ gives the \emph{reduced group $C^*$-algebra}
+\[
+C_r^*(G)=\overline{\lambda(C_c(G))}^{\|\cdot\|},
+\]
+and induces a canonical quotient $C^*(G)\twoheadrightarrow C_r^*(G)$.
+\end{definition}
+
+\begin{definition}[Von Neumann and group von Neumann algebras]
+For $S\subseteq B(H)$, let
+$S'=\{T:Ts=sT\text{ for every }s\in S\}$.  A \emph{von Neumann algebra}
+is a unital $*$-subalgebra $M\subseteq B(H)$ satisfying $M=M''$.  The
+\emph{group von Neumann algebra} is
+\[
+VN(G)=\{\lambda_g:g\in G\}''=C_r^*(G)''\subseteq B(L^2(G)).
+\]
+By the bicommutant theorem, $A''$ is both the strong- and weak-operator
+closure of any nondegenerate $*$-algebra $A\subseteq B(H)$.
+\end{definition}
+
+\begin{exercise}[GNS, regular representations, and weak closure]
+Prove that the GNS construction is well defined and unique up to cyclic
+unitary equivalence.  For a discrete group, apply it to the
+coefficient-at-the-identity state on $C_r^*(G)$ and recover the left regular
+representation on $\ell^2(G)$.  Prove the bicommutant theorem and deduce
+\[
+VN(G)=\overline{C_r^*(G)}^{\,\mathrm{SOT}}
+     =\overline{C_r^*(G)}^{\,\mathrm{WOT}}.
+\]
+Explain why weak closure supplies the spectral projections of self-adjoint
+elements that need not lie in the norm-closed algebra.
+\end{exercise}
+
 \subsection{Noncommutative probability}
 
 \begin{definition}[Noncommutative probability]
@@ -3173,7 +2878,8 @@ resulting maps.
 \subsection{Fourier algebras and completely bounded multipliers}
 
 \begin{definition}[Fourier algebra and group coproduct]
-For the group von Neumann algebra $VN(G)$ introduced in the opening part,
+For the group von Neumann algebra $VN(G)$ introduced in the operator-algebra
+part,
 the \emph{Fourier algebra} $A(G)$ consists of the coefficient functions
 \[
 u(s)=\langle\xi,\lambda_s\eta\rangle,
