@@ -2933,6 +2933,20 @@ norms inherited from $M_n(E)\subseteq B(H^{\oplus n})$. A map $u:E\to F$ is
 \]
 Thus an operator space records not only the norm of an observable but all
 norms obtained after coupling it to matrix-valued ancillary systems.
+
+Abstractly, matrix norms on a vector space $E$ satisfy \emph{Ruan's axioms}
+when
+\[
+\|x\oplus y\|_{M_{n+m}(E)}
+=\max\{\|x\|_{M_n(E)},\|y\|_{M_m(E)}\}
+\]
+and
+\[
+\|\alpha x\beta\|_{M_{r,s}(E)}
+\leq\|\alpha\|\,\|x\|_{M_n(E)}\,\|\beta\|
+\]
+for $x\in M_n(E)$, $y\in M_m(E)$,
+$\alpha\in M_{r,n}(\C)$, and $\beta\in M_{n,s}(\C)$.
 \end{definition}
 
 \begin{definition}[Ancilla-assisted channel discrimination]
@@ -2941,7 +2955,9 @@ $\Phi_1,\ldots,\Phi_m$ prepares a state on $H\otimes K$, applies
 $\Phi_j\otimes\id_K$ to the unknown channel input, and measures the output
 with a POVM. The strategy is \emph{ancilla assisted} when $\dim K>1$. It is
 \emph{unambiguous} when every conclusive outcome identifies the channel
-without error. Its \emph{inconclusive probability} is denoted $P_I$.
+without error. If channel $\Phi_j$ is selected with prior probability
+$\eta_j$, its \emph{inconclusive probability} $P_I$ is the prior-weighted
+average probability of an inconclusive outcome.
 \end{definition}
 
 \begin{exercise}[An ancilla improves measurement-channel discrimination]
@@ -2955,7 +2971,8 @@ For $0<\theta<\pi/4$, define
 and let $\mathcal M,\mathcal N$ be the two projective measurement channels
 with rank-one projection families
 $\{P_\phi,P_{\phi^\perp}\}$ and
-$\{P_\psi,P_{\psi^\perp}\}$. Use a singlet probe, retain the second qubit as
+$\{P_\psi,P_{\psi^\perp}\}$. Assume that the two channels are selected with
+equal prior probabilities. Use a singlet probe, retain the second qubit as
 an ancilla, and condition on the classical measurement outcome. Reduce the
 task to unambiguous discrimination of
 $|\phi\rangle$ and $|\psi\rangle$ and prove
@@ -2972,7 +2989,7 @@ the predicted success and inconclusive probabilities with
 \end{exercise}
 
 \begin{exercise}[Ruan's representation theorem]
-Prove conversely that every vector space with matrix norms satisfying these
+Prove conversely that every vector space with matrix norms satisfying Ruan's
 axioms admits a complete isometry into $B(H)$. Apply matrix Hahn--Banach
 separation to a norming family of matrices and take the direct sum of the
 resulting maps.
@@ -3235,9 +3252,11 @@ observables do not form an algebra.
 \begin{exercise}[Finite-dimensional Arveson--Wittstock extension]
 Prove in finite dimensions that a completely positive map from an operator
 system extends completely positively to the containing $C^*$-algebra.
-Deduce, by the $2\times2$ operator-system construction, that completely
-bounded maps between finite-dimensional operator spaces admit norm-preserving
-extensions.
+Let $E\subseteq A$ be an operator space in a finite-dimensional
+$C^*$-algebra and let $u:E\to B(H)$ be completely bounded. Deduce, by the
+$2\times2$ operator-system construction, that $u$ extends to a map
+$\widetilde u:A\to B(H)$ satisfying
+$\|\widetilde u\|_{cb}=\|u\|_{cb}$.
 \end{exercise}
 
 \begin{definition}[Operator-space tensor products]
@@ -5631,9 +5650,9 @@ H_g=-\sum_i\partial_{\theta_i}^2
 +\frac{g(g-1)}2\sum_{i<j}
  \frac1{\sin^2((\theta_i-\theta_j)/2)}.
 \]
-For the degree-zero, degree-one, and two-particle degree-two eigenfunctions
-computed above, take the same limit explicitly and identify the resulting
-polynomials and Sutherland eigenvalues.
+Compute the degree-zero and degree-one eigenfunctions and, for $n=2$, the
+degree-two eigenfunctions. Take the same limit explicitly and identify the
+resulting polynomials and Sutherland eigenvalues.
 \end{exercise}
 
 \subsection{Root-system integrals and elliptic Yang--Baxter identities}
@@ -5851,7 +5870,7 @@ Let $\phi'=-1/\phi$ and embed $\Z^2$ by
 \in\R_\parallel\times\R_\perp.
 \]
 Prove the injectivity and density conditions in the definition.  Choose a
-generic half-open interval window of length $1+1/\phi$, with boundary
+generic closed interval window of length $1+1/\phi$, with boundary
 disjoint from the projected lattice, and order the resulting
 physical points.  Determine the two possible nearest-neighbor spacings and
 show, after an overall rescaling and a possible exchange of letters, that
@@ -5936,10 +5955,12 @@ this algebra.
 \begin{exercise}[Diophantine trace labels]
 Prove that $N(E)$ is nondecreasing and is constant on every open spectral
 gap.  Approximate $\alpha$ by Fibonacci convergents and interpret the finite
-periodic approximants as large-unit-cell crystals.  Define the Fibonacci
-label group
+periodic approximants as large-unit-cell crystals.  Define the additive
+Fibonacci label group and its allowed label set by
 \[
- \mathcal L_\alpha=(\Z+\alpha\Z)\cap[0,1].
+ \Gamma_\alpha=\Z+\alpha\Z,
+ \qquad
+ \mathcal L_\alpha=\Gamma_\alpha\cap[0,1].
 \]
 Use the substitution recurrence to show that the measures of one-letter and
 two-letter cylinder sets belong to $\Z+\alpha\Z$.  Prove the same for every
