@@ -1341,6 +1341,7 @@ c_{V,W}
 =\tau\circ(\pi_V\otimes\pi_W)(\mathcal R):
 V\otimes W\longrightarrow W\otimes V.
 \]
+The pair $(H,\mathcal R)$ is \emph{quasitriangular}.
 \end{definition}
 
 \begin{exercise}[Hexagon identities and the Yang--Baxter equation]
@@ -1357,6 +1358,228 @@ c_{12}c_{23}c_{12}=c_{23}c_{12}c_{23}.
 \]
 Prove that the operators $c_{j,j+1}$ define braid-group representations on
 tensor powers of every finite-dimensional type-$1$ module.
+\end{exercise}
+
+\begin{definition}[Ribbon categories]
+Let $\mathcal C$ be a braided rigid $\C$-linear monoidal category.  A
+\emph{twist} is a natural isomorphism
+$\theta:\id_{\mathcal C}\to\id_{\mathcal C}$ satisfying
+\[
+\theta_{\mathbf1}=\id_{\mathbf1},
+\qquad
+\theta_{X\otimes Y}
+=c_{Y,X}c_{X,Y}(\theta_X\otimes\theta_Y).
+\]
+The category is \emph{ribbon} when
+\[
+\theta_{X^\vee}=(\theta_X)^\vee
+\]
+for every object $X$.
+\end{definition}
+
+\begin{exercise}[Ribbon elements]
+For a quasitriangular Hopf algebra $(H,\mathcal R)$, set
+\[
+u=m(S\otimes\id)(\mathcal R_{21}).
+\]
+Let $v\in H$ be central and invertible and satisfy
+\[
+v^2=uS(u),
+\qquad S(v)=v,
+\qquad \varepsilon(v)=1,
+\qquad
+\Delta(v)=(\mathcal R_{21}\mathcal R)^{-1}(v\otimes v).
+\]
+Prove that
+\[
+\theta_V=\pi_V(v^{-1})
+\]
+defines a ribbon twist on the category of finite-dimensional $H$-modules.
+Derive invariance of the quantum trace under framed ribbon isotopy.
+\end{exercise}
+
+\begin{definition}[Root-of-unity semisimplification]
+Fix $k\in\N$ and
+\[
+q=e^{\pi i/(k+2)}.
+\]
+Let $\mathcal T_k$ be the ribbon category of finite-dimensional type-$1$
+tilting modules for the Lusztig integral form of
+$U_q(\mathfrak{sl}_2)$ specialized at $q$.  A morphism
+$f:X\to Y$ is \emph{negligible} when
+\[
+\operatorname{tr}_q(gf)=0
+\qquad\text{for every }g:Y\to X.
+\]
+Let $\mathcal N_k$ be the negligible morphisms and define
+\[
+\mathcal C_k
+=\operatorname{Kar}(\mathcal T_k/\mathcal N_k),
+\]
+where $\operatorname{Kar}$ denotes idempotent completion.
+\end{definition}
+
+\begin{exercise}[Semisimplified \texorpdfstring{$SU(2)_k$}{SU(2)k} fusion]
+Prove that $\mathcal N_k$ is a tensor ideal preserved by duals, braiding,
+and twist.  Prove that $\mathcal C_k$ is semisimple with simple objects
+$V_0,\ldots,V_k$ and that
+\[
+V_a\otimes V_b
+\cong
+\bigoplus_{\substack{|a-b|\leq c\leq
+\min(a+b,2k-a-b)\\a+b+c\equiv0\pmod2}}
+V_c.
+\]
+Compute
+\[
+\dim_q(V_a)
+=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))}.
+\]
+\end{exercise}
+
+\begin{definition}[Modular tensor categories]
+A \emph{fusion category} is a semisimple rigid $\C$-linear monoidal
+category with simple unit, finite-dimensional morphism spaces, and finitely
+many simple-object classes.  A \emph{modular tensor category} is a ribbon
+fusion category for which the matrix
+\[
+\widetilde S_{ij}
+=\operatorname{tr}_q(c_{X_j,X_i}c_{X_i,X_j})
+\]
+on the simple objects $(X_i)_{i\in I}$ is invertible.  Define
+\[
+d_i=\dim_q(X_i),
+\qquad
+\mathcal D=\left(\sum_{i\in I}d_i^2\right)^{1/2},
+\qquad
+S=\mathcal D^{-1}\widetilde S,
+\qquad
+T_{ij}=\delta_{ij}\theta_i,
+\]
+where $\theta_{X_i}=\theta_i\id_{X_i}$.
+It is \emph{unitary} when it is a $C^*$-tensor category and its braiding and
+twist are unitary.
+\end{definition}
+
+\begin{exercise}[Modularity of \texorpdfstring{$SU(2)_k$}{SU(2)k}]
+Prove that $\mathcal C_k$ is a unitary modular tensor category.  For
+$0\leq a,b\leq k$, compute
+\[
+S_{ab}
+=\sqrt{\frac{2}{k+2}}
+\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right),
+\qquad
+\theta_a
+=\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
+\]
+Prove directly that $S$ is unitary and invertible.
+\end{exercise}
+
+\begin{definition}[Reshetikhin--Turaev TQFT]
+Let $\operatorname{Bord}^{\rm ext}_{3,2}(\mathcal C)$ be the symmetric
+monoidal category whose objects are closed oriented surfaces with
+$\mathcal C$-labeled marked points and Lagrangian subspaces of first
+homology, and whose morphisms are oriented three-dimensional bordisms with
+colored framed ribbon graphs and integral anomaly weights.  A
+\emph{Reshetikhin--Turaev TQFT} is a symmetric monoidal functor
+\[
+Z_{\mathcal C}^{\rm RT}:
+\operatorname{Bord}^{\rm ext}_{3,2}(\mathcal C)
+\longrightarrow\operatorname{Vect}_{\C}^{\rm fd}
+\]
+obtained from surgery colored by the Kirby element
+\[
+\Omega=\sum_{i\in I}d_iX_i.
+\]
+For $\mathcal C=\mathcal C_k$, write $Z_k^{\rm RT}$.
+\end{definition}
+
+\begin{exercise}[Reshetikhin--Turaev theorem]
+Prove invariance of the surgery construction under the two Kirby moves,
+including the anomaly-weight correction.  Prove compatibility with gluing
+and disjoint union and deduce that $Z_{\mathcal C}^{\rm RT}$ is a symmetric
+monoidal functor.  Prove that a colored framed link in $S^3$ is evaluated by
+the ribbon-graph functor of $\mathcal C$.
+\end{exercise}
+
+\begin{definition}[Modular functors and sewing]
+A \emph{modular functor} assigns a finite-dimensional vector space
+\[
+\mathcal V(\Sigma;i_1,\ldots,i_n)
+\]
+to every oriented surface with parametrized boundary circles and labeled
+marked points, projective linear maps to mapping classes, and tensor products
+to disjoint unions.  For two boundary circles with opposite orientations,
+its \emph{sewing map} is an isomorphism
+\[
+\mathcal V(\Sigma_{\rm sew};\boldsymbol i)
+\cong
+\bigoplus_{a\in I}
+\mathcal V(\Sigma;\boldsymbol i,a,a^\vee).
+\]
+\end{definition}
+
+\begin{exercise}[RT modular functor]
+Prove that the surface state spaces of
+$Z_{\mathcal C}^{\rm RT}$ define a modular functor and satisfy the sewing
+isomorphism.  Prove
+\[
+\mathcal V(S^2;i,j,k)
+\cong\Hom(\mathbf1,X_i\otimes X_j\otimes X_k)
+\]
+and derive the pair-of-pants decomposition and its independence under the
+pentagon and hexagon moves.
+\end{exercise}
+
+\begin{definition}[Torus state space and modular-group action]
+For a modular tensor category $\mathcal C$, let $e_i$ be the state of a
+solid torus whose core is colored by $X_i$.  Define
+\[
+Z_{\mathcal C}^{\rm RT}(T^2)
+=\bigoplus_{i\in I}\C e_i.
+\]
+The mapping-class group is generated by
+\[
+\mathsf s=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad
+\mathsf t=\begin{pmatrix}1&1\\0&1\end{pmatrix}
+\]
+in $SL_2(\Z)$.  Its projective action on the torus state space is
+normalized by
+\[
+\rho(\mathsf s)=S,
+\qquad
+\rho(\mathsf t)=T
+\]
+up to a common anomaly scalar.
+\end{definition}
+
+\begin{exercise}[Modular relations and the Verlinde formula]
+For a unitary modular tensor category, let
+\[
+N_{ij}^{\ k}=\dim\Hom(X_k,X_i\otimes X_j),
+\qquad
+C_{ij}=\delta_{i,j^\vee}.
+\]
+Use sewing and the $SL_2(\Z)$ action to prove
+\[
+S^2=C,
+\qquad
+(ST)^3=\xi C
+\]
+for the anomaly scalar $\xi$.  Prove the Verlinde formula
+\[
+N_{ij}^{\ k}
+=\sum_{a\in I}
+\frac{S_{ia}S_{ja}\overline{S_{ka}}}{S_{0a}}
+\]
+and the closed-surface dimension formula
+\[
+\dim Z_{\mathcal C}^{\rm RT}(\Sigma_g)
+=\sum_{a\in I}S_{0a}^{2-2g}.
+\]
+For $\mathcal C_k$, recover the truncated $SU(2)_k$ fusion rule from the
+displayed sine matrix.
 \end{exercise}
 
 \section{Group and Twisted Group \texorpdfstring{$C^*$-Algebras}{C*-Algebras}}
@@ -4614,62 +4837,7 @@ spectra} (2026)}.  Plot the deviations against $1/L$ and distinguish a
 finite-size extrapolation from an exact finite-chain identity.
 \end{exercise}
 
-\subsection{Fusion, braiding, and modular tensor categories}
-
-\begin{definition}[Monoidal and rigid categories]
-A \emph{monoidal category} is a category $\mathcal C$ with a tensor functor,
-unit object, and coherent associativity and unit isomorphisms. A \emph{dual}
-of $X$ is an object $X^*$ with evaluation and coevaluation morphisms
-satisfying the snake identities. A monoidal category is \emph{rigid} if
-every object has left and right duals.
-\end{definition}
-
-\begin{definition}[Fusion, braided, and modular categories]
-A \emph{fusion category} over $\C$ is a finite semisimple rigid
-$\C$-linear monoidal category with simple unit. It is \emph{unitary} when it
-is a $C^*$-category and its tensor product and structural isomorphisms are
-compatible with the adjoint. A \emph{braiding} is a natural family
-$c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon identities. A
-\emph{unitary modular tensor category} is a unitary ribbon fusion category
-with unitary nondegenerate braiding.
-\end{definition}
-
-\begin{exercise}[Fusion rules and braiding]
-Prove that simple-object classes of a fusion category form a based ring under
-tensor product. Derive the pentagon and hexagon equations for associativity
-and braiding data. Compute quantum dimensions and braid-group
-representations for the Fibonacci fusion rule
-$\tau\otimes\tau\cong1\oplus\tau$.
-\end{exercise}
-
-\subsection{TQFT, Reshetikhin--Turaev theory, and Chern--Simons theory}
-
-\begin{definition}[Bordisms and topological field theories]
-The \emph{bordism category} has closed oriented $(n-1)$-manifolds as objects,
-oriented $n$-dimensional bordisms as morphisms, and disjoint union as tensor
-product. An \emph{$n$-dimensional topological field theory} is a symmetric
-monoidal functor from this category to vector spaces. An extended theory may
-assign categories to codimension-two manifolds. A TQFT is \emph{invertible}
-when its state spaces are tensor-invertible (hence one-dimensional over a
-field) and every bordism acts invertibly; noninvertible TQFTs may instead
-carry nontrivial superselection and fusion sectors.
-\end{definition}
-
-\begin{definition}[The Reshetikhin--Turaev $SU(2)_k$ theory]
-For $k\in\N$, let $\mathcal C_k=SU(2)_k$ be the unitary modular tensor
-category with simple objects $V_0,\ldots,V_k$, where $V_j$ has spin $j/2$.
-The Reshetikhin--Turaev construction uses the colored ribbon-graph calculus
-of $\mathcal C_k$ and surgery to define a symmetric monoidal
-$(2+1)$-dimensional TQFT
-\[
-Z_k^{\rm RT}=Z_{\mathcal C_k}
-\]
-on bordisms equipped with the extra framing data needed to cancel the
-framing anomaly. It assigns invariants to closed framed three-manifolds and
-to framed links colored by the objects $V_j$. We call $Z_k^{\rm RT}$ the
-Reshetikhin--Turaev model of quantum $SU(2)$ Chern--Simons theory at level
-$k$; this terminology does not define it by a functional integral.
-\end{definition}
+\subsection{Chern--Simons theory and quantum invariants}
 
 \begin{definition}[Chern--Simons theory and Wilson loops]
 Let $G$ have an invariant inner product on $\mathfrak g$, and fix a
@@ -4699,7 +4867,7 @@ to show that the $Z_k^{\rm RT}$ invariant of a framed link in $S^3$, with a
 component colored by $V_j$, is the corresponding $j$-colored Jones
 evaluation at
 \[
-q=e^{2\pi i/(k+2)}.
+Q=q^2=e^{2\pi i/(k+2)}.
 \]
 In particular, identify $V_1$ with the fundamental color giving the ordinary
 Jones polynomial. Compute the normalized invariants of the unknot, Hopf
