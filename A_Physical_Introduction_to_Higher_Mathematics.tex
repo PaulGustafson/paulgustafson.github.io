@@ -58,11 +58,6 @@
 
 \part{Operator Analysis and Harmonic Analysis}
 
-This part takes the shortest route from linear superposition to
-noncommutative Fourier analysis.  It records only the analytic structure
-needed later: Hilbert spaces, operator algebras and their spectra, Fourier
-analysis, and the Heisenberg representation of phase space.
-
 \section{Linear and Hilbert Spaces}
 
 \begin{definition}[Linear spaces and maps]
@@ -77,8 +72,6 @@ $T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
 \[
 \ker T=\{v:T(v)=0\},\qquad \im T=\{T(v):v\in V\}.
 \]
-Subspaces, quotients, and direct sums are formed by requiring these same
-linear operations to be well defined.
 \end{definition}
 
 \begin{definition}[Dual spaces and tensor products]
@@ -98,7 +91,7 @@ bilinear map $b:V\times W\to X$ factors uniquely as
 V\times W\longrightarrow V\otimes W
 \xrightarrow{\,\widetilde b\,}X.
 \]
-In particular, evaluation induces a linear map
+The evaluation pairing induces a linear map
 $\operatorname{ev}_V:V^\vee\otimes V\to k$.
 \end{definition}
 
@@ -116,10 +109,7 @@ satisfying the two snake identities
 (\operatorname{ev}_V\otimes\id_{V^\vee})
 \circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
 \]
-We take dualizability as the definition of \emph{finite dimensionality}:
-finite-dimensional linear spaces are precisely the objects having duals in
-the symmetric monoidal category of linear spaces.  The exercise below proves
-that this agrees with the usual finite-basis condition.
+A linear space is \emph{finite-dimensional} if it is dualizable.
 \end{definition}
 
 \begin{definition}[Categorical trace and dimension]
@@ -159,16 +149,13 @@ An \emph{inner product} on a complex linear space is conjugate-linear in its
 first argument, linear in its second, positive definite, and satisfies
 $\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
 $\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
-space complete for this norm.  The basic examples are
-$\C^n$, $\ell^2(\N)$, and $L^2(X,\mu)$.
+space complete for this norm.
 
-Vectors are \emph{orthogonal} when their inner product is zero.  For a closed
-subspace $M\subseteq H$,
+Vectors are \emph{orthogonal} when their inner product is zero.  For a
+subspace $M\subseteq H$, define
 \[
-M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\},
-\qquad H=M\oplus M^\perp.
+M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\}.
 \]
-The corresponding bounded map $P_M:H\to M$ is the orthogonal projection.
 \end{definition}
 
 \begin{definition}[Bounded operators and adjoints]
@@ -176,7 +163,7 @@ A linear map $T:H\to K$ between Hilbert spaces is \emph{bounded} when
 \[
 \|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty.
 \]
-Every bounded operator has a unique \emph{adjoint} $T^*:K\to H$ satisfying
+An \emph{adjoint} of $T$ is an operator $T^*:K\to H$ satisfying
 \[
 \langle x,Ty\rangle=\langle T^*x,y\rangle.
 \]
@@ -191,6 +178,8 @@ representation theorem.  Deduce the existence of adjoints and prove
 \|T\|^2=\|T^*T\|,\qquad
 (\im T)^\perp=\ker T^*.
 \]
+For every closed subspace $M\subseteq H$, prove
+$H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
 Show that an orthonormal family $(e_j)$ is complete exactly when
 $\|x\|^2=\sum_j|\langle e_j,x\rangle|^2$ for every $x\in H$.
 \end{exercise}
@@ -206,12 +195,13 @@ conjugate-linear involution such that
 (ab)^*=b^*a^*,\qquad \|ab\|\leq\|a\|\|b\|,\qquad
 \|a^*a\|=\|a\|^2.
 \]
-The model is $B(H)$ with the operator norm.  For a unital $C^*$-algebra,
+For a unital $C^*$-algebra,
 \[
 \spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
 \]
 An element is \emph{positive}, written $a\geq0$, when $a=b^*b$ for some
-$b\in A$; equivalently, $a=a^*$ and $\spec_A(a)\subseteq[0,\infty)$.
+$b\in A$.  It is \emph{self-adjoint} when $a=a^*$ and \emph{normal} when
+$a^*a=aa^*$.
 \end{definition}
 
 \begin{exercise}[Elementary spectral theory]
@@ -221,62 +211,59 @@ is
 r(a)=\lim_{n\to\infty}\|a^n\|^{1/n}.
 \]
 For normal $a$, prove $r(a)=\|a\|$.  Show that positive elements have unique
-positive square roots and that $a^*a\geq0$.
+positive square roots, that $a^*a\geq0$, and that
+$a\geq0$ if and only if $a=a^*$ and
+$\spec_A(a)\subseteq[0,\infty)$.
 \end{exercise}
 
 \subsection{Commutative Gelfand theory and functional calculus}
 
 \begin{definition}[Gelfand spectrum]
-For a unital commutative $C^*$-algebra $A$, let $\widehat A$ be the compact
-space of nonzero homomorphisms $\chi:A\to\C$ with its weak-* topology.  The
+For a unital commutative $C^*$-algebra $A$, let $\widehat A$ be the space of
+nonzero homomorphisms $\chi:A\to\C$ with its weak-* topology.  The
 \emph{Gelfand transform} is
 \[
 \Gamma:A\longrightarrow C(\widehat A),
 \qquad \Gamma(a)(\chi)=\chi(a).
 \]
-The commutative Gelfand theorem says that $\Gamma$ is an isometric
-$*$-isomorphism.
 \end{definition}
 
-\begin{definition}[Continuous functional calculus]
-If $a$ is normal in a unital $C^*$-algebra, the algebra
-$C^*(1,a)$ is commutative and there is a unique unital isometric
-$*$-homomorphism
+\begin{exercise}[Gelfand duality and continuous functional calculus]
+Prove that $\widehat A$ is compact and that the Gelfand transform is an
+isometric $*$-isomorphism, including
+surjectivity by the Stone--Weierstrass theorem.  Show that unital $*$-homomorphisms
+$C(X)\to C(Y)$ are contravariantly induced by continuous maps $Y\to X$.
+For every normal element $a$ of a unital $C^*$-algebra, prove that there is
+a unique unital isometric $*$-homomorphism
 \[
 C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
 \]
-sending the coordinate function $z$ to $a$.  It satisfies
+sending the coordinate function to $a$, and prove
 \[
-(fg)(a)=f(a)g(a),\quad
-\overline f(a)=f(a)^*,\quad
+(fg)(a)=f(a)g(a),\qquad
+\overline f(a)=f(a)^*,\qquad
 \spec(f(a))=f(\spec(a)).
 \]
-In particular, positivity and square roots are consequences of ordinary
-continuous functions on the spectrum.
-\end{definition}
-
-\begin{exercise}[Gelfand duality]
-Prove the commutative Gelfand theorem, including surjectivity by the
-Stone--Weierstrass theorem.  Show that unital $*$-homomorphisms
-$C(X)\to C(Y)$ are contravariantly induced by continuous maps $Y\to X$.
-Derive the continuous functional calculus and the spectral mapping theorem.
 \end{exercise}
 
 \subsection{Bounded normal and unbounded self-adjoint operators}
 
-\begin{definition}[Spectral theorem for bounded normal operators]
-A \emph{projection-valued measure} on a compact space $X$ assigns an
-orthogonal projection $E(B)$ to each Borel set $B\subseteq X$, is countably
+\begin{definition}[Projection-valued measures]
+A \emph{projection-valued measure} on a measurable space $X$ assigns an
+orthogonal projection $E(B)$ to each measurable set $B\subseteq X$, is countably
 additive in the strong operator topology, and satisfies
-$E(X)=I$.  If $T\in B(H)$ is normal, there is a unique projection-valued
-measure $E_T$ on $\spec(T)$ such that
+$E(X)=I$.
+\end{definition}
+
+\begin{exercise}[Bounded normal spectral theorem]
+For every normal $T\in B(H)$, prove that there is a unique projection-valued
+measure $E_T$ on $\spec(T)$ satisfying
 \[
 T=\int_{\spec(T)}z\,dE_T(z),
 \qquad
 f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
 \]
-This is the bounded normal spectral theorem.
-\end{definition}
+\end{exercise}
 
 \begin{definition}[Unbounded self-adjoint operators]
 An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
@@ -286,18 +273,26 @@ domain.  Its adjoint has domain
 \{y\in H:x\mapsto\langle y,Ax\rangle
 \text{ is bounded on }\mathcal D(A)\}.
 \]
-It is \emph{self-adjoint} when $A=A^*$, including equality of domains.  The
-spectral theorem gives a unique projection-valued measure $E_A$ on $\R$ with
+For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
+$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
+$x\in\mathcal D(A)$.
+It is \emph{self-adjoint} when $A=A^*$, including equality of domains, and
+\emph{closed} when its graph is closed in $H\oplus H$.
+\end{definition}
+
+\begin{exercise}[Unbounded spectral theorem and Stone's theorem]
+For every self-adjoint operator $A$, prove that there is a unique
+projection-valued measure $E_A$ on $\R$ satisfying
 \[
 A=\int_\R\lambda\,dE_A(\lambda),\qquad
 \mathcal D(A)=
 \left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
 \]
-More generally, $f(A)=\int f(\lambda)\,dE_A(\lambda)$ on its natural domain.
-In particular $e^{-itA}$ is a strongly continuous unitary group.  Conversely,
-Stone's theorem assigns a unique self-adjoint generator to every strongly
-continuous one-parameter unitary group.
-\end{definition}
+Define $f(A)=\int f(\lambda)\,dE_A(\lambda)$ on its natural domain.  Prove
+that $e^{-itA}$ is a strongly continuous unitary group and that every
+strongly continuous one-parameter unitary group has a unique self-adjoint
+generator.
+\end{exercise}
 
 \begin{exercise}[Spectral lines and time evolution]
 \label{ex:spectral-lines}
@@ -307,10 +302,8 @@ $B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
 \langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
 =e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
 \]
-Thus measured transition frequencies are energy differences divided by
-$\hbar$.  Extend the calculation from pure point spectrum to the
-projection-valued spectral measure, and prove Stone's theorem using the
-spectral calculus.
+Extend the calculation from pure point spectrum to the projection-valued
+spectral measure.
 \end{exercise}
 
 \section{Abelian Harmonic Analysis and Phase Space}
@@ -322,14 +315,8 @@ With normalized Haar measure on $\T=\R/2\pi\Z$, define
 \[
 \widehat f(k)=\int_\T f(x)e^{-ikx}\,dx,\qquad k\in\Z.
 \]
-The characters $e^{ikx}$ form an orthonormal basis of $L^2(\T)$, so
-\[
-f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
-\qquad
-\|f\|_2^2=\sum_{k\in\Z}|\widehat f(k)|^2
-\]
-in $L^2$.  Fourier series are therefore the spectral resolution of
-translation on a compact abelian group.
+The \emph{Fourier series} of $f$ is
+$\sum_{k\in\Z}\widehat f(k)e^{ikx}$.
 \end{definition}
 
 \begin{definition}[Fourier transform]
@@ -338,16 +325,20 @@ For $f\in\mathcal S(\R^n)$, the semiclassical Fourier transform is
 (\mathcal F_\hbar f)(p)
 =(2\pi\hbar)^{-n/2}\int_{\R^n}e^{-ip\cdot x/\hbar}f(x)\,dx.
 \]
-It extends uniquely to a unitary operator on $L^2(\R^n)$ and has inverse
-obtained by changing the sign in the exponential.  The Plancherel identity
-is $\|\mathcal F_\hbar f\|_2=\|f\|_2$.
 \end{definition}
 
 \begin{exercise}[Fourier inversion and Plancherel]
-Prove inversion first for Schwartz functions and derive Plancherel by
-density.  Show that convolution becomes multiplication and differentiation
-becomes multiplication by frequency.  Obtain the Fourier-series formulas
-from the transform on the compact group $\T$.
+Prove that $(e^{ikx})_{k\in\Z}$ is an orthonormal basis of $L^2(\T)$ and
+derive
+\[
+f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
+\qquad
+\|f\|_2^2=\sum_{k\in\Z}|\widehat f(k)|^2.
+\]
+Prove Fourier inversion on $\mathcal S(\R^n)$ and prove that
+$\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(\R^n)$.
+Show that convolution becomes multiplication and differentiation becomes
+multiplication by frequency.
 \end{exercise}
 
 \subsection{Position, momentum, translation, and modulation}
@@ -358,16 +349,17 @@ On the common invariant core $\mathcal S(\R^n)\subset L^2(\R^n)$ define
 (Q_jf)(x)=x_jf(x),\qquad
 (P_jf)(x)=-i\hbar\,\partial_jf(x).
 \]
-The Fourier transform exchanges multiplication and differentiation:
-\[
-\mathcal F_\hbar P_j\mathcal F_\hbar^{-1}=M_{p_j},
-\qquad
-\mathcal F_\hbar Q_j\mathcal F_\hbar^{-1}
-=i\hbar\,\partial_{p_j}.
-\]
-Thus position and momentum are the same spectral geometry viewed in dual
-coordinates.
 \end{definition}
+
+\begin{exercise}[Fourier exchange of position and momentum]
+Prove that
+\[
+(\mathcal F_\hbar P_jf)(p)=p_j(\mathcal F_\hbar f)(p),
+\qquad
+(\mathcal F_\hbar Q_jf)(p)
+=i\hbar\,\partial_{p_j}(\mathcal F_\hbar f)(p).
+\]
+\end{exercise}
 
 \begin{definition}[Translation and modulation]
 For $q,p\in\R^n$, set
@@ -375,38 +367,32 @@ For $q,p\in\R^n$, set
 (T_qf)(x)=f(x-q),\qquad
 (M_pf)(x)=e^{ip\cdot x/\hbar}f(x).
 \]
-These unitary operators satisfy
-\[
-M_pT_q=e^{ip\cdot q/\hbar}T_qM_p.
-\]
-The noncommuting phase is the first indication that position--frequency
-space is not merely the product $\R_q^n\times\R_p^n$.
 \end{definition}
 
 \subsection{Linear symplectic geometry}
 
 \begin{definition}[The commutation form]
-For $z=(q,p)$ and $z'=(q',p')$ in
+An alternating nondegenerate bilinear form on a real linear space is a
+\emph{symplectic form}.  For $z=(q,p)$ and $z'=(q',p')$ in
 $\R_q^n\oplus(\R_q^n)^*$, define
 \[
 \omega(z,z')=p(q')-p'(q)
             =p\cdot q'-p'\cdot q.
 \]
-This alternating nondegenerate bilinear form makes phase space symplectic.
-The Weyl operators
+The \emph{Weyl operators} are
 \[
-W(q,p)=e^{-ip\cdot q/(2\hbar)}M_pT_q
+W(q,p)=e^{-ip\cdot q/(2\hbar)}M_pT_q.
 \]
-obey
-\[
-W(z)W(z')
-=e^{i\omega(z,z')/(2\hbar)}W(z+z').
-\]
-Hence the commutation phase recovers the symplectic form.
 \end{definition}
 
-\begin{exercise}[Symplectic bases and Weyl relations]
-Verify the Weyl relation directly.  Prove that every finite-dimensional
+\begin{exercise}[Weyl relations and symplectic bases]
+Prove
+\[
+M_pT_q=e^{ip\cdot q/\hbar}T_qM_p,
+\qquad
+W(z)W(z')=e^{i\omega(z,z')/(2\hbar)}W(z+z').
+\]
+Prove that every finite-dimensional
 symplectic space has a basis in which the form has matrix
 $\left(\begin{smallmatrix}0&-I\\I&0\end{smallmatrix}\right)$ for the
 $(q,p)$ ordering used here.  Characterize the linear maps preserving
@@ -424,8 +410,7 @@ $\mathbb H_n=\R^{2n}\times\R$ with multiplication
 (z,s)(z',s')
 =(z+z',s+s'+\tfrac12\omega(z,z')).
 \]
-The Weyl cocycle has become an ordinary central coordinate.  For
-$\lambda\ne0$, the Schr\"odinger representation is
+For $\lambda\ne0$, the Schr\"odinger representation is
 \[
 \bigl(\pi_\lambda(q,p,s)f\bigr)(x)
 =e^{i\lambda(s+p\cdot(x-q/2))}f(x-q).
@@ -455,17 +440,17 @@ $f\in L^1(G)$ and a unitary representation $\pi:G\to U(H_\pi)$, define
 \[
 \widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg\in B(H_\pi).
 \]
-A frequency is now an irreducible representation and a Fourier coefficient
-is an operator.  If
-$(f*g)(x)=\int_Gf(y)g(y^{-1}x)\,dy$, then
+The \emph{convolution} of $f,g\in L^1(G)$ is
 \[
-\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi).
+(f*g)(x)=\int_Gf(y)g(y^{-1}x)\,dy.
 \]
-For abelian $G$ the irreducible spaces are one-dimensional, so this reduces
-to the scalar Fourier transform.
 \end{definition}
 
 \begin{exercise}[Peter--Weyl as discrete noncommutative Fourier analysis]
+Prove
+\[
+\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi).
+\]
 For a compact group $G$, use Haar averaging and Schur orthogonality to prove
 \[
 L^2(G)\cong
@@ -506,7 +491,7 @@ of Weyl operators.
 
 \subsection{Direct integrals and general Plancherel theory}
 
-\begin{definition}[Direct-integral Plancherel transform]
+\begin{definition}[Direct integrals and type-I groups]
 A locally compact group is \emph{unimodular} when its left and right Haar
 measures agree and \emph{type I} when its representations admit essentially
 unique decompositions into irreducibles.  A measurable field
@@ -516,8 +501,11 @@ $(H_\pi)_{\pi\in\widehat G}$ has direct integral
 =\left\{(\xi_\pi):
 \int_{\widehat G}\|\xi_\pi\|^2\,d\nu(\pi)<\infty\right\}\big/\text{a.e.}
 \]
-For a second-countable unimodular type-I group, there is a Plancherel measure
-$\nu_G$ for which
+\end{definition}
+
+\begin{exercise}[General Plancherel theorem]
+For a second-countable unimodular type-I group, prove that there is a
+Plancherel measure $\nu_G$ such that
 \[
 L^2(G)\cong
 \int_{\widehat G}^{\oplus}\operatorname{HS}(H_\pi)\,d\nu_G(\pi),
@@ -525,12 +513,6 @@ L^2(G)\cong
 \|f\|_2^2=
 \int_{\widehat G}\|\widehat f(\pi)\|_{\rm HS}^2\,d\nu_G(\pi).
 \]
-Thus Fourier series, Euclidean Plancherel, Peter--Weyl theory, and the
-Heisenberg formula are discrete or continuous instances of one
-decomposition principle.
-\end{definition}
-
-\begin{exercise}[The regular representation as a direct integral]
 Derive the direct-integral decomposition of the regular representation.
 Show that $\nu_G$ is counting measure with weights $\dim H_\pi$ for compact
 groups, ordinary dual Haar measure for abelian groups, and
