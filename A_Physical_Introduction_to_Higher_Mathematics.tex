@@ -741,6 +741,218 @@ operators.  Prove that representations with trivial central character have
 zero Plancherel measure.
 \end{exercise}
 
+\section{Quantum Dynamics}
+
+\begin{definition}[Classical and quantum evolution]
+Let $H\in C^\infty(\R^{2n},\R)$ have bounded derivatives of order at least
+two, let $\Phi_t$ be its Hamiltonian flow, and let
+$\operatorname{Op}_\hbar^W(H)$ denote its self-adjoint realization.  Define
+\[
+U_\hbar(t)=e^{-it\operatorname{Op}_\hbar^W(H)/\hbar}.
+\]
+For $a\in\mathcal S(\R^{2n})$, define
+\[
+a_t=a\circ\Phi_t,
+\qquad
+A_\hbar(t)=U_\hbar(t)^*\operatorname{Op}_\hbar^W(a)U_\hbar(t).
+\]
+\end{definition}
+
+\begin{exercise}[Heisenberg equation and Egorov's theorem]
+Prove
+\[
+\frac{d}{dt}a_t=\{a_t,H\},
+\qquad
+\frac{d}{dt}A_\hbar(t)
+=\frac{i}{\hbar}
+[\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
+\]
+For every $T>0$, prove Egorov's theorem
+\[
+\sup_{|t|\leq T}
+\left\|
+A_\hbar(t)-\operatorname{Op}_\hbar^W(a\circ\Phi_t)
+\right\|=O_T(\hbar).
+\]
+Prove exact equality for quadratic $H$.  Derive Ehrenfest's equations for
+the expectations of $Q_j$ and $P_j$.
+\end{exercise}
+
+\section{Symplectic Manifolds}
+
+\begin{definition}[Differential forms and exterior derivative]
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write
+$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$.  For a smooth map $F:M\to N$, define
+\[
+(F^*\alpha)_p(v_1,\ldots,v_k)
+=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+The \emph{exterior derivative} is the family
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
+Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
+\end{definition}
+
+\begin{exercise}[Cartan calculus]
+Construct $d$ locally and prove its uniqueness.  For contraction
+$\iota_X$, prove Cartan's identity
+\[
+\mathcal L_X=d\iota_X+\iota_Xd.
+\]
+\end{exercise}
+
+\begin{definition}[Symplectic manifolds and canonical transformations]
+A \emph{symplectic form} is a closed nondegenerate two-form $\omega$.
+For $f\in C^\infty(M)$, define
+\[
+\iota_{X_f}\omega=-df,
+\qquad
+\{f,g\}=-\omega(X_f,X_g).
+\]
+A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
+\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
+For a manifold $Q$, the tautological one-form on $T^*Q$ is
+\[
+\theta_\alpha(v)=\alpha(d\pi(v)),
+\]
+and the canonical symplectic form is $\omega=d\theta$.
+\end{definition}
+
+\begin{definition}[Classical states and observables]
+A \emph{pure classical state} is a point of $M$, a \emph{classical
+observable} is a function $f\in C^\infty(M,\R)$, and a
+\emph{statistical state} is a Borel probability measure $\mu$ with
+expectation
+\[
+\mathbb E_\mu[f]=\int_Mf\,d\mu.
+\]
+For Hamiltonian flow $\Phi_t$, define
+\[
+\mu_t=(\Phi_t)_*\mu_0,
+\qquad f_t=f\circ\Phi_t.
+\]
+\end{definition}
+
+\begin{exercise}[Darboux theorem and Hamiltonian mechanics]
+Prove the Darboux theorem and identify the canonical form on $T^*Q$ in
+local coordinates.  Derive Hamilton's equations and prove that the Poisson
+bracket is antisymmetric, satisfies the Leibniz rule and Jacobi identity,
+and is preserved by canonical transformations.  Prove
+\[
+\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
+\]
+\end{exercise}
+
+\begin{definition}[Hamiltonian actions and reduction]
+A symplectic action of a Lie group $G$ on $(M,\omega)$ is
+\emph{Hamiltonian} when it has an equivariant map
+$J:M\to\mathfrak g^*$ satisfying
+\[
+d\langle J,\xi\rangle=-\iota_{\xi_M}\omega
+\qquad(\xi\in\mathfrak g).
+\]
+Let $\eta\in\mathfrak g^*$ be a regular value and let
+$G_\eta=\{g:\Ad_g^*\eta=\eta\}$.  If $G_\eta$ acts freely and properly on
+$J^{-1}(\eta)$, define
+\[
+M//_\eta G=J^{-1}(\eta)/G_\eta,
+\qquad
+q^*\omega_\eta=i^*\omega,
+\]
+where $i:J^{-1}(\eta)\hookrightarrow M$ and
+$q:J^{-1}(\eta)\to M//_\eta G$.
+\end{definition}
+
+\begin{exercise}[Noether and Marsden--Weinstein theorems]
+Prove that the components of $J$ Poisson-commute with every invariant
+Hamiltonian.  Prove that $\omega_\eta$ exists uniquely and is symplectic and
+that invariant Hamiltonian flows descend to $M//_\eta G$.  Compute the
+momentum maps for translations and rotations on $T^*\R^3$.
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the volume form $\omega^n/n!$, and every density
+depending only on the Hamiltonian.
+\end{exercise}
+
+\section{Geometric Quantization}
+
+\begin{definition}[Prequantum line bundles]
+A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
+$L\to M$ with a unitary connection $\nabla$ satisfying
+\[
+F_\nabla=-\frac{i}{\hbar}\omega.
+\]
+For $f\in C^\infty(M)$, its \emph{Kostant--Souriau operator} is
+\[
+\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+\]
+\end{definition}
+
+\begin{definition}[Polarizations and metaplectic correction]
+A \emph{complex polarization} is an involutive Lagrangian subbundle
+$P\subset T_\C M$.  Its canonical line is
+$K_P=\Lambda^{\rm top}P^*$, and a \emph{metaplectic correction} is a line
+bundle $\delta_P$ with $\delta_P^{\otimes2}\cong K_P$.  The corrected
+quantum space is the Hilbert completion of sections of
+$L\otimes\delta_P$ covariantly constant along $P$.
+\end{definition}
+
+\begin{exercise}[Prequantization and polarization]
+Prove that a prequantum line bundle exists if and only if
+\[
+\left[\frac{\omega}{2\pi\hbar}\right]
+\in H^2(M;\Z).
+\]
+Prove
+\[
+[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
+=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
+\]
+For $T^*\R^n$ with the vertical polarization, recover $L^2(\R^n)$,
+$Q_j\psi=x_j\psi$, and $P_j\psi=-i\hbar\partial_j\psi$.  For a compact
+K\"ahler manifold with a positive prequantum line bundle, identify the
+corrected quantum space with
+$H^0(M,L\otimes K_M^{1/2})$.
+\end{exercise}
+
+\section{Deformation Quantization}
+
+\begin{definition}[Poisson manifolds]
+A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
+$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
+Equivalently, there is a bivector $\Pi\in\Gamma(\Lambda^2TM)$ satisfying
+\[
+\{f,g\}=\Pi(df,dg),
+\qquad [\Pi,\Pi]_{\rm Sch}=0.
+\]
+\end{definition}
+
+\begin{definition}[Star products]
+A \emph{differential star product} on a Poisson manifold is an associative
+$\C[[\hbar]]$-bilinear product on $C^\infty(M)[[\hbar]]$ of the form
+\[
+f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
+\]
+where the $C_r$ are bidifferential operators, $1$ is a unit, and
+\[
+C_1(f,g)-C_1(g,f)=i\{f,g\}.
+\]
+Two star products are \emph{equivalent} when they are intertwined by an
+operator $T=\id+\sum_{r\geq1}\hbar^rT_r$ with differential $T_r$.
+\end{definition}
+
+\begin{exercise}[Fedosov and Kontsevich quantization]
+Prove that the Moyal product is a differential star product on
+$\R^{2n}$.  Prove that every symplectic manifold admits a Fedosov star
+product and that its equivalence class is determined by its formal
+characteristic class.  Prove the Kontsevich formality theorem and deduce
+that every finite-dimensional Poisson manifold admits a deformation
+quantization.
+\end{exercise}
+
 \section{\texorpdfstring{$C^*$-Algebras and Functional Calculus}{C*-Algebras and Functional Calculus}}
 
 \begin{definition}[$C^*$-algebras, spectrum, and positivity]
@@ -785,6 +997,209 @@ C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
 \]
 sending the coordinate function to $a$, and prove the continuous spectral
 mapping theorem.
+\end{exercise}
+
+\section{Quantization of Symmetry}
+
+\begin{definition}[Equivariant quantization]
+Let a Lie group $G$ act on a prequantized Hamiltonian manifold
+$(M,\omega,J,L,\nabla)$ and preserve a polarization $P$ and metaplectic
+correction $\delta_P$.  An \emph{equivariant quantization} is a lift of the
+$G$-action to $L\otimes\delta_P$ preserving its Hermitian structure,
+connection, and polarization.  Its quantum representation is the induced
+unitary representation on the polarized quantum space.
+\end{definition}
+
+\begin{exercise}[Quantization commutes with reduction]
+For a compact connected group acting holomorphically and Hamiltonianly on a
+compact prequantized K\"ahler manifold, assume that $0$ is a regular value
+of $J$, that $G$ acts freely on $J^{-1}(0)$, and that the prequantum and
+half-form data descend to the quotient.  Prove that the derived quantum
+representation is generated by the quantized components of $J$ and prove
+\[
+\mathcal Q(M//_0G)\cong\mathcal Q(M)^G
+\]
+with the metaplectic correction.  Derive the multiplicity formula obtained
+by reduction at integral coadjoint orbits.
+\end{exercise}
+
+\subsection{Poisson--Lie groups and Lie bialgebras}
+
+\begin{definition}[Poisson--Lie groups and Lie bialgebras]
+A \emph{Poisson--Lie group} is a Lie group $G$ with a Poisson structure for
+which multiplication $G\times G\to G$ is Poisson.  A \emph{Lie bialgebra}
+is a Lie algebra $\mathfrak g$ with a linear map
+\[
+\delta:\mathfrak g\to\mathfrak g\wedge\mathfrak g
+\]
+that is a $1$-cocycle for the adjoint action and whose transpose defines a
+Lie bracket on $\mathfrak g^*$.  It is \emph{coboundary} when
+\[
+\delta(x)=[x\otimes1+1\otimes x,r]
+\]
+for some $r\in\mathfrak g\otimes\mathfrak g$.
+\end{definition}
+
+\begin{exercise}[Infinitesimal Poisson--Lie duality]
+Differentiate a Poisson--Lie structure at the identity and prove that it
+defines a Lie bialgebra.  Prove the converse for connected simply connected
+groups.  Derive the classical Yang--Baxter equation from the co-Jacobi
+identity for a coboundary Lie bialgebra.
+\end{exercise}
+
+\subsection{Drinfeld--Jimbo quantization}
+
+\begin{definition}[Quantized enveloping algebras]
+A \emph{quantized enveloping algebra} of $(\mathfrak g,\delta)$ is a
+topologically free Hopf algebra $U_\hbar(\mathfrak g)$ over $\C[[\hbar]]$
+satisfying
+\[
+U_\hbar(\mathfrak g)/\hbar U_\hbar(\mathfrak g)\cong U(\mathfrak g),
+\qquad
+\delta(x)=
+\frac{\Delta_\hbar(x)-\Delta_\hbar^{\rm op}(x)}{\hbar}\bmod\hbar.
+\]
+For generic $q$, $U_q(\mathfrak{sl}_2)$ is generated by
+$E,F,K,K^{-1}$ with
+\[
+KEK^{-1}=q^2E,
+\qquad KFK^{-1}=q^{-2}F,
+\qquad [E,F]=\frac{K-K^{-1}}{q-q^{-1}},
+\]
+and
+\[
+\Delta(K)=K\otimes K,
+\quad
+\Delta(E)=E\otimes1+K\otimes E,
+\quad
+\Delta(F)=F\otimes K^{-1}+1\otimes F.
+\]
+\end{definition}
+
+\begin{definition}[Quasitriangular Hopf algebras]
+A \emph{universal $R$-matrix} is an invertible element $\mathcal R$ in a
+completion of $H\otimes H$ satisfying
+\[
+\mathcal R\Delta(x)=\Delta^{\rm op}(x)\mathcal R,
+\quad
+(\Delta\otimes\id)(\mathcal R)=\mathcal R_{13}\mathcal R_{23},
+\quad
+(\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
+\]
+A Hopf algebra equipped with $\mathcal R$ is \emph{quasitriangular}.
+\end{definition}
+
+\begin{exercise}[Drinfeld--Jimbo and Yang--Baxter theorems]
+Construct $U_q(\mathfrak g)$ from the Cartan matrix of a complex semisimple
+Lie algebra and prove that it is a Hopf deformation of $U(\mathfrak g)$.
+For $\mathfrak{sl}_2$, verify the displayed relations and coproduct.  Derive
+\[
+\mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
+=\mathcal R_{23}\mathcal R_{13}\mathcal R_{12}
+\]
+and prove that $P(\pi\otimes\pi)(\mathcal R)$ defines braid-group
+representations on tensor powers of every finite-dimensional module.
+\end{exercise}
+
+\section{Compact Quantum Groups}
+
+\begin{definition}[Compact quantum groups and Haar states]
+A \emph{compact quantum group} $\mathbb G$ is a unital $C^*$-algebra
+$C(\mathbb G)$ with a unital $*$-homomorphism
+\[
+\Delta:C(\mathbb G)\longrightarrow
+C(\mathbb G)\otimes_{\min}C(\mathbb G)
+\]
+where $\otimes_{\min}$ is the closure of the algebraic tensor product in
+$B(H\otimes K)$ for faithful representations on $H$ and $K$.  It satisfies
+satisfying
+\[
+(\Delta\otimes\id)\Delta=(\id\otimes\Delta)\Delta
+\]
+and such that the linear spans of
+$\Delta(C(\mathbb G))(1\otimes C(\mathbb G))$ and
+$\Delta(C(\mathbb G))(C(\mathbb G)\otimes1)$ are dense in
+$C(\mathbb G)\otimes_{\min}C(\mathbb G)$.  A \emph{Haar state} is a state
+$h$ satisfying
+\[
+(h\otimes\id)\Delta(a)=h(a)1=(\id\otimes h)\Delta(a).
+\]
+\end{definition}
+
+\begin{definition}[Corepresentations and representative functions]
+A finite-dimensional \emph{unitary corepresentation} on $H_U$ is a unitary
+$U\in B(H_U)\otimes C(\mathbb G)$ satisfying
+\[
+(\id\otimes\Delta)(U)=U_{12}U_{13}.
+\]
+If $U=(u_{ij})$, then
+$\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Denote the linear span of
+the matrix coefficients of all finite-dimensional unitary
+corepresentations by $\operatorname{Pol}(\mathbb G)$.
+\end{definition}
+
+\begin{definition}[Drinfeld--Jimbo and Woronowicz duality]
+Let $0<q<1$, let $G$ be a compact connected simply connected semisimple Lie
+group, and let $\mathfrak g_\C$ be its complexified Lie algebra.  The Hopf $*$-algebra
+$\operatorname{Pol}(G_q)$ is spanned by the matrix coefficients
+$c_{\varphi,v}$ of finite-dimensional type-$1$ unitary
+$U_q(\mathfrak g_\C)$-modules, with pairing
+\[
+\langle x,c_{\varphi,v}\rangle=\varphi(xv).
+\]
+Its universal and reduced $C^*$-completions are denoted
+$C_u(G_q)$ and $C_r(G_q)$.
+\end{definition}
+
+\begin{exercise}[Woronowicz Peter--Weyl theorem]
+Prove existence and uniqueness of the Haar state.  Prove that the matrix
+coefficients of irreducible unitary corepresentations are linearly
+independent and that $\operatorname{Pol}(\mathbb G)$ is a dense Hopf
+$*$-subalgebra of $C(\mathbb G)$.  For each irreducible $U^\alpha$,
+construct the normalized positive matrix $Q_\alpha$ satisfying
+\[
+(\id\otimes S^2)(U^\alpha)
+=(Q_\alpha\otimes1)U^\alpha(Q_\alpha^{-1}\otimes1),
+\qquad
+\Tr(Q_\alpha)=\Tr(Q_\alpha^{-1}),
+\]
+and define $d_q(\alpha)$ to be this common trace.  Derive the orthogonality
+relations in the Haar GNS space and the resulting Hilbert direct-sum
+decomposition.  Prove that the displayed pairing between
+$U_q(\mathfrak g_\C)$ and $\operatorname{Pol}(G_q)$ is a nondegenerate Hopf
+pairing.
+\end{exercise}
+
+\begin{exercise}[$SU_q(2)$]
+Let $C(SU_q(2))$ be generated by $\alpha,\gamma$ so that
+\[
+u=\begin{pmatrix}
+\alpha&-q\gamma^*\\
+\gamma&\alpha^*
+\end{pmatrix}
+\]
+is unitary, and define
+$\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Derive the relations
+\[
+\begin{gathered}
+\alpha^*\alpha+\gamma^*\gamma=1,
+\qquad \alpha\alpha^*+q^2\gamma\gamma^*=1,
+\qquad \gamma^*\gamma=\gamma\gamma^*,\\
+\alpha\gamma=q\gamma\alpha,
+\qquad \alpha\gamma^*=q\gamma^*\alpha,
+\end{gathered}
+\]
+and prove that $\Delta$ is a coassociative $*$-homomorphism satisfying the
+cancellation conditions.  Prove the fusion rule
+\[
+U^{1/2}\mathbin{\boxtimes}U^\ell
+\cong U^{\ell+1/2}\oplus U^{\ell-1/2}
+\]
+and derive
+\[
+d_q(\ell)=[2\ell+1]_q
+=\frac{q^{2\ell+1}-q^{-(2\ell+1)}}{q-q^{-1}}.
+\]
 \end{exercise}
 
 \section{Group and Twisted Group \texorpdfstring{$C^*$-Algebras}{C*-Algebras}}
@@ -1555,159 +1970,6 @@ Compare the two families tabulated in
 
 \part{Geometry}
 
-\section{Symplectic Geometry}
-
-\subsection{Differential forms and symplectic manifolds}
-
-\begin{definition}[Differential forms and pullback]
-A \emph{differential $k$-form} on $M$ is a smooth section of
-$\Lambda^kT^*M$; write
-$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$. The \emph{pullback} of
-$\omega\in\Omega^k(N)$ by $F:M\to N$ is
-\[
-(F^*\omega)_p(v_1,\ldots,v_k)
-=\omega_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
-\]
-\end{definition}
-
-\begin{definition}[Exterior derivative]
-The \emph{exterior derivative} is the unique family of maps
-$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded Leibniz
-rule, $d^2=0$, and naturality $F^*d=dF^*$.
-\end{definition}
-
-\begin{exercise}[Cartan calculus]
-Construct $d$ locally and prove its uniqueness. For contraction $\iota_X$,
-prove Cartan's identity
-$\mathcal L_X=d\iota_X+\iota_Xd$ and the naturality of $d$, wedge products,
-and pullbacks.
-\end{exercise}
-
-\subsection{Hamiltonian dynamics and phase space}
-
-\begin{definition}[Symplectic manifolds and dynamics]
-A \emph{symplectic form} on a manifold $M$ is a closed, nondegenerate
-two-form $\omega$. The \emph{Hamiltonian vector field} of
-$H\in C^\infty(M)$ is defined by
-$\iota_{X_H}\omega=dH$. Its flow is the \emph{Hamiltonian flow}, and the
-\emph{Poisson bracket} is $\{f,g\}=\omega(X_f,X_g)$.
-\end{definition}
-
-\begin{definition}[Configuration and phase spaces]
-A \emph{configuration space} is a smooth manifold $Q$. Its \emph{phase
-space} is the cotangent bundle $T^*Q$. The tautological one-form on $T^*Q$ is
-$\theta_\alpha(v)=\alpha(d\pi(v))$, and its canonical symplectic form is
-$\omega=-d\theta$.
-\end{definition}
-
-\begin{definition}[Classical states and observables]
-On a phase space $M$, a \emph{pure classical state} is a point $x\in M$, and
-a \emph{classical observable} is a smooth real-valued function
-$f\in C^\infty(M,\R)$. A \emph{statistical state} is a Borel probability
-measure $\mu$ on $M$, with expectation
-\[
-\mathbb E_\mu[f]=\int_M f\,d\mu
-\]
-whenever the integral exists. If $\phi_t$ is a Hamiltonian flow, Schr\"odinger
-evolution pushes states forward by $\mu_t=(\phi_t)_*\mu_0$, while Heisenberg
-evolution pulls observables back by $f_t=f\circ\phi_t$; hence
-$\int_Mf\,d\mu_t=\int_Mf_t\,d\mu_0$.
-\end{definition}
-
-\begin{exercise}[Hamilton's equations and Poisson algebra]
-Prove that the canonical form on $T^*Q$ is symplectic. In canonical
-coordinates, derive Hamilton's equations. Prove antisymmetry, the Leibniz
-rule, and the Jacobi identity for the Poisson bracket, and prove
-$\dot f=\{f,H\}+\partial_tf$ along Hamiltonian flow.
-\end{exercise}
-
-\subsection{Momentum maps, reduction, and conservation laws}
-
-\begin{definition}[Symplectic actions and momentum maps]
-An action of a Lie group $G$ on $(M,\omega)$ is \emph{symplectic} if it
-preserves $\omega$. A \emph{momentum map} is an equivariant map
-$J:M\to\mathfrak g^*$ such that
-$d\langle J,\xi\rangle=\iota_{\xi_M}\omega$ for every
-$\xi\in\mathfrak g$.
-\end{definition}
-
-\begin{definition}[Symplectic reduction]
-Let $J:M\to\mathfrak g^*$ be a momentum map, let $\xi$ be a regular value,
-and let
-$G_\xi=\{g\in G:\Ad_g^*\xi=\xi\}$. If $G_\xi$ acts freely and properly on
-$J^{-1}(\xi)$, the \emph{reduced phase space} is
-\[
-M//_\xi G=J^{-1}(\xi)/G_\xi.
-\]
-Writing $i:J^{-1}(\xi)\hookrightarrow M$ and
-$q:J^{-1}(\xi)\to M//_\xi G$, its \emph{reduced symplectic form} is the
-form $\omega_\xi$ characterized by $q^*\omega_\xi=i^*\omega$.
-\end{definition}
-
-\begin{exercise}[Noether's theorem]
-Prove that if a Hamiltonian is invariant under a symplectic $G$-action with
-momentum map $J$, then every component of $J$ is conserved. Compute the
-momentum maps for translations and rotations of a particle and recover
-linear and angular momentum conservation.
-\end{exercise}
-
-\begin{exercise}[Reduction and central-force dynamics]
-Under the hypotheses of symplectic reduction, prove that $i^*\omega$ is
-basic for the $G_\xi$-action and that $\omega_\xi$ exists uniquely and is
-symplectic. For a $G$-invariant Hamiltonian $H$, prove that $X_H$ is tangent
-to $J^{-1}(\xi)$, that $H$ descends to a Hamiltonian $H_\xi$, and that the
-flow of $H_\xi$ is the quotient of the flow of $H$.
-
-Apply this to the cotangent-lifted rotation action on
-$T^*(\R^3\setminus\{0\})$, whose momentum map is
-$J(q,p)=q\times p$. For a nonzero angular momentum $\ell$, identify
-$J^{-1}(\ell)/SO(3)_\ell$ with the radial phase space having coordinates
-$(r,p_r)$, prove that its symplectic form is $dr\wedge dp_r$, and reduce
-\[
-H(q,p)=\frac{\|p\|^2}{2m}+V(\|q\|)
-\]
-to
-\[
-H_\ell(r,p_r)=\frac{p_r^2}{2m}+V(r)
- +\frac{\|\ell\|^2}{2mr^2}.
-\]
-For $V(r)=-\kappa/r$, derive the elliptical bound orbits and the equal-area
-law.
-\end{exercise}
-
-\begin{exercise}[Gauss constraints and transverse modes]
-Let $d:V\to W$ be a linear map between finite-dimensional real inner-product
-spaces. On $M=W\oplus W$ set
-\[
-\omega((a,e),(a',e'))=\langle a,e'\rangle-\langle a',e\rangle.
-\]
-Let the additive group $(\ker d)^\perp$ act by
-$\chi\cdot(A,E)=(A+d\chi,E)$. Prove that this action is free and Hamiltonian
-with momentum map
-\[
-\langle J(A,E),\chi\rangle=\langle d\chi,E\rangle
- =\langle\chi,d^*E\rangle.
-\]
-Show that reduction at zero imposes $d^*E=0$ and identifies
-\[
-M//_0(\ker d)^\perp
-\cong (W/\im d)\oplus\ker d^*
-\cong\ker d^*\oplus\ker d^*.
-\]
-Interpret $d$ as a finite-dimensional approximation to the exterior
-derivative: $d^*E=0$ is the vacuum Gauss constraint, $A\sim A+d\chi$ is
-gauge equivalence, and the reduced variables are the transverse
-electromagnetic modes.
-\end{exercise}
-
-\begin{exercise}[Liouville's theorem]
-\label{ex:liouville-theorem}
-On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
-preserves $\omega$, the phase-space volume $\omega^n/n!$, and every density
-depending only on $H$. Deduce that Hamiltonian evolution cannot compress
-phase volume.
-\end{exercise}
-
 \section{Differential Geometry}
 
 \subsection{Bundles, sections, and geometric structures}
@@ -2324,10 +2586,9 @@ obtain motional sidebands at $\Omega_0\pm\omega$, and compare their spacing
 with trapped-ion spectra.
 \end{exercise}
 
-\begin{exercise}[Liouville and von Neumann dynamics]
+\begin{exercise}[Liouville and von Neumann equations]
 Prove that the Born rule defines a probability measure and that its expected
-value is $\Tr(\rho A)$ when defined. Derive the following classical and
-quantum evolution equations.
+value is $\Tr(\rho A)$ when defined.
 
 Let $\mu_t=(\phi_t)_*\mu_0$ have smooth density $p_t$ relative to the
 Liouville measure $\mu_L$ of a time-independent Hamiltonian system. Using
@@ -2339,22 +2600,17 @@ Exercise~\ref{ex:liouville-theorem}, prove
 =\int_M\{f,H\}\,d\mu_t.
 \]
 For $U_t=e^{-itH/\hbar}$, set
-$\rho_t=U_t\rho_0U_t^*$ and $A_t=U_t^*A_0U_t$. Prove
+$\rho_t=U_t\rho_0U_t^*$. Prove
 \[
-\dot\rho_t=-\frac{i}{\hbar}[H,\rho_t],
-\qquad
-\dot A_t=\frac{i}{\hbar}[H,A_t].
+\dot\rho_t=-\frac{i}{\hbar}[H,\rho_t].
 \]
 Prove
 \[
 \int_M f\,d\mu_t=\int_M(f\circ\phi_t)\,d\mu_0,
 \qquad
-\Tr(\rho_tA_0)=\Tr(\rho_0A_t),
+\Tr(\rho_tA)=\Tr(\rho_0U_t^*AU_t),
 \]
-and identify these as the equivalence of Schr\"odinger and Heisenberg
-pictures. Compare the derivations $f\mapsto\{f,H\}$ and
-$A\mapsto(i\hbar)^{-1}[A,H]$, and prove conservation of expected energy in
-both theories.
+and prove conservation of expected energy in both theories.
 \end{exercise}
 
 \begin{exercise}[Blackbody radiation from quantized Fourier modes]
@@ -3320,118 +3576,6 @@ the first and amplified matrix levels of the measurement channels. Compare
 the predicted success and inconclusive probabilities with
 \href{https://doi.org/10.1103/PhysRevA.90.022317}
 {Mikov\'a et al., \emph{Physical Review A} \textbf{90} (2014)}.
-\end{exercise}
-
-\subsection{Compact quantum groups and quantum Peter--Weyl theory}
-
-\begin{definition}[Compact quantum groups and their Haar states]
-A \emph{compact quantum group} $\mathbb G$ consists of a unital
-$C^*$-algebra $C(\mathbb G)$ and a unital $*$-homomorphism
-\[
-\Delta:C(\mathbb G)\longrightarrow
-C(\mathbb G)\otimes_{\min}C(\mathbb G)
-\]
-where $\otimes_{\min}$ is the spatial $C^*$-tensor product obtained from
-faithful Hilbert-space representations, such that
-\[
-(\Delta\otimes\id)\Delta=(\id\otimes\Delta)\Delta
-\]
-and the linear spans of
-$\Delta(C(\mathbb G))(1\otimes C(\mathbb G))$ and
-$\Delta(C(\mathbb G))(C(\mathbb G)\otimes1)$ are dense in the minimal
-tensor product.  The density conditions are the cancellation laws without
-points.
-
-A \emph{Haar state} is a state $h$ satisfying
-\[
-(h\otimes\id)\Delta(a)=h(a)1
-=(\id\otimes h)\Delta(a)
-\qquad(a\in C(\mathbb G)).
-\]
-In the GNS representation of the reduced compact quantum group, set
-\[
-L^\infty(\mathbb G)=\pi_h(C(\mathbb G))'',
-\qquad L^1(\mathbb G)=L^\infty(\mathbb G)_*.
-\]
-When the coproduct has a normal extension to $L^\infty(\mathbb G)$, its
-preadjoint convolution is
-\[
-(\omega*\eta)(a)=(\omega\otimes\eta)(\Delta a)
-\qquad(\omega,\eta\in L^1(\mathbb G)).
-\]
-\end{definition}
-
-\begin{definition}[Unitary corepresentations and quantum dimension]
-A finite-dimensional \emph{unitary corepresentation} of $\mathbb G$ on
-$H_U$ is a unitary
-\[
-U\in B(H_U)\otimes C(\mathbb G)
-\]
-satisfying
-\[
-(\id\otimes\Delta)(U)=U_{12}U_{13}.
-\]
-If $U=(u_{ij})$ in an orthonormal basis, this says
-$\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Tensor products are formed
-using the coproduct; their order can matter because $\Delta$ need not equal
-its opposite.
-
-A \emph{coefficient algebra} is the $*$-algebra generated by the matrix
-coefficients $u_{ij}$.  The coefficients of all finite-dimensional unitary
-corepresentations span a dense Hopf $*$-algebra
-$\operatorname{Pol}(\mathbb G)$, whose antipode $S$ is determined by
-$(\id\otimes S)(U)=U^*$.  For every irreducible corepresentation $U^\alpha$
-there is a positive invertible matrix $Q_\alpha$, unique after the
-normalization below, that implements the square of the antipode:
-\[
-(\id\otimes S^2)(U^\alpha)
-=(Q_\alpha\otimes1)U^\alpha(Q_\alpha^{-1}\otimes1).
-\]
-Normalize it by
-\[
-\Tr(Q_\alpha)=\Tr(Q_\alpha^{-1}),
-\]
-this common value is its \emph{quantum dimension} $d_q(\alpha)$.  In the
-tracial, classical compact-group case, $Q_\alpha=1$ and
-$d_q(\alpha)=\dim H_\alpha$.
-\end{definition}
-
-\begin{exercise}[$SU_q(2)$ and arithmetic dimensions]
-Fix $0<q<1$.  Let $C(SU_q(2))$ be generated by $\alpha,\gamma$ so that
-\[
-u=\begin{pmatrix}
-\alpha&-q\gamma^*\\
-\gamma&\alpha^*
-\end{pmatrix}
-\]
-is unitary, equivalently
-\[
-\begin{gathered}
-\alpha^*\alpha+\gamma^*\gamma=1,
-\qquad \alpha\alpha^*+q^2\gamma\gamma^*=1,
-\qquad \gamma^*\gamma=\gamma\gamma^*,\\
-\alpha\gamma=q\gamma\alpha,
-\qquad \alpha\gamma^*=q\gamma^*\alpha.
-\end{gathered}
-\]
-Define $\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Check on generators
-that $\Delta$ preserves the relations and is coassociative.  Explain why the
-noncommuting coordinate functions describe a noncommutative compact space,
-while the matrix $u$ still transforms like a fundamental representation.
-
-Let symbols $U^\ell$, $\ell=0,\tfrac12,1,\ldots$, obey the fusion recurrence
-\[
-U^{1/2}\mathbin{\boxtimes}U^\ell
-\cong U^{\ell+1/2}\oplus U^{\ell-1/2}.
-\]
-Set $d_q(0)=1$, $d_q(1/2)=q+q^{-1}$, and require dimension to be additive on
-$\oplus$ and multiplicative on $\boxtimes$.  Derive
-\[
-d_q(\ell)=[2\ell+1]_q
-=\frac{q^{2\ell+1}-q^{-(2\ell+1)}}{q-q^{-1}}.
-\]
-Recover the ordinary dimensions as $q\to1$.  Distinguish the Hilbert-space
-dimension $2\ell+1$ from the arithmetic Laurent polynomial $[2\ell+1]_q$.
 \end{exercise}
 
 \subsection{Equivariant compression and Toeplitz operator systems}
@@ -5665,64 +5809,7 @@ which assumption would fail for a two-body scattering matrix with three
 distinct eigenchannels.
 \end{exercise}
 
-\subsection{Quantum groups and the Yang--Baxter equation}
-
-\begin{definition}[Quantized enveloping algebras and $R$-matrices]
-For generic $q$, the Hopf algebra $U_q(\mathfrak{sl}_2)$ is generated by
-$E,F,K,K^{-1}$ with
-\[
-KEK^{-1}=q^2E,
-\qquad KFK^{-1}=q^{-2}F,
-\qquad [E,F]=\frac{K-K^{-1}}{q-q^{-1}},
-\]
-and coproduct
-\[
-\Delta(K)=K\otimes K,
-\quad
-\Delta(E)=E\otimes1+K\otimes E,
-\quad
-\Delta(F)=F\otimes K^{-1}+1\otimes F.
-\]
-It is paired algebraically with the dense coordinate Hopf algebra of
-$SU_q(2)$ introduced in Operator-Space Applications: one side acts on states,
-while the other is made from their matrix coefficients.
-
-A quasitriangular completion of a Hopf algebra has an invertible
-\emph{universal $R$-matrix} $\mathcal R$ satisfying
-\[
-\mathcal R\Delta(x)=\Delta^{\rm op}(x)\mathcal R,
-\quad
-(\Delta\otimes\id)(\mathcal R)=\mathcal R_{13}\mathcal R_{23},
-\quad
-(\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
-\]
-On finite-dimensional modules, the braid operator
-$\check R=P(\pi\otimes\pi)(\mathcal R)$, with $P$ exchanging tensor
-factors, satisfies
-\[
-\check R_{12}\check R_{23}\check R_{12}
-=\check R_{23}\check R_{12}\check R_{23}.
-\]
-When $\check R$ has exactly two eigenvalues, a normalization may turn its
-minimal polynomial into the Hecke quadratic relation.  This implication
-requires the two-eigenvalue hypothesis; a general quantum-group
-$R$-matrix need not factor through a Hecke algebra.
-\end{definition}
-
-\begin{exercise}[Coproduct consistency and the Yang--Baxter equation]
-Check that the displayed coproduct preserves every defining relation of
-$U_q(\mathfrak{sl}_2)$ and is coassociative.  Derive the quantum
-Yang--Baxter equation
-\[
-\mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
-=\mathcal R_{23}\mathcal R_{13}\mathcal R_{12}
-\]
-from the two coproduct identities, and then derive the braid relation for
-$\check R$.  Interpret the two sides as the two factorizations of a
-three-body scattering process.  Prove that a two-eigenvalue $\check R$ can
-be rescaled to a Hecke generator exactly under the compatibility condition
-found in the preceding exercise.
-\end{exercise}
+\subsection{Yang--Baxter optical tests}
 
 \begin{exercise}[A direct optical Yang--Baxter test]
 Consider the unitary polarization transformations
