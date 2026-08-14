@@ -69,14 +69,6 @@ $1v=v$. A map $T:V\to W$ is \emph{linear} if
 $T(av+bw)=aT(v)+bT(w)$.
 \end{definition}
 
-\begin{exercise}[String profiles and superposition]
-Let $V$ be the real-valued functions on $[0,L]$. Prove that the fixed-end
-profiles $u$ satisfying $u(0)=u(L)=0$ form a vector subspace. Express the
-opening string observation as closure under addition and scalar
-multiplication. Show that sampling a profile at finitely many points defines
-a linear map $V\to\R^n$.
-\end{exercise}
-
 \begin{definition}[Subspaces, kernels, images, and quotients]
 A \emph{subspace} of $V$ is a subset closed under linear combinations. For a
 linear map $T:V\to W$, define
@@ -87,19 +79,6 @@ For a subspace $U\subseteq V$, the \emph{quotient} $V/U$ is the vector space
 of cosets $v+U$. The \emph{direct sum} $V\oplus W$ is $V\times W$ with
 componentwise operations.
 \end{definition}
-
-\begin{exercise}[Kernels, images, and quotients]
-Prove that $\ker T$ and $\im T$ are subspaces. Prove that a linear map
-$f:V\to X$ factors uniquely through $V/U$ exactly when $U\subseteq\ker f$.
-Deduce $V/\ker T\cong\im T$.
-\end{exercise}
-
-\begin{exercise}[Direct sums and isomorphism theorems]
-Prove the product and coproduct universal properties of $V\oplus W$. For
-subspaces $A,B\subseteq V$, prove
-$A/(A\cap B)\cong(A+B)/B$. Deduce the remaining vector-space isomorphism
-theorems by applying this identity to nested subspaces.
-\end{exercise}
 
 \begin{definition}[Duals and pairings]
 The \emph{dual} of $V$ is $V^*=\Hom_k(V,k)$. A \emph{pairing} of $V$ and
@@ -153,32 +132,6 @@ For $T\in\End(V)$, define
 \dim V=\operatorname{tr}(\id_V).
 \]
 \end{definition}
-
-\begin{exercise}[Duality, trace, and dimension]
-Prove directly from the snake identities that the coevaluation is unique and
-that dualizable vector spaces are closed under direct sums, tensor products,
-and duals. For finite-dimensional $V,W$, prove
-$\operatorname{tr}(gf)=\operatorname{tr}(fg)$ for maps
-$f:V\to W$ and $g:W\to V$, and prove
-\[
-\dim(V\oplus W)=\dim V+\dim W,
-\qquad
-\dim(V\otimes W)=\dim V\,\dim W.
-\]
-Carry out these proofs using evaluation, coevaluation, symmetry, and their
-universal properties, without choosing coordinates.
-\end{exercise}
-
-\begin{exercise}[Duality and multilinearity]
-For finite-dimensional spaces, construct the natural maps
-\[
-V^*\otimes W\longrightarrow\Hom(V,W),\qquad
-V^*\otimes W^*\longrightarrow(V\otimes W)^*.
-\]
-Prove that they are isomorphisms, identify the evaluation pairing, and prove
-the tensor--hom adjunction
-$\Hom(U\otimes V,W)\cong\Hom(U,\Hom(V,W))$.
-\end{exercise}
 
 \begin{definition}[Exterior powers, determinant, and characteristic polynomial]
 The \emph{tensor algebra} and \emph{exterior algebra} of $V$ are
@@ -283,18 +236,6 @@ T=\sum_{s>0}sU_sQ_s.
 \]
 \end{exercise}
 
-\begin{exercise}[Commuting normal operators]
-Prove that every spectral projection of a normal operator is a polynomial in
-that operator and its adjoint. For a finite commuting family of normal
-operators, construct a single complete family of mutually orthogonal
-commuting projections $(P_\alpha)$ and scalars $\lambda_j(\alpha)$ such that
-\[
-A_j=\sum_\alpha\lambda_j(\alpha)P_\alpha
-\]
-for every member $A_j$ of the family. Interpret $P_\alpha V$ as the joint
-spectral subspaces without choosing coordinates.
-\end{exercise}
-
 \subsection{Oscillators, normal modes, and vibrating strings}
 
 \begin{definition}[Linear oscillator]
@@ -307,23 +248,6 @@ where $M$ is positive definite and $K$ is self-adjoint and positive
 semidefinite. A \emph{normal mode} is a nonzero $v\in V$ for which
 $q(t)=a(t)v$ solves the equation for some nonconstant $a$.
 \end{definition}
-
-\begin{exercise}[The harmonic oscillator]
-Solve $m\ddot q+kq=0$ for $m,k>0$. Prove conservation of
-$E=\frac12m\dot q^2+\frac12kq^2$, determine the period, and deduce from the
-measured period of a small-amplitude mass--spring system the ratio $k/m$.
-\end{exercise}
-
-\begin{exercise}[Critical damping and a repeated root]
-For $m,b,\kappa>0$, apply the exponential ansatz to
-$m\ddot x+b\dot x+\kappa x=0$ and solve the equation in the underdamped,
-overdamped, and critically damped regimes. Obtain the second critical
-solution $t e^{-bt/(2m)}$ directly from the repeated-root limit. Show that
-critical damping is exactly $b^2=4m\kappa$. Among
-$b^2\geq4m\kappa$, show that the critical value
-maximizes the magnitude of the slow decay rate, explaining the fastest
-asymptotic return without oscillatory eigenvalues.
-\end{exercise}
 
 \begin{exercise}[Coupled oscillators and normal modes]
 Set $x=M^{1/2}q$ and $L=M^{-1/2}KM^{-1/2}$. Use the spectral projections of
@@ -386,16 +310,6 @@ product measure for $\sigma$-finite spaces and prove Tonelli's and Fubini's
 theorems.
 \end{exercise}
 
-\begin{exercise}[$L^p$ inequalities]
-Prove H\"older's and Minkowski's inequalities for $1\leq p<\infty$.
-\end{exercise}
-
-\begin{exercise}[$L^p$ completeness and approximation]
-Prove completeness of $L^p$ for $1\leq p<\infty$. For Lebesgue measure,
-prove density first of simple functions with finite-measure support and then
-of $C_c(\R^n)$. Deduce that the inner-product norm makes $L^2$ complete.
-\end{exercise}
-
 \begin{definition}[Hilbert spaces and bounded operators]
 From this point onward, Hilbert spaces are complex. A \emph{Hilbert space} is
 a complete inner-product space. A linear map
@@ -422,33 +336,11 @@ $f\sim\sum_{n\in\Z}\widehat f(n)e^{inx}$, where
 $\widehat f(n)=(2\pi)^{-1}\int_0^{2\pi}f(x)e^{-inx}\,dx$.
 \end{definition}
 
-\begin{exercise}[Bessel and Parseval criteria]
-Prove Bessel's inequality for every finite orthogonal family. Prove that an
-orthonormal family $(e_n)$ is complete precisely when
-\[
-\|f\|^2=\sum_n|\langle e_n,f\rangle|^2
-\]
-for every $f$.
-\end{exercise}
-
 \begin{exercise}[Completeness of Fourier modes]
 Construct the Fej\'er kernels, prove that they form an approximate identity,
 and use convolution with them to prove completeness of
 $(e^{inx})_{n\in\Z}$ in $L^2(\T)$. Deduce Parseval's identity and $L^2$
 convergence of Fourier series.
-\end{exercise}
-
-\begin{exercise}[Spectral evolution of a string]
-For smooth fixed-end initial displacement and velocity satisfying the
-endpoint compatibility conditions, expand the data in sine modes and derive
-the classical solution of the wave equation. Prove uniqueness and
-conservation of wave energy from the spectral coefficients.
-\end{exercise}
-
-\begin{exercise}[Spectral evolution of heat]
-For smooth fixed-end initial temperature, use the same sine modes to derive
-the heat-equation solution $\partial_tu=\kappa\partial_x^2u$. Prove
-uniqueness and monotone decay of $L^2$ energy from the spectral coefficients.
 \end{exercise}
 
 \subsection{Fourier analysis and spectral evolution}
@@ -468,11 +360,6 @@ The estimates $\|\mathcal Ff\|_\infty\leq(2\pi)^{-n/2}\|f\|_1$ and
 $\|f*g\|_1\leq\|f\|_1\|g\|_1$ extend these operations to the $L^1$
 completion.
 \end{definition}
-
-\begin{exercise}[Fourier inversion and convolution]
-For Schwartz functions, prove Fourier inversion and
-$\mathcal F(f*g)=(2\pi)^{n/2}(\mathcal Ff)(\mathcal Fg)$.
-\end{exercise}
 
 \begin{exercise}[Plancherel theorem]
 Prove on $\mathcal S(\R^n)$ that $\mathcal F$ preserves the $L^2$ inner
@@ -534,19 +421,6 @@ $f'\in L^2(0,L)$, with norm
 $\|f\|_{H^1}^2=\|f\|_2^2+\|f'\|_2^2$.
 \end{definition}
 
-\begin{exercise}[Completeness and representatives of $H^1$]
-Prove that $H^1(0,L)$ is complete. Prove that every class has a unique
-absolutely continuous representative and that its classical derivative
-agrees almost everywhere with its weak derivative.
-\end{exercise}
-
-\begin{exercise}[Traces and $H_0^1$]
-Prove that endpoint evaluation on the absolutely continuous representative
-is continuous, establish integration by parts, and identify $H_0^1(0,L)$ as
-the closure of $C_c^\infty(0,L)$ and as the subspace with zero endpoint
-values.
-\end{exercise}
-
 \begin{exercise}[Self-adjoint momentum and boundary holonomy]
 On $L^2([0,L])$, let $P_\theta=-i\hbar\,d/dx$ on the absolutely continuous
 functions with derivative in $L^2$ and boundary condition
@@ -571,17 +445,6 @@ H=\int_\R\lambda\,dE_H(\lambda),\qquad
 \left\{\psi:\int_\R\lambda^2\,d\langle\psi,E_H(\lambda)\psi\rangle<\infty
 \right\}.
 \]
-\end{exercise}
-
-\begin{exercise}[Measurable functional calculus]
-For a self-adjoint $H$ with spectral measure $E_H$, define $f(H)$ first for
-bounded measurable $f$ and then on the domain
-\[
-\left\{\psi:\int_\R|f(\lambda)|^2\,
- d\langle\psi,E_H(\lambda)\psi\rangle<\infty\right\}.
-\]
-Prove the algebraic, adjoint, and composition rules wherever the natural
-domains make them meaningful.
 \end{exercise}
 
 \begin{exercise}[Stone's theorem]
@@ -628,23 +491,11 @@ the \emph{quotient group} $G/N$ consists of cosets with induced
 multiplication.
 \end{definition}
 
-\begin{exercise}[The group isomorphism theorems]
-Prove that kernels are normal and that a normal subgroup is the kernel of the
-quotient homomorphism. Prove the three isomorphism theorems for groups and
-the universal property of $G/N$.
-\end{exercise}
-
 \begin{definition}[Actions, orbits, and stabilizers]
 A \emph{left action} of $G$ on $X$ is a homomorphism
 $G\to\operatorname{Bij}(X)$. The \emph{orbit} and \emph{stabilizer} of
 $x\in X$ are $Gx=\{gx:g\in G\}$ and $G_x=\{g:gx=x\}$.
 \end{definition}
-
-\begin{exercise}[Orbit--stabilizer and class equation]
-Construct a natural bijection $G/G_x\to Gx$. For finite $G$, deduce the
-orbit--stabilizer formula and the class equation from the conjugation action.
-Use these results to prove that every group of prime order is cyclic.
-\end{exercise}
 
 \begin{definition}[Representations and intertwiners]
 A \emph{representation} of $G$ on $V$ is a homomorphism
@@ -685,16 +536,6 @@ irreducible characters. Prove that they form a complete orthonormal family
 in the class functions and that
 $\langle\chi_U,\chi_V\rangle_G=\dim\Hom_G(U,V)$. Deduce the multiplicity
 formula and the character table constraints.
-\end{exercise}
-
-\begin{exercise}[Symmetry projections]
-For an irreducible character $\chi$ of a finite group, prove that
-\[
-P_\chi=\frac{\dim\chi}{|G|}\sum_{g\in G}\overline{\chi(g)}\rho(g)
-\]
-is the projection onto the $\chi$-isotypic subspace. Apply these projections
-to the displacement space of a molecule whose equilibrium configuration is
-preserved by $G$.
 \end{exercise}
 
 \begin{exercise}[Molecular symmetry]
@@ -747,13 +588,6 @@ The chain rule makes the transition maps smooth and fiberwise linear. The
 dual bundle charts similarly define the cotangent bundle $T^*M$.
 \end{definition}
 
-\begin{exercise}[Intrinsic tangent vectors]
-Prove that derivations at $p$, equivalence classes of smooth curves through
-$p$, and the usual coordinate tangent vectors are naturally isomorphic.
-Prove the chain rule $d(G\circ F)_p=dG_{F(p)}\circ dF_p$ and compute tangent
-spaces of level sets $F^{-1}(q)$ at points where $dF$ is surjective.
-\end{exercise}
-
 \begin{definition}[Vector fields and flows]
 A \emph{vector field} is a smooth section $X:M\to TM$. A \emph{flow} of
 $X$ is a smooth local action $\Phi$ of $\R$ on $M$ satisfying
@@ -792,13 +626,6 @@ d\rho:\mathfrak g\to\End(V),\qquad
 d\rho(X)=\left.\frac{d}{dt}\right|_{0}\rho(\exp tX).
 \]
 \end{definition}
-
-\begin{exercise}[Differentiating symmetry]
-Prove that $d\rho$ preserves brackets and that
-$\rho(\exp X)=\exp(d\rho(X))$. Prove that a connected Lie-group
-representation is determined by its infinitesimal representation whenever
-the latter integrates uniquely.
-\end{exercise}
 
 \subsection{Rotations, spin, and quantum selection rules}
 
@@ -1053,13 +880,6 @@ depending only on $H$. Deduce that Hamiltonian evolution cannot compress
 phase volume.
 \end{exercise}
 
-\begin{exercise}[Betatron phase portraits]
-Model one transverse degree of freedom in a storage ring by
-$H=(p^2+\omega^2q^2)/2$. Derive the closed elliptical phase portraits and
-show that their enclosed area is preserved. Interpret the motion as a
-betatron oscillation about a closed orbit.
-\end{exercise}
-
 \section{Differential Geometry}
 
 \subsection{Bundles, sections, and geometric structures}
@@ -1091,21 +911,6 @@ structures correspond respectively to reductions to
 $O(n)$, $O(1,n-1)$, and $\operatorname{Sp}(2n,\R)$; an oriented,
 time-oriented spacetime has structure group $SO^+(1,3)$.
 \end{definition}
-
-\begin{exercise}[Geometry from transformation groups]
-Prove the stated correspondences by identifying the stabilizers of a
-positive inner product, a form of signature $(1,n-1)$, and a nondegenerate
-alternating form. Explain why an $\operatorname{Sp}(2n,\R)$-structure is
-only almost symplectic until its associated two-form is closed. Show that
-the proper orthochronous Poincar\'e group acts transitively on Minkowski
-spacetime and identify
-\[
-\R^{1,3}\cong
-\bigl(\R^{1,3}\rtimes SO^+(1,3)\bigr)/SO^+(1,3).
-\]
-Explain why a curved spacetime retains local Lorentz frames but generally
-has no transitive Poincar\'e action.
-\end{exercise}
 
 \begin{definition}[Tensor fields and metrics]
 A \emph{$(r,s)$-tensor field} is a smooth section of
@@ -1363,19 +1168,6 @@ G+\Lambda g=\frac{8\pi G_N}{c^4}T.
 \]
 \end{definition}
 
-\begin{exercise}[Conservation and the Newtonian limit]
-Use the contracted Bianchi identity to derive $\nabla^aT_{ab}=0$. Linearize
-$g=\eta+h$ for a static weak field and recover Poisson's equation and the
-Newtonian inverse-square law with the stated coupling constant.
-\end{exercise}
-
-\begin{exercise}[Gravitational radiation]
-Linearize the vacuum Einstein equation about Minkowski spacetime, impose
-transverse--traceless gauge, and obtain two tensor polarizations satisfying a
-wave equation. Apply geodesic deviation to a ring of freely falling test
-masses and derive the strain measured by an orthogonal-arm interferometer.
-\end{exercise}
-
 \begin{exercise}[Gravitational-wave detection]
 For a quasi-circular binary, derive the leading quadrupole waveform and the
 chirp relation between frequency, frequency derivative, and chirp mass.
@@ -1467,19 +1259,6 @@ $F=A[0,1)^n$. Its \emph{reciprocal lattice} is the annihilator
 \]
 \end{definition}
 
-\begin{exercise}[Fourier modes of a lattice]
-Prove $\Gamma^*=2\pi(A^{-1})^*\mathbb Z^n$. Show that
-$e_\xi(x)=e^{i\xi\cdot x}$ is $\Gamma$-periodic exactly when
-$\xi\in\Gamma^*$. With inner product
-\[
-\langle f,g\rangle_F
-=\frac1{\vol(\Gamma)}\int_F\overline{f(x)}g(x)\,dx,
-\]
-prove that $(e_\xi)_{\xi\in\Gamma^*}$ is a complete orthonormal family in
-$L^2(\R^n/\Gamma)$. Interpret this as
-$\widehat{\R^n/\Gamma}\cong\Gamma^*$.
-\end{exercise}
-
 \begin{definition}[Periodic summation and structure factors]
 For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
 \[
@@ -1525,19 +1304,6 @@ condition with
 \href{https://doi.org/10.1098/rspa.1913.0040}
 {W.~H. Bragg and W.~L. Bragg, \emph{Proceedings of the Royal Society A}
 \textbf{88} (1913)}.
-\end{exercise}
-
-\begin{exercise}[Electron diffraction]
-For an electron accelerated through voltage $V$, use
-$eV=p^2/(2m_e)$ and $p=h/\lambda$ to derive
-\[
-\lambda=\frac{h}{\sqrt{2m_e eV}}.
-\]
-Combine this relation with the reciprocal-lattice and Bragg conditions to
-predict how the diffraction angles change with $V$. Compare the predicted
-sharply directed beams with
-\href{https://doi.org/10.1103/PhysRev.30.705}
-{Davisson--Germer, \emph{Physical Review} \textbf{30} (1927)}.
 \end{exercise}
 
 \subsection{Compact-group harmonic analysis}
@@ -1634,31 +1400,6 @@ decomposition} is $G=K\overline{A^+}K$.  Write
 $M=Z_K(A)$ and $W=N_K(A)/M$, and let $\rho$ be half the sum of the positive
 restricted roots, counted with multiplicity.
 \end{definition}
-
-\begin{exercise}[$SL_2(\R)$ and the hyperbolic plane]
-For $G=SL_2(\R)$, set
-\[
-K=SO(2),\qquad
-a_t=\begin{pmatrix}e^{t/2}&0\\0&e^{-t/2}\end{pmatrix},\qquad
-n_x=\begin{pmatrix}1&x\\0&1\end{pmatrix}.
-\]
-Use Gram--Schmidt or QR decomposition to prove the Iwasawa decomposition,
-and prove that $W\cong\Z/2\Z$ acts on $t$ by reflection.  Under the
-fractional-linear action on the upper half-plane
-\[
-\mathbb H^2=\{x+iy:y>0\},
-\qquad
-g\cdot z=\frac{az+b}{cz+d},
-\]
-show that $K$ stabilizes $i$ and hence
-$SL_2(\R)/SO(2)\cong\mathbb H^2$.  Derive the invariant metric and measure
-\[
-ds^2=\frac{dx^2+dy^2}{y^2},
-\qquad d\mu=\frac{dx\,dy}{y^2},
-\]
-and show that $a_r$ moves $i$ a distance $|r|$.  Deduce from $KAK$ that a
-$K$-invariant function on $G/K$ is a radial function of this distance.
-\end{exercise}
 
 \begin{definition}[Spherical principal series and spherical transform]
 For $\lambda\in\mathfrak a^*$, the normalized \emph{spherical principal
@@ -1930,42 +1671,6 @@ energy lying in $[-T,T]$.  Thus successive eigenfunctions solve the optimal
 concentration problem subject to orthogonality to the preceding solutions.
 \end{exercise}
 
-\begin{exercise}[The prolate equation and the Shannon number]
-Rescale $x=Tt$ to $[-1,1]$ and write the concentration kernel as a function
-of $c=TW$.  Verify, by differentiating the kernel and integrating by parts,
-that its integral operator commutes with the Sturm--Liouville operator
-\[
-\mathcal L_c
-=-\frac{d}{dt}\left((1-t^2)\frac{d}{dt}\right)+c^2t^2.
-\]
-Conclude that the Slepian functions may be chosen to satisfy the prolate
-spheroidal equation
-\[
--\frac{d}{dt}\left((1-t^2)\psi_n'(t)\right)
- +c^2t^2\psi_n(t)=\chi_n\psi_n(t),
-\qquad -1<t<1,
-\]
-with the solutions bounded at the endpoints.  Recover the Legendre
-equation when $c=0$.
-
-Use the diagonal of the sinc kernel to prove the exact trace identity
-\[
-\sum_{n\geq0}\lambda_n
-=\operatorname{Tr}K_{T,W}=\frac{2TW}{\pi}.
-\]
-Deduce that at most $2TW/(\pi\alpha)$ mutually orthogonal modes can have
-concentration at least $\alpha$.  Interpret $2TW/\pi$ as the effective
-number of well-concentrated signal degrees of freedom available within the
-time and frequency windows; see
-\href{https://doi.org/10.1002/j.1538-7305.1961.tb03976.x}
-{Slepian--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
-Analysis and Uncertainty---I}} and
-\href{https://doi.org/10.1002/j.1538-7305.1961.tb03977.x}
-{Landau--Pollak, \emph{Prolate Spheroidal Wave Functions, Fourier
-Analysis and Uncertainty---II}, Bell System Technical Journal
-\textbf{40} (1961)}.
-\end{exercise}
-
 \begin{exercise}[Slepian modes and Gaussian channel capacity]
 Let
 \[
@@ -2009,16 +1714,6 @@ noise level, and the power constraint.
 \end{exercise}
 
 \subsection{Ergodic dynamics and equilibrium states}
-
-\begin{exercise}[From repeated samples to a shift]
-Let $\Omega=\{1,\ldots,r\}^{\Z}$ with product probabilities
-$p_1,\ldots,p_r$, and let $X_n(\omega)=\omega_n$.  Prove that the coordinate
-variables are identically distributed and independent.  Define
-$(T\omega)_n=\omega_{n+1}$ and show that $X_n=X_0\circ T^n$ and that $T$
-preserves product measure.  Compute the Shannon entropy of
-$(X_0,\ldots,X_{N-1})$ and divide by $N$.  This converts repeated sampling
-into the dynamical system defined next.
-\end{exercise}
 
 \begin{definition}[Ergodic dynamics and dynamical entropy]
 A measurable transformation $T$ of a probability space is
@@ -2188,74 +1883,6 @@ one-parameter unitary group. For unbounded observables and generators,
 spectral measures, expectations, and exponentials use the earlier unbounded
 spectral calculus and its natural domains.
 \end{definition}
-
-\begin{exercise}[Classical and quantum state spaces]
-Let $X$ be compact Hausdorff and let $H$ be finite-dimensional. Show that a
-point $x\in X$, a probability measure $\mu$ on $X$, a unit vector
-$\psi\in H$, and a density operator $\rho$ determine states by
-\[
-\delta_x(f)=f(x),\qquad
-\omega_\mu(f)=\int_X f\,d\mu,
-\qquad
-\omega_\psi(A)=\langle\psi,A\psi\rangle,
-\qquad
-\omega_\rho(A)=\Tr(\rho A).
-\]
-Prove that the extreme points of the classical state space are the point
-evaluations and that the extreme points of the quantum state space are the
-rank-one density operators. Explain why mixtures are convex combinations in
-both theories and why the structural distinction is that $C(X)$ is
-commutative whereas $B(H)$ generally is not.
-\end{exercise}
-
-\begin{exercise}[Stern--Gerlach projections and the Born rule]
-For a spin-$1/2$ system and unit vector $n$, use
-$(n\cdot\sigma)^2=\id$ to construct the complete spectral projections of
-$S_n=(\hbar/2)n\cdot\sigma$ as
-$P_\pm(n)=(1\pm n\cdot\sigma)/2$. For
-$\rho=(1+r\cdot\sigma)/2$, derive
-$p_\pm(n)=\Tr(\rho P_\pm(n))=(1\pm r\cdot n)/2$. Model an inhomogeneous
-magnetic field by $H_{\rm int}=-\boldsymbol\mu\cdot\mathbf B$ and explain
-the separation into discrete beams. For successive analyzers along axes
-$n$ and $m$, derive the transition probability
-$\Tr(P_+(n)P_+(m))=(1+n\cdot m)/2$ and interpret the intermediate projection.
-Compare the two-way splitting with
-\href{https://doi.org/10.1007/BF01326983}
-{Gerlach--Stern, \emph{Zeitschrift f\"ur Physik} \textbf{9} (1922)}.
-Distinguish the original observation of space quantization in silver atoms
-from its later spin interpretation, and state which discrete outcomes and
-frequency predictions test the projection postulate and Born rule.
-\end{exercise}
-
-\begin{exercise}[Projective quantum states by reduction]
-\label{ex:projective-reduction}
-Let $K$ be a finite-dimensional complex Hilbert space and regard its
-underlying real vector space as symplectic with
-\[
-\omega(u,v)=-\operatorname{Im}\langle u,v\rangle.
-\]
-For the scalar $U(1)$-action, identify its Lie algebra with $\R$ acting
-infinitesimally by $z\mapsto iz$, and prove that
-$J(z)=\|z\|^2/2$ is a momentum map. Show that reduction at $1/2$ gives
-\[
-K//_{1/2}U(1)=S(K)/U(1)=\mathbb P(K),
-\]
-the space of complex lines in $K$. Identify $[z]\in\mathbb P(K)$ with the
-rank-one density operator
-\[
-P_z:v\longmapsto z\langle z,v\rangle
-\]
-for a unit representative $z$, and hence with the pure state
-$A\mapsto\Tr(P_zA)$. Prove that the reduced symplectic form is the
-Fubini--Study form, characterized on horizontal representatives
-$u,v\in z^\perp$ by
-\[
-(\omega_{\rm FS})_{[z]}([u],[v])
-=-\operatorname{Im}\langle u,v\rangle.
-\]
-Thus normalization and quotient by global phase produce the pure quantum
-state space as a symplectic reduction.
-\end{exercise}
 
 \begin{exercise}[Canonical quantization and Weyl relations]
 On $\mathcal S(\R^n)\subset L^2(\R^n)$, set
@@ -2586,17 +2213,6 @@ modular flow are intrinsic to an algebra and its states and remain meaningful
 for type-III factors.
 \end{definition}
 
-\begin{exercise}[Mixed moments distinguish noncommutative independence]
-Let $A=M_2(\C)\otimes M_2(\C)$ with normalized trace and set
-$x=\sigma_x\otimes1$, $y=1\otimes\sigma_z$.  Compute every mixed moment of
-$x$ and $y$ of total degree at most four and verify tensor factorization.
-Now set $y'=\sigma_z\otimes1$ and compute
-$\tau(xy'xy')$.  Compare it with the alternating centered moments of
-$(x,y)$.  Conclude that specifying marginals and ordinary scalar
-correlations does not determine a noncommutative joint law; the next
-subsection introduces a moment condition adapted to large random matrices.
-\end{exercise}
-
 \section{Free Probability}
 
 \subsection{Free independence and additive convolution}
@@ -2851,39 +2467,6 @@ operator.  This formula is taken as a definition here; its analysis requires
 more operator theory than the present section develops.
 \end{definition}
 
-\begin{exercise}[The Airy diagonal]
-Use the Airy equation and l'H\^opital's rule to show
-\[
- K_{\rm Ai}(x,x)
- =\operatorname{Ai}'(x)^2-x\operatorname{Ai}(x)^2.
-\]
-For a determinantal point process, the integral of the diagonal kernel over
-an interval is the expected number of points there.  Interpret
-\[
- \int_s^\infty K_{\rm Ai}(x,x)\,dx
-\]
-as the expected number of rescaled edge eigenvalues above $s$.  Explain why
-this contains information that the semicircle density, which vanishes at
-the edge, cannot resolve.
-\end{exercise}
-
-\begin{exercise}[A global law does not determine local statistics]
-Let $D_N$ be the deterministic diagonal matrix with entries
-$\gamma_1,\ldots,\gamma_N$.  Prove from Riemann sums that its empirical
-spectral measure converges to the same semicircle law as a Wigner matrix.
-For indices $j/N\to\alpha\in(0,1)$, use the inverse function theorem to show
-\[
- N\rho_{\rm sc}(\gamma_j)
-   (\gamma_{j+1}-\gamma_j)\longrightarrow1.
-\]
-Thus the unfolded spectrum of $D_N$ approaches a rigid clock.  Compare this
-with the level repulsion derived from the Gaussian joint density above and
-identify precisely why the moment proof of the global semicircle law cannot
-distinguish these local behaviors.  Formulate a bulk-universality statement
-as convergence of rescaled $k$-point correlations and list the hypotheses
-that such a statement must specify.
-\end{exercise}
-
 \section{Quantum Information Theory}
 
 \subsection{Measurements, entropy, and tomography}
@@ -2915,18 +2498,6 @@ It is $k_B$ times the Shannon entropy of the outcomes of a projective
 measurement in an eigenbasis of $\rho$, and it vanishes exactly for pure
 states.
 \end{definition}
-
-\begin{exercise}[Entropy of projective measurements]
-For a rank-one projective measurement $(P_i)$ in state $\rho$, let
-$p_i=\Tr(\rho P_i)$. Prove
-\[
-S(p)\geq S(\rho),
-\]
-with equality when the measurement basis diagonalizes $\rho$. Interpret the
-excess as uncertainty introduced by measuring in an incompatible basis.
-Show that unitary evolution preserves $S(\rho)$ even though it can change
-the outcome entropy of a fixed measurement.
-\end{exercise}
 
 \begin{definition}[Quadratures, Wigner distributions, and homodyne data]
 For one canonical degree of freedom, choose $q_0,p_0>0$ with
@@ -3068,30 +2639,6 @@ algebra they generate, together with the state, is a spatial tensor product
 with a product state.
 \end{definition}
 
-\begin{exercise}[Normal states and independent subsystems]
-Show that every density operator $\rho$ gives the normal state
-$a\mapsto\Tr(\rho a)$, and, using trace-class duality, prove the converse on
-$B(H)$. Prove
-$B(H)\mathbin{\overline\otimes}B(K)=B(H\otimes K)$ and identify product
-states and partial traces in this language. Explain why local
-normality---normality on every local algebra---is the infinite-system
-analogue of requiring ordinary reduced density matrices for all finite
-laboratories.
-\end{exercise}
-
-\begin{exercise}[Independent noncommutative subsystems]
-Characterize classical independence by factorization of expectations and
-derive variance addition for independent square-integrable random variables.
-For commuting von Neumann subalgebras $M_1,M_2\subseteq M$, compare
-factorization in a state $\varphi$ with a tensor-product state when
-$M_1\vee M_2$ is spatially isomorphic to
-$M_1\mathbin{\overline\otimes}M_2$, and explain why the split property is
-the relevant replacement for sharply adjacent local regions in continuum
-QFT. Contrast this with free independence: show that freely independent
-centered variables satisfy vanishing alternating mixed moments without
-commuting or determining a joint classical law.
-\end{exercise}
-
 \begin{exercise}[Wishart matrices and typical entanglement]
 Let $G$ be a $d_A\times d_B$ matrix of independent standard complex Gaussian
 entries and set
@@ -3143,24 +2690,6 @@ joint and reduced states, local outcome frequencies, and entanglement entropy
 of a Bell state, and compare them with entangled-pair tomography.
 \end{exercise}
 
-\begin{exercise}[Finite modular theory and entanglement tomography]
-For finite-dimensional $H$, let $B(H)$ act on itself by left multiplication
-with inner product $\langle X,Y\rangle=\Tr(X^*Y)$, and set
-$\Omega_\rho=\rho^{1/2}$ for faithful $\rho$. Prove that
-$\Omega_\rho$ is cyclic and separating. For
-$S_0(a\Omega_\rho)=a^*\Omega_\rho$, compute the polar decomposition and show
-that its modular operator is $\Delta(X)=\rho X\rho^{-1}$, yielding the flow
-above. Define the modular, or entanglement, Hamiltonian by
-$K_\rho=-\log\rho$. If $\rho$ is a reduced state, recover its entanglement
-spectrum from $K_\rho$. Apply this reconstruction at successive times after
-a quench and
-compare the resulting spectrum with the trapped-ion data analyzed by
-\href{https://doi.org/10.1038/s41567-021-01260-w}
-{Kokail et al., \emph{Nature Physics} \textbf{17} (2021)}, and explain why
-finite-subsystem tomography does not by itself establish continuum modular
-theory.
-\end{exercise}
-
 \begin{exercise}[Bell correlations and CHSH]
 For a polarization-entangled two-photon state, derive the CHSH bound $2$ for
 local hidden-variable models. Choose four polarization angles for which the
@@ -3209,25 +2738,6 @@ For a finite POVM $(E_x)_x$, prove that
 \]
 is a quantum-to-classical channel, compute its adjoint, and identify its
 Stinespring dilation with the Naimark dilation constructed earlier.
-\end{exercise}
-
-\begin{exercise}[Quantum data processing]
-In finite dimensions, prove unitary invariance and joint convexity of quantum
-relative entropy. Average over a unitary error basis on $H_B$ to prove
-\[
-D(\Tr_B\rho\Vert\Tr_B\sigma)
-\leq D(\rho\Vert\sigma).
-\]
-Use a Stinespring dilation to deduce, for every channel $\mathcal N$,
-\[
-D(\mathcal N(\rho)\Vert\mathcal N(\sigma))
-\leq D(\rho\Vert\sigma).
-\]
-Interpret this as the impossibility of increasing distinguishability by a
-physical process. If one recovery channel reverses $\mathcal N$ on both
-$\rho$ and $\sigma$, prove that equality holds. Apply data processing to a
-measurement channel and recover the classical inequality for its outcome
-distributions.
 \end{exercise}
 
 \begin{exercise}[Relative entropy and data processing]
@@ -3339,23 +2849,6 @@ It is self-adjoint, and it contains the identity because
 $\sum_aE_a^*E_a=1_H$.
 \end{definition}
 
-\begin{exercise}[Kraus independence of the confusability system]
-If $\{E_a\}$ and $\{F_\mu\}$ are two Kraus representations of
-$\mathcal N$, pad the smaller family by zero operators and prove that there
-is a unitary matrix $(u_{\mu a})$ such that
-$F_\mu=\sum_a u_{\mu a}E_a$. Use this relation in both directions to prove
-\[
-\operatorname{span}\{F_\mu^*F_\nu\}
-=\operatorname{span}\{E_a^*E_b\}.
-\]
-Thus $S_{\mathcal N}$ depends only on the channel, not on a choice of
-environment coordinates. Interpret it as the noncommutative analogue of a
-classical channel's confusability graph; see
-\href{https://doi.org/10.1007/s12220-020-00578-w}
-{Weaver, \emph{Quantum Graphs as Quantum Relations}, Journal of Geometric
-Analysis \textbf{31} (2021)}.
-\end{exercise}
-
 \begin{definition}[Protected observable algebras]
 Let $P$ project onto a code $C\subseteq H$. A unital $*$-subalgebra
 $\mathcal A\subseteq PB(H)P$, whose identity is $P$, is \emph{protected} or
@@ -3398,33 +2891,6 @@ subsystem. Compare with
 \href{https://doi.org/10.1103/PhysRevA.76.042303}
 {B\'eny--Kempf--Kribs, \emph{Quantum Error Correction of Observables},
 Physical Review A \textbf{76} (2007)}.
-\end{exercise}
-
-\begin{exercise}[Normal channels and von Neumann protected algebras]
-Let $H,H'$ be arbitrary Hilbert spaces, let
-$\mathcal N:\mathcal T(H)\to\mathcal T(H')$ be a channel whose adjoint is
-normal, and choose a Stinespring isometry
-$V:H\to H'\otimes K$. Define the complementary channel and its adjoint by
-\[
-\mathcal N^c(\rho)=\Tr_{H'}(V\rho V^*),
-\qquad
-(\mathcal N^c)^*(Y)=V^*(1_{H'}\otimes Y)V.
-\]
-For a projection $P$ and a von Neumann algebra
-$\mathcal A\subseteq PB(H)P$, define correctability using a recovery channel
-with normal adjoint and the same observable identity as above. Prove the
-infinite-dimensional exact criterion
-\[
-P(\mathcal N^c)^*(B(K))P\subseteq\mathcal A'.
-\]
-Show from uniqueness of minimal Stinespring dilations that this condition is
-independent of the chosen complementary channel. Explain how it replaces a
-Kraus-index calculation when the environment is not finite-dimensional and
-allows protected algebras of every von Neumann type; see
-\href{https://doi.org/10.1063/1.3155783}
-{B\'eny--Kempf--Kribs, \emph{Quantum Error Correction on
-Infinite-Dimensional Hilbert Spaces}, Journal of Mathematical Physics
-\textbf{50} (2009)}.
 \end{exercise}
 
 \section{Operator Space Theory}
@@ -3476,50 +2942,6 @@ the first and amplified matrix levels of the measurement channels. Compare
 the predicted success and inconclusive probabilities with
 \href{https://doi.org/10.1103/PhysRevA.90.022317}
 {Mikov\'a et al., \emph{Physical Review A} \textbf{90} (2014)}.
-\end{exercise}
-
-\begin{exercise}[Concrete matrix-norm axioms]
-Prove that concrete operator-space norms satisfy
-\[
-\|x\oplus y\|=\max(\|x\|,\|y\|),\qquad
-\|axb\|\leq\|a\|\|x\|\|b\|.
-\]
-Track the matrix sizes and prove that completely bounded maps preserve both
-direct sums and multiplication by scalar matrices at every level.
-\end{exercise}
-
-\begin{exercise}[Hahn--Banach separation]
-Let $Y$ be a linear subspace of a complex normed space $X$. Use Zorn's
-lemma, first over the underlying real spaces and then after complexification,
-to prove that every bounded linear functional on $Y$ extends to $X$ without
-increasing its norm. Deduce that each nonzero $x\in X$ has a norm-one
-functional $f\in X^*$ with $f(x)=\|x\|$.
-\end{exercise}
-
-\begin{exercise}[Matrix Hahn--Banach separation]
-Let $E$ carry matrix norms satisfying the two concrete matrix-norm axioms,
-and let $F\in M_n(E)^*$ have norm at most one. Apply geometric
-Hahn--Banach separation to the matrix unit ball and prove that there are
-states $p,q$ on $M_n$ such that
-\[
- |F(ayb)|\leq p(aa^*)^{1/2}\,\|y\|_n\,q(b^*b)^{1/2}
- \qquad(a,b\in M_n,\ y\in M_n(E)).
-\]
-Represent $p$ and $q$ by unit vectors in amplifications of $\C^n$. Use the
-displayed inequality to construct a bounded sesquilinear form on their
-cyclic subspaces and hence a contraction
-$T:M_n(E)\to M_n(M_n)$ satisfying
-\[
-T(ayb)=(a\otimes1)T(y)(b\otimes1),\qquad
-F(y)=\langle T(y)\xi,\eta\rangle.
-\]
-Prove from the bimodule identity that $T=\phi^{(n)}$ for a linear map
-$\phi:E\to M_n$, and use the matrix-norm axioms to show that
-$\|\phi\|_{cb}=\|\phi^{(n)}\|\leq1$. Finally, for each
-$x\in M_n(E)$ choose a norming $F$ and deduce
-\[
-\|\phi^{(n)}(x)\|=\|x\|_n.
-\]
 \end{exercise}
 
 \begin{exercise}[Ruan's representation theorem]
@@ -3669,32 +3091,6 @@ preadjoint convolution is
 \]
 \end{definition}
 
-\begin{exercise}[The two classical faces of a compact quantum group]
-For a compact group $G$, put $C(\mathbb G)=C(G)$ and
-\[
-(\Delta f)(s,t)=f(st).
-\]
-Verify coassociativity and the cancellation density conditions, identify
-$h$ with Haar integration, and show that the predual product on $L^1(G)$ is
-ordinary convolution.
-
-For a discrete group $\Gamma$, put
-$C(\mathbb G)=C_r^*(\Gamma)$ and
-\[
-\Delta(\lambda_s)=\lambda_s\otimes\lambda_s,
-\qquad h(\lambda_s)=\delta_{s,e}.
-\]
-Prove the same axioms and identify
-$L^\infty(\mathbb G)=VN(\Gamma)$ and
-$L^1(\mathbb G)=A(\Gamma)$.  Show that convolution of its predual
-functionals is pointwise multiplication of their coefficient functions.
-Explain why these examples are respectively commutative and cocommutative,
-and why a genuine quantum group may be neither.  Finally, use complete
-contractivity of the normal coproduct and operator-space duality to verify
-at matrix levels that its preadjoint product on $L^1(\mathbb G)$ is
-completely contractive.
-\end{exercise}
-
 \begin{definition}[Unitary corepresentations and quantum dimension]
 A finite-dimensional \emph{unitary corepresentation} of $\mathbb G$ on
 $H_U$ is a unitary
@@ -3782,22 +3178,6 @@ The restricted representation $U^P_g=U_g|_{PH}$ acts on $S_P$ by
 conjugation.  We call $S_P$ an \emph{equivariant compression} of $A$.
 \end{definition}
 
-\begin{exercise}[Compression preserves symmetry and matrix order]
-Prove that $S_P$ is a finite-dimensional operator system with identity $P$
-and that
-\[
-U^P_g(PaP)(U^P_g)^*=P(U_gaU_g^*)P.
-\]
-Thus the $G$-action survives the compression.  On the other hand, compute
-\[
-(PaP)(PbP)=PabP-Pa(1-P)bP.
-\]
-Show that the second term can obstruct closure under products, whereas
-$S_P$ is an algebra if $P$ commutes with every $a\in A$.  Explain why
-positivity, states, and completely positive maps still make sense on $S_P$
-without an internal product.
-\end{exercise}
-
 \begin{exercise}[Rotation-covariant Toeplitz compression]
 \label{ex:toeplitz-compression}
 Let $A=C(S^1)$ act by multiplication on $H=L^2(S^1)$, with normalized
@@ -3855,16 +3235,6 @@ Prove the universal property of the projective Banach-space tensor norm.
 Prove that the Haagerup tensor product linearizes completely bounded
 factorizations and compare the minimal, Haagerup, and projective norms on
 finite-dimensional matrix spaces.
-\end{exercise}
-
-\begin{exercise}[Row, column, and ancillary tests]
-For $a_1,\ldots,a_r\in M_n$, compare the norms of the row
-$[a_1\ \cdots\ a_r]$ and column $[a_1\ \cdots\ a_r]^T$ with
-$\|\sum_i a_ia_i^*\|^{1/2}$ and $\|\sum_i a_i^*a_i\|^{1/2}$.
-For $u:M_n\times M_n\to\C$, compute $\|u\|$ and the first two amplified
-norms for the bilinear forms $u(a,b)=\Tr(ab)/n$ and
-$u(a,b)=\Tr(a^Tb)/n$.  Exhibit a choice for which amplification changes the
-norm, and identify the row and column terms responsible for the change.
 \end{exercise}
 
 \subsection{Nonlocal games as operator-space tensors}
@@ -3934,20 +3304,6 @@ Theory}, \emph{Journal of Mathematical Physics} \textbf{57} (2016)} as a
 guide.
 \end{exercise}
 
-\begin{exercise}[XOR games as vector optimizations]
-For an XOR game, prove that its classical and entangled biases are
-\[
-\beta(G)=\sup_{a_x,b_y=\pm1}\left|\sum M_{xy}a_xb_y\right|,
-\quad
-\beta^*(G)=\sup_{\|u_x\|,\|v_y\|\leq1}
- \left|\sum M_{xy}\langle u_x,v_y\rangle\right|.
-\]
-Derive the vector form from observables with eigenvalues in $\{\pm1\}$ and a
-shared state.  Compute both optimizations for CHSH and recover the values
-derived earlier.  Identify the scalar optimization with an injective tensor
-norm and the vector optimization with a matrix-level norm.
-\end{exercise}
-
 \part{Topology}
 
 \section{Index Theory}
@@ -3960,15 +3316,6 @@ $H:X\times[0,1]\to Y$ with endpoints $f$ and $g$. The \emph{fundamental
 group} $\pi_1(X,x_0)$ is the group of endpoint-fixed homotopy classes of
 loops based at $x_0$, with concatenation.
 \end{definition}
-
-\begin{exercise}[Fundamental groups and winding]
-Prove invariance of $\pi_1$ under pointed homotopy equivalence and show that
-an unpointed homotopy changes the induced map only by the appropriate
-change-of-basepoint isomorphism. Prove the Seifert--van Kampen theorem for a
-union with path-connected intersection. Compute
-$\pi_1(S^1)\cong\Z$ by lifting loops to $\R$, and prove that the resulting
-integer is the winding number.
-\end{exercise}
 
 \begin{definition}[Homology and cohomology]
 Fix a commutative ring $R$ with identity. The \emph{singular chain group}
@@ -4037,16 +3384,6 @@ number for $n=1$.
 
 \subsection{Bundles, holonomy, and characteristic classes}
 
-\begin{exercise}[Topological bundles from transition functions]
-Forget the smooth structure on the bundles introduced with gauge fields and
-retain their continuous transition maps. Prove that transition functions
-satisfying the cocycle condition
-construct a topological bundle and that changes of local trivialization give
-isomorphic bundles. Prove that a principal bundle is trivial exactly when it
-has a global section. Construct associated vector bundles from
-representations of $G$.
-\end{exercise}
-
 \begin{exercise}[Aharonov--Bohm holonomy]
 \label{ex:aharonov-bohm-holonomy}
 Using the connection, curvature, and holonomy of
@@ -4080,21 +3417,6 @@ BU(n)=\varinjlim_N\operatorname{Gr}_n(\C^N),\qquad
 \gamma_n=\varinjlim_N\gamma_{n,N}.
 \]
 \end{definition}
-
-\begin{exercise}[Classifying maps]
-Let $E\to X$ be a rank-$n$ complex vector bundle over a compact Hausdorff
-space. Construct a finite trivializing cover, a subordinate partition of
-unity, a Hermitian metric, and a fiberwise isometric embedding
-$E\hookrightarrow X\times\C^N$. Show that its ranges define a continuous
-map $f_E:X\to\operatorname{Gr}_n(\C^N)$ with
-$E\cong f_E^*\gamma_{n,N}$. Prove that two choices of embedding become
-homotopic after stabilization by placing them in orthogonal summands, and
-prove that homotopic maps have isomorphic pullbacks. Deduce the bijection
-\[
-[X,BU(n)]\longleftrightarrow
-\{\text{rank-$n$ complex bundles over $X$}\}/\cong.
-\]
-\end{exercise}
 
 \begin{exercise}[Universal Chern classes]
 Identify $BU(1)$ with $\mathbb P(\C^\infty)$ and use its even-dimensional cell
@@ -4135,14 +3457,6 @@ classes by the Newton identities and the definition extends additively to
 $K^0(X)$.
 \end{definition}
 
-\begin{exercise}[Naturality, sums, and the Chern character]
-Prove that the classifying-map definition is independent of every choice and
-that $c_j(g^*E)=g^*c_j(E)$. Use the block-sum calculation above to prove the
-Whitney formula $c(E\oplus F)=c(E)c(F)$. Prove that the Chern character is a
-natural ring map and that $\operatorname{ch}(L)=e^{c_1(L)}$ for a line
-bundle.
-\end{exercise}
-
 \begin{exercise}[Curvature representatives]
 For a Hermitian bundle with unitary connection, prove that
 \[
@@ -4172,7 +3486,8 @@ $H(n)=n\cdot\sigma$ over $S^2$ for both the lower and upper eigenline
 bundles. With the standard orientation on $S^2$, compute their opposite
 Chern numbers and state the sign convention used. Identify the two
 eigenlines with classifying maps $f_\pm:S^2\to\mathbb P(\C^2)$ and, for the
-normalization in Exercise~\ref{ex:projective-reduction}, prove
+Fubini--Study normalization
+$\omega_{\rm FS}([u],[v])=-\operatorname{Im}\langle u,v\rangle$, prove
 \[
 F_{\rm Berry}^{\pm}=-2i f_\pm^*\omega_{\rm FS}.
 \]
@@ -4214,14 +3529,6 @@ $\sigma:F^0\to F^1$ invertible off a compact set, represents a class in
 $K_c^0(Y)$ up to homotopy and stabilization.
 \end{definition}
 
-\begin{exercise}[Exactness of K-theory]
-Prove homotopy invariance and finite-wedge additivity for reduced K-theory.
-For a cofibration $A\hookrightarrow X$, use clutching of bundles to prove
-exactness of the cofiber sequence in all nonnegative degrees defined above.
-Derive the relative and Mayer--Vietoris sequences from the general cofiber
-construction, and prove that external product is compatible with them.
-\end{exercise}
-
 \begin{definition}[The K-theory Thom class]
 Let $\pi:E\to X$ be a rank-$r$ Hermitian complex vector bundle. Exterior
 multiplication by $v$ and its adjoint give the odd endomorphism
@@ -4235,18 +3542,6 @@ u_E=[\pi^*\Lambda^{\mathrm{even}}E,
      \pi^*\Lambda^{\mathrm{odd}}E,c^+]\in K_c^0(E).
 \]
 \end{definition}
-
-\begin{exercise}[Clutching and the Bott class]
-Prove the clutching description of complex vector bundles on suspensions and
-spheres. For the complex line over a point, identify $u_\C$ under
-$\C^+\cong S^2$ with
-\[
-\beta=[H]-[\underline\C]\in\widetilde K^0(S^2),
-\]
-where $H$ is the Hopf line. Prove that $\beta$ generates
-$\widetilde K^0(S^2)$ and that $\widetilde K^0(S^3)=0$. Deduce that the
-Thom map for a point is an isomorphism in degrees zero and one.
-\end{exercise}
 
 \begin{exercise}[Thom isomorphism and Bott periodicity]
 Apply K-theory exactness and cellular induction to the preceding point
@@ -4267,13 +3562,6 @@ deduce complex Bott periodicity:
 is an isomorphism.
 \end{exercise}
 
-\begin{exercise}[$K$-theory of spheres]
-Use Bott periodicity and the clutching calculation to compute the complex
-$K$-groups of spheres. Extend $K^j$ to negative degrees by two-periodicity
-and use K-theory exactness to prove that it is a reduced cohomology theory on
-finite CW complexes.
-\end{exercise}
-
 \begin{exercise}[$K$-theory of tori and class-A phases]
 Derive from the cofibration for $X\times S^1$ and Bott periodicity the split
 formula $K^j(X\times S^1)\cong K^j(X)\oplus K^{j-1}(X)$, with indices taken
@@ -4289,12 +3577,6 @@ homotopy classes of projections in matrix algebras over $A$, where orthogonal
 sum gives the underlying monoid, and $K_1(A)$ is the stable homotopy group of
 unitaries in matrix algebras over $A$.
 \end{definition}
-
-\begin{exercise}[Topological and operator K-theory]
-Construct the Serre--Swan correspondence between vector bundles over compact
-$X$ and finitely generated projective $C(X)$-modules. Deduce
-$K^j(X)\cong K_j(C(X))$ and formulate Bott periodicity for $C^*$-algebras.
-\end{exercise}
 
 \subsection{Fredholm operators and elliptic index theory}
 
@@ -4313,13 +3595,6 @@ bounded $S:H_1\to H_0$ such that $ST-\id_{H_0}$ and $TS-\id_{H_1}$ are
 compact. When $H_0=H_1=H$, identify this condition with invertibility of the
 image of $T$ in $\mathcal Q(H)$. Prove homotopy invariance,
 compact-perturbation invariance, and additivity of the index.
-\end{exercise}
-
-\begin{exercise}[Shift index and the boundary map]
-On an infinite-dimensional separable Hilbert space, compute the index of the
-unilateral shift and identify the connecting map
-$K_1(\mathcal Q(H))\to K_0(\mathcal K(H))$ from the Calkin extension with
-the Fredholm index.
 \end{exercise}
 
 \begin{definition}[Elliptic symbols]
@@ -4366,16 +3641,6 @@ chirality operator splits $S=S^+\oplus S^-$. In formal curvature roots,
 \widehat A(TM)=\prod_j\frac{x_j/2}{\sinh(x_j/2)}.
 \]
 \end{definition}
-
-\begin{exercise}[Dirac spectra on flat tori]
-On $S^1=\R/2\pi\Z$, diagonalize
-$D_\alpha=-i\,d/d\theta+\alpha$ on periodic spinors and determine exactly
-when it has a zero mode.  On the flat two-torus, choose Pauli matrices for
-Clifford multiplication, write the Dirac operator on Fourier modes, and
-compute its spectrum and chiral zero modes.  Show directly that nonzero
-eigenvalues occur in opposite-chirality pairs.  Vary the two flat holonomies
-and locate the parameter values at which a zero mode crosses the origin.
-\end{exercise}
 
 \begin{definition}[Chirality and instanton number]
 Let $M$ be an oriented Riemannian spin four-manifold with the spinor splitting
@@ -4566,23 +3831,6 @@ d_\Lambda(\omega,\eta)
 \]
 \end{definition}
 
-\begin{exercise}[Compressed commutators]
-Write $P=P_\Lambda$.  Since $P$ is a spectral projection of $D$, prove on
-$PH$ that
-\[
-[PDP,PaP]=P[D,a]P
-\]
-for every $a\in A$, and hence
-\[
-L_\Lambda(PaP)\leq L_D(a).
-\]
-In the circle example, show that
-$P_NM_{z^{2N+1}}P_N=0$ even though $z^{2N+1}\ne0$.  Thus compression need
-not be injective.  Explain why the metric problem after a cutoff must be
-formulated on states of $PAP$, rather than by simply restricting the
-original point states.
-\end{exercise}
-
 \begin{exercise}[Metric geometry of the truncated circle]
 Return to the Toeplitz operator system $S_N$ from
 Exercise~\ref{ex:toeplitz-compression}, restrict the algebra to
@@ -4655,13 +3903,6 @@ satisfy
 e_i^2=e_i,\qquad e_ie_j=e_je_i\ (|i-j|>1),\qquad
 e_ie_{i\pm1}e_i=[M:N]^{-1}e_i.
 \]
-\end{exercise}
-
-\begin{exercise}[Diagrammatic calculus and index quantization]
-Construct the Temperley--Lieb diagrammatic category, with composition by
-stacking and each closed loop valued at $\delta=[M:N]^{1/2}$. Use positivity
-of its Markov trace to prove that index values below $4$ are
-$4\cos^2(\pi/n)$ for integers $n\geq3$.
 \end{exercise}
 
 \begin{definition}[Braid groups and Markov traces]
@@ -4796,20 +4037,6 @@ $c_{X,Y}:X\otimes Y\to Y\otimes X$ satisfying the hexagon identities. A
 with unitary nondegenerate braiding.
 \end{definition}
 
-\begin{exercise}[Ising sector arithmetic]
-Let $1,\psi,\sigma$ be symbols with dimensions
-$1,1,\sqrt2$ and fusion rules
-\[
-\psi^2=1,\qquad \psi\sigma=\sigma,\qquad
-\sigma^2=1\oplus\psi.
-\]
-Form the three fusion matrices and prove that dimension is their common
-positive eigenvector.  Compute
-$\sum_i d_i^2=4$, find the dual of each symbol, and verify associativity of
-all products.  Determine which additional data beyond this based ring are
-required by the definition of a unitary modular tensor category.
-\end{exercise}
-
 \begin{exercise}[Fusion rules and braiding]
 Prove that simple-object classes of a fusion category form a based ring under
 tensor product. Derive the pentagon and hexagon equations for associativity
@@ -4883,13 +4110,6 @@ link, and trefoil, state the normalization of the colored unknot, and track
 the framing factor separately from the ambient-isotopy invariant.
 \end{exercise}
 
-\begin{exercise}[Functorial gluing]
-Show that the monoidal-functor axioms give multiplicativity under disjoint
-union, composition under gluing, duality under orientation reversal, and
-mapping-class-group representations on state spaces. In two dimensions,
-prove the equivalence with commutative Frobenius algebras.
-\end{exercise}
-
 \subsection{Anyons, topological order, and quantum Hall phases}
 
 \begin{definition}[Anyons and topological degeneracy]
@@ -4960,15 +4180,6 @@ topological structure; see
 \href{https://doi.org/10.22331/q-2024-02-21-1261}
 {Dauphinais--Kribs--Vasmer, \emph{Stabilizer Formalism for Operator Algebra
 Quantum Error Correction}, Quantum \textbf{8} (2024)}.
-\end{exercise}
-
-\begin{exercise}[Abelian and nonabelian anyons]
-Compute fusion spaces and braid actions for an abelian category and for the
-Fibonacci category. Prove that nonabelian fusion spaces can have dimension
-greater than one and that braiding gives linear braid-group representations on
-them. Explain why the corresponding physical gates are commonly regarded
-projectively after global phases are discarded. Compute the torus degeneracy
-from the simple anyon types in a modular category.
 \end{exercise}
 
 \begin{exercise}[Quantum Hall phases and measured topological order]
@@ -5321,23 +4532,6 @@ exhibits the same dimensional-reduction mechanism using the instantons
 already studied in Exercise~\ref{ex:yang-mills-instantons}.
 \end{exercise}
 
-\begin{exercise}[The abelian Hitchin system]
-Take $G=U(1)$ and let $C$ have genus $g_C$.  Show that all commutator terms
-vanish and that a solution consists of a flat unitary line bundle together
-with a holomorphic one-form.  Define
-\[
- \operatorname{Jac}(C)=H^1(C;\R)/H^1(C;\Z)
-\]
-as the torus of degree-zero unitary flat line bundles, using Hodge theory to
-identify the displayed quotient with its usual complex structure.  Deduce
-\[
- \mathcal M_H(U(1),C)\cong T^*\operatorname{Jac}(C)
-\]
-as a complex manifold in complex structure $I$, and compute its real
-dimension as $4g_C$.  Identify the Hitchin map and its fibers.  Explain why
-the duality of these fibers reduces here to the self-duality of a torus.
-\end{exercise}
-
 \subsection{From gauge theory to branes}
 
 \begin{definition}[Sigma-model reduction]
@@ -5363,16 +4557,6 @@ canonical parameters} when there is an equivalence
 \]
 where the subscripts record the complex or symplectic structure.
 \end{definition}
-
-\begin{exercise}[Elementary brane geometry]
-Let $X$ be a smooth manifold.  Prove that the zero section of $T^*X$ is
-Lagrangian for the canonical symplectic form, and that the graph of a
-one-form $\alpha$ is Lagrangian exactly when $d\alpha=0$.  If $X$ is a
-complex manifold, show that a point is a complex submanifold and hence is a
-possible support for a $B$-brane.  Apply both observations to the local
-cotangent-bundle model of $\mathcal M_H(G,C)$ to see why mirror symmetry can
-exchange branes with supports of very different dimensions.
-\end{exercise}
 
 \subsection{Line operators, Hecke modifications, and eigensheaves}
 
@@ -5403,22 +4587,6 @@ A \emph{Hecke functor} $\mathsf H_V$ is the correspondence on bundles and
 sheaves obtained by summing modifications with dominant coweight labeled by
 the representation $V$ of ${}^LG$.
 \end{definition}
-
-\begin{exercise}[Local Hecke modifications for $GL_n$]
-Let $z$ be a coordinate centered at $x$ and let
-$\mathcal O=\C[[z]]$.  For integers $m_1\geq\cdots\geq m_n$, compare the
-lattices
-\[
- \mathcal O^n,
- \qquad z^{m_1}\mathcal O e_1\oplus\cdots\oplus
- z^{m_n}\mathcal O e_n
-\]
-inside $\C((z))^n$.  Prove that they define vector bundles isomorphic away
-from $x$, and compute the change of degree as $\sum_i m_i$, with the sign
-fixed by your convention for $\mathcal O(x)$.  Identify
-$(m_1,\ldots,m_n)$ as a coweight.  For $n=1$, show that every modification
-is tensoring by $\mathcal O(mx)$.
-\end{exercise}
 
 \begin{definition}[$D$-modules and Hecke eigensheaves]
 Let $\operatorname{Bun}_G(C)$ denote the moduli stack of holomorphic
@@ -5520,24 +4688,6 @@ For $0\leq r\leq n$, the \emph{Gaussian binomial coefficient} is
 and it is zero outside this range.  Despite its quotient presentation, it is
 a polynomial in $q$ with nonnegative integer coefficients.
 \end{definition}
-
-\begin{exercise}[Partitions in a box]
-Prove the recurrence
-\[
-\qbinom{n}{r}=\qbinom{n-1}{r}
- +q^{n-r}\qbinom{n-1}{r-1}.
-\]
-Use either this recurrence or Ferrers-diagram conjugation to show that
-\(\qbinom{a+b}{a}\) is the generating polynomial for partitions whose diagram
-fits in an $a\times b$ rectangle.  Deduce
-\(\qbinom{a+b}{a}=\qbinom{a+b}{b}\) and prove the finite $q$-binomial theorem
-\[
-\prod_{j=0}^{n-1}(1+zq^j)
-=\sum_{r=0}^n q^{r(r-1)/2}\qbinom{n}{r}z^r.
-\]
-Explain why finite-volume state counts are polynomials even when their
-thermodynamic limits are infinite products.
-\end{exercise}
 
 \subsection{Rogers--Ramanujan identities and exclusion rules}
 
@@ -5820,24 +4970,6 @@ is locally constant with compact support at each finite place, and equals
 the indicator of $\mathcal O_v$ for almost every finite $v$.
 \end{definition}
 
-\begin{exercise}[Euler products from multiplicativity]
-For $\operatorname{Re}s>1$, use unique factorization and absolute
-convergence to prove
-\[
- \zeta(s)=\sum_{n\geq1}\frac1{n^s}
- =\prod_p\frac1{1-p^{-s}}.
-\]
-More generally, if $\chi:\N\to\C$ is completely multiplicative and bounded,
-prove
-\[
- \sum_{n\geq1}\frac{\chi(n)}{n^s}
- =\prod_p\frac1{1-\chi(p)p^{-s}}
-\]
-in its half-plane of absolute convergence.  Identify which part of this
-calculation is local at each prime and which step assembles the global
-object.
-\end{exercise}
-
 \subsection{Automorphic representations and the trace formula}
 
 \begin{definition}[Automorphic forms and representations]
@@ -5960,23 +5092,6 @@ eigenspace for $\mathcal H_v(G,K_v)$ defines a \emph{spherical Hecke
 character}.
 \end{definition}
 
-\begin{exercise}[Recovering a local factor from a conjugacy class]
-Let $c\in GL_n(\C)$ be semisimple with eigenvalues
-$\alpha_1,\ldots,\alpha_n$.  Prove
-\[
- \det(1-cq^{-s})^{-1}
- =\prod_{j=1}^n(1-\alpha_jq^{-s})^{-1}.
-\]
-Expand the logarithm as a power series and show
-\[
- \log L(s,c)
- =\sum_{r\geq1}\frac{\Tr(c^r)}r q^{-rs}.
-\]
-Interpret the traces of powers as the local spectral data that determine
-the Euler factor.  Specialize to the $GL_2$ parameter
-$\operatorname{diag}(\alpha_p,\beta_p)$ of a modular eigenform.
-\end{exercise}
-
 \subsection{Galois representations and matching
 \texorpdfstring{$L$}{L}-functions}
 
@@ -5999,28 +5114,6 @@ convention by declaring the local polynomial to be
 \]
 The Galois local factor is $P_v(q_v^{-s})^{-1}$.
 \end{definition}
-
-\begin{exercise}[Ramanujan's $\Delta$ on both sides]
-Write
-\[
- \Delta(\tau)=\sum_{n\geq1}\tau(n)q^n
- =q-24q^2+252q^3-1472q^4+\cdots.
-\]
-Use the weight-$12$ Hecke recurrence to verify
-\[
- \tau(4)=\tau(2)^2-2^{11}.
-\]
-For an arbitrary prime $p$, write the Euler factor
-\[
- L_p(s,\Delta)
- =\frac1{1-\tau(p)p^{-s}+p^{11-2s}}
-\]
-in terms of its Satake eigenvalues.  Construct a $2\times2$ companion matrix
-$c_p$ with trace $\tau(p)$ and determinant $p^{11}$, and recover the same
-factor as $\det(1-c_pp^{-s})^{-1}$.  List the compatibility conditions across
-primes that would be needed before the matrices $c_p$ could be Frobenius
-classes of one $\ell$-adic representation.
-\end{exercise}
 
 \begin{exercise}[Local zeta function of an elliptic curve]
 Let $\alpha_p,\beta_p$ be roots of $X^2-a_pX+p$ and define a sequence
@@ -6060,26 +5153,6 @@ defines \emph{functorial transfer data} when it maps almost all unramified
 conjugacy classes compatibly and preserves their associated local
 $L$-factors.
 \end{definition}
-
-\begin{exercise}[Places of the rational function field]
-Let $F=\mathbb F_q(t)$.  For each monic irreducible polynomial
-$P\in\mathbb F_q[t]$, define
-\[
- |f|_P=q^{-\deg(P)\operatorname{ord}_P(f)},
-\]
-and define
-\[
- |f|_\infty=q^{\deg(\text{numerator})-\deg(\text{denominator})}
-\]
-for a reduced rational function.  Factor numerator and denominator to prove
-\[
- |f|_\infty\prod_P|f|_P=1.
-\]
-Identify the finite places with closed points of the affine line and the
-remaining place with the point at infinity of $\mathbb P^1$.  Compare this
-product formula with the one for $\Q$, and explain why a curve over a finite
-field plays the role of an arithmetic base.
-\end{exercise}
 
 \section{CFT Characters and Integrable Models}
 
@@ -6194,20 +5267,6 @@ counting; see
 {Cardy, \emph{Nuclear Physics B} \textbf{270} (1986)}.
 \end{exercise}
 
-\begin{exercise}[Rogers--Ramanujan character series]
-Set $c=-22/5$, $h_0=0$, and $h_1=-1/5$, and define
-\[
-\chi_0(\tau)=q^{11/60}H_{\rm sum}(q),
-\qquad
-\chi_{-1/5}(\tau)=q^{-1/60}G_{\rm sum}(q).
-\]
-Compute their coefficients through level $30$ and use the coefficient tests
-from the Rogers--Ramanujan exercise to give both difference-condition and
-allowed-congruence descriptions at every tested level.  Compute
-$c_{\rm eff}=c-24h_1=2/5$ and compare the two leading powers
-$q^{h-c/24}$.
-\end{exercise}
-
 \subsection{Integrable lattice models}
 
 \begin{definition}[Transfer matrices and integrability]
@@ -6277,25 +5336,6 @@ the \emph{affine Weyl group}
 $W_{\mathrm{aff}}=Q^\vee\rtimes W$.  Its connected chambers are called
 \emph{alcoves}.
 \end{definition}
-
-\begin{exercise}[Type $A$ as particle exchange]
-In
-$V=\{u\in\R^n:\sum_i u_i=0\}$, take
-\[
-R=A_{n-1}=\{e_i-e_j:i\ne j\}.
-\]
-Show that $s_{e_i-e_j}$ exchanges the $i$th and $j$th coordinates and hence
-$W\cong S_n$.  Prove that the simple reflections
-$s_i=s_{e_i-e_{i+1}}$ satisfy
-\[
-s_i^2=1,\qquad s_is_{i+1}s_i=s_{i+1}s_is_{i+1},
-\qquad s_is_j=s_js_i\quad (|i-j|>1).
-\]
-Identify the finite chambers with possible orderings of labeled particles.
-On the universal cover of a ring configuration, interpret
-$u_i-u_j=m$ as periodic copies of collision walls and explain why translations
-join the permutation group in the affine Weyl group.
-\end{exercise}
 
 \begin{definition}[Hecke deformation of reflections]
 Let $(W,\{s_i\})$ be a Coxeter system, and let $m_{ij}$ be the order of
@@ -6436,18 +5476,6 @@ stabilizer actions.
 
 \end{definition}
 
-\begin{exercise}[Classical and quantum fixed-vector coefficients]
-Use the coideal identity and $bv=\varepsilon(b)v$ to verify the left and
-right stabilizer invariance of $\varphi_V$ directly.  Show that tensoring two
-fixed vectors produces a fixed vector for the tensor-product action whenever
-the coideal data are compatible with the coproduct.
-
-First let $q\to1$ and replace $B$ by the enveloping algebra of a compact
-subgroup $K\subseteq G$.  Recover the $K$-fixed vector and zonal spherical
-coefficient used in Harish--Chandra theory.  Explain why the radial parts of
-invariant operators commute on $G/K$.
-\end{exercise}
-
 \begin{exercise}[Flatness, qKZ transport, and affine Hecke monodromy]
 Let a vector-valued function satisfy the adjacent exchange rule
 \[
@@ -6497,22 +5525,6 @@ mediate between the two.  This $X$--$Y$ symmetry is the meaning of
 ``double affine.''
 \end{definition}
 
-\begin{exercise}[Checking the polynomial representation]
-Show directly that each $T_i$ preserves $\mathcal P_n$ and satisfies
-\[
-(T_i-t^{1/2})(T_i+t^{-1/2})=0.
-\]
-Verify the braid relation first on Laurent monomials for $n=3$, and then
-prove it in general.  Check that
-\[
-\pi X_j\pi^{-1}=X_{j+1}\quad (j<n),
-\qquad
-\pi X_n\pi^{-1}=qX_1.
-\]
-Interpret this last wraparound factor as the affine translation.  Finally,
-set $t=1$ and identify the remaining reflection and shift operators.
-\end{exercise}
-
 \begin{definition}[Macdonald operators and polynomials]
 Let $T_{q,x_i}$ shift one variable,
 \[
@@ -6539,19 +5551,6 @@ D_{q,t}P_\lambda
 \lambda_1\geq\cdots\geq\lambda_n\geq0.
 \]
 \end{definition}
-
-\begin{exercise}[The two-particle Macdonald spectrum]
-For $n=2$, prove that the apparent pole of $D_{q,t}f$ cancels whenever
-$f(x_1,x_2)$ is symmetric.  Check
-\[
-D_{q,t}1=(1+t),\qquad
-D_{q,t}(x_1+x_2)=(1+qt)(x_1+x_2),
-\]
-and find the coefficient $c(q,t)$ for which
-$x_1^2+x_2^2+c(q,t)x_1x_2$ is an eigenfunction with leading partition
-$(2,0)$.  Investigate the specializations $q=t$, $q=0$, and
-$q\to1$ with $t=q^g$.  Which familiar symmetric-polynomial families appear?
-\end{exercise}
 
 \begin{exercise}[The Calogero--Sutherland limit]
 Write $x_i=e^{z_i}$, set $q=e^\epsilon$ and $t=e^{g\epsilon}$, and expand
@@ -6738,22 +5737,6 @@ with convergents $p_n/q_n=[a_0;\ldots,a_n]$.  A real algebraic integer
 $\beta>1$ is a \emph{Pisot number} if every other Galois conjugate has
 absolute value less than one.
 \end{definition}
-
-\begin{exercise}[The golden ratio as a Diophantine scale]
-Let $\phi=(1+\sqrt5)/2$.  Prove
-\[
-\phi=[1;1,1,1,\ldots],
-\qquad
-\frac{F_{n+1}}{F_n}\longrightarrow\phi,
-\qquad
-F_{n+1}F_{n-1}-F_n^2=(-1)^n.
-\]
-Derive the convergent estimate
-$|\phi-F_{n+1}/F_n|<1/F_n^2$ and the corresponding near recurrences of
-phases $e^{2\pi i m/\phi}$.  Show that $\phi$ is a Pisot number because its
-other conjugate is $-1/\phi$.  Explain why good rational approximants produce
-large approximate periods without producing an exact translation period.
-\end{exercise}
 
 \begin{definition}[Substitutions and the Fibonacci word]
 A \emph{substitution} on a finite alphabet replaces each letter by a finite
