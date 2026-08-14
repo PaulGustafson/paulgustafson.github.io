@@ -455,6 +455,246 @@ positive definite and $\phi(e)=1$, prove that $M_\phi$ and $S_\phi$ are
 unital completely positive.
 \end{exercise}
 
+\section{Twisted Harmonic Analysis and the Heisenberg Group}
+
+\subsection{Translation and modulation on \texorpdfstring{$L^2(V)$}{L2(V)}}
+
+\begin{definition}[Translation and modulation]
+Let $V$ be an $n$-dimensional real linear space with a fixed Lebesgue
+measure, and let $V^*$ be its algebraic dual.  For $q\in V$ and $p\in V^*$,
+define unitary operators on $L^2(V)$ by
+\[
+(T_q\xi)(x)=\xi(x-q),
+\qquad
+(M_p\xi)(x)=e^{ip(x)}\xi(x).
+\]
+For $z=(q,p)\in V\oplus V^*$, define the \emph{Weyl operator}
+\[
+W(z)=e^{-ip(q)/2}M_pT_q.
+\]
+\end{definition}
+
+\subsection{Projective representations and multipliers}
+
+\begin{definition}[Multipliers and projective representations]
+A \emph{normalized multiplier} on a locally compact group $G$ is a
+continuous map
+$\sigma:G\times G\to\T$ satisfying
+\[
+\sigma(x,e)=\sigma(e,x)=1,
+\qquad
+\sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
+\]
+A \emph{$\sigma$-projective unitary representation} is a strongly continuous map
+$U:G\to U(H)$ satisfying
+\[
+U_xU_y=\sigma(x,y)U_{xy},
+\qquad U_e=I.
+\]
+Multipliers $\sigma$ and $\sigma'$ are \emph{cohomologous} when there is a
+continuous map $b:G\to\T$, $b(e)=1$, such that
+\[
+\sigma'(x,y)=b(x)b(y)\overline{b(xy)}\,\sigma(x,y).
+\]
+\end{definition}
+
+\begin{exercise}[The Weyl multiplier]
+Prove
+\[
+M_pT_q=e^{ip(q)}T_qM_p
+\]
+and
+\[
+W(q,p)W(q',p')
+=\exp\!\left(\frac{i}{2}\bigl(p(q')-p'(q)\bigr)\right)
+ W(q+q',p+p').
+\]
+Prove that the displayed phase is a normalized multiplier on
+$V\oplus V^*$.
+\end{exercise}
+
+\subsection{Twisted convolution}
+
+\begin{definition}[Twisted convolution and involution]
+Let $G$ be locally compact with left Haar measure, modular function
+$\Delta_G$, and continuous normalized multiplier $\sigma$.  For
+$f,g\in C_c(G)$, define
+\[
+(f*_\sigma g)(x)
+=\int_G f(y)g(y^{-1}x)\sigma(y,y^{-1}x)\,dy
+\]
+and
+\[
+f^{*_{\sigma}}(x)
+=\Delta_G(x^{-1})
+ \overline{\sigma(x,x^{-1})}\,\overline{f(x^{-1})}.
+\]
+\end{definition}
+
+\begin{exercise}[Integrated projective representations]
+Prove that $C_c(G)$ is a $*$-algebra under $*_\sigma$ and
+$*_{\sigma}$.  For a $\sigma$-projective unitary representation $U$, set
+\[
+U(f)=\int_G f(x)U_x\,dx.
+\]
+Prove
+\[
+U(f*_\sigma g)=U(f)U(g),
+\qquad
+U(f^{*_{\sigma}})=U(f)^*.
+\]
+\end{exercise}
+
+\subsection{Twisted group \texorpdfstring{$C^*$-algebras}{C*-algebras}}
+
+\begin{definition}[Full and reduced twisted group $C^*$-algebras]
+The \emph{full twisted group $C^*$-algebra} is
+\[
+C^*(G,\sigma)=\overline{C_c(G)}^{\|\cdot\|_{\max,\sigma}},
+\qquad
+\|f\|_{\max,\sigma}=\sup_U\|U(f)\|,
+\]
+where $U$ ranges over $\sigma$-projective unitary representations.  The
+\emph{twisted left regular representation} is
+\[
+(\lambda_\sigma(x)\xi)(t)
+=\sigma(x,x^{-1}t)\xi(x^{-1}t),
+\]
+and the \emph{reduced twisted group $C^*$-algebra} is
+\[
+C_r^*(G,\sigma)
+=\overline{\lambda_\sigma(C_c(G))}^{\|\cdot\|}.
+\]
+\end{definition}
+
+\begin{exercise}[Twisted universal property]
+Prove that nondegenerate $*$-representations of $C^*(G,\sigma)$ correspond
+to strongly continuous $\sigma$-projective unitary representations of $G$.
+Prove that cohomologous multipliers define isomorphic full and reduced
+twisted group $C^*$-algebras.
+\end{exercise}
+
+\subsection{Alternating commutator form}
+
+\begin{definition}[Commutator bicharacter]
+For a multiplier $\sigma$ on an abelian group $A$, define
+\[
+c_\sigma(x,y)=\sigma(x,y)\overline{\sigma(y,x)}.
+\]
+\end{definition}
+
+\begin{exercise}[Commutator bicharacter]
+Prove that $c_\sigma$ is an alternating bicharacter and depends only on the
+cohomology class of $\sigma$.  For the Weyl multiplier on $V\oplus V^*$,
+prove
+\[
+c_\sigma\bigl((q,p),(q',p')\bigr)
+=e^{i(p(q')-p'(q))}.
+\]
+\end{exercise}
+
+\subsection{Linear symplectic geometry}
+
+\begin{definition}[Symplectic phase space]
+A \emph{symplectic form} on a finite-dimensional real linear space $E$ is a
+nondegenerate alternating bilinear form $\omega:E\times E\to\R$.  On
+$E=V\oplus V^*$, define
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+For $\lambda\in\R$, define
+\[
+\sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
+\]
+The Weyl multiplier is $\sigma_\omega$.
+\end{definition}
+
+\begin{exercise}[Linear Darboux theorem]
+Prove that every symplectic space has a basis in which its form has matrix
+\[
+\begin{pmatrix}0&-I\\ I&0\end{pmatrix}.
+\]
+Prove that $\sigma_{\lambda\omega}$ is a multiplier and that
+$c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}$.
+\end{exercise}
+
+\subsection{Heisenberg central extension}
+
+\begin{definition}[Heisenberg group]
+For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
+\[
+\mathbb H(E,\omega)=E\times\R
+\]
+with multiplication
+\[
+(z,s)(z',s')
+=(z+z',s+s'+\tfrac12\omega(z,z')).
+\]
+Write
+$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
+symplectic form on $\R^n\oplus(\R^n)^*$.
+For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
+representation} on $L^2(V)$ is
+\[
+\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
+=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
+\]
+\end{definition}
+
+\begin{exercise}[Central extensions and projective representations]
+Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
+$\{0\}\times\R$ and that
+\[
+\pi_\lambda(0,s)=e^{i\lambda s}I.
+\]
+Prove that projective representations of $E$ with multiplier
+$e^{i\lambda\omega/2}$ correspond to representations of
+$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
+\end{exercise}
+
+\subsection{Stone--von Neumann theorem}
+
+\begin{exercise}[Stone--von Neumann theorem]
+Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
+continuous irreducible unitary representation of
+$\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
+$\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.  Deduce
+\[
+C_r^*(V\oplus V^*,\sigma_{\lambda\omega})
+\cong\mathcal K(L^2(V)).
+\]
+For $V=\R^n$ and $\lambda=1/\hbar$, differentiate the translation and
+modulation subgroups and prove
+\[
+[Q_j,P_k]=i\hbar\delta_{jk}I
+\]
+on the Schwartz core.
+\end{exercise}
+
+\subsection{Heisenberg Plancherel theory}
+
+\begin{exercise}[Heisenberg Plancherel and inversion]
+\label{ex:heisenberg-harmonic-analysis}
+For $V=\R^n$ and
+$f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
+$dq\,dp\,ds$ and the scalar Fourier transform
+$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
+\[
+\widehat f(\lambda)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
+\]
+Derive the Plancherel measure
+$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
+\[
+\|f\|_2^2
+=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
+\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
+\]
+Prove the inversion formula and the distributional orthogonality of Weyl
+operators.  Prove that representations with trivial central character have
+zero Plancherel measure.
+\end{exercise}
+
 \section{Spectral Theorems from Harmonic Analysis}
 
 \begin{definition}[Projection-valued measures]
@@ -551,7 +791,7 @@ spectral measure.
 
 \part{Symmetry and Applications}
 
-\section{Abelian Harmonic Analysis and Phase Space}
+\section{Abelian Harmonic Analysis}
 
 \subsection{Fourier series and Fourier transform}
 
@@ -584,185 +824,6 @@ Prove Fourier inversion on $\mathcal S(\R^n)$ and prove that
 $\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(\R^n)$.
 Show that convolution becomes multiplication and differentiation becomes
 multiplication by frequency.
-\end{exercise}
-
-\subsection{Position, momentum, translation, and modulation}
-
-\begin{definition}[Position and momentum]
-On the common invariant core $\mathcal S(\R^n)\subset L^2(\R^n)$ define
-\[
-(Q_jf)(x)=x_jf(x),\qquad
-(P_jf)(x)=-i\hbar\,\partial_jf(x).
-\]
-\end{definition}
-
-\begin{exercise}[Fourier exchange of position and momentum]
-Prove that
-\[
-(\mathcal F_\hbar P_jf)(p)=p_j(\mathcal F_\hbar f)(p),
-\qquad
-(\mathcal F_\hbar Q_jf)(p)
-=i\hbar\,\partial_{p_j}(\mathcal F_\hbar f)(p).
-\]
-\end{exercise}
-
-\begin{definition}[Translation and modulation]
-For $q,p\in\R^n$, set
-\[
-(T_qf)(x)=f(x-q),\qquad
-(M_pf)(x)=e^{ip\cdot x/\hbar}f(x).
-\]
-\end{definition}
-
-\subsection{Linear symplectic geometry}
-
-\begin{definition}[The commutation form]
-An alternating nondegenerate bilinear form on a real linear space is a
-\emph{symplectic form}.  For $z=(q,p)$ and $z'=(q',p')$ in
-$\R_q^n\oplus(\R_q^n)^*$, define
-\[
-\omega(z,z')=p(q')-p'(q)
-            =p\cdot q'-p'\cdot q.
-\]
-The \emph{Weyl operators} are
-\[
-W(q,p)=e^{-ip\cdot q/(2\hbar)}M_pT_q.
-\]
-\end{definition}
-
-\begin{exercise}[Weyl relations and symplectic bases]
-Prove
-\[
-M_pT_q=e^{ip\cdot q/\hbar}T_qM_p,
-\qquad
-W(z)W(z')=e^{i\omega(z,z')/(2\hbar)}W(z+z').
-\]
-Prove that every finite-dimensional
-symplectic space has a basis in which the form has matrix
-$\left(\begin{smallmatrix}0&-I\\I&0\end{smallmatrix}\right)$ for the
-$(q,p)$ ordering used here.  Characterize the linear maps preserving
-$\omega$ and show that the Weyl phase is invariant under them.
-\end{exercise}
-
-\section{The Heisenberg Group and Noncommutative Harmonic Analysis}
-
-\subsection{Central extension and Stone--von Neumann theorem}
-
-\begin{definition}[Heisenberg group]
-The \emph{Heisenberg group} is
-$\mathbb H_n=\R^{2n}\times\R$ with multiplication
-\[
-(z,s)(z',s')
-=(z+z',s+s'+\tfrac12\omega(z,z')).
-\]
-For $\lambda\ne0$, the Schr\"odinger representation is
-\[
-\bigl(\pi_\lambda(q,p,s)f\bigr)(x)
-=e^{i\lambda(s+p\cdot(x-q/2))}f(x-q).
-\]
-Its restriction to the center is
-$\pi_\lambda(0,0,s)=e^{i\lambda s}I$; the physical representation has
-$\lambda=1/\hbar$.
-\end{definition}
-
-\begin{exercise}[Stone--von Neumann theorem]
-Verify the group and representation laws and prove irreducibility of
-$\pi_\lambda$.  Prove the Stone--von Neumann theorem: every strongly
-continuous irreducible unitary representation of $\mathbb H_n$ with fixed
-nonzero central character $e^{i\lambda s}$ is unitarily equivalent to
-$\pi_\lambda$.  Differentiate its position and momentum subgroups to recover
-\[
-[Q_j,P_k]=i\hbar\delta_{jk}I
-\]
-on the Schwartz core when $\lambda=1/\hbar$.
-\end{exercise}
-
-\subsection{Operator-valued Fourier transforms}
-
-\begin{definition}[Noncommutative Fourier transform]
-Let $G$ be a locally compact group with Haar measure.  For
-$f\in L^1(G)$ and a unitary representation $\pi:G\to U(H_\pi)$, define
-\[
-\widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg\in B(H_\pi).
-\]
-The \emph{convolution} of $f,g\in L^1(G)$ is
-\[
-(f*g)(x)=\int_Gf(y)g(y^{-1}x)\,dy.
-\]
-\end{definition}
-
-\begin{exercise}[Peter--Weyl as discrete noncommutative Fourier analysis]
-Prove
-\[
-\widehat{f*g}(\pi)=\widehat g(\pi)\widehat f(\pi).
-\]
-For a compact group $G$, use Haar averaging and Schur orthogonality to prove
-\[
-L^2(G)\cong
-\mathop{\widehat{\bigoplus}}_{\pi\in\widehat G}
-H_\pi\otimes H_\pi^*.
-\]
-Derive
-\[
-f(g)=\sum_{\pi\in\widehat G}
-(\dim H_\pi)\Tr\!\bigl(\widehat f(\pi)\pi(g)\bigr),
-\qquad
-\|f\|_2^2=\sum_{\pi\in\widehat G}
-(\dim H_\pi)\|\widehat f(\pi)\|_{\rm HS}^2.
-\]
-Recover Fourier series when $G=\T$.
-\end{exercise}
-
-\subsection{Heisenberg Plancherel theorem}
-
-\begin{exercise}[Heisenberg Plancherel and inversion]
-\label{ex:heisenberg-harmonic-analysis}
-For $f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, compute
-\[
-\widehat f(\lambda)
-=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
-\]
-Derive the Plancherel measure $c_n|\lambda|^n\,d\lambda$, determining $c_n$
-from the chosen Haar and Fourier normalizations, and prove
-\[
-\|f\|_2^2
-=c_n\int_{\R\setminus\{0\}}
-\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
-\]
-Show that the representations with trivial central character have zero
-Plancherel measure.  Derive inversion and the distributional orthogonality
-of Weyl operators.
-\end{exercise}
-
-\subsection{Direct integrals and general Plancherel theory}
-
-\begin{definition}[Direct integrals and type-I groups]
-A locally compact group is \emph{unimodular} when its left and right Haar
-measures agree and \emph{type I} when its representations admit essentially
-unique decompositions into irreducibles.  A measurable field
-$(H_\pi)_{\pi\in\widehat G}$ has direct integral
-\[
-\int_{\widehat G}^{\oplus}H_\pi\,d\nu(\pi)
-=\left\{(\xi_\pi):
-\int_{\widehat G}\|\xi_\pi\|^2\,d\nu(\pi)<\infty\right\}\big/\text{a.e.}
-\]
-\end{definition}
-
-\begin{exercise}[General Plancherel theorem]
-For a second-countable unimodular type-I group, prove that there is a
-Plancherel measure $\nu_G$ such that
-\[
-L^2(G)\cong
-\int_{\widehat G}^{\oplus}\operatorname{HS}(H_\pi)\,d\nu_G(\pi),
-\qquad
-\|f\|_2^2=
-\int_{\widehat G}\|\widehat f(\pi)\|_{\rm HS}^2\,d\nu_G(\pi).
-\]
-Derive the direct-integral decomposition of the regular representation.
-Show that $\nu_G$ is counting measure with weights $\dim H_\pi$ for compact
-groups, ordinary dual Haar measure for abelian groups, and
-$c_n|\lambda|^n\,d\lambda$ on the nontrivial Schr\"odinger representations
-of $\mathbb H_n$.
 \end{exercise}
 
 \section{Harmonic and Representation-Theoretic Applications}
@@ -1037,6 +1098,27 @@ optical diffraction.
 \end{exercise}
 
 \subsection{Compact groups, rotations, and spin}
+
+\begin{exercise}[Peter--Weyl theorem]
+Let $G$ be compact with normalized Haar measure.  Prove that matrix
+coefficients of irreducible unitary representations span a dense subspace of
+$C(G)$ and $L^2(G)$ and that
+\[
+L^2(G)\cong
+\mathop{\widehat{\bigoplus}}_{\pi\in\widehat G}
+H_\pi\otimes H_\pi^*.
+\]
+For $f\in L^1(G)$, define
+$\widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg$ and prove
+\[
+f(g)=\sum_{\pi\in\widehat G}
+(\dim H_\pi)\Tr\!\bigl(\widehat f(\pi)\pi(g)\bigr),
+\qquad
+\|f\|_2^2=\sum_{\pi\in\widehat G}
+(\dim H_\pi)\|\widehat f(\pi)\|_{\rm HS}^2
+\]
+in the appropriate modes of convergence.
+\end{exercise}
 
 \begin{definition}[Rotations and spin]
 Define
