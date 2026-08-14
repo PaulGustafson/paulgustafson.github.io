@@ -81,6 +81,81 @@ Subspaces, quotients, and direct sums are formed by requiring these same
 linear operations to be well defined.
 \end{definition}
 
+\begin{definition}[Dual spaces and tensor products]
+The \emph{dual space} of $V$ is
+$V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
+\[
+\operatorname{ev}_V:V^\vee\times V\longrightarrow k,
+\qquad (\varphi,v)\longmapsto\varphi(v).
+\]
+The algebraic transpose of $T:V\to W$ is
+$T^\vee:W^\vee\to V^\vee$, defined by $T^\vee(\varphi)=\varphi\circ T$.
+
+The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
+$(v,w)\mapsto v\otimes w$ with the following universal property: every
+bilinear map $b:V\times W\to X$ factors uniquely as
+\[
+V\times W\longrightarrow V\otimes W
+\xrightarrow{\,\widetilde b\,}X.
+\]
+In particular, evaluation induces a linear map
+$\operatorname{ev}_V:V^\vee\otimes V\to k$.
+\end{definition}
+
+\begin{definition}[Dualizability and finite dimensionality]
+A linear space $V$ is \emph{dualizable} when there is a coevaluation map
+\[
+\operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
+\]
+satisfying the two snake identities
+\[
+(\id_V\otimes\operatorname{ev}_V)
+\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
+\]
+\[
+(\operatorname{ev}_V\otimes\id_{V^\vee})
+\circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
+\]
+We take dualizability as the definition of \emph{finite dimensionality}:
+finite-dimensional linear spaces are precisely the objects having duals in
+the symmetric monoidal category of linear spaces.  The exercise below proves
+that this agrees with the usual finite-basis condition.
+\end{definition}
+
+\begin{definition}[Categorical trace and dimension]
+Let $V$ be dualizable, let
+$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors,
+and let $T\in\End(V)$.  The \emph{categorical trace} is the scalar
+\[
+\operatorname{tr}(T)
+=\operatorname{ev}_V\circ s_{V,V^\vee}
+ \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V,
+\qquad
+\dim V=\operatorname{tr}(\id_V).
+\]
+It is defined entirely from composition, tensor product, symmetry, and the
+duality maps.
+\end{definition}
+
+\begin{exercise}[Dualizability recovers ordinary finite dimension]
+Construct $V\otimes W$ as a quotient of the free linear space on
+$V\times W$ and prove its universal property.  If $V$ has basis
+$e_1,\ldots,e_n$ with dual basis $e^1,\ldots,e^n$, show that
+\[
+\operatorname{coev}_V(1)=\sum_{j=1}^n e_j\otimes e^j
+\]
+is independent of the chosen basis and satisfies the snake identities.
+Conversely, write any proposed coevaluation as
+$\operatorname{coev}_V(1)=\sum_{j=1}^r v_j\otimes\varphi_j$ and use a snake
+identity to prove that the $v_j$ span $V$.  Conclude that dualizability is
+equivalent to ordinary finite dimensionality.  Finally prove
+\[
+\operatorname{tr}(T)=\sum_{j=1}^n e^j(Te_j),\qquad
+\operatorname{tr}(ST)=\operatorname{tr}(TS),\qquad
+\dim V=n.
+\]
+\end{exercise}
+
 \begin{definition}[Hilbert spaces and orthogonality]
 An \emph{inner product} on a complex linear space is conjugate-linear in its
 first argument, linear in its second, positive definite, and satisfies
