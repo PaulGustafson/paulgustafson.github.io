@@ -1076,29 +1076,11 @@ and
 \]
 \end{definition}
 
-\begin{definition}[Quasitriangular Hopf algebras]
-A \emph{universal $R$-matrix} is an invertible element $\mathcal R$ in a
-completion of $H\otimes H$ satisfying
-\[
-\mathcal R\Delta(x)=\Delta^{\rm op}(x)\mathcal R,
-\quad
-(\Delta\otimes\id)(\mathcal R)=\mathcal R_{13}\mathcal R_{23},
-\quad
-(\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
-\]
-A Hopf algebra equipped with $\mathcal R$ is \emph{quasitriangular}.
-\end{definition}
-
-\begin{exercise}[Drinfeld--Jimbo and Yang--Baxter theorems]
+\begin{exercise}[Drinfeld--Jimbo theorem]
 Construct $U_q(\mathfrak g)$ from the Cartan matrix of a complex semisimple
 Lie algebra and prove that it is a Hopf deformation of $U(\mathfrak g)$.
-For $\mathfrak{sl}_2$, verify the displayed relations and coproduct.  Derive
-\[
-\mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
-=\mathcal R_{23}\mathcal R_{13}\mathcal R_{12}
-\]
-and prove that $P(\pi\otimes\pi)(\mathcal R)$ defines braid-group
-representations on tensor powers of every finite-dimensional module.
+For $\mathfrak{sl}_2$, verify the displayed relations and coproduct and
+compute the semiclassical Lie bialgebra.
 \end{exercise}
 
 \section{Compact Quantum Groups}
@@ -1111,12 +1093,12 @@ $C(\mathbb G)$ with a unital $*$-homomorphism
 C(\mathbb G)\otimes_{\min}C(\mathbb G)
 \]
 where $\otimes_{\min}$ is the closure of the algebraic tensor product in
-$B(H\otimes K)$ for faithful representations on $H$ and $K$.  It satisfies
-satisfying
+$B(H\otimes K)$ for faithful representations on $H$ and $K$.  The
+coproduct satisfies
 \[
 (\Delta\otimes\id)\Delta=(\id\otimes\Delta)\Delta
 \]
-and such that the linear spans of
+and the linear spans of
 $\Delta(C(\mathbb G))(1\otimes C(\mathbb G))$ and
 $\Delta(C(\mathbb G))(C(\mathbb G)\otimes1)$ are dense in
 $C(\mathbb G)\otimes_{\min}C(\mathbb G)$.  A \emph{Haar state} is a state
@@ -1143,7 +1125,8 @@ Let $0<q<1$, let $G$ be a compact connected simply connected semisimple Lie
 group, and let $\mathfrak g_\C$ be its complexified Lie algebra.  The Hopf $*$-algebra
 $\operatorname{Pol}(G_q)$ is spanned by the matrix coefficients
 $c_{\varphi,v}$ of finite-dimensional type-$1$ unitary
-$U_q(\mathfrak g_\C)$-modules, with pairing
+$U_q(\mathfrak g_\C)$-modules for the compact real-form involution, with
+pairing
 \[
 \langle x,c_{\varphi,v}\rangle=\varphi(xv).
 \]
@@ -1163,9 +1146,8 @@ construct the normalized positive matrix $Q_\alpha$ satisfying
 \qquad
 \Tr(Q_\alpha)=\Tr(Q_\alpha^{-1}),
 \]
-and define $d_q(\alpha)$ to be this common trace.  Derive the orthogonality
-relations in the Haar GNS space and the resulting Hilbert direct-sum
-decomposition.  Prove that the displayed pairing between
+and derive the orthogonality relations in the Haar GNS space and the
+resulting Hilbert direct-sum decomposition.  Prove that the displayed pairing between
 $U_q(\mathfrak g_\C)$ and $\operatorname{Pol}(G_q)$ is a nondegenerate Hopf
 pairing.
 \end{exercise}
@@ -1190,16 +1172,191 @@ $\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Derive the relations
 \end{gathered}
 \]
 and prove that $\Delta$ is a coassociative $*$-homomorphism satisfying the
-cancellation conditions.  Prove the fusion rule
+cancellation conditions.
+\end{exercise}
+
+\begin{definition}[Representation-category duality]
+Let
+$\operatorname{Rep}^{\mathrm{fd}}_{\mathrm{type\,1}}
+\!\bigl(U_q(\mathfrak g_\C)\bigr)$ be the category of finite-dimensional type-$1$
+unitary modules and intertwiners, and let
+$\operatorname{Corep}^{\mathrm{fd}}\!\bigl(\operatorname{Pol}(G_q)\bigr)$ be the category
+of finite-dimensional unitary corepresentations and intertwiners.  For a
+module $(V,\pi_V)$, define $U_V\in\End(V)\otimes\operatorname{Pol}(G_q)$ by
 \[
-U^{1/2}\mathbin{\boxtimes}U^\ell
-\cong U^{\ell+1/2}\oplus U^{\ell-1/2}
+(\id\otimes\langle x,{\cdot}\rangle)(U_V)=\pi_V(x)
+\qquad(x\in U_q(\mathfrak g_\C)).
 \]
-and derive
+Define
 \[
-d_q(\ell)=[2\ell+1]_q
-=\frac{q^{2\ell+1}-q^{-(2\ell+1)}}{q-q^{-1}}.
+\mathcal F:
+\operatorname{Rep}^{\mathrm{fd}}_{\mathrm{type\,1}}
+\!\bigl(U_q(\mathfrak g_\C)\bigr)\longrightarrow
+\operatorname{Corep}^{\mathrm{fd}}\!\bigl(\operatorname{Pol}(G_q)\bigr),
+\qquad
+\mathcal F(V)=U_V,\quad \mathcal F(T)=T,
 \]
+with identity tensor constraints on the underlying spaces $V\otimes W$.
+\end{definition}
+
+\begin{exercise}[Matrix coefficients and tensor products]
+For $v\in V$, $w\in W$, $\varphi\in V^*$, and $\psi\in W^*$, prove
+\[
+c_{\varphi,v}c_{\psi,w}
+=c_{\varphi\otimes\psi,v\otimes w}.
+\]
+Use the Hopf-pairing identities to prove
+\[
+(\id\otimes\Delta)(U_V)=U_{V,12}U_{V,13},
+\qquad
+U_{V\otimes W}=U_{V,13}U_{W,23}.
+\]
+Prove that $\mathcal F$ is fully faithful and essentially surjective and
+that its tensor constraints are intertwiners.  Conclude
+\[
+\operatorname{Rep}^{\mathrm{fd}}_{\mathrm{type\,1}}
+\!\bigl(U_q(\mathfrak g_\C)\bigr)\simeq
+\operatorname{Corep}^{\mathrm{fd}}\!\bigl(\operatorname{Pol}(G_q)\bigr)
+\]
+as monoidal $*$-categories.
+\end{exercise}
+
+\begin{definition}[Conjugates and quantum dimension]
+For a finite-dimensional $H$-module $V$, its \emph{left dual} $V^\vee$ has
+action
+\[
+(x\varphi)(v)=\varphi(S(x)v),
+\]
+evaluation $\operatorname{ev}_V(\varphi\otimes v)=\varphi(v)$, and
+coevaluation
+$\operatorname{coev}_V(1)=\sum_i e_i\otimes e^i$ for a basis $(e_i)$ and
+its dual basis $(e^i)$.  In a rigid
+$C^*$-tensor category, a \emph{conjugate} of $V$ is an object
+$\overline V$ with morphisms
+\[
+R_V:\mathbf 1\longrightarrow\overline V\otimes V,
+\qquad
+\overline R_V:\mathbf 1\longrightarrow V\otimes\overline V
+\]
+satisfying
+\[
+(\overline R_V^*\otimes\id_V)(\id_V\otimes R_V)=\id_V,
+\qquad
+(R_V^*\otimes\id_{\overline V})
+(\id_{\overline V}\otimes\overline R_V)=\id_{\overline V}.
+\]
+The adjoints $R_V^*$ and $\overline R_V^*$ are evaluation maps, and
+$R_V$ and $\overline R_V$ are coevaluation maps.  A solution is
+\emph{standard} when
+\[
+R_V^*(\id_{\overline V}\otimes T)R_V
+=\overline R_V^*(T\otimes\id_{\overline V})\overline R_V
+\qquad(T\in\End(V)).
+\]
+For a standard solution, define
+\[
+\operatorname{tr}_q(T)
+=R_V^*(\id_{\overline V}\otimes T)R_V,
+\qquad
+\dim_q(V)=\operatorname{tr}_q(\id_V).
+\]
+\end{definition}
+
+\begin{exercise}[$SU_q(2)$ fusion and dimensions]
+Let $V_n$ be the irreducible type-$1$ $U_q(\mathfrak{sl}_2)$-module of
+highest weight $n$.  Construct its conjugate equations and prove
+\[
+V_m\otimes V_n
+\cong\bigoplus_{k=0}^{\min(m,n)}V_{m+n-2k}.
+\]
+Prove that the normalized matrices from the Woronowicz orthogonality
+relations implement the standard solutions and compute
+\[
+\dim_q(V_n)=[n+1]_q
+=\frac{q^{n+1}-q^{-(n+1)}}{q-q^{-1}}.
+\]
+Prove
+\[
+\dim V_n=n+1,
+\qquad
+\lim_{q\to1}\dim_q(V_n)=n+1,
+\qquad
+\dim_q(V_n)>n+1
+\]
+for $0<q<1$ and $n\geq1$.
+\end{exercise}
+
+\begin{definition}[Tannaka--Krein reconstruction]
+Let $\mathcal C$ be an essentially small rigid $C^*$-tensor category and
+let $F:\mathcal C\to\operatorname{Hilb}_{\mathrm{fd}}$ be a faithful
+unitary tensor functor.  Define
+\[
+\mathcal A_F=
+\left(\bigoplus_{V\in\operatorname{Ob}\mathcal C}F(V)^*\otimes F(V)\right)
+\Big/
+\left\langle
+(\psi\circ F(T))\otimes v-\psi\otimes F(T)v
+\right\rangle,
+\]
+where $T:V\to W$, $v\in F(V)$, and $\psi\in F(W)^*$.  Its multiplication
+is induced by tensor products, and for a basis $(e_i)$ of $F(V)$ define
+\[
+\Delta[\varphi\otimes v]_V
+=\sum_i[\varphi\otimes e_i]_V\otimes[e_i^*\otimes v]_V,
+\qquad
+\varepsilon[\varphi\otimes v]_V=\varphi(v).
+\]
+The involution and antipode are induced by the conjugate data.
+\end{definition}
+
+\begin{exercise}[Tannaka--Krein theorem]
+Prove that $\mathcal A_F$ is a Hopf $*$-algebra and is independent of the
+chosen bases.  For the forgetful fiber functor
+\[
+F:\operatorname{Rep}(G_q)\longrightarrow\operatorname{Hilb}_{\mathrm{fd}},
+\]
+prove that
+\[
+[\varphi\otimes v]_V\longmapsto c_{\varphi,v}
+\]
+is a Hopf $*$-isomorphism
+$\mathcal A_F\cong\operatorname{Pol}(G_q)$.
+\end{exercise}
+
+\begin{definition}[Universal $R$-matrix and braiding]
+A \emph{universal $R$-matrix} for a Hopf algebra $H$ is an invertible
+element $\mathcal R$ in a completion of $H\otimes H$ on which the
+finite-dimensional tensor-product representations under consideration
+extend, satisfying
+\[
+\mathcal R\Delta(x)\mathcal R^{-1}=\Delta^{\rm op}(x),
+\quad
+(\Delta\otimes\id)(\mathcal R)=\mathcal R_{13}\mathcal R_{23},
+\quad
+(\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
+\]
+For finite-dimensional modules $V,W$, define
+\[
+c_{V,W}
+=\tau\circ(\pi_V\otimes\pi_W)(\mathcal R):
+V\otimes W\longrightarrow W\otimes V.
+\]
+\end{definition}
+
+\begin{exercise}[Hexagon identities and the Yang--Baxter equation]
+Prove that $c_{V,W}$ is a natural module intertwiner and that the two
+coproduct identities for $\mathcal R$ give the two hexagon identities.
+Derive
+\[
+\mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
+=\mathcal R_{23}\mathcal R_{13}\mathcal R_{12}
+\]
+and, on $V^{\otimes3}$,
+\[
+c_{12}c_{23}c_{12}=c_{23}c_{12}c_{23}.
+\]
+Prove that the operators $c_{j,j+1}$ define braid-group representations on
+tensor powers of every finite-dimensional type-$1$ module.
 \end{exercise}
 
 \section{Group and Twisted Group \texorpdfstring{$C^*$-Algebras}{C*-Algebras}}
