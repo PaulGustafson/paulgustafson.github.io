@@ -369,6 +369,10 @@ $x\in\operatorname{Dom}(T)$. Density of the domain makes $T^*y$ unique. The oper
 is \emph{symmetric} when
 $\langle Tx,y\rangle=\langle x,Ty\rangle$ on its domain and
 \emph{self-adjoint} when $T=T^*$, including equality of domains.
+For a self-adjoint operator $H$, its \emph{Cayley transform} is
+\[
+C_H=(H-i\id)(H+i\id)^{-1}.
+\]
 \end{definition}
 
 \begin{definition}[Weak derivatives and first Sobolev spaces]
@@ -399,8 +403,12 @@ spectrum.
 \end{exercise}
 
 \begin{exercise}[Cayley transform and spectral measure]
-Use the Cayley transform and the bounded spectral theorem to prove that every
-self-adjoint $H$ has a unique projection-valued measure with
+Prove that $C_H$ is unitary and $\ker(\id-C_H)=0$. Conversely, show that a
+unitary $U$ with $\ker(\id-U)=0$ determines the self-adjoint operator
+$H=i(\id+U)(\id-U)^{-1}$ on
+$\operatorname{Dom}(H)=\operatorname{Ran}(\id-U)$. Use this correspondence
+and the bounded spectral theorem to prove that every self-adjoint $H$ has a
+unique projection-valued measure with
 \[
 H=\int_\R\lambda\,dE_H(\lambda),\qquad
 \operatorname{Dom}(H)=
@@ -414,18 +422,6 @@ Prove that $U_t=e^{-itH/\hbar}$ is a strongly continuous unitary group for
 every self-adjoint $H$. Conversely, recover a unique self-adjoint generator
 $H$ from every strongly continuous unitary group and identify its domain by
 the strong derivative at $t=0$.
-\end{exercise}
-
-\begin{exercise}[Fourier spectra and free quantum evolution]
-Use the Fourier transform to realize $-i\hbar\partial_j$ and $-\Delta$ as
-multiplication by $\hbar\xi_j$ and $|\xi|^2$ on their natural domains.
-Deduce self-adjointness, identify their spectral projections, and derive
-the free Schr\"odinger evolution for
-$H=-(\hbar^2/2m)\Delta$. Prove preservation of the domain, norm, and expected
-energy, and use this concrete multiplication-operator model to verify the
-preceding spectral and Stone theorems, including their domain statements.
-Identify the continuous energy spectrum and relate it to the continuum of
-outgoing-electron energies above an ionization threshold.
 \end{exercise}
 
 \begin{exercise}[Spectral lines from unitary evolution]
@@ -465,6 +461,18 @@ completion.
 Prove on $\mathcal S(\R^n)$ that $\mathcal F$ preserves the $L^2$ inner
 product. Prove that $\mathcal S(\R^n)$ is dense in $L^2(\R^n)$ and extend
 $\mathcal F$ uniquely to a unitary operator and deduce Plancherel's identity.
+\end{exercise}
+
+\begin{exercise}[Fourier spectra and free quantum evolution]
+Use the Fourier transform to realize $-i\hbar\partial_j$ and $-\Delta$ as
+multiplication by $\hbar\xi_j$ and $|\xi|^2$ on their natural domains.
+Deduce self-adjointness, identify their spectral projections, and derive
+the free Schr\"odinger evolution for
+$H=-(\hbar^2/2m)\Delta$. Prove preservation of the domain, norm, and expected
+energy, and use this concrete multiplication-operator model to verify the
+preceding spectral and Stone theorems, including their domain statements.
+Identify the continuous energy spectrum and relate it to the continuum of
+outgoing-electron energies above an ionization threshold.
 \end{exercise}
 
 \begin{exercise}[Wave and heat propagators]
