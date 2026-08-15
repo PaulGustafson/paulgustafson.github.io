@@ -1593,6 +1593,99 @@ The action of $e\widehat{\mathsf H}_q e$ on $e\mathcal L$ is the
 \emph{spherical rank-one polynomial representation}.
 \end{definition}
 
+\begin{definition}[Ordinary hypergeometric series]
+For $m\in\N$, define
+\[
+(a)_m=a(a+1)\cdots(a+m-1)
+=\frac{\Gamma(a+m)}{\Gamma(a)}.
+\]
+The \emph{generalized hypergeometric series} is
+\[
+{}_rF_s\!\left(
+\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};z
+\right)
+=\sum_{m=0}^\infty
+\frac{(a_1)_m\cdots(a_r)_m}
+{(b_1)_m\cdots(b_s)_m}\frac{z^m}{m!}.
+\]
+The Gauss hypergeometric operator is
+\[
+\mathcal L_{a,b,c}
+=z(1-z)\frac{d^2}{dz^2}
++\bigl(c-(a+b+1)z\bigr)\frac{d}{dz}-ab.
+\]
+\end{definition}
+
+\begin{exercise}[Gauss hypergeometric theorem]
+Prove
+\[
+{}_1F_0\!\left(\begin{matrix}a\\-\end{matrix};z\right)
+=(1-z)^{-a}
+\]
+and prove that ${}_2F_1(a,b;c;z)$ is the solution of
+$\mathcal L_{a,b,c}f=0$ analytic at $z=0$ with $f(0)=1$.  Derive Euler's
+integral and transformation
+\[
+{}_2F_1(a,b;c;z)
+=\frac{\Gamma(c)}{\Gamma(b)\Gamma(c-b)}
+\int_0^1u^{b-1}(1-u)^{c-b-1}(1-zu)^{-a}\,du,
+\]
+\[
+{}_2F_1(a,b;c;z)
+=(1-z)^{c-a-b}{}_2F_1(c-a,c-b;c;z),
+\]
+and Gauss's summation
+\[
+{}_2F_1(a,b;c;1)
+=\frac{\Gamma(c)\Gamma(c-a-b)}
+{\Gamma(c-a)\Gamma(c-b)}.
+\]
+State the parameter conditions for each identity and extend them by
+analytic continuation.
+\end{exercise}
+
+\begin{definition}[Jacobi and Wilson polynomials]
+For $\alpha,\beta>-1$, the \emph{Jacobi polynomial} is
+\[
+P_n^{(\alpha,\beta)}(x)
+=\frac{(\alpha+1)_n}{n!}
+{}_2F_1\!\left(
+\begin{matrix}-n,n+\alpha+\beta+1\\\alpha+1\end{matrix};
+\frac{1-x}{2}
+\right).
+\]
+For positive $a,b,c,d$, the \emph{Wilson polynomial} is
+\[
+\begin{aligned}
+W_n(x^2;a,b,c,d)
+={}&(a+b)_n(a+c)_n(a+d)_n\\
+&\times{}_4F_3\!\left(
+\begin{matrix}-n,n+a+b+c+d-1,a+ix,a-ix\\
+a+b,a+c,a+d\end{matrix};1
+\right).
+\end{aligned}
+\]
+\end{definition}
+
+\begin{exercise}[Rational rank-one spectral theory]
+Prove
+\[
+\left((1-x^2)\frac{d^2}{dx^2}
++\bigl(\beta-\alpha-(\alpha+\beta+2)x\bigr)\frac{d}{dx}\right)
+P_n^{(\alpha,\beta)}
+=-n(n+\alpha+\beta+1)P_n^{(\alpha,\beta)}.
+\]
+Derive Jacobi orthogonality on $[-1,1]$ with weight
+$(1-x)^\alpha(1+x)^\beta$.  Prove the Wilson difference equation and
+orthogonality on $[0,\infty)$ with weight
+\[
+w_W(x)=
+\left|\frac{\Gamma(a+ix)\Gamma(b+ix)
+\Gamma(c+ix)\Gamma(d+ix)}{\Gamma(2ix)}\right|^2.
+\]
+Derive the three-term recurrences of both families.
+\end{exercise}
+
 \begin{definition}[Basic hypergeometric series]
 For $m\in\N$, define
 \[
@@ -1602,7 +1695,9 @@ For $m\in\N$, define
 \]
 and
 \[
-(a_1,\ldots,a_r;q)_m=\prod_{i=1}^r(a_i;q)_m.
+(a_1,\ldots,a_r;q)_m=\prod_{i=1}^r(a_i;q)_m,
+\qquad
+(a_1,\ldots,a_r;q)_\infty=\prod_{i=1}^r(a_i;q)_\infty.
 \]
 The \emph{basic hypergeometric series} is
 \[
@@ -1783,6 +1878,222 @@ uniqueness, orthogonality, and joint diagonalization of the Macdonald
 polynomials.  Construct the DAHA Fourier transform exchanging the
 $X$- and $Y$-polynomial representations and derive its projective
 $SL_2(\Z)$ relations.
+\end{exercise}
+
+\begin{exercise}[Ordinary and basic hypergeometric degeneration]
+Set $q=e^{-\varepsilon}$.  Prove
+\[
+\lim_{\varepsilon\to0^+}
+\frac{(q^a;q)_m}{(1-q)^m}=(a)_m,
+\qquad
+\lim_{q\to1^-}
+(1-q)^{1-a}\frac{(q;q)_\infty}{(q^a;q)_\infty}
+=\Gamma(a).
+\]
+Deduce
+\[
+\lim_{q\to1^-}
+{}_r\phi_{r-1}\!\left(
+\begin{matrix}q^{a_1},\ldots,q^{a_r}\\
+q^{b_1},\ldots,q^{b_{r-1}}
+\end{matrix};q,z\right)
+=
+{}_rF_{r-1}\!\left(
+\begin{matrix}a_1,\ldots,a_r\\
+b_1,\ldots,b_{r-1}
+\end{matrix};z\right).
+\]
+Derive Gauss's summation from the $q$-Gauss summation.  Prove
+\[
+\lim_{q\to1^-}(1-q)^{-3n}
+p_n\!\left(
+\frac{q^{ix}+q^{-ix}}2;
+q^a,q^b,q^c,q^d\mid q
+\right)
+=W_n(x^2;a,b,c,d).
+\]
+\end{exercise}
+
+\begin{definition}[Root-system basic hypergeometric weights]
+Write $f(z^{\pm m})=f(z^m)f(z^{-m})$ and
+\[
+f(z_i^{\pm1}z_j^{\pm1})
+=\prod_{\epsilon,\delta=\pm1}f(z_i^\epsilon z_j^\delta).
+\]
+For $|q|,|t|,|a_s|<1$, define
+\[
+\begin{aligned}
+\Delta_{BC_r}(z)={}&
+\prod_{i=1}^r
+ \frac{(z_i^{\pm2};q)_\infty}
+      {\prod_{s=1}^4(a_sz_i^{\pm1};q)_\infty}\\
+&\times
+\prod_{1\leq i<j\leq r}
+ \frac{(z_i^{\pm1}z_j^{\pm1};q)_\infty}
+      {(t z_i^{\pm1}z_j^{\pm1};q)_\infty}.
+\end{aligned}
+\]
+The associated \emph{Gustafson integral} uses the normalized torus measure
+\[
+\frac1{2^rr!}\prod_{i=1}^r\frac{dz_i}{2\pi iz_i}.
+\]
+\end{definition}
+
+\begin{exercise}[Root systems and Gustafson integrals]
+Prove that $\Delta_{BC_r}$ is invariant under permutations and independent
+inversions of the $z_i$.  Identify its factors with the roots
+$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  For $r=1$, recover the
+Askey--Wilson weight and its order-two Weyl normalization.  Set $t=q^g$
+with $g\in\N$, reduce the quotients of $q$-products to finite products,
+and compute the limit $q\to1^-$ with $z_i=e^{i\theta_i}$.
+\end{exercise}
+
+\begin{definition}[Elliptic shifted factorials and gamma function]
+For $|p|,|q|<1$, define
+\[
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
+\qquad
+(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
+\]
+\[
+(a_1,\ldots,a_s;q,p)_m
+=\prod_{i=1}^s(a_i;q,p)_m,
+\]
+and
+\[
+\Gamma(z;p,q)=\prod_{j,k\geq0}
+\frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
+\]
+\end{definition}
+
+\begin{definition}[Hypergeometric deformation hierarchy]
+For a series $\sum_m c_m$, set $h_m=c_{m+1}/c_m$.  It is
+\emph{ordinary hypergeometric} when $h_m$ is rational in $m$, and
+\emph{basic hypergeometric} when $h_m$ is rational in $q^m$.  It is
+\emph{elliptic hypergeometric} when, after writing $x=q^m$, its term ratio
+$h(x)$ is multiplicatively $p$-periodic:
+\[
+h(px)=h(x).
+\]
+Its parameters are \emph{balanced} when the products of the numerator and
+denominator parameters required by this ellipticity agree.
+The deformation and degeneration orders are
+\[
+\text{ordinary/additive}
+\longrightarrow
+\text{basic/multiplicative}
+\longrightarrow
+\text{elliptic},
+\]
+\[
+\text{elliptic}
+\xrightarrow{\ p\to0\ }
+\text{basic}
+\xrightarrow{\ q\to1\ }
+\text{ordinary}.
+\]
+\end{definition}
+
+\begin{exercise}[Elliptic functional equations and degenerations]
+Prove
+\[
+\theta(pz;p)=-z^{-1}\theta(z;p),
+\qquad
+\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q),
+\]
+\[
+\Gamma(pz;p,q)=\theta(z;q)\Gamma(z;p,q),
+\qquad
+\Gamma(z;p,q)\Gamma(pq/z;p,q)=1.
+\]
+Prove
+\[
+\theta(z;0)=1-z,
+\qquad
+(a;q,0)_m=(a;q)_m,
+\qquad
+\Gamma(z;0,q)=\frac1{(z;q)_\infty}.
+\]
+\end{exercise}
+
+\begin{definition}[Frenkel--Turaev series and elliptic beta integral]
+For $a^2q^{n+1}=bcde$, define
+\[
+\begin{aligned}
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\sum_{m=0}^n{}&
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}\\
+&\times
+\frac{(a,b,c,d,e,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+For parameters $t_1,\ldots,t_6$ satisfying
+\[
+|t_j|<1,
+\qquad
+\prod_{j=1}^6t_j=pq,
+\]
+the \emph{elliptic beta integral} is
+\[
+\frac{(p;p)_\infty(q;q)_\infty}{4\pi i}
+\int_{|z|=1}
+\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}\frac{dz}{z}.
+\]
+\end{definition}
+
+\begin{exercise}[Frenkel--Turaev and elliptic beta evaluations]
+Prove the Frenkel--Turaev summation
+\[
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\frac{(aq,aq/(bc),aq/(bd),aq/(cd);q,p)_n}
+{(aq/b,aq/c,aq/d,aq/(bcd);q,p)_n}.
+\]
+Prove the elliptic beta evaluation
+\[
+\frac{(p;p)_\infty(q;q)_\infty}{4\pi i}
+\int_{|z|=1}
+\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}\frac{dz}{z}
+=\prod_{1\leq j<k\leq6}\Gamma(t_jt_k;p,q).
+\]
+Take $p\to0$ in both identities and identify the resulting terminating
+very-well-poised ${}_8\phi_7$ summation and basic hypergeometric beta
+integral.  Obtain the Askey--Wilson integral by specialization.
+\end{exercise}
+
+\begin{definition}[Elliptic Ruijsenaars operator]
+For type $A_{r-1}$, define
+\[
+D_{p,q,t}^{\mathrm{ell}}
+=\sum_{i=1}^r
+\left(
+\prod_{j\neq i}
+\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
+\right)T_{q,x_i}.
+\]
+\end{definition}
+
+\begin{exercise}[Differential, basic, and elliptic operator hierarchy]
+Construct the commuting higher elliptic Ruijsenaars operators.  Prove
+\[
+D_{p,q,t}^{\mathrm{ell}}
+\longrightarrow D_{q,t}
+\qquad(p\to0).
+\]
+Set $q=e^\varepsilon$ and $t=e^{g\varepsilon}$ and derive the
+Heckman--Opdam differential operator from the second-order term as
+$\varepsilon\to0$.  Take the rational scaling limit of its hyperbolic
+coefficients and obtain the rational Calogero--Moser operator.  Organize
+the eigenfunction limits as
+\[
+\text{elliptic Ruijsenaars functions}
+\longrightarrow
+\text{Macdonald polynomials}
+\longrightarrow
+\text{Heckman--Opdam functions}.
+\]
 \end{exercise}
 
 \begin{exercise}[The Calogero--Sutherland limit]
@@ -6580,110 +6891,28 @@ algebra.  Write the resulting reflection and translation operators in the
 same generators used in the polynomial representation defined above.
 \end{exercise}
 
-\subsection{Root-system integrals and elliptic Yang--Baxter identities}
+\subsection{Elliptic star--triangle and Yang--Baxter identities}
 
-\begin{definition}[Askey--Wilson and Gustafson weights]
-For a list of parameters write
-$(a_1,\ldots,a_r;q)_\infty=\prod_s(a_s;q)_\infty$, and set
-$f(z^{\pm1})=f(z)f(z^{-1})$ and
-$f(z_i^{\pm1}z_j^{\pm1})=
-\prod_{\epsilon,\delta=\pm1}f(z_i^\epsilon z_j^\delta)$.
-For $|q|,|t|,|a_r|<1$, the \emph{Askey--Wilson weight} is
-\[
- \Delta_{AW}(z)=
- \frac{(z^{\pm2};q)_\infty}
-      {\prod_{r=1}^4(a_rz^{\pm1};q)_\infty},
-\]
-and the \emph{$BC_n$ Gustafson weight} is
-\[
-\begin{aligned}
-\Delta_{BC_n}(z)={}&
-\prod_{i=1}^n
- \frac{(z_i^{\pm2};q)_\infty}
-      {\prod_{r=1}^4(a_rz_i^{\pm1};q)_\infty}\\
-&\times
-\prod_{1\leq i<j\leq n}
- \frac{(z_i^{\pm1}z_j^{\pm1};q)_\infty}
-      {(t z_i^{\pm1}z_j^{\pm1};q)_\infty}.
-\end{aligned}
-\]
-A \emph{Gustafson integral} is a torus integral of such a root-system
-weight with the normalized measure
-$(2^nn!)^{-1}\prod_i dz_i/(2\pi iz_i)$.
-\end{definition}
-
-\begin{exercise}[Root systems in the Gustafson integral]
-Prove directly that $\Delta_{BC_n}$ is invariant under permutations and
-independent inversions of the $z_i$.  Identify its factors with the roots
-$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  Set $n=1$ and recover the
-Askey--Wilson weight and the order-two Weyl normalization.  For an integer
-$g\geq0$, set $t=q^g$, cancel the quotient of $q$-products into a finite
-product, and take $q\to1^-$ after writing $z_i=e^{i\theta_i}$.  Identify the
-resulting power-law pair repulsion and its $BC_n$ reflection symmetry.
-\end{exercise}
-
-\begin{definition}[Elliptic weights and star--triangle data]
-For $|p|<1$, define
-\[
- \theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
- \qquad
- (a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
-\]
-and
-\[
- \Gamma(z;p,q)=\prod_{j,k\geq0}
- \frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
-\]
-A family of edge weights $W_u(x,y)$ and one-spin weights $S(x)$ is
-\emph{star--triangle data} when
+\begin{definition}[Star--triangle data]
+A family of edge weights $W_u(x,y)$, one-spin weights $S(x)$, and scalar
+normalizations $R(u,v,w)$ is \emph{star--triangle data} when
 \[
  \int S(x)W_u(a,x)W_v(b,x)W_w(c,x)\,dx
  =R(u,v,w)W_{u'}(b,c)W_{v'}(a,c)W_{w'}(a,b)
 \]
-for its stated parameter constraint and contour.  Elliptic star--triangle
-data are those for which the weights are finite products and ratios of
-$\Gamma(\,cdot\,;p,q)$.
-
-In additive notation define the \emph{elliptic number}
-\[
- [x]_{h,\tau}=
- \frac{\vartheta_{11}(hx,\tau)}{\vartheta_{11}(h,\tau)}.
-\]
-A terminating series whose successive-term ratio is a balanced product of
-elliptic numbers is a \emph{modular hypergeometric series}; termination makes
-it a finite algebraic expression in theta values.
+for its parameter constraint and contour.  It is \emph{elliptic} when its
+weights are finite products and ratios of $\Gamma(\,cdot\,;p,q)$.
 \end{definition}
 
-\begin{exercise}[The rational--trigonometric--elliptic hierarchy]
-Use the Jacobi triple product to prove
-\[
-[x]_{h,\tau}
-\longrightarrow\frac{\sin(\pi hx)}{\sin(\pi h)}
-\quad(\operatorname{Im}\tau\to\infty),
-\qquad
-\frac{\sin(\pi hx)}{\sin(\pi h)}\longrightarrow x
-\quad(h\to0).
-\]
-Prove $\theta(z;0)=1-z$ and
-$(a;q,p)_m\to(a;q)_m$ as $p\to0$.  Hence organize the three levels as
-\[
-\begin{array}{c}
-\text{elliptic hypergeometric identities and elliptic Yang--Baxter data}
-\\ \downarrow\ p\to0\\
-\text{basic hypergeometric identities, Gustafson integrals, and
-trigonometric }R\text{-matrices}
-\\ \downarrow\ q\to1\\
-\text{ordinary hypergeometric identities, Selberg integrals, and
-rational data}.
-\end{array}
-\]
-Explain why the integral/star--triangle branch and the
-$6j$-symbol/recoupling branch are complementary realizations of
-Yang--Baxter consistency rather than two names for the same construction.
-Use the star--triangle identity twice on a three-row lattice strip to derive
-the equality of the two local reorderings that underlies commuting transfer
-matrices.  Finally relate the trigonometric middle level to the
-Macdonald--Ruijsenaars operators above.
+\begin{exercise}[Elliptic beta integral and star--triangle relation]
+Parametrize the six variables in the elliptic beta integral by three
+spectral parameters and three external spins.  Derive an elliptic
+star--triangle identity from its evaluation.  Apply the identity twice to
+a three-row lattice strip and prove equality of the two local reorderings
+that yields commuting transfer matrices.  Take $p\to0$ and then $q\to1$
+and derive the corresponding trigonometric and rational star--triangle
+relations.  Compare this integral construction with the
+$6j$-symbol/recoupling construction of the Yang--Baxter equation.
 \end{exercise}
 
 \section{Cyclotomic and Aperiodic Structure}
