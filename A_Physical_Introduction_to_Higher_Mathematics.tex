@@ -58,6 +58,464 @@
 
 \part{Symmetry}
 
+\section{Linear Spaces, Tensor Products, and Duality}
+
+\begin{definition}[Linear spaces and maps]
+Let $k$ be $\R$ or $\C$.  A \emph{linear space} over $k$ is an abelian group
+$V$ with scalar multiplication satisfying
+\[
+a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
+(ab)v=a(bv),\quad 1v=v.
+\]
+A map $T:V\to W$ is \emph{linear} when
+$T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
+\[
+\ker T=\{v:T(v)=0\},\qquad \im T=\{T(v):v\in V\}.
+\]
+For $T:V\to V$, a scalar $\lambda$ is an \emph{eigenvalue} when
+$\ker(T-\lambda I)\ne0$; a nonzero vector in this kernel is an
+\emph{eigenvector}.
+\end{definition}
+
+\begin{definition}[Dual spaces and tensor products]
+The \emph{dual space} of $V$ is
+$V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
+\[
+\operatorname{ev}_V:V^\vee\times V\longrightarrow k,
+\qquad (\varphi,v)\longmapsto\varphi(v).
+\]
+The algebraic transpose of $T:V\to W$ is
+$T^\vee:W^\vee\to V^\vee$, defined by $T^\vee(\varphi)=\varphi\circ T$.
+
+The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
+$(v,w)\mapsto v\otimes w$ with the following universal property: every
+bilinear map $b:V\times W\to X$ factors uniquely as
+\[
+V\times W\longrightarrow V\otimes W
+\xrightarrow{\,\widetilde b\,}X.
+\]
+The evaluation pairing induces a linear map
+$\operatorname{ev}_V:V^\vee\otimes V\to k$.
+\end{definition}
+
+\begin{definition}[Dualizability and finite dimensionality]
+A linear space $V$ is \emph{dualizable} when there is a coevaluation map
+\[
+\operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
+\]
+satisfying the two snake identities
+\[
+(\id_V\otimes\operatorname{ev}_V)
+\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
+\]
+\[
+(\operatorname{ev}_V\otimes\id_{V^\vee})
+\circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
+\]
+A linear space is \emph{finite-dimensional} if it is dualizable.
+\end{definition}
+
+\begin{definition}[Categorical trace and dimension]
+Let $V$ be dualizable, let
+$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors,
+and let $T\in\End(V)$.  The \emph{categorical trace} is the scalar
+\[
+\operatorname{tr}(T)
+=\operatorname{ev}_V\circ s_{V,V^\vee}
+ \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V,
+\qquad
+\dim V=\operatorname{tr}(\id_V).
+\]
+\end{definition}
+
+\begin{exercise}[Dualizability recovers ordinary finite dimension]
+Construct $V\otimes W$ as a quotient of the free linear space on
+$V\times W$ and prove its universal property.  If $V$ has basis
+$e_1,\ldots,e_n$ with dual basis $e^1,\ldots,e^n$, show that
+\[
+\operatorname{coev}_V(1)=\sum_{j=1}^n e_j\otimes e^j
+\]
+is independent of the chosen basis and satisfies the snake identities.
+Conversely, write any proposed coevaluation as
+$\operatorname{coev}_V(1)=\sum_{j=1}^r v_j\otimes\varphi_j$ and use a snake
+identity to prove that the $v_j$ span $V$.  Conclude that dualizability is
+equivalent to ordinary finite dimensionality.  Finally prove
+\[
+\operatorname{tr}(T)=\sum_{j=1}^n e^j(Te_j),\qquad
+\operatorname{tr}(ST)=\operatorname{tr}(TS),\qquad
+\dim V=n.
+\]
+\end{exercise}
+
+\section{Hilbert Spaces}
+
+\begin{definition}[Hilbert spaces and orthogonality]
+An \emph{inner product} on a complex linear space is conjugate-linear in its
+first argument, linear in its second, positive definite, and satisfies
+$\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
+$\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
+space complete for this norm.
+
+Vectors are \emph{orthogonal} when their inner product is zero.  For a
+subspace $M\subseteq H$, define
+\[
+M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\}.
+\]
+\end{definition}
+
+\begin{definition}[Bounded operators and adjoints]
+A linear map $T:H\to K$ between Hilbert spaces is \emph{bounded} when
+\[
+\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty.
+\]
+An \emph{adjoint} of $T$ is an operator $T^*:K\to H$ satisfying
+\[
+\langle x,Ty\rangle=\langle T^*x,y\rangle.
+\]
+An operator is self-adjoint when $T=T^*$, unitary when $T^*T=TT^*=I$, and
+normal when $T^*T=TT^*$.  An \emph{orthogonal projection} is an operator
+$P$ satisfying $P=P^*=P^2$.
+\end{definition}
+
+\begin{exercise}[Hilbert-space foundations]
+Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
+representation theorem.  Deduce the existence of adjoints and prove
+\[
+\|T\|^2=\|T^*T\|,\qquad
+(\im T)^\perp=\ker T^*.
+\]
+For every closed subspace $M\subseteq H$, prove
+$H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
+Show that an orthonormal family $(e_j)$ is complete exactly when
+$\|x\|^2=\sum_j|\langle e_j,x\rangle|^2$ for every $x\in H$.
+\end{exercise}
+
+\section{Measure and Probability}
+
+\begin{definition}[Measure spaces and Haar measure]
+A \emph{$\sigma$-algebra} $\mathcal F$ on a set $X$ contains
+$\varnothing$ and is closed under complements and countable unions.  A
+\emph{measure} is a countably additive map
+$\mu:\mathcal F\to[0,\infty]$ with $\mu(\varnothing)=0$, and
+$(X,\mathcal F,\mu)$ is a
+\emph{measure space}.  A map is \emph{measurable} when inverse images of
+measurable sets are measurable.  For $1\leq p<\infty$, define
+\[
+L^p(X,\mu)=
+\left\{f:\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.}
+\]
+with its usual norm, and let $L^\infty(X,\mu)$ consist of essentially
+bounded measurable functions.
+
+A \emph{topological group} is a group with a Hausdorff topology for which
+multiplication and inversion are continuous.  It is \emph{locally compact}
+when every point has a compact neighborhood.  A \emph{Radon measure} is a
+Borel measure finite on compact sets, outer regular on Borel sets, and inner
+regular on open sets.  A \emph{left Haar measure} on a locally compact group
+is a nonzero left-invariant Radon measure, so
+$\mu(gE)=\mu(E)$.  Its \emph{modular function} is determined by
+\[
+\mu(Eg)=\Delta_G(g)^{-1}\mu(E).
+\]
+Write $C_b(G)$, $C_0(G)$, and $C_c(G)$ for the
+continuous functions that are bounded, vanish at infinity, and have
+compact support, respectively.
+\end{definition}
+
+\begin{definition}[Probability spaces and convergence]
+A \emph{probability space} is a measure space
+$(\Omega,\mathcal F,\mathbb P)$ with $\mathbb P(\Omega)=1$.  A
+\emph{random variable} is a measurable map $X:\Omega\to Y$, its
+\emph{law} is $\mathbb P_X(B)=\mathbb P(X^{-1}(B))$, and, when it is
+scalar-valued and integrable, its \emph{expectation} is its integral.
+A random vector $X=(X_1,\ldots,X_N)$ has \emph{joint density} $p$ with
+respect to a measure $\mu$ when
+\[
+\mathbb P(X\in B)=\int_Bp\,d\mu.
+\]
+The Gaussian law $N(m,v)$ on $\R$ has density
+\[
+\frac1{\sqrt{2\pi v}}\exp\!\left[-\frac{(x-m)^2}{2v}\right].
+\]
+A sequence of random variables in a metric space
+$(Y,d)$ \emph{converges in probability} to $X$ when
+\[
+\mathbb P(d(X_N,X)>\varepsilon)\longrightarrow0
+\qquad(\varepsilon>0).
+\]
+It \emph{converges in distribution}, written $X_N\Longrightarrow X$,
+when
+\[
+\int f\,d\mathbb P_{X_N}\longrightarrow\int f\,d\mathbb P_X
+\]
+for every bounded continuous $f$.
+\end{definition}
+
+\section{\texorpdfstring{$C^*$-Algebras and Functional Calculus}{C*-Algebras and Functional Calculus}}
+
+\begin{definition}[$C^*$-algebras, spectrum, and positivity]
+A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
+conjugate-linear involution satisfying
+\[
+(ab)^*=b^*a^*,\qquad \|ab\|\leq\|a\|\|b\|,\qquad
+\|a^*a\|=\|a\|^2.
+\]
+For a unital $C^*$-algebra, define
+\[
+\spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
+\]
+An element is \emph{positive}, written $a\geq0$, when $a=b^*b$ for some
+$b\in A$.  It is \emph{self-adjoint} when $a=a^*$ and \emph{normal} when
+$a^*a=aa^*$.
+\end{definition}
+
+\begin{definition}[Gelfand spectrum]
+For a commutative $C^*$-algebra $A$, let $\widehat A$ be the space of
+nonzero homomorphisms $\chi:A\to\C$ with its weak-$*$ topology.  The
+\emph{Gelfand transform} is
+\[
+\Gamma:A\longrightarrow C_0(\widehat A),
+\qquad \Gamma(a)(\chi)=\chi(a).
+\]
+\end{definition}
+
+\begin{exercise}[Spectrum, Gelfand duality, and functional calculus]
+Prove that $\spec_A(a)$ is nonempty and compact and that
+\[
+r(a)=\lim_{n\to\infty}\|a^n\|^{1/n}.
+\]
+For normal $a$, prove $r(a)=\|a\|$.  Prove that positive elements have
+unique positive square roots and that $a\geq0$ if and only if $a=a^*$ and
+$\spec_A(a)\subseteq[0,\infty)$.  Prove that the Gelfand transform is an
+isometric $*$-isomorphism.  For every normal element $a$ of a unital
+$C^*$-algebra, prove that there is a unique unital isometric
+$*$-homomorphism
+\[
+C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
+\]
+sending the coordinate function to $a$, and prove the continuous spectral
+mapping theorem.
+\end{exercise}
+
+\section{Operator Spaces and Operator Tensor Products}
+
+\begin{definition}[Operator spaces and completely bounded maps]
+An \emph{operator space} is a closed linear subspace $E\subseteq B(H)$ with
+the matrix norms inherited from
+\[
+M_n(E)\subseteq B(H^{\oplus n}).
+\]
+For a linear map $u:E\to F$, define
+\[
+\|u\|_{cb}=\sup_{n\geq1}\|\id_{M_n}\otimes u\|.
+\]
+The map is \emph{completely bounded} when $\|u\|_{cb}<\infty$ and a
+\emph{complete isometry} when every $\id_{M_n}\otimes u$ is isometric.
+The dual operator-space structure on $E^*$ is determined by
+\[
+M_n(E^*)=\operatorname{CB}(E,M_n)
+\]
+isometrically.
+\end{definition}
+
+\begin{definition}[Row and column spaces]
+For a Hilbert space $H$, its \emph{column space} and conjugate
+\emph{row space} are
+\[
+H_c=B(\C,H),\qquad \overline H_r=B(H,\C)
+\]
+with their inherited operator-space structures.
+For operator spaces $E$ and $F$, the \emph{Haagerup norm} is
+\[
+\|u\|_h
+=\inf\left\{
+\|[x_1\ \cdots\ x_m]\|_{M_{1,m}(E)}
+\|[y_1\ \cdots\ y_m]^t\|_{M_{m,1}(F)}:
+u=\sum_{j=1}^m x_j\otimes y_j
+\right\}.
+\]
+The completion is denoted $E\otimes_hF$.
+The \emph{operator-space projective norm} is
+\[
+\|u\|_{\wedge}
+=\inf\{\|\alpha\|\,\|x\|\,\|y\|\,\|\beta\|:
+u=\alpha(x\otimes y)\beta\},
+\]
+where $x\in M_p(E)$, $y\in M_q(F)$,
+$\alpha\in M_{1,pq}$, and $\beta\in M_{pq,1}$.  Its completion is denoted
+$E\mathbin{\widehat\otimes}F$.
+\end{definition}
+
+\begin{definition}[Trace and Hilbert--Schmidt classes]
+For $x,y\in H$, let
+\[
+\theta_{x,y}(\xi)=\langle y,\xi\rangle x.
+\]
+The algebra $\mathcal K(H)$ of \emph{compact operators} is the norm closure
+of the span of the operators $\theta_{x,y}$.
+The \emph{trace class} $S_1(H)$ consists of operators admitting a
+representation
+\[
+A=\sum_{j=1}^{\infty}\theta_{x_j,y_j},
+\qquad
+\sum_{j=1}^{\infty}\|x_j\|\,\|y_j\|<\infty,
+\]
+where the series converges in operator norm, with norm the infimum of the
+displayed sums.  Define
+\[
+\Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
+\]
+The \emph{Hilbert--Schmidt class} $S_2(H)$ consists of operators satisfying
+\[
+\|A\|_2^2=\sum_j\|Ae_j\|^2<\infty
+\]
+for an orthonormal basis $(e_j)$ of $H$.
+\end{definition}
+
+\begin{definition}[Ruan's axioms]
+Matrix norms on a complex linear space $E$ satisfy \emph{Ruan's axioms} when
+\[
+\|x\oplus y\|_{M_{n+m}(E)}
+=\max\{\|x\|_{M_n(E)},\|y\|_{M_m(E)}\}
+\]
+and
+\[
+\|\alpha x\beta\|_{M_{r,s}(E)}
+\leq\|\alpha\|\,\|x\|_{M_n(E)}\,\|\beta\|
+\]
+for scalar matrices of compatible sizes.
+\end{definition}
+
+\begin{exercise}[Row--column tensor duality]
+Prove that the definitions of $S_1(H)$, $\Tr$, and $S_2(H)$ are independent
+of all displayed choices.  Prove the complete isometries
+\[
+H_c\otimes_h\overline H_r\cong\mathcal K(H),
+\qquad
+\overline H_r\mathbin{\widehat\otimes}H_c
+\cong\overline H_r\otimes_h H_c\cong S_1(H),
+\qquad
+S_1(H)^*\cong B(H),
+\]
+where $\overline y\otimes x$ corresponds to $\theta_{x,y}$ and the last
+pairing is $(A,T)\mapsto\Tr(AT)$.  Prove that
+$\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space.
+\end{exercise}
+
+\begin{exercise}[Ruan's representation theorem]
+Prove that matrix norms arise from a complete isometry $E\to B(H)$ if and
+only if they satisfy Ruan's axioms.  Prove
+$M_n(E^*)=\operatorname{CB}(E,M_n)$ completely isometrically.
+\end{exercise}
+
+\section{Spectral Theorems from Harmonic Analysis}
+
+\begin{definition}[Projection-valued measures]
+A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
+from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
+\[
+E(\varnothing)=0,\qquad E(X)=I,
+\qquad
+E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
+=\sum_{j=1}^\infty E(B_j)
+\]
+for pairwise disjoint measurable sets, where the sum converges in the strong
+operator topology.  The spectral integral $\int_X f\,dE$ for bounded
+measurable $f$ is defined by uniform approximation from simple functions.
+For a topological space $X$, the measure is \emph{regular} when every
+scalar measure $B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
+\end{definition}
+
+\begin{exercise}[Representations of \texorpdfstring{$C_0(X)$}{C0(X)}]
+Let $X$ be locally compact Hausdorff.  A representation
+$\pi:C_0(X)\to B(H)$ is \emph{nondegenerate} when
+$\overline{\pi(C_0(X))H}=H$.  Prove that every nondegenerate
+$*$-representation has a unique regular
+projection-valued measure $E_\pi$ satisfying
+\[
+\pi(f)=\int_X f(x)\,dE_\pi(x),
+\qquad f\in C_0(X).
+\]
+\end{exercise}
+
+\begin{exercise}[Bounded normal spectral theorem]
+For a normal operator $T\in B(H)$, apply the preceding representation
+theorem to the continuous functional calculus
+$C(\spec(T))\to B(H)$ and prove that there is a unique projection-valued
+measure $E_T$ on $\spec(T)$ satisfying
+\[
+T=\int_{\spec(T)}z\,dE_T(z),
+\qquad
+f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
+\]
+Deduce that a normal operator on a finite-dimensional Hilbert space is
+unitarily diagonalizable.
+\end{exercise}
+
+\begin{exercise}[Compact spectral theorem]
+Prove that every trace-class operator is compact.  For a compact normal
+operator $K$, prove that every nonzero spectral value is an eigenvalue of
+finite multiplicity, that the nonzero eigenvalues can accumulate only at
+zero, and that
+\[
+K=\sum_j\lambda_jP_j
+\]
+in operator norm for pairwise orthogonal finite-rank spectral projections
+$P_j$.  For $K\geq0$ in $S_1(H)$, prove
+\[
+K=\sum_j\lambda_j\theta_{e_j,e_j},
+\qquad
+\lambda_j\geq0,\qquad
+\sum_j\lambda_j=\Tr K.
+\]
+\end{exercise}
+
+\begin{definition}[Unbounded self-adjoint operators]
+An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
+domain.  Its adjoint has domain
+\[
+\mathcal D(A^*)=
+\{y\in H:x\mapsto\langle y,Ax\rangle
+\text{ is bounded on }\mathcal D(A)\}.
+\]
+For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
+$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
+$x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
+including equality of domains, and \emph{closed} when its graph is closed
+in $H\oplus H$.
+\end{definition}
+
+\begin{exercise}[Unbounded spectral theorem and Stone's theorem]
+For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
+$\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
+\[
+C_A=(A-iI)(A+iI)^{-1}
+\]
+is unitary with $\ker(I-C_A)=0$.  Apply the bounded normal spectral theorem
+to $C_A$ and the inverse Cayley map to prove that there is a unique
+projection-valued measure $E_A$ on $\R$ satisfying
+\[
+A=\int_\R\lambda\,dE_A(\lambda),\qquad
+\mathcal D(A)=
+\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
+\]
+Use $E_A$ to prove that $e^{-itA}$ is a strongly continuous unitary group
+and that every strongly continuous one-parameter unitary group has a unique
+self-adjoint generator.
+\end{exercise}
+
+\begin{exercise}[Spectral lines and time evolution]
+\label{ex:spectral-lines}
+If $A\psi_n=\lambda_n\psi_n$ and an observable $B$ has matrix elements
+$B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
+\[
+\langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
+=e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
+\]
+Extend the calculation from pure point spectrum to the projection-valued
+spectral measure.
+\end{exercise}
+
 \section{Abelian Harmonic Analysis}
 
 \subsection{Fourier series and Fourier transform}
@@ -4954,464 +5412,6 @@ $6j$-symbol/recoupling construction of the Yang--Baxter equation.
 \end{exercise}
 
 \part{Counting}
-
-\section{Linear Spaces, Tensor Products, and Duality}
-
-\begin{definition}[Linear spaces and maps]
-Let $k$ be $\R$ or $\C$.  A \emph{linear space} over $k$ is an abelian group
-$V$ with scalar multiplication satisfying
-\[
-a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
-(ab)v=a(bv),\quad 1v=v.
-\]
-A map $T:V\to W$ is \emph{linear} when
-$T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
-\[
-\ker T=\{v:T(v)=0\},\qquad \im T=\{T(v):v\in V\}.
-\]
-For $T:V\to V$, a scalar $\lambda$ is an \emph{eigenvalue} when
-$\ker(T-\lambda I)\ne0$; a nonzero vector in this kernel is an
-\emph{eigenvector}.
-\end{definition}
-
-\begin{definition}[Dual spaces and tensor products]
-The \emph{dual space} of $V$ is
-$V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
-\[
-\operatorname{ev}_V:V^\vee\times V\longrightarrow k,
-\qquad (\varphi,v)\longmapsto\varphi(v).
-\]
-The algebraic transpose of $T:V\to W$ is
-$T^\vee:W^\vee\to V^\vee$, defined by $T^\vee(\varphi)=\varphi\circ T$.
-
-The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
-$(v,w)\mapsto v\otimes w$ with the following universal property: every
-bilinear map $b:V\times W\to X$ factors uniquely as
-\[
-V\times W\longrightarrow V\otimes W
-\xrightarrow{\,\widetilde b\,}X.
-\]
-The evaluation pairing induces a linear map
-$\operatorname{ev}_V:V^\vee\otimes V\to k$.
-\end{definition}
-
-\begin{definition}[Dualizability and finite dimensionality]
-A linear space $V$ is \emph{dualizable} when there is a coevaluation map
-\[
-\operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
-\]
-satisfying the two snake identities
-\[
-(\id_V\otimes\operatorname{ev}_V)
-\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
-\]
-\[
-(\operatorname{ev}_V\otimes\id_{V^\vee})
-\circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
-\]
-A linear space is \emph{finite-dimensional} if it is dualizable.
-\end{definition}
-
-\begin{definition}[Categorical trace and dimension]
-Let $V$ be dualizable, let
-$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors,
-and let $T\in\End(V)$.  The \emph{categorical trace} is the scalar
-\[
-\operatorname{tr}(T)
-=\operatorname{ev}_V\circ s_{V,V^\vee}
- \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V,
-\qquad
-\dim V=\operatorname{tr}(\id_V).
-\]
-\end{definition}
-
-\begin{exercise}[Dualizability recovers ordinary finite dimension]
-Construct $V\otimes W$ as a quotient of the free linear space on
-$V\times W$ and prove its universal property.  If $V$ has basis
-$e_1,\ldots,e_n$ with dual basis $e^1,\ldots,e^n$, show that
-\[
-\operatorname{coev}_V(1)=\sum_{j=1}^n e_j\otimes e^j
-\]
-is independent of the chosen basis and satisfies the snake identities.
-Conversely, write any proposed coevaluation as
-$\operatorname{coev}_V(1)=\sum_{j=1}^r v_j\otimes\varphi_j$ and use a snake
-identity to prove that the $v_j$ span $V$.  Conclude that dualizability is
-equivalent to ordinary finite dimensionality.  Finally prove
-\[
-\operatorname{tr}(T)=\sum_{j=1}^n e^j(Te_j),\qquad
-\operatorname{tr}(ST)=\operatorname{tr}(TS),\qquad
-\dim V=n.
-\]
-\end{exercise}
-
-\section{Hilbert Spaces}
-
-\begin{definition}[Hilbert spaces and orthogonality]
-An \emph{inner product} on a complex linear space is conjugate-linear in its
-first argument, linear in its second, positive definite, and satisfies
-$\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
-$\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
-space complete for this norm.
-
-Vectors are \emph{orthogonal} when their inner product is zero.  For a
-subspace $M\subseteq H$, define
-\[
-M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\}.
-\]
-\end{definition}
-
-\begin{definition}[Bounded operators and adjoints]
-A linear map $T:H\to K$ between Hilbert spaces is \emph{bounded} when
-\[
-\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty.
-\]
-An \emph{adjoint} of $T$ is an operator $T^*:K\to H$ satisfying
-\[
-\langle x,Ty\rangle=\langle T^*x,y\rangle.
-\]
-An operator is self-adjoint when $T=T^*$, unitary when $T^*T=TT^*=I$, and
-normal when $T^*T=TT^*$.  An \emph{orthogonal projection} is an operator
-$P$ satisfying $P=P^*=P^2$.
-\end{definition}
-
-\begin{exercise}[Hilbert-space foundations]
-Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
-representation theorem.  Deduce the existence of adjoints and prove
-\[
-\|T\|^2=\|T^*T\|,\qquad
-(\im T)^\perp=\ker T^*.
-\]
-For every closed subspace $M\subseteq H$, prove
-$H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
-Show that an orthonormal family $(e_j)$ is complete exactly when
-$\|x\|^2=\sum_j|\langle e_j,x\rangle|^2$ for every $x\in H$.
-\end{exercise}
-
-\section{Measure and Probability}
-
-\begin{definition}[Measure spaces and Haar measure]
-A \emph{$\sigma$-algebra} $\mathcal F$ on a set $X$ contains
-$\varnothing$ and is closed under complements and countable unions.  A
-\emph{measure} is a countably additive map
-$\mu:\mathcal F\to[0,\infty]$ with $\mu(\varnothing)=0$, and
-$(X,\mathcal F,\mu)$ is a
-\emph{measure space}.  A map is \emph{measurable} when inverse images of
-measurable sets are measurable.  For $1\leq p<\infty$, define
-\[
-L^p(X,\mu)=
-\left\{f:\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.}
-\]
-with its usual norm, and let $L^\infty(X,\mu)$ consist of essentially
-bounded measurable functions.
-
-A \emph{topological group} is a group with a Hausdorff topology for which
-multiplication and inversion are continuous.  It is \emph{locally compact}
-when every point has a compact neighborhood.  A \emph{Radon measure} is a
-Borel measure finite on compact sets, outer regular on Borel sets, and inner
-regular on open sets.  A \emph{left Haar measure} on a locally compact group
-is a nonzero left-invariant Radon measure, so
-$\mu(gE)=\mu(E)$.  Its \emph{modular function} is determined by
-\[
-\mu(Eg)=\Delta_G(g)^{-1}\mu(E).
-\]
-Write $C_b(G)$, $C_0(G)$, and $C_c(G)$ for the
-continuous functions that are bounded, vanish at infinity, and have
-compact support, respectively.
-\end{definition}
-
-\begin{definition}[Probability spaces and convergence]
-A \emph{probability space} is a measure space
-$(\Omega,\mathcal F,\mathbb P)$ with $\mathbb P(\Omega)=1$.  A
-\emph{random variable} is a measurable map $X:\Omega\to Y$, its
-\emph{law} is $\mathbb P_X(B)=\mathbb P(X^{-1}(B))$, and, when it is
-scalar-valued and integrable, its \emph{expectation} is its integral.
-A random vector $X=(X_1,\ldots,X_N)$ has \emph{joint density} $p$ with
-respect to a measure $\mu$ when
-\[
-\mathbb P(X\in B)=\int_Bp\,d\mu.
-\]
-The Gaussian law $N(m,v)$ on $\R$ has density
-\[
-\frac1{\sqrt{2\pi v}}\exp\!\left[-\frac{(x-m)^2}{2v}\right].
-\]
-A sequence of random variables in a metric space
-$(Y,d)$ \emph{converges in probability} to $X$ when
-\[
-\mathbb P(d(X_N,X)>\varepsilon)\longrightarrow0
-\qquad(\varepsilon>0).
-\]
-It \emph{converges in distribution}, written $X_N\Longrightarrow X$,
-when
-\[
-\int f\,d\mathbb P_{X_N}\longrightarrow\int f\,d\mathbb P_X
-\]
-for every bounded continuous $f$.
-\end{definition}
-
-\section{\texorpdfstring{$C^*$-Algebras and Functional Calculus}{C*-Algebras and Functional Calculus}}
-
-\begin{definition}[$C^*$-algebras, spectrum, and positivity]
-A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
-conjugate-linear involution satisfying
-\[
-(ab)^*=b^*a^*,\qquad \|ab\|\leq\|a\|\|b\|,\qquad
-\|a^*a\|=\|a\|^2.
-\]
-For a unital $C^*$-algebra, define
-\[
-\spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
-\]
-An element is \emph{positive}, written $a\geq0$, when $a=b^*b$ for some
-$b\in A$.  It is \emph{self-adjoint} when $a=a^*$ and \emph{normal} when
-$a^*a=aa^*$.
-\end{definition}
-
-\begin{definition}[Gelfand spectrum]
-For a commutative $C^*$-algebra $A$, let $\widehat A$ be the space of
-nonzero homomorphisms $\chi:A\to\C$ with its weak-$*$ topology.  The
-\emph{Gelfand transform} is
-\[
-\Gamma:A\longrightarrow C_0(\widehat A),
-\qquad \Gamma(a)(\chi)=\chi(a).
-\]
-\end{definition}
-
-\begin{exercise}[Spectrum, Gelfand duality, and functional calculus]
-Prove that $\spec_A(a)$ is nonempty and compact and that
-\[
-r(a)=\lim_{n\to\infty}\|a^n\|^{1/n}.
-\]
-For normal $a$, prove $r(a)=\|a\|$.  Prove that positive elements have
-unique positive square roots and that $a\geq0$ if and only if $a=a^*$ and
-$\spec_A(a)\subseteq[0,\infty)$.  Prove that the Gelfand transform is an
-isometric $*$-isomorphism.  For every normal element $a$ of a unital
-$C^*$-algebra, prove that there is a unique unital isometric
-$*$-homomorphism
-\[
-C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
-\]
-sending the coordinate function to $a$, and prove the continuous spectral
-mapping theorem.
-\end{exercise}
-
-\section{Operator Spaces and Operator Tensor Products}
-
-\begin{definition}[Operator spaces and completely bounded maps]
-An \emph{operator space} is a closed linear subspace $E\subseteq B(H)$ with
-the matrix norms inherited from
-\[
-M_n(E)\subseteq B(H^{\oplus n}).
-\]
-For a linear map $u:E\to F$, define
-\[
-\|u\|_{cb}=\sup_{n\geq1}\|\id_{M_n}\otimes u\|.
-\]
-The map is \emph{completely bounded} when $\|u\|_{cb}<\infty$ and a
-\emph{complete isometry} when every $\id_{M_n}\otimes u$ is isometric.
-The dual operator-space structure on $E^*$ is determined by
-\[
-M_n(E^*)=\operatorname{CB}(E,M_n)
-\]
-isometrically.
-\end{definition}
-
-\begin{definition}[Row and column spaces]
-For a Hilbert space $H$, its \emph{column space} and conjugate
-\emph{row space} are
-\[
-H_c=B(\C,H),\qquad \overline H_r=B(H,\C)
-\]
-with their inherited operator-space structures.
-For operator spaces $E$ and $F$, the \emph{Haagerup norm} is
-\[
-\|u\|_h
-=\inf\left\{
-\|[x_1\ \cdots\ x_m]\|_{M_{1,m}(E)}
-\|[y_1\ \cdots\ y_m]^t\|_{M_{m,1}(F)}:
-u=\sum_{j=1}^m x_j\otimes y_j
-\right\}.
-\]
-The completion is denoted $E\otimes_hF$.
-The \emph{operator-space projective norm} is
-\[
-\|u\|_{\wedge}
-=\inf\{\|\alpha\|\,\|x\|\,\|y\|\,\|\beta\|:
-u=\alpha(x\otimes y)\beta\},
-\]
-where $x\in M_p(E)$, $y\in M_q(F)$,
-$\alpha\in M_{1,pq}$, and $\beta\in M_{pq,1}$.  Its completion is denoted
-$E\mathbin{\widehat\otimes}F$.
-\end{definition}
-
-\begin{definition}[Trace and Hilbert--Schmidt classes]
-For $x,y\in H$, let
-\[
-\theta_{x,y}(\xi)=\langle y,\xi\rangle x.
-\]
-The algebra $\mathcal K(H)$ of \emph{compact operators} is the norm closure
-of the span of the operators $\theta_{x,y}$.
-The \emph{trace class} $S_1(H)$ consists of operators admitting a
-representation
-\[
-A=\sum_{j=1}^{\infty}\theta_{x_j,y_j},
-\qquad
-\sum_{j=1}^{\infty}\|x_j\|\,\|y_j\|<\infty,
-\]
-where the series converges in operator norm, with norm the infimum of the
-displayed sums.  Define
-\[
-\Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
-\]
-The \emph{Hilbert--Schmidt class} $S_2(H)$ consists of operators satisfying
-\[
-\|A\|_2^2=\sum_j\|Ae_j\|^2<\infty
-\]
-for an orthonormal basis $(e_j)$ of $H$.
-\end{definition}
-
-\begin{definition}[Ruan's axioms]
-Matrix norms on a complex linear space $E$ satisfy \emph{Ruan's axioms} when
-\[
-\|x\oplus y\|_{M_{n+m}(E)}
-=\max\{\|x\|_{M_n(E)},\|y\|_{M_m(E)}\}
-\]
-and
-\[
-\|\alpha x\beta\|_{M_{r,s}(E)}
-\leq\|\alpha\|\,\|x\|_{M_n(E)}\,\|\beta\|
-\]
-for scalar matrices of compatible sizes.
-\end{definition}
-
-\begin{exercise}[Row--column tensor duality]
-Prove that the definitions of $S_1(H)$, $\Tr$, and $S_2(H)$ are independent
-of all displayed choices.  Prove the complete isometries
-\[
-H_c\otimes_h\overline H_r\cong\mathcal K(H),
-\qquad
-\overline H_r\mathbin{\widehat\otimes}H_c
-\cong\overline H_r\otimes_h H_c\cong S_1(H),
-\qquad
-S_1(H)^*\cong B(H),
-\]
-where $\overline y\otimes x$ corresponds to $\theta_{x,y}$ and the last
-pairing is $(A,T)\mapsto\Tr(AT)$.  Prove that
-$\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space.
-\end{exercise}
-
-\begin{exercise}[Ruan's representation theorem]
-Prove that matrix norms arise from a complete isometry $E\to B(H)$ if and
-only if they satisfy Ruan's axioms.  Prove
-$M_n(E^*)=\operatorname{CB}(E,M_n)$ completely isometrically.
-\end{exercise}
-
-\section{Spectral Theorems from Harmonic Analysis}
-
-\begin{definition}[Projection-valued measures]
-A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
-from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
-\[
-E(\varnothing)=0,\qquad E(X)=I,
-\qquad
-E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
-=\sum_{j=1}^\infty E(B_j)
-\]
-for pairwise disjoint measurable sets, where the sum converges in the strong
-operator topology.  The spectral integral $\int_X f\,dE$ for bounded
-measurable $f$ is defined by uniform approximation from simple functions.
-For a topological space $X$, the measure is \emph{regular} when every
-scalar measure $B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
-\end{definition}
-
-\begin{exercise}[Representations of \texorpdfstring{$C_0(X)$}{C0(X)}]
-Let $X$ be locally compact Hausdorff.  A representation
-$\pi:C_0(X)\to B(H)$ is \emph{nondegenerate} when
-$\overline{\pi(C_0(X))H}=H$.  Prove that every nondegenerate
-$*$-representation has a unique regular
-projection-valued measure $E_\pi$ satisfying
-\[
-\pi(f)=\int_X f(x)\,dE_\pi(x),
-\qquad f\in C_0(X).
-\]
-\end{exercise}
-
-\begin{exercise}[Bounded normal spectral theorem]
-For a normal operator $T\in B(H)$, apply the preceding representation
-theorem to the continuous functional calculus
-$C(\spec(T))\to B(H)$ and prove that there is a unique projection-valued
-measure $E_T$ on $\spec(T)$ satisfying
-\[
-T=\int_{\spec(T)}z\,dE_T(z),
-\qquad
-f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
-\]
-Deduce that a normal operator on a finite-dimensional Hilbert space is
-unitarily diagonalizable.
-\end{exercise}
-
-\begin{exercise}[Compact spectral theorem]
-Prove that every trace-class operator is compact.  For a compact normal
-operator $K$, prove that every nonzero spectral value is an eigenvalue of
-finite multiplicity, that the nonzero eigenvalues can accumulate only at
-zero, and that
-\[
-K=\sum_j\lambda_jP_j
-\]
-in operator norm for pairwise orthogonal finite-rank spectral projections
-$P_j$.  For $K\geq0$ in $S_1(H)$, prove
-\[
-K=\sum_j\lambda_j\theta_{e_j,e_j},
-\qquad
-\lambda_j\geq0,\qquad
-\sum_j\lambda_j=\Tr K.
-\]
-\end{exercise}
-
-\begin{definition}[Unbounded self-adjoint operators]
-An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
-domain.  Its adjoint has domain
-\[
-\mathcal D(A^*)=
-\{y\in H:x\mapsto\langle y,Ax\rangle
-\text{ is bounded on }\mathcal D(A)\}.
-\]
-For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
-$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
-$x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
-including equality of domains, and \emph{closed} when its graph is closed
-in $H\oplus H$.
-\end{definition}
-
-\begin{exercise}[Unbounded spectral theorem and Stone's theorem]
-For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
-$\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
-\[
-C_A=(A-iI)(A+iI)^{-1}
-\]
-is unitary with $\ker(I-C_A)=0$.  Apply the bounded normal spectral theorem
-to $C_A$ and the inverse Cayley map to prove that there is a unique
-projection-valued measure $E_A$ on $\R$ satisfying
-\[
-A=\int_\R\lambda\,dE_A(\lambda),\qquad
-\mathcal D(A)=
-\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
-\]
-Use $E_A$ to prove that $e^{-itA}$ is a strongly continuous unitary group
-and that every strongly continuous one-parameter unitary group has a unique
-self-adjoint generator.
-\end{exercise}
-
-\begin{exercise}[Spectral lines and time evolution]
-\label{ex:spectral-lines}
-If $A\psi_n=\lambda_n\psi_n$ and an observable $B$ has matrix elements
-$B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
-\[
-\langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
-=e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
-\]
-Extend the calculation from pure point spectrum to the projection-valued
-spectral measure.
-\end{exercise}
 
 \section{Ergodic Theory}
 
