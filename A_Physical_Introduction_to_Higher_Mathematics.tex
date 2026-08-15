@@ -2121,6 +2121,223 @@ Compute the eigenfunctions of degrees zero and one and, for $r=2$, degree
 two.  Identify their Sutherland eigenvalues.
 \end{exercise}
 
+\begin{exercise}[Selberg measure and the Jacobi beta ensemble]
+For coupling $g>0$, set $\beta=2g$.  For $a,b>0$, take the $BC_N$
+Calogero--Sutherland ground state in Jacobi coordinates $x_i\in(0,1)$,
+\[
+\Psi_0(x)=C
+\prod_{i=1}^N x_i^{(a-1)/2}(1-x_i)^{(b-1)/2}
+\prod_{i<j}|x_i-x_j|^{\beta/2}.
+\]
+Prove
+\[
+|\Psi_0(x)|^2
+=\frac1{Z_{N,\beta}^{\rm Jac}(a,b)}
+\prod_{i=1}^N x_i^{a-1}(1-x_i)^{b-1}
+\prod_{i<j}|x_i-x_j|^\beta,
+\]
+where the Selberg integral gives
+\[
+Z_{N,\beta}^{\rm Jac}(a,b)
+=\prod_{j=0}^{N-1}
+\frac{
+\Gamma(a+j\beta/2)\Gamma(b+j\beta/2)
+\Gamma(1+(j+1)\beta/2)}{
+\Gamma(a+b+(N+j-1)\beta/2)\Gamma(1+\beta/2)}.
+\]
+Interpret $|\Psi_0|^2dx_1\cdots dx_N$ as the joint law of $N$ random
+eigenvalues.  For the type-$A$ circular ground state, prove instead
+\[
+|\Psi_0(\theta)|^2
+\propto\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^\beta.
+\]
+\end{exercise}
+
+\section{Random Matrix Theory}
+
+\begin{definition}[Vandermonde determinant and Dyson classes]
+For $\lambda=(\lambda_1,\ldots,\lambda_N)$, define
+\[
+\Delta(\lambda)
+=\det[\lambda_i^{j-1}]_{i,j=1}^N
+=\prod_{i<j}(\lambda_j-\lambda_i).
+\]
+Let $\mathbb F=\R,\C$, or $\mathbb H$ and set
+\[
+\beta=\dim_\R\mathbb F\in\{1,2,4\}.
+\]
+The Gaussian orthogonal, unitary, and symplectic ensembles, denoted GOE,
+GUE, and GSE, are the real symmetric, complex Hermitian, and quaternionic
+self-dual matrices with density
+\[
+d\mathbb P_{N,\beta}(H)
+=C_{N,\beta}
+\exp\!\left[-\frac{\beta N}{4\sigma^2}\Tr(H^2)\right]dH.
+\]
+\end{definition}
+
+\begin{exercise}[Eigenvalue--eigenvector Jacobian]
+Diagonalize $H=U\operatorname{diag}(\lambda)U^{-1}$ in each Dyson class.
+Use the invariant metric $\Tr(dH^2)$ to prove
+\[
+dH=C\,|\Delta(\lambda)|^\beta
+\prod_{i=1}^N d\lambda_i\,d\mu(U),
+\]
+with the stabilizer and permutation factors included in $C$.  Integrate
+over the eigenvectors and derive
+\[
+p_{N,\beta}(\lambda)
+=\frac1{Z_{N,\beta}}
+\exp\!\left[-\frac{\beta N}{4\sigma^2}
+\sum_{i=1}^N\lambda_i^2\right]
+\prod_{i<j}|\lambda_i-\lambda_j|^\beta.
+\]
+\end{exercise}
+
+\begin{definition}[Beta ensembles and Coulomb gases]
+For an interval $I\subseteq\R$, a confining potential $V$, and
+$\beta>0$, the \emph{beta ensemble} is
+\[
+d\mathbb P_{N,\beta,V}(\lambda)
+=\frac1{Z_{N,\beta,V}}
+\prod_{i<j}|\lambda_i-\lambda_j|^\beta
+\prod_{i=1}^N e^{-\beta NV(\lambda_i)/2}\,d\lambda_i.
+\]
+Its \emph{Coulomb-gas Hamiltonian} is
+\[
+\mathcal H_N(\lambda)
+=\frac N2\sum_{i=1}^NV(\lambda_i)
+-\sum_{i<j}\log|\lambda_i-\lambda_j|,
+\qquad
+d\mathbb P_{N,\beta,V}=Z^{-1}e^{-\beta\mathcal H_N}\,d\lambda.
+\]
+The Jacobi beta ensemble is the Selberg law on $[0,1]^N$, and the circular
+beta ensemble is
+\[
+\frac1{Z_{N,\beta}^{\rm circ}}
+\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^\beta
+\prod_{i=1}^N\frac{d\theta_i}{2\pi}.
+\]
+\end{definition}
+
+\begin{exercise}[Logarithmic equilibrium and the semicircle law]
+For the empirical measure $L_N=N^{-1}\sum_i\delta_{\lambda_i}$, derive
+the mean-field energy
+\[
+\mathcal I_V(\mu)
+=\int V(x)\,d\mu(x)
+-\iint\log|x-y|\,d\mu(x)d\mu(y).
+\]
+Prove that its minimizer satisfies
+\[
+V(x)-2\int\log|x-y|\,d\mu_V(y)=\ell
+\]
+on its support.  For $V(x)=x^2/(2\sigma^2)$, solve the singular integral
+equation and obtain
+\[
+\rho_{\rm sc}(x)
+=\frac1{2\pi\sigma^2}
+\sqrt{4\sigma^2-x^2}\,
+\mathbf1_{[-2\sigma,2\sigma]}(x).
+\]
+\end{exercise}
+
+\begin{definition}[Wigner matrices and empirical spectral measures]
+A \emph{Wigner matrix} $H_N$ is an $N\times N$ Hermitian random matrix
+whose upper-triangular entries are independent and centered, with
+$\mathbb E|H_{ij}|^2=\sigma^2/N$ off the diagonal and, for every fixed
+$m$,
+\[
+\sup_{N,i,j}\mathbb E|\sqrt N H_{ij}|^m<\infty.
+\]
+Its \emph{empirical spectral measure} is
+\[
+L_{H_N}=\frac1N\sum_{j=1}^N\delta_{\lambda_j(H_N)},
+\qquad
+\int x^k\,dL_{H_N}(x)=\frac1N\Tr(H_N^k).
+\]
+\end{definition}
+
+\begin{exercise}[Wigner semicircle law]
+Expand $N^{-1}\mathbb E\Tr(H_N^k)$ as a sum over closed index walks.
+Prove that only noncrossing pair-matched walks survive as $N\to\infty$
+and that their number is the Catalan number.  Prove that the variance tends
+to zero and conclude that $L_{H_N}$ converges in probability, in moments,
+to $\rho_{\rm sc}(x)dx$.
+\end{exercise}
+
+\begin{definition}[Unfolded spectra and level repulsion]
+For a smooth approximation $\overline N(E)$ to the cumulative level count,
+define
+\[
+x_j=\overline N(E_j),
+\qquad
+s_j=x_{j+1}-x_j.
+\]
+The variables $x_j$ are the \emph{unfolded levels}.  Their local mean
+spacing is one.  Exact symmetry sectors are unfolded separately.  The
+factor $|\Delta(\lambda)|^\beta$ defines \emph{level repulsion} of order
+$\beta$.
+\end{definition}
+
+\begin{exercise}[Wigner surmises and repulsion exponents]
+For $2\times2$ GOE and GUE matrices, separate the trace from the traceless
+coordinates and compute the radial distribution of the eigenvalue gap.
+After rescaling to unit mean spacing, derive
+\[
+P_1(s)=\frac\pi2s e^{-\pi s^2/4},
+\qquad
+P_2(s)=\frac{32}{\pi^2}s^2e^{-4s^2/\pi}.
+\]
+Use the beta-ensemble density to prove
+\[
+P_\beta(s)\sim c_\beta s^\beta
+\qquad(s\downarrow0),
+\]
+and compare it with the Poisson spacing law $e^{-s}$.
+\end{exercise}
+
+\begin{definition}[Global, bulk, and edge scales]
+Order the eigenvalues as $\lambda_1\leq\cdots\leq\lambda_N$.  Define the
+classical location $\gamma_j$ by
+\[
+\frac jN=\int_{-2\sigma}^{\gamma_j}\rho_{\rm sc}(x)\,dx.
+\]
+At $E\in(-2\sigma,2\sigma)$, the bulk coordinate is
+\[
+u=N\rho_{\rm sc}(E)(\lambda-E),
+\]
+and at the upper soft edge it is
+\[
+\xi=\frac{N^{2/3}}{\sigma}(\lambda-2\sigma).
+\]
+\end{definition}
+
+\begin{exercise}[Bulk and edge scales]
+Use the expected count $N\rho_{\rm sc}(E)dE$ to derive the bulk spacing
+scale $[N\rho_{\rm sc}(E)]^{-1}$.  Prove
+\[
+\rho_{\rm sc}(2\sigma-s)
+\sim\frac1{\pi\sigma^{3/2}}\sqrt{s}
+\qquad(s\downarrow0),
+\]
+and derive the edge scale $s\asymp\sigma N^{-2/3}$.
+\end{exercise}
+
+\begin{definition}[Airy kernel and the Tracy--Widom law]
+Let $\operatorname{Ai}$ be the solution of $y''=xy$ decaying at
+$+\infty$.  Define
+\[
+K_{\rm Ai}(x,y)
+=\frac{\operatorname{Ai}(x)\operatorname{Ai}'(y)
+-\operatorname{Ai}'(x)\operatorname{Ai}(y)}{x-y}
+\]
+by continuity on the diagonal.  The GUE Tracy--Widom distribution is
+\[
+F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
+\]
+\end{definition}
+
 \section{Root-of-Unity Categories and Topological Field Theory}
 
 \begin{definition}[Root-of-unity semisimplification]
@@ -4067,166 +4284,29 @@ semicircular of variance $\sigma_1^2+\sigma_2^2$, and rederive the free
 central limit theorem at the level of transforms.
 \end{exercise}
 
-\subsection{Random matrices and spectral statistics}
+\subsection{Random matrices and asymptotic freeness}
 
-\begin{definition}[Wigner and Gaussian matrix ensembles]
-A \emph{Wigner matrix} $H_N$ is an $N\times N$ Hermitian random matrix whose
-upper-triangular entries are independent and centered, with
-$\mathbb E|H_{ij}|^2=\sigma^2/N$ off the diagonal and, for each fixed $m$,
+\begin{definition}[Asymptotic freeness]
+Random matrix families
+$A_N^{(1)},\ldots,A_N^{(r)}$ are \emph{asymptotically free} when their
+normalized expected joint trace moments converge to the moments of freely
+independent variables:
 \[
-\sup_{N,i,j}\mathbb E|\sqrt N H_{ij}|^m<\infty.
+\lim_{N\to\infty}
+\frac1N\mathbb E\Tr
+P(A_N^{(1)},\ldots,A_N^{(r)})
+=\varphi(P(a_1,\ldots,a_r))
 \]
-Its \emph{empirical spectral measure} is
-\[
-L_{H_N}=\frac1N\sum_{j=1}^N\delta_{\lambda_j(H_N)},
-\qquad
-\int x^k\,dL_{H_N}(x)=\frac1N\Tr(H_N^k).
-\]
-The \emph{Gaussian unitary ensemble} is the unitarily invariant Wigner
-ensemble with density proportional to
-$\exp[-N\Tr(H^2)/(2\sigma^2)]$ on Hermitian matrices.
-Sequences of random matrices are \emph{asymptotically free} when their
-normalized joint trace moments converge to those of freely independent
-variables.
+for every noncommutative polynomial $P$.
 \end{definition}
 
-\begin{exercise}[Wigner semicircle law and asymptotic freeness]
-Expand $N^{-1}\mathbb E\Tr(H_N^k)$ as a sum over closed index walks. Show
-that only pair-matched walks survive as $N\to\infty$, that crossing pairings
-are lower order, and that the limiting moments are the semicircular moments.
-Prove that the variance tends to zero and hence that $L_{H_N}$ converges in
-probability, in moments, to $\mu_{\mathrm{sc},\sigma}$.
-
-For independent GUE matrices $H_N^{(1)},\ldots,H_N^{(r)}$, apply Wick's rule
-to normalized mixed traces of centered polynomials and prove that the family
-converges in joint moments to freely independent semicircular variables.
-Explain why ordinary independence of matrix entries becomes free
-independence of the limiting noncommuting matrices.
+\begin{exercise}[Asymptotic freeness of independent GUE matrices]
+For independent GUE matrices $H_N^{(1)},\ldots,H_N^{(r)}$, apply Wick's
+rule to normalized mixed traces of centered polynomials.  Prove that
+crossing pairings are lower order and that mixed free cumulants vanish in
+the limit.  Conclude that the family converges in joint moments to freely
+independent semicircular variables.
 \end{exercise}
-
-\begin{definition}[Dyson ensembles and unfolded spectra]
-The Gaussian ensembles with Dyson index $\beta=1,2,4$ consist respectively
-of real symmetric, complex Hermitian, and quaternionic self-dual matrices.
-They are the Gaussian orthogonal (GOE), unitary (GUE), and symplectic (GSE)
-ensembles.
-They model an antiunitary symmetry squaring to $+1$, no antiunitary symmetry,
-and an antiunitary symmetry squaring to $-1$ after Kramers pairs are removed.
-Their ordered eigenvalues have joint density
-\[
-p_{N,\beta}(\lambda_1,\ldots,\lambda_N)
-=\frac1{Z_{N,\beta}}
- \exp\!\left[-\frac{\beta N}{4\sigma^2}
-              \sum_{j=1}^N\lambda_j^2\right]
- \prod_{i<j}|\lambda_i-\lambda_j|^\beta.
-\]
-The Vandermonde factor suppresses coincident eigenvalues and produces
-\emph{level repulsion}.
-
-To compare spectra with nonconstant mean density, let $\overline N(E)$ be a
-smooth approximation to the cumulative level count. The \emph{unfolded
-levels} and nearest-neighbor spacings are
-\[
-x_j=\overline N(E_j),
-\qquad
-s_j=x_{j+1}-x_j,
-\]
-so their local mean spacing is one. Exact symmetry sectors must be separated
-before unfolding, since levels from independent sectors do not repel.
-\end{definition}
-
-\begin{exercise}[Level repulsion and resonance spectra]
-Use the eigenvalue--eigenvector change of variables to derive the Vandermonde
-factor in the Gaussian eigenvalue density. For $2\times2$ GOE and GUE
-matrices, separate the trace from the traceless coordinates and compute the
-radial distribution of the eigenvalue gap. After rescaling to unit mean
-spacing, obtain the Wigner surmises
-\[
-P_1(s)=\frac\pi2s e^{-\pi s^2/4},
-\qquad
-P_2(s)=\frac{32}{\pi^2}s^2e^{-4s^2/\pi}.
-\]
-Explain from the joint density why the full ensembles satisfy
-$P_\beta(s)\sim c_\beta s^\beta$ as $s\downarrow0$, in contrast with the
-Poisson spacing law $e^{-s}$ for uncorrelated levels.
-
-Finally, describe how one must separate nuclear levels by spin and parity,
-or microwave resonances by exact cavity symmetry, fit $\overline N(E)$,
-unfold, and then compare spacing and correlation statistics with the
-appropriate Dyson class. Time-reversal-invariant compound nuclei and
-chaotic microwave billiards without spin are predicted by the GOE. Compare
-with
-\href{https://doi.org/10.1103/PhysRevLett.48.1086}
-{Haq--Pandey--Bohigas, \emph{Physical Review Letters} \textbf{48} (1982)}
-and
-\href{https://doi.org/10.1103/PhysRevLett.64.2215}
-{St\"ockmann--Stein, \emph{Physical Review Letters} \textbf{64} (1990)}.
-Identify missing or misassigned levels and an inaccurate unfolding function
-as experimental effects that can imitate deviations from universality.
-\end{exercise}
-
-\subsection{Bulk and edge universality}
-
-\begin{definition}[Global, bulk, and edge scales]
-Order the eigenvalues of a Wigner matrix as
-$\lambda_1\leq\cdots\leq\lambda_N$, and let
-\[
- \rho_{\rm sc}(x)=\frac1{2\pi\sigma^2}
- \sqrt{4\sigma^2-x^2}\,
- \mathbf1_{[-2\sigma,2\sigma]}(x).
-\]
-The \emph{classical location} $\gamma_j$ is defined by
-\[
- \frac jN=\int_{-2\sigma}^{\gamma_j}\rho_{\rm sc}(x)\,dx.
-\]
-The semicircle law is a \emph{global law}: it concerns intervals containing
-order $N$ eigenvalues.  At a bulk energy
-$E\in(-2\sigma,2\sigma)$, the microscopic coordinate is
-\[
- u=N\rho_{\rm sc}(E)(\lambda-E),
-\]
-so the mean spacing is normalized to one.  At the upper edge the density
-vanishes as a square root and the microscopic coordinate is
-\[
- \xi=\frac{N^{2/3}}{\sigma}(\lambda-2\sigma).
-\]
-Bulk and edge universality concern the limiting point processes in these
-coordinates, not merely convergence of the empirical measure.
-\end{definition}
-
-\begin{exercise}[Deriving the microscopic scales]
-At a bulk point $E$, use the expected count
-$N\rho_{\rm sc}(E)\,dE$ to derive the spacing scale
-$[N\rho_{\rm sc}(E)]^{-1}$.  Next put $x=2\sigma-s$ and show
-\[
- \rho_{\rm sc}(2\sigma-s)
- \sim\frac1{\pi\sigma^{3/2}}\sqrt{s}
- \qquad(s\downarrow0).
-\]
-Estimate the expected number of eigenvalues in
-$[2\sigma-s,2\sigma]$ and show that it becomes order one when
-$s$ is of order $\sigma N^{-2/3}$.  Explain why a single rescaling cannot
-describe both the bulk and the edge.
-\end{exercise}
-
-\begin{definition}[Airy kernel and the Tracy--Widom law]
-Let $\operatorname{Ai}$ be the solution of
-$y''=xy$ that decays as $x\to+\infty$.  The \emph{Airy kernel} is
-\[
- K_{\rm Ai}(x,y)
- =\frac{\operatorname{Ai}(x)\operatorname{Ai}'(y)
-       -\operatorname{Ai}'(x)\operatorname{Ai}(y)}
-       {x-y},
-\]
-with the diagonal defined by continuity.  It determines the Airy
-determinantal point process at the soft edge.  The GUE Tracy--Widom
-distribution is
-\[
- F_2(s)=\det\!\left(I-K_{\rm Ai}\right)_{L^2(s,\infty)},
-\]
-where the right side is the Fredholm determinant of the Airy integral
-operator.  This formula is taken as a definition here; its analysis requires
-more operator theory than the present section develops.
-\end{definition}
 
 \section{Quantum Information Theory}
 
