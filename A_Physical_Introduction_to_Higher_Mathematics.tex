@@ -2338,6 +2338,509 @@ F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
 \]
 \end{definition}
 
+\subsection{Correlation functions and point processes}
+
+\begin{definition}[Point processes and correlation functions]
+Let $(X,\mu)$ be a locally compact measure space.  A \emph{simple point
+process} is a random locally finite counting measure
+\[
+\Xi=\sum_i\delta_{x_i}
+\]
+with distinct points almost surely.  Its $k$-point correlation function
+$\rho_k$ is defined by
+\[
+\mathbb E\sum_{i_1,\ldots,i_k}^{\ne}
+f(x_{i_1},\ldots,x_{i_k})
+=\int_{X^k}f(x_1,\ldots,x_k)\rho_k(x_1,\ldots,x_k)
+\prod_{j=1}^k d\mu(x_j).
+\]
+For a symmetric joint density $p_N$ of exactly $N$ points,
+\[
+\rho_k(x_1,\ldots,x_k)
+=\frac{N!}{(N-k)!}
+\int_{X^{N-k}}p_N(x_1,\ldots,x_N)
+\prod_{j=k+1}^N d\mu(x_j).
+\]
+\end{definition}
+
+\begin{exercise}[Factorial moments and gap probabilities]
+For $N_B=\Xi(B)$, prove
+\[
+\mathbb E(N_B)_k=\int_{B^k}\rho_k\,d\mu^{\otimes k},
+\qquad
+(N_B)_k=N_B(N_B-1)\cdots(N_B-k+1).
+\]
+Use inclusion--exclusion to prove
+\[
+\mathbb P(N_B=0)
+=\sum_{k=0}^{\infty}\frac{(-1)^k}{k!}
+\int_{B^k}\rho_k\,d\mu^{\otimes k}.
+\]
+\end{exercise}
+
+\subsection{Determinantal/Pfaffian processes and Fredholm determinants}
+
+\begin{definition}[Determinantal and Pfaffian point processes]
+A point process is \emph{determinantal} with kernel $K$ when
+\[
+\rho_k(x_1,\ldots,x_k)
+=\det[K(x_i,x_j)]_{i,j=1}^k.
+\]
+It is \emph{Pfaffian} with antisymmetric $2\times2$ matrix kernel
+$\mathbb K$ when
+\[
+\rho_k(x_1,\ldots,x_k)
+=\operatorname{Pf}[\mathbb K(x_i,x_j)]_{i,j=1}^k.
+\]
+For a trace-class integral operator $K_B$ on $L^2(B,\mu)$, its
+\emph{Fredholm determinant} is
+\[
+\det(I+zK_B)
+=\sum_{k=0}^{\infty}\frac{z^k}{k!}
+\int_{B^k}\det[K(x_i,x_j)]_{i,j=1}^k\,d\mu^{\otimes k}.
+\]
+The Fredholm Pfaffian is defined by the analogous series with
+Pfaffians of the matrix kernel.
+\end{definition}
+
+\begin{exercise}[Counting statistics and Fredholm formulas]
+For a determinantal process, prove
+\[
+\mathbb E[z^{N_B}]
+=\det(I+(z-1)K_B),
+\qquad
+\mathbb P(N_B=0)=\det(I-K_B).
+\]
+Derive the corresponding Fredholm-Pfaffian formula for a Pfaffian
+process.  If $K_B$ is a positive contraction, prove that $N_B$ is
+distributed as a sum of independent Bernoulli variables whose parameters
+are the eigenvalues of $K_B$.
+\end{exercise}
+
+\subsection{Orthogonal-polynomial ensembles}
+
+\begin{definition}[Orthogonal-polynomial ensembles]
+Let $w(x)d\mu(x)$ be a measure with finite moments and let $p_j$ be its
+monic orthogonal polynomials,
+\[
+\int p_j(x)p_k(x)w(x)d\mu(x)=h_j\delta_{jk}.
+\]
+The associated \emph{orthogonal-polynomial ensemble} has density
+\[
+p_N(x_1,\ldots,x_N)
+=\frac1{Z_N}\Delta(x)^2\prod_{i=1}^Nw(x_i),
+\qquad
+Z_N=N!\prod_{j=0}^{N-1}h_j.
+\]
+Its correlation kernel is
+\[
+K_N(x,y)
+=\sqrt{w(x)w(y)}
+\sum_{j=0}^{N-1}\frac{p_j(x)p_j(y)}{h_j}.
+\]
+\end{definition}
+
+\begin{exercise}[Andr\'eief identity and determinantal correlations]
+Prove Andr\'eief's identity
+\[
+\int_{X^N}\det[f_i(x_j)]\det[g_i(x_j)]
+\prod_{j=1}^N d\mu(x_j)
+=N!\det\!\left[\int_X f_i(x)g_j(x)d\mu(x)\right].
+\]
+Use the Vandermonde determinant to prove
+\[
+p_N(x_1,\ldots,x_N)
+=\frac1{N!}\det[K_N(x_i,x_j)]_{i,j=1}^N
+\]
+and
+\[
+\rho_k(x_1,\ldots,x_k)
+=\det[K_N(x_i,x_j)]_{i,j=1}^k.
+\]
+\end{exercise}
+
+\begin{exercise}[Skew-orthogonal ensembles]
+For an antisymmetric bilinear form $\langle\cdot,\cdot\rangle_s$, construct
+skew-orthogonal polynomials satisfying
+\[
+\langle p_{2j},p_{2k+1}\rangle_s=r_j\delta_{jk},
+\qquad
+\langle p_{2j},p_{2k}\rangle_s
+=\langle p_{2j+1},p_{2k+1}\rangle_s=0.
+\]
+Prove de Bruijn's Pfaffian integration identity and use it to derive the
+matrix correlation kernels for the GOE and GSE.
+\end{exercise}
+
+\subsection{Christoffel--Darboux and integrable kernels}
+
+\begin{definition}[Christoffel--Darboux and integrable kernels]
+Let $q_j=p_j/\sqrt{h_j}$ and let $\kappa_j$ be the leading coefficient of
+$q_j$.  The Christoffel--Darboux kernel is
+\[
+K_N(x,y)
+=\sqrt{w(x)w(y)}\,\frac{\kappa_{N-1}}{\kappa_N}
+\frac{q_N(x)q_{N-1}(y)-q_{N-1}(x)q_N(y)}{x-y}.
+\]
+An \emph{integrable kernel} is a kernel of the form
+\[
+K(x,y)=\frac{f(x)^{\mathsf T}g(y)}{x-y},
+\qquad
+f(x)^{\mathsf T}g(x)=0.
+\]
+\end{definition}
+
+\begin{exercise}[Projection and resolvent identities]
+Derive the Christoffel--Darboux formula from the three-term recurrence.
+Prove
+\[
+\int K_N(x,z)K_N(z,y)d\mu(z)=K_N(x,y),
+\qquad
+\int K_N(x,x)d\mu(x)=N.
+\]
+For an integrable trace-class kernel $K$, prove that the resolvent
+$R=K(I-K)^{-1}$ is again integrable and express its numerator using
+$(I-K)^{-1}f$ and $(I-K^{\mathsf T})^{-1}g$.
+\end{exercise}
+
+\subsection{Bulk, soft-edge, and hard-edge universality}
+
+\begin{definition}[Universal limiting kernels]
+The bulk, soft-edge, and hard-edge kernels are respectively
+\[
+K_{\sin}(u,v)=\frac{\sin\pi(u-v)}{\pi(u-v)},
+\]
+\[
+K_{\rm Ai}(u,v)
+=\frac{\operatorname{Ai}(u)\operatorname{Ai}'(v)
+-\operatorname{Ai}'(u)\operatorname{Ai}(v)}{u-v},
+\]
+and, for $\alpha>-1$,
+\[
+K_{\rm Bes}^{(\alpha)}(u,v)
+=\frac{
+J_\alpha(\sqrt u)\sqrt v\,J_\alpha'(\sqrt v)
+-\sqrt u\,J_\alpha'(\sqrt u)J_\alpha(\sqrt v)}
+{2(u-v)}.
+\]
+The values on the diagonal are defined by continuity.
+\end{definition}
+
+\begin{exercise}[Classical kernel universality]
+Use the Christoffel--Darboux formula and the asymptotics of the Hermite,
+Laguerre, and Jacobi polynomials to prove convergence of their rescaled
+kernels, where applicable, to $K_{\sin}$ in the bulk, $K_{\rm Ai}$ at a
+soft edge, and $K_{\rm Bes}^{(\alpha)}$ at a hard edge.  Deduce convergence
+of every correlation function and of the associated Fredholm gap
+probabilities.  Recover the Tracy--Widom law for the largest GUE eigenvalue.
+\end{exercise}
+
+\section{Integrable Probability}
+
+\subsection{RSK and last-passage percolation}
+
+\begin{definition}[Partitions, tableaux, and Schur functions]
+A partition is a sequence
+$\lambda_1\geq\lambda_2\geq\cdots\geq0$ with finite sum
+$|\lambda|=\sum_i\lambda_i$.  A semistandard Young tableau of shape
+$\lambda$ has weakly increasing rows and strictly increasing columns.
+For variables $a=(a_1,\ldots,a_m)$, define
+\[
+s_\lambda(a)=\sum_T\prod_{i=1}^m a_i^{m_i(T)},
+\]
+where $m_i(T)$ is the number of entries equal to $i$.
+\end{definition}
+
+\begin{definition}[RSK correspondence and last-passage time]
+The Robinson--Schensted--Knuth correspondence is the bijection
+\[
+A=(a_{ij})\longleftrightarrow(P,Q)
+\]
+between matrices of nonnegative integers and pairs of semistandard Young
+tableaux of the same shape $\lambda$, with the row and column sums of
+$A$ giving the contents of $P$ and $Q$.  For weights $a_{ij}\geq0$, define
+\[
+G(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
+\sum_{(i,j)\in\pi}a_{ij}.
+\]
+\end{definition}
+
+\begin{exercise}[Schensted and Greene theorems]
+Prove the RSK bijection and Greene's theorem.  Deduce
+\[
+\lambda_1=G(m,n)
+\]
+and identify $\lambda_1+\cdots+\lambda_r$ with the maximal weight of
+$r$ disjoint up-right paths.  For independent geometric weights with
+parameters $a_i b_j$, use RSK to derive
+\[
+\mathbb P(\lambda)
+=\prod_{i,j}(1-a_i b_j)s_\lambda(a)s_\lambda(b)
+\]
+and prove the Cauchy identity
+\[
+\sum_\lambda s_\lambda(a)s_\lambda(b)
+=\prod_{i,j}(1-a_i b_j)^{-1}.
+\]
+\end{exercise}
+
+\subsection{Schur and Macdonald processes}
+
+\begin{definition}[Schur measures and processes]
+The \emph{Schur measure} associated to two Schur-positive specializations
+$\rho^+,\rho^-$ is
+\[
+\mathbb P(\lambda)
+=\frac{s_\lambda(\rho^+)s_\lambda(\rho^-)}
+{\sum_\nu s_\nu(\rho^+)s_\nu(\rho^-)}.
+\]
+An ascending \emph{Schur process} is a probability measure on
+$\lambda^{(1)}\subseteq\cdots\subseteq\lambda^{(m)}$ proportional to
+\[
+s_{\lambda^{(1)}}(\rho_1^+)
+\prod_{r=2}^m
+s_{\lambda^{(r)}/\lambda^{(r-1)}}(\rho_r^+)
+s_{\lambda^{(m)}}(\rho^-).
+\]
+\end{definition}
+
+\begin{exercise}[Schur processes as determinantal processes]
+Encode a partition by the Maya diagram
+\[
+\mathcal X(\lambda)=\{\lambda_i-i+\tfrac12:i\geq1\}.
+\]
+Use the Cauchy and skew-Cauchy identities to prove that the induced
+space--time point process is determinantal.  Derive its double-contour
+correlation kernel and express the distribution of $\lambda_1$ as a
+Fredholm determinant.  Recover geometric last-passage percolation as a
+one-time marginal.
+\end{exercise}
+
+\begin{definition}[Macdonald measures and processes]
+Let $P_\lambda(\,\cdot\,;q,t)$ be the Macdonald polynomials and let
+$Q_\lambda=b_\lambda(q,t)P_\lambda$ be their dual basis.  For finite
+specializations $a,b$, define
+\[
+\Pi(a;b)
+=\prod_{i,j}\frac{(t a_i b_j;q)_\infty}{(a_i b_j;q)_\infty}.
+\]
+The \emph{Macdonald measure} is
+\[
+\mathbb P_{q,t}(\lambda)
+=\frac{P_\lambda(a;q,t)Q_\lambda(b;q,t)}{\Pi(a;b)}.
+\]
+The ascending \emph{Macdonald process} is
+\[
+\frac{
+P_{\lambda^{(1)}}(a^{(1)})
+\prod_{r=2}^m
+P_{\lambda^{(r)}/\lambda^{(r-1)}}(a^{(r)})
+Q_{\lambda^{(m)}}(b)}
+{\Pi(a^{(1)},\ldots,a^{(m)};b)}.
+\]
+\end{definition}
+
+\begin{exercise}[Macdonald observables and degenerations]
+Apply the commuting Macdonald difference operators to the Cauchy identity
+and derive contour-integral formulas for the joint moments of
+\[
+\sum_i q^{\lambda_i}t^{N-i}.
+\]
+Prove that $q=t$ gives the Schur process, $q=0$ gives the
+Hall--Littlewood process, and $t=0$ gives the $q$-Whittaker process.
+Obtain Jack processes from the limit $q=t^\alpha$, $t\uparrow1$.
+\end{exercise}
+
+\subsection{Dyson Brownian motion and KPZ-type dynamics}
+
+\begin{definition}[Dyson Brownian motion]
+For $\beta\geq1$ and a confining potential $V$, \emph{Dyson Brownian motion}
+is the interacting diffusion
+\[
+d\lambda_i
+=\sqrt{\frac{2}{\beta N}}\,dB_i
++\left(
+\frac1N\sum_{j\ne i}\frac1{\lambda_i-\lambda_j}
+-\frac12V'(\lambda_i)
+\right)dt.
+\]
+Its reversible density is
+\[
+Z^{-1}
+\prod_{i<j}|\lambda_i-\lambda_j|^\beta
+\prod_i e^{-\beta NV(\lambda_i)/2}.
+\]
+\end{definition}
+
+\begin{exercise}[Matrix diffusion and eigenvalue dynamics]
+Apply It\^o calculus to Hermitian and real-symmetric Ornstein--Uhlenbeck
+matrix processes and derive Dyson Brownian motion for $\beta=2$ and
+$\beta=1$.  Prove noncollision, compute the generator in divergence form,
+and verify the stated reversible measure.  Derive the complex Burgers
+equation for the large-$N$ Stieltjes transform and, in the unitary case,
+the sine- and Airy-kernel local equilibria.
+\end{exercise}
+
+\begin{definition}[TASEP and the KPZ equation]
+In the totally asymmetric simple exclusion process, particles on $\Z$
+attempt rate-one jumps from $x$ to $x+1$, and a jump is suppressed when
+$x+1$ is occupied.  Its integrated current defines a height function.
+The one-dimensional KPZ equation is
+\[
+\partial_t h
+=\nu\,\partial_x^2h
++\frac{\lambda}{2}(\partial_xh)^2
++\sqrt D\,\xi,
+\]
+where $\xi$ is space--time white noise.  Its Cole--Hopf solution is
+$h=(2\nu/\lambda)\log Z$, where $Z$ solves the corresponding stochastic
+heat equation with multiplicative noise.
+\end{definition}
+
+\begin{exercise}[Last passage, particle dynamics, and KPZ scaling]
+Use the recursion
+\[
+G(m,n)=\max\{G(m-1,n),G(m,n-1)\}+a_{mn}
+\]
+to identify exponential last-passage times with TASEP currents.  For
+i.i.d.\ exponential weights, prove
+\[
+\frac{G(n,n)-4n}{2^{4/3}n^{1/3}}
+\Longrightarrow\chi_2,
+\qquad
+\mathbb P(\chi_2\leq s)=F_2(s).
+\]
+Derive the $1{:}2{:}3$ KPZ fluctuation scaling and its spatial Airy
+process limit.
+\end{exercise}
+
+\begin{exercise}[Macdonald dynamics and KPZ degenerations]
+At $t=0$, intertwine the $q$-Whittaker difference operators with the
+$q$-TASEP generator.  Derive a Fredholm-determinant formula for the
+$q$-Laplace transform of a particle position.  Take the $q\uparrow1$ limit
+to the O'Connell--Yor semi-discrete polymer and then its
+intermediate-disorder limit to the stochastic heat equation and the KPZ
+equation.  Identify the corresponding degenerations of the
+Macdonald-process observables.
+\end{exercise}
+
+\section{Free Probability}
+
+\subsection{Free independence and additive convolution}
+
+\begin{definition}[Free independence and free cumulants]
+Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
+if
+\[
+\varphi(a_1\cdots a_m)=0
+\]
+whenever $a_j\in A_{i_j}$, $\varphi(a_j)=0$, and neighboring indices are
+distinct. Variables are free when their generated unital subalgebras are.
+
+Let $NC(n)$ be the lattice of noncrossing partitions of
+$\{1,\ldots,n\}$. The \emph{free cumulants} $\kappa_n$ are the multilinear
+functionals determined recursively by
+\[
+\varphi(a_1\cdots a_n)
+=\sum_{\pi\in NC(n)}\kappa_\pi(a_1,\ldots,a_n),
+\]
+where $\kappa_\pi$ is the product of the cumulants associated to the blocks
+of $\pi$. Freeness is equivalently the vanishing of every mixed free
+cumulant.
+\end{definition}
+
+\begin{definition}[Semicircular variables]
+A self-adjoint variable $S$ is \emph{semicircular} with variance $\sigma^2$
+if its distribution is
+\[
+d\mu_{\mathrm{sc},\sigma}(x)
+=\frac{1}{2\pi\sigma^2}
+ \sqrt{4\sigma^2-x^2}\,
+ \mathbf 1_{[-2\sigma,2\sigma]}(x)\,dx.
+\]
+Equivalently, its only nonzero free cumulant is
+$\kappa_2(S,S)=\sigma^2$.
+\end{definition}
+
+\begin{exercise}[Free central limit theorem]
+Use noncrossing pairings to prove
+\[
+\varphi(S^{2m+1})=0,
+\qquad
+\varphi(S^{2m})=C_m\sigma^{2m},
+\qquad
+C_m=\frac1{m+1}\binom{2m}{m}.
+\]
+Let $X_1,X_2,\ldots$ be freely independent, identically distributed,
+centered self-adjoint variables with $\varphi(X_i^2)=\sigma^2$ and moments of
+every order. Use
+multilinearity and vanishing mixed cumulants to prove that the moments of
+$n^{-1/2}(X_1+\cdots+X_n)$ converge to these semicircular moments. Compare
+this free central limit theorem with the Gaussian limit for classically
+independent variables.
+\end{exercise}
+
+\begin{definition}[Cauchy and $R$-transforms]
+For a compactly supported probability measure $\mu$ on $\R$, its
+\emph{Cauchy transform} is
+\[
+G_\mu(z)=\int_\R\frac{d\mu(t)}{z-t},
+\qquad z\in\C\setminus\supp\mu.
+\]
+Near infinity it has a local compositional inverse
+$K_\mu(w)=G_\mu^{\langle-1\rangle}(w)$ near $w=0$. The
+\emph{$R$-transform} is defined by
+\[
+K_\mu(w)=\frac1w+R_\mu(w),
+\qquad
+R_\mu(w)=\sum_{n\geq1}\kappa_n(\mu)w^{n-1}.
+\]
+If freely independent self-adjoint variables $X,Y$ have laws $\mu,\nu$,
+then the law of $X+Y$ is their \emph{free additive convolution}
+$\mu\boxplus\nu$, characterized by
+\[
+R_{\mu\boxplus\nu}=R_\mu+R_\nu.
+\]
+\end{definition}
+
+\begin{exercise}[Free convolution and the semicircle equation]
+Derive the additivity of the $R$-transform from the vanishing of mixed free
+cumulants. Show that a centered semicircular law of variance $\sigma^2$ has
+$R(w)=\sigma^2w$ and hence
+\[
+\sigma^2G(z)^2-zG(z)+1=0.
+\]
+Select the solution satisfying $zG(z)\to1$ at infinity and recover the
+semicircle density from the Stieltjes inversion formula. Deduce that the free
+sum of semicircular variables of variances $\sigma_1^2$ and $\sigma_2^2$ is
+semicircular of variance $\sigma_1^2+\sigma_2^2$, and rederive the free
+central limit theorem at the level of transforms.
+\end{exercise}
+
+\subsection{Random matrices and asymptotic freeness}
+
+\begin{definition}[Asymptotic freeness]
+Random matrix families
+$A_N^{(1)},\ldots,A_N^{(r)}$ are \emph{asymptotically free} when their
+normalized expected joint trace moments converge to the moments of freely
+independent variables:
+\[
+\lim_{N\to\infty}
+\frac1N\mathbb E\Tr
+P(A_N^{(1)},\ldots,A_N^{(r)})
+=\varphi(P(a_1,\ldots,a_r))
+\]
+for every noncommutative polynomial $P$.
+\end{definition}
+
+\begin{exercise}[Asymptotic freeness of independent GUE matrices]
+For independent GUE matrices $H_N^{(1)},\ldots,H_N^{(r)}$, apply Wick's
+rule to normalized mixed traces of centered polynomials.  Prove that
+crossing pairings are lower order and that mixed free cumulants vanish in
+the limit.  Conclude that the family converges in joint moments to freely
+independent semicircular variables.
+\end{exercise}
+
 \section{Root-of-Unity Categories and Topological Field Theory}
 
 \begin{definition}[Root-of-unity semisimplification]
@@ -4190,123 +4693,6 @@ Unlike the entropy of an individual density matrix, relative entropy and
 modular flow are intrinsic to an algebra and its states and remain meaningful
 for type-III factors.
 \end{definition}
-
-\section{Free Probability}
-
-\subsection{Free independence and additive convolution}
-
-\begin{definition}[Free independence and free cumulants]
-Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
-if
-\[
-\varphi(a_1\cdots a_m)=0
-\]
-whenever $a_j\in A_{i_j}$, $\varphi(a_j)=0$, and neighboring indices are
-distinct. Variables are free when their generated unital subalgebras are.
-
-Let $NC(n)$ be the lattice of noncrossing partitions of
-$\{1,\ldots,n\}$. The \emph{free cumulants} $\kappa_n$ are the multilinear
-functionals determined recursively by
-\[
-\varphi(a_1\cdots a_n)
-=\sum_{\pi\in NC(n)}\kappa_\pi(a_1,\ldots,a_n),
-\]
-where $\kappa_\pi$ is the product of the cumulants associated to the blocks
-of $\pi$. Freeness is equivalently the vanishing of every mixed free
-cumulant.
-\end{definition}
-
-\begin{definition}[Semicircular variables]
-A self-adjoint variable $S$ is \emph{semicircular} with variance $\sigma^2$
-if its distribution is
-\[
-d\mu_{\mathrm{sc},\sigma}(x)
-=\frac{1}{2\pi\sigma^2}
- \sqrt{4\sigma^2-x^2}\,
- \mathbf 1_{[-2\sigma,2\sigma]}(x)\,dx.
-\]
-Equivalently, its only nonzero free cumulant is
-$\kappa_2(S,S)=\sigma^2$.
-\end{definition}
-
-\begin{exercise}[Free central limit theorem]
-Use noncrossing pairings to prove
-\[
-\varphi(S^{2m+1})=0,
-\qquad
-\varphi(S^{2m})=C_m\sigma^{2m},
-\qquad
-C_m=\frac1{m+1}\binom{2m}{m}.
-\]
-Let $X_1,X_2,\ldots$ be freely independent, identically distributed,
-centered self-adjoint variables with $\varphi(X_i^2)=\sigma^2$ and moments of
-every order. Use
-multilinearity and vanishing mixed cumulants to prove that the moments of
-$n^{-1/2}(X_1+\cdots+X_n)$ converge to these semicircular moments. Compare
-this free central limit theorem with the Gaussian limit for classically
-independent variables.
-\end{exercise}
-
-\begin{definition}[Cauchy and $R$-transforms]
-For a compactly supported probability measure $\mu$ on $\R$, its
-\emph{Cauchy transform} is
-\[
-G_\mu(z)=\int_\R\frac{d\mu(t)}{z-t},
-\qquad z\in\C\setminus\supp\mu.
-\]
-Near infinity it has a local compositional inverse
-$K_\mu(w)=G_\mu^{\langle-1\rangle}(w)$ near $w=0$. The
-\emph{$R$-transform} is defined by
-\[
-K_\mu(w)=\frac1w+R_\mu(w),
-\qquad
-R_\mu(w)=\sum_{n\geq1}\kappa_n(\mu)w^{n-1}.
-\]
-If freely independent self-adjoint variables $X,Y$ have laws $\mu,\nu$,
-then the law of $X+Y$ is their \emph{free additive convolution}
-$\mu\boxplus\nu$, characterized by
-\[
-R_{\mu\boxplus\nu}=R_\mu+R_\nu.
-\]
-\end{definition}
-
-\begin{exercise}[Free convolution and the semicircle equation]
-Derive the additivity of the $R$-transform from the vanishing of mixed free
-cumulants. Show that a centered semicircular law of variance $\sigma^2$ has
-$R(w)=\sigma^2w$ and hence
-\[
-\sigma^2G(z)^2-zG(z)+1=0.
-\]
-Select the solution satisfying $zG(z)\to1$ at infinity and recover the
-semicircle density from the Stieltjes inversion formula. Deduce that the free
-sum of semicircular variables of variances $\sigma_1^2$ and $\sigma_2^2$ is
-semicircular of variance $\sigma_1^2+\sigma_2^2$, and rederive the free
-central limit theorem at the level of transforms.
-\end{exercise}
-
-\subsection{Random matrices and asymptotic freeness}
-
-\begin{definition}[Asymptotic freeness]
-Random matrix families
-$A_N^{(1)},\ldots,A_N^{(r)}$ are \emph{asymptotically free} when their
-normalized expected joint trace moments converge to the moments of freely
-independent variables:
-\[
-\lim_{N\to\infty}
-\frac1N\mathbb E\Tr
-P(A_N^{(1)},\ldots,A_N^{(r)})
-=\varphi(P(a_1,\ldots,a_r))
-\]
-for every noncommutative polynomial $P$.
-\end{definition}
-
-\begin{exercise}[Asymptotic freeness of independent GUE matrices]
-For independent GUE matrices $H_N^{(1)},\ldots,H_N^{(r)}$, apply Wick's
-rule to normalized mixed traces of centered polynomials.  Prove that
-crossing pairings are lower order and that mixed free cumulants vanish in
-the limit.  Conclude that the family converges in joint moments to freely
-independent semicircular variables.
-\end{exercise}
 
 \section{Quantum Information Theory}
 
