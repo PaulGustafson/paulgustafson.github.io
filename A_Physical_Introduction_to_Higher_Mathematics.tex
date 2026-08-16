@@ -181,7 +181,7 @@ $\operatorname{Sym}^mV$.
 
 \begin{exercise}[Symmetric-power trace identity]
 Let $V$ be a finite-dimensional complex linear space and $T\in\End(V)$.
-Prove, first for diagonalizable $T$ and then for every $T$, that
+Prove that
 \[
 \sum_{m=0}^{\infty}
 \operatorname{tr}(\operatorname{Sym}^mT)z^m
@@ -342,8 +342,8 @@ $x=ru$, $y=r(1-u)$ to prove
 B(s,t)=\frac{\Gamma(s)\Gamma(t)}{\Gamma(s+t)}.
 \]
 Use integration by parts to prove
-$\Gamma(s+1)=s\Gamma(s)$, and evaluate the two-dimensional Gaussian
-integral in polar coordinates to obtain
+$\Gamma(s+1)=s\Gamma(s)$, and use the pushforward of Euclidean measure
+under the norm map to obtain
 \[
 \Gamma\!\left(\frac12\right)=\sqrt\pi,
 \qquad
@@ -447,8 +447,13 @@ T=\int_{\spec(T)}z\,dE_T(z),
 \qquad
 f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
 \]
-Deduce that a normal operator on a finite-dimensional Hilbert space is
-unitarily diagonalizable.
+Deduce that a normal operator on a finite-dimensional Hilbert space has the
+intrinsic spectral decomposition
+\[
+H=\bigoplus_{\lambda\in\spec(T)}E_T(\{\lambda\})H,
+\qquad
+T|_{E_T(\{\lambda\})H}=\lambda I.
+\]
 \end{exercise}
 
 \begin{exercise}[Compact spectral theorem]
@@ -457,15 +462,14 @@ operator $K$, prove that every nonzero spectral value is an eigenvalue of
 finite multiplicity, that the nonzero eigenvalues can accumulate only at
 zero, and that
 \[
-K=\sum_j\lambda_jP_j
+K=\sum_{\lambda\in\spec(K)\setminus\{0\}}
+\lambda E_K(\{\lambda\})
 \]
-in operator norm for pairwise orthogonal finite-rank spectral projections
-$P_j$.  For $K\geq0$ in $S_1(H)$, prove
+in operator norm.  For $K\geq0$ in $S_1(H)$, prove
 \[
-K=\sum_j\lambda_j\theta_{e_j,e_j},
-\qquad
-\lambda_j\geq0,\qquad
-\sum_j\lambda_j=\Tr K.
+\Tr K
+=\sum_{\lambda\in\spec(K)\setminus\{0\}}
+\lambda\dim E_K(\{\lambda\})H<\infty.
 \]
 \end{exercise}
 
@@ -505,20 +509,22 @@ self-adjoint generator.
 
 \begin{exercise}[Spectral lines and time evolution]
 \label{ex:spectral-lines}
-If $A\psi_n=\lambda_n\psi_n$ and an observable $B$ has matrix elements
-$B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
+Let $A$ be self-adjoint, let $B\in B(H)$, and set
+$B(t)=e^{itA/\hbar}Be^{-itA/\hbar}$.  For eigenvalues $\lambda,\mu$ of
+$A$, write $P_\lambda=E_A(\{\lambda\})$ and prove
 \[
-\langle\psi_m,e^{itA/\hbar}Be^{-itA/\hbar}\psi_n\rangle
-=e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
+P_\mu B(t)P_\lambda
+=e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
 \]
-Extend the calculation from pure point spectrum to the projection-valued
-spectral measure.  Deduce that a response measured through $B$ can contain
-spectral lines only at
+Prove in the weak operator topology that
 \[
-\omega_{mn}=\frac{\lambda_m-\lambda_n}{\hbar}
+B(t)=\int_{\R}\!\int_{\R}
+e^{it(\mu-\lambda)/\hbar}\,dE_A(\mu)B\,dE_A(\lambda).
 \]
-with $B_{mn}\ne0$, and identify vanishing matrix elements as selection
-rules predicting absent lines.
+Deduce that the pure-point response measured through $B$ can contain a
+spectral line at $(\mu-\lambda)/\hbar$ only when
+$P_\mu BP_\lambda\ne0$, and identify vanishing spectral blocks as
+selection rules predicting absent lines.
 \end{exercise}
 
 \section{Groups, Representations, and Haar Integration}
@@ -1173,10 +1179,11 @@ Dirichlet spectrum in the finite hyperbolic-drum exercise below.
 \begin{exercise}[A finite hyperbolic drum]
 Discretize the Laplace--Beltrami operator by a real symmetric weighted graph
 Laplacian on a finite regular hyperbolic tiling with Dirichlet boundary.
-Prove that the finite operator has a
-discrete orthogonal eigenbasis, and explain why those eigenvalues approximate
-a bounded domain with a boundary rather than the continuous spectrum of all
-$\mathbb H^2$.  Compare the predicted mode ordering and propagation along
+Prove that the graph Hilbert space is the orthogonal direct sum of the
+spectral subspaces of the finite operator, and explain why its spectrum
+approximates a bounded domain with a boundary rather than the continuous
+spectrum of all $\mathbb H^2$.  Compare the predicted mode ordering and
+propagation along
 discrete geodesics with the circuit measurements in
 \href{https://doi.org/10.1038/s41467-022-32042-4}
 {Lenggenhager et al., \emph{Nature Communications} \textbf{13} (2022)}.
@@ -1718,14 +1725,12 @@ for $p$-forms $\alpha,\beta$.
 \end{definition}
 
 \begin{exercise}[Metric volume and Hodge star]
-Construct $\vol_g$ and the Hodge star intrinsically and derive their
-coordinate expressions. For a metric with $q$ negative directions, prove on
+Construct $\vol_g$ and the Hodge star intrinsically. For a metric with $q$
+negative directions, prove on
 $p$-forms that
 \[
 *^2=(-1)^{p(n-p)+q}\id.
 \]
-Compute $*$ on the standard coordinate forms of Euclidean three-space and
-Minkowski four-space, stating the orientation and signature conventions.
 \end{exercise}
 
 \subsection{Connections, curvature, and gauge fields}
@@ -1774,13 +1779,14 @@ describes an internal gauge symmetry.
 \end{definition}
 
 \begin{exercise}[Gauge covariance and Bianchi identity]
-Choose local sections $s_i$ and derive transition maps
-$g_{ij}:U_i\cap U_j\to G$ and the transformation laws for the local
-potentials $A_i=s_i^*A$ and curvatures $F_i=s_i^*F_A$. Prove $d_AF_A=0$ and
-gauge invariance of holonomy up to conjugacy. For $G=U(1)$, recover
-$A\mapsto A+d\chi$ and $F=dA$. Show that a flat potential is locally pure
-gauge, and prove that removing it globally can fail on a nonsimply connected
-base by computing holonomy around a generator of the fundamental group.
+Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
+$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
+a flat connection has trivial holonomy on contractible loops and is
+gauge-equivalent to a product connection on a connected base exactly when
+its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
+around a
+generator of the fundamental group and exhibit the obstruction to removing
+a flat connection globally.
 \end{exercise}
 
 \subsection{Projective representations and multipliers}
@@ -1895,10 +1901,12 @@ For Hamiltonian flow $\Phi_t$, define
 \end{definition}
 
 \begin{exercise}[Darboux theorem and Hamiltonian mechanics]
-Prove the Darboux theorem and identify the canonical form on $T^*Q$ in
-local coordinates.  Derive Hamilton's equations and prove that the Poisson
-bracket is antisymmetric, satisfies the Leibniz rule and Jacobi identity,
-and is preserved by canonical transformations.  Prove
+Prove that every point of a $2n$-dimensional symplectic manifold has a
+neighborhood symplectomorphic to an open subset of
+$(\R^{2n},\omega_0)$.  Identify the canonical symplectic form on $T^*Q$
+from the tautological one-form.  Prove that the Poisson bracket is
+antisymmetric, satisfies the Leibniz rule and Jacobi identity, and is
+preserved by canonical transformations.  Prove
 \[
 \frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
 \]
@@ -2075,50 +2083,41 @@ $\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
 \subsection{Weyl quantization}
 
 \begin{definition}[Weyl quantization]
-For $a\in\mathcal S(\R^{2n})$, define
-$\operatorname{Op}_\hbar^W(a):\mathcal S(\R^n)\to\mathcal S(\R^n)$ by
+For $a\in\mathcal S(V\oplus V^*)$, define
+$\operatorname{Op}_\hbar^W(a):\mathcal S(V)\to\mathcal S(V)$ by
 \[
 \bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
 =\frac{1}{(2\pi\hbar)^n}
-\int_{\R^n\times\R^n}
-e^{i(x-y)\cdot p/\hbar}
+\int_{V\times V^*}
+e^{ip(x-y)/\hbar}
 a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
 \]
 For polynomial symbols, use the same formula as an oscillatory integral on
-$\mathcal S(\R^n)$.
-For the coordinate functions $q_j$ and $p_j$, set
+$\mathcal S(V)$.  For $\ell\in V^*$ and $v\in V$, set
 \[
-Q_j=\operatorname{Op}_\hbar^W(q_j),
-\qquad P_j=\operatorname{Op}_\hbar^W(p_j).
-\]
-The canonical Poisson bracket on $\R^{2n}$ is
-\[
-\{a,b\}
-=\sum_{j=1}^n
-\left(
-\frac{\partial a}{\partial q_j}\frac{\partial b}{\partial p_j}
--\frac{\partial a}{\partial p_j}\frac{\partial b}{\partial q_j}
-\right).
+Q_\ell=\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr),
+\qquad
+P_v=\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto p(v)\bigr).
 \]
 \end{definition}
 
 \begin{definition}[Wigner distributions]
-For $\psi,\varphi\in\mathcal S(\R^n)$, define
+For $\psi,\varphi\in\mathcal S(V)$, define
 \[
 W_\hbar(\psi,\varphi)(q,p)
 =\frac{1}{(2\pi\hbar)^n}
-\int_{\R^n}e^{-ip\cdot y/\hbar}
+\int_Ve^{-ip(y)/\hbar}
 \overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
 \]
 Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
 \end{definition}
 
 \begin{exercise}[Weyl calculus and the Moyal product]
-Prove on $\mathcal S(\R^n)$ that
+For $\ell\in V^*$ and $v\in V$, prove on $\mathcal S(V)$ that
 \[
-Q_j\psi(x)=x_j\psi(x),
-\qquad P_j\psi(x)=-i\hbar\partial_j\psi(x),
-\qquad [Q_j,P_k]=i\hbar\delta_{jk}I.
+Q_\ell\psi(x)=\ell(x)\psi(x),
+\qquad P_v\psi(x)=-i\hbar\,d\psi_x(v),
+\qquad [Q_\ell,P_v]=i\hbar\ell(v)I.
 \]
 Derive the Weyl relations and recover the Schr\"odinger representation of
 the Heisenberg group.  Prove
@@ -2132,10 +2131,10 @@ the Heisenberg group.  Prove
 and
 \[
 \langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
-=\int_{\R^{2n}}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
+=\int_{V\oplus V^*}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
 \]
-Prove that for $a,b\in\mathcal S(\R^{2n})$ there is a unique
-$a\star_\hbar b\in\mathcal S(\R^{2n})$ satisfying
+Prove that for $a,b\in\mathcal S(V\oplus V^*)$ there is a unique
+$a\star_\hbar b\in\mathcal S(V\oplus V^*)$ satisfying
 \[
 \operatorname{Op}_\hbar^W(a\star_\hbar b)
 =\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
@@ -2152,6 +2151,7 @@ in the Schwartz-symbol topology.
 \end{exercise}
 
 \begin{exercise}[Groenewold--van Hove obstruction]
+Specialize to $V=\R$ and write $Q=Q_{\id_\R}$ and $P=P_1$.
 Prove that Weyl quantization carries Poisson brackets to
 $(i\hbar)^{-1}$ times commutators exactly for affine and quadratic
 polynomials.  Quantize $q^2p^2$ using
@@ -2261,13 +2261,13 @@ changes of the Wigner distribution from those of $L_n$.
 \subsection{Classical and quantum evolution}
 
 \begin{definition}[Classical and quantum evolution]
-Let $H\in C^\infty(\R^{2n},\R)$ have bounded derivatives of order at least
+Let $H\in C^\infty(V\oplus V^*,\R)$ have bounded derivatives of order at least
 two, let $\Phi_t$ be its Hamiltonian flow, and let
 $\operatorname{Op}_\hbar^W(H)$ denote its self-adjoint realization.  Define
 \[
 U_\hbar(t)=e^{-it\operatorname{Op}_\hbar^W(H)/\hbar}.
 \]
-For $a\in\mathcal S(\R^{2n})$, define
+For $a\in\mathcal S(V\oplus V^*)$, define
 \[
 a_t=a\circ\Phi_t,
 \qquad
@@ -2292,7 +2292,8 @@ A_\hbar(t)-\operatorname{Op}_\hbar^W(a\circ\Phi_t)
 \right\|=O_T(\hbar).
 \]
 Prove exact equality for quadratic $H$.  Derive Ehrenfest's equations for
-the expectations of $Q_j$ and $P_j$.
+the expectations of $Q_\ell$ and $P_v$ for every $\ell\in V^*$ and
+$v\in V$.
 \end{exercise}
 
 \subsection{Prequantization and polarization}
@@ -2329,8 +2330,8 @@ Prove
 [\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
 =i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
 \]
-For $T^*\R^n$ with the vertical polarization, recover $L^2(\R^n)$,
-$Q_j\psi=x_j\psi$, and $P_j\psi=-i\hbar\partial_j\psi$.  For a compact
+For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
+operators $Q_\ell$ and $P_v$.  For a compact
 K\"ahler manifold with a positive prequantum line bundle, identify the
 corrected quantum space with
 $H^0(M,L\otimes K_M^{1/2})$.
@@ -2375,8 +2376,12 @@ h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
 E_n=\hbar\omega\left(n+\frac12\right)
 \]
 give the complete spectral decomposition of $\widehat H$.  Construct the
-creation and annihilation operators and prove that the position operator
-has matrix elements only between $n$ and $n\pm1$.
+creation and annihilation operators.  If $E_{\widehat H}$ is the spectral
+measure of $\widehat H$ and $Q$ is the position operator, prove
+\[
+E_{\widehat H}(\{E_m\})Q E_{\widehat H}(\{E_n\})=0
+\qquad\text{unless }|m-n|=1.
+\]
 Deduce the spectral-line prediction $|E_{n\pm1}-E_n|/\hbar=\omega$ for a
 linearly coupled oscillator.
 \end{exercise}
@@ -2825,11 +2830,13 @@ $U\in B(H_U)\otimes C(\mathbb G)$ satisfying
 \[
 (\id\otimes\Delta)(U)=U_{12}U_{13}.
 \]
-If $U=(u_{ij})$, then
-$\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  The representative-function
-algebra $\operatorname{Pol}(\mathbb G)$ is the unital $*$-subalgebra
-generated by the matrix coefficients of finite-dimensional unitary
-corepresentations.
+For $\omega\in B(H_U)^*$, the corresponding \emph{coefficient} is
+\[
+u_\omega=(\omega\otimes\id)(U)\in C(\mathbb G).
+\]
+The representative-function algebra $\operatorname{Pol}(\mathbb G)$ is
+the unital $*$-subalgebra generated by these coefficients for all
+finite-dimensional unitary corepresentations.
 \end{definition}
 
 \begin{definition}[Drinfeld--Jimbo and Woronowicz duality]
@@ -2856,7 +2863,8 @@ prove the algebraic Peter--Weyl decomposition
 \]
 Prove that $\operatorname{Pol}(\mathbb G)$ is a dense Hopf $*$-subalgebra
 of $C(\mathbb G)$.  For each irreducible $U^\alpha$,
-construct the normalized positive matrix $Q_\alpha$ satisfying
+construct the normalized positive invertible operator
+$Q_\alpha\in B(H_{U^\alpha})$ satisfying
 \[
 (\id\otimes S^2)(U^\alpha)
 =(Q_\alpha\otimes1)U^\alpha(Q_\alpha^{-1}\otimes1),
@@ -2985,8 +2993,8 @@ highest weight $n$.  Construct its conjugate equations and prove
 V_m\otimes V_n
 \cong\bigoplus_{k=0}^{\min(m,n)}V_{m+n-2k}.
 \]
-Prove that the normalized matrices from the Woronowicz orthogonality
-relations implement the standard solutions and compute
+Prove that the normalized positive operators from the Woronowicz
+orthogonality relations implement the standard solutions and compute
 \[
 \dim_q(V_n)=[n+1]_q
 =\frac{q^{n+1}-q^{-(n+1)}}{q-q^{-1}}.
@@ -4258,23 +4266,34 @@ d\mathbb P_{N,\beta}(H)
 =C_{N,\beta}
 \exp\!\left[-\frac{\beta N}{4\sigma^2}\Tr(H^2)\right]dH.
 \]
-Here $H^*$ is conjugate transpose and $dH$ is Lebesgue measure on the
-independent real coordinates.
+Here $H^*$ is conjugate transpose, and $dH$ is the Euclidean volume induced
+by the invariant Hilbert--Schmidt inner product
+$\langle X,Y\rangle_{\rm HS}=\operatorname{Re}\Tr(XY)$ on the real space
+of self-adjoint matrices.
 \end{definition}
 
-\begin{exercise}[Eigenvalue--eigenvector Jacobian]
+\begin{exercise}[Eigenvalue--orbit Jacobian]
 Use the exterior-power determinant formula to prove
 \[
 \Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
 \]
-Diagonalize $H=U\operatorname{diag}(\lambda)U^{-1}$ in each Dyson class.
-Use the invariant metric $\Tr(dH^2)$ to prove
+For each Dyson class, let $G_\beta$ act on the self-adjoint matrices by
+conjugation and let $T_\beta$ be the stabilizer of a regular diagonal
+matrix.  Compute the Jacobian of the conjugation-orbit map
+\[
+(G_\beta/T_\beta)\times\R^N_{\rm reg}
+\longrightarrow\operatorname{Herm}_N(\mathbb F),
+\qquad
+(UT_\beta,\lambda)\longmapsto
+U\operatorname{diag}(\lambda)U^{-1},
+\]
+with respect to the invariant Hilbert--Schmidt metric, and prove
 \[
 dH=C\,|\Delta(\lambda)|^\beta
-\prod_{i=1}^N d\lambda_i\,d\mu(U),
+\prod_{i=1}^N d\lambda_i\,d\mu_{G_\beta/T_\beta},
 \]
 with the stabilizer and permutation factors included in $C$.  Integrate
-over the eigenvectors and derive
+over the conjugation orbits and derive
 \[
 p_{N,\beta}(\lambda)
 =\frac1{Z_{N,\beta}}
