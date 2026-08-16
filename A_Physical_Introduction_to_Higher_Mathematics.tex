@@ -58,7 +58,9 @@
 
 \part{Symmetry}
 
-\section{Linear Spaces, Tensor Products, and Duality}
+\section{Linear, Tensor, and Hilbert Spaces}
+
+\subsection{Linear spaces, tensor products, and duality}
 
 \begin{definition}[Linear spaces and maps]
 Let $k$ be $\R$ or $\C$.  A \emph{linear space} over $k$ is an abelian group
@@ -147,7 +149,7 @@ equivalent to ordinary finite dimensionality.  Finally prove
 \]
 \end{exercise}
 
-\section{Hilbert Spaces and Trace Ideals}
+\subsection{Hilbert spaces and trace ideals}
 
 \begin{definition}[Hilbert spaces and orthogonality]
 An \emph{inner product} on a complex linear space is conjugate-linear in its
@@ -224,9 +226,36 @@ that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$ isometrically
 with $B(H)$.
 \end{exercise}
 
+\begin{definition}[Symmetric powers]
+For a linear space $V$, the $m$th \emph{symmetric power} is
+\[
+\operatorname{Sym}^mV
+=V^{\otimes m}/\langle v_1\otimes\cdots\otimes v_m
+-v_{\sigma(1)}\otimes\cdots\otimes v_{\sigma(m)}:\sigma\in S_m\rangle.
+\]
+An endomorphism $T$ induces $\operatorname{Sym}^mT$ on
+$\operatorname{Sym}^mV$.
+\end{definition}
+
+\begin{exercise}[Symmetric-power trace identity]
+Let $V$ be a finite-dimensional complex linear space and $T\in\End(V)$.
+Prove, first for diagonalizable $T$ and then for every $T$, that
+\[
+\sum_{m=0}^{\infty}
+\operatorname{tr}(\operatorname{Sym}^mT)z^m
+=\frac1{\det(I-zT)}
+\]
+for $|z|$ smaller than the reciprocal of the spectral radius of $T$.
+For $T=I$, deduce
+\[
+\sum_{m=0}^{\infty}\dim(\operatorname{Sym}^mV)z^m
+=(1-z)^{-\dim V}.
+\]
+\end{exercise}
+
 \section{Measure, Integration, and \texorpdfstring{$L^p$}{Lp} Spaces}
 
-\begin{definition}[Measure spaces and Haar measure]
+\begin{definition}[Measure spaces and \texorpdfstring{$L^p$}{Lp} spaces]
 A \emph{$\sigma$-algebra} $\mathcal F$ on a set $X$ contains
 $\varnothing$ and is closed under complements and countable unions.  A
 \emph{measure} is a countably additive map
@@ -240,23 +269,48 @@ L^p(X,\mu)=
 \]
 with its usual norm, and let $L^\infty(X,\mu)$ consist of essentially
 bounded measurable functions.
-
-A \emph{topological group} is a group with a Hausdorff topology for which
-multiplication and inversion are continuous.  It is \emph{locally compact}
-when every point has a compact neighborhood.  A \emph{Radon measure} is a
-Borel measure finite on compact sets, outer regular on Borel sets, and inner
-regular on open sets.  A \emph{left Haar measure} on a locally compact group
-is a nonzero left-invariant Radon measure, so
-$\mu(gE)=\mu(E)$.  Its \emph{modular function} is determined by
-\[
-\mu(Eg)=\Delta_G(g)^{-1}\mu(E).
-\]
-Write $C_b(G)$, $C_0(G)$, and $C_c(G)$ for the
-continuous functions that are bounded, vanish at infinity, and have
-compact support, respectively.
 \end{definition}
 
-\section{\texorpdfstring{$C^*$-Algebras and Functional Calculus}{C*-Algebras and Functional Calculus}}
+\begin{definition}[Gamma and beta integrals]
+For $s,t>0$, define
+\[
+\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx,
+\qquad
+B(s,t)=\int_0^1x^{s-1}(1-x)^{t-1}\,dx.
+\]
+\end{definition}
+
+\begin{exercise}[Integration and \texorpdfstring{$L^p$}{Lp} theorems]
+Construct the Lebesgue integral from nonnegative simple functions.  Prove
+the monotone convergence theorem, Fatou's lemma, the dominated convergence
+theorem, and Tonelli's and Fubini's theorems, stating the hypotheses that
+distinguish the last two.  Prove H\"older's and Minkowski's inequalities
+and deduce that $L^p(X,\mu)$ is complete for $1\leq p\leq\infty$.  For
+$1<p<\infty$ with $p^{-1}+q^{-1}=1$, identify the continuous dual of
+$L^p$ with $L^q$ under the usual semifiniteness hypotheses.
+\end{exercise}
+
+\begin{exercise}[Beta--gamma and Gaussian integral identities]
+Use Tonelli's theorem and the change of variables
+$x=ru$, $y=r(1-u)$ to prove
+\[
+B(s,t)=\frac{\Gamma(s)\Gamma(t)}{\Gamma(s+t)}.
+\]
+Use integration by parts to prove
+$\Gamma(s+1)=s\Gamma(s)$, and evaluate the two-dimensional Gaussian
+integral in polar coordinates to obtain
+\[
+\Gamma\!\left(\frac12\right)=\sqrt\pi,
+\qquad
+\int_{\R^n}e^{-|x|^2/2}\,dx=(2\pi)^{n/2}.
+\]
+State the uses of Tonelli, Fubini, monotone convergence, and dominated
+convergence in the derivation.
+\end{exercise}
+
+\section{\texorpdfstring{$C^*$-Algebras, Functional Calculus, and Spectral Decomposition}{C*-Algebras, Functional Calculus, and Spectral Decomposition}}
+
+\subsection{C*-algebras and functional calculus}
 
 \begin{definition}[$C^*$-algebras, spectrum, and positivity]
 A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
@@ -284,6 +338,12 @@ nonzero homomorphisms $\chi:A\to\C$ with its weak-$*$ topology.  The
 \]
 \end{definition}
 
+\begin{definition}[Positive functionals and states]
+A linear functional $\varphi:A\to\C$ on a unital $C^*$-algebra is
+\emph{positive} when $\varphi(a^*a)\geq0$ for every $a\in A$.  A
+\emph{state} is a positive functional satisfying $\varphi(1)=1$.
+\end{definition}
+
 \begin{exercise}[Spectrum, Gelfand duality, and functional calculus]
 Prove that $\spec_A(a)$ is nonempty and compact and that
 \[
@@ -302,7 +362,7 @@ sending the coordinate function to $a$, and prove the continuous spectral
 mapping theorem.
 \end{exercise}
 
-\section{Spectral Decomposition}
+\subsection{Spectral decomposition}
 
 \begin{definition}[Projection-valued measures]
 A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
@@ -407,105 +467,16 @@ $B_{mn}=\langle\psi_m,B\psi_n\rangle$, prove
 =e^{it(\lambda_m-\lambda_n)/\hbar}B_{mn}.
 \]
 Extend the calculation from pure point spectrum to the projection-valued
-spectral measure.
+spectral measure.  Deduce that a response measured through $B$ can contain
+spectral lines only at
+\[
+\omega_{mn}=\frac{\lambda_m-\lambda_n}{\hbar}
+\]
+with $B_{mn}\ne0$, and identify vanishing matrix elements as selection
+rules predicting absent lines.
 \end{exercise}
 
-\section{Abelian Harmonic Analysis}
-
-\subsection{Fourier series and Fourier transform}
-
-\begin{definition}[Fourier series]
-With normalized Haar measure on $\T=\R/2\pi\Z$, define
-\[
-\widehat f(k)=\int_\T f(x)e^{-ikx}\,dx,\qquad k\in\Z.
-\]
-The \emph{Fourier series} of $f$ is
-$\sum_{k\in\Z}\widehat f(k)e^{ikx}$.
-\end{definition}
-
-\begin{definition}[Fourier transform]
-For $f\in\mathcal S(\R^n)$, the semiclassical Fourier transform is
-\[
-(\mathcal F_\hbar f)(p)
-=(2\pi\hbar)^{-n/2}\int_{\R^n}e^{-ip\cdot x/\hbar}f(x)\,dx.
-\]
-\end{definition}
-
-\begin{exercise}[Fourier inversion and Plancherel]
-Prove that $(e^{ikx})_{k\in\Z}$ is an orthonormal basis of $L^2(\T)$ and
-derive
-\[
-f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
-\qquad
-\|f\|_2^2=\sum_{k\in\Z}|\widehat f(k)|^2.
-\]
-Prove Fourier inversion on $\mathcal S(\R^n)$ and prove that
-$\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(\R^n)$.
-Show that convolution becomes multiplication and differentiation becomes
-multiplication by frequency.
-\end{exercise}
-
-\section{Lattices, Poisson Summation, and Diffraction}
-
-\begin{definition}[Lattices and reciprocal lattices]
-A \emph{lattice} in $\R^n$ is a subgroup
-$\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
-covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
-$F=A[0,1)^n$. Its \emph{reciprocal lattice} is the annihilator
-\[
-\Gamma^*=\{\xi\in\R^n:\xi\cdot\gamma\in2\pi\mathbb Z
-\text{ for every }\gamma\in\Gamma\}.
-\]
-\end{definition}
-
-\begin{definition}[Periodic summation and structure factors]
-For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
-\[
-P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
-\]
-For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its
-\emph{structure factor} is
-\[
-S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
-\]
-\end{definition}
-
-\begin{exercise}[Poisson summation]
-\label{ex:poisson-summation}
-Prove that $P_\Gamma f$ converges with all derivatives and compute its
-Fourier coefficients. With the Fourier-transform normalization above, prove
-\[
-P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
- \sum_{\xi\in\Gamma^*}\mathcal Ff(\xi)e^{i\xi\cdot x}.
-\]
-Set $x=0$ to obtain the Poisson summation formula. Derive the Jacobi theta
-transformation by applying it to a Gaussian.
-\end{exercise}
-
-\begin{exercise}[Crystal diffraction and Bragg peaks]
-Let $\Gamma_N$ be a finite rectangular portion of $\Gamma$. In the
-single-scattering approximation, prove that the amplitude at momentum
-transfer $q$ factors as
-\[
-\mathcal A_N(q)
-=S_B(q)\sum_{\gamma\in\Gamma_N}e^{-iq\cdot\gamma}.
-\]
-Use geometric sums and Poisson summation to show that the normalized
-intensity concentrates at $q\in\Gamma^*$ as the crystal grows. For elastic
-scattering with incident and outgoing wavevectors of magnitude
-$2\pi/\lambda$, derive the Laue condition and, for planes spaced by $d$, the
-Bragg relation
-\[
-2d\sin\theta=m\lambda.
-\]
-Show how zeros of $S_B$ produce missing reflections. Compare the peak
-condition with
-\href{https://doi.org/10.1098/rspa.1913.0040}
-{W.~H. Bragg and W.~L. Bragg, \emph{Proceedings of the Royal Society A}
-\textbf{88} (1913)}.
-\end{exercise}
-
-\section{Groups, Representations, and Abelian Duality}
+\section{Groups, Representations, and Haar Integration}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
@@ -601,6 +572,21 @@ v\in T_pM\longmapsto
 The cotangent bundle $T^*M$ has the dual bundle charts.
 \end{definition}
 
+\begin{definition}[Locally compact groups and Haar measure]
+A \emph{topological group} is a group with a Hausdorff topology for which
+multiplication and inversion are continuous.  It is \emph{locally compact}
+when every point has a compact neighborhood.  A \emph{Radon measure} is a
+Borel measure finite on compact sets, outer regular on Borel sets, and inner
+regular on open sets.  A \emph{left Haar measure} on a locally compact group
+is a nonzero left-invariant Radon measure, so
+$\mu(gE)=\mu(E)$.  Its \emph{modular function} is determined by
+\[
+\mu(Eg)=\Delta_G(g)^{-1}\mu(E).
+\]
+Write $C_b(G)$, $C_0(G)$, and $C_c(G)$ for the continuous functions that
+are bounded, vanish at infinity, and have compact support, respectively.
+\end{definition}
+
 \begin{definition}[Lie groups]
 A \emph{Lie group} is a topological group with a smooth manifold structure
 for which multiplication and inversion are smooth. Its \emph{Lie algebra} is
@@ -671,6 +657,269 @@ transform recovers Fourier transforms on $\R^n$ and Fourier series on
 $\mathbb T^n$. For a closed subgroup $H\leq G$, define its annihilator
 $H^\perp\subseteq\widehat G$ and prove
 $\widehat{G/H}\cong H^\perp$.
+\end{exercise}
+
+\section{Abelian Harmonic Analysis}
+
+\subsection{Fourier series and Fourier transform}
+
+\begin{definition}[Fourier series]
+With normalized Haar measure on $\T=\R/2\pi\Z$, define
+\[
+\widehat f(k)=\int_\T f(x)e^{-ikx}\,dx,\qquad k\in\Z.
+\]
+The \emph{Fourier series} of $f$ is
+$\sum_{k\in\Z}\widehat f(k)e^{ikx}$.
+\end{definition}
+
+\begin{definition}[Schwartz space and convolution]
+The \emph{Schwartz space} $\mathcal S(\R^n)$ consists of the smooth
+functions $f$ satisfying
+\[
+\sup_{x\in\R^n}|x^\alpha\partial^\beta f(x)|<\infty
+\]
+for all multi-indices $\alpha,\beta$.  For integrable functions, define
+\[
+(f*g)(x)=\int_{\R^n}f(y)g(x-y)\,dy.
+\]
+\end{definition}
+
+\begin{definition}[Fourier transform]
+For $f\in\mathcal S(\R^n)$, the semiclassical Fourier transform is
+\[
+(\mathcal F_\hbar f)(p)
+=(2\pi\hbar)^{-n/2}\int_{\R^n}e^{-ip\cdot x/\hbar}f(x)\,dx.
+\]
+Write $\mathcal F=\mathcal F_1$.
+\end{definition}
+
+\begin{exercise}[Fourier inversion and Plancherel]
+Prove that $(e^{ikx})_{k\in\Z}$ is an orthonormal basis of $L^2(\T)$ and
+derive
+\[
+f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
+\qquad
+\|f\|_2^2=\sum_{k\in\Z}|\widehat f(k)|^2.
+\]
+Prove Fourier inversion on $\mathcal S(\R^n)$ and prove that
+$\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(\R^n)$.
+Show that convolution becomes multiplication and differentiation becomes
+multiplication by frequency.
+\end{exercise}
+
+\section{Lattices, Theta Functions, and Diffraction}
+
+\subsection{Lattices, Poisson summation, and diffraction}
+
+\begin{definition}[Lattices and reciprocal lattices]
+A \emph{lattice} in $\R^n$ is a subgroup
+$\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
+covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
+$F=A[0,1)^n$. Its \emph{reciprocal lattice} is the annihilator
+\[
+\Gamma^*=\{\xi\in\R^n:\xi\cdot\gamma\in2\pi\mathbb Z
+\text{ for every }\gamma\in\Gamma\}.
+\]
+\end{definition}
+
+\begin{definition}[Periodic summation and structure factors]
+For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
+\[
+P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
+\]
+For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its
+\emph{structure factor} is
+\[
+S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
+\]
+\end{definition}
+
+\begin{exercise}[Poisson summation]
+\label{ex:poisson-summation}
+Prove that $P_\Gamma f$ converges with all derivatives and compute its
+Fourier coefficients. With the Fourier-transform normalization above, prove
+\[
+P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
+ \sum_{\xi\in\Gamma^*}\mathcal Ff(\xi)e^{i\xi\cdot x}.
+\]
+Set $x=0$ to obtain the Poisson summation formula. Derive the Jacobi theta
+transformation by applying it to a Gaussian.
+\end{exercise}
+
+\begin{exercise}[Crystal diffraction and Bragg peaks]
+Let $\Gamma_N$ be a finite rectangular portion of $\Gamma$. In the
+single-scattering approximation, prove that the amplitude at momentum
+transfer $q$ factors as
+\[
+\mathcal A_N(q)
+=S_B(q)\sum_{\gamma\in\Gamma_N}e^{-iq\cdot\gamma}.
+\]
+Use geometric sums and Poisson summation to show that the normalized
+intensity concentrates at $q\in\Gamma^*$ as the crystal grows. For elastic
+scattering with incident and outgoing wavevectors of magnitude
+$2\pi/\lambda$, derive the Laue condition and, for planes spaced by $d$, the
+Bragg relation
+\[
+2d\sin\theta=m\lambda.
+\]
+Show how zeros of $S_B$ produce missing reflections. Compare the peak
+condition with
+\href{https://doi.org/10.1098/rspa.1913.0040}
+{W.~H. Bragg and W.~L. Bragg, \emph{Proceedings of the Royal Society A}
+\textbf{88} (1913)}.
+\end{exercise}
+
+\subsection{Lattice theta series and Poisson duality}
+
+\begin{definition}[Integral lattices and theta series]
+A \emph{Euclidean lattice} $L\subset\R^d$ is the integer span of a basis of
+$\R^d$.  Its dual is
+\[
+L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
+\text{ for every }x\in L\}.
+\]
+It is \emph{integral} if $L\subseteq L^*$, \emph{unimodular} if
+$L=L^*$, and \emph{even} if $\|x\|^2\in2\Z$ for every $x\in L$.
+For $\tau$ in the upper half-plane and $q=e^{2\pi i\tau}$, its theta series
+is
+\[
+\Theta_L(\tau)=\sum_{x\in L}q^{\|x\|^2/2}.
+\]
+Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
+\end{definition}
+
+\begin{exercise}[Poisson duality for lattice theta series]
+Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
+\[
+\Theta_L(-1/\tau)
+=\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^*}(\tau),
+\]
+using the branch positive on the positive imaginary axis.  Show that
+evenness gives $\Theta_L(\tau+1)=\Theta_L(\tau)$.  Interpret the first
+identity as momentum--winding duality for a compact free boson and as the
+reciprocal-lattice relation behind diffraction.  Explain why a general
+lattice theta series transforms with its dual rather than being a scalar
+modular form by itself.
+\end{exercise}
+
+\subsection{Modular forms, theta functions, and eta products}
+
+\begin{definition}[The modular group and modular forms]
+The modular group $SL_2(\Z)$ acts on the upper half-plane by
+\[
+\gamma\tau=\frac{a\tau+b}{c\tau+d},
+\qquad
+\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+\]
+and is generated by $S:\tau\mapsto-1/\tau$ and
+$T:\tau\mapsto\tau+1$.  A \emph{modular form of integral weight $k$} for
+$SL_2(\Z)$ is a holomorphic function $f$ on the upper half-plane satisfying
+\[
+f(\gamma\tau)=(c\tau+d)^k f(\tau)
+\]
+and holomorphic at the cusp, meaning that its Fourier expansion
+$f(\tau)=\sum_{n\geq0}a_nq^n$ has no negative powers.  It is a
+\emph{cusp form} if $a_0=0$.
+\end{definition}
+
+\begin{definition}[Jacobi theta functions and the Dedekind eta function]
+Set
+\[
+\begin{aligned}
+\vartheta_2(\tau)&=\sum_{n\in\Z}q^{(n+1/2)^2/2},\\
+\vartheta_3(\tau)&=\sum_{n\in\Z}q^{n^2/2},\\
+\vartheta_4(\tau)&=\sum_{n\in\Z}(-1)^nq^{n^2/2},
+\end{aligned}
+\qquad
+\eta(\tau)=q^{1/24}(q;q)_\infty.
+\]
+These functions have weight $1/2$ transformation laws with phases or
+permutations, rather than being integral-weight scalar modular forms for the
+full modular group.  In particular,
+\[
+\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
+\qquad
+\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau).
+\]
+\end{definition}
+
+\begin{exercise}[Theta transformations and the Jacobi triple product]
+Use Poisson summation on shifted and phase-twisted Gaussians to derive
+\[
+\vartheta_2(-1/\tau)=(-i\tau)^{1/2}\vartheta_4(\tau),
+\quad
+\vartheta_3(-1/\tau)=(-i\tau)^{1/2}\vartheta_3(\tau),
+\quad
+\vartheta_4(-1/\tau)=(-i\tau)^{1/2}\vartheta_2(\tau).
+\]
+Prove the $T$-transformation laws directly from the series.  Establish the
+Jacobi triple product, first as an identity of formal Laurent series,
+\[
+\sum_{n\in\Z}z^nq^{n^2/2}
+=\prod_{m\geq1}(1-q^m)
+ (1+zq^{m-1/2})(1+z^{-1}q^{m-1/2}),
+\]
+and use specializations to recover product forms for the theta functions.
+Explain how the two sides encode charge sectors and independent oscillator
+modes, respectively.
+\end{exercise}
+
+\subsection{Eisenstein series and arithmetic applications}
+
+\begin{definition}[Eisenstein series and the discriminant]
+Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
+weights four and six are
+\[
+E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
+\qquad
+E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
+\]
+The modular discriminant is the weight-twelve cusp form
+\[
+\Delta(\tau)=\eta(\tau)^{24}
+=q\prod_{n\geq1}(1-q^n)^{24}
+=\frac{E_4(\tau)^3-E_6(\tau)^2}{1728}.
+\]
+\end{definition}
+
+\begin{exercise}[Eisenstein series and the $E_8$ shell]
+Construct Eisenstein series by summing $(m\tau+n)^{-k}$ over nonzero lattice
+points for even $k>2$, prove their modular transformation law, and obtain the
+displayed Fourier expansions for $E_4$ and $E_6$.  For a positive-definite
+even unimodular lattice, first use
+consistency of the $S$ and $T$ laws to prove that its dimension $d$ is
+divisible by eight, and then show that its theta series is a modular form of
+weight $d/2$.
+Construct the $E_8$ lattice as
+\[
+ \{x\in\Z^8:\textstyle\sum_i x_i\equiv0\pmod2\}
+ \cup
+ \{x\in(\Z+\tfrac12)^8:\textstyle\sum_i x_i\equiv0\pmod2\}.
+\]
+Enumerate its vectors of squared length two and obtain $240$, matching the
+coefficient of $q$ in $E_4$.
+\end{exercise}
+
+\begin{exercise}[Partition asymptotics from modular inversion]
+Put $q=e^{-t}$ and use the modular transformation of $\eta$ to prove
+\[
+P(e^{-t})
+\sim\sqrt{\frac{t}{2\pi}}
+\exp\!\left(\frac{\pi^2}{6t}\right)
+\qquad(t\downarrow0).
+\]
+Apply a saddle-point argument, or an appropriate Tauberian theorem with its
+hypotheses stated, to derive the Hardy--Ramanujan formula
+\[
+p(n)\sim\frac1{4n\sqrt3}
+ \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
+\]
+Interpret $\log p(n)$ as the microcanonical entropy of the bosonic modes in
+the first exercise of this part.  Distinguish this asymptotic result from an
+exact coefficient formula; see
+\href{https://doi.org/10.1112/plms/s2-17.1.75}
+{Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
+\textbf{17} (1918)}.
 \end{exercise}
 
 \section{Compact Harmonic Analysis: Peter--Weyl, Characters, and Spin}
@@ -908,7 +1157,7 @@ Compare the two families tabulated in
 \textbf{119} (1965)} for invariant eigendistributions.
 \end{exercise}
 
-\section{Unitary Coefficient Spaces and the Fourier Algebra}
+\section{Coefficient Spaces and Noncommutative Duality}
 
 \subsection{Unitary coefficient spaces}
 
@@ -982,7 +1231,7 @@ A(G)\cong L^1(\widehat G)
 under the inverse Fourier transform.
 \end{exercise}
 
-\section{Dual Algebras and Noncommutative Harmonic Analysis}
+\subsection{Dual algebras and von Neumann duality}
 
 \begin{definition}[Operator topologies and commutants]
 The \emph{weak operator topology} on $B(H)$ is generated by
@@ -1040,7 +1289,27 @@ that its predual is $A_\pi(G)$.  Prove $M\cong(M_*)^*$ isometrically for
 every von Neumann algebra $M$.
 \end{exercise}
 
-\section{Fourier--Wigner Analysis}
+\begin{exercise}[Central Fourier inversion and character identity]
+Let $G$ be compact with normalized Haar measure, and let $f$ be a finite
+linear combination of irreducible characters.  For an irreducible unitary
+representation $\pi$, set
+\[
+\widehat f(\pi)=\int_G f(s)\pi(s^{-1})\,ds.
+\]
+If $f$ is central, use Schur's lemma to write
+$\widehat f(\pi)=c_\pi I_{d_\pi}$.  Derive
+\[
+f(e)=\sum_{\pi\in\widehat G}d_\pi\Tr(\widehat f(\pi))
+=\sum_{\pi\in\widehat G}d_\pi^2c_\pi
+\]
+and prove that convolution by $f$ acts by the scalar $c_\pi$ on every
+copy of $\pi$ in $L^2(G)$.  Extend the identity to the natural Sobolev
+classes for which the character series converges absolutely.
+\end{exercise}
+
+\section{Fourier--Wigner Analysis, the Heisenberg Group, and Weyl Quantization}
+
+\subsection{Fourier--Wigner transform}
 
 \begin{definition}[Unitary systems and coefficient transforms]
 Let $(X,\mu)$ be a measure space and let $U:X\to U(H)$ be a weakly
@@ -1105,9 +1374,16 @@ A=(2\pi)^{-n/2}\int_{V\oplus V^*}
 in the weak operator topology.
 \end{exercise}
 
-\section{The Heisenberg Group and Weyl Quantization}
-
 \subsection{Central extension}
+
+\begin{definition}[Symplectic linear spaces]
+A \emph{symplectic form} on a finite-dimensional real linear space $E$ is
+a nondegenerate alternating bilinear form $\omega:E\times E\to\R$.  On
+$E=V\oplus V^*$, the canonical symplectic form is
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+\end{definition}
 
 \begin{definition}[Heisenberg group]
 For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
@@ -1276,161 +1552,6 @@ $(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
 Prove the inversion formula and the distributional orthogonality of Weyl
 operators.  Prove that representations with trivial central character have
 zero Plancherel measure.
-\end{exercise}
-
-\section{Theta Functions and Modular Forms}
-
-\subsection{Lattice theta series and Poisson duality}
-
-\begin{definition}[Integral lattices and theta series]
-A \emph{Euclidean lattice} $L\subset\R^d$ is the integer span of a basis of
-$\R^d$.  Its dual is
-\[
-L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
-\text{ for every }x\in L\}.
-\]
-It is \emph{integral} if $L\subseteq L^*$, \emph{unimodular} if
-$L=L^*$, and \emph{even} if $\|x\|^2\in2\Z$ for every $x\in L$.
-For $\tau$ in the upper half-plane and $q=e^{2\pi i\tau}$, its theta series
-is
-\[
-\Theta_L(\tau)=\sum_{x\in L}q^{\|x\|^2/2}.
-\]
-Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
-\end{definition}
-
-\begin{exercise}[Poisson duality for lattice theta series]
-Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
-\[
-\Theta_L(-1/\tau)
-=\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^*}(\tau),
-\]
-using the branch positive on the positive imaginary axis.  Show that
-evenness gives $\Theta_L(\tau+1)=\Theta_L(\tau)$.  Interpret the first
-identity as momentum--winding duality for a compact free boson and as the
-reciprocal-lattice relation behind diffraction.  Explain why a general
-lattice theta series transforms with its dual rather than being a scalar
-modular form by itself.
-\end{exercise}
-
-\subsection{Modular forms, theta functions, and eta products}
-
-\begin{definition}[The modular group and modular forms]
-The modular group $SL_2(\Z)$ acts on the upper half-plane by
-\[
-\gamma\tau=\frac{a\tau+b}{c\tau+d},
-\qquad
-\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix},
-\]
-and is generated by $S:\tau\mapsto-1/\tau$ and
-$T:\tau\mapsto\tau+1$.  A \emph{modular form of integral weight $k$} for
-$SL_2(\Z)$ is a holomorphic function $f$ on the upper half-plane satisfying
-\[
-f(\gamma\tau)=(c\tau+d)^k f(\tau)
-\]
-and holomorphic at the cusp, meaning that its Fourier expansion
-$f(\tau)=\sum_{n\geq0}a_nq^n$ has no negative powers.  It is a
-\emph{cusp form} if $a_0=0$.
-\end{definition}
-
-\begin{definition}[Jacobi theta functions and the Dedekind eta function]
-Set
-\[
-\begin{aligned}
-\vartheta_2(\tau)&=\sum_{n\in\Z}q^{(n+1/2)^2/2},\\
-\vartheta_3(\tau)&=\sum_{n\in\Z}q^{n^2/2},\\
-\vartheta_4(\tau)&=\sum_{n\in\Z}(-1)^nq^{n^2/2},
-\end{aligned}
-\qquad
-\eta(\tau)=q^{1/24}(q;q)_\infty.
-\]
-These functions have weight $1/2$ transformation laws with phases or
-permutations, rather than being integral-weight scalar modular forms for the
-full modular group.  In particular,
-\[
-\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
-\qquad
-\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau).
-\]
-\end{definition}
-
-\begin{exercise}[Theta transformations and the Jacobi triple product]
-Use Poisson summation on shifted and phase-twisted Gaussians to derive
-\[
-\vartheta_2(-1/\tau)=(-i\tau)^{1/2}\vartheta_4(\tau),
-\quad
-\vartheta_3(-1/\tau)=(-i\tau)^{1/2}\vartheta_3(\tau),
-\quad
-\vartheta_4(-1/\tau)=(-i\tau)^{1/2}\vartheta_2(\tau).
-\]
-Prove the $T$-transformation laws directly from the series.  Establish the
-Jacobi triple product, first as an identity of formal Laurent series,
-\[
-\sum_{n\in\Z}z^nq^{n^2/2}
-=\prod_{m\geq1}(1-q^m)
- (1+zq^{m-1/2})(1+z^{-1}q^{m-1/2}),
-\]
-and use specializations to recover product forms for the theta functions.
-Explain how the two sides encode charge sectors and independent oscillator
-modes, respectively.
-\end{exercise}
-
-\subsection{Eisenstein series and arithmetic applications}
-
-\begin{definition}[Eisenstein series and the discriminant]
-Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
-weights four and six are
-\[
-E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
-\qquad
-E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
-\]
-The modular discriminant is the weight-twelve cusp form
-\[
-\Delta(\tau)=\eta(\tau)^{24}
-=q\prod_{n\geq1}(1-q^n)^{24}
-=\frac{E_4(\tau)^3-E_6(\tau)^2}{1728}.
-\]
-\end{definition}
-
-\begin{exercise}[Eisenstein series and the $E_8$ shell]
-Construct Eisenstein series by summing $(m\tau+n)^{-k}$ over nonzero lattice
-points for even $k>2$, prove their modular transformation law, and obtain the
-displayed Fourier expansions for $E_4$ and $E_6$.  For a positive-definite
-even unimodular lattice, first use
-consistency of the $S$ and $T$ laws to prove that its dimension $d$ is
-divisible by eight, and then show that its theta series is a modular form of
-weight $d/2$.
-Construct the $E_8$ lattice as
-\[
- \{x\in\Z^8:\textstyle\sum_i x_i\equiv0\pmod2\}
- \cup
- \{x\in(\Z+\tfrac12)^8:\textstyle\sum_i x_i\equiv0\pmod2\}.
-\]
-Enumerate its vectors of squared length two and obtain $240$, matching the
-coefficient of $q$ in $E_4$.
-\end{exercise}
-
-\begin{exercise}[Partition asymptotics from modular inversion]
-Put $q=e^{-t}$ and use the modular transformation of $\eta$ to prove
-\[
-P(e^{-t})
-\sim\sqrt{\frac{t}{2\pi}}
-\exp\!\left(\frac{\pi^2}{6t}\right)
-\qquad(t\downarrow0).
-\]
-Apply a saddle-point argument, or an appropriate Tauberian theorem with its
-hypotheses stated, to derive the Hardy--Ramanujan formula
-\[
-p(n)\sim\frac1{4n\sqrt3}
- \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
-\]
-Interpret $\log p(n)$ as the microcanonical entropy of the bosonic modes in
-the first exercise of this part.  Distinguish this asymptotic result from an
-exact coefficient formula; see
-\href{https://doi.org/10.1112/plms/s2-17.1.75}
-{Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
-\textbf{17} (1918)}.
 \end{exercise}
 
 \section{Automorphic Harmonic Analysis and Arithmetic Langlands}
@@ -1711,9 +1832,29 @@ conjugacy classes compatibly and preserves their associated local
 $L$-factors.
 \end{definition}
 
+\begin{exercise}[Satake parameters and the local generating identity]
+Let $f=\sum_{n\geq1}a_nq^n$ be a normalized Hecke eigenform of weight $k$.
+For each prime $p$, let $\alpha_p,\beta_p$ be the Satake parameters defined
+by
+\[
+\alpha_p+\beta_p=a_p,
+\qquad
+\alpha_p\beta_p=p^{k-1}.
+\]
+Use the Hecke recurrence to prove
+\[
+\sum_{r=0}^{\infty}a_{p^r}X^r
+=\frac1{(1-\alpha_pX)(1-\beta_pX)}.
+\]
+Multiply the local identities and justify convergence in a right
+half-plane to recover the Euler product for $L(f,s)$.  Show that equality
+of the unramified Satake conjugacy classes is equivalent to equality of
+these local generating functions.
+\end{exercise}
+
 \part{Deformation}
 
-\section{Differential Geometry}
+\section{Differential and Symplectic Geometry}
 
 \subsection{Bundles, sections, and geometric structures}
 
@@ -1757,6 +1898,27 @@ orientation define a volume form $\vol_g$.
 \end{definition}
 
 \subsection{Differential forms, cohomology, and Hodge theory}
+
+\begin{definition}[Differential forms and exterior derivative]
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write
+$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$.  For a smooth map $F:M\to N$, define
+\[
+(F^*\alpha)_p(v_1,\ldots,v_k)
+=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+The \emph{exterior derivative} is the family
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
+Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
+\end{definition}
+
+\begin{exercise}[Cartan calculus]
+Construct $d$ locally and prove its uniqueness.  For contraction
+$\iota_X$, prove Cartan's identity
+\[
+\mathcal L_X=d\iota_X+\iota_Xd.
+\]
+\end{exercise}
 
 \begin{definition}[Integration of forms]
 An \emph{orientation} of an $n$-manifold is a reduction of its frame bundle
@@ -1894,8 +2056,6 @@ gauge, and prove that removing it globally can fail on a nonsimply connected
 base by computing holonomy around a generator of the fundamental group.
 \end{exercise}
 
-\section{Symplectic Geometry}
-
 \subsection{Projective representations and multipliers}
 
 \begin{definition}[Multipliers and projective representations]
@@ -1971,26 +2131,6 @@ $c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}$.
 
 \subsection{Symplectic manifolds and Hamiltonian reduction}
 
-\begin{definition}[Differential forms and exterior derivative]
-A \emph{differential $k$-form} on $M$ is a smooth section of
-$\Lambda^kT^*M$; write
-$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$.  For a smooth map $F:M\to N$, define
-\[
-(F^*\alpha)_p(v_1,\ldots,v_k)
-=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
-\]
-The \emph{exterior derivative} is the family
-$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
-Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
-\end{definition}
-
-\begin{exercise}[Cartan calculus]
-Construct $d$ locally and prove its uniqueness.  For contraction
-$\iota_X$, prove Cartan's identity
-\[
-\mathcal L_X=d\iota_X+\iota_Xd.
-\]
-\end{exercise}
 
 \begin{definition}[Symplectic manifolds and canonical transformations]
 A \emph{symplectic form} is a closed nondegenerate two-form $\omega$.
@@ -2068,7 +2208,33 @@ preserves $\omega$, the volume form $\omega^n/n!$, and every density
 depending only on the Hamiltonian.
 \end{exercise}
 
-\section{Classical and Quantum Dynamics}
+\begin{exercise}[Pendulum periods and the complete elliptic integral]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove the exact period identity
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Expand the integral to obtain
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+\section{Classical Dynamics and Geometric Quantization}
+
+\subsection{Classical and quantum evolution}
 
 \begin{definition}[Classical and quantum evolution]
 Let $H\in C^\infty(\R^{2n},\R)$ have bounded derivatives of order at least
@@ -2104,8 +2270,6 @@ A_\hbar(t)-\operatorname{Op}_\hbar^W(a\circ\Phi_t)
 Prove exact equality for quadratic $H$.  Derive Ehrenfest's equations for
 the expectations of $Q_j$ and $P_j$.
 \end{exercise}
-
-\section{Geometric Quantization}
 
 \subsection{Prequantization and polarization}
 
@@ -2172,6 +2336,30 @@ with the metaplectic correction.  Derive the multiplicity formula obtained
 by reduction at integral coadjoint orbits.
 \end{exercise}
 
+\begin{exercise}[Hermite functions and oscillator spectroscopy]
+For
+\[
+\widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
++\frac{m\omega^2x^2}{2},
+\]
+define the physicists' Hermite polynomials by
+\[
+e^{2\xi t-t^2}=\sum_{n=0}^{\infty}H_n(\xi)\frac{t^n}{n!}.
+\]
+Derive their differential equation, recurrence, and orthogonality, and
+prove that
+\[
+\psi_n(x)=C_ne^{-m\omega x^2/(2\hbar)}
+H_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
+\qquad
+E_n=\hbar\omega\left(n+\frac12\right)
+\]
+give the complete spectral decomposition of $\widehat H$.  Prove that the
+position operator has matrix elements only between $n$ and $n\pm1$.
+Deduce the spectral-line prediction $|E_{n\pm1}-E_n|/\hbar=\omega$ for a
+linearly coupled oscillator.
+\end{exercise}
+
 \section{Deformation Quantization}
 
 \begin{definition}[Poisson manifolds]
@@ -2207,7 +2395,58 @@ that every finite-dimensional Poisson manifold admits a deformation
 quantization.
 \end{exercise}
 
+\begin{exercise}[Moyal plane-wave identity]
+On $\R^{2n}$ let $\Pi$ be the canonical Poisson tensor and write
+$\Pi(k,\ell)=k_i\Pi^{ij}\ell_j$ for covectors $k,\ell$.  Derive from the
+Moyal product
+\[
+e^{ik\cdot z}\star_\hbar e^{i\ell\cdot z}
+=e^{-i\hbar\Pi(k,\ell)/2}e^{i(k+\ell)\cdot z}.
+\]
+Prove associativity directly by checking the multiplier identity for the
+phase.  Differentiate in $k$ and $\ell$ to recover the canonical
+commutation relations and the full bidifferential expansion of the Moyal
+product on polynomials.
+\end{exercise}
+
 \section{Integrable Systems and the Yang--Baxter Equation}
+
+\begin{definition}[Liouville integrability and Lax pairs]
+A Hamiltonian system on a $2n$-dimensional symplectic manifold is
+\emph{Liouville integrable} when it has functions
+$F_1=H,F_2,\ldots,F_n$ that are independent on a dense open set and satisfy
+$\{F_i,F_j\}=0$.  A \emph{Lax representation} is an equation
+\[
+\dot L=[M,L]
+\]
+for matrix- or operator-valued functions $L$ and $M$ on phase space.
+\end{definition}
+
+\begin{definition}[Spectral Yang--Baxter equation]
+Let $V$ be finite-dimensional.  A meromorphic family
+$R(u)\in\End(V\otimes V)$ satisfies the \emph{spectral Yang--Baxter
+equation} when
+\[
+R_{12}(u-v)R_{13}(u-w)R_{23}(v-w)
+=R_{23}(v-w)R_{13}(u-w)R_{12}(u-v)
+\]
+where both sides are defined.  It is \emph{regular} when $R(0)$ is a
+nonzero scalar multiple of the flip and \emph{unitary} when
+$R_{12}(u)R_{21}(-u)$ is scalar.
+\end{definition}
+
+\begin{exercise}[Lax invariants and factorized scattering]
+For a Lax equation, prove
+\[
+\frac d{dt}\Tr(L^r)=0
+\qquad(r\geq1)
+\]
+and that the characteristic polynomial of $L$ is constant.  Interpret the
+spectral Yang--Baxter equation as equality of the two factorizations of a
+three-body scattering operator.  Show that regularity and unitarity give
+the identity and inverse moves needed for consistent factorized
+scattering.
+\end{exercise}
 
 \begin{exercise}[A direct optical Yang--Baxter test]
 Consider the unitary polarization transformations
@@ -2303,6 +2542,34 @@ State the parameter conditions for each identity and extend them by
 analytic continuation.
 \end{exercise}
 
+\begin{definition}[Bessel functions]
+For $\alpha>-1$, the Bessel function of the first kind is
+\[
+J_\alpha(z)
+=\sum_{m=0}^{\infty}
+\frac{(-1)^m}{m!\,\Gamma(m+\alpha+1)}
+\left(\frac z2\right)^{2m+\alpha},
+\]
+with a branch of $z^\alpha$ fixed when $\alpha\notin\Z$.
+\end{definition}
+
+\begin{exercise}[Bessel equation and radial Fourier transform]
+Prove
+\[
+z^2J_\alpha''(z)+zJ_\alpha'(z)
++(z^2-\alpha^2)J_\alpha(z)=0
+\]
+and the recurrence identities
+\[
+J_{\alpha-1}(z)+J_{\alpha+1}(z)=\frac{2\alpha}{z}J_\alpha(z),
+\qquad
+J_{\alpha-1}(z)-J_{\alpha+1}(z)=2J_\alpha'(z).
+\]
+Average the Euclidean Fourier kernel over spheres and express the Fourier
+transform of a radial Schwartz function on $\R^n$ as a Hankel transform
+with kernel $J_{n/2-1}$.  Derive the corresponding inversion identity.
+\end{exercise}
+
 \begin{definition}[Jacobi and Wilson polynomials]
 For $\alpha,\beta>-1$, the \emph{Jacobi polynomial} is
 \[
@@ -2345,7 +2612,7 @@ w_W(x)=
 Derive the three-term recurrences of both families.
 \end{exercise}
 
-\section{Trigonometric/Basic Hypergeometric Deformation}
+\section{Basic Hypergeometric Functions}
 
 \begin{definition}[Basic hypergeometric series]
 For $m\in\N$, define
@@ -2397,63 +2664,6 @@ and the terminating $q$-Pfaff--Saalsch\"utz summation
 \]
 \end{exercise}
 
-\begin{definition}[Askey--Wilson operator and polynomials]
-For $0<q<1$ and nonzero $a,b,c,d$, define
-\[
-A(z)=\frac{(1-az)(1-bz)(1-cz)(1-dz)}
-{(1-z^2)(1-qz^2)}
-\]
-and, on $f(z)=f(z^{-1})$,
-\[
-(\mathcal D_{AW}f)(z)
-=A(z)\bigl(f(qz)-f(z)\bigr)
-+A(z^{-1})\bigl(f(q^{-1}z)-f(z)\bigr).
-\]
-For $x=(z+z^{-1})/2$, the \emph{Askey--Wilson polynomial} is
-\[
-\begin{aligned}
-p_n(x;a,b,c,d\mid q)
-={}&a^{-n}(ab,ac,ad;q)_n\\
-&\times{}_4\phi_3\!\left(
-\begin{matrix}q^{-n},abcdq^{n-1},az,az^{-1}\\
-ab,ac,ad\end{matrix};q,q
-\right).
-\end{aligned}
-\]
-Its weight on the unit circle is
-\[
-w_{AW}(z)=
-\frac{(z^2,z^{-2};q)_\infty}
-{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
-\]
-\end{definition}
-
-\begin{exercise}[Rank-one DAHA and the Askey--Wilson theorem]
-Construct the basic representation of
-$\widehat{\mathsf H}_q(C_1^\vee,C_1)$ from the involutions
-\[
-(s_1f)(z)=f(z^{-1}),
-\qquad
-(s_0f)(z)=f(qz^{-1})
-\]
-and first-order reflection--$q$-difference operators.  Verify the four
-Hecke relations and the product relation.  Prove that the spherical
-subalgebra is generated in its polynomial representation by multiplication
-by $z+z^{-1}$ and $\mathcal D_{AW}$.  Prove
-\[
-\mathcal D_{AW}p_n
-=(q^{-n}-1)(1-abcdq^{n-1})p_n.
-\]
-For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
-\[
-\langle f,g\rangle_{AW}
-=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
-\frac{dz}{2\pi iz},
-\]
-and deduce the orthogonality and three-term recurrence of the
-Askey--Wilson polynomials.
-\end{exercise}
-
 \section{Poisson--Lie Groups and Quantum Groups}
 
 \subsection{Poisson--Lie groups and Lie bialgebras}
@@ -2492,6 +2702,23 @@ distinguish the case $\Omega\ne0$.
 
 \subsection{Drinfeld--Jimbo quantization}
 
+\begin{definition}[Bialgebras and Hopf algebras]
+A \emph{bialgebra} is a unital associative algebra $H$ with unital algebra
+homomorphisms
+\[
+\Delta:H\to H\otimes H,
+\qquad
+\varepsilon:H\to\C
+\]
+satisfying coassociativity and the counit identities.  A \emph{Hopf
+algebra} is a bialgebra with a linear antipode $S:H\to H$ satisfying
+\[
+m(S\otimes\id)\Delta
+=\eta\varepsilon
+=m(\id\otimes S)\Delta.
+\]
+\end{definition}
+
 \begin{definition}[Quantized enveloping algebras]
 A \emph{quantized enveloping algebra} of $(\mathfrak g,\delta)$ is a
 topologically free Hopf algebra $U_\hbar(\mathfrak g)$ over $\C[[\hbar]]$
@@ -2524,6 +2751,23 @@ Construct $U_q(\mathfrak g)$ from the Cartan matrix of a complex semisimple
 Lie algebra and prove that it is a Hopf deformation of $U(\mathfrak g)$.
 For $\mathfrak{sl}_2$, verify the displayed relations and coproduct and
 compute the semiclassical Lie bialgebra.
+\end{exercise}
+
+\begin{exercise}[Quantum-group binomial identity]
+For $YX=q^2XY$, define
+\[
+\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}
+=\frac{(q^2;q^2)_n}{(q^2;q^2)_r(q^2;q^2)_{n-r}}.
+\]
+Prove the noncommutative binomial identity
+\[
+(X+Y)^n=\sum_{r=0}^n
+\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}X^rY^{n-r}.
+\]
+Apply it to
+$X=E\otimes1$ and $Y=K\otimes E$ in $U_q(\mathfrak{sl}_2)$ to obtain an
+explicit formula for $\Delta(E^n)$.  Show that the limit $q\to1$ recovers
+the ordinary binomial theorem and the undeformed coproduct.
 \end{exercise}
 
 \section{Compact Quantum Groups}
@@ -2842,6 +3086,22 @@ defines a ribbon twist on the category of finite-dimensional $H$-modules.
 Derive invariance of the quantum trace under framed ribbon isotopy.
 \end{exercise}
 
+\begin{exercise}[Quantum dimensions and the Chebyshev identity]
+For the irreducible $SU_q(2)$ objects $V_n$, use
+$V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
+\[
+d_{n+1}=(q+q^{-1})d_n-d_{n-1},
+\qquad d_0=1,quad d_1=q+q^{-1},
+\]
+where $d_n=\dim_q(V_n)$.  If $U_n$ is the Chebyshev polynomial determined
+by $U_0(x)=1$, $U_1(x)=2x$, and
+$U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)$, deduce
+\[
+\dim_q(V_n)=U_n\!\left(\frac{q+q^{-1}}2\right)
+=\frac{q^{n+1}-q^{-(n+1)}}{q-q^{-1}}.
+\]
+\end{exercise}
+
 \section{Hecke Algebras and Quantum Schur--Weyl Duality}
 
 \begin{definition}[Root data and affine Weyl groups]
@@ -2870,6 +3130,10 @@ H_{\alpha,m}=\{x\in E:\langle x,\alpha\rangle=m\},
 \qquad \alpha\in R,\quad m\in\Z,
 \]
 are the \emph{alcoves}.
+After a choice of positive roots, let $\alpha_i$ be the simple roots and
+$s_i=s_{\alpha_i}$.  Then $(W,\{s_i\})$ is a \emph{Coxeter system} with
+relations $(s_is_j)^{m_{ij}}=1$, and $\ell(w)$ is the minimum length of a
+word in the $s_i$ representing $w$.
 \end{definition}
 
 \begin{definition}[Finite Hecke algebras]
@@ -2965,7 +3229,22 @@ finite-dimensional polynomial $U_v(L\mathfrak{gl}_N)$-modules generated by
 subquotients of tensor products of $r$ vector evaluation modules.
 \end{exercise}
 
-\section{DAHA and Macdonald Theory}
+\begin{exercise}[Hecke symmetrizers and the Poincar\'e identity]
+For $w\in S_r$, let $\ell(w)$ be its Coxeter length.  Insert the letter
+$r$ into a permutation of $S_{r-1}$ and prove
+\[
+\sum_{w\in S_r}t^{\ell(w)}
+=\prod_{j=1}^r\frac{1-t^j}{1-t}.
+\]
+Construct the one-row and one-column idempotents of
+$\mathcal H_t(S_r)$ by weighted sums of the standard basis elements and
+show that their normalizing constants are the displayed $t$-factorial and
+its $t^{-1}$ analogue.  Identify their images under quantum Schur--Weyl
+duality with the quantum symmetric and exterior powers of the vector
+module.
+\end{exercise}
+
+\section{DAHA, Askey--Wilson Polynomials, and Macdonald Theory}
 
 \subsection{Double affine Hecke algebras}
 
@@ -3040,6 +3319,63 @@ e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
 The action of $e\widehat{\mathsf H}_q e$ on $e\mathcal L$ is the
 \emph{spherical rank-one polynomial representation}.
 \end{definition}
+
+\begin{definition}[Askey--Wilson operator and polynomials]
+For $0<q<1$ and nonzero $a,b,c,d$, define
+\[
+A(z)=\frac{(1-az)(1-bz)(1-cz)(1-dz)}
+{(1-z^2)(1-qz^2)}
+\]
+and, on $f(z)=f(z^{-1})$,
+\[
+(\mathcal D_{AW}f)(z)
+=A(z)\bigl(f(qz)-f(z)\bigr)
++A(z^{-1})\bigl(f(q^{-1}z)-f(z)\bigr).
+\]
+For $x=(z+z^{-1})/2$, the \emph{Askey--Wilson polynomial} is
+\[
+\begin{aligned}
+p_n(x;a,b,c,d\mid q)
+={}&a^{-n}(ab,ac,ad;q)_n\\
+&\times{}_4\phi_3\!\left(
+\begin{matrix}q^{-n},abcdq^{n-1},az,az^{-1}\\
+ab,ac,ad\end{matrix};q,q
+\right).
+\end{aligned}
+\]
+Its weight on the unit circle is
+\[
+w_{AW}(z)=
+\frac{(z^2,z^{-2};q)_\infty}
+{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
+\]
+\end{definition}
+
+\begin{exercise}[Rank-one DAHA and the Askey--Wilson theorem]
+Construct the basic representation of
+$\widehat{\mathsf H}_q(C_1^\vee,C_1)$ from the involutions
+\[
+(s_1f)(z)=f(z^{-1}),
+\qquad
+(s_0f)(z)=f(qz^{-1})
+\]
+and first-order reflection--$q$-difference operators.  Verify the four
+Hecke relations and the product relation.  Prove that the spherical
+subalgebra is generated in its polynomial representation by multiplication
+by $z+z^{-1}$ and $\mathcal D_{AW}$.  Prove
+\[
+\mathcal D_{AW}p_n
+=(q^{-n}-1)(1-abcdq^{n-1})p_n.
+\]
+For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
+\[
+\langle f,g\rangle_{AW}
+=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
+\frac{dz}{2\pi iz},
+\]
+and deduce the orthogonality and three-term recurrence of the
+Askey--Wilson polynomials.
+\end{exercise}
 
 \subsection{Macdonald theory}
 
@@ -3828,6 +4164,29 @@ when
 for every bounded continuous $f$.
 \end{definition}
 
+\begin{exercise}[Gaussian moments and Hermite orthogonality]
+Let $X\sim N(0,1)$.  Complete the square and use the Gaussian integral to
+prove
+\[
+\mathbb E[e^{tX}]=e^{t^2/2}.
+\]
+Define the probabilists' Hermite polynomials by
+\[
+e^{xt-t^2/2}=\sum_{n=0}^{\infty}\operatorname{He}_n(x)\frac{t^n}{n!}.
+\]
+Using two copies of the generating function, prove
+\[
+\mathbb E[\operatorname{He}_m(X)\operatorname{He}_n(X)]
+=n!\,\delta_{mn}.
+\]
+Relate them to the oscillator polynomials by
+$\operatorname{He}_n(x)=2^{-n/2}H_n(x/\sqrt2)$, and derive
+\[
+\mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!},
+\qquad \mathbb E[X^{2n+1}]=0.
+\]
+\end{exercise}
+
 \section{Random Matrices and Statistical Universality}
 
 \begin{definition}[Scalar determinants, Vandermonde determinant, and Dyson classes]
@@ -4169,6 +4528,21 @@ Prove de Bruijn's Pfaffian integration identity and use it to derive the
 matrix correlation kernels for the GOE and GSE.
 \end{exercise}
 
+\begin{definition}[Laguerre polynomials]
+For $\alpha>-1$, define
+\[
+L_n^{(\alpha)}(x)
+=\frac{x^{-\alpha}e^x}{n!}
+\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right).
+\]
+Their normalization is
+\[
+\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
+x^\alpha e^{-x}\,dx
+=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
+\]
+\end{definition}
+
 \subsection{Christoffel--Darboux and integrable kernels}
 
 \begin{definition}[Christoffel--Darboux and integrable kernels]
@@ -4459,6 +4833,15 @@ Macdonald-process observables.
 
 \subsection{Free independence and additive convolution}
 
+\begin{definition}[Noncommutative probability spaces]
+A \emph{noncommutative probability space} is a unital complex algebra
+$A$ with a unital linear functional $\varphi:A\to\C$.  Its elements are
+\emph{random variables} and their joint moments are
+$\varphi(a_1\cdots a_n)$.  In the $*$-algebra setting, a \emph{state} is a
+positive unital functional; it is \emph{tracial} when
+$\varphi(ab)=\varphi(ba)$.
+\end{definition}
+
 \begin{definition}[Free independence and free cumulants]
 Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
 if
@@ -4570,6 +4953,26 @@ rule to normalized mixed traces of centered polynomials.  Prove that
 crossing pairings are lower order and that mixed free cumulants vanish in
 the limit.  Conclude that the family converges in joint moments to freely
 independent semicircular variables.
+\end{exercise}
+
+\begin{exercise}[Catalan generating function and the semicircle transform]
+Let $C_n=(n+1)^{-1}\binom{2n}{n}$.  Decompose a noncrossing pairing at the
+partner of its first point to prove
+\[
+C_{n+1}=\sum_{j=0}^nC_jC_{n-j}.
+\]
+Deduce
+\[
+\sum_{n=0}^{\infty}C_nt^n
+=\frac{1-\sqrt{1-4t}}{2t}.
+\]
+Use the semicircular moment formula to recover
+\[
+G_{\rm sc}(z)=\frac{z-\sqrt{z^2-4}}2,
+\qquad zG_{\rm sc}(z)\longrightarrow1
+\quad(z\to\infty),
+\]
+and identify the branch cut with the limiting spectral interval of GUE.
 \end{exercise}
 
 \end{document}
