@@ -901,17 +901,10 @@ Set
 \qquad
 \eta(\tau)=q^{1/24}(q;q)_\infty.
 \]
-These functions have weight $1/2$ transformation laws with phases or
-permutations, rather than being integral-weight scalar modular forms for the
-full modular group.  In particular,
-\[
-\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
-\qquad
-\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau).
-\]
 \end{definition}
 
 \begin{exercise}[Theta transformations and the Jacobi triple product]
+\label{ex:theta-eta-transformations}
 Use Poisson summation on shifted and phase-twisted Gaussians to derive
 \[
 \vartheta_2(-1/\tau)=(-i\tau)^{1/2}\vartheta_4(\tau),
@@ -920,7 +913,13 @@ Use Poisson summation on shifted and phase-twisted Gaussians to derive
 \quad
 \vartheta_4(-1/\tau)=(-i\tau)^{1/2}\vartheta_2(\tau).
 \]
-Prove the $T$-transformation laws directly from the series.  Establish the
+Prove the $T$-transformation laws directly from the series and derive
+\[
+\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
+\qquad
+\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau),
+\]
+using the holomorphic square root on the upper half-plane.  Establish the
 Jacobi triple product, first as an identity of formal Laurent series,
 \[
 \sum_{n\in\Z}z^nq^{n^2/2}
@@ -966,28 +965,6 @@ Construct the $E_8$ lattice as
 \]
 Enumerate its vectors of squared length two and obtain $240$, matching the
 coefficient of $q$ in $E_4$.
-\end{exercise}
-
-\begin{exercise}[Partition asymptotics from modular inversion]
-Put $q=e^{-t}$ and use the modular transformation of $\eta$ to prove
-\[
-P(e^{-t})
-\sim\sqrt{\frac{t}{2\pi}}
-\exp\!\left(\frac{\pi^2}{6t}\right)
-\qquad(t\downarrow0).
-\]
-Apply a saddle-point argument, or an appropriate Tauberian theorem with its
-hypotheses stated, to derive the Hardy--Ramanujan formula
-\[
-p(n)\sim\frac1{4n\sqrt3}
- \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
-\]
-Interpret $\log p(n)$ as the microcanonical entropy of the bosonic modes in
-the first exercise of this part.  Distinguish this asymptotic result from an
-exact coefficient formula; see
-\href{https://doi.org/10.1112/plms/s2-17.1.75}
-{Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
-\textbf{17} (1918)}.
 \end{exercise}
 
 \section{Compact Harmonic Analysis: Peter--Weyl, Characters, and Spin}
@@ -4040,6 +4017,31 @@ $G_{\rm sum}=G_{\rm prod}$ and $H_{\rm sum}=H_{\rm prod}$ to that order.
 Translate the coefficient equalities into finite tests of the two partition
 identities and identify which further step would be required for a proof in
 all degrees.
+\end{exercise}
+
+\subsection{Modular asymptotics}
+
+\begin{exercise}[Partition asymptotics from modular inversion]
+Put $q=e^{-t}$ and use the modular transformation of $\eta$ from
+Exercise~\ref{ex:theta-eta-transformations} to prove
+\[
+P(e^{-t})
+\sim\sqrt{\frac{t}{2\pi}}
+\exp\!\left(\frac{\pi^2}{6t}\right)
+\qquad(t\downarrow0).
+\]
+Apply a saddle-point argument, or an appropriate Tauberian theorem with its
+hypotheses stated, to derive the Hardy--Ramanujan formula
+\[
+p(n)\sim\frac1{4n\sqrt3}
+ \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
+\]
+Interpret $\log p(n)$ as the microcanonical entropy of the bosonic modes in
+the first exercise of this part.  Distinguish this asymptotic result from an
+exact coefficient formula; see
+\href{https://doi.org/10.1112/plms/s2-17.1.75}
+{Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
+\textbf{17} (1918)}.
 \end{exercise}
 
 \section{Characters and Exact State Counting}
