@@ -1352,253 +1352,6 @@ copy of $\pi$ in $L^2(G)$.  Extend the identity to the natural Sobolev
 classes for which the character series converges absolutely.
 \end{exercise}
 
-\section{Fourier--Wigner Analysis, the Heisenberg Group, and Weyl Quantization}
-
-\subsection{Fourier--Wigner transform}
-
-\begin{definition}[Unitary systems and coefficient transforms]
-Let $(X,\mu)$ be a measure space and let $U:X\to U(H)$ be a weakly
-measurable map.  The \emph{coefficient transform} of the unitary system
-$U$ is
-\[
-\mathcal V_U:S_1(H)\longrightarrow L^\infty(X),
-\qquad
-\mathcal V_U(A)(x)=\Tr(AU_x).
-\]
-\end{definition}
-
-\begin{definition}[Weyl system and Fourier--Wigner transform]
-Let $V$ be an $n$-dimensional real linear space with Lebesgue measure $dq$,
-and equip $V^*$ with the dual measure $dp$ for which
-$(2\pi)^{-n/2}\int_Ve^{-ip(q)}f(q)\,dq$ is unitary on $L^2$.
-For $q\in V$ and $p\in V^*$, define
-\[
-(T_q\xi)(x)=\xi(x-q),
-\qquad
-(M_p\xi)(x)=e^{ip(x)}\xi(x).
-\]
-For $z=(q,p)\in V\oplus V^*$, define
-\[
-W(z)=e^{-ip(q)/2}M_pT_q.
-\]
-The \emph{Fourier--Wigner transform} is
-\[
-\mathcal W:S_1(L^2(V))\longrightarrow C_b(V\oplus V^*),
-\qquad
-\mathcal W(A)(z)=(2\pi)^{-n/2}\Tr(AW(z)).
-\]
-\end{definition}
-
-\begin{exercise}[Weyl relations and the Moyal identity]
-Prove
-\[
-M_pT_q=e^{ip(q)}T_qM_p,
-\qquad W(z)^*=W(-z),
-\]
-and
-\[
-W(q,p)W(q',p')
-=\exp\!\left(\frac{i}{2}\bigl(p(q')-p'(q)\bigr)\right)
-W(q+q',p+p').
-\]
-For $A,B\in S_1(L^2(V))\cap S_2(L^2(V))$, prove the Moyal identity
-\[
-\int_{V\oplus V^*}
-\overline{\mathcal W(A)(z)}\mathcal W(B)(z)\,dz
-=\Tr(A^*B).
-\]
-Deduce that $\mathcal W$ extends uniquely to a unitary map
-\[
-S_2(L^2(V))\longrightarrow L^2(V\oplus V^*)
-\]
-and, whenever $\mathcal W(A)\in L^1(V\oplus V^*)$, prove
-\[
-A=(2\pi)^{-n/2}\int_{V\oplus V^*}
-\mathcal W(A)(z)W(z)^*\,dz
-\]
-in the weak operator topology.
-\end{exercise}
-
-\subsection{Central extension}
-
-\begin{definition}[Symplectic linear spaces]
-A \emph{symplectic form} on a finite-dimensional real linear space $E$ is
-a nondegenerate alternating bilinear form $\omega:E\times E\to\R$.  On
-$E=V\oplus V^*$, the canonical symplectic form is
-\[
-\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
-\end{definition}
-
-\begin{definition}[Heisenberg group]
-For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
-\[
-\mathbb H(E,\omega)=E\times\R
-\]
-with multiplication
-\[
-(z,s)(z',s')
-=(z+z',s+s'+\tfrac12\omega(z,z')).
-\]
-Write
-$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
-symplectic form on $\R^n\oplus(\R^n)^*$.
-For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
-representation} on $L^2(V)$ is
-\[
-\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
-=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
-\]
-\end{definition}
-
-\begin{exercise}[Central extensions and projective representations]
-Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
-$\{0\}\times\R$ and that
-\[
-\pi_\lambda(0,s)=e^{i\lambda s}I.
-\]
-Prove that projective representations of $E$ with multiplier
-$e^{i\lambda\omega/2}$ correspond to representations of
-$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
-\end{exercise}
-
-\subsection{Stone--von Neumann theorem}
-
-\begin{exercise}[Stone--von Neumann theorem]
-Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
-continuous irreducible unitary representation of
-$\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
-$\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
-\end{exercise}
-
-\subsection{Weyl quantization}
-
-\begin{definition}[Weyl quantization]
-For $a\in\mathcal S(\R^{2n})$, define
-$\operatorname{Op}_\hbar^W(a):\mathcal S(\R^n)\to\mathcal S(\R^n)$ by
-\[
-\bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
-=\frac{1}{(2\pi\hbar)^n}
-\int_{\R^n\times\R^n}
-e^{i(x-y)\cdot p/\hbar}
-a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
-\]
-For polynomial symbols, use the same formula as an oscillatory integral on
-$\mathcal S(\R^n)$.
-For the coordinate functions $q_j$ and $p_j$, set
-\[
-Q_j=\operatorname{Op}_\hbar^W(q_j),
-\qquad P_j=\operatorname{Op}_\hbar^W(p_j).
-\]
-The canonical Poisson bracket on $\R^{2n}$ is
-\[
-\{a,b\}
-=\sum_{j=1}^n
-\left(
-\frac{\partial a}{\partial q_j}\frac{\partial b}{\partial p_j}
--\frac{\partial a}{\partial p_j}\frac{\partial b}{\partial q_j}
-\right).
-\]
-\end{definition}
-
-\begin{definition}[Wigner distributions]
-For $\psi,\varphi\in\mathcal S(\R^n)$, define
-\[
-W_\hbar(\psi,\varphi)(q,p)
-=\frac{1}{(2\pi\hbar)^n}
-\int_{\R^n}e^{-ip\cdot y/\hbar}
-\overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
-\]
-Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
-\end{definition}
-
-\begin{exercise}[Weyl calculus and the Moyal product]
-Prove on $\mathcal S(\R^n)$ that
-\[
-Q_j\psi(x)=x_j\psi(x),
-\qquad P_j\psi(x)=-i\hbar\partial_j\psi(x),
-\qquad [Q_j,P_k]=i\hbar\delta_{jk}I.
-\]
-Derive the Weyl relations and recover the Schr\"odinger representation of
-the Heisenberg group.  Prove
-\[
-\operatorname{Op}_\hbar^W(a)^*
-=\operatorname{Op}_\hbar^W(\overline a),
-\qquad
-\|\operatorname{Op}_\hbar^W(a)\|_{\rm HS}
-=(2\pi\hbar)^{-n/2}\|a\|_2,
-\]
-and
-\[
-\langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
-=\int_{\R^{2n}}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
-\]
-Prove that for $a,b\in\mathcal S(\R^{2n})$ there is a unique
-$a\star_\hbar b\in\mathcal S(\R^{2n})$ satisfying
-\[
-\operatorname{Op}_\hbar^W(a\star_\hbar b)
-=\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
-\]
-Derive the oscillatory-integral formula for $\star_\hbar$ and prove
-\[
-a\star_\hbar b
-=ab+\frac{i\hbar}{2}\{a,b\}+O(\hbar^2),
-\qquad
-\frac{a\star_\hbar b-b\star_\hbar a}{i\hbar}
-=\{a,b\}+O(\hbar^2)
-\]
-in the Schwartz-symbol topology.
-\end{exercise}
-
-\begin{exercise}[Groenewold--van Hove obstruction]
-Prove that Weyl quantization carries Poisson brackets to
-$(i\hbar)^{-1}$ times commutators exactly for affine and quadratic
-polynomials.  Quantize $q^2p^2$ using
-\[
-q^2p^2=\frac19\{q^3,p^3\}
-=\frac13\{q^2p,qp^2\}
-\]
-and prove that there is no linear quantization of the polynomial Poisson
-algebra satisfying
-\[
-\mathcal Q(1)=I,\qquad
-\mathcal Q(q)=Q,\qquad
-\mathcal Q(p)=P,\qquad
-\mathcal Q(q^m)=Q^m,\qquad
-\mathcal Q(p^m)=P^m,
-\]
-together with
-\[
-\mathcal Q(\{f,g\})=(i\hbar)^{-1}
-[\mathcal Q(f),\mathcal Q(g)]
-\]
-on a common invariant domain.
-\end{exercise}
-
-\subsection{Heisenberg Plancherel theory}
-
-\begin{exercise}[Heisenberg Plancherel and inversion]
-\label{ex:heisenberg-harmonic-analysis}
-For $V=\R^n$ and
-$f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
-$dq\,dp\,ds$ and the scalar Fourier transform
-$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
-\[
-\widehat f(\lambda)
-=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
-\]
-Derive the Plancherel measure
-$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
-\[
-\|f\|_2^2
-=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
-\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
-\]
-Prove the inversion formula and the distributional orthogonality of Weyl
-operators.  Prove that representations with trivial central character have
-zero Plancherel measure.
-\end{exercise}
-
 \section{Automorphic Harmonic Analysis and Arithmetic Langlands}
 
 \subsection{Places, local fields, and adeles}
@@ -2277,6 +2030,300 @@ Deduce the experimentally testable increase of period with amplitude and
 the logarithmic divergence as $\theta_0\uparrow\pi$.
 \end{exercise}
 
+\section{Heisenberg Representations and Weyl Quantization}
+
+\subsection{Fourier--Wigner transform}
+
+\begin{definition}[Unitary systems and coefficient transforms]
+Let $(X,\mu)$ be a measure space and let $U:X\to U(H)$ be a weakly
+measurable map.  The \emph{coefficient transform} of the unitary system
+$U$ is
+\[
+\mathcal V_U:S_1(H)\longrightarrow L^\infty(X),
+\qquad
+\mathcal V_U(A)(x)=\Tr(AU_x).
+\]
+\end{definition}
+
+\begin{definition}[Weyl system and Fourier--Wigner transform]
+Let $V$ be an $n$-dimensional real linear space with Lebesgue measure $dq$,
+and equip $V^*$ with the dual measure $dp$ for which
+$(2\pi)^{-n/2}\int_Ve^{-ip(q)}f(q)\,dq$ is unitary on $L^2$.
+For $q\in V$ and $p\in V^*$, define
+\[
+(T_q\xi)(x)=\xi(x-q),
+\qquad
+(M_p\xi)(x)=e^{ip(x)}\xi(x).
+\]
+For $z=(q,p)\in V\oplus V^*$, define
+\[
+W(z)=e^{-ip(q)/2}M_pT_q.
+\]
+The \emph{Fourier--Wigner transform} is
+\[
+\mathcal W:S_1(L^2(V))\longrightarrow C_b(V\oplus V^*),
+\qquad
+\mathcal W(A)(z)=(2\pi)^{-n/2}\Tr(AW(z)).
+\]
+\end{definition}
+
+\begin{exercise}[Weyl relations and the Moyal identity]
+Prove
+\[
+M_pT_q=e^{ip(q)}T_qM_p,
+\qquad W(z)^*=W(-z),
+\]
+and
+\[
+W(q,p)W(q',p')
+=\exp\!\left(\frac{i}{2}\bigl(p(q')-p'(q)\bigr)\right)
+W(q+q',p+p').
+\]
+For $A,B\in S_1(L^2(V))\cap S_2(L^2(V))$, prove the Moyal identity
+\[
+\int_{V\oplus V^*}
+\overline{\mathcal W(A)(z)}\mathcal W(B)(z)\,dz
+=\Tr(A^*B).
+\]
+Deduce that $\mathcal W$ extends uniquely to a unitary map
+\[
+S_2(L^2(V))\longrightarrow L^2(V\oplus V^*)
+\]
+and, whenever $\mathcal W(A)\in L^1(V\oplus V^*)$, prove
+\[
+A=(2\pi)^{-n/2}\int_{V\oplus V^*}
+\mathcal W(A)(z)W(z)^*\,dz
+\]
+in the weak operator topology.
+\end{exercise}
+
+\subsection{Central extension}
+
+\begin{definition}[Heisenberg group]
+For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
+\[
+\mathbb H(E,\omega)=E\times\R
+\]
+with multiplication
+\[
+(z,s)(z',s')
+=(z+z',s+s'+\tfrac12\omega(z,z')).
+\]
+Write
+$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
+symplectic form on $\R^n\oplus(\R^n)^*$.
+For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
+representation} on $L^2(V)$ is
+\[
+\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
+=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
+\]
+\end{definition}
+
+\begin{exercise}[Central extensions and projective representations]
+Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
+$\{0\}\times\R$ and that
+\[
+\pi_\lambda(0,s)=e^{i\lambda s}I.
+\]
+Prove that projective representations of $E$ with multiplier
+$e^{i\lambda\omega/2}$ correspond to representations of
+$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
+\end{exercise}
+
+\subsection{Stone--von Neumann theorem}
+
+\begin{exercise}[Stone--von Neumann theorem]
+Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
+continuous irreducible unitary representation of
+$\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
+$\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
+\end{exercise}
+
+\subsection{Weyl quantization}
+
+\begin{definition}[Weyl quantization]
+For $a\in\mathcal S(\R^{2n})$, define
+$\operatorname{Op}_\hbar^W(a):\mathcal S(\R^n)\to\mathcal S(\R^n)$ by
+\[
+\bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
+=\frac{1}{(2\pi\hbar)^n}
+\int_{\R^n\times\R^n}
+e^{i(x-y)\cdot p/\hbar}
+a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
+\]
+For polynomial symbols, use the same formula as an oscillatory integral on
+$\mathcal S(\R^n)$.
+For the coordinate functions $q_j$ and $p_j$, set
+\[
+Q_j=\operatorname{Op}_\hbar^W(q_j),
+\qquad P_j=\operatorname{Op}_\hbar^W(p_j).
+\]
+The canonical Poisson bracket on $\R^{2n}$ is
+\[
+\{a,b\}
+=\sum_{j=1}^n
+\left(
+\frac{\partial a}{\partial q_j}\frac{\partial b}{\partial p_j}
+-\frac{\partial a}{\partial p_j}\frac{\partial b}{\partial q_j}
+\right).
+\]
+\end{definition}
+
+\begin{definition}[Wigner distributions]
+For $\psi,\varphi\in\mathcal S(\R^n)$, define
+\[
+W_\hbar(\psi,\varphi)(q,p)
+=\frac{1}{(2\pi\hbar)^n}
+\int_{\R^n}e^{-ip\cdot y/\hbar}
+\overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
+\]
+Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
+\end{definition}
+
+\begin{exercise}[Weyl calculus and the Moyal product]
+Prove on $\mathcal S(\R^n)$ that
+\[
+Q_j\psi(x)=x_j\psi(x),
+\qquad P_j\psi(x)=-i\hbar\partial_j\psi(x),
+\qquad [Q_j,P_k]=i\hbar\delta_{jk}I.
+\]
+Derive the Weyl relations and recover the Schr\"odinger representation of
+the Heisenberg group.  Prove
+\[
+\operatorname{Op}_\hbar^W(a)^*
+=\operatorname{Op}_\hbar^W(\overline a),
+\qquad
+\|\operatorname{Op}_\hbar^W(a)\|_{\rm HS}
+=(2\pi\hbar)^{-n/2}\|a\|_2,
+\]
+and
+\[
+\langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
+=\int_{\R^{2n}}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
+\]
+Prove that for $a,b\in\mathcal S(\R^{2n})$ there is a unique
+$a\star_\hbar b\in\mathcal S(\R^{2n})$ satisfying
+\[
+\operatorname{Op}_\hbar^W(a\star_\hbar b)
+=\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
+\]
+Derive the oscillatory-integral formula for $\star_\hbar$ and prove
+\[
+a\star_\hbar b
+=ab+\frac{i\hbar}{2}\{a,b\}+O(\hbar^2),
+\qquad
+\frac{a\star_\hbar b-b\star_\hbar a}{i\hbar}
+=\{a,b\}+O(\hbar^2)
+\]
+in the Schwartz-symbol topology.
+\end{exercise}
+
+\begin{exercise}[Groenewold--van Hove obstruction]
+Prove that Weyl quantization carries Poisson brackets to
+$(i\hbar)^{-1}$ times commutators exactly for affine and quadratic
+polynomials.  Quantize $q^2p^2$ using
+\[
+q^2p^2=\frac19\{q^3,p^3\}
+=\frac13\{q^2p,qp^2\}
+\]
+and prove that there is no linear quantization of the polynomial Poisson
+algebra satisfying
+\[
+\mathcal Q(1)=I,\qquad
+\mathcal Q(q)=Q,\qquad
+\mathcal Q(p)=P,\qquad
+\mathcal Q(q^m)=Q^m,\qquad
+\mathcal Q(p^m)=P^m,
+\]
+together with
+\[
+\mathcal Q(\{f,g\})=(i\hbar)^{-1}
+[\mathcal Q(f),\mathcal Q(g)]
+\]
+on a common invariant domain.
+\end{exercise}
+
+\subsection{Heisenberg Plancherel theory}
+
+\begin{exercise}[Heisenberg Plancherel and inversion]
+\label{ex:heisenberg-harmonic-analysis}
+For $V=\R^n$ and
+$f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
+$dq\,dp\,ds$ and the scalar Fourier transform
+$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
+\[
+\widehat f(\lambda)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
+\]
+Derive the Plancherel measure
+$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
+\[
+\|f\|_2^2
+=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
+\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
+\]
+Prove the inversion formula and the distributional orthogonality of Weyl
+operators.  Prove that representations with trivial central character have
+zero Plancherel measure.
+\end{exercise}
+
+\subsection{Hermite and Laguerre phase-space functions}
+
+\begin{definition}[Hermite functions and Laguerre polynomials]
+\label{def:hermite-laguerre}
+Define the physicists' Hermite polynomials and the generalized Laguerre
+polynomials by
+\[
+e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!},
+\qquad
+L_n^{(\alpha)}(x)
+=\frac{x^{-\alpha}e^x}{n!}
+\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right),
+\quad \alpha>-1.
+\]
+The normalized \emph{Hermite functions} are
+\[
+h_n(x)=\frac{e^{-x^2/2}H_n(x)}
+{(2^nn!\sqrt\pi)^{1/2}}.
+\]
+Write $L_n=L_n^{(0)}$.
+\end{definition}
+
+\begin{exercise}[Mehler kernel and Wigner--Laguerre identity]
+Prove that $(h_n)_{n\geq0}$ is an orthonormal basis of $L^2(\R)$ and, for
+$|r|<1$, derive Mehler's identity
+\[
+\sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
+=\frac1{\sqrt{\pi(1-r^2)}}
+\exp\!\left(
+-\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
+\right).
+\]
+Use the Laguerre Rodrigues formula to prove
+\[
+\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
+x^\alpha e^{-x}\,dx
+=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
+\]
+For the classical oscillator Hamiltonian
+\[
+H_{\rm cl}(q,p)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2},
+\qquad
+\psi_n(q)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}q\right),
+\]
+use the Fourier--Wigner transform to prove
+\[
+W_\hbar[\psi_n](q,p)
+=\frac{(-1)^n}{\pi\hbar}
+e^{-2H_{\rm cl}(q,p)/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}(q,p)}{\hbar\omega}\right).
+\]
+Verify both position and momentum marginals and identify the zeros and sign
+changes of the Wigner distribution from those of $L_n$.
+\end{exercise}
+
 \section{Classical Dynamics and Geometric Quantization}
 
 \subsection{Classical and quantum evolution}
@@ -2381,26 +2428,23 @@ with the metaplectic correction.  Derive the multiplicity formula obtained
 by reduction at integral coadjoint orbits.
 \end{exercise}
 
-\begin{exercise}[Hermite functions and oscillator spectroscopy]
+\begin{exercise}[Harmonic-oscillator spectroscopy]
 For
 \[
 \widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
 +\frac{m\omega^2x^2}{2},
 \]
-define the physicists' Hermite polynomials by
+use the Hermite functions of Definition~\ref{def:hermite-laguerre} to prove
+that
 \[
-e^{2\xi t-t^2}=\sum_{n=0}^{\infty}H_n(\xi)\frac{t^n}{n!}.
-\]
-Derive their differential equation, recurrence, and orthogonality, and
-prove that
-\[
-\psi_n(x)=C_ne^{-m\omega x^2/(2\hbar)}
-H_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
+\psi_n(x)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
 \qquad
 E_n=\hbar\omega\left(n+\frac12\right)
 \]
-give the complete spectral decomposition of $\widehat H$.  Prove that the
-position operator has matrix elements only between $n$ and $n\pm1$.
+give the complete spectral decomposition of $\widehat H$.  Construct the
+creation and annihilation operators and prove that the position operator
+has matrix elements only between $n$ and $n\pm1$.
 Deduce the spectral-line prediction $|E_{n\pm1}-E_n|/\hbar=\omega$ for a
 linearly coupled oscillator.
 \end{exercise}
@@ -4594,21 +4638,6 @@ skew-orthogonal polynomials satisfying
 Prove de Bruijn's Pfaffian integration identity and use it to derive the
 matrix correlation kernels for the GOE and GSE.
 \end{exercise}
-
-\begin{definition}[Laguerre polynomials]
-For $\alpha>-1$, define
-\[
-L_n^{(\alpha)}(x)
-=\frac{x^{-\alpha}e^x}{n!}
-\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right).
-\]
-Their normalization is
-\[
-\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
-x^\alpha e^{-x}\,dx
-=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
-\]
-\end{definition}
 
 \subsection{Christoffel--Darboux and integrable kernels}
 
