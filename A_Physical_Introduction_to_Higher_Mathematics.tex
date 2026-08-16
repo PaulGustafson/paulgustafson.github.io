@@ -733,7 +733,7 @@ $H^\perp\subseteq\widehat G$ and prove
 $\widehat{G/H}\cong H^\perp$.
 \end{exercise}
 
-\section{Operator Spaces and Noncommutative Fourier Duality}
+\section{Noncommutative Fourier Duality and Plancherel Theory}
 
 \subsection{Von Neumann algebras and preduals}
 
@@ -778,83 +778,6 @@ positive functionals is the \emph{predual} $M_*$.  The
 \emph{ultraweak topology} is $\sigma(M,M_*)$.  A bounded linear map between
 von Neumann algebras is \emph{normal} when it is ultraweakly continuous.
 \end{definition}
-
-\subsection{Operator-space structures}
-
-\begin{definition}[Operator spaces and completely bounded maps]
-A \emph{concrete operator space} is a closed linear subspace
-$E\subseteq B(H)$.  For $n\geq1$, identify
-\[
-M_n(E)\subseteq M_n(B(H))\cong B(H^{\oplus n})
-\]
-and use the induced norm.  For a linear map $u:E\to F$, define
-\[
-u_n:M_n(E)\to M_n(F),
-\qquad
-u_n([x_{ij}])=[u(x_{ij})],
-\qquad
-\|u\|_{\rm cb}=\sup_{n\geq1}\|u_n\|.
-\]
-The map is \emph{completely bounded}, \emph{completely contractive}, or a
-\emph{complete isometry} when $\|u\|_{\rm cb}<\infty$,
-$\|u\|_{\rm cb}\leq1$, or every $u_n$ is an isometry, respectively.
-\end{definition}
-
-\begin{definition}[Quotients, duals, and preduals]
-For a closed subspace $F\subseteq E$, the \emph{operator-space quotient}
-$E/F$ has matrix norms
-\[
-M_n(E/F)=M_n(E)/M_n(F).
-\]
-The \emph{operator-space dual} of $E$ is $E^*$ with
-\[
-M_n(E^*)=CB(E,M_n).
-\]
-If $M\subseteq B(H)$ is a von Neumann algebra, its normal-functional
-predual $M_*$ has the operator-space structure for which
-$M=(M_*)^*$ completely isometrically.  In particular,
-\[
-S_1(H)=B(H)_*
-\]
-with its canonical predual operator-space structure.
-\end{definition}
-
-\begin{definition}[Operator-projective tensor product]
-Equip $CB(F,G)$ with the operator-space structure
-\[
-M_n(CB(F,G))=CB(F,M_n(G)).
-\]
-A bilinear map $b:E\times F\to G$ is \emph{jointly completely bounded}
-when the associated map
-\[
-E\longrightarrow CB(F,G),
-\qquad x\longmapsto(y\mapsto b(x,y)),
-\]
-is completely bounded; write $JCB(E\times F,G)$ for these maps with the
-induced norm.  The \emph{operator-projective tensor product}
-$E\widehat\otimes F$ is the completion of $E\otimes F$ characterized, for
-every operator space $G$, by the natural complete isometry
-\[
-CB(E\widehat\otimes F,G)\cong JCB(E\times F,G).
-\]
-\end{definition}
-
-\begin{exercise}[Matrix norms and complete quotients]
-Prove Ruan's matrix-norm identities
-\[
-\|x\oplus y\|=\max\{\|x\|,\|y\|\},
-\qquad
-\|\alpha x\beta\|\leq\|\alpha\|\,\|x\|\,\|\beta\|.
-\]
-Prove that the quotient map $E\to E/F$ is a complete quotient and that its
-adjoint identifies $(E/F)^*$ completely isometrically with
-$F^\perp\subseteq E^*$.  Prove that
-\[
-S_1(H)\widehat\otimes S_1(K)\longrightarrow S_1(H\otimes K),
-\qquad A\otimes B\longmapsto A\otimes B,
-\]
-is completely contractive with dense range.
-\end{exercise}
 
 \subsection{Direct integrals and Plancherel data}
 
@@ -916,7 +839,7 @@ Deduce
 VN(G)\cong
 \int_{\widehat G}^\oplus B(H_\pi)\,d\mu_{\rm Pl}(\pi)
 \]
-and the completely isometric predual realization
+and the isometric predual realization
 \[
 A(G)\cong
 L^1\!\left(\widehat G,\mu_{\rm Pl};S_1(H_\pi)\right).
@@ -946,8 +869,7 @@ The \emph{coefficient space} of $\pi$ is
 \[
 A_\pi(G)=\Phi_\pi(S_1(H_\pi))
 \]
-with the quotient operator-space structure from
-$S_1(H_\pi)/\ker\Phi_\pi$.
+with the quotient norm from $S_1(H_\pi)/\ker\Phi_\pi$.
 \end{definition}
 
 \begin{definition}[Fourier algebra]
@@ -963,12 +885,9 @@ Prove Fell's absorption principle
 \lambda\otimes\pi\cong\lambda\otimes I_{H_\pi}
 \]
 for every unitary representation $\pi$ of $G$.  Deduce that $A(G)$ is a
-completely contractive Banach algebra under pointwise multiplication, so
-the product extends to a complete contraction
-\[
-A(G)\widehat\otimes A(G)\longrightarrow A(G).
-\]
-Prove that $A(G)\subseteq C_0(G)$.
+Banach algebra under pointwise multiplication with
+$\|uv\|_{A(G)}\leq\|u\|_{A(G)}\|v\|_{A(G)}$.  Prove that
+$A(G)\subseteq C_0(G)$.
 \end{exercise}
 
 \subsection{Noncommutative Fourier duality}
@@ -984,19 +903,17 @@ extends uniquely to a normal unital injective $*$-homomorphism
 \Gamma:VN(G)\longrightarrow VN(G)\mathbin{\overline\otimes}VN(G)
 \]
 and satisfies
-$(\Gamma\otimes\id)\Gamma=(\id\otimes\Gamma)\Gamma$.  Compose its
-preadjoint with the canonical complete contraction
+$(\Gamma\otimes\id)\Gamma=(\id\otimes\Gamma)\Gamma$.  Regard
+$u\otimes v$ as a normal functional on
+$VN(G)\mathbin{\overline\otimes}VN(G)$ and prove
 \[
-A(G)\widehat\otimes A(G)\longrightarrow
-\bigl(VN(G)\mathbin{\overline\otimes}VN(G)\bigr)_*
+\Gamma_*(u\otimes v)=uv.
 \]
-and prove that the resulting map is pointwise multiplication
-$u\otimes v\mapsto uv$.  Deduce its complete contractivity directly from
-the coproduct.
+Deduce the norm inequality for Fourier multiplication from the coproduct.
 \end{exercise}
 
 \begin{exercise}[Coefficient-space duality]
-Prove the bicommutant theorem.  Prove the completely isometric
+Prove the bicommutant theorem.  Prove the isometric
 identifications
 \[
 A_\pi(G)^*\cong VN_\pi(G),
@@ -1005,9 +922,8 @@ A(G)^*\cong VN(G),
 \]
 with pairing induced by $(A,T)\mapsto\Tr(AT)$.  Prove that the induced
 weak-$*$ topology on $VN_\pi(G)$ is its ultraweak operator topology and
-that its operator-space predual is $A_\pi(G)$.  Prove
-$M\cong(M_*)^*$ completely isometrically for every von Neumann algebra
-$M$.
+that its predual is $A_\pi(G)$.  Prove $M\cong(M_*)^*$ isometrically for
+every von Neumann algebra $M$.
 \end{exercise}
 
 \begin{exercise}[Coefficient tensor-product identity]
@@ -1032,14 +948,9 @@ u(s)=\sum_{j=1}^{\infty}
 and that its norm is the infimum of the displayed sums. For unitary
 representations $\pi$ and $\rho$, prove that $uv\in A_{\pi\otimes\rho}(G)$
 for $u\in A_\pi(G)$ and $v\in A_\rho(G)$, with
-$\|uv\|\leq\|u\|\,\|v\|$.  At every matrix level, prove that multiplication
-induces a complete contraction
-\[
-A_\pi(G)\widehat\otimes A_\rho(G)
-\longrightarrow A_{\pi\otimes\rho}(G).
-\]
-For $\pi=\rho=\lambda$, identify this map with the preadjoint of the group
-coproduct.
+$\|uv\|\leq\|u\|\,\|v\|$.  For $\pi=\rho=\lambda$, identify this product
+with the restriction of the preadjoint of the group coproduct to elementary
+tensor functionals.
 \end{exercise}
 
 \section{Abelian Realization: Fourier Analysis, Lattices, and Theta Functions}
@@ -1089,8 +1000,7 @@ VN(G)\cong L^\infty(\widehat G),
 A(G)\cong L^1(\widehat G),
 \]
 where the second identification is a normal $*$-isomorphism and the third
-is a completely isometric algebra isomorphism for the canonical predual
-operator-space structures.
+is an isometric algebra isomorphism.
 Prove that $(e^{ikx})_{k\in\Z}$ is an orthonormal basis of $L^2(\T)$ and
 derive
 \[
