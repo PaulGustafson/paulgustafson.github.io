@@ -786,12 +786,24 @@ for all multi-indices $\alpha,\beta$.  For integrable functions, define
 \end{definition}
 
 \begin{definition}[Fourier transform]
-For $f\in\mathcal S(\R^n)$, the semiclassical Fourier transform is
+Let $V$ be an $n$-dimensional real Euclidean space with Lebesgue measure
+$dq$, and equip $V^*$ with the dual measure $dp$.  For
+$f\in\mathcal S(V)$, the semiclassical Fourier transform is
 \[
 (\mathcal F_\hbar f)(p)
-=(2\pi\hbar)^{-n/2}\int_{\R^n}e^{-ip\cdot x/\hbar}f(x)\,dx.
+=(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq.
 \]
 Write $\mathcal F=\mathcal F_1$.
+\end{definition}
+
+\begin{definition}[Position, frequency, momentum, and energy]
+A position is $q\in V$.  A wave covector is $k\in V^*$, with character
+$q\mapsto e^{ik(q)}$, and its momentum is $p=\hbar k$.  A temporal angular
+frequency $\omega\in\R$ has energy $E=\hbar\omega$.  The corresponding
+plane-wave phase is
+\[
+k(q)-\omega t=\frac{p(q)-Et}{\hbar}.
+\]
 \end{definition}
 
 \begin{exercise}[Fourier inversion and Plancherel]
@@ -810,10 +822,24 @@ f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
 \qquad
 \|f\|_2^2=\sum_{k\in\Z}|\widehat f(k)|^2.
 \]
-Prove Fourier inversion on $\mathcal S(\R^n)$ and prove that
-$\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(\R^n)$.
-Show that convolution becomes multiplication and differentiation becomes
-multiplication by frequency.
+Prove Fourier inversion on $\mathcal S(V)$ and prove that
+$\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(V)$.
+For $v\in V$, prove
+\[
+\mathcal F_\hbar(-i\hbar d_v)\mathcal F_\hbar^{-1}\widehat f(p)
+=p(v)\widehat f(p).
+\]
+For the free Schr\"odinger equation derive
+\[
+E(p)=\frac{\|p\|^2}{2m},
+\qquad
+\omega(k)=\frac{\hbar\|k\|^2}{2m},
+\qquad
+v_{\rm group}=\frac pm.
+\]
+Deduce the time-of-flight displacement of a wave packet concentrated near
+$p_0$ and the de Broglie relation between its measured wavelength and
+momentum.
 \end{exercise}
 
 
@@ -1855,7 +1881,7 @@ an oscillator experiment.
 \end{exercise}
 \part{Deformation}
 
-\section{Geometry, Quantization, and Phase-Space Spectroscopy}
+\section{Weyl Quantization and Phase-Space Spectroscopy}
 
 
 
@@ -1985,45 +2011,65 @@ changes of the Wigner distribution from those of $L_n$.
 \end{exercise}
 
 
-\begin{definition}[Smooth bundles and sections]
-A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
-locally isomorphic over $M$ to $U\times F\to U$. A \emph{smooth vector
-bundle} has vector-space fibers and linear transition maps. A \emph{smooth
-principal $G$-bundle} has a free right $G$-action, transitive on each fiber,
-and local equivariant trivializations. A \emph{section} is a smooth map
-$s:M\to E$ with $\pi s=\id_M$. For a representation
-$G\to\operatorname{GL}(V)$, the
-\emph{associated vector bundle} is
-$P\times_GV=(P\times V)/((pg,v)\sim(p,gv))$.
-\end{definition}
-
-\begin{definition}[Frame bundles and $G$-structures]
-The \emph{frame bundle} of an $n$-manifold is the principal
-$\operatorname{GL}(n,\R)$-bundle
+\begin{exercise}[Laguerre signatures in phase-space tomography]
+For the dimensionless quadrature
 \[
-\operatorname{Fr}(M)_p
-=\operatorname{Iso}(\R^n,T_pM).
+X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
++\frac{P}{\sqrt{m\hbar\omega}}\sin\theta,
 \]
-For a closed subgroup $G\leq\operatorname{GL}(n,\R)$, a
-\emph{$G$-structure} is a principal $G$-subbundle of
-$\operatorname{Fr}(M)$. It is a choice of the frames related by the
-transformations in $G$. Riemannian, Lorentzian, and almost symplectic
-structures correspond respectively to reductions to
-$O(n)$, $O(1,n-1)$, and $\operatorname{Sp}(2n,\R)$; an oriented,
-time-oriented spacetime has structure group $SO^+(1,3)$.
+prove that its probability density in a state $\psi$ is the Radon
+transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
+Derive the Fourier-slice inversion formula reconstructing the Wigner
+distribution from the family of quadrature densities.  For the oscillator
+state $\psi_n$, use the Wigner--Laguerre identity to prove that the
+reconstructed radial profile is
+\[
+\frac{(-1)^n}{\pi\hbar}e^{-2H_{\rm cl}/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}}{\hbar\omega}\right),
+\]
+while every quadrature density is a scaled
+$e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
+radial zero circles determined by $L_n$, and the sign at the phase-space
+origin.  State how homodyne quadrature data distinguish adjacent number
+states and detect Wigner negativity after inverse Radon reconstruction.
+\end{exercise}
+
+\section{Hamiltonian Geometry and Elliptic Dynamics}
+
+\begin{definition}[Cotangent phase spaces and smooth vector bundles]
+For a smooth manifold $Q$ and $q\in Q$, let $T_qQ$ be the linear space of
+derivations $C^\infty(Q)\to\R$ at $q$, and let
+$T_q^*Q=(T_qQ)^*$.  Define
+\[
+TQ=\coprod_{q\in Q}T_qQ,
+\qquad
+T^*Q=\coprod_{q\in Q}T_q^*Q.
+\]
+A smooth vector bundle is a smooth map $\pi:E\to Q$ locally isomorphic to
+$U\times W\to U$ by fiberwise linear maps.  A section is a smooth map
+$s:Q\to E$ satisfying $\pi s=\id_Q$.  The bundles $TQ$ and $T^*Q$ are the
+tangent and cotangent bundles.  A classical position--momentum state is a
+pair $(q,p)$ with $p\in T_q^*Q$, and its wave covector is $k=p/\hbar$.
 \end{definition}
 
-\begin{definition}[Tensor fields and metrics]
-A \emph{$(r,s)$-tensor field} is a smooth section of
-$TM^{\otimes r}\otimes T^*M^{\otimes s}$. Equivalently, an
-$O(p,q)$-structure is a smooth nondegenerate symmetric tensor $g$ of
-signature $(p,q)$. The cases $(n,0)$ and $(1,n-1)$ give Riemannian and
-Lorentzian metrics. The length of a Riemannian curve is
-$\int\sqrt{g(\dot\gamma,\dot\gamma)}\,dt$; the proper time of a timelike
-curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
-orientation define a volume form $\vol_g$.
-\end{definition}
-
+\begin{exercise}[From linear to cotangent phase space]
+For a finite-dimensional real linear space $V$, construct the canonical
+identifications
+\[
+TV\cong V\times V,
+\qquad
+T^*V\cong V\times V^*.
+\]
+Prove that a phase $S\in C^\infty(Q)$ determines the momentum
+$p=dS_q\in T_q^*Q$ and local wave covector $k=dS_q/\hbar$.  For a
+diffeomorphism $F:Q\to Q$, construct its cotangent lift and prove that it
+preserves the tautological one-form
+\[
+\theta_{(q,p)}(\xi)=p(d\pi(\xi)).
+\]
+Deduce that it preserves $d\theta$, and recover the position--momentum
+pairing and symplectic form used in Weyl quantization when $Q=V$.
+\end{exercise}
 
 \begin{definition}[Differential forms and exterior derivative]
 A \emph{differential $k$-form} on $M$ is a smooth section of
@@ -2047,9 +2093,8 @@ $\iota_X$, prove Cartan's identity
 \end{exercise}
 
 \begin{definition}[Integration of forms]
-An \emph{orientation} of an $n$-manifold is a reduction of its frame bundle
-to $\operatorname{GL}^+(n,\R)$, equivalently a continuous choice of component
-of nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
 compactly supported top form is defined using orientation-preserving charts
 and a partition of unity.
 \end{definition}
@@ -2100,87 +2145,6 @@ Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
 closed electromagnetic field strength has local potentials, while it has a
 global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
 \end{exercise}
-
-\begin{definition}[Hodge star]
-On an oriented pseudo-Riemannian $n$-manifold, the metric induces a
-nondegenerate pairing $\langle\cdot,\cdot\rangle_g$ on differential forms.
-The \emph{Hodge star} is the bundle map
-\[
-*:\Omega^p(M)\longrightarrow\Omega^{n-p}(M)
-\]
-characterized by
-\[
-\alpha\wedge *\beta
-=\langle\alpha,\beta\rangle_g\,\vol_g
-\]
-for $p$-forms $\alpha,\beta$.
-\end{definition}
-
-\begin{exercise}[Metric volume and Hodge star]
-Construct $\vol_g$ and the Hodge star intrinsically. For a metric with $q$
-negative directions, prove on
-$p$-forms that
-\[
-*^2=(-1)^{p(n-p)+q}\id.
-\]
-\end{exercise}
-
-
-\begin{definition}[Connections and parallel transport]
-\label{def:connections-parallel-transport}
-A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
-$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
-functions in the first variable and satisfying
-$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
-covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
-\emph{parallel transport} between endpoint fibers. On $TM$, the torsion is
-$T(X,Y)=\nabla_XY-\nabla_YX-[X,Y]$, and a \emph{geodesic} satisfies
-$D\dot\gamma/dt=0$.
-\end{definition}
-
-\begin{definition}[Curvature and holonomy]
-\label{def:curvature-holonomy}
-The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
-two-form
-\[
-R^\nabla(X,Y)s
-=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
-\]
-The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
-obtained by parallel transport around loops based at $p$.
-\end{definition}
-
-\begin{exercise}[Parallel transport and curvature]
-Prove existence, uniqueness, composition, and inverse properties of parallel
-transport. Prove that curvature is tensorial and gives the leading failure
-of transport around an infinitesimal parallelogram to return a vector to
-itself. Deduce that a flat connection has path-independent transport on every
-simply connected coordinate domain.
-\end{exercise}
-
-\begin{definition}[Principal connections and gauge fields]
-Let $P\to M$ be a principal $G$-bundle. A \emph{principal connection} is an
-equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
-vertical fields. It induces connections on every associated bundle, and its
-\emph{curvature} is
-$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
-$G$-equivariant bundle automorphism covering $\id_M$. A reduction of the
-frame bundle describes spacetime geometry; a separate principal bundle
-describes an internal gauge symmetry.
-\end{definition}
-
-\begin{exercise}[Gauge covariance and Bianchi identity]
-Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
-$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
-a flat connection has trivial holonomy on contractible loops and is
-gauge-equivalent to a product connection on a connected base exactly when
-its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
-around a
-generator of the fundamental group and exhibit the obstruction to removing
-a flat connection globally.
-\end{exercise}
-
-
 
 \begin{definition}[Symplectic manifolds and canonical transformations]
 A \emph{symplectic form} is a closed nondegenerate two-form $\omega$.
@@ -2282,6 +2246,66 @@ T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
 \]
 Deduce the experimentally testable increase of period with amplitude and
 the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+
+
+\section{Geometric and Deformation Quantization}
+
+\begin{definition}[Connections and parallel transport]
+\label{def:connections-parallel-transport}
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers.
+\end{definition}
+
+\begin{definition}[Curvature and holonomy]
+\label{def:curvature-holonomy}
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
+\end{definition}
+
+\begin{exercise}[Parallel transport and curvature]
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
+\end{exercise}
+
+\begin{definition}[Principal connections and gauge fields]
+For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
+$P\to M$ with a free right $G$-action, transitive on each fiber, and local
+$G$-equivariant trivializations.  For a representation
+$G\to\operatorname{GL}(W)$, its
+associated vector bundle is
+$P\times_GW=(P\times W)/((pg,w)\sim(p,gw))$.
+A \emph{principal connection} is an
+equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
+vertical fields. It induces connections on every associated bundle, and its
+\emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
+\end{definition}
+
+\begin{exercise}[Gauge covariance and Bianchi identity]
+Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
+$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
+a flat connection has trivial holonomy on contractible loops and is
+gauge-equivalent to a product connection on a connected base exactly when
+its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
+around a
+generator of the fundamental group and exhibit the obstruction to removing
+a flat connection globally.
 \end{exercise}
 
 
@@ -2433,27 +2457,63 @@ commutation relations and the full bidifferential expansion of the Moyal
 product on polynomials.
 \end{exercise}
 
-\begin{exercise}[Laguerre signatures in phase-space tomography]
-For the dimensionless quadrature
+\begin{definition}[Theta functions with characteristics]
+For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
 \[
-X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
-+\frac{P}{\sqrt{m\hbar\omega}}\sin\theta,
+\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
+=\sum_{n\in\Z}
+\exp\!\left(
+\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
+\right).
 \]
-prove that its probability density in a state $\psi$ is the Radon
-transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
-Derive the Fourier-slice inversion formula reconstructing the Wigner
-distribution from the family of quadrature densities.  For the oscillator
-state $\psi_n$, use the Wigner--Laguerre identity to prove that the
-reconstructed radial profile is
+\end{definition}
+
+\begin{exercise}[Magnetic theta functions and Landau-level spectroscopy]
+Let
+$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
+charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
+assume $eB>0$.  Put
 \[
-\frac{(-1)^n}{\pi\hbar}e^{-2H_{\rm cl}/(\hbar\omega)}
-L_n\!\left(\frac{4H_{\rm cl}}{\hbar\omega}\right),
+N=\frac{eBA}{2\pi\hbar},
+\qquad
+\tau=i\frac{L_y}{L_x},
+\qquad
+z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
 \]
-while every quadrature density is a scaled
-$e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
-radial zero circles determined by $L_n$, and the sign at the phase-space
-origin.  State how homodyne quadrature data distinguish adjacent number
-states and detect Wigner negativity after inverse Radon reconstruction.
+Use the prequantization condition to prove that a magnetic line bundle
+$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$, use the holomorphic-gauge
+automorphy laws
+\[
+f(z+1)=f(z),
+\qquad
+f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z)
+\]
+to prove the magnetic-translation decomposition
+\[
+H^0(Q,L)
+=\bigoplus_{r\in\Z/N\Z}
+\C\,\vartheta\!\begin{bmatrix}r/N\\0\end{bmatrix}(Nz\mid N\tau).
+\]
+Derive the automorphy and magnetic-translation eigenvalue laws directly
+from the defining series.  Relate the holomorphic-gauge sections to
+physical wavefunctions by their common unitary-gauge factor.
+
+For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy and the
+Moyal plane-wave identity to prove
+\[
+UV=e^{2\pi i/N}VU.
+\]
+For the covariant Landau Hamiltonian, construct the raising and lowering
+operators and prove
+\[
+E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
+\qquad
+\dim E_{\widehat H}(\{E_n\})H=N.
+\]
+Deduce the cyclotron resonance spacing, the degeneracy density
+$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
+State how measurements of these three quantities separately test the
+energy, flux-integrality, and theta-function predictions.
 \end{exercise}
 
 \section{Integrable Systems and the Yang--Baxter Equation}
