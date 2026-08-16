@@ -2,14 +2,16 @@
 
 These rules apply to `A_Physical_Introduction_to_Higher_Mathematics.tex`.
 
-- The body should consist of definitions and exercises stating major results.
+- Except for the required opening physical question in each section, the body
+  should consist of definitions and exercises stating major results.
 - Put theorem statements and substantial consequences in exercises, not in
   definition environments.
 - Definitions should contain only the hypotheses, notation, conventions, and
   formulas needed to define the object.
-- Do not add motivational, transitional, interpretive, or summary prose.
-  In particular, omit section introductions and sentences explaining what a
-  definition "shows," "means," "records," or "indicates."
+- Do not add motivational, transitional, interpretive, or summary prose beyond
+  the required opening physical question. In particular, omit any additional
+  section introduction and sentences explaining what a definition "shows,"
+  "means," "records," or "indicates."
 - Do not add minor computational drills merely to fill out a section. Keep
   exercises for structurally important results.
 - Preserve mathematical qualifications and normalization conventions needed
@@ -80,6 +82,34 @@ These rules apply to `A_Physical_Introduction_to_Higher_Mathematics.tex`.
 - Preserve the definitions-and-exercises format: applications and
   experimental interpretations belong in exercises, not in transitional
   prose.
+
+### Opening physical questions
+
+- Immediately after every `\section` heading, place exactly one opening
+  physical question, formatted as `\emph{Question.} ...` and written as a
+  single sentence.
+- Make the question as short as possible while remaining self-contained for a
+  reader who has not yet read the section. Include the physical system or
+  apparatus and the observable or effect being asked about.
+- Use ordinary physical language only. Do not mention mathematical theories,
+  structures, formalisms, named special functions, or notation that the
+  section has not yet defined.
+- Begin with the simplest familiar physical instance that creates the need
+  for the section's mathematics. Do not use the culminating experiment merely
+  because it is more sophisticated. For example, motivate spectral theory
+  with the vibration frequencies of springs or strings, not with Airy levels
+  of gravitationally bound neutrons.
+- Do not assume unexplained physical vocabulary or a prior expectation that
+  needs justification. Prefer "When an atom is illuminated, why does it
+  absorb some colors of light but not others?" to "Why are some atomic
+  spectral lines missing?"
+- Let the definitions and exercises progressively answer the question, and
+  let the culminating special-function exercise sharpen the same physical
+  theme into a quantitative experimental prediction.
+- Treat inability to formulate a simple, self-contained physical question as
+  evidence that the section is unmotivated in its present form. Merge,
+  divide, relocate, or remove the section instead of writing an abstract or
+  forced question.
 
 - After changing the TeX source, rebuild and validate the tracked PDF. Commit
   and push the TeX and PDF together unless the user requests otherwise.
