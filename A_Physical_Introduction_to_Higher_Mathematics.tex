@@ -1254,6 +1254,135 @@ Compare the two families tabulated in
 
 \section{Kirillov Orbit Method and the Heisenberg Group}
 
+\subsection{Coadjoint orbits and the Kirillov form}
+
+\begin{definition}[Coadjoint action and stabilizers]
+For a Lie group $G$ with Lie algebra $\mathfrak g$, define
+\[
+\Ad_g=d(h\mapsto ghg^{-1})_e,
+\qquad
+(\Ad_g^*\ell)(X)=\ell(\Ad_{g^{-1}}X).
+\]
+For $\ell\in\mathfrak g^*$, define
+\[
+\mathcal O_\ell=\Ad^*(G)\ell,
+\qquad
+G_\ell=\{g\in G:\Ad_g^*\ell=\ell\},
+\]
+and
+\[
+\mathfrak g_\ell
+=\{X\in\mathfrak g:\ell([X,Y])=0
+\text{ for every }Y\in\mathfrak g\}.
+\]
+For $X\in\mathfrak g$, set
+\[
+(\ad_X^*\ell)(Y)=-\ell([X,Y]).
+\]
+\end{definition}
+
+\begin{definition}[Kirillov form]
+On $T_\ell\mathcal O_\ell$, define
+\[
+\omega_\ell(\ad_X^*\ell,\ad_Y^*\ell)=\ell([X,Y]).
+\]
+For $\eta=\Ad_g^*\ell$, transport $\omega_\ell$ by the coadjoint
+action to define $\omega_\eta$.
+\end{definition}
+
+\begin{exercise}[Geometry of coadjoint orbits]
+Prove
+\[
+T_\ell\mathcal O_\ell
+=\{\ad_X^*\ell:X\in\mathfrak g\}
+\cong\mathfrak g/\mathfrak g_\ell.
+\]
+Prove that the Kirillov form is well-defined, alternating, nondegenerate,
+and $G$-invariant.  Prove the cyclic identity
+\[
+\ell([X,[Y,Z]])+\ell([Y,[Z,X]])+\ell([Z,[X,Y]])=0
+\]
+and identify it with the closedness identity for the invariant two-form
+$\omega$ on $\mathcal O_\ell$.
+\end{exercise}
+
+\subsection{Polarizations, induction, and the Kirillov correspondence}
+
+\begin{definition}[Polarizations and orbital representations]
+Let $G$ be connected, simply connected, and nilpotent.  A
+\emph{polarization} at $\ell\in\mathfrak g^*$ is a Lie subalgebra
+$\mathfrak p\subseteq\mathfrak g$ satisfying
+\[
+\ell([\mathfrak p,\mathfrak p])=0,
+\qquad
+\dim\mathfrak p
+=\frac{\dim\mathfrak g+\dim\mathfrak g_\ell}{2}.
+\]
+For $P=\exp(\mathfrak p)$, define
+\[
+\chi_\ell(\exp X)=e^{i\ell(X)}.
+\]
+The \emph{orbital representation}
+$\pi_\ell=\operatorname{Ind}_P^G\chi_\ell$ acts on measurable
+functions $F:G\to\C$ satisfying
+\[
+F(gp)=\chi_\ell(p)^{-1}F(g),
+\qquad
+\int_{G/P}|F(g)|^2\,d(gP)<\infty,
+\]
+by
+\[
+(\pi_\ell(g_0)F)(g)=F(g_0^{-1}g),
+\]
+where $d(gP)$ is a $G$-invariant quotient measure.
+\end{definition}
+
+\begin{exercise}[Kirillov correspondence]
+Prove that every $\ell\in\mathfrak g^*$ admits a polarization, that
+$P=\exp(\mathfrak p)$ is closed, and that $\chi_\ell$ is a unitary
+character.  Prove that $\pi_\ell$ is irreducible and independent of the
+polarization up to unitary equivalence.  Prove
+\[
+\pi_\ell\simeq\pi_{\ell'}
+\Longleftrightarrow
+\mathcal O_\ell=\mathcal O_{\ell'}
+\]
+and that
+\[
+\mathfrak g^*/G\longrightarrow\widehat G,
+\qquad
+\mathcal O_\ell\longmapsto[\pi_\ell],
+\]
+is a bijection.
+\end{exercise}
+
+\begin{exercise}[Kirillov character formula]
+Let $f$ be a function on $G$ for which $f\circ\exp\in\mathcal S(\mathfrak g)$,
+choose $dX$ so that $\exp_*dX$ is Haar measure, and define
+\[
+\mathcal F_Gf(\eta)
+=\int_{\mathfrak g}f(\exp X)e^{i\eta(X)}\,dX.
+\]
+If $\dim\mathcal O_\ell=2d$, define its orbital measure by
+\[
+d\mu_{\mathcal O_\ell}
+=(2\pi)^{-d}\frac{\omega^d}{d!}.
+\]
+For
+\[
+\pi_\ell(f)=\int_G f(g)\pi_\ell(g)\,dg,
+\]
+prove that $\pi_\ell(f)$ is trace class and that
+\[
+\Tr\pi_\ell(f)
+=\int_{\mathcal O_\ell}\mathcal F_Gf(\eta)\,
+d\mu_{\mathcal O_\ell}(\eta).
+\]
+Compare the correspondence and character formula with
+\href{https://doi.org/10.1070/RM1962v017n04ABEH004118}
+{Kirillov, \emph{Russian Mathematical Surveys} \textbf{17} (1962)}.
+\end{exercise}
+
 \subsection{Projective representations and multipliers}
 
 \begin{definition}[Multipliers and projective representations]
@@ -1408,83 +1537,50 @@ and identify $W$ with the restriction of $\pi_1$ to
 $V\oplus V^*\subset\mathbb H(V\oplus V^*,\omega)$.
 \end{exercise}
 
-\subsection{Coadjoint orbits and orbital induction}
+\subsection{Heisenberg coadjoint orbits}
 
-\begin{definition}[Coadjoint orbits and the Kirillov form]
-For a Lie group $G$ with Lie algebra $\mathfrak g$, define
+\begin{exercise}[Heisenberg orbits and the Schr\"odinger model]
+Identify
 \[
-\Ad_g=d(h\mapsto ghg^{-1})_e,
+\mathfrak h(E,\omega)^*=E^*\oplus\R Z^*.
+\]
+For $(\xi,\lambda)\in E^*\oplus\R Z^*$, prove
+\[
+\Ad_{(z,s)}^*(\xi,\lambda)
+=\bigl(\xi-\lambda\omega(z,{\cdot}),\lambda\bigr).
+\]
+Deduce that the orbits with $\lambda=0$ are points and that, for
+$\lambda\ne0$,
+\[
+\mathcal O_\lambda
+=\{(\xi,\lambda):\xi\in E^*\}.
+\]
+Prove that
+\[
+E\longrightarrow\mathcal O_\lambda,
 \qquad
-(\Ad_g^*\ell)(X)=\ell(\Ad_{g^{-1}}X).
+z\longmapsto\bigl(-\lambda\omega(z,{\cdot}),\lambda\bigr),
 \]
-The \emph{coadjoint orbit} through $\ell\in\mathfrak g^*$ is
-$\mathcal O_\ell=\Ad^*(G)\ell$.  Define
-\[
-(\ad_X^*\ell)(Y)=-\ell([X,Y]).
-\]
-The \emph{Kirillov form} on $\mathcal O_\ell$ is
-\[
-\omega_\ell(\ad_X^*\ell,\ad_Y^*\ell)=\ell([X,Y]).
-\]
-\end{definition}
+pulls the Kirillov form back to $\lambda\omega$.
 
-\begin{definition}[Polarizations and orbital representations]
-Let $G$ be connected, simply connected, and nilpotent.  For
-$\ell\in\mathfrak g^*$, set
+For $E=V\oplus V^*$ and
+$\mathfrak p=V^*\oplus\R Z$, prove that $\mathfrak p$ is a polarization
+at $(0,\lambda)$.  Identify
+$\mathbb H(E,\omega)/\exp(\mathfrak p)$ with $V$ and compute the
+induced action to obtain
 \[
-\mathfrak g_\ell
-=\{X\in\mathfrak g:\ell([X,Y])=0\text{ for every }Y\in\mathfrak g\}.
+\bigl(\pi_\lambda(q,p,s)\psi\bigr)(x)
+=e^{i\lambda(s+p(x-q/2))}\psi(x-q).
 \]
-A \emph{polarization} at $\ell$ is a Lie subalgebra
-$\mathfrak p\subseteq\mathfrak g$ satisfying
-\[
-\ell([\mathfrak p,\mathfrak p])=0,
-\qquad
-\dim\mathfrak p
-=\frac{\dim\mathfrak g+\dim\mathfrak g_\ell}{2}.
-\]
-For $P=\exp(\mathfrak p)$, define
-\[
-\chi_\ell(\exp X)=e^{i\ell(X)},
-\]
-and let $\pi_\ell=\operatorname{Ind}_P^G\chi_\ell$ act by left translation
-on the Hilbert space of measurable functions $f:G\to\C$ satisfying
-\[
-f(gp)=\chi_\ell(p)^{-1}f(g),
-\qquad
-\int_{G/P}|f(g)|^2\,d(gP)<\infty.
-\]
-Here $d(gP)$ is a $G$-invariant quotient measure, and the action is
-\[
-(\pi_\ell(g_0)f)(g)=f(g_0^{-1}g).
-\]
-\end{definition}
-
-\begin{exercise}[Kirillov orbit method]
-Prove that the Kirillov form is well-defined, closed, nondegenerate, and
-$G$-invariant.  For connected simply connected nilpotent $G$, prove that a
-polarization exists at every $\ell$, that $\chi_\ell$ is a unitary
-character, that $\pi_\ell$ is irreducible and independent of the
-polarization up to unitary equivalence, and that
-\[
-\mathcal O_\ell\longmapsto[\pi_\ell]
-\]
-is a bijection from coadjoint orbits to $\widehat G$.
-For $\mathfrak h(E,\omega)$, prove that the coadjoint orbits with
-$\ell(Z)=\lambda\ne0$ are the affine hyperplanes
-\[
-\{\eta\in\mathfrak h(E,\omega)^*: \eta(Z)=\lambda\},
-\]
-while the orbits with $\ell(Z)=0$ are points.  Identify the orbital
-representation for $\lambda\ne0$ with $\pi_\lambda$ and the point
-orbits with the characters trivial on the center.
+For $\lambda=0$, recover every character of $E$ from a point orbit.
 \end{exercise}
 
 \subsection{Stone--von Neumann theorem}
 
 \begin{exercise}[Stone--von Neumann theorem]
-Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
-continuous irreducible unitary representation of
+Deduce from the Kirillov correspondence that $\pi_\lambda$ is
+irreducible and that every strongly continuous irreducible unitary
+representation of
 $\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
 $\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
 \end{exercise}
@@ -1552,7 +1648,15 @@ in the weak operator topology.
 
 \begin{exercise}[Heisenberg Plancherel and inversion]
 \label{ex:heisenberg-harmonic-analysis}
-For $V=\R^n$ and
+For $V=\R^n$ and $f$ satisfying
+$f\circ\exp\in\mathcal S(\mathfrak h_n)$, prove
+\[
+\Tr\pi_\lambda(f)
+=(2\pi)^n|\lambda|^{-n}
+\int_\R f(0,0,s)e^{i\lambda s}\,ds.
+\]
+Derive this identity both from the Schr\"odinger kernel and from the
+Kirillov character formula on $\mathcal O_\lambda$.  For
 $f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
 $dq\,dp\,ds$ and the scalar Fourier transform
 $\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
@@ -1598,7 +1702,6 @@ $L^2(\R)$ and, for $|r|<1$, derive Mehler's identity
 \right).
 \]
 \end{exercise}
-
 \part{Deformation}
 
 \section{Weyl Quantization and the Moyal Product}
