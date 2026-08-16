@@ -268,117 +268,6 @@ sending the coordinate function to $a$, and prove the continuous spectral
 mapping theorem.
 \end{exercise}
 
-\section{Operator Spaces and Operator Tensor Products}
-
-\begin{definition}[Operator spaces and completely bounded maps]
-An \emph{operator space} is a closed linear subspace $E\subseteq B(H)$ with
-the matrix norms inherited from
-\[
-M_n(E)\subseteq B(H^{\oplus n}).
-\]
-For a linear map $u:E\to F$, define
-\[
-\|u\|_{cb}=\sup_{n\geq1}\|\id_{M_n}\otimes u\|.
-\]
-The map is \emph{completely bounded} when $\|u\|_{cb}<\infty$ and a
-\emph{complete isometry} when every $\id_{M_n}\otimes u$ is isometric.
-The dual operator-space structure on $E^*$ is determined by
-\[
-M_n(E^*)=\operatorname{CB}(E,M_n)
-\]
-isometrically.
-\end{definition}
-
-\begin{definition}[Row and column spaces]
-For a Hilbert space $H$, its \emph{column space} and conjugate
-\emph{row space} are
-\[
-H_c=B(\C,H),\qquad \overline H_r=B(H,\C)
-\]
-with their inherited operator-space structures.
-For operator spaces $E$ and $F$, the \emph{Haagerup norm} is
-\[
-\|u\|_h
-=\inf\left\{
-\|[x_1\ \cdots\ x_m]\|_{M_{1,m}(E)}
-\|[y_1\ \cdots\ y_m]^t\|_{M_{m,1}(F)}:
-u=\sum_{j=1}^m x_j\otimes y_j
-\right\}.
-\]
-The completion is denoted $E\otimes_hF$.
-The \emph{operator-space projective norm} is
-\[
-\|u\|_{\wedge}
-=\inf\{\|\alpha\|\,\|x\|\,\|y\|\,\|\beta\|:
-u=\alpha(x\otimes y)\beta\},
-\]
-where $x\in M_p(E)$, $y\in M_q(F)$,
-$\alpha\in M_{1,pq}$, and $\beta\in M_{pq,1}$.  Its completion is denoted
-$E\mathbin{\widehat\otimes}F$.
-\end{definition}
-
-\begin{definition}[Trace and Hilbert--Schmidt classes]
-For $x,y\in H$, let
-\[
-\theta_{x,y}(\xi)=\langle y,\xi\rangle x.
-\]
-The algebra $\mathcal K(H)$ of \emph{compact operators} is the norm closure
-of the span of the operators $\theta_{x,y}$.
-The \emph{trace class} $S_1(H)$ consists of operators admitting a
-representation
-\[
-A=\sum_{j=1}^{\infty}\theta_{x_j,y_j},
-\qquad
-\sum_{j=1}^{\infty}\|x_j\|\,\|y_j\|<\infty,
-\]
-where the series converges in operator norm, with norm the infimum of the
-displayed sums.  Define
-\[
-\Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
-\]
-The \emph{Hilbert--Schmidt class} $S_2(H)$ consists of operators satisfying
-\[
-\|A\|_2^2=\sum_j\|Ae_j\|^2<\infty
-\]
-for an orthonormal basis $(e_j)$ of $H$.
-\end{definition}
-
-\begin{definition}[Ruan's axioms]
-Matrix norms on a complex linear space $E$ satisfy \emph{Ruan's axioms} when
-\[
-\|x\oplus y\|_{M_{n+m}(E)}
-=\max\{\|x\|_{M_n(E)},\|y\|_{M_m(E)}\}
-\]
-and
-\[
-\|\alpha x\beta\|_{M_{r,s}(E)}
-\leq\|\alpha\|\,\|x\|_{M_n(E)}\,\|\beta\|
-\]
-for scalar matrices of compatible sizes.
-\end{definition}
-
-\begin{exercise}[Row--column tensor duality]
-Prove that the definitions of $S_1(H)$, $\Tr$, and $S_2(H)$ are independent
-of all displayed choices.  Prove the complete isometries
-\[
-H_c\otimes_h\overline H_r\cong\mathcal K(H),
-\qquad
-\overline H_r\mathbin{\widehat\otimes}H_c
-\cong\overline H_r\otimes_h H_c\cong S_1(H),
-\qquad
-S_1(H)^*\cong B(H),
-\]
-where $\overline y\otimes x$ corresponds to $\theta_{x,y}$ and the last
-pairing is $(A,T)\mapsto\Tr(AT)$.  Prove that
-$\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space.
-\end{exercise}
-
-\begin{exercise}[Ruan's representation theorem]
-Prove that matrix norms arise from a complete isometry $E\to B(H)$ if and
-only if they satisfy Ruan's axioms.  Prove
-$M_n(E^*)=\operatorname{CB}(E,M_n)$ completely isometrically.
-\end{exercise}
-
 \section{Spectral Decomposition}
 
 \begin{definition}[Projection-valued measures]
@@ -1074,7 +963,9 @@ Compare the two families tabulated in
 \textbf{119} (1965)} for invariant eigendistributions.
 \end{exercise}
 
-\section{Unitary Coefficient Spaces}
+\section{Unitary Coefficient Spaces and the Fourier Algebra}
+
+\subsection{Unitary coefficient spaces}
 
 \begin{definition}[Unitary representations and coefficient spaces]
 Let $G$ be a locally compact group and let
@@ -1112,7 +1003,7 @@ A_\pi(G)\mathbin{\widehat\otimes}A_\rho(G)
 \]
 \end{exercise}
 
-\section{The Fourier Algebra}
+\subsection{The Fourier algebra}
 
 \begin{definition}[Left regular representation and Fourier algebra]
 Let $G$ be a locally compact group with left Haar measure.  Its
@@ -1361,82 +1252,7 @@ A=(2\pi)^{-n/2}\int_{V\oplus V^*}
 in the weak operator topology.
 \end{exercise}
 
-\section{Symplectic Geometry from the Weyl System}
-
-\subsection{Projective representations and multipliers}
-
-\begin{definition}[Multipliers and projective representations]
-A \emph{normalized multiplier} on a locally compact group $G$ is a
-continuous map
-$\sigma:G\times G\to\T$ satisfying
-\[
-\sigma(x,e)=\sigma(e,x)=1,
-\qquad
-\sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
-\]
-A \emph{$\sigma$-projective unitary representation} is a strongly continuous map
-$U:G\to U(H)$ satisfying
-\[
-U_xU_y=\sigma(x,y)U_{xy},
-\qquad U_e=I.
-\]
-Multipliers $\sigma$ and $\sigma'$ are \emph{cohomologous} when there is a
-continuous map $b:G\to\T$, $b(e)=1$, such that
-\[
-\sigma'(x,y)=b(x)b(y)\overline{b(xy)}\,\sigma(x,y).
-\]
-\end{definition}
-
-\begin{exercise}[The Weyl multiplier]
-Prove that the phase in the Weyl product is a normalized multiplier on
-$V\oplus V^*$.
-\end{exercise}
-
-\subsection{Alternating commutator form}
-
-\begin{definition}[Commutator bicharacter]
-For a multiplier $\sigma$ on an abelian group $A$, define
-\[
-c_\sigma(x,y)=\sigma(x,y)\overline{\sigma(y,x)}.
-\]
-\end{definition}
-
-\begin{exercise}[Commutator bicharacter]
-Prove that $c_\sigma$ is an alternating bicharacter and depends only on the
-cohomology class of $\sigma$.  For the Weyl multiplier on $V\oplus V^*$,
-prove
-\[
-c_\sigma\bigl((q,p),(q',p')\bigr)
-=e^{i(p(q')-p'(q))}.
-\]
-\end{exercise}
-
-\subsection{Linear symplectic geometry}
-
-\begin{definition}[Symplectic phase space]
-A \emph{symplectic form} on a finite-dimensional real linear space $E$ is a
-nondegenerate alternating bilinear form $\omega:E\times E\to\R$.  On
-$E=V\oplus V^*$, define
-\[
-\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
-For $\lambda\in\R$, define
-\[
-\sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
-\]
-The Weyl multiplier is $\sigma_\omega$.
-\end{definition}
-
-\begin{exercise}[Linear Darboux theorem]
-Prove that every symplectic space has a basis in which its form has matrix
-\[
-\begin{pmatrix}0&-I\\ I&0\end{pmatrix}.
-\]
-Prove that $\sigma_{\lambda\omega}$ is a multiplier and that
-$c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}$.
-\end{exercise}
-
-\section{The Heisenberg Group}
+\section{The Heisenberg Group and Weyl Quantization}
 
 \subsection{Central extension}
 
@@ -2042,7 +1858,7 @@ conjugacy classes compatibly and preserves their associated local
 $L$-factors.
 \end{definition}
 
-\section{Cyclotomic and Aperiodic Structure}
+\section{Cyclotomic and Aperiodic Harmonic Structure}
 
 \subsection{Algebraic numbers, roots of unity, and cyclotomic fields}
 
@@ -2249,6 +2065,8 @@ them with elements of $\mathcal L_\alpha$.  Compare these values with the
 plateaus of the finite-approximant integrated density of states, without
 asserting that every allowed label is an open spectral gap.
 \end{exercise}
+
+\part{Deformation}
 
 \section{Differential Geometry}
 
@@ -2553,7 +2371,82 @@ reported peak strain $h\simeq10^{-21}$ near $150\,\mathrm{Hz}$ in
 waveform with general relativity in that regime.
 \end{exercise}
 
-\section{Symplectic Manifolds}
+\section{Symplectic Geometry}
+
+\subsection{Projective representations and multipliers}
+
+\begin{definition}[Multipliers and projective representations]
+A \emph{normalized multiplier} on a locally compact group $G$ is a
+continuous map
+$\sigma:G\times G\to\T$ satisfying
+\[
+\sigma(x,e)=\sigma(e,x)=1,
+\qquad
+\sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
+\]
+A \emph{$\sigma$-projective unitary representation} is a strongly continuous map
+$U:G\to U(H)$ satisfying
+\[
+U_xU_y=\sigma(x,y)U_{xy},
+\qquad U_e=I.
+\]
+Multipliers $\sigma$ and $\sigma'$ are \emph{cohomologous} when there is a
+continuous map $b:G\to\T$, $b(e)=1$, such that
+\[
+\sigma'(x,y)=b(x)b(y)\overline{b(xy)}\,\sigma(x,y).
+\]
+\end{definition}
+
+\begin{exercise}[The Weyl multiplier]
+Prove that the phase in the Weyl product is a normalized multiplier on
+$V\oplus V^*$.
+\end{exercise}
+
+\subsection{Alternating commutator form}
+
+\begin{definition}[Commutator bicharacter]
+For a multiplier $\sigma$ on an abelian group $A$, define
+\[
+c_\sigma(x,y)=\sigma(x,y)\overline{\sigma(y,x)}.
+\]
+\end{definition}
+
+\begin{exercise}[Commutator bicharacter]
+Prove that $c_\sigma$ is an alternating bicharacter and depends only on the
+cohomology class of $\sigma$.  For the Weyl multiplier on $V\oplus V^*$,
+prove
+\[
+c_\sigma\bigl((q,p),(q',p')\bigr)
+=e^{i(p(q')-p'(q))}.
+\]
+\end{exercise}
+
+\subsection{Linear symplectic geometry}
+
+\begin{definition}[Symplectic phase space]
+A \emph{symplectic form} on a finite-dimensional real linear space $E$ is a
+nondegenerate alternating bilinear form $\omega:E\times E\to\R$.  On
+$E=V\oplus V^*$, define
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+For $\lambda\in\R$, define
+\[
+\sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
+\]
+The Weyl multiplier is $\sigma_\omega$.
+\end{definition}
+
+\begin{exercise}[Linear Darboux theorem]
+Prove that every symplectic space has a basis in which its form has matrix
+\[
+\begin{pmatrix}0&-I\\ I&0\end{pmatrix}.
+\]
+Prove that $\sigma_{\lambda\omega}$ is a multiplier and that
+$c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}$.
+\end{exercise}
+
+\subsection{Symplectic manifolds and Hamiltonian reduction}
 
 \begin{definition}[Differential forms and exterior derivative]
 A \emph{differential $k$-form} on $M$ is a smooth section of
@@ -2652,9 +2545,7 @@ preserves $\omega$, the volume form $\omega^n/n!$, and every density
 depending only on the Hamiltonian.
 \end{exercise}
 
-\part{Deformation}
-
-\section{Quantum Dynamics}
+\section{Classical and Quantum Dynamics}
 
 \begin{definition}[Classical and quantum evolution]
 Let $H\in C^\infty(\R^{2n},\R)$ have bounded derivatives of order at least
@@ -2693,6 +2584,8 @@ the expectations of $Q_j$ and $P_j$.
 
 \section{Geometric Quantization}
 
+\subsection{Prequantization and polarization}
+
 \begin{definition}[Prequantum line bundles]
 A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
 $L\to M$ with a unitary connection $\nabla$ satisfying
@@ -2730,6 +2623,30 @@ $Q_j\psi=x_j\psi$, and $P_j\psi=-i\hbar\partial_j\psi$.  For a compact
 K\"ahler manifold with a positive prequantum line bundle, identify the
 corrected quantum space with
 $H^0(M,L\otimes K_M^{1/2})$.
+\end{exercise}
+
+\subsection{Equivariant quantization and reduction}
+
+\begin{definition}[Equivariant quantization]
+Let a Lie group $G$ act on a prequantized Hamiltonian manifold
+$(M,\omega,J,L,\nabla)$ and preserve a polarization $P$ and metaplectic
+correction $\delta_P$.  An \emph{equivariant quantization} is a lift of the
+$G$-action to $L\otimes\delta_P$ preserving its Hermitian structure,
+connection, and polarization.  Its quantum representation is the induced
+unitary representation on the polarized quantum space.
+\end{definition}
+
+\begin{exercise}[Quantization commutes with reduction]
+For a compact connected group acting holomorphically and Hamiltonianly on a
+compact prequantized K\"ahler manifold, assume that $0$ is a regular value
+of $J$, that $G$ acts freely on $J^{-1}(0)$, and that the prequantum and
+half-form data descend to the quotient.  Prove that the derived quantum
+representation is generated by the quantized components of $J$ and prove
+\[
+\mathcal Q(M//_0G)\cong\mathcal Q(M)^G
+\]
+with the metaplectic correction.  Derive the multiplicity formula obtained
+by reduction at integral coadjoint orbits.
 \end{exercise}
 
 \section{Deformation Quantization}
@@ -2803,7 +2720,7 @@ two-dimensional Temperley--Lieb reduction of the Yang--Baxter equation, not
 the full representation theory of a quantum group or DAHA.
 \end{exercise}
 
-\section{Rational and Trigonometric Hypergeometric Functions}
+\section{Rational Hypergeometric Functions}
 
 \begin{definition}[Ordinary hypergeometric series]
 For $m\in\Z_{\geq0}$, define
@@ -2905,29 +2822,116 @@ w_W(x)=
 Derive the three-term recurrences of both families.
 \end{exercise}
 
-\section{Quantization of Symmetry}
+\section{Trigonometric/Basic Hypergeometric Deformation}
 
-\begin{definition}[Equivariant quantization]
-Let a Lie group $G$ act on a prequantized Hamiltonian manifold
-$(M,\omega,J,L,\nabla)$ and preserve a polarization $P$ and metaplectic
-correction $\delta_P$.  An \emph{equivariant quantization} is a lift of the
-$G$-action to $L\otimes\delta_P$ preserving its Hermitian structure,
-connection, and polarization.  Its quantum representation is the induced
-unitary representation on the polarized quantum space.
+\begin{definition}[Basic hypergeometric series]
+For $m\in\N$, define
+\[
+(a;q)_m=\prod_{j=0}^{m-1}(1-aq^j),
+\qquad
+(a;q)_\infty=\prod_{j=0}^{\infty}(1-aq^j),
+\]
+and
+\[
+(a_1,\ldots,a_r;q)_m=\prod_{i=1}^r(a_i;q)_m,
+\qquad
+(a_1,\ldots,a_r;q)_\infty=\prod_{i=1}^r(a_i;q)_\infty.
+\]
+The \emph{basic hypergeometric series} is
+\[
+{}_r\phi_s\!\left(
+\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};q,z
+\right)
+=\sum_{m=0}^\infty
+\frac{(a_1,\ldots,a_r;q)_m}
+     {(q,b_1,\ldots,b_s;q)_m}
+\left((-1)^mq^{m(m-1)/2}\right)^{1+s-r}z^m.
+\]
+It is \emph{terminating} when one numerator parameter is $q^{-n}$.
 \end{definition}
 
-\begin{exercise}[Quantization commutes with reduction]
-For a compact connected group acting holomorphically and Hamiltonianly on a
-compact prequantized K\"ahler manifold, assume that $0$ is a regular value
-of $J$, that $G$ acts freely on $J^{-1}(0)$, and that the prequantum and
-half-form data descend to the quotient.  Prove that the derived quantum
-representation is generated by the quantized components of $J$ and prove
+\begin{exercise}[Basic hypergeometric summations]
+Prove the $q$-binomial theorem
 \[
-\mathcal Q(M//_0G)\cong\mathcal Q(M)^G
+{}_1\phi_0\!\left(\begin{matrix}a\\-\end{matrix};q,z\right)
+=\frac{(az;q)_\infty}{(z;q)_\infty},
+\qquad |z|<1,
 \]
-with the metaplectic correction.  Derive the multiplicity formula obtained
-by reduction at integral coadjoint orbits.
+the $q$-Gauss summation
+\[
+{}_2\phi_1\!\left(
+\begin{matrix}a,b\\c\end{matrix};q,\frac{c}{ab}
+\right)
+=\frac{(c/a,c/b;q)_\infty}{(c,c/(ab);q)_\infty},
+\qquad \left|\frac{c}{ab}\right|<1,
+\]
+and the terminating $q$-Pfaff--Saalsch\"utz summation
+\[
+{}_3\phi_2\!\left(
+\begin{matrix}a,b,q^{-n}\\c,abq^{1-n}/c\end{matrix};q,q
+\right)
+=\frac{(c/a,c/b;q)_n}{(c,c/(ab);q)_n}.
+\]
 \end{exercise}
+
+\begin{definition}[Askey--Wilson operator and polynomials]
+For $0<q<1$ and nonzero $a,b,c,d$, define
+\[
+A(z)=\frac{(1-az)(1-bz)(1-cz)(1-dz)}
+{(1-z^2)(1-qz^2)}
+\]
+and, on $f(z)=f(z^{-1})$,
+\[
+(\mathcal D_{AW}f)(z)
+=A(z)\bigl(f(qz)-f(z)\bigr)
++A(z^{-1})\bigl(f(q^{-1}z)-f(z)\bigr).
+\]
+For $x=(z+z^{-1})/2$, the \emph{Askey--Wilson polynomial} is
+\[
+\begin{aligned}
+p_n(x;a,b,c,d\mid q)
+={}&a^{-n}(ab,ac,ad;q)_n\\
+&\times{}_4\phi_3\!\left(
+\begin{matrix}q^{-n},abcdq^{n-1},az,az^{-1}\\
+ab,ac,ad\end{matrix};q,q
+\right).
+\end{aligned}
+\]
+Its weight on the unit circle is
+\[
+w_{AW}(z)=
+\frac{(z^2,z^{-2};q)_\infty}
+{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
+\]
+\end{definition}
+
+\begin{exercise}[Rank-one DAHA and the Askey--Wilson theorem]
+Construct the basic representation of
+$\widehat{\mathsf H}_q(C_1^\vee,C_1)$ from the involutions
+\[
+(s_1f)(z)=f(z^{-1}),
+\qquad
+(s_0f)(z)=f(qz^{-1})
+\]
+and first-order reflection--$q$-difference operators.  Verify the four
+Hecke relations and the product relation.  Prove that the spherical
+subalgebra is generated in its polynomial representation by multiplication
+by $z+z^{-1}$ and $\mathcal D_{AW}$.  Prove
+\[
+\mathcal D_{AW}p_n
+=(q^{-n}-1)(1-abcdq^{n-1})p_n.
+\]
+For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
+\[
+\langle f,g\rangle_{AW}
+=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
+\frac{dz}{2\pi iz},
+\]
+and deduce the orthogonality and three-term recurrence of the
+Askey--Wilson polynomials.
+\end{exercise}
+
+\section{Poisson--Lie Groups and Quantum Groups}
 
 \subsection{Poisson--Lie groups and Lie bialgebras}
 
@@ -3315,7 +3319,7 @@ defines a ribbon twist on the category of finite-dimensional $H$-modules.
 Derive invariance of the quantum trace under framed ribbon isotopy.
 \end{exercise}
 
-\section{Hecke Algebras, Quantum Schur--Weyl Duality, and DAHA}
+\section{Hecke Algebras and Quantum Schur--Weyl Duality}
 
 \begin{definition}[Root data and affine Weyl groups]
 Let $E$ be a finite-dimensional Euclidean space.  A finite set
@@ -3438,6 +3442,10 @@ finite-dimensional polynomial $U_v(L\mathfrak{gl}_N)$-modules generated by
 subquotients of tensor products of $r$ vector evaluation modules.
 \end{exercise}
 
+\section{DAHA and Macdonald Theory}
+
+\subsection{Double affine Hecke algebras}
+
 \begin{definition}[Double-affine braid group]
 Let $T^2=\R^2/\Z^2$ and let
 \[
@@ -3510,114 +3518,7 @@ The action of $e\widehat{\mathsf H}_q e$ on $e\mathcal L$ is the
 \emph{spherical rank-one polynomial representation}.
 \end{definition}
 
-\section{Basic Hypergeometric Functions and Macdonald Theory}
-
-\begin{definition}[Basic hypergeometric series]
-For $m\in\N$, define
-\[
-(a;q)_m=\prod_{j=0}^{m-1}(1-aq^j),
-\qquad
-(a;q)_\infty=\prod_{j=0}^{\infty}(1-aq^j),
-\]
-and
-\[
-(a_1,\ldots,a_r;q)_m=\prod_{i=1}^r(a_i;q)_m,
-\qquad
-(a_1,\ldots,a_r;q)_\infty=\prod_{i=1}^r(a_i;q)_\infty.
-\]
-The \emph{basic hypergeometric series} is
-\[
-{}_r\phi_s\!\left(
-\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};q,z
-\right)
-=\sum_{m=0}^\infty
-\frac{(a_1,\ldots,a_r;q)_m}
-     {(q,b_1,\ldots,b_s;q)_m}
-\left((-1)^mq^{m(m-1)/2}\right)^{1+s-r}z^m.
-\]
-It is \emph{terminating} when one numerator parameter is $q^{-n}$.
-\end{definition}
-
-\begin{exercise}[Basic hypergeometric summations]
-Prove the $q$-binomial theorem
-\[
-{}_1\phi_0\!\left(\begin{matrix}a\\-\end{matrix};q,z\right)
-=\frac{(az;q)_\infty}{(z;q)_\infty},
-\qquad |z|<1,
-\]
-the $q$-Gauss summation
-\[
-{}_2\phi_1\!\left(
-\begin{matrix}a,b\\c\end{matrix};q,\frac{c}{ab}
-\right)
-=\frac{(c/a,c/b;q)_\infty}{(c,c/(ab);q)_\infty},
-\qquad \left|\frac{c}{ab}\right|<1,
-\]
-and the terminating $q$-Pfaff--Saalsch\"utz summation
-\[
-{}_3\phi_2\!\left(
-\begin{matrix}a,b,q^{-n}\\c,abq^{1-n}/c\end{matrix};q,q
-\right)
-=\frac{(c/a,c/b;q)_n}{(c,c/(ab);q)_n}.
-\]
-\end{exercise}
-
-\begin{definition}[Askey--Wilson operator and polynomials]
-For $0<q<1$ and nonzero $a,b,c,d$, define
-\[
-A(z)=\frac{(1-az)(1-bz)(1-cz)(1-dz)}
-{(1-z^2)(1-qz^2)}
-\]
-and, on $f(z)=f(z^{-1})$,
-\[
-(\mathcal D_{AW}f)(z)
-=A(z)\bigl(f(qz)-f(z)\bigr)
-+A(z^{-1})\bigl(f(q^{-1}z)-f(z)\bigr).
-\]
-For $x=(z+z^{-1})/2$, the \emph{Askey--Wilson polynomial} is
-\[
-\begin{aligned}
-p_n(x;a,b,c,d\mid q)
-={}&a^{-n}(ab,ac,ad;q)_n\\
-&\times{}_4\phi_3\!\left(
-\begin{matrix}q^{-n},abcdq^{n-1},az,az^{-1}\\
-ab,ac,ad\end{matrix};q,q
-\right).
-\end{aligned}
-\]
-Its weight on the unit circle is
-\[
-w_{AW}(z)=
-\frac{(z^2,z^{-2};q)_\infty}
-{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
-\]
-\end{definition}
-
-\begin{exercise}[Rank-one DAHA and the Askey--Wilson theorem]
-Construct the basic representation of
-$\widehat{\mathsf H}_q(C_1^\vee,C_1)$ from the involutions
-\[
-(s_1f)(z)=f(z^{-1}),
-\qquad
-(s_0f)(z)=f(qz^{-1})
-\]
-and first-order reflection--$q$-difference operators.  Verify the four
-Hecke relations and the product relation.  Prove that the spherical
-subalgebra is generated in its polynomial representation by multiplication
-by $z+z^{-1}$ and $\mathcal D_{AW}$.  Prove
-\[
-\mathcal D_{AW}p_n
-=(q^{-n}-1)(1-abcdq^{n-1})p_n.
-\]
-For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
-\[
-\langle f,g\rangle_{AW}
-=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
-\frac{dz}{2\pi iz},
-\]
-and deduce the orthogonality and three-term recurrence of the
-Askey--Wilson polynomials.
-\end{exercise}
+\subsection{Macdonald theory}
 
 \begin{definition}[Type-$A$ polynomial representation]
 Let
@@ -4041,7 +3942,7 @@ relations.  Compare this integral construction with the
 $6j$-symbol/recoupling construction of the Yang--Baxter equation.
 \end{exercise}
 
-\section{Root-of-Unity Categories and Topological Field Theory}
+\section{Root-of-Unity Degeneration and Tensor Categories}
 
 \begin{definition}[Root-of-unity semisimplification]
 Fix $k\in\N$ and
@@ -4119,6 +4020,8 @@ S_{ab}
 \]
 Prove directly that $S$ is unitary and invertible.
 \end{exercise}
+
+\section{Topological Field Theory}
 
 \begin{definition}[Reshetikhin--Turaev TQFT]
 Let $\operatorname{Bord}^{\rm ext}_{3,2}(\mathcal C)$ be the symmetric
@@ -4614,7 +4517,7 @@ identities and identify which further step would be required for a proof in
 all degrees.
 \end{exercise}
 
-\section{CFT Characters and Exact State Counting}
+\section{Characters and Exact State Counting}
 
 \subsection{Virasoro representations and character formulas}
 
@@ -4804,7 +4707,7 @@ when
 for every bounded continuous $f$.
 \end{definition}
 
-\section{Ergodic Theory}
+\section{Entropy, Information, and Ergodic Theory}
 
 \subsection{Probability, conditioning, and entropy}
 
@@ -5065,24 +4968,6 @@ apply the construction to the coefficient-at-the-identity state on
 $C_r^*(G)$ and recover the left regular representation on $\ell^2(G)$.
 \end{exercise}
 
-\subsection{Noncommutative probability}
-
-\begin{definition}[Noncommutative probability]
-A \emph{noncommutative probability space} is a unital $*$-algebra $A$
-together with a linear functional $\varphi:A\to\C$ satisfying
-$\varphi(a^*a)\geq0$ and $\varphi(1)=1$. Its random variables are elements
-of $A$, and the joint
-$*$-distribution of $X_1,\ldots,X_r$ is the functional
-\[
-p\longmapsto
-\varphi\bigl(p(X_1,\ldots,X_r,X_1^*,\ldots,X_r^*)\bigr)
-\]
-on noncommutative $*$-polynomials. For a self-adjoint variable $X$, its
-moments are $\varphi(X^n)$. A \emph{tracial probability space} also satisfies
-$\varphi(ab)=\varphi(ba)$. Random Hermitian matrices form such spaces after
-combining expectation with the normalized trace.
-\end{definition}
-
 \subsection{Quantum states and dynamics}
 
 \begin{definition}[Quantum states and observables]
@@ -5197,6 +5082,26 @@ measurements in
 \href{https://doi.org/10.1038/nature05319}
 {F\"olling et al., \emph{Nature} \textbf{444} (2006)}.
 \end{exercise}
+
+\section{Noncommutative Probability and Modular Theory}
+
+\subsection{Noncommutative probability}
+
+\begin{definition}[Noncommutative probability]
+A \emph{noncommutative probability space} is a unital $*$-algebra $A$
+together with a linear functional $\varphi:A\to\C$ satisfying
+$\varphi(a^*a)\geq0$ and $\varphi(1)=1$. Its random variables are elements
+of $A$, and the joint
+$*$-distribution of $X_1,\ldots,X_r$ is the functional
+\[
+p\longmapsto
+\varphi\bigl(p(X_1,\ldots,X_r,X_1^*,\ldots,X_r^*)\bigr)
+\]
+on noncommutative $*$-polynomials. For a self-adjoint variable $X$, its
+moments are $\varphi(X^n)$. A \emph{tracial probability space} also satisfies
+$\varphi(ab)=\varphi(ba)$. Random Hermitian matrices form such spaces after
+combining expectation with the normalized trace.
+\end{definition}
 
 \subsection{Von Neumann algebras and noncommutative conditioning}
 
@@ -5524,99 +5429,6 @@ individual eigenstates, and compare both formulas with measured
 level-population ratios.
 \end{exercise}
 
-\subsection{Composite systems and entanglement}
-
-\begin{definition}[Composite and reduced states]
-The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
-states are the density operators on this tensor product. A density operator
-is \emph{separable} if it lies in the trace-norm closed convex hull of
-product density operators and \emph{entangled} otherwise. The \emph{reduced
-state} $\rho_A=\Tr_B\rho$ is determined by
-$\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
-\end{definition}
-
-\begin{definition}[Classical and tensor independence]
-Families of $\sigma$-algebras are \emph{independent} when the probability of
-every finite intersection of events, one from each family, is the product of
-their probabilities. Equivalently, bounded random variables measurable with
-respect to distinct families have factorizing mixed expectations.
-
-Commuting unital subalgebras $M_1,M_2\subseteq M$ are independent in the
-state $\varphi$ when $\varphi(ab)=\varphi(a)\varphi(b)$ for
-$a\in M_1$ and $b\in M_2$. They are \emph{tensor independent} when the
-algebra they generate, together with the state, is a spatial tensor product
-with a product state.
-\end{definition}
-
-\begin{exercise}[Wishart matrices and typical entanglement]
-Let $G$ be a $d_A\times d_B$ matrix of independent standard complex Gaussian
-entries and set
-\[
-W=GG^*,\qquad \rho_A=\frac{W}{\Tr W}.
-\]
-Show that $\rho_A$ has the same distribution as the reduced state of a
-Haar-random unit vector in $\C^{d_A}\otimes\C^{d_B}$. Using Gaussian or
-Haar integration, prove
-\[
-\mathbb E\Tr(\rho_A^2)
-=\frac{d_A+d_B}{d_Ad_B+1}.
-\]
-Deduce that when $d_B\gg d_A$, a typical reduced state is close to maximally
-mixed in Hilbert--Schmidt norm. Interpret this as a random-matrix explanation
-of why a typical pure state of a large composite system is highly entangled.
-\end{exercise}
-
-\begin{definition}[Entanglement entropy and mutual information]
-For a pure state $\rho=|\psi\rangle\langle\psi|$ on
-$H_A\otimes H_B$, its \emph{entanglement entropy} is
-$S_A(\psi)=S(\rho_A)$. For an arbitrary bipartite state, its \emph{quantum
-mutual information} is
-\[
-I(A:B)_\rho=D(\rho\Vert\rho_A\otimes\rho_B).
-\]
-\end{definition}
-
-\begin{exercise}[Schmidt projections and entanglement]
-Let $H_A$ and $H_B$ be finite-dimensional. For a pure vector
-$\psi\in H_A\otimes H_B$, apply the projection form of the singular-value
-decomposition to the contraction map
-$C_\psi:H_A^*\to H_B$. If $Q_s$ and $R_s$ are its domain and range
-projections, decompose $\psi$ into mutually orthogonal spectral blocks
-supported on $(Q_sH_A^*)^*\otimes R_sH_B$. Explain why a rank-one refinement
-within a block of multiplicity greater than one is not canonical. Prove that a pure
-state is separable exactly when its reduced state has rank one, and that the
-two reduced states have the same nonzero spectral values with multiplicities
-$\operatorname{rank}Q_s=\operatorname{rank}R_s$. Derive
-\[
-S_A(\psi)=-k_B\sum_{s>0}
- (\operatorname{rank}Q_s)s^2\log s^2
-\]
-and prove that it vanishes exactly for separable pure states. Compute the
-joint and reduced states, local outcome frequencies, and entanglement entropy
-of a Bell state, and compare them with entangled-pair tomography.  For every
-bipartite density operator $\rho$, prove
-\[
-I(A:B)_\rho
-=\frac{S(\rho_A)+S(\rho_B)-S(\rho)}{k_B}\geq0,
-\]
-with equality exactly for product states.
-\end{exercise}
-
-\begin{exercise}[Bell correlations and CHSH]
-For a polarization-entangled two-photon state, derive the CHSH bound $2$ for
-local hidden-variable models. Choose four polarization angles for which the
-quantum correlations attain $2\sqrt2$, and derive the predicted coincidence
-frequencies. As experimental input, use the adjusted local-realistic
-$p$-value $2.3\times10^{-7}$ reported by
-\href{https://doi.org/10.1103/PhysRevLett.115.250402}
-{Shalm et al., \emph{Physical Review Letters} \textbf{115} (2015)}.
-Determine at the $5\%$, $1\%$, and five-standard-deviation significance
-levels, using the one-sided Gaussian five-sigma threshold
-$2.87\times10^{-7}$, whether the local-realistic null is excluded. State the
-tested freedom-of-choice and spacelike-separation assumptions and explain why
-the result does not exclude arbitrary superdeterministic or signaling models.
-\end{exercise}
-
 \subsection{Quantum channels and data processing}
 
 \begin{definition}[Positive and completely positive maps]
@@ -5804,7 +5616,118 @@ subsystem. Compare with
 Physical Review A \textbf{76} (2007)}.
 \end{exercise}
 
-\section{Operator Spaces, Channels, and Nonlocal Games}
+\section{Operator Spaces, Tensor Norms, and Nonlocal Games}
+
+\subsection{Operator spaces and tensor products}
+
+\begin{definition}[Operator spaces and completely bounded maps]
+An \emph{operator space} is a closed linear subspace $E\subseteq B(H)$ with
+the matrix norms inherited from
+\[
+M_n(E)\subseteq B(H^{\oplus n}).
+\]
+For a linear map $u:E\to F$, define
+\[
+\|u\|_{cb}=\sup_{n\geq1}\|\id_{M_n}\otimes u\|.
+\]
+The map is \emph{completely bounded} when $\|u\|_{cb}<\infty$ and a
+\emph{complete isometry} when every $\id_{M_n}\otimes u$ is isometric.
+The dual operator-space structure on $E^*$ is determined by
+\[
+M_n(E^*)=\operatorname{CB}(E,M_n)
+\]
+isometrically.
+\end{definition}
+
+\begin{definition}[Row and column spaces]
+For a Hilbert space $H$, its \emph{column space} and conjugate
+\emph{row space} are
+\[
+H_c=B(\C,H),\qquad \overline H_r=B(H,\C)
+\]
+with their inherited operator-space structures.
+For operator spaces $E$ and $F$, the \emph{Haagerup norm} is
+\[
+\|u\|_h
+=\inf\left\{
+\|[x_1\ \cdots\ x_m]\|_{M_{1,m}(E)}
+\|[y_1\ \cdots\ y_m]^t\|_{M_{m,1}(F)}:
+u=\sum_{j=1}^m x_j\otimes y_j
+\right\}.
+\]
+The completion is denoted $E\otimes_hF$.
+The \emph{operator-space projective norm} is
+\[
+\|u\|_{\wedge}
+=\inf\{\|\alpha\|\,\|x\|\,\|y\|\,\|\beta\|:
+u=\alpha(x\otimes y)\beta\},
+\]
+where $x\in M_p(E)$, $y\in M_q(F)$,
+$\alpha\in M_{1,pq}$, and $\beta\in M_{pq,1}$.  Its completion is denoted
+$E\mathbin{\widehat\otimes}F$.
+\end{definition}
+
+\begin{definition}[Trace and Hilbert--Schmidt classes]
+For $x,y\in H$, let
+\[
+\theta_{x,y}(\xi)=\langle y,\xi\rangle x.
+\]
+The algebra $\mathcal K(H)$ of \emph{compact operators} is the norm closure
+of the span of the operators $\theta_{x,y}$.
+The \emph{trace class} $S_1(H)$ consists of operators admitting a
+representation
+\[
+A=\sum_{j=1}^{\infty}\theta_{x_j,y_j},
+\qquad
+\sum_{j=1}^{\infty}\|x_j\|\,\|y_j\|<\infty,
+\]
+where the series converges in operator norm, with norm the infimum of the
+displayed sums.  Define
+\[
+\Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
+\]
+The \emph{Hilbert--Schmidt class} $S_2(H)$ consists of operators satisfying
+\[
+\|A\|_2^2=\sum_j\|Ae_j\|^2<\infty
+\]
+for an orthonormal basis $(e_j)$ of $H$.
+\end{definition}
+
+\begin{definition}[Ruan's axioms]
+Matrix norms on a complex linear space $E$ satisfy \emph{Ruan's axioms} when
+\[
+\|x\oplus y\|_{M_{n+m}(E)}
+=\max\{\|x\|_{M_n(E)},\|y\|_{M_m(E)}\}
+\]
+and
+\[
+\|\alpha x\beta\|_{M_{r,s}(E)}
+\leq\|\alpha\|\,\|x\|_{M_n(E)}\,\|\beta\|
+\]
+for scalar matrices of compatible sizes.
+\end{definition}
+
+\begin{exercise}[Row--column tensor duality]
+Prove that the definitions of $S_1(H)$, $\Tr$, and $S_2(H)$ are independent
+of all displayed choices.  Prove the complete isometries
+\[
+H_c\otimes_h\overline H_r\cong\mathcal K(H),
+\qquad
+\overline H_r\mathbin{\widehat\otimes}H_c
+\cong\overline H_r\otimes_h H_c\cong S_1(H),
+\qquad
+S_1(H)^*\cong B(H),
+\]
+where $\overline y\otimes x$ corresponds to $\theta_{x,y}$ and the last
+pairing is $(A,T)\mapsto\Tr(AT)$.  Prove that
+$\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space.
+\end{exercise}
+
+\begin{exercise}[Ruan's representation theorem]
+Prove that matrix norms arise from a complete isometry $E\to B(H)$ if and
+only if they satisfy Ruan's axioms.  Prove
+$M_n(E^*)=\operatorname{CB}(E,M_n)$ completely isometrically.
+\end{exercise}
 
 \subsection{Channel discrimination}
 
@@ -6850,7 +6773,100 @@ measurements, and interferometric phase data, stating which topological
 predictions each observation tests and which it does not.
 \end{exercise}
 
-\section{Topological Structures in Holography}
+\section{Entanglement, Geometry, and Holographic Counting}
+
+\subsection{Composite systems and entanglement}
+
+\begin{definition}[Composite and reduced states]
+The Hilbert space of a composite system is $H_A\otimes H_B$, and its normal
+states are the density operators on this tensor product. A density operator
+is \emph{separable} if it lies in the trace-norm closed convex hull of
+product density operators and \emph{entangled} otherwise. The \emph{reduced
+state} $\rho_A=\Tr_B\rho$ is determined by
+$\Tr(\rho_AA)=\Tr(\rho(A\otimes\id))$ for all bounded $A$.
+\end{definition}
+
+\begin{definition}[Classical and tensor independence]
+Families of $\sigma$-algebras are \emph{independent} when the probability of
+every finite intersection of events, one from each family, is the product of
+their probabilities. Equivalently, bounded random variables measurable with
+respect to distinct families have factorizing mixed expectations.
+
+Commuting unital subalgebras $M_1,M_2\subseteq M$ are independent in the
+state $\varphi$ when $\varphi(ab)=\varphi(a)\varphi(b)$ for
+$a\in M_1$ and $b\in M_2$. They are \emph{tensor independent} when the
+algebra they generate, together with the state, is a spatial tensor product
+with a product state.
+\end{definition}
+
+\begin{exercise}[Wishart matrices and typical entanglement]
+Let $G$ be a $d_A\times d_B$ matrix of independent standard complex Gaussian
+entries and set
+\[
+W=GG^*,\qquad \rho_A=\frac{W}{\Tr W}.
+\]
+Show that $\rho_A$ has the same distribution as the reduced state of a
+Haar-random unit vector in $\C^{d_A}\otimes\C^{d_B}$. Using Gaussian or
+Haar integration, prove
+\[
+\mathbb E\Tr(\rho_A^2)
+=\frac{d_A+d_B}{d_Ad_B+1}.
+\]
+Deduce that when $d_B\gg d_A$, a typical reduced state is close to maximally
+mixed in Hilbert--Schmidt norm. Interpret this as a random-matrix explanation
+of why a typical pure state of a large composite system is highly entangled.
+\end{exercise}
+
+\begin{definition}[Entanglement entropy and mutual information]
+For a pure state $\rho=|\psi\rangle\langle\psi|$ on
+$H_A\otimes H_B$, its \emph{entanglement entropy} is
+$S_A(\psi)=S(\rho_A)$. For an arbitrary bipartite state, its \emph{quantum
+mutual information} is
+\[
+I(A:B)_\rho=D(\rho\Vert\rho_A\otimes\rho_B).
+\]
+\end{definition}
+
+\begin{exercise}[Schmidt projections and entanglement]
+Let $H_A$ and $H_B$ be finite-dimensional. For a pure vector
+$\psi\in H_A\otimes H_B$, apply the projection form of the singular-value
+decomposition to the contraction map
+$C_\psi:H_A^*\to H_B$. If $Q_s$ and $R_s$ are its domain and range
+projections, decompose $\psi$ into mutually orthogonal spectral blocks
+supported on $(Q_sH_A^*)^*\otimes R_sH_B$. Explain why a rank-one refinement
+within a block of multiplicity greater than one is not canonical. Prove that a pure
+state is separable exactly when its reduced state has rank one, and that the
+two reduced states have the same nonzero spectral values with multiplicities
+$\operatorname{rank}Q_s=\operatorname{rank}R_s$. Derive
+\[
+S_A(\psi)=-k_B\sum_{s>0}
+ (\operatorname{rank}Q_s)s^2\log s^2
+\]
+and prove that it vanishes exactly for separable pure states. Compute the
+joint and reduced states, local outcome frequencies, and entanglement entropy
+of a Bell state, and compare them with entangled-pair tomography.  For every
+bipartite density operator $\rho$, prove
+\[
+I(A:B)_\rho
+=\frac{S(\rho_A)+S(\rho_B)-S(\rho)}{k_B}\geq0,
+\]
+with equality exactly for product states.
+\end{exercise}
+
+\begin{exercise}[Bell correlations and CHSH]
+For a polarization-entangled two-photon state, derive the CHSH bound $2$ for
+local hidden-variable models. Choose four polarization angles for which the
+quantum correlations attain $2\sqrt2$, and derive the predicted coincidence
+frequencies. As experimental input, use the adjusted local-realistic
+$p$-value $2.3\times10^{-7}$ reported by
+\href{https://doi.org/10.1103/PhysRevLett.115.250402}
+{Shalm et al., \emph{Physical Review Letters} \textbf{115} (2015)}.
+Determine at the $5\%$, $1\%$, and five-standard-deviation significance
+levels, using the one-sided Gaussian five-sigma threshold
+$2.87\times10^{-7}$, whether the local-realistic null is excluded. State the
+tested freedom-of-choice and spacelike-separation assumptions and explain why
+the result does not exclude arbitrary superdeterministic or signaling models.
+\end{exercise}
 
 \subsection{Ryu--Takayanagi surfaces and entanglement wedges}
 
