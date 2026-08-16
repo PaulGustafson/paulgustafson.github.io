@@ -1252,9 +1252,7 @@ Compare the two families tabulated in
 \textbf{119} (1965)} for invariant eigendistributions.
 \end{exercise}
 
-\part{Deformation}
-
-\section{Heisenberg Symmetry and Weyl Quantization}
+\section{Kirillov Orbit Method and the Heisenberg Group}
 
 \subsection{Projective representations and multipliers}
 
@@ -1343,6 +1341,154 @@ c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}.
 \]
 \end{exercise}
 
+\subsection{Heisenberg group, Schr\"odinger representation, and CCR}
+
+\begin{definition}[Heisenberg group]
+For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
+\[
+\mathbb H(E,\omega)=E\times\R
+\]
+with multiplication
+\[
+(z,s)(z',s')
+=(z+z',s+s'+\tfrac12\omega(z,z')).
+\]
+Write
+$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
+symplectic form on $\R^n\oplus(\R^n)^*$.  Its Lie algebra is
+$\mathfrak h(E,\omega)=E\oplus\R Z$ with
+\[
+[(z,sZ),(z',s'Z)]=\omega(z,z')Z.
+\]
+For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
+representation} on $L^2(V)$ is
+\[
+\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
+=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
+\]
+For $\hbar>0$, $\ell\in V^*$, and $v\in V$, define on $\mathcal S(V)$
+\[
+Q_\ell\psi(x)=\ell(x)\psi(x),
+\qquad
+P_v\psi(x)=-i\hbar\,d\psi_x(v).
+\]
+\end{definition}
+
+\begin{exercise}[Central extensions and projective representations]
+Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
+$\{0\}\times\R$ and that
+\[
+\pi_\lambda(0,s)=e^{i\lambda s}I.
+\]
+Prove that projective representations of $E$ with multiplier
+$e^{i\lambda\omega/2}$ correspond to representations of
+$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
+\end{exercise}
+
+\begin{exercise}[Canonical commutation and Weyl relations]
+Prove
+\[
+[Q_\ell,P_v]=i\hbar\ell(v)I.
+\]
+For
+\[
+(T_q\psi)(x)=\psi(x-q),
+\qquad
+(M_p\psi)(x)=e^{ip(x)}\psi(x),
+\]
+prove
+\[
+M_pT_q=e^{ip(q)}T_qM_p.
+\]
+For $W(q,p)=e^{-ip(q)/2}M_pT_q$, prove
+\[
+W(z)W(z')=e^{i\omega(z,z')/2}W(z+z')
+\]
+and identify $W$ with the restriction of $\pi_1$ to
+$V\oplus V^*\subset\mathbb H(V\oplus V^*,\omega)$.
+\end{exercise}
+
+\subsection{Coadjoint orbits and orbital induction}
+
+\begin{definition}[Coadjoint orbits and the Kirillov form]
+For a Lie group $G$ with Lie algebra $\mathfrak g$, define
+\[
+\Ad_g=d(h\mapsto ghg^{-1})_e,
+\qquad
+(\Ad_g^*\ell)(X)=\ell(\Ad_{g^{-1}}X).
+\]
+The \emph{coadjoint orbit} through $\ell\in\mathfrak g^*$ is
+$\mathcal O_\ell=\Ad^*(G)\ell$.  Define
+\[
+(\ad_X^*\ell)(Y)=-\ell([X,Y]).
+\]
+The \emph{Kirillov form} on $\mathcal O_\ell$ is
+\[
+\omega_\ell(\ad_X^*\ell,\ad_Y^*\ell)=\ell([X,Y]).
+\]
+\end{definition}
+
+\begin{definition}[Polarizations and orbital representations]
+Let $G$ be connected, simply connected, and nilpotent.  For
+$\ell\in\mathfrak g^*$, set
+\[
+\mathfrak g_\ell
+=\{X\in\mathfrak g:\ell([X,Y])=0\text{ for every }Y\in\mathfrak g\}.
+\]
+A \emph{polarization} at $\ell$ is a Lie subalgebra
+$\mathfrak p\subseteq\mathfrak g$ satisfying
+\[
+\ell([\mathfrak p,\mathfrak p])=0,
+\qquad
+\dim\mathfrak p
+=\frac{\dim\mathfrak g+\dim\mathfrak g_\ell}{2}.
+\]
+For $P=\exp(\mathfrak p)$, define
+\[
+\chi_\ell(\exp X)=e^{i\ell(X)},
+\]
+and let $\pi_\ell=\operatorname{Ind}_P^G\chi_\ell$ act by left translation
+on the Hilbert space of measurable functions $f:G\to\C$ satisfying
+\[
+f(gp)=\chi_\ell(p)^{-1}f(g),
+\qquad
+\int_{G/P}|f(g)|^2\,d(gP)<\infty.
+\]
+Here $d(gP)$ is a $G$-invariant quotient measure, and the action is
+\[
+(\pi_\ell(g_0)f)(g)=f(g_0^{-1}g).
+\]
+\end{definition}
+
+\begin{exercise}[Kirillov orbit method]
+Prove that the Kirillov form is well-defined, closed, nondegenerate, and
+$G$-invariant.  For connected simply connected nilpotent $G$, prove that a
+polarization exists at every $\ell$, that $\chi_\ell$ is a unitary
+character, that $\pi_\ell$ is irreducible and independent of the
+polarization up to unitary equivalence, and that
+\[
+\mathcal O_\ell\longmapsto[\pi_\ell]
+\]
+is a bijection from coadjoint orbits to $\widehat G$.
+For $\mathfrak h(E,\omega)$, prove that the coadjoint orbits with
+$\ell(Z)=\lambda\ne0$ are the affine hyperplanes
+\[
+\{\eta\in\mathfrak h(E,\omega)^*: \eta(Z)=\lambda\},
+\]
+while the orbits with $\ell(Z)=0$ are points.  Identify the orbital
+representation for $\lambda\ne0$ with $\pi_\lambda$ and the point
+orbits with the characters trivial on the center.
+\end{exercise}
+
+\subsection{Stone--von Neumann theorem}
+
+\begin{exercise}[Stone--von Neumann theorem]
+Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
+continuous irreducible unitary representation of
+$\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
+$\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
+\end{exercise}
+
 \subsection{Fourier--Wigner transform}
 
 \begin{definition}[Unitary systems and coefficient transforms]
@@ -1378,19 +1524,13 @@ The \emph{Fourier--Wigner transform} is
 \]
 \end{definition}
 
-\begin{exercise}[Weyl relations and the Moyal identity]
+\begin{exercise}[Fourier--Wigner Plancherel identity]
 Prove
 \[
-M_pT_q=e^{ip(q)}T_qM_p,
-\qquad W(z)^*=W(-z),
+W(z)^*=W(-z).
 \]
-and
-\[
-W(q,p)W(q',p')
-=\exp\!\left(\frac{i}{2}\bigl(p(q')-p'(q)\bigr)\right)
-W(q+q',p+p').
-\]
-For $A,B\in S_1(L^2(V))\cap S_2(L^2(V))$, prove the Moyal identity
+For $A,B\in S_1(L^2(V))\cap S_2(L^2(V))$, prove the Fourier--Wigner
+orthogonality identity
 \[
 \int_{V\oplus V^*}
 \overline{\mathcal W(A)(z)}\mathcal W(B)(z)\,dz
@@ -1408,50 +1548,62 @@ A=(2\pi)^{-n/2}\int_{V\oplus V^*}
 in the weak operator topology.
 \end{exercise}
 
-\subsection{Central extension}
+\subsection{Heisenberg Plancherel theory}
 
-\begin{definition}[Heisenberg group]
-For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
+\begin{exercise}[Heisenberg Plancherel and inversion]
+\label{ex:heisenberg-harmonic-analysis}
+For $V=\R^n$ and
+$f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
+$dq\,dp\,ds$ and the scalar Fourier transform
+$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
 \[
-\mathbb H(E,\omega)=E\times\R
+\widehat f(\lambda)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
 \]
-with multiplication
+Derive the Plancherel measure
+$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
 \[
-(z,s)(z',s')
-=(z+z',s+s'+\tfrac12\omega(z,z')).
+\|f\|_2^2
+=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
+\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
 \]
-Write
-$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
-symplectic form on $\R^n\oplus(\R^n)^*$.
-For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
-representation} on $L^2(V)$ is
+Prove the inversion formula and the distributional orthogonality of Weyl
+operators.  Prove that representations with trivial central character have
+zero Plancherel measure.
+\end{exercise}
+
+\subsection{Hermite functions}
+
+\begin{definition}[Hermite polynomials and functions]
+\label{def:hermite-functions}
+Define the physicists' Hermite polynomials by
 \[
-\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
-=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
+e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!}.
+\]
+The normalized \emph{Hermite functions} are
+\[
+h_n(x)=\frac{e^{-x^2/2}H_n(x)}
+{(2^nn!\sqrt\pi)^{1/2}}.
 \]
 \end{definition}
 
-\begin{exercise}[Central extensions and projective representations]
-Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
-$\{0\}\times\R$ and that
+\begin{exercise}[Hermite orthogonality and the Mehler kernel]
+Prove that $(h_n)_{n\geq0}$ is a complete orthonormal family in
+$L^2(\R)$ and, for $|r|<1$, derive Mehler's identity
 \[
-\pi_\lambda(0,s)=e^{i\lambda s}I.
+\sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
+=\frac1{\sqrt{\pi(1-r^2)}}
+\exp\!\left(
+-\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
+\right).
 \]
-Prove that projective representations of $E$ with multiplier
-$e^{i\lambda\omega/2}$ correspond to representations of
-$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
 \end{exercise}
 
-\subsection{Stone--von Neumann theorem}
+\part{Deformation}
 
-\begin{exercise}[Stone--von Neumann theorem]
-Prove that $\pi_\lambda$ is irreducible.  Prove that every strongly
-continuous irreducible unitary representation of
-$\mathbb H(V\oplus V^*,\omega)$ with central character $e^{i\lambda s}$,
-$\lambda\ne0$, is unitarily equivalent to $\pi_\lambda$.
-\end{exercise}
+\section{Weyl Quantization and the Moyal Product}
 
-\subsection{Weyl quantization}
+\subsection{Weyl quantization and Wigner distributions}
 
 \begin{definition}[Weyl quantization]
 For $a\in\mathcal S(V\oplus V^*)$, define
@@ -1464,12 +1616,7 @@ e^{ip(x-y)/\hbar}
 a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
 \]
 For polynomial symbols, use the same formula as an oscillatory integral on
-$\mathcal S(V)$.  For $\ell\in V^*$ and $v\in V$, set
-\[
-Q_\ell=\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr),
-\qquad
-P_v=\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto p(v)\bigr).
-\]
+$\mathcal S(V)$.
 \end{definition}
 
 \begin{definition}[Wigner distributions]
@@ -1484,14 +1631,13 @@ Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
 \end{definition}
 
 \begin{exercise}[Weyl calculus and the Moyal product]
-For $\ell\in V^*$ and $v\in V$, prove on $\mathcal S(V)$ that
+For $\ell\in V^*$ and $v\in V$, prove
 \[
-Q_\ell\psi(x)=\ell(x)\psi(x),
-\qquad P_v\psi(x)=-i\hbar\,d\psi_x(v),
-\qquad [Q_\ell,P_v]=i\hbar\ell(v)I.
+\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr)=Q_\ell,
+\qquad
+\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto p(v)\bigr)=P_v.
 \]
-Derive the Weyl relations and recover the Schr\"odinger representation of
-the Heisenberg group.  Prove
+Prove
 \[
 \operatorname{Op}_\hbar^W(a)^*
 =\operatorname{Op}_\hbar^W(\overline a),
@@ -1547,86 +1693,43 @@ together with
 on a common invariant domain.
 \end{exercise}
 
-\subsection{Heisenberg Plancherel theory}
+\subsection{Laguerre phase-space functions}
 
-\begin{exercise}[Heisenberg Plancherel and inversion]
-\label{ex:heisenberg-harmonic-analysis}
-For $V=\R^n$ and
-$f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
-$dq\,dp\,ds$ and the scalar Fourier transform
-$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
+\begin{definition}[Generalized Laguerre polynomials]
+For $\alpha>-1$, define
 \[
-\widehat f(\lambda)
-=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
-\]
-Derive the Plancherel measure
-$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
-\[
-\|f\|_2^2
-=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
-\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
-\]
-Prove the inversion formula and the distributional orthogonality of Weyl
-operators.  Prove that representations with trivial central character have
-zero Plancherel measure.
-\end{exercise}
-
-\subsection{Hermite and Laguerre phase-space functions}
-
-\begin{definition}[Hermite functions and Laguerre polynomials]
-\label{def:hermite-laguerre}
-Define the physicists' Hermite polynomials and the generalized Laguerre
-polynomials by
-\[
-e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!},
-\qquad
 L_n^{(\alpha)}(x)
 =\frac{x^{-\alpha}e^x}{n!}
 \frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right),
-\quad \alpha>-1.
+\qquad
+L_n=L_n^{(0)}.
 \]
-The normalized \emph{Hermite functions} are
-\[
-h_n(x)=\frac{e^{-x^2/2}H_n(x)}
-{(2^nn!\sqrt\pi)^{1/2}}.
-\]
-Write $L_n=L_n^{(0)}$.
 \end{definition}
 
-\begin{exercise}[Mehler kernel and Wigner--Laguerre identity]
-Prove that $(h_n)_{n\geq0}$ is a complete orthonormal family in $L^2(\R)$ and, for
-$|r|<1$, derive Mehler's identity
-\[
-\sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
-=\frac1{\sqrt{\pi(1-r^2)}}
-\exp\!\left(
--\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
-\right).
-\]
+\begin{exercise}[Wigner--Laguerre identity]
 Use the Laguerre Rodrigues formula to prove
 \[
 \int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
 x^\alpha e^{-x}\,dx
 =\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
 \]
-For the classical oscillator Hamiltonian
+For
 \[
 H_{\rm cl}(q,p)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2},
 \qquad
 \psi_n(q)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
 h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}q\right),
 \]
-use the Fourier--Wigner transform to prove
+prove
 \[
 W_\hbar[\psi_n](q,p)
 =\frac{(-1)^n}{\pi\hbar}
 e^{-2H_{\rm cl}(q,p)/(\hbar\omega)}
 L_n\!\left(\frac{4H_{\rm cl}(q,p)}{\hbar\omega}\right).
 \]
-Verify both position and momentum marginals and identify the zeros and sign
+Verify the position and momentum marginals and identify the zeros and sign
 changes of the Wigner distribution from those of $L_n$.
 \end{exercise}
-
 \section{Differential and Symplectic Geometry}
 
 \subsection{Bundles, sections, and geometric structures}
@@ -2044,7 +2147,7 @@ For
 \widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
 +\frac{m\omega^2x^2}{2},
 \]
-use the Hermite functions of Definition~\ref{def:hermite-laguerre} to prove
+use the Hermite functions of Definition~\ref{def:hermite-functions} to prove
 that
 \[
 \psi_n(x)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
