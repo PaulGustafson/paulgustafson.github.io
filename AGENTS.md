@@ -1,6 +1,10 @@
 # Manuscript style
 
-These rules apply to `A_Physical_Introduction_to_Higher_Mathematics.tex`.
+These rules apply to the manuscript entry point
+`A_Physical_Introduction_to_Higher_Mathematics.tex` and its part files
+`Emergent_Mathematics_Symmetry.tex`,
+`Emergent_Mathematics_Deformation.tex`, and
+`Emergent_Mathematics_Counting.tex`.
 
 - Except for the required opening physical question in each section, the body
   should consist of definitions and exercises stating major results.

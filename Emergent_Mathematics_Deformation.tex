@@ -1,0 +1,2172 @@
+\part{Deformation}
+
+\section{Weyl Quantization}
+
+\emph{Question.} Can the probability distributions of every rotated combination of position and momentum reconstruct an oscillator state and predict its measured evolution?
+
+
+
+\begin{definition}[Weyl quantization]
+For $a\in\mathcal S(V\oplus V^*)$, define
+$\operatorname{Op}_\hbar^W(a):\mathcal S(V)\to\mathcal S(V)$ by
+\[
+\bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
+=\frac{1}{(2\pi\hbar)^n}
+\int_{V\times V^*}
+e^{ip(x-y)/\hbar}
+a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
+\]
+For polynomial symbols, use the same formula as an oscillatory integral on
+$\mathcal S(V)$.
+\end{definition}
+
+\begin{definition}[Wigner distributions]
+For $\psi,\varphi\in\mathcal S(V)$, define
+\[
+W_\hbar(\psi,\varphi)(q,p)
+=\frac{1}{(2\pi\hbar)^n}
+\int_Ve^{-ip(y)/\hbar}
+\overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
+\]
+Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
+\end{definition}
+
+\begin{exercise}[Weyl calculus and the Moyal product]
+For $\ell\in V^*$ and $v\in V$, prove
+\[
+\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr)=Q_\ell,
+\qquad
+\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto p(v)\bigr)=P_v.
+\]
+Prove
+\[
+\operatorname{Op}_\hbar^W(a)^*
+=\operatorname{Op}_\hbar^W(\overline a),
+\qquad
+\|\operatorname{Op}_\hbar^W(a)\|_{\rm HS}
+=(2\pi\hbar)^{-n/2}\|a\|_2,
+\]
+and
+\[
+\langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
+=\int_{V\oplus V^*}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
+\]
+Prove that for $a,b\in\mathcal S(V\oplus V^*)$ there is a unique
+$a\star_\hbar b\in\mathcal S(V\oplus V^*)$ satisfying
+\[
+\operatorname{Op}_\hbar^W(a\star_\hbar b)
+=\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
+\]
+Derive the oscillatory-integral formula for $\star_\hbar$ and prove
+\[
+a\star_\hbar b
+=ab+\frac{i\hbar}{2}\{a,b\}+O(\hbar^2),
+\qquad
+\frac{a\star_\hbar b-b\star_\hbar a}{i\hbar}
+=\{a,b\}+O(\hbar^2)
+\]
+in the Schwartz-symbol topology.
+\end{exercise}
+
+\begin{exercise}[Groenewold--van Hove obstruction]
+Specialize to $V=\R$ and write $Q=Q_{\id_\R}$ and $P=P_1$.
+Prove that Weyl quantization carries Poisson brackets to
+$(i\hbar)^{-1}$ times commutators exactly for affine and quadratic
+polynomials.  Quantize $q^2p^2$ using
+\[
+q^2p^2=\frac19\{q^3,p^3\}
+=\frac13\{q^2p,qp^2\}
+\]
+and prove that there is no linear quantization of the polynomial Poisson
+algebra satisfying
+\[
+\mathcal Q(1)=I,\qquad
+\mathcal Q(q)=Q,\qquad
+\mathcal Q(p)=P,\qquad
+\mathcal Q(q^m)=Q^m,\qquad
+\mathcal Q(p^m)=P^m,
+\]
+together with
+\[
+\mathcal Q(\{f,g\})=(i\hbar)^{-1}
+[\mathcal Q(f),\mathcal Q(g)]
+\]
+on a common invariant domain.
+\end{exercise}
+
+
+\begin{definition}[Classical and quantum evolution]
+Let $H\in C^\infty(V\oplus V^*,\R)$ have bounded derivatives of order at least
+two, let $\Phi_t$ be its Hamiltonian flow, and let
+$\operatorname{Op}_\hbar^W(H)$ denote its self-adjoint realization.  Define
+\[
+U_\hbar(t)=e^{-it\operatorname{Op}_\hbar^W(H)/\hbar}.
+\]
+For $a\in\mathcal S(V\oplus V^*)$, define
+\[
+a_t=a\circ\Phi_t,
+\qquad
+A_\hbar(t)=U_\hbar(t)^*\operatorname{Op}_\hbar^W(a)U_\hbar(t).
+\]
+\end{definition}
+
+\begin{exercise}[Heisenberg equation and Egorov's theorem]
+Prove
+\[
+\frac{d}{dt}a_t=\{a_t,H\},
+\qquad
+\frac{d}{dt}A_\hbar(t)
+=\frac{i}{\hbar}
+[\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
+\]
+For every $T>0$, prove Egorov's theorem
+\[
+\sup_{|t|\leq T}
+\left\|
+A_\hbar(t)-\operatorname{Op}_\hbar^W(a\circ\Phi_t)
+\right\|=O_T(\hbar).
+\]
+Prove exact equality for quadratic $H$.  Derive Ehrenfest's equations for
+the expectations of $Q_\ell$ and $P_v$ for every $\ell\in V^*$ and
+$v\in V$.
+\end{exercise}
+
+
+\begin{definition}[Generalized Laguerre polynomials]
+For $\alpha>-1$, define
+\[
+L_n^{(\alpha)}(x)
+=\frac{x^{-\alpha}e^x}{n!}
+\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right),
+\qquad
+L_n=L_n^{(0)}.
+\]
+\end{definition}
+
+\begin{exercise}[Wigner--Laguerre identity]
+Use the Laguerre Rodrigues formula to prove
+\[
+\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
+x^\alpha e^{-x}\,dx
+=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
+\]
+For
+\[
+H_{\rm cl}(q,p)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2},
+\qquad
+\psi_n(q)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}q\right),
+\]
+prove
+\[
+W_\hbar[\psi_n](q,p)
+=\frac{(-1)^n}{\pi\hbar}
+e^{-2H_{\rm cl}(q,p)/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}(q,p)}{\hbar\omega}\right).
+\]
+Verify the position and momentum marginals and identify the zeros and sign
+changes of the Wigner distribution from those of $L_n$.
+\end{exercise}
+
+
+\begin{exercise}[Laguerre tomography]
+For the dimensionless quadrature
+\[
+X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
++\frac{P}{\sqrt{m\hbar\omega}}\sin\theta,
+\]
+prove that its probability density in a state $\psi$ is the Radon
+transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
+Derive the Fourier-slice inversion formula reconstructing the Wigner
+distribution from the family of quadrature densities.  For the oscillator
+state $\psi_n$, use the Wigner--Laguerre identity to prove that the
+reconstructed radial profile is
+\[
+\frac{(-1)^n}{\pi\hbar}e^{-2H_{\rm cl}/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}}{\hbar\omega}\right),
+\]
+while every quadrature density is a scaled
+$e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
+radial zero circles determined by $L_n$, and the sign at the phase-space
+origin.  State how homodyne quadrature data distinguish adjacent number
+states and detect Wigner negativity after inverse Radon reconstruction.
+\end{exercise}
+
+\section{Hamiltonian Geometry}
+
+\emph{Question.} Given a system's energy as a function of position and momentum and an initial state, what trajectory and oscillation period follow?
+
+\begin{definition}[Cotangent bundles]
+For a smooth manifold $Q$ and $q\in Q$, let $T_qQ$ be the linear space of
+derivations $C^\infty(Q)\to\R$ at $q$, and let
+$T_q^*Q=(T_qQ)^*$.  Define
+\[
+TQ=\coprod_{q\in Q}T_qQ,
+\qquad
+T^*Q=\coprod_{q\in Q}T_q^*Q.
+\]
+A smooth vector bundle is a smooth map $\pi:E\to Q$ locally isomorphic to
+$U\times W\to U$ by fiberwise linear maps.  A section is a smooth map
+$s:Q\to E$ satisfying $\pi s=\id_Q$.  The bundles $TQ$ and $T^*Q$ are the
+tangent and cotangent bundles.  A classical position--momentum state is a
+pair $(q,p)$ with $p\in T_q^*Q$, and its wave covector is $k=p/\hbar$.
+\end{definition}
+
+\begin{exercise}[From linear to cotangent phase space]
+For a finite-dimensional real linear space $V$, construct the canonical
+identifications
+\[
+TV\cong V\times V,
+\qquad
+T^*V\cong V\times V^*.
+\]
+Prove that a phase $S\in C^\infty(Q)$ determines the momentum
+$p=dS_q\in T_q^*Q$ and local wave covector $k=dS_q/\hbar$.  For a
+diffeomorphism $F:Q\to Q$, construct its cotangent lift and prove that it
+preserves the tautological one-form
+\[
+\theta_{(q,p)}(\xi)=p(d\pi(\xi)).
+\]
+Deduce that it preserves $d\theta$, and recover the position--momentum
+pairing and symplectic form used in Weyl quantization when $Q=V$.
+\end{exercise}
+
+\begin{definition}[Differential forms]
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write
+$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$.  For a smooth map $F:M\to N$, define
+\[
+(F^*\alpha)_p(v_1,\ldots,v_k)
+=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+The \emph{exterior derivative} is the family
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
+Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
+\end{definition}
+
+\begin{exercise}[Cartan calculus]
+Construct $d$ locally and prove its uniqueness.  For contraction
+$\iota_X$, prove Cartan's identity
+\[
+\mathcal L_X=d\iota_X+\iota_Xd.
+\]
+\end{exercise}
+
+\begin{definition}[Symplectic manifolds]
+A \emph{symplectic form} is a closed nondegenerate two-form $\omega$.
+For $f\in C^\infty(M)$, define
+\[
+\iota_{X_f}\omega=-df,
+\qquad
+\{f,g\}=-\omega(X_f,X_g).
+\]
+A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
+\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
+For a manifold $Q$, the tautological one-form on $T^*Q$ is
+\[
+\theta_\alpha(v)=\alpha(d\pi(v)),
+\]
+and the canonical symplectic form is $\omega=d\theta$.
+\end{definition}
+
+\begin{definition}[Classical states and observables]
+A \emph{pure classical state} is a point of $M$, a \emph{classical
+observable} is a function $f\in C^\infty(M,\R)$, and a
+\emph{statistical state} is a Borel probability measure $\mu$ with
+expectation
+\[
+\mathbb E_\mu[f]=\int_Mf\,d\mu.
+\]
+For Hamiltonian flow $\Phi_t$, define
+\[
+\mu_t=(\Phi_t)_*\mu_0,
+\qquad f_t=f\circ\Phi_t.
+\]
+\end{definition}
+
+\begin{exercise}[Darboux theorem]
+Prove that every point of a $2n$-dimensional symplectic manifold has a
+neighborhood symplectomorphic to an open subset of
+$(\R^{2n},\omega_0)$.  Identify the canonical symplectic form on $T^*Q$
+from the tautological one-form.  Prove that the Poisson bracket is
+antisymmetric, satisfies the Leibniz rule and Jacobi identity, and is
+preserved by canonical transformations.  Prove
+\[
+\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
+\]
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the volume form $\omega^n/n!$, and every density
+depending only on the Hamiltonian.
+\end{exercise}
+
+\begin{exercise}[Elliptic pendulum period]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove the exact period identity
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Expand the integral to obtain
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+
+
+\section{Deformation Quantization}
+
+\emph{Question.} How does an order-dependent phase between microscopic translations change the allowed energy bands in a periodic material?
+
+\begin{definition}[Poisson manifolds]
+A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
+$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
+Equivalently, there is a bivector $\Pi\in\Gamma(\Lambda^2TM)$ satisfying
+\[
+\{f,g\}=\Pi(df,dg),
+\qquad [\Pi,\Pi]_{\rm Sch}=0.
+\]
+\end{definition}
+
+\begin{definition}[Star products]
+A \emph{differential star product} on a Poisson manifold is an associative
+$\C[[\hbar]]$-bilinear product on $C^\infty(M)[[\hbar]]$ of the form
+\[
+f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
+\]
+where the $C_r$ are bidifferential operators, $1$ is a unit, and
+\[
+C_1(f,g)-C_1(g,f)=i\{f,g\}.
+\]
+Two star products are \emph{equivalent} when they are intertwined by an
+operator $T=\id+\sum_{r\geq1}\hbar^rT_r$ with differential $T_r$.
+\end{definition}
+
+\begin{exercise}[Moyal plane-wave identity]
+On $\R^{2n}$ let $\Pi$ be the canonical Poisson tensor and write
+$\Pi(k,\ell)=k_i\Pi^{ij}\ell_j$ for covectors $k,\ell$.  Derive from the
+Moyal product
+\[
+e^{ik\cdot z}\star_\hbar e^{i\ell\cdot z}
+=e^{-i\hbar\Pi(k,\ell)/2}e^{i(k+\ell)\cdot z}.
+\]
+Prove associativity directly by checking the multiplier identity for the
+phase.  Differentiate in $k$ and $\ell$ to recover the canonical
+commutation relations and the full bidifferential expansion of the Moyal
+product on polynomials.
+\end{exercise}
+
+\begin{definition}[Magnetic lattice Hamiltonian]
+Let $U,V$ be unitary translations satisfying
+\[
+UV=e^{2\pi i\alpha}VU,
+\]
+where $\alpha$ is the magnetic flux through one lattice cell in units of
+the flux quantum.  The magnetic nearest-neighbor Hamiltonian is
+\[
+H_\alpha=U+U^*+V+V^*.
+\]
+In the position realization on $\ell^2(\Z)$, with transverse phase
+$\theta$, it is the Harper operator
+\[
+(H_{\alpha,\theta}\psi)_m
+=\psi_{m+1}+\psi_{m-1}
++2\cos(2\pi\alpha m+\theta)\psi_m.
+\]
+\end{definition}
+
+\begin{exercise}[Chebyshev magnetic bands]
+Derive the magnetic-translation relation from the Moyal plane-wave
+identity.  For rational flux $\alpha=p/q$, prove that the Harper equation
+has $q$-periodic coefficients and reduce it by the Floquet condition
+$\psi_{m+q}=e^{iqk}\psi_m$ to a $q$-dimensional spectral problem.
+At zero flux, use the Chebyshev identity
+\[
+T_q(\cos t)=\cos(qt)
+\]
+to derive the $q$-step discriminant
+\[
+\Delta_{0,q}(E,\theta)
+=2T_q\!\left(\frac{E-2\cos\theta}{2}\right).
+\]
+At half a flux quantum, compute the two bands
+\[
+E_\pm(k,\theta)
+=\pm2\sqrt{\cos^2k+\cos^2\theta}.
+\]
+Deduce the flux-dependent band edges and the touching energy, and state
+how microwave, photonic, or electronic lattice spectroscopy tests the
+Chebyshev discriminant and the half-flux splitting.
+\end{exercise}
+
+\section{Geometric Quantization}
+
+\emph{Question.} For a charged particle confined to a periodic surface, which magnetic fields permit globally consistent wavefunctions, and how many states occur at each energy?
+
+\begin{definition}[Integration of forms]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+compactly supported top form is defined using orientation-preserving charts
+and a partition of unity.
+\end{definition}
+
+\begin{exercise}[Stokes' theorem]
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
+\[
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
+\]
+recovering the observed flux--emf law.
+\end{exercise}
+
+\begin{definition}[de Rham cohomology]
+A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
+\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
+\emph{de Rham cohomology} of $M$ is
+\[
+H_{\mathrm{dR}}^k(M)
+=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
+{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
+\]
+Pullback induces maps on de Rham cohomology, and the wedge product makes
+$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
+\end{definition}
+
+\begin{exercise}[de Rham classes and periods]
+On a star-shaped open subset of $\R^n$, construct a homotopy operator and
+prove the Poincar\'e lemma: every closed form of positive degree is exact.
+Use Stokes' theorem to prove that an exact $k$-form has zero integral over
+every closed oriented $k$-manifold mapped smoothly into $M$. Prove
+$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
+
+On $\R^2\setminus\{0\}$, show that
+\[
+\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
+\]
+is closed and has integral $2\pi$ around the unit circle, hence is not exact.
+Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
+closed electromagnetic field strength has local potentials, while it has a
+global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
+
+\begin{definition}[Connections and parallel transport]
+\label{def:connections-parallel-transport}
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers.
+\end{definition}
+
+\begin{definition}[Curvature and holonomy]
+\label{def:curvature-holonomy}
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
+\end{definition}
+
+\begin{exercise}[Parallel transport and curvature]
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
+\end{exercise}
+
+\begin{definition}[Principal connections]
+For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
+$P\to M$ with a free right $G$-action, transitive on each fiber, and local
+$G$-equivariant trivializations.  For a representation
+$G\to\operatorname{GL}(W)$, its
+associated vector bundle is
+$P\times_GW=(P\times W)/((pg,w)\sim(p,gw))$.
+A \emph{principal connection} is an
+equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
+vertical fields. It induces connections on every associated bundle, and its
+\emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
+\end{definition}
+
+\begin{exercise}[Gauge covariance and Bianchi identity]
+Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
+$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
+a flat connection has trivial holonomy on contractible loops and is
+gauge-equivalent to a product connection on a connected base exactly when
+its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
+around a
+generator of the fundamental group and exhibit the obstruction to removing
+a flat connection globally.
+\end{exercise}
+
+
+
+\begin{definition}[Prequantum line bundles]
+A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
+$L\to M$ with a unitary connection $\nabla$ satisfying
+\[
+F_\nabla=-\frac{i}{\hbar}\omega.
+\]
+For $f\in C^\infty(M)$, its \emph{Kostant--Souriau operator} is
+\[
+\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+\]
+\end{definition}
+
+\begin{definition}[Metaplectic correction]
+A \emph{complex polarization} is an involutive Lagrangian subbundle
+$P\subset T_\C M$.  Its canonical line is
+$K_P=\Lambda^{\rm top}P^*$, and a \emph{metaplectic correction} is a line
+bundle $\delta_P$ with $\delta_P^{\otimes2}\cong K_P$.  The corrected
+quantum space is the Hilbert completion of sections of
+$L\otimes\delta_P$ covariantly constant along $P$.
+\end{definition}
+
+\begin{exercise}[Prequantization and polarization]
+Prove that a prequantum line bundle exists if and only if
+\[
+\left[\frac{\omega}{2\pi\hbar}\right]
+\in H^2(M;\Z).
+\]
+Prove
+\[
+[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
+=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
+\]
+For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
+operators $Q_\ell$ and $P_v$.  For a compact
+K\"ahler manifold with a positive prequantum line bundle, identify the
+corrected quantum space with
+$H^0(M,L\otimes K_M^{1/2})$.
+\end{exercise}
+
+
+\begin{definition}[Theta functions with characteristics]
+For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
+\[
+\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
+=\sum_{n\in\Z}
+\exp\!\left(
+\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
+\right).
+\]
+\end{definition}
+
+\begin{exercise}[Landau theta functions]
+Let
+$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
+charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
+assume $eB>0$.  Put
+\[
+N=\frac{eBA}{2\pi\hbar},
+\qquad
+\tau=i\frac{L_y}{L_x},
+\qquad
+z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
+\]
+Use the prequantization condition to prove that a magnetic line bundle
+$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$, use the holomorphic-gauge
+automorphy laws
+\[
+f(z+1)=f(z),
+\qquad
+f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z)
+\]
+to prove the magnetic-translation decomposition
+\[
+H^0(Q,L)
+=\bigoplus_{r\in\Z/N\Z}
+\C\,\vartheta\!\begin{bmatrix}r/N\\0\end{bmatrix}(Nz\mid N\tau).
+\]
+Derive the automorphy and magnetic-translation eigenvalue laws directly
+from the defining series.  Relate the holomorphic-gauge sections to
+physical wavefunctions by their common unitary-gauge factor.
+
+For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy and the
+Moyal plane-wave identity to prove
+\[
+UV=e^{2\pi i/N}VU.
+\]
+For the covariant Landau Hamiltonian, construct the raising and lowering
+operators and prove
+\[
+E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
+\qquad
+\dim E_{\widehat H}(\{E_n\})H=N.
+\]
+Deduce the cyclotron resonance spacing, the degeneracy density
+$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
+State how measurements of these three quantities separately test the
+energy, flux-integrality, and theta-function predictions.
+\end{exercise}
+
+\section{Integrable Systems}
+
+\emph{Question.} What energy levels and driven transition strengths arise for particles on a ring with inverse-square repulsion?
+
+\begin{definition}[Sutherland model]
+For $N$ identical particles of mass $m$ on a ring of radius $R$ and
+$g>1$, define
+\[
+\widehat H_g=\frac{\hbar^2}{2mR^2}
+\left[-\sum_{j=1}^N\partial_{\theta_j}^2
++\frac{g(g-1)}2\sum_{i<j}
+\frac1{\sin^2((\theta_i-\theta_j)/2)}\right]
+\]
+on symmetric wavefunctions.  Its ground-state factor is
+\[
+\Psi_0(\theta)=\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^g.
+\]
+For a nonincreasing tuple
+$\lambda=(\lambda_1,\ldots,\lambda_N)\in\Z_{\geq0}^N$, let
+$m_\lambda$ be the sum of the distinct particle permutations of
+$z_1^{\lambda_1}\cdots z_N^{\lambda_N}$, where $z_j=e^{i\theta_j}$.
+For tuples of equal sum, write $\mu<\lambda$ in dominance order when
+\[
+\sum_{i=1}^r\mu_i\leq\sum_{i=1}^r\lambda_i
+\quad(1\leq r\leq N)
+\]
+and at least one inequality is strict.
+\end{definition}
+
+\begin{definition}[Jack polynomials]
+The Jack polynomial $P_\lambda^{(1/g)}$ is the symmetric polynomial
+normalized by
+\[
+P_\lambda^{(1/g)}=m_\lambda+
+\sum_{\mu<\lambda}c_{\lambda\mu}(g)m_\mu
+\]
+and by satisfying
+\[
+\left[
+\sum_i(z_i\partial_{z_i})^2
++g\sum_{i<j}\frac{z_i+z_j}{z_i-z_j}
+(z_i\partial_{z_i}-z_j\partial_{z_j})
+\right]P_\lambda^{(1/g)}
+=\left[\sum_i
+\bigl(\lambda_i^2+g(N+1-2i)\lambda_i\bigr)\right]
+P_\lambda^{(1/g)};
+\]
+here $<$ is dominance order.
+\end{definition}
+
+\begin{exercise}[Sutherland integrability]
+Construct a Lax equation $\dot L=[M,L]$ and its classical $r$-matrix
+bracket for the Sutherland system, and prove that the spectral invariants
+of $L$ Poisson-commute.
+Conjugate the quantum Hamiltonian by $\Psi_0$, identify its commuting
+quantum integrals, and prove that
+\[
+\Psi_\lambda=\Psi_0P_\lambda^{(1/g)}(e^{i\theta_1},\ldots,e^{i\theta_N})
+\]
+is a joint eigenfunction with
+\[
+E_\lambda=\frac{\hbar^2}{2mR^2}
+\left[\frac{g^2N(N^2-1)}{12}
++\sum_{j=1}^N
+\bigl(\lambda_j^2+g(N+1-2j)\lambda_j\bigr)\right].
+\]
+\end{exercise}
+
+\begin{exercise}[Jack transition spectrum]
+Let $\rho_r=\sum_{j=1}^Ne^{ir\theta_j}$ be a density mode.  Derive the
+Jack Pieri identity in orthonormal normalization for
+$\rho_1P_\lambda^{(1/g)}$ and show that only
+nonincreasing tuples obtained from $\lambda$ by increasing one entry by
+one occur.
+For a weak periodic drive proportional to
+$\rho_1e^{-i\Omega t}+\rho_{-1}e^{i\Omega t}$, deduce the allowed
+resonance frequencies
+\[
+\Omega_{\mu\lambda}=\frac{|E_\mu-E_\lambda|}{\hbar}
+\]
+and express their relative intensities as squared normalized Jack Pieri
+coefficients.  State how spectroscopy of particles confined to a ring
+determines $g$ from the line shifts and tests the Jack selection rule from
+the missing lines.
+\end{exercise}
+
+\section{Quantum Groups}
+
+\emph{Question.} For three spins with a known directional anisotropy, what probabilities result when they are coupled and exchanged in different orders?
+
+
+\begin{definition}[Poisson--Lie groups]
+A \emph{Poisson--Lie group} is a Lie group $G$ with a Poisson structure for
+which multiplication $G\times G\to G$ is Poisson.  A \emph{Lie bialgebra}
+is a Lie algebra $\mathfrak g$ with a linear map
+\[
+\delta:\mathfrak g\to\mathfrak g\wedge\mathfrak g
+\]
+that is a $1$-cocycle for the adjoint action and whose transpose defines a
+Lie bracket on $\mathfrak g^*$.  It is \emph{coboundary} when
+\[
+\delta(x)=[x\otimes1+1\otimes x,r]
+\]
+for some $r\in\mathfrak g\otimes\mathfrak g$.
+\end{definition}
+
+\begin{exercise}[Poisson--Lie duality]
+Differentiate a Poisson--Lie structure at the identity and prove that it
+defines a Lie bialgebra.  Prove the converse for connected simply connected
+groups.  For a coboundary Lie bialgebra, define
+\[
+\operatorname{CYB}(r)
+=[r_{12},r_{13}]+[r_{12},r_{23}]+[r_{13},r_{23}].
+\]
+Prove that the co-Jacobi identity is equivalent to
+$\operatorname{CYB}(r)$ being invariant under the diagonal adjoint action.
+Under the additional triangular hypothesis
+$\operatorname{CYB}(r)=0$, recover the classical Yang--Baxter equation;
+state the modified classical Yang--Baxter equation as
+$\operatorname{CYB}(r)=\Omega$ for an invariant tensor $\Omega$ and
+distinguish the case $\Omega\ne0$.
+\end{exercise}
+
+
+\begin{definition}[Bialgebras and Hopf algebras]
+A \emph{bialgebra} is a unital associative algebra $H$ with unital algebra
+homomorphisms
+\[
+\Delta:H\to H\otimes H,
+\qquad
+\varepsilon:H\to\C
+\]
+satisfying coassociativity and the counit identities.  A \emph{Hopf
+algebra} is a bialgebra with a linear antipode $S:H\to H$ satisfying
+\[
+m(S\otimes\id)\Delta
+=\eta\varepsilon
+=m(\id\otimes S)\Delta.
+\]
+\end{definition}
+
+\begin{definition}[Cartan data]
+A symmetrizable generalized Cartan matrix is an integral matrix
+$A=(a_{ij})_{i,j\in I}$ satisfying
+\[
+a_{ii}=2,\qquad a_{ij}\leq0\ (i\ne j),\qquad
+a_{ij}=0\Longleftrightarrow a_{ji}=0,
+\]
+for which positive integers $d_i$ make $(d_ia_{ij})$ symmetric.  Put
+$q_i=q^{d_i}$ and
+\[
+[n]_{q_i}=\frac{q_i^n-q_i^{-n}}{q_i-q_i^{-1}}.
+\]
+\end{definition}
+
+\begin{definition}[Quantized enveloping algebras]
+A \emph{quantized enveloping algebra} of $(\mathfrak g,\delta)$ is a
+topologically free Hopf algebra $U_\hbar(\mathfrak g)$ over $\C[[\hbar]]$
+satisfying
+\[
+U_\hbar(\mathfrak g)/\hbar U_\hbar(\mathfrak g)\cong U(\mathfrak g),
+\qquad
+\delta(x)=
+\frac{\Delta_\hbar(x)-\Delta_\hbar^{\rm op}(x)}{\hbar}\bmod\hbar.
+\]
+For generic $q$, $U_q(\mathfrak{sl}_2)$ is generated by
+$E,F,K,K^{-1}$ with
+\[
+KEK^{-1}=q^2E,
+\qquad KFK^{-1}=q^{-2}F,
+\qquad [E,F]=\frac{K-K^{-1}}{q-q^{-1}},
+\]
+and
+\[
+\Delta(K)=K\otimes K,
+\quad
+\Delta(E)=E\otimes1+K\otimes E,
+\quad
+\Delta(F)=F\otimes K^{-1}+1\otimes F.
+\]
+\end{definition}
+
+\begin{exercise}[Drinfeld--Jimbo theorem]
+Construct $U_q(\mathfrak g)$ from the Cartan matrix of a complex semisimple
+Lie algebra and prove that it is a Hopf deformation of $U(\mathfrak g)$.
+For $\mathfrak{sl}_2$, verify the displayed relations and coproduct and
+compute the semiclassical Lie bialgebra.
+\end{exercise}
+
+\begin{exercise}[Quantum-group binomial identity]
+For $YX=q^2XY$, define
+\[
+\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}
+=\frac{(q^2;q^2)_n}{(q^2;q^2)_r(q^2;q^2)_{n-r}}.
+\]
+Prove the noncommutative binomial identity
+\[
+(X+Y)^n=\sum_{r=0}^n
+\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}X^rY^{n-r}.
+\]
+Apply it to
+$X=E\otimes1$ and $Y=K\otimes E$ in $U_q(\mathfrak{sl}_2)$ to obtain an
+explicit formula for $\Delta(E^n)$.  Show that the limit $q\to1$ recovers
+the ordinary binomial theorem and the undeformed coproduct.
+\end{exercise}
+
+
+\begin{definition}[Basic hypergeometric series]
+For $m\in\N$, define
+\[
+(a;q)_m=\prod_{j=0}^{m-1}(1-aq^j),
+\qquad
+(a;q)_\infty=\prod_{j=0}^{\infty}(1-aq^j),
+\]
+and
+\[
+(a_1,\ldots,a_r;q)_m=\prod_{i=1}^r(a_i;q)_m,
+\qquad
+(a_1,\ldots,a_r;q)_\infty=\prod_{i=1}^r(a_i;q)_\infty.
+\]
+The \emph{basic hypergeometric series} is
+\[
+{}_r\phi_s\!\left(
+\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};q,z
+\right)
+=\sum_{m=0}^\infty
+\frac{(a_1,\ldots,a_r;q)_m}
+     {(q,b_1,\ldots,b_s;q)_m}
+\left((-1)^mq^{m(m-1)/2}\right)^{1+s-r}z^m.
+\]
+It is \emph{terminating} when one numerator parameter is $q^{-n}$.
+\end{definition}
+
+\begin{exercise}[Basic hypergeometric summations]
+Prove the $q$-binomial theorem
+\[
+{}_1\phi_0\!\left(\begin{matrix}a\\-\end{matrix};q,z\right)
+=\frac{(az;q)_\infty}{(z;q)_\infty},
+\qquad |z|<1,
+\]
+the $q$-Gauss summation
+\[
+{}_2\phi_1\!\left(
+\begin{matrix}a,b\\c\end{matrix};q,\frac{c}{ab}
+\right)
+=\frac{(c/a,c/b;q)_\infty}{(c,c/(ab);q)_\infty},
+\qquad \left|\frac{c}{ab}\right|<1,
+\]
+and the terminating $q$-Pfaff--Saalsch\"utz summation
+\[
+{}_3\phi_2\!\left(
+\begin{matrix}a,b,q^{-n}\\c,abq^{1-n}/c\end{matrix};q,q
+\right)
+=\frac{(c/a,c/b;q)_n}{(c,c/(ab);q)_n}.
+\]
+\end{exercise}
+
+
+
+\begin{definition}[Compact quantum groups and Haar states]
+A \emph{compact quantum group} $\mathbb G$ is a unital $C^*$-algebra
+$C(\mathbb G)$ with a unital $*$-homomorphism
+\[
+\Delta:C(\mathbb G)\longrightarrow
+C(\mathbb G)\otimes_{\min}C(\mathbb G)
+\]
+where $\otimes_{\min}$ is the closure of the algebraic tensor product in
+$B(H\otimes K)$ for faithful representations on $H$ and $K$.  The
+coproduct satisfies
+\[
+(\Delta\otimes\id)\Delta=(\id\otimes\Delta)\Delta
+\]
+and
+\[
+\overline{\Delta(C(\mathbb G))(1\otimes C(\mathbb G))}
+=C(\mathbb G)\otimes_{\min}C(\mathbb G)
+=\overline{\Delta(C(\mathbb G))(C(\mathbb G)\otimes1)}.
+\]
+A \emph{Haar state} is a state
+$h$ satisfying
+\[
+(h\otimes\id)\Delta(a)=h(a)1=(\id\otimes h)\Delta(a).
+\]
+\end{definition}
+
+\begin{definition}[Representative functions]
+A finite-dimensional \emph{unitary corepresentation} on $H_U$ is a unitary
+$U\in B(H_U)\otimes C(\mathbb G)$ satisfying
+\[
+(\id\otimes\Delta)(U)=U_{12}U_{13}.
+\]
+For $\omega\in B(H_U)^*$, the corresponding \emph{coefficient} is
+\[
+u_\omega=(\omega\otimes\id)(U)\in C(\mathbb G).
+\]
+The representative-function algebra $\operatorname{Pol}(\mathbb G)$ is
+the unital $*$-subalgebra generated by these coefficients for all
+finite-dimensional unitary corepresentations.
+\end{definition}
+
+\begin{definition}[Quantum-group duality]
+Let $0<q<1$, let $G$ be a compact connected simply connected semisimple Lie
+group, and let $\mathfrak g_\C$ be its complexified Lie algebra.  The Hopf $*$-algebra
+$\operatorname{Pol}(G_q)$ is the representative-function algebra of
+finite-dimensional type-$1$ unitary
+$U_q(\mathfrak g_\C)$-modules for the compact real-form involution, with
+pairing
+\[
+\langle x,c_{\varphi,v}\rangle=\varphi(xv).
+\]
+Its universal and reduced $C^*$-completions are denoted
+$C_u(G_q)$ and $C_r(G_q)$.
+\end{definition}
+
+\begin{exercise}[Woronowicz Peter--Weyl theorem]
+Prove existence and uniqueness of the Haar state.  For
+$\alpha\in\widehat{\mathbb G}$, let $C_\alpha$ be its coefficient space and
+prove the algebraic Peter--Weyl decomposition
+\[
+\operatorname{Pol}(\mathbb G)=
+\bigoplus_{\alpha\in\widehat{\mathbb G}}C_\alpha.
+\]
+Prove that $\operatorname{Pol}(\mathbb G)$ is a dense Hopf $*$-subalgebra
+of $C(\mathbb G)$.  For each irreducible $U^\alpha$,
+construct the normalized positive invertible operator
+$Q_\alpha\in B(H_{U^\alpha})$ satisfying
+\[
+(\id\otimes S^2)(U^\alpha)
+=(Q_\alpha\otimes1)U^\alpha(Q_\alpha^{-1}\otimes1),
+\qquad
+\Tr(Q_\alpha)=\Tr(Q_\alpha^{-1}),
+\]
+and derive the orthogonality relations in the Haar GNS space and the
+resulting Hilbert direct-sum decomposition.  Prove that the displayed pairing between
+$U_q(\mathfrak g_\C)$ and $\operatorname{Pol}(G_q)$ is a nondegenerate Hopf
+pairing.
+\end{exercise}
+
+\begin{exercise}[$SU_q(2)$]
+Let $C(SU_q(2))$ be generated by $\alpha,\gamma$ so that
+\[
+u=\begin{pmatrix}
+\alpha&-q\gamma^*\\
+\gamma&\alpha^*
+\end{pmatrix}
+\]
+is unitary, and define
+$\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$.  Derive the relations
+\[
+\begin{gathered}
+\alpha^*\alpha+\gamma^*\gamma=1,
+\qquad \alpha\alpha^*+q^2\gamma\gamma^*=1,
+\qquad \gamma^*\gamma=\gamma\gamma^*,\\
+\alpha\gamma=q\gamma\alpha,
+\qquad \alpha\gamma^*=q\gamma^*\alpha,
+\end{gathered}
+\]
+and prove that $\Delta$ is a coassociative $*$-homomorphism satisfying the
+cancellation conditions.
+\end{exercise}
+
+\begin{definition}[Representation-category duality]
+Let
+$\operatorname{Rep}^{\mathrm{fd}}_{\mathrm{type\,1}}
+\!\bigl(U_q(\mathfrak g_\C)\bigr)$ be the category of finite-dimensional type-$1$
+unitary modules and intertwiners, and let
+$\operatorname{Corep}^{\mathrm{fd}}\!\bigl(\operatorname{Pol}(G_q)\bigr)$ be the category
+of finite-dimensional unitary corepresentations and intertwiners.  For a
+module $(V,\pi_V)$, define $U_V\in\End(V)\otimes\operatorname{Pol}(G_q)$ by
+\[
+(\id\otimes\langle x,{\cdot}\rangle)(U_V)=\pi_V(x)
+\qquad(x\in U_q(\mathfrak g_\C)).
+\]
+Define
+\[
+\mathcal F:
+\operatorname{Rep}^{\mathrm{fd}}_{\mathrm{type\,1}}
+\!\bigl(U_q(\mathfrak g_\C)\bigr)\longrightarrow
+\operatorname{Corep}^{\mathrm{fd}}\!\bigl(\operatorname{Pol}(G_q)\bigr),
+\qquad
+\mathcal F(V)=U_V,\quad \mathcal F(T)=T,
+\]
+with identity tensor constraints on the underlying spaces $V\otimes W$.
+\end{definition}
+
+\begin{exercise}[Matrix coefficients and tensor products]
+For $v\in V$, $w\in W$, $\varphi\in V^*$, and $\psi\in W^*$, prove
+\[
+c_{\varphi,v}c_{\psi,w}
+=c_{\varphi\otimes\psi,v\otimes w}.
+\]
+Use the Hopf-pairing identities to prove
+\[
+(\id\otimes\Delta)(U_V)=U_{V,12}U_{V,13},
+\qquad
+U_{V\otimes W}=U_{V,13}U_{W,23}.
+\]
+Prove that $\mathcal F$ is fully faithful and essentially surjective and
+that its tensor constraints are intertwiners.  Conclude
+\[
+\operatorname{Rep}^{\mathrm{fd}}_{\mathrm{type\,1}}
+\!\bigl(U_q(\mathfrak g_\C)\bigr)\simeq
+\operatorname{Corep}^{\mathrm{fd}}\!\bigl(\operatorname{Pol}(G_q)\bigr)
+\]
+as monoidal $*$-categories.
+\end{exercise}
+
+\begin{definition}[Conjugates and quantum dimension]
+For a finite-dimensional $H$-module $V$, its \emph{left dual} $V^\vee$ has
+action
+\[
+(x\varphi)(v)=\varphi(S(x)v),
+\]
+evaluation $\operatorname{ev}_V(\varphi\otimes v)=\varphi(v)$, and
+coevaluation
+$\operatorname{coev}_V$.  In a rigid
+$C^*$-tensor category, a \emph{conjugate} of $V$ is an object
+$\overline V$ with morphisms
+\[
+R_V:\mathbf 1\longrightarrow\overline V\otimes V,
+\qquad
+\overline R_V:\mathbf 1\longrightarrow V\otimes\overline V
+\]
+satisfying
+\[
+(\overline R_V^*\otimes\id_V)(\id_V\otimes R_V)=\id_V,
+\qquad
+(R_V^*\otimes\id_{\overline V})
+(\id_{\overline V}\otimes\overline R_V)=\id_{\overline V}.
+\]
+The adjoints $R_V^*$ and $\overline R_V^*$ are evaluation maps, and
+$R_V$ and $\overline R_V$ are coevaluation maps.  A solution is
+\emph{standard} when
+\[
+R_V^*(\id_{\overline V}\otimes T)R_V
+=\overline R_V^*(T\otimes\id_{\overline V})\overline R_V
+\qquad(T\in\End(V)).
+\]
+For a standard solution, define
+\[
+\operatorname{tr}_q(T)
+=R_V^*(\id_{\overline V}\otimes T)R_V,
+\qquad
+\dim_q(V)=\operatorname{tr}_q(\id_V).
+\]
+\end{definition}
+
+\begin{exercise}[$SU_q(2)$ fusion and dimensions]
+Let $V_n$ be the irreducible type-$1$ $U_q(\mathfrak{sl}_2)$-module of
+highest weight $n$.  Construct its conjugate equations and prove
+\[
+V_m\otimes V_n
+\cong\bigoplus_{k=0}^{\min(m,n)}V_{m+n-2k}.
+\]
+Prove that the normalized positive operators from the Woronowicz
+orthogonality relations implement the standard solutions and compute
+\[
+\dim_q(V_n)=[n+1]_q
+=\frac{q^{n+1}-q^{-(n+1)}}{q-q^{-1}}.
+\]
+Prove
+\[
+\dim V_n=n+1,
+\qquad
+\lim_{q\to1}\dim_q(V_n)=n+1,
+\qquad
+\dim_q(V_n)>n+1
+\]
+for $0<q<1$ and $n\geq1$.
+\end{exercise}
+
+\begin{definition}[Tannaka--Krein reconstruction]
+Let $\mathcal C$ be an essentially small rigid $C^*$-tensor category and
+let $F:\mathcal C\to\operatorname{Hilb}_{\mathrm{fd}}$ be a faithful
+unitary tensor functor.  Define
+\[
+\mathcal A_F=
+\left(\bigoplus_{V\in\operatorname{Ob}\mathcal C}F(V)^*\otimes F(V)\right)
+\Big/
+\left\langle
+(\psi\circ F(T))\otimes v-\psi\otimes F(T)v
+\right\rangle,
+\]
+where $T:V\to W$, $v\in F(V)$, and $\psi\in F(W)^*$.  Its multiplication
+is induced by tensor products.  With
+$q_V(\varphi\otimes v)=[\varphi\otimes v]_V$, define
+\[
+\Delta[\varphi\otimes v]_V
+=(q_V\otimes q_V)
+\bigl(\varphi\otimes\operatorname{coev}_{F(V)}(1)\otimes v\bigr),
+\qquad
+\varepsilon[\varphi\otimes v]_V=\varphi(v).
+\]
+The involution and antipode are induced by the conjugate data.
+\end{definition}
+
+\begin{exercise}[Tannaka--Krein theorem]
+Prove that the coproduct is well-defined on the quotient and coassociative
+and that $\mathcal A_F$ is a Hopf $*$-algebra.  For the forgetful fiber functor
+\[
+F:\operatorname{Rep}(G_q)\longrightarrow\operatorname{Hilb}_{\mathrm{fd}},
+\]
+prove that
+\[
+[\varphi\otimes v]_V\longmapsto c_{\varphi,v}
+\]
+is a Hopf $*$-isomorphism
+$\mathcal A_F\cong\operatorname{Pol}(G_q)$.
+\end{exercise}
+
+\begin{definition}[Universal $R$-matrix and braiding]
+A \emph{universal $R$-matrix} for a Hopf algebra $H$ is an invertible
+element $\mathcal R$ in a completion of $H\otimes H$ on which the
+finite-dimensional tensor-product representations under consideration
+extend, satisfying
+\[
+\mathcal R\Delta(x)\mathcal R^{-1}=\Delta^{\rm op}(x),
+\quad
+(\Delta\otimes\id)(\mathcal R)=\mathcal R_{13}\mathcal R_{23},
+\quad
+(\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
+\]
+For finite-dimensional modules $V,W$, define
+\[
+c_{V,W}
+=\tau\circ(\pi_V\otimes\pi_W)(\mathcal R):
+V\otimes W\longrightarrow W\otimes V.
+\]
+The pair $(H,\mathcal R)$ is \emph{quasitriangular}.
+\end{definition}
+
+\begin{definition}[Spectral exchange operators]
+Let $V$ be finite-dimensional.  A meromorphic family
+$R(u)\in\End(V\otimes V)$ satisfies the spectral Yang--Baxter equation
+when
+\[
+R_{12}(u-v)R_{13}(u-w)R_{23}(v-w)
+=R_{23}(v-w)R_{13}(u-w)R_{12}(u-v).
+\]
+It is regular when $R(0)$ is a nonzero scalar multiple of the flip and
+unitary when $R_{12}(u)R_{21}(-u)$ is scalar.
+\end{definition}
+
+\begin{exercise}[Hexagon identities]
+Prove that $c_{V,W}$ is a natural module intertwiner and that the two
+coproduct identities for $\mathcal R$ give the two hexagon identities.
+Derive
+\[
+\mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
+=\mathcal R_{23}\mathcal R_{13}\mathcal R_{12}
+\]
+and, on $V^{\otimes3}$,
+\[
+c_{12}c_{23}c_{12}=c_{23}c_{12}c_{23}.
+\]
+Prove that the operators $c_{j,j+1}$ define braid-group representations on
+tensor powers of every finite-dimensional type-$1$ module.
+\end{exercise}
+
+\begin{definition}[Ribbon categories]
+Let $\mathcal C$ be a braided rigid $\C$-linear monoidal category.  A
+\emph{twist} is a natural isomorphism
+$\theta:\id_{\mathcal C}\to\id_{\mathcal C}$ satisfying
+\[
+\theta_{\mathbf1}=\id_{\mathbf1},
+\qquad
+\theta_{X\otimes Y}
+=c_{Y,X}c_{X,Y}(\theta_X\otimes\theta_Y).
+\]
+The category is \emph{ribbon} when
+\[
+\theta_{X^\vee}=(\theta_X)^\vee
+\]
+for every object $X$.
+\end{definition}
+
+\begin{exercise}[Ribbon elements]
+For a quasitriangular Hopf algebra $(H,\mathcal R)$, set
+\[
+u=m(S\otimes\id)(\mathcal R_{21}).
+\]
+Let $v\in H$ be central and invertible and satisfy
+\[
+v^2=uS(u),
+\qquad S(v)=v,
+\qquad \varepsilon(v)=1,
+\qquad
+\Delta(v)=(\mathcal R_{21}\mathcal R)^{-1}(v\otimes v).
+\]
+Prove that
+\[
+\theta_V=\pi_V(v^{-1})
+\]
+defines a ribbon twist on the category of finite-dimensional $H$-modules.
+Derive invariance of the quantum trace under framed ribbon isotopy.
+\end{exercise}
+
+\begin{exercise}[Chebyshev quantum dimensions]
+For the irreducible $SU_q(2)$ objects $V_n$, use
+$V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
+\[
+d_{n+1}=(q+q^{-1})d_n-d_{n-1},
+\qquad d_0=1,\quad d_1=q+q^{-1},
+\]
+where $d_n=\dim_q(V_n)$.  If $U_n$ is the Chebyshev polynomial determined
+by $U_0(x)=1$, $U_1(x)=2x$, and
+$U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)$, deduce
+\[
+\dim_q(V_n)=U_n\!\left(\frac{q+q^{-1}}2\right)
+=\frac{q^{n+1}-q^{-(n+1)}}{q-q^{-1}}.
+\]
+\end{exercise}
+
+\begin{definition}[$q$-coupling coefficients]
+For the irreducible type-$1$ modules $V_a,V_b,V_c$, normalize the
+intertwining isometries
+\[
+C_{ab}^c:V_c\longrightarrow V_a\otimes V_b
+\]
+by the positive highest-weight coefficient.  Their matrix coefficients
+between the distinguished weight lines are the $q$-Clebsch--Gordan
+coefficients.  The matrix coefficients of the recoupling map
+\[
+(V_a\otimes V_b)\otimes V_c
+\longrightarrow
+V_a\otimes(V_b\otimes V_c)
+\]
+between fixed intermediate irreducible summands are the $q$-$6j$
+coefficients.
+\end{definition}
+
+\begin{definition}[Quantum spherical functions]
+Let $H=U_q(\mathfrak g)$ and let $B\subseteq H$ be a right coideal
+subalgebra, so $\Delta(B)\subseteq B\otimes H$.  If an $H$-module $V$
+contains a vector $v$ satisfying
+\[
+bv=\varepsilon(b)v\qquad(b\in B),
+\]
+then the matrix coefficient
+\[
+\varphi_V(x)=\langle v,\pi_V(x)v\rangle
+\]
+is a \emph{quantum zonal spherical function}.  It belongs to the coordinate
+Hopf dual of $H$ and is invariant under the left and right $B$-actions.
+\end{definition}
+
+\begin{exercise}[$q$-spin coupling]
+Fix $0<q<1$, calibrate the directional anisotropy by
+$\Delta_{\rm aniso}=(q+q^{-1})/2$, and model the pair-coupling measurement
+on $V_a\otimes V_b$ by the spectral projections
+$C_{ab}^c(C_{ab}^c)^*$.  Use the coproduct of
+$U_q(\mathfrak{sl}_2)$ and the conjugate equations to
+derive the orthogonality relations for the $q$-Clebsch--Gordan
+coefficients.  Show that their weight dependence satisfies the dual
+$q$-Hahn recurrence and identify the normalized coefficients with a
+terminating ${}_3\phi_2$.  Compute the recoupling coefficients and identify
+them with $q$-Racah polynomials, proving their orthogonality from unitarity
+of the recoupling map.
+
+For three anisotropically coupled spins prepared with fixed individual
+weight measurements, compare the two sequential coupling orders.  Prove
+that the probabilities of the intermediate outcomes are squared
+$q$-Clebsch--Gordan coefficients and that changing the coupling order is
+governed by squared $q$-$6j$ coefficients.  Use the universal $R$-matrix
+and the braid relation to derive the equality of the two three-exchange
+output distributions.  State how the measured line strengths and
+recoupling probabilities determine $q$ and test the dual $q$-Hahn and
+$q$-Racah identities.
+\end{exercise}
+
+\begin{exercise}[qKZ spin transport]
+Let a vector-valued spin state satisfy the adjacent exchange rule
+\[
+\Psi(\ldots,z_i,z_{i+1},\ldots)
+=\check R_i(z_i/z_{i+1})
+ \Psi(\ldots,z_{i+1},z_i,\ldots).
+\]
+Prove that equality of the two routes reversing three adjacent spins is
+equivalent to the spectral Yang--Baxter equation.  Add a periodic transport
+rule that returns $z_1$ at the end as $qz_1$ and construct the resulting
+qKZ transport operator.
+
+For a unitary specialization of the $R$-matrix, prepare a three-spin state
+with fixed incoming weights.  Prove that two factorizations of the same
+three-spin exchange give identical output probabilities.  Diagonalize the
+periodic transport operator.  When the prepared and detected states are
+$B$-fixed, express its interference fringes through its eigenphases and
+quantum spherical matrix coefficients.  Combine these
+coefficients with the $q$-Clebsch--Gordan and $q$-$6j$ coefficients to
+predict the coupling probabilities, the equality of the two exchange
+distributions, and the phase shift produced by one transport cycle.
+Express the equality of the two exchange distributions as the corresponding
+$q$-Racah recoupling identity.
+\end{exercise}
+
+\section{Hecke Algebras and DAHA}
+
+\emph{Question.} For identical particles confined to a ring, how do exchange and winding rules determine their energy levels and transition strengths?
+
+
+\begin{definition}[Root data and affine Weyl groups]
+Let $E$ be a finite-dimensional Euclidean space.  A finite set
+$R\subset E\setminus\{0\}$ is a \emph{reduced crystallographic root system}
+if it is contained in no proper linear subspace of $E$, is preserved by the reflections
+\[
+s_\alpha(x)=x-\langle x,\alpha^\vee\rangle\alpha,
+\qquad
+\alpha^\vee=\frac{2\alpha}{\langle\alpha,\alpha\rangle},
+\]
+satisfies $R\cap\R\alpha=\{\alpha,-\alpha\}$, and has
+$\langle\beta,\alpha^\vee\rangle\in\Z$ for all $\alpha,\beta\in R$.
+Define
+\[
+W=\langle s_\alpha:\alpha\in R\rangle,
+\qquad
+Q^\vee=\langle\alpha^\vee:\alpha\in R\rangle_{\Z},
+\qquad
+W_{\mathrm{aff}}=Q^\vee\rtimes W.
+\]
+The connected components of the complement of the affine reflection
+hyperplanes
+\[
+H_{\alpha,m}=\{x\in E:\langle x,\alpha\rangle=m\},
+\qquad \alpha\in R,\quad m\in\Z,
+\]
+are the \emph{alcoves}.
+After a choice of positive roots, let $\alpha_i$ be the simple roots and
+$s_i=s_{\alpha_i}$.  Then $(W,\{s_i\})$ is a \emph{Coxeter system} with
+relations $(s_is_j)^{m_{ij}}=1$, and $\ell(w)$ is the minimum length of a
+word in the $s_i$ representing $w$.
+\end{definition}
+
+\begin{definition}[Finite Hecke algebras]
+Let $(W,\{s_i\})$ be a Coxeter system, and let $m_{ij}$ be the order of
+$s_is_j$.  Its \emph{Hecke algebra} $\mathcal H_t(W)$ over
+$\C(t^{1/2})$ is generated by $T_i$ with the braid relations
+\[
+\underbrace{T_iT_jT_i\cdots}_{m_{ij}\text{ factors}}
+=
+\underbrace{T_jT_iT_j\cdots}_{m_{ij}\text{ factors}}
+\]
+and the quadratic relations
+\[
+(T_i-t^{1/2})(T_i+t^{-1/2})=0.
+\]
+\end{definition}
+
+\begin{definition}[Quantum Schur--Weyl actions]
+Let $v$ be generic, let $U_v(\mathfrak{gl}_N)$ act on its vector module
+$V=\C^N$, and set $t=v^2$.  On $V^{\otimes r}$ define
+\[
+\rho_r(T_i)
+=\id_V^{\otimes(i-1)}\otimes\check R_{V,V}
+ \otimes\id_V^{\otimes(r-i-1)},
+\qquad
+\check R_{V,V}=\tau(\pi_V\otimes\pi_V)(\mathcal R),
+\]
+with the normalization for which $\check R_{V,V}$ has eigenvalues
+$v$ and $-v^{-1}$.
+\end{definition}
+
+\begin{exercise}[Quantum Schur--Weyl duality]
+Prove that the coproduct action of $U_v(\mathfrak{gl}_N)$ commutes with
+$\rho_r(T_i)$.  Derive the braid and Hecke relations from the universal
+$R$-matrix and prove that $\rho_r$ defines an action of
+$\mathcal H_{v^2}(S_r)$.  For generic $v$ and $N\geq r$, prove the
+double-centralizer identities
+\[
+\rho_r\bigl(\mathcal H_{v^2}(S_r)\bigr)
+=\End_{U_v(\mathfrak{gl}_N)}(V^{\otimes r}),
+\qquad
+\pi_r\bigl(U_v(\mathfrak{gl}_N)\bigr)
+=\End_{\mathcal H_{v^2}(S_r)}(V^{\otimes r}),
+\]
+and the decomposition
+\[
+V^{\otimes r}
+\cong
+\bigoplus_{\substack{\lambda\vdash r\\\ell(\lambda)\leq N}}
+L_\lambda^{(N)}\otimes S_t^\lambda.
+\]
+\end{exercise}
+
+\begin{definition}[Affine Hecke algebras]
+The extended affine Hecke algebra
+$\mathcal H_t^{\mathrm{aff}}(GL_r)$ is generated by
+$T_1,\ldots,T_{r-1}$ and commuting invertible elements
+$X_1,\ldots,X_r$, subject to the finite Hecke relations and
+\[
+T_iX_iT_i=X_{i+1},
+\qquad
+T_iX_j=X_jT_i\quad(j\neq i,i+1).
+\]
+Equivalently, it is the Hecke quotient of the extended affine braid group
+of $\Z^r\rtimes S_r$.
+\end{definition}
+
+\begin{definition}[Affine Schur--Weyl functor]
+Let $U_v(L\mathfrak{gl}_N)$ be the quantum loop algebra and let
+\[
+\widehat V=V\otimes\C[z^{\pm1}]
+\]
+be the affinization of its vector evaluation module.  The tensor power
+$\widehat V^{\otimes r}$ is a
+$U_v(L\mathfrak{gl}_N)$--$\mathcal H_{v^2}^{\mathrm{aff}}(GL_r)$
+bimodule, with the right action determined by the normalized spectral
+$R$-matrices and the loop operators.  Define
+\[
+\mathsf{SW}_{N,r}^{\mathrm{aff}}(M)
+=\widehat V^{\otimes r}
+ \otimes_{\mathcal H_{v^2}^{\mathrm{aff}}(GL_r)}M.
+\]
+\end{definition}
+
+\begin{exercise}[Affine Schur--Weyl duality]
+Use the spectral Yang--Baxter equation to prove that the two actions on
+$\widehat V^{\otimes r}$ commute and satisfy the affine braid relations.
+Use the two eigenvalues of the vector $R$-matrix to derive the affine Hecke
+quadratic relation.  For $N>r$, prove that
+$\mathsf{SW}_{N,r}^{\mathrm{aff}}$ is an equivalence from finite-dimensional
+$\mathcal H_{v^2}^{\mathrm{aff}}(GL_r)$-modules to the full subcategory of
+finite-dimensional polynomial $U_v(L\mathfrak{gl}_N)$-modules generated by
+subquotients of tensor products of $r$ vector evaluation modules.
+\end{exercise}
+
+\begin{exercise}[qKZ and affine Hecke transport]
+Suppose the spectral exchange operators in the preceding section satisfy
+the quadratic relation
+\[
+(\check R_i(u)-v)(\check R_i(u)+v^{-1})=0
+\]
+after the chosen normalization.  Prove that the adjacent exchange and
+periodic transport operators of the qKZ system factor through
+$\mathcal H_{v^2}^{\mathrm{aff}}(GL_r)$.  Identify adjacent exchanges with
+the $T_i$, winding of one spectral variable with an $X_j$, and the qKZ
+transport operators with the commuting affine translations.  Deduce that
+the exchange and winding amplitudes are independent of the chosen affine
+braid words.
+\end{exercise}
+
+\begin{exercise}[Poincar\'e identity]
+For $w\in S_r$, let $\ell(w)$ be its Coxeter length.  Insert the letter
+$r$ into a permutation of $S_{r-1}$ and prove
+\[
+\sum_{w\in S_r}t^{\ell(w)}
+=\prod_{j=1}^r\frac{1-t^j}{1-t}.
+\]
+Construct the one-row and one-column idempotents of
+$\mathcal H_t(S_r)$ by weighted sums of the standard Hecke elements indexed
+by $S_r$ and
+show that their normalizing constants are the displayed $t$-factorial and
+its $t^{-1}$ analogue.  Identify their images under quantum Schur--Weyl
+duality with the quantum symmetric and exterior powers of the vector
+module.
+\end{exercise}
+
+
+
+\begin{definition}[Double-affine braid group]
+Let $T^2=\R^2/\Z^2$ and let
+\[
+\operatorname{Conf}_r(T^2)
+=\{(z_1,\ldots,z_r)\in(T^2)^r:z_i\neq z_j\text{ for }i\neq j\}.
+\]
+The \emph{elliptic braid group} is
+\[
+B_r^{\mathrm{ell}}
+=\pi_1\bigl(\operatorname{Conf}_r(T^2)/S_r\bigr).
+\]
+Its standard generators are adjacent braids $T_i$ and loops $X_j,Y_j$
+moving the $j$th point around the two fundamental cycles of $T^2$.
+The central extension in which the total $X$--$Y$ commutator is denoted
+$\mathsf q$ is the \emph{double-affine braid group} of type $GL_r$.
+\end{definition}
+
+\begin{exercise}[From affine to double-affine braids]
+Derive a presentation of $B_r^{\mathrm{ell}}$ from the motions
+$T_i,X_j,Y_j$.  Prove that the $T_i$ satisfy the finite braid relations,
+that the $X_j$ commute, that the $Y_j$ commute, and that conjugation by
+$T_i$ permutes the adjacent loop generators.  Compute the central
+commutator of the two total torus motions.  Cutting $T^2$ along one cycle,
+prove that the remaining generators form an affine braid group.
+\end{exercise}
+
+\begin{definition}[Double affine Hecke algebras]
+Let $B^{\mathrm{da}}(R)$ be the double-affine braid group of a root datum
+$R$, with braid generators $T_i$ and central parameter $\mathsf q$.
+For nonzero parameters $q$ and $t_i$, define
+\[
+\mathsf H_{q,\mathbf t}(R)
+=\C(q,\mathbf t)[B^{\mathrm{da}}(R)]
+\Big/
+\left\langle
+\mathsf q-q,
+(T_i-t_i^{1/2})(T_i+t_i^{-1/2})
+\right\rangle.
+\]
+This is the \emph{double affine Hecke algebra} of $R$.
+\end{definition}
+
+\begin{definition}[Rank-one DAHA]
+The universal DAHA $\widehat{\mathsf H}_q(C_1^\vee,C_1)$ is generated by
+$t_i^{\pm1}$ for $0\leq i\leq3$, subject to
+\[
+t_it_i^{-1}=1,
+\qquad
+t_i+t_i^{-1}\ \text{central},
+\qquad
+t_0t_1t_2t_3=q^{-1}.
+\]
+For $k_i\neq0$, the specialization
+\[
+t_i+t_i^{-1}=k_i+k_i^{-1}
+\]
+is the four-parameter rank-one DAHA.  After the standard scalar
+normalization, let $T$ be its finite Hecke generator with
+$(T-k)(T+k^{-1})=0$, and define
+\[
+e=\frac{T+k^{-1}}{k+k^{-1}}.
+\]
+Its basic polynomial representation is on
+$\mathcal L=\C[z^{\pm1}]$ by reflection--$q$-difference operators, and
+\[
+e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
+=\C[z+z^{-1}].
+\]
+The action of $e\widehat{\mathsf H}_q e$ on $e\mathcal L$ is the
+\emph{spherical rank-one polynomial representation}.
+\end{definition}
+
+\begin{definition}[Wilson polynomials]
+For positive $a,b,c,d$, define
+\[
+\begin{aligned}
+W_n(x^2;a,b,c,d)
+={}&(a+b)_n(a+c)_n(a+d)_n\\
+&\times{}_4F_3\!\left(
+\begin{matrix}-n,n+a+b+c+d-1,a+ix,a-ix\\
+a+b,a+c,a+d\end{matrix};1
+\right).
+\end{aligned}
+\]
+\end{definition}
+
+\begin{exercise}[Wilson spectral equation]
+Prove the Wilson difference equation and orthogonality on $[0,\infty)$
+with weight
+\[
+w_W(x)=
+\left|\frac{\Gamma(a+ix)\Gamma(b+ix)
+\Gamma(c+ix)\Gamma(d+ix)}{\Gamma(2ix)}\right|^2.
+\]
+Derive the three-term recurrence and identify the Wilson operator as the
+rational limit of the rank-one Askey--Wilson operator.
+\end{exercise}
+
+\begin{definition}[Askey--Wilson operator and polynomials]
+For $0<q<1$ and nonzero $a,b,c,d$, define
+\[
+A(z)=\frac{(1-az)(1-bz)(1-cz)(1-dz)}
+{(1-z^2)(1-qz^2)}
+\]
+and, on $f(z)=f(z^{-1})$,
+\[
+(\mathcal D_{AW}f)(z)
+=A(z)\bigl(f(qz)-f(z)\bigr)
++A(z^{-1})\bigl(f(q^{-1}z)-f(z)\bigr).
+\]
+For $x=(z+z^{-1})/2$, the \emph{Askey--Wilson polynomial} is
+\[
+\begin{aligned}
+p_n(x;a,b,c,d\mid q)
+={}&a^{-n}(ab,ac,ad;q)_n\\
+&\times{}_4\phi_3\!\left(
+\begin{matrix}q^{-n},abcdq^{n-1},az,az^{-1}\\
+ab,ac,ad\end{matrix};q,q
+\right).
+\end{aligned}
+\]
+Its weight on the unit circle is
+\[
+w_{AW}(z)=
+\frac{(z^2,z^{-2};q)_\infty}
+{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
+\]
+\end{definition}
+
+\begin{exercise}[Askey--Wilson theorem]
+Construct the basic representation of
+$\widehat{\mathsf H}_q(C_1^\vee,C_1)$ from the involutions
+\[
+(s_1f)(z)=f(z^{-1}),
+\qquad
+(s_0f)(z)=f(qz^{-1})
+\]
+and first-order reflection--$q$-difference operators.  Verify the four
+Hecke relations and the product relation.  Prove that the spherical
+subalgebra is generated in its polynomial representation by multiplication
+by $z+z^{-1}$ and $\mathcal D_{AW}$.  Prove
+\[
+\mathcal D_{AW}p_n
+=(q^{-n}-1)(1-abcdq^{n-1})p_n.
+\]
+For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
+\[
+\langle f,g\rangle_{AW}
+=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
+\frac{dz}{2\pi iz},
+\]
+and deduce the orthogonality and three-term recurrence of the
+Askey--Wilson polynomials.
+\end{exercise}
+
+
+\begin{definition}[Type-$A$ polynomial representation]
+Let
+\[
+\mathcal P_r=\C(q,t^{1/2})[x_1^{\pm1},\ldots,x_r^{\pm1}],
+\]
+let $X_j$ act by multiplication by $x_j$, and let $s_i$ exchange
+$x_i$ and $x_{i+1}$.  Define
+\[
+T_i=t^{1/2}s_i+(t^{1/2}-t^{-1/2})
+       \frac{s_i-1}{x_i/x_{i+1}-1},
+\qquad 1\leq i<r,
+\]
+and
+\[
+(\pi f)(x_1,\ldots,x_r)=f(x_2,\ldots,x_r,qx_1).
+\]
+For generic independent parameters $q,t$, the operator algebra generated
+by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ is the polynomial realization of
+the $GL_r$ \emph{double affine Hecke algebra} $\mathsf H_{q,t}(GL_r)$.
+The subalgebra generated by $T_i$ and $\pi^{\pm1}$ is an extended affine
+Hecke algebra; its translation elements form a commuting family
+$Y_1,\ldots,Y_r$ of $q$-difference-reflection operators.
+\end{definition}
+
+\begin{exercise}[DAHA polynomial quotient]
+Prove that the displayed operators preserve $\mathcal P_r$ and satisfy
+the braid and Hecke relations.  Prove
+\[
+\pi X_i\pi^{-1}=X_{i+1}\quad(1\leq i<r),
+\qquad
+\pi X_r\pi^{-1}=qX_1,
+\]
+and identify the two affine-Hecke subalgebras generated respectively by
+$T_i,X_j$ and by $T_i,Y_j$.  Prove that this representation is obtained
+from the double-affine braid-group algebra by imposing
+\[
+(T_i-t^{1/2})(T_i+t^{-1/2})=0
+\]
+and specializing its central parameter to $q$.
+\end{exercise}
+
+\begin{definition}[Macdonald operators and polynomials]
+Let
+\[
+(T_{q,x_i}f)(x_1,\ldots,x_r)
+=f(x_1,\ldots,qx_i,\ldots,x_r).
+\]
+The first type-$A$ \emph{Macdonald operator} is
+\[
+D_{q,t}=\sum_{i=1}^r
+ \left(\prod_{j\ne i}\frac{tx_i-x_j}{x_i-x_j}\right)T_{q,x_i}.
+\]
+For generic $q,t$, the \emph{Macdonald polynomial}
+$P_\lambda(x;q,t)$ is the symmetric polynomial triangular in the
+monomial symmetric functions and satisfying
+\[
+D_{q,t}P_\lambda
+=\left(\sum_{i=1}^r q^{\lambda_i}t^{r-i}\right)P_\lambda,
+\qquad
+\lambda_1\geq\cdots\geq\lambda_r\geq0.
+\]
+For $0<q,t<1$, define
+\[
+\Delta_{q,t}(x)=
+\prod_{i\neq j}\frac{(x_i/x_j;q)_\infty}
+{(t x_i/x_j;q)_\infty},
+\]
+and
+\[
+\langle f,g\rangle_{q,t}
+=\frac1{r!}\int_{(S^1)^r}
+f(x)\overline{g(x)}\Delta_{q,t}(x)
+\prod_{j=1}^r\frac{dx_j}{2\pi i x_j}.
+\]
+\end{definition}
+
+\begin{exercise}[Macdonald spectral theory]
+Construct the commuting $Y$-operators and prove that their
+$S_r$-invariant Laurent polynomials preserve
+$\mathcal P_r^{S_r}$.  Identify the first elementary symmetric polynomial
+in the $Y_j$ with $D_{q,t}$ up to normalization.  Prove existence,
+uniqueness, orthogonality, and joint diagonalization of the Macdonald
+polynomials.  Construct the DAHA Fourier transform exchanging the
+$X$- and $Y$-polynomial representations and derive its projective
+$SL_2(\Z)$ relations.
+\end{exercise}
+
+\begin{definition}[Multiplicative theta function]
+For $|p|<1$, define
+\[
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty.
+\]
+\end{definition}
+
+\begin{definition}[Elliptic Ruijsenaars operator]
+For type $A_{r-1}$, define
+\[
+D_{p,q,t}^{\mathrm{ell}}
+=\sum_{i=1}^r
+\left(
+\prod_{j\neq i}
+\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
+\right)T_{q,x_i}.
+\]
+\end{definition}
+
+\begin{exercise}[Ruijsenaars operator hierarchy]
+Construct the commuting higher elliptic Ruijsenaars operators.  Prove
+\[
+D_{p,q,t}^{\mathrm{ell}}
+\longrightarrow D_{q,t}
+\qquad(p\to0).
+\]
+Set $q=e^\varepsilon$ and $t=e^{g\varepsilon}$ and derive the
+Heckman--Opdam differential operator from the second-order term as
+$\varepsilon\to0$.  Take the rational scaling limit of its hyperbolic
+coefficients and obtain the rational Calogero--Moser operator.  Organize
+the eigenfunction limits as
+\[
+\text{elliptic Ruijsenaars functions}
+\longrightarrow
+\text{Macdonald polynomials}
+\longrightarrow
+\text{Heckman--Opdam functions}.
+\]
+\end{exercise}
+
+\begin{exercise}[The Calogero--Sutherland limit]
+Write $x_i=e^{z_i}$, set $q=e^\epsilon$ and $t=e^{g\epsilon}$, and expand
+$D_{q,t}$ through order $\epsilon^2$.  After subtracting its scalar value
+on $1$ and removing the center-of-mass drift, obtain
+\[
+\mathcal L_g=
+\sum_i\partial_{z_i}^2
++g\sum_{i<j}\coth\!\left(\frac{z_i-z_j}{2}\right)
+ (\partial_{z_i}-\partial_{z_j}).
+\]
+On the circle, put $z_i=i\theta_i$ and conjugate by
+\[
+\Psi_0(\theta)=
+\prod_{i<j}\left|2\sin\frac{\theta_i-\theta_j}{2}\right|^g.
+\]
+Recover, up to its ground-state energy, the Sutherland Hamiltonian
+\[
+H_g=-\sum_i\partial_{\theta_i}^2
++\frac{g(g-1)}2\sum_{i<j}
+ \frac1{\sin^2((\theta_i-\theta_j)/2)}.
+\]
+Compute the eigenfunctions of degrees zero and one and, for $r=2$, degree
+two.  Identify their Sutherland eigenvalues.
+\end{exercise}
+
+\begin{exercise}[Hypergeometric degeneration]
+Set $q=e^{-\varepsilon}$.  Prove
+\[
+\lim_{\varepsilon\to0^+}
+\frac{(q^a;q)_m}{(1-q)^m}=(a)_m,
+\qquad
+\lim_{q\to1^-}
+(1-q)^{1-a}\frac{(q;q)_\infty}{(q^a;q)_\infty}
+=\Gamma(a).
+\]
+Deduce
+\[
+\lim_{q\to1^-}
+{}_r\phi_{r-1}\!\left(
+\begin{matrix}q^{a_1},\ldots,q^{a_r}\\
+q^{b_1},\ldots,q^{b_{r-1}}
+\end{matrix};q,z\right)
+=
+{}_rF_{r-1}\!\left(
+\begin{matrix}a_1,\ldots,a_r\\
+b_1,\ldots,b_{r-1}
+\end{matrix};z\right).
+\]
+Derive Gauss's summation from the $q$-Gauss summation.  Prove
+\[
+\lim_{q\to1^-}(1-q)^{-3n}
+p_n\!\left(
+\frac{q^{ix}+q^{-ix}}2;
+q^a,q^b,q^c,q^d\mid q
+\right)
+=W_n(x^2;a,b,c,d).
+\]
+\end{exercise}
+
+\begin{definition}[Root-system weights]
+Write $f(z^{\pm m})=f(z^m)f(z^{-m})$ and
+\[
+f(z_i^{\pm1}z_j^{\pm1})
+=\prod_{\epsilon,\delta=\pm1}f(z_i^\epsilon z_j^\delta).
+\]
+For $|q|,|t|,|a_s|<1$, define
+\[
+\begin{aligned}
+\Delta_{BC_r}(z)={}&
+\prod_{i=1}^r
+ \frac{(z_i^{\pm2};q)_\infty}
+      {\prod_{s=1}^4(a_sz_i^{\pm1};q)_\infty}\\
+&\times
+\prod_{1\leq i<j\leq r}
+ \frac{(z_i^{\pm1}z_j^{\pm1};q)_\infty}
+      {(t z_i^{\pm1}z_j^{\pm1};q)_\infty}.
+\end{aligned}
+\]
+The associated \emph{Gustafson integral} uses the normalized torus measure
+\[
+\frac1{2^rr!}\prod_{i=1}^r\frac{dz_i}{2\pi iz_i}.
+\]
+\end{definition}
+
+\begin{exercise}[Gustafson integrals]
+Prove that $\Delta_{BC_r}$ is invariant under permutations and independent
+inversions of the $z_i$.  Identify its factors with the roots
+$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  For $r=1$, recover the
+Askey--Wilson weight and its order-two Weyl normalization.  Set $t=q^g$
+with $g\in\N$, reduce the quotients of $q$-products to finite products,
+and compute the limit $q\to1^-$ with $z_i=e^{i\theta_i}$.
+\end{exercise}
+
+\begin{exercise}[Askey--Wilson spectrum]
+Model a microscopic system with configuration space $S^1$ by using the
+normalized Askey--Wilson polynomials in
+$L^2(S^1,w_{AW}(z)\,dz/(2\pi iz))$ as the spectral states of the
+self-adjoint Hamiltonian $\widehat H=\varepsilon\mathcal D_{AW}$, where
+$\varepsilon>0$ is an energy scale.  Prove that its spectral values are
+\[
+E_n=\varepsilon(q^{-n}-1)(1-abcdq^{n-1}).
+\]
+Write the three-term recurrence in the form
+\[
+(z+z^{-1})p_n=A_np_{n+1}+B_np_n+C_np_{n-1}
+\]
+and compute the corresponding normalized matrix elements.  Deduce that a
+periodic perturbation proportional to $z+z^{-1}$ produces only neighboring
+transitions, with resonance frequencies
+$|E_{n+1}-E_n|/\hbar$ and intensities determined by $A_n$ and $C_{n+1}$.
+Show how the measured sequence of line locations determines $q$ and the
+product $abcd$, while the relative line strengths separate the remaining
+Askey--Wilson parameters.
+\end{exercise}
+
+\begin{exercise}[Macdonald--Ruijsenaars spectroscopy]
+Let $0<q,t<1$ and let the symmetric states of $r$ identical particles on a
+ring be
+\[
+\mathcal H_{q,t}
+=L^2\!\left((S^1)^r,
+\Delta_{q,t}(x)\prod_{j=1}^r\frac{dx_j}{2\pi i x_j}\right)^{S_r}
+\]
+with normalized torus measure.  Put
+\[
+d_0=\sum_{i=1}^r t^{r-i},
+\qquad
+\widehat H_{q,t}=\varepsilon(d_0-D_{q,t}),
+\qquad \varepsilon>0.
+\]
+Identify $D_{q,t}$ with the first symmetric function of the commuting
+DAHA winding operators and derive its compatibility with the Hecke
+exchange relations.  Prove on the polynomial domain that
+$\widehat H_{q,t}$ is symmetric and
+that the normalized Macdonald states have energies
+\[
+E_\lambda
+=\varepsilon\sum_{i=1}^r
+t^{r-i}(1-q^{\lambda_i}).
+\]
+Use the Macdonald Pieri identity for
+$\rho_1=x_1+\cdots+x_r$ and its adjoint to determine every nonzero matrix
+element of $\rho_1+\rho_1^*$.  For a periodic drive proportional to this
+observable, derive the resonance frequencies
+\[
+\Omega_{\mu\lambda}=|E_\mu-E_\lambda|/\hbar
+\]
+and the relative intensities as squared normalized Macdonald Pieri
+coefficients.  Set $q=e^{-\delta}$ and $t=e^{-g\delta}$; after the scalar
+and center-of-mass normalizations in the preceding exercise, prove that
+the rescaled spectral gaps and transition coefficients converge to the
+Sutherland energies and Jack Pieri coefficients.  State how measured line
+locations and strengths determine $q,t$ and test this degeneration.
+\end{exercise}
+
+\section{Elliptic Hypergeometric Functions}
+
+\emph{Question.} When can local interactions in a periodic lattice be rearranged without changing its boundary statistics or correlation length?
+
+\begin{definition}[Elliptic shifted factorials and gamma function]
+For $|p|,|q|<1$, define
+\[
+(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
+\]
+\[
+(a_1,\ldots,a_s;q,p)_m
+=\prod_{i=1}^s(a_i;q,p)_m,
+\]
+and
+\[
+\Gamma(z;p,q)=\prod_{j,k\geq0}
+\frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
+\]
+\end{definition}
+
+\begin{definition}[Deformation hierarchy]
+For a series $\sum_m c_m$, set $h_m=c_{m+1}/c_m$.  It is
+\emph{ordinary hypergeometric} when $h_m$ is rational in $m$, and
+\emph{basic hypergeometric} when $h_m$ is rational in $q^m$.  It is
+\emph{elliptic hypergeometric} when, after writing $x=q^m$, its term ratio
+$h(x)$ is multiplicatively $p$-periodic:
+\[
+h(px)=h(x).
+\]
+Its parameters are \emph{balanced} when the products of the numerator and
+denominator parameters required by this ellipticity agree.
+The deformation and degeneration orders are
+\[
+\text{ordinary/additive}
+\longrightarrow
+\text{basic/multiplicative}
+\longrightarrow
+\text{elliptic},
+\]
+\[
+\text{elliptic}
+\xrightarrow{\ p\to0\ }
+\text{basic}
+\xrightarrow{\ q\to1\ }
+\text{ordinary}.
+\]
+\end{definition}
+
+\begin{exercise}[Elliptic degenerations]
+Prove
+\[
+\theta(pz;p)=-z^{-1}\theta(z;p),
+\qquad
+\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q),
+\]
+\[
+\Gamma(pz;p,q)=\theta(z;q)\Gamma(z;p,q),
+\qquad
+\Gamma(z;p,q)\Gamma(pq/z;p,q)=1.
+\]
+Prove
+\[
+\theta(z;0)=1-z,
+\qquad
+(a;q,0)_m=(a;q)_m,
+\qquad
+\Gamma(z;0,q)=\frac1{(z;q)_\infty}.
+\]
+\end{exercise}
+
+\begin{definition}[Frenkel--Turaev and beta integrals]
+For $a^2q^{n+1}=bcde$, define
+\[
+\begin{aligned}
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\sum_{m=0}^n{}&
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}\\
+&\times
+\frac{(a,b,c,d,e,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+For parameters $t_1,\ldots,t_6$ satisfying
+\[
+|t_j|<1,
+\qquad
+\prod_{j=1}^6t_j=pq,
+\]
+the \emph{elliptic beta integral} is
+\[
+\frac{(p;p)_\infty(q;q)_\infty}{4\pi i}
+\int_{|z|=1}
+\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}\frac{dz}{z}.
+\]
+\end{definition}
+
+\begin{exercise}[Elliptic evaluations]
+Prove the Frenkel--Turaev summation
+\[
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\frac{(aq,aq/(bc),aq/(bd),aq/(cd);q,p)_n}
+{(aq/b,aq/c,aq/d,aq/(bcd);q,p)_n}.
+\]
+Prove the elliptic beta evaluation
+\[
+\frac{(p;p)_\infty(q;q)_\infty}{4\pi i}
+\int_{|z|=1}
+\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}\frac{dz}{z}
+=\prod_{1\leq j<k\leq6}\Gamma(t_jt_k;p,q).
+\]
+Take $p\to0$ in both identities and identify the resulting terminating
+very-well-poised ${}_8\phi_7$ summation and basic hypergeometric beta
+integral.  Obtain the Askey--Wilson integral by specialization.
+\end{exercise}
+
+\begin{definition}[Star--triangle data]
+A family of edge weights $W_u(x,y)$, one-spin weights $S(x)$, and scalar
+normalizations $R(u,v,w)$ is \emph{star--triangle data} when
+\[
+ \int S(x)W_u(a,x)W_v(b,x)W_w(c,x)\,dx
+ =R(u,v,w)W_{u'}(b,c)W_{v'}(a,c)W_{w'}(a,b)
+\]
+for its parameter constraint and contour.  It is \emph{elliptic} when its
+weights are finite products and ratios of $\Gamma(\,cdot\,;p,q)$.
+\end{definition}
+
+\begin{exercise}[Star--triangle relation]
+Parametrize the six variables in the elliptic beta integral by three
+spectral parameters and three external spins.  Derive an elliptic
+star--triangle identity from its evaluation.  Apply the identity twice to
+a three-row lattice strip and prove equality of the two local reorderings
+that yields commuting transfer matrices.  Take $p\to0$ and then $q\to1$
+and derive the corresponding trigonometric and rational star--triangle
+relations.  Compare this integral construction with the
+$6j$-symbol/recoupling construction of the Yang--Baxter equation.
+For fixed boundary spins, prove that the normalized boundary-spin
+probabilities are unchanged by the local star--triangle replacement.
+Construct the commuting row transfer matrices, let $\Lambda_0(u)$ and
+$\Lambda_1(u)$ be their two largest eigenvalues in modulus, and derive the
+correlation-length prediction
+\[
+\xi(u)^{-1}=-\log|\Lambda_1(u)/\Lambda_0(u)|.
+\]
+State how equality of partition-function ratios, local spin frequencies,
+and the extracted correlation length tests the elliptic identity, and how
+the $p\to0$ and $q\to1$ limits change these observables.
+\end{exercise}
+
+\section{Root-of-Unity Limits}
+
+\emph{Question.} When particles have only finitely many charge types, which total charges can they form, and how does moving one around another change an interference pattern?
+
+\begin{definition}[Root-of-unity semisimplification]
+Fix $k\in\N$ and
+\[
+q=e^{\pi i/(k+2)}.
+\]
+Let $\mathcal T_k$ be the ribbon category of finite-dimensional type-$1$
+tilting modules for the Lusztig integral form of
+$U_q(\mathfrak{sl}_2)$ specialized at $q$.  A morphism
+$f:X\to Y$ is \emph{negligible} when
+\[
+\operatorname{tr}_q(gf)=0
+\qquad\text{for every }g:Y\to X.
+\]
+Let $\mathcal N_k$ be the negligible morphisms and define
+\[
+\mathcal C_k
+=\operatorname{Kar}(\mathcal T_k/\mathcal N_k),
+\]
+where $\operatorname{Kar}$ denotes idempotent completion.
+\end{definition}
+
+\begin{exercise}[\texorpdfstring{$SU(2)_k$}{SU(2)k} fusion]
+Prove that $\mathcal N_k$ is a tensor ideal preserved by duals, braiding,
+and twist.  Prove that $\mathcal C_k$ is semisimple with simple objects
+$V_0,\ldots,V_k$ and that
+\[
+V_a\otimes V_b
+\cong
+\bigoplus_{\substack{|a-b|\leq c\leq
+\min(a+b,2k-a-b)\\a+b+c\equiv0\pmod2}}
+V_c.
+\]
+Compute
+\[
+\dim_q(V_a)
+=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))}.
+\]
+\end{exercise}
+
+\begin{definition}[Modular tensor categories]
+A \emph{fusion category} is a semisimple rigid $\C$-linear monoidal
+category with simple unit, finite-dimensional morphism spaces, and finitely
+many simple-object classes.  A \emph{modular tensor category} is a ribbon
+fusion category for which the matrix
+\[
+\widetilde S_{ij}
+=\operatorname{tr}_q(c_{X_j,X_i}c_{X_i,X_j})
+\]
+on the simple objects $(X_i)_{i\in I}$ is invertible.  Define
+\[
+d_i=\dim_q(X_i),
+\qquad
+\mathcal D=\left(\sum_{i\in I}d_i^2\right)^{1/2},
+\qquad
+S=\mathcal D^{-1}\widetilde S,
+\qquad
+T_{ij}=\delta_{ij}\theta_i,
+\]
+where $\theta_{X_i}=\theta_i\id_{X_i}$.
+It is \emph{unitary} when it is a $C^*$-tensor category and its braiding and
+twist are unitary.
+\end{definition}
+
+\begin{exercise}[\texorpdfstring{$SU(2)_k$}{SU(2)k} modularity]
+Prove that $\mathcal C_k$ is a unitary modular tensor category.  For
+$0\leq a,b\leq k$, compute
+\[
+S_{ab}
+=\sqrt{\frac{2}{k+2}}
+\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right),
+\qquad
+\theta_a
+=\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
+\]
+Prove directly that $S$ is unitary and invertible.
+For simple charges $a,b$, prove that the normalized monodromy amplitude
+measured by winding $a$ once around $b$ is
+\[
+M_{ab}=\frac{S_{ab}S_{00}}{S_{0a}S_{0b}}.
+\]
+In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
+\[
+I_b(\phi)=I_1+I_2
++2\sqrt{I_1I_2}\,\Re(e^{i\phi}M_{ab}).
+\]
+Insert the sine formula for $S_{ab}$ and predict the fringe visibility and
+phase for every enclosed charge $b$.  Identify pairs of charges that the
+chosen probe $a$ cannot distinguish and prove that the full family of
+probe charges distinguishes them because $S$ is invertible.
+\end{exercise}
