@@ -796,16 +796,6 @@ $f\in\mathcal S(V)$, the semiclassical Fourier transform is
 Write $\mathcal F=\mathcal F_1$.
 \end{definition}
 
-\begin{definition}[Position, frequency, momentum, and energy]
-A position is $q\in V$.  A wave covector is $k\in V^*$, with character
-$q\mapsto e^{ik(q)}$, and its momentum is $p=\hbar k$.  A temporal angular
-frequency $\omega\in\R$ has energy $E=\hbar\omega$.  The corresponding
-plane-wave phase is
-\[
-k(q)-\omega t=\frac{p(q)-Et}{\hbar}.
-\]
-\end{definition}
-
 \begin{exercise}[Fourier inversion and Plancherel]
 Let $G$ be a second-countable locally compact abelian group.  Prove that
 every irreducible unitary representation is a character.  Prove that Haar
@@ -829,14 +819,19 @@ For $v\in V$, prove
 \mathcal F_\hbar(-i\hbar d_v)\mathcal F_\hbar^{-1}\widehat f(p)
 =p(v)\widehat f(p).
 \]
-For the free Schr\"odinger equation derive
+Substitute the plane wave
+$\psi(q,t)=e^{i(k(q)-\omega t)}$, with $k\in V^*$, into the free
+Schr\"odinger equation and prove
+\[
+\hbar\omega=\frac{\hbar^2\|k\|^2}{2m}.
+\]
+Set $p=\hbar k$ and $E=\hbar\omega$.  Derive
 \[
 E(p)=\frac{\|p\|^2}{2m},
 \qquad
-\omega(k)=\frac{\hbar\|k\|^2}{2m},
-\qquad
-v_{\rm group}=\frac pm.
+v_{\rm group}=\frac{p^\sharp}{m},
 \]
+where $p^\sharp\in V$ is the Euclidean-dual vector to $p$.
 Deduce the time-of-flight displacement of a wave packet concentrated near
 $p_0$ and the de Broglie relation between its measured wavelength and
 momentum.
