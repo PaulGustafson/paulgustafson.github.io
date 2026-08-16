@@ -51,6 +51,8 @@ These rules apply to `A_Physical_Introduction_to_Higher_Mathematics.tex`.
 
 - Treat each `\section` as a complete mathematical arc rather than as a
   container for prerequisite material.
+- Use only `\part` and `\section` headings. Do not add `\subsection`,
+  `\subsubsection`, or other intermediate titled divisions.
 - Every section must culminate in a substantial exercise that derives or uses
   a named special-function family and applies it to a concrete physical
   observable.
