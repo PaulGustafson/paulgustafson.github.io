@@ -58,7 +58,7 @@
 
 \part{Symmetry}
 
-\section{Linear, Tensor, and Hilbert Spaces}
+\section{Spectral Theory and Quantum Spectroscopy}
 
 \subsection{Linear spaces, tensor products, and duality}
 
@@ -298,7 +298,7 @@ z^m\Tr(\Lambda^mA).
 \]
 \end{exercise}
 
-\section{Measure, Integration, and \texorpdfstring{$L^p$}{Lp} Spaces}
+\subsection{Measure, integration, and \texorpdfstring{$L^p$}{Lp} spaces}
 
 \begin{definition}[Measure spaces and \texorpdfstring{$L^p$}{Lp} spaces]
 A \emph{$\sigma$-algebra} $\mathcal F$ on a set $X$ contains
@@ -353,9 +353,9 @@ State the uses of Tonelli, Fubini, monotone convergence, and dominated
 convergence in the derivation.
 \end{exercise}
 
-\section{\texorpdfstring{$C^*$-Algebras, Functional Calculus, and Spectral Decomposition}{C*-Algebras, Functional Calculus, and Spectral Decomposition}}
+\subsection{\texorpdfstring{$C^*$-algebras, functional calculus, and spectral decomposition}{C*-algebras, functional calculus, and spectral decomposition}}
 
-\subsection{C*-algebras and functional calculus}
+\subsubsection{C*-algebras and functional calculus}
 
 \begin{definition}[$C^*$-algebras, spectrum, and positivity]
 A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
@@ -407,7 +407,7 @@ sending the coordinate function to $a$, and prove the continuous spectral
 mapping theorem.
 \end{exercise}
 
-\subsection{Spectral decomposition}
+\subsubsection{Spectral decomposition}
 
 \begin{definition}[Projection-valued measures]
 A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
@@ -527,7 +527,49 @@ $P_\mu BP_\lambda\ne0$, and identify vanishing spectral blocks as
 selection rules predicting absent lines.
 \end{exercise}
 
-\section{Groups, Representations, and Haar Integration}
+\begin{definition}[Airy function]
+The Airy function is the oscillatory integral
+\[
+\operatorname{Ai}(x)=\frac1\pi\int_0^\infty
+\cos\!\left(\frac{t^3}{3}+xt\right)\,dt.
+\]
+Let $a_n>0$ be determined by
+$\operatorname{Ai}(-a_n)=0$, ordered increasingly.
+\end{definition}
+
+\begin{exercise}[Airy spectrum of the quantum bouncer]
+On $L^2((0,\infty),dz)$ consider the self-adjoint Dirichlet realization
+\[
+\widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dz^2}+mgz,
+\qquad \psi(0)=0.
+\]
+Prove that $\operatorname{Ai}''(x)=x\operatorname{Ai}(x)$ and that
+$\operatorname{Ai}$ decays as $x\to+\infty$.  With
+\[
+\ell_g=\left(\frac{\hbar^2}{2m^2g}\right)^{1/3},
+\]
+derive
+\[
+E_n=mg\ell_g a_n,
+\qquad
+\psi_n(z)=C_n\operatorname{Ai}\!\left(\frac z{\ell_g}-a_n\right).
+\]
+Use the spectral projections of $\widehat H$ to prove that a periodic
+perturbation $B\cos(\Omega t)$ can produce a transition from the $n$th to
+the $k$th level only through the block
+$E_{\widehat H}(\{E_k\})BE_{\widehat H}(\{E_n\})$, at the resonant
+frequency
+\[
+\Omega_{kn}=\frac{mg\ell_g}{\hbar}|a_k-a_n|.
+\]
+Deduce the transmission thresholds $z_n=\ell_g a_n$ for a horizontal
+absorber above a gravitationally bound beam and state how measured
+threshold heights and resonance frequencies determine $g$.
+\end{exercise}
+
+\section{Group Symmetry and Abelian Harmonic Analysis}
+
+\subsection{Groups, representations, and Haar integration}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
@@ -728,9 +770,9 @@ $H^\perp\subseteq\widehat G$ and prove
 $\widehat{G/H}\cong H^\perp$.
 \end{exercise}
 
-\section{Abelian Harmonic Analysis: Fourier Analysis, Lattices, and Theta Functions}
+\subsection{Fourier analysis, lattices, and theta functions}
 
-\subsection{Fourier series and Fourier transform}
+\subsubsection{Fourier series and Fourier transform}
 
 \begin{definition}[Fourier series]
 With normalized Haar measure on $\T=\R/2\pi\Z$, define
@@ -784,7 +826,7 @@ Show that convolution becomes multiplication and differentiation becomes
 multiplication by frequency.
 \end{exercise}
 
-\subsection{Lattices, Poisson summation, and diffraction}
+\subsubsection{Lattices, Poisson summation, and diffraction}
 
 \begin{definition}[Lattices and reciprocal lattices]
 A \emph{lattice} in $\R^n$ is a subgroup
@@ -844,7 +886,7 @@ condition with
 \textbf{88} (1913)}.
 \end{exercise}
 
-\subsection{Lattice theta series and Poisson duality}
+\subsubsection{Lattice theta series and Poisson duality}
 
 \begin{definition}[Integral lattices and theta series]
 A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
@@ -877,7 +919,7 @@ lattice theta series transforms with its dual rather than being a scalar
 modular form by itself.
 \end{exercise}
 
-\subsection{Modular forms, theta functions, and eta products}
+\subsubsection{Modular forms, theta functions, and eta products}
 
 \begin{definition}[The modular group and modular forms]
 The modular group $SL_2(\Z)$ acts on the upper half-plane by
@@ -938,7 +980,7 @@ Explain how the two sides encode charge sectors and independent oscillator
 modes, respectively.
 \end{exercise}
 
-\subsection{Eisenstein series and arithmetic applications}
+\subsubsection{Eisenstein series and arithmetic applications}
 
 \begin{definition}[Eisenstein series and the discriminant]
 Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
@@ -972,6 +1014,27 @@ Construct the $E_8$ lattice as
 \]
 Enumerate its vectors of squared length two and obtain $240$, matching the
 coefficient of $q$ in $E_4$.
+\end{exercise}
+
+\begin{exercise}[Theta heat trace and reciprocal-lattice diffraction]
+Let $T_L=\R^d/L$ carry its flat metric, and normalize $L^*$ by
+$\langle x,\xi\rangle\in\Z$.  Prove
+\[
+\Tr(e^{t\Delta_{T_L}})
+=\sum_{\xi\in L^*}e^{-4\pi^2t\|\xi\|^2}
+=\Theta_{L^*}(4\pi it).
+\]
+Apply Poisson duality to derive the short-time image sum and its leading
+term $\vol(T_L)(4\pi t)^{-d/2}$.  For a periodic array with motif $B$,
+prove that the elastic intensity at reciprocal vector $2\pi\xi$ is
+proportional to
+\[
+|S_B(2\pi\xi)|^2.
+\]
+Prove that the heat-trace exponents and diffraction-peak radii determine
+the same reciprocal squared lengths $\|\xi\|^2$.  Deduce the predicted
+peak locations, systematic absences, and thermal decay rates from the
+theta coefficients of $L^*$.
 \end{exercise}
 
 \section{Compact Harmonic Analysis: Peter--Weyl, Characters, and Spin}
@@ -1088,6 +1151,52 @@ f(e)=\sum_{\pi\in\widehat G}d_\pi\Tr(\widehat f(\pi))
 and prove that convolution by $f$ acts by the scalar $c_\pi$ on every
 copy of $\pi$ in $L^2(G)$.  Extend the identity to the natural Sobolev
 classes for which the character series converges absolutely.
+\end{exercise}
+
+\begin{definition}[Clebsch--Gordan and Wigner coefficients]
+For the normalized $J_3$-eigenstates in the irreducible angular-momentum
+representations, define
+\[
+|jm\rangle
+=\sum_{m_1+m_2=m}C^{jm}_{j_1m_1,j_2m_2}
+|j_1m_1\rangle\otimes|j_2m_2\rangle,
+\]
+with the highest-weight coefficient positive, and set
+\[
+\begin{pmatrix}j_1&j_2&j\\m_1&m_2&m_3\end{pmatrix}
+=\frac{(-1)^{j_1-j_2-m_3}}{\sqrt{2j+1}}
+C^{j,-m_3}_{j_1m_1,j_2m_2}.
+\]
+Define the Wigner $6j$ symbol by
+\[
+|(j_1j_2)j_{12},j_3;jm\rangle
+=\sum_{j_{23}}(-1)^{j_1+j_2+j_3+j}
+\sqrt{(2j_{12}+1)(2j_{23}+1)}
+\begin{Bmatrix}j_1&j_2&j_{12}\\j_3&j&j_{23}\end{Bmatrix}
+|j_1,(j_2j_3)j_{23};jm\rangle.
+\]
+\end{definition}
+
+\begin{exercise}[Angular transition amplitudes and radiation patterns]
+Derive the orthogonality relations for the Clebsch--Gordan coefficients
+and the triangle and magnetic selection rules for the $3j$ symbols.  Prove
+the Gaunt identity
+\[
+\int_{S^2}\overline{Y_{\ell_fm_f}}Y_{1q}Y_{\ell_im_i}\,d\Omega
+=(-1)^{m_f}
+\sqrt{\frac{3(2\ell_i+1)(2\ell_f+1)}{4\pi}}
+\begin{pmatrix}\ell_i&1&\ell_f\\0&0&0\end{pmatrix}
+\begin{pmatrix}\ell_i&1&\ell_f\\m_i&q&-m_f\end{pmatrix}.
+\]
+Deduce the electric-dipole rules
+$\ell_f=\ell_i\pm1$ and $m_f=m_i+q$, and prove that the relative
+Zeeman-resolved line intensities are the squared absolute values of the
+second $3j$ symbol after a common reduced matrix element is removed.
+Use the $6j$ identity to derive the corresponding relative intensities
+when orbital and spin angular momenta are coupled in different orders.  For
+an oriented initial state, express the dipole radiation pattern as the
+squared absolute value of the resulting spherical-harmonic amplitude and
+identify its symmetry-enforced dark directions and absent spectral lines.
 \end{exercise}
 
 \section{Semisimple Harmonic Analysis: Harish--Chandra Theory}
@@ -1243,6 +1352,27 @@ c(\lambda)=C\frac{\Gamma(i\lambda)}
 |c(\lambda)|^{-2}=C'\lambda\tanh(\pi\lambda),
 \]
 with the constants fixed by the same normalization.
+Use spherical inversion to prove that the radial heat kernel and resolvent
+kernel on $\mathbb H^2$ are
+\[
+p_t(r)=C_G\int_0^\infty
+e^{-t(\lambda^2+1/4)}
+P_{-1/2+i\lambda}(\cosh r)
+|c(\lambda)|^{-2}\,d\lambda,
+\]
+\[
+G_\zeta(r)=C_G\int_0^\infty
+\frac{P_{-1/2+i\lambda}(\cosh r)}
+{\lambda^2+1/4-\zeta}|c(\lambda)|^{-2}\,d\lambda
+\]
+away from the spectrum.  Derive the return probability $p_t(0)$ and the
+high-frequency spectral density from
+$\lambda\tanh(\pi\lambda)$.  For a hyperbolic wave network whose boundary
+is outside the observation region during the measurement interval, deduce
+the predicted radial attenuation and arrival profile of a localized pulse.
+State which discrepancies can be attributed to finite boundary, loss, and
+discretization before comparing the measured profile with the
+infinite-space kernel.
 Compare the two families tabulated in
 \href{https://doi.org/10.1073/pnas.43.5.408}
 {Harish-Chandra, \emph{Proceedings of the National Academy of Sciences}
@@ -1702,11 +1832,59 @@ $L^2(\R)$ and, for $|r|<1$, derive Mehler's identity
 \right).
 \]
 \end{exercise}
+
+\begin{exercise}[Harmonic-oscillator spectroscopy, coherent states, and propagation]
+For
+\[
+\widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
++\frac{m\omega^2x^2}{2},
+\]
+use the Hermite functions to prove that
+\[
+\psi_n(x)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
+\qquad
+E_n=\hbar\omega\left(n+\frac12\right)
+\]
+give the complete spectral decomposition of $\widehat H$.  Construct the
+creation and annihilation operators and compute
+\[
+\langle\psi_m,Q\psi_n\rangle
+=\sqrt{\frac{\hbar}{2m\omega}}
+\bigl(\sqrt{n+1}\,\delta_{m,n+1}
++\sqrt n\,\delta_{m,n-1}\bigr).
+\]
+Deduce the spectral-line prediction
+$|E_{n\pm1}-E_n|/\hbar=\omega$ and the relative line strengths for a
+linearly coupled oscillator.  For $\alpha\in\C$, prove convergence and
+normalization of
+\[
+\psi_\alpha=e^{-|\alpha|^2/2}
+\sum_{n\geq0}\frac{\alpha^n}{\sqrt{n!}}\psi_n,
+\]
+show that its number statistics are Poisson with mean $|\alpha|^2$, and
+derive its sinusoidal position expectation.  Analytically continue
+Mehler's identity with the usual $t-i0$ prescription to obtain the
+oscillator propagator
+\[
+K_t(x,y)=
+\sqrt{\frac{m\omega}{2\pi i\hbar\sin(\omega t)}}
+\exp\!\left[
+\frac{im\omega}{2\hbar\sin(\omega t)}
+\bigl((x^2+y^2)\cos(\omega t)-2xy\bigr)
+\right].
+\]
+Use these formulas to predict the spectral spacing, coherent oscillation
+frequency, occupation-number distribution, and revival period measured in
+an oscillator experiment.
+\end{exercise}
 \part{Deformation}
 
-\section{Weyl Quantization and the Moyal Product}
+\section{Geometry, Quantization, and Phase-Space Spectroscopy}
 
-\subsection{Weyl quantization and Wigner distributions}
+\subsection{Weyl quantization and the Moyal product}
+
+\subsubsection{Weyl quantization and Wigner distributions}
 
 \begin{definition}[Weyl quantization]
 For $a\in\mathcal S(V\oplus V^*)$, define
@@ -1796,7 +1974,7 @@ together with
 on a common invariant domain.
 \end{exercise}
 
-\subsection{Laguerre phase-space functions}
+\subsubsection{Laguerre phase-space functions}
 
 \begin{definition}[Generalized Laguerre polynomials]
 For $\alpha>-1$, define
@@ -1833,9 +2011,9 @@ L_n\!\left(\frac{4H_{\rm cl}(q,p)}{\hbar\omega}\right).
 Verify the position and momentum marginals and identify the zeros and sign
 changes of the Wigner distribution from those of $L_n$.
 \end{exercise}
-\section{Differential and Symplectic Geometry}
+\subsection{Differential and symplectic geometry}
 
-\subsection{Bundles, sections, and geometric structures}
+\subsubsection{Bundles, sections, and geometric structures}
 
 \begin{definition}[Smooth bundles and sections]
 A \emph{smooth fiber bundle} with fiber $F$ is a smooth map $\pi:E\to M$
@@ -1876,7 +2054,7 @@ curve is $c^{-1}\int\sqrt{-g(\dot\gamma,\dot\gamma)}\,dt$. A metric and an
 orientation define a volume form $\vol_g$.
 \end{definition}
 
-\subsection{Differential forms, cohomology, and Hodge theory}
+\subsubsection{Differential forms, cohomology, and Hodge theory}
 
 \begin{definition}[Differential forms and exterior derivative]
 A \emph{differential $k$-form} on $M$ is a smooth section of
@@ -1978,7 +2156,7 @@ $p$-forms that
 \]
 \end{exercise}
 
-\subsection{Connections, curvature, and gauge fields}
+\subsubsection{Connections, curvature, and gauge fields}
 
 \begin{definition}[Connections and parallel transport]
 \label{def:connections-parallel-transport}
@@ -2034,7 +2212,7 @@ generator of the fundamental group and exhibit the obstruction to removing
 a flat connection globally.
 \end{exercise}
 
-\subsection{Symplectic manifolds and Hamiltonian reduction}
+\subsubsection{Symplectic manifolds and Hamiltonian reduction}
 
 
 \begin{definition}[Symplectic manifolds and canonical transformations]
@@ -2139,9 +2317,9 @@ Deduce the experimentally testable increase of period with amplitude and
 the logarithmic divergence as $\theta_0\uparrow\pi$.
 \end{exercise}
 
-\section{Classical Dynamics and Geometric Quantization}
+\subsection{Classical dynamics and geometric quantization}
 
-\subsection{Classical and quantum evolution}
+\subsubsection{Classical and quantum evolution}
 
 \begin{definition}[Classical and quantum evolution]
 Let $H\in C^\infty(V\oplus V^*,\R)$ have bounded derivatives of order at least
@@ -2179,7 +2357,7 @@ the expectations of $Q_\ell$ and $P_v$ for every $\ell\in V^*$ and
 $v\in V$.
 \end{exercise}
 
-\subsection{Prequantization and polarization}
+\subsubsection{Prequantization and polarization}
 
 \begin{definition}[Prequantum line bundles]
 A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
@@ -2220,7 +2398,7 @@ corrected quantum space with
 $H^0(M,L\otimes K_M^{1/2})$.
 \end{exercise}
 
-\subsection{Equivariant quantization and reduction}
+\subsubsection{Equivariant quantization and reduction}
 
 \begin{definition}[Equivariant quantization]
 Let a Lie group $G$ act on a prequantized Hamiltonian manifold
@@ -2244,32 +2422,7 @@ with the metaplectic correction.  Derive the multiplicity formula obtained
 by reduction at integral coadjoint orbits.
 \end{exercise}
 
-\begin{exercise}[Harmonic-oscillator spectroscopy]
-For
-\[
-\widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
-+\frac{m\omega^2x^2}{2},
-\]
-use the Hermite functions of Definition~\ref{def:hermite-functions} to prove
-that
-\[
-\psi_n(x)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
-h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
-\qquad
-E_n=\hbar\omega\left(n+\frac12\right)
-\]
-give the complete spectral decomposition of $\widehat H$.  Construct the
-creation and annihilation operators.  If $E_{\widehat H}$ is the spectral
-measure of $\widehat H$ and $Q$ is the position operator, prove
-\[
-E_{\widehat H}(\{E_m\})Q E_{\widehat H}(\{E_n\})=0
-\qquad\text{unless }|m-n|=1.
-\]
-Deduce the spectral-line prediction $|E_{n\pm1}-E_n|/\hbar=\omega$ for a
-linearly coupled oscillator.
-\end{exercise}
-
-\section{Deformation Quantization}
+\subsection{Deformation quantization}
 
 \begin{definition}[Poisson manifolds]
 A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
@@ -2316,6 +2469,29 @@ Prove associativity directly by checking the multiplier identity for the
 phase.  Differentiate in $k$ and $\ell$ to recover the canonical
 commutation relations and the full bidifferential expansion of the Moyal
 product on polynomials.
+\end{exercise}
+
+\begin{exercise}[Laguerre signatures in phase-space tomography]
+For the dimensionless quadrature
+\[
+X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
++\frac{P}{\sqrt{m\hbar\omega}}\sin\theta,
+\]
+prove that its probability density in a state $\psi$ is the Radon
+transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
+Derive the Fourier-slice inversion formula reconstructing the Wigner
+distribution from the family of quadrature densities.  For the oscillator
+state $\psi_n$, use the Wigner--Laguerre identity to prove that the
+reconstructed radial profile is
+\[
+\frac{(-1)^n}{\pi\hbar}e^{-2H_{\rm cl}/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}}{\hbar\omega}\right),
+\]
+while every quadrature density is a scaled
+$e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
+radial zero circles determined by $L_n$, and the sign at the phase-space
+origin.  State how homodyne quadrature data distinguish adjacent number
+states and detect Wigner negativity after inverse Radon reconstruction.
 \end{exercise}
 
 \section{Integrable Systems and the Yang--Baxter Equation}
@@ -2521,7 +2697,35 @@ w_W(x)=
 Derive the three-term recurrences of both families.
 \end{exercise}
 
-\section{Basic Hypergeometric Functions}
+\begin{exercise}[Bessel resonances and circular diffraction]
+Let $j_{\nu,k}$ be the $k$th positive zero of $J_\nu$.  Separate the wave
+equation on a circular membrane of radius $R$ with Dirichlet boundary and
+prove that its normal-mode frequencies are
+\[
+\omega_{m,k}=\frac cRj_{|m|,k},
+\]
+with radial factor $J_{|m|}(j_{|m|,k}r/R)$.  Deduce the nodal circles and
+angular nodal lines and state how measured resonance ratios determine the
+ratios of Bessel zeros without knowledge of $c/R$.
+
+For a uniformly illuminated circular aperture of radius $a$, average the
+Fraunhofer kernel over the aperture and derive
+\[
+\frac{I(\theta)}{I(0)}
+=\left[
+\frac{2J_1(ka\sin\theta)}{ka\sin\theta}
+\right]^2.
+\]
+Prove that the dark-ring angles satisfy
+$ka\sin\theta_k=j_{1,k}$ and obtain the small-angle prediction
+$\theta_1\sim j_{1,1}\lambda/(2\pi a)$.  Identify which membrane
+resonances and diffraction minima measure zeros of the same Bessel
+functions.
+\end{exercise}
+
+\section{Quantum Groups and Basic Hypergeometric Spectra}
+
+\subsection{Basic hypergeometric functions}
 
 \begin{definition}[Basic hypergeometric series]
 For $m\in\N$, define
@@ -2573,9 +2777,9 @@ and the terminating $q$-Pfaff--Saalsch\"utz summation
 \]
 \end{exercise}
 
-\section{Poisson--Lie Groups and Quantum Groups}
+\subsection{Poisson--Lie groups and quantum groups}
 
-\subsection{Poisson--Lie groups and Lie bialgebras}
+\subsubsection{Poisson--Lie groups and Lie bialgebras}
 
 \begin{definition}[Poisson--Lie groups and Lie bialgebras]
 A \emph{Poisson--Lie group} is a Lie group $G$ with a Poisson structure for
@@ -2609,7 +2813,7 @@ $\operatorname{CYB}(r)=\Omega$ for an invariant tensor $\Omega$ and
 distinguish the case $\Omega\ne0$.
 \end{exercise}
 
-\subsection{Drinfeld--Jimbo quantization}
+\subsubsection{Drinfeld--Jimbo quantization}
 
 \begin{definition}[Bialgebras and Hopf algebras]
 A \emph{bialgebra} is a unital associative algebra $H$ with unital algebra
@@ -2679,7 +2883,7 @@ explicit formula for $\Delta(E^n)$.  Show that the limit $q\to1$ recovers
 the ordinary binomial theorem and the undeformed coproduct.
 \end{exercise}
 
-\section{Compact Quantum Groups}
+\subsection{Compact quantum groups}
 
 \begin{definition}[Compact quantum groups and Haar states]
 A \emph{compact quantum group} $\mathbb G$ is a unital $C^*$-algebra
@@ -3012,7 +3216,7 @@ For the irreducible $SU_q(2)$ objects $V_n$, use
 $V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
 \[
 d_{n+1}=(q+q^{-1})d_n-d_{n-1},
-\qquad d_0=1,quad d_1=q+q^{-1},
+\qquad d_0=1,\quad d_1=q+q^{-1},
 \]
 where $d_n=\dim_q(V_n)$.  If $U_n$ is the Chebyshev polynomial determined
 by $U_0(x)=1$, $U_1(x)=2x$, and
@@ -3023,7 +3227,29 @@ $U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)$, deduce
 \]
 \end{exercise}
 
-\section{Hecke Algebras and Quantum Schur--Weyl Duality}
+\begin{exercise}[$q$-binomial output statistics]
+For $0<q<1$ and $p>0$, define
+\[
+Z_n(p,q)=\prod_{j=0}^{n-1}(1+pq^{2j}),
+\qquad
+\mathbb P_{n,p,q}(r)=
+\frac{q^{r(r-1)}
+\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}p^r}{Z_n(p,q)}.
+\]
+Use the terminating $q$-binomial identity to prove that this is a
+probability distribution.  Compute its probability-generating function,
+mean, and variance from $Z_n(sp,q)/Z_n(p,q)$.  Derive the distribution by
+iterating the $U_q(\mathfrak{sl}_2)$ coproduct on a two-channel
+$q$-deformed splitter, with $r$ the detected occupation of the first
+channel.  Prove that $q\to1$ gives the ordinary binomial law with splitting
+probability $p/(1+p)$.  Deduce the predicted deformation of the output
+count histogram and give a ratio of three adjacent probabilities from
+which $q$ can be inferred independently of the overall detection rate.
+\end{exercise}
+
+\section{Hecke and Double-Affine Spectral Theory}
+
+\subsection{Hecke algebras and quantum Schur--Weyl duality}
 
 \begin{definition}[Root data and affine Weyl groups]
 Let $E$ be a finite-dimensional Euclidean space.  A finite set
@@ -3166,9 +3392,9 @@ duality with the quantum symmetric and exterior powers of the vector
 module.
 \end{exercise}
 
-\section{DAHA, Askey--Wilson Polynomials, and Macdonald Theory}
+\subsection{DAHA, Askey--Wilson polynomials, and Macdonald theory}
 
-\subsection{Double affine Hecke algebras}
+\subsubsection{Double affine Hecke algebras}
 
 \begin{definition}[Double-affine braid group]
 Let $T^2=\R^2/\Z^2$ and let
@@ -3299,7 +3525,7 @@ and deduce the orthogonality and three-term recurrence of the
 Askey--Wilson polynomials.
 \end{exercise}
 
-\subsection{Macdonald theory}
+\subsubsection{Macdonald theory}
 
 \begin{definition}[Type-$A$ polynomial representation]
 Let
@@ -3456,6 +3682,27 @@ with $g\in\N$, reduce the quotients of $q$-products to finite products,
 and compute the limit $q\to1^-$ with $z_i=e^{i\theta_i}$.
 \end{exercise}
 
+\begin{exercise}[Askey--Wilson transition spectrum]
+Use the normalized Askey--Wilson polynomials in
+$L^2(S^1,w_{AW}(z)\,dz/(2\pi iz))$ as the spectral states of the
+self-adjoint Hamiltonian $\widehat H=\varepsilon\mathcal D_{AW}$, where
+$\varepsilon>0$ is an energy scale.  Prove that its spectral values are
+\[
+E_n=\varepsilon(q^{-n}-1)(1-abcdq^{n-1}).
+\]
+Write the three-term recurrence in the form
+\[
+(z+z^{-1})p_n=A_np_{n+1}+B_np_n+C_np_{n-1}
+\]
+and compute the corresponding normalized matrix elements.  Deduce that a
+periodic perturbation proportional to $z+z^{-1}$ produces only neighboring
+transitions, with resonance frequencies
+$|E_{n+1}-E_n|/\hbar$ and intensities determined by $A_n$ and $C_{n+1}$.
+Show how the measured sequence of line locations determines $q$ and the
+product $abcd$, while the relative line strengths separate the remaining
+Askey--Wilson parameters.
+\end{exercise}
+
 \section{Quantum Spherical Functions and qKZ Transport}
 
 \begin{definition}[Quantum spherical functions]
@@ -3490,9 +3737,16 @@ finite braid action to an affine one.  If the $R$-matrices satisfy a Hecke
 quadratic, prove that the exchange monodromy factors through an affine Hecke
 algebra.  Write the resulting reflection and translation operators in the
 same generators used in the polynomial representation defined above.
+For a unitary specialization of the $R$-matrix, prepare an incoming
+three-channel state and prove that the two exchange orders give identical
+output probabilities.  Diagonalize the periodic qKZ transport operator and
+express its interference fringes through its eigenphases and quantum
+spherical matrix coefficients.  Deduce the predicted equality of the two
+three-body scattering count distributions and the phase shift produced by
+one affine transport cycle.
 \end{exercise}
 
-\section{Elliptic Hypergeometric Functions and Ruijsenaars Theory}
+\section{Elliptic Hypergeometric Functions and Solvable Lattice Models}
 
 \begin{definition}[Elliptic shifted factorials and gamma function]
 For $|p|,|q|<1$, define
@@ -3699,7 +3953,7 @@ eigenvalues.  For the type-$A$ circular ground state, prove instead
 \]
 \end{exercise}
 
-\section{Elliptic Star--Triangle and Yang--Baxter Identities}
+\subsection{Elliptic star--triangle and Yang--Baxter identities}
 
 \begin{definition}[Star--triangle data]
 A family of edge weights $W_u(x,y)$, one-spin weights $S(x)$, and scalar
@@ -3721,6 +3975,17 @@ that yields commuting transfer matrices.  Take $p\to0$ and then $q\to1$
 and derive the corresponding trigonometric and rational star--triangle
 relations.  Compare this integral construction with the
 $6j$-symbol/recoupling construction of the Yang--Baxter equation.
+For fixed boundary spins, prove that the normalized boundary-spin
+probabilities are unchanged by the local star--triangle replacement.
+Construct the commuting row transfer matrices, let $\Lambda_0(u)$ and
+$\Lambda_1(u)$ be their two largest eigenvalues in modulus, and derive the
+correlation-length prediction
+\[
+\xi(u)^{-1}=-\log|\Lambda_1(u)/\Lambda_0(u)|.
+\]
+State how equality of partition-function ratios, local spin frequencies,
+and the extracted correlation length tests the elliptic identity, and how
+the $p\to0$ and $q\to1$ limits change these observables.
 \end{exercise}
 
 \section{Root-of-Unity Degeneration and Tensor Categories}
@@ -3800,13 +4065,29 @@ S_{ab}
 =\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
 \]
 Prove directly that $S$ is unitary and invertible.
+For simple charges $a,b$, prove that the normalized monodromy amplitude
+measured by winding $a$ once around $b$ is
+\[
+M_{ab}=\frac{S_{ab}S_{00}}{S_{0a}S_{0b}}.
+\]
+In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
+\[
+I_b(\phi)=I_1+I_2
++2\sqrt{I_1I_2}\,\Re(e^{i\phi}M_{ab}).
+\]
+Insert the sine formula for $S_{ab}$ and predict the fringe visibility and
+phase for every enclosed charge $b$.  Identify pairs of charges that the
+chosen probe $a$ cannot distinguish and prove that the full family of
+probe charges distinguishes them because $S$ is invertible.
 \end{exercise}
 
 \part{Counting}
 
-\section{Partitions and Generating Functions}
+\section{Exact State Counting and Modular Spectroscopy}
 
-\subsection{Partition generating functions and finite boxes}
+\subsection{Partitions and generating functions}
+
+\subsubsection{Partition generating functions and finite boxes}
 
 \begin{definition}[Partitions and $q$-Pochhammer symbols]
 An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
@@ -3864,7 +4145,7 @@ coefficients and that the coefficient of $q^m$ counts partitions of $m$
 whose Young diagrams fit inside an $r\times(n-r)$ rectangle.
 \end{exercise}
 
-\subsection{Rogers--Ramanujan identities and exclusion rules}
+\subsubsection{Rogers--Ramanujan identities and exclusion rules}
 
 \begin{definition}[Rogers--Ramanujan sum and product series]
 For $|q|<1$, define
@@ -3896,7 +4177,7 @@ identities and identify which further step would be required for a proof in
 all degrees.
 \end{exercise}
 
-\subsection{Modular asymptotics}
+\subsubsection{Modular asymptotics}
 
 \begin{exercise}[Partition asymptotics from modular inversion]
 Put $q=e^{-t}$ and use the modular transformation of $\eta$ from
@@ -3921,9 +4202,9 @@ exact coefficient formula; see
 \textbf{17} (1918)}.
 \end{exercise}
 
-\section{Characters and Exact State Counting}
+\subsection{Characters and exact state counting}
 
-\subsection{Virasoro representations and character formulas}
+\subsubsection{Virasoro representations and character formulas}
 
 \begin{definition}[The Virasoro algebra and its characters]
 The \emph{Virasoro algebra} has generators $L_n$ for $n\in\Z$ and a central
@@ -3957,7 +4238,7 @@ states and turn unrestricted partition numbers into the more structured
 $q$-series of minimal models.
 \end{exercise}
 
-\subsection{Modular invariance and exact state counting}
+\subsubsection{Modular invariance and exact state counting}
 
 \begin{definition}[Rational characters and modular invariants]
 A finite family of positive-energy sectors $H_a$ is a \emph{rational modular
@@ -4035,7 +4316,7 @@ counting; see
 {Cardy, \emph{Nuclear Physics B} \textbf{270} (1986)}.
 \end{exercise}
 
-\subsection{Integrable lattice models}
+\subsubsection{Integrable lattice models}
 
 \begin{definition}[Transfer matrices and integrability]
 For a two-dimensional lattice model on a cylinder, a \emph{row transfer
@@ -4075,7 +4356,36 @@ with $N$ and explain why finite matrices remain analytic even when their
 large-size limit may develop a singularity.
 \end{exercise}
 
-\section{Probability Spaces and Convergence}
+\begin{exercise}[Theta-character predictions for finite-size spectra]
+For a critical periodic system of circumference $L$ and propagation speed
+$v$, take
+\[
+H_L=E_{\rm bulk}L+\frac{2\pi v}{L}
+\left(L_0+\overline L_0-\frac{c+\bar c}{24}\right),
+\qquad
+P_L=\frac{2\pi}{L}(L_0-\overline L_0).
+\]
+Insert the Ising characters expressed through
+$\vartheta_2,\vartheta_3,\vartheta_4$, and $\eta$ into the modular-invariant
+partition function.  Prove that the coefficient of
+$q^{h+N-c/24}\bar q^{\bar h+\bar N-\bar c/24}$ is the predicted
+multiplicity at
+\[
+E-E_{\rm bulk}L
+=\frac{2\pi v}{L}
+\left(h+\bar h+N+\bar N-\frac{c+\bar c}{24}\right),
+\quad
+P=\frac{2\pi}{L}(h-\bar h+N-\bar N).
+\]
+Compute the first spectral gaps and degeneracies in the three Ising
+sectors.  Deduce the universal gap ratios and the $L^{-1}$ Casimir-energy
+correction, and state how finite-size energy levels or transfer-matrix
+eigenvalues determine $c$, the primary weights, and $v$.
+\end{exercise}
+
+\section{Probability, Random Matrices, and Statistical Universality}
+
+\subsection{Probability spaces and convergence}
 
 \begin{definition}[Probability spaces and convergence]
 A \emph{probability space} is a measure space
@@ -4129,7 +4439,7 @@ $\operatorname{He}_n(x)=2^{-n/2}H_n(x/\sqrt2)$, and derive
 \]
 \end{exercise}
 
-\section{Random Matrices and Statistical Universality}
+\subsection{Random matrices and statistical universality}
 
 \begin{definition}[Vandermonde determinant and Dyson classes]
 For $\lambda=(\lambda_1,\ldots,\lambda_N)$, define
@@ -4330,7 +4640,7 @@ F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
 \]
 \end{definition}
 
-\subsection{Correlation functions and point processes}
+\subsubsection{Correlation functions and point processes}
 
 \begin{definition}[Point processes and correlation functions]
 Let $(X,\mu)$ be a locally compact measure space.  A \emph{simple point
@@ -4372,7 +4682,7 @@ exchange of expectation and summation to prove
 \]
 \end{exercise}
 
-\subsection{Determinantal/Pfaffian processes and Fredholm determinants}
+\subsubsection{Determinantal/Pfaffian processes and Fredholm determinants}
 
 \begin{definition}[Determinantal and Pfaffian point processes]
 For an antisymmetric matrix $A=(a_{ij})\in M_{2m}(\C)$, define
@@ -4423,7 +4733,7 @@ and that $N_B$ is distributed as a sum of independent Bernoulli variables
 with parameters $\lambda_j$.
 \end{exercise}
 
-\subsection{Orthogonal-polynomial ensembles}
+\subsubsection{Orthogonal-polynomial ensembles}
 
 \begin{definition}[Orthogonal-polynomial ensembles]
 Let $w(x)d\mu(x)$ be a measure with finite moments and let $p_j$ be its
@@ -4478,7 +4788,7 @@ Prove de Bruijn's Pfaffian integration identity and use it to derive the
 matrix correlation kernels for the GOE and GSE.
 \end{exercise}
 
-\subsection{Christoffel--Darboux and integrable kernels}
+\subsubsection{Christoffel--Darboux and integrable kernels}
 
 \begin{definition}[Christoffel--Darboux and integrable kernels]
 Let $q_j=p_j/\sqrt{h_j}$ and let $\kappa_j$ be the leading coefficient of
@@ -4509,7 +4819,7 @@ $R=K(I-K)^{-1}$ is again integrable and express its numerator using
 $(I-K)^{-1}f$ and $(I-K^{\mathsf T})^{-1}g$.
 \end{exercise}
 
-\subsection{Bulk, soft-edge, and hard-edge universality}
+\subsubsection{Bulk, soft-edge, and hard-edge universality}
 
 \begin{definition}[Universal limiting kernels]
 The bulk, soft-edge, and hard-edge kernels are respectively
@@ -4539,6 +4849,13 @@ kernels, where applicable, to $K_{\sin}$ in the bulk, $K_{\rm Ai}$ at a
 soft edge, and $K_{\rm Bes}^{(\alpha)}$ at a hard edge.  Deduce convergence
 of every correlation function and of the associated Fredholm gap
 probabilities.  Recover the Tracy--Widom law for the largest GUE eigenvalue.
+For an unfolded spectrum, derive from $K_{\sin}$ the nearest-neighbor
+level-repulsion exponent and number variance, and state the corresponding
+predictions for a chaotic quantum spectrum in the unitary symmetry class.
+From $K_{\rm Ai}$ derive the
+$N^{-2/3}$ edge-fluctuation scale and the limiting distribution of the
+largest resonance or covariance eigenvalue.  Specify the unfolding and
+centering required before comparing either prediction with spectral data.
 \end{exercise}
 
 \section{Integrable Probability and KPZ Universality}
@@ -4762,6 +5079,13 @@ to the O'Connell--Yor semi-discrete polymer and then its
 intermediate-disorder limit to the stochastic heat equation and the KPZ
 equation.  Identify the corresponding degenerations of the
 Macdonald-process observables.
+Under narrow-wedge initial data, carry the steepest-descent analysis of
+the limiting Fredholm kernel to the Airy kernel.  After fixing the
+nonuniversal velocity and scale from the first two cumulants, prove that
+the centered height has $t^{1/3}$ fluctuations and converges to the GUE
+Tracy--Widom distribution.  Deduce the $t^{2/3}$ correlation-length scale
+and state the resulting data collapse for repeated interface-height or
+directed-polymer free-energy measurements.
 \end{exercise}
 
 \section{Free Probability and Asymptotic Freeness}
@@ -4908,6 +5232,12 @@ G_{\rm sc}(z)=\frac{z-\sqrt{z^2-4}}2,
 \quad(z\to\infty),
 \]
 and identify the branch cut with the limiting spectral interval of GUE.
+Use Stieltjes inversion to recover the semicircle density from the jump of
+$G_{\rm sc}$ across the branch cut.  For a measured large Hamiltonian or
+coupled-mode spectrum modeled by an additive free sum, use
+$R_{\mu\boxplus\nu}=R_\mu+R_\nu$ to predict the support edges and density
+of states.  State how convergence of the empirical Stieltjes transform and
+the observed spectral edges test the asymptotic-freeness model.
 \end{exercise}
 
 \end{document}

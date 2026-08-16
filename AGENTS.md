@@ -46,5 +46,38 @@ These rules apply to `A_Physical_Introduction_to_Higher_Mathematics.tex`.
 - For distinguished special-function systems, state orthogonality,
   completeness, kernel, or inversion identities without calling the system a
   basis.
+
+## Application-driven section structure
+
+- Treat each `\section` as a complete mathematical arc rather than as a
+  container for prerequisite material.
+- Every section must culminate in a substantial exercise that derives or uses
+  a named special-function family and applies it to a concrete physical
+  observable.
+- The culminating exercise must extract a quantitative, experimentally
+  testable prediction, such as spectral values or spacings, zeros and
+  resonance locations, scattering or diffraction intensities, selection
+  rules, transition amplitudes, correlation laws, transport coefficients,
+  critical exponents, or asymptotic distributions.
+- Group characters, spherical functions, orthogonal polynomials,
+  hypergeometric functions, transform kernels, and integrable kernels count as
+  special functions when their defining identities and analytic role are made
+  explicit. Merely mentioning such a function does not satisfy this rule.
+- State the mathematical model, normalization conventions, observable, and
+  prediction in the exercise. When experimental evidence is cited,
+  distinguish the derived prediction, modeling assumptions, measured
+  quantity, and limitations of the comparison.
+- Foundational material that does not naturally support such a culminating
+  exercise must be organized as subsections of the earliest larger section
+  that uses it. It should not remain a standalone section.
+- Do not append an unrelated special-function example merely to satisfy this
+  rule. Merge, rename, reorder, or divide sections so that the culminating
+  application follows from the preceding development.
+- Introduce prerequisites before their first use and do not reintroduce them
+  in later sections.
+- Preserve the definitions-and-exercises format: applications and
+  experimental interpretations belong in exercises, not in transitional
+  prose.
+
 - After changing the TeX source, rebuild and validate the tracked PDF. Commit
   and push the TeX and PDF together unless the user requests otherwise.
