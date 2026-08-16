@@ -89,23 +89,26 @@ These rules apply to `A_Physical_Introduction_to_Higher_Mathematics.tex`.
   physical question, formatted as `\emph{Question.} ...` and written as a
   single sentence.
 - Make the question as short as possible while remaining self-contained for a
-  reader who has not yet read the section. Include the physical system or
-  apparatus and the observable or effect being asked about.
+  reader who has not yet read the section. Specify enough physical input and
+  enough of the observable to determine one central mathematical problem.
 - Use ordinary physical language only. Do not mention mathematical theories,
   structures, formalisms, named special functions, or notation that the
   section has not yet defined.
-- Begin with the simplest familiar physical instance that creates the need
-  for the section's mathematics. Do not use the culminating experiment merely
-  because it is more sophisticated. For example, motivate spectral theory
-  with the vibration frequencies of springs or strings, not with Airy levels
-  of gravitationally bound neutrons.
+- Ask a forward or inverse problem that the section actually solves under its
+  stated hypotheses. Do not claim unique reconstruction when the measured data
+  lose information, and do not treat incompatible observables as an ordinary
+  joint measurement.
 - Do not assume unexplained physical vocabulary or a prior expectation that
   needs justification. Prefer "When an atom is illuminated, why does it
   absorb some colors of light but not others?" to "Why are some atomic
   spectral lines missing?"
+- Require every major block of the section to contribute to the question's
+  precise mathematical formulation or solution. Do not let one introductory
+  example or the culminating experiment determine a question narrower than
+  the section.
 - Let the definitions and exercises progressively answer the question, and
   let the culminating special-function exercise sharpen the same physical
-  theme into a quantitative experimental prediction.
+  problem into a quantitative experimental prediction.
 - Treat inability to formulate a simple, self-contained physical question as
   evidence that the section is unmotivated in its present form. Merge,
   divide, relocate, or remove the section instead of writing an abstract or

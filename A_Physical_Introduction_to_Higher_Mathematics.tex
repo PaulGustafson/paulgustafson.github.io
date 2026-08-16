@@ -60,7 +60,7 @@
 
 \section{Spectral Theory}
 
-\emph{Question.} Why do springs and strings vibrate only at certain frequencies?
+\emph{Question.} Given a system's linear law of motion and a measurement, which frequencies will appear, and with what strengths?
 
 
 \begin{definition}[Linear spaces and maps]
@@ -612,7 +612,7 @@ threshold heights and resonance frequencies determine $g$.
 
 \section{Abelian Harmonic Analysis}
 
-\emph{Question.} How can an object's shape and spacing be recovered from the waves it scatters?
+\emph{Question.} Given the shape and arrangement of a wave source or scatterer, where will its emitted or scattered intensity be concentrated or vanish?
 
 
 \begin{definition}[Groups, homomorphisms, and quotients]
@@ -1040,7 +1040,7 @@ theta coefficients of $L^*$.
 
 \section{Compact Harmonic Analysis}
 
-\emph{Question.} When an atom is illuminated, why does it absorb some colors of light but not others?
+\emph{Question.} When a physical system is unchanged by rotations, which angular states can occur and which transitions have nonzero amplitude?
 
 \begin{exercise}[Maschke's theorem]
 Let $G$ be finite and let the characteristic of $k$ not divide $|G|$.
@@ -1405,7 +1405,7 @@ identify its symmetry-enforced dark directions and absent spectral lines.
 
 \section{Semisimple Harmonic Analysis}
 
-\emph{Question.} When a wave pulse enters a branching network, when and where will it be detected?
+\emph{Question.} After a localized pulse is released in a medium whose area grows exponentially with distance, what signal is measured at radius $r$ and time $t$?
 
 \begin{definition}[Cartan and Iwasawa decompositions]
 Let $G$ be a connected real semisimple Lie group with finite center and let
@@ -1590,7 +1590,7 @@ Compare the two families tabulated in
 
 \section{Heisenberg Orbit Method}
 
-\emph{Question.} Why does a microscopic particle held by a spring-like force absorb energy at equally spaced frequencies?
+\emph{Question.} How does the phase produced by exchanging position and momentum shifts constrain a particle's quantum states and oscillator transitions?
 
 
 \begin{definition}[Coadjoint action and stabilizers]
@@ -2079,7 +2079,7 @@ an oscillator experiment.
 
 \section{Weyl Quantization}
 
-\emph{Question.} Can repeated position measurements determine how a microscopic oscillator was prepared?
+\emph{Question.} Can the probability distributions of every rotated combination of position and momentum reconstruct an oscillator state and predict its measured evolution?
 
 
 
@@ -2271,7 +2271,7 @@ states and detect Wigner negativity after inverse Radon reconstruction.
 
 \section{Hamiltonian Geometry}
 
-\emph{Question.} Why does a pendulum take longer to swing when released from a larger angle?
+\emph{Question.} Given a system's energy as a function of position and momentum and an initial state, what trajectory and oscillation period follow?
 
 \begin{definition}[Cotangent bundles]
 For a smooth manifold $Q$ and $q\in Q$, let $T_qQ$ be the linear space of
@@ -2408,7 +2408,7 @@ the logarithmic divergence as $\theta_0\uparrow\pi$.
 
 \section{Deformation Quantization}
 
-\emph{Question.} Why does changing a magnetic field split a particle's allowed energies into separate ranges?
+\emph{Question.} How does an order-dependent phase between microscopic translations change the allowed energy bands in a periodic material?
 
 \begin{definition}[Poisson manifolds]
 A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
@@ -2493,7 +2493,7 @@ Chebyshev discriminant and the half-flux splitting.
 
 \section{Geometric Quantization}
 
-\emph{Question.} Why can one charged particle in a magnetic field move in many different ways with the same energy?
+\emph{Question.} For a charged particle confined to a periodic surface, which magnetic fields permit globally consistent wavefunctions, and how many states occur at each energy?
 
 \begin{definition}[Integration of forms]
 An \emph{orientation} of an $n$-manifold is a continuous choice of component
@@ -2709,7 +2709,7 @@ energy, flux-integrality, and theta-function predictions.
 
 \section{Integrable Systems}
 
-\emph{Question.} What energies can particles moving around a ring have when every pair repels?
+\emph{Question.} What energy levels and driven transition strengths arise for particles on a ring with inverse-square repulsion?
 
 \begin{definition}[Sutherland model]
 For $N$ identical particles of mass $m$ on a ring of radius $R$ and
@@ -2795,7 +2795,7 @@ the missing lines.
 
 \section{Quantum Groups}
 
-\emph{Question.} When microscopic magnets are coupled one pair at a time, does the order change the measured outcomes?
+\emph{Question.} For three spins with a known directional anisotropy, what probabilities result when they are coupled and exchanged in different orders?
 
 
 \begin{definition}[Poisson--Lie groups]
@@ -3238,6 +3238,18 @@ V\otimes W\longrightarrow W\otimes V.
 The pair $(H,\mathcal R)$ is \emph{quasitriangular}.
 \end{definition}
 
+\begin{definition}[Spectral exchange operators]
+Let $V$ be finite-dimensional.  A meromorphic family
+$R(u)\in\End(V\otimes V)$ satisfies the spectral Yang--Baxter equation
+when
+\[
+R_{12}(u-v)R_{13}(u-w)R_{23}(v-w)
+=R_{23}(v-w)R_{13}(u-w)R_{12}(u-v).
+\]
+It is regular when $R(0)$ is a nonzero scalar multiple of the flip and
+unitary when $R_{12}(u)R_{21}(-u)$ is scalar.
+\end{definition}
+
 \begin{exercise}[Hexagon identities]
 Prove that $c_{V,W}$ is a natural module intertwiner and that the two
 coproduct identities for $\mathcal R$ give the two hexagon identities.
@@ -3326,8 +3338,27 @@ between fixed intermediate irreducible summands are the $q$-$6j$
 coefficients.
 \end{definition}
 
+\begin{definition}[Quantum spherical functions]
+Let $H=U_q(\mathfrak g)$ and let $B\subseteq H$ be a right coideal
+subalgebra, so $\Delta(B)\subseteq B\otimes H$.  If an $H$-module $V$
+contains a vector $v$ satisfying
+\[
+bv=\varepsilon(b)v\qquad(b\in B),
+\]
+then the matrix coefficient
+\[
+\varphi_V(x)=\langle v,\pi_V(x)v\rangle
+\]
+is a \emph{quantum zonal spherical function}.  It belongs to the coordinate
+Hopf dual of $H$ and is invariant under the left and right $B$-actions.
+\end{definition}
+
 \begin{exercise}[$q$-spin coupling]
-Use the coproduct of $U_q(\mathfrak{sl}_2)$ and the conjugate equations to
+Fix $0<q<1$, calibrate the directional anisotropy by
+$\Delta_{\rm aniso}=(q+q^{-1})/2$, and model the pair-coupling measurement
+on $V_a\otimes V_b$ by the spectral projections
+$C_{ab}^c(C_{ab}^c)^*$.  Use the coproduct of
+$U_q(\mathfrak{sl}_2)$ and the conjugate equations to
 derive the orthogonality relations for the $q$-Clebsch--Gordan
 coefficients.  Show that their weight dependence satisfies the dual
 $q$-Hahn recurrence and identify the normalized coefficients with a
@@ -3346,9 +3377,34 @@ recoupling probabilities determine $q$ and test the dual $q$-Hahn and
 $q$-Racah identities.
 \end{exercise}
 
+\begin{exercise}[qKZ spin transport]
+Let a vector-valued spin state satisfy the adjacent exchange rule
+\[
+\Psi(\ldots,z_i,z_{i+1},\ldots)
+=\check R_i(z_i/z_{i+1})
+ \Psi(\ldots,z_{i+1},z_i,\ldots).
+\]
+Prove that equality of the two routes reversing three adjacent spins is
+equivalent to the spectral Yang--Baxter equation.  Add a periodic transport
+rule that returns $z_1$ at the end as $qz_1$ and construct the resulting
+qKZ transport operator.
+
+For a unitary specialization of the $R$-matrix, prepare a three-spin state
+with fixed incoming weights.  Prove that two factorizations of the same
+three-spin exchange give identical output probabilities.  Diagonalize the
+periodic transport operator.  When the prepared and detected states are
+$B$-fixed, express its interference fringes through its eigenphases and
+quantum spherical matrix coefficients.  Combine these
+coefficients with the $q$-Clebsch--Gordan and $q$-$6j$ coefficients to
+predict the coupling probabilities, the equality of the two exchange
+distributions, and the phase shift produced by one transport cycle.
+Express the equality of the two exchange distributions as the corresponding
+$q$-Racah recoupling identity.
+\end{exercise}
+
 \section{Hecke Algebras and DAHA}
 
-\emph{Question.} How do the colors absorbed by a microscopic system change as its interactions are varied?
+\emph{Question.} For identical particles confined to a ring, how do exchange and winding rules determine their energy levels and transition strengths?
 
 
 \begin{definition}[Root data and affine Weyl groups]
@@ -3474,6 +3530,21 @@ $\mathsf{SW}_{N,r}^{\mathrm{aff}}$ is an equivalence from finite-dimensional
 $\mathcal H_{v^2}^{\mathrm{aff}}(GL_r)$-modules to the full subcategory of
 finite-dimensional polynomial $U_v(L\mathfrak{gl}_N)$-modules generated by
 subquotients of tensor products of $r$ vector evaluation modules.
+\end{exercise}
+
+\begin{exercise}[qKZ and affine Hecke transport]
+Suppose the spectral exchange operators in the preceding section satisfy
+the quadratic relation
+\[
+(\check R_i(u)-v)(\check R_i(u)+v^{-1})=0
+\]
+after the chosen normalization.  Prove that the adjacent exchange and
+periodic transport operators of the qKZ system factor through
+$\mathcal H_{v^2}^{\mathrm{aff}}(GL_r)$.  Identify adjacent exchanges with
+the $T_i$, winding of one spectral variable with an $X_j$, and the qKZ
+transport operators with the commuting affine translations.  Deduce that
+the exchange and winding amplitudes are independent of the chosen affine
+braid words.
 \end{exercise}
 
 \begin{exercise}[Poincar\'e identity]
@@ -3737,6 +3808,71 @@ $X$- and $Y$-polynomial representations and derive its projective
 $SL_2(\Z)$ relations.
 \end{exercise}
 
+\begin{definition}[Multiplicative theta function]
+For $|p|<1$, define
+\[
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty.
+\]
+\end{definition}
+
+\begin{definition}[Elliptic Ruijsenaars operator]
+For type $A_{r-1}$, define
+\[
+D_{p,q,t}^{\mathrm{ell}}
+=\sum_{i=1}^r
+\left(
+\prod_{j\neq i}
+\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
+\right)T_{q,x_i}.
+\]
+\end{definition}
+
+\begin{exercise}[Ruijsenaars operator hierarchy]
+Construct the commuting higher elliptic Ruijsenaars operators.  Prove
+\[
+D_{p,q,t}^{\mathrm{ell}}
+\longrightarrow D_{q,t}
+\qquad(p\to0).
+\]
+Set $q=e^\varepsilon$ and $t=e^{g\varepsilon}$ and derive the
+Heckman--Opdam differential operator from the second-order term as
+$\varepsilon\to0$.  Take the rational scaling limit of its hyperbolic
+coefficients and obtain the rational Calogero--Moser operator.  Organize
+the eigenfunction limits as
+\[
+\text{elliptic Ruijsenaars functions}
+\longrightarrow
+\text{Macdonald polynomials}
+\longrightarrow
+\text{Heckman--Opdam functions}.
+\]
+\end{exercise}
+
+\begin{exercise}[The Calogero--Sutherland limit]
+Write $x_i=e^{z_i}$, set $q=e^\epsilon$ and $t=e^{g\epsilon}$, and expand
+$D_{q,t}$ through order $\epsilon^2$.  After subtracting its scalar value
+on $1$ and removing the center-of-mass drift, obtain
+\[
+\mathcal L_g=
+\sum_i\partial_{z_i}^2
++g\sum_{i<j}\coth\!\left(\frac{z_i-z_j}{2}\right)
+ (\partial_{z_i}-\partial_{z_j}).
+\]
+On the circle, put $z_i=i\theta_i$ and conjugate by
+\[
+\Psi_0(\theta)=
+\prod_{i<j}\left|2\sin\frac{\theta_i-\theta_j}{2}\right|^g.
+\]
+Recover, up to its ground-state energy, the Sutherland Hamiltonian
+\[
+H_g=-\sum_i\partial_{\theta_i}^2
++\frac{g(g-1)}2\sum_{i<j}
+ \frac1{\sin^2((\theta_i-\theta_j)/2)}.
+\]
+Compute the eigenfunctions of degrees zero and one and, for $r=2$, degree
+two.  Identify their Sutherland eigenvalues.
+\end{exercise}
+
 \begin{exercise}[Hypergeometric degeneration]
 Set $q=e^{-\varepsilon}$.  Prove
 \[
@@ -3827,72 +3963,53 @@ product $abcd$, while the relative line strengths separate the remaining
 Askey--Wilson parameters.
 \end{exercise}
 
-\section{Quantum Spherical Functions}
-
-\emph{Question.} If three incoming signals pass through pairwise scattering devices in different orders, do the detectors record the same counts?
-
-\begin{definition}[Spectral exchange operators]
-Let $V$ be finite-dimensional.  A meromorphic family
-$R(u)\in\End(V\otimes V)$ satisfies the spectral Yang--Baxter equation
-when
+\begin{exercise}[Macdonald--Ruijsenaars spectroscopy]
+Let $0<q,t<1$ and let the symmetric states of $r$ identical particles on a
+ring be
 \[
-R_{12}(u-v)R_{13}(u-w)R_{23}(v-w)
-=R_{23}(v-w)R_{13}(u-w)R_{12}(u-v).
+\mathcal H_{q,t}
+=L^2\!\left((S^1)^r,
+\Delta_{q,t}(x)\prod_{j=1}^r\frac{dx_j}{2\pi i x_j}\right)^{S_r}
 \]
-It is regular when $R(0)$ is a nonzero scalar multiple of the flip and
-unitary when $R_{12}(u)R_{21}(-u)$ is scalar.
-\end{definition}
-
-\begin{definition}[Quantum spherical functions]
-Let $H=U_q(\mathfrak g)$ and let $B\subseteq H$ be a right coideal
-subalgebra, so $\Delta(B)\subseteq B\otimes H$.  It plays the role of the
-stabilizer algebra of a quantum homogeneous space.  If an $H$-module $V$
-contains a vector $v$ satisfying
+with normalized torus measure.  Put
 \[
-bv=\varepsilon(b)v\qquad(b\in B),
+d_0=\sum_{i=1}^r t^{r-i},
+\qquad
+\widehat H_{q,t}=\varepsilon(d_0-D_{q,t}),
+\qquad \varepsilon>0.
 \]
-then the matrix coefficient
+Identify $D_{q,t}$ with the first symmetric function of the commuting
+DAHA winding operators and derive its compatibility with the Hecke
+exchange relations.  Prove on the polynomial domain that
+$\widehat H_{q,t}$ is symmetric and
+that the normalized Macdonald states have energies
 \[
-\varphi_V(x)=\langle v,\pi_V(x)v\rangle
+E_\lambda
+=\varepsilon\sum_{i=1}^r
+t^{r-i}(1-q^{\lambda_i}).
 \]
-is a \emph{quantum zonal spherical function}.  It belongs to the coordinate
-Hopf dual of $H$ and is invariant under the left and right quantum
-stabilizer actions.
-
-\end{definition}
-
-\begin{exercise}[qKZ monodromy]
-Let a vector-valued function satisfy the adjacent exchange rule
+Use the Macdonald Pieri identity for
+$\rho_1=x_1+\cdots+x_r$ and its adjoint to determine every nonzero matrix
+element of $\rho_1+\rho_1^*$.  For a periodic drive proportional to this
+observable, derive the resonance frequencies
 \[
-\Psi(\ldots,z_i,z_{i+1},\ldots)
-=\check R_i(z_i/z_{i+1})
- \Psi(\ldots,z_{i+1},z_i,\ldots).
+\Omega_{\mu\lambda}=|E_\mu-E_\lambda|/\hbar
 \]
-Show that consistency of the two routes reversing three adjacent variables
-is exactly the spectral Yang--Baxter equation.  Add a periodic rule that
-returns $z_1$ at the end as $qz_1$, and explain why translations enlarge the
-finite braid action to an affine one.  If the $R$-matrices satisfy a Hecke
-quadratic, prove that the exchange monodromy factors through an affine Hecke
-algebra.  Write the resulting reflection and translation operators in the
-same generators used in the polynomial representation defined above.
-For a unitary specialization of the $R$-matrix, prepare an incoming
-three-channel state and prove that the two exchange orders give identical
-output probabilities.  Diagonalize the periodic qKZ transport operator and
-express its interference fringes through its eigenphases and quantum
-spherical matrix coefficients.  Deduce the predicted equality of the two
-three-body scattering count distributions and the phase shift produced by
-one affine transport cycle.
+and the relative intensities as squared normalized Macdonald Pieri
+coefficients.  Set $q=e^{-\delta}$ and $t=e^{-g\delta}$; after the scalar
+and center-of-mass normalizations in the preceding exercise, prove that
+the rescaled spectral gaps and transition coefficients converge to the
+Sutherland energies and Jack Pieri coefficients.  State how measured line
+locations and strengths determine $q,t$ and test this degeneration.
 \end{exercise}
 
 \section{Elliptic Hypergeometric Functions}
 
-\emph{Question.} If three neighboring interactions in a grid of particles are rearranged, do measurements at its boundary change?
+\emph{Question.} When can local interactions in a periodic lattice be rearranged without changing its boundary statistics or correlation length?
 
-\begin{definition}[Elliptic gamma function]
+\begin{definition}[Elliptic shifted factorials and gamma function]
 For $|p|,|q|<1$, define
 \[
-\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
-\qquad
 (a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
 \]
 \[
@@ -4003,64 +4120,6 @@ very-well-poised ${}_8\phi_7$ summation and basic hypergeometric beta
 integral.  Obtain the Askey--Wilson integral by specialization.
 \end{exercise}
 
-\begin{definition}[Elliptic Ruijsenaars operator]
-For type $A_{r-1}$, define
-\[
-D_{p,q,t}^{\mathrm{ell}}
-=\sum_{i=1}^r
-\left(
-\prod_{j\neq i}
-\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
-\right)T_{q,x_i}.
-\]
-\end{definition}
-
-\begin{exercise}[Operator hierarchy]
-Construct the commuting higher elliptic Ruijsenaars operators.  Prove
-\[
-D_{p,q,t}^{\mathrm{ell}}
-\longrightarrow D_{q,t}
-\qquad(p\to0).
-\]
-Set $q=e^\varepsilon$ and $t=e^{g\varepsilon}$ and derive the
-Heckman--Opdam differential operator from the second-order term as
-$\varepsilon\to0$.  Take the rational scaling limit of its hyperbolic
-coefficients and obtain the rational Calogero--Moser operator.  Organize
-the eigenfunction limits as
-\[
-\text{elliptic Ruijsenaars functions}
-\longrightarrow
-\text{Macdonald polynomials}
-\longrightarrow
-\text{Heckman--Opdam functions}.
-\]
-\end{exercise}
-
-\begin{exercise}[The Calogero--Sutherland limit]
-Write $x_i=e^{z_i}$, set $q=e^\epsilon$ and $t=e^{g\epsilon}$, and expand
-$D_{q,t}$ through order $\epsilon^2$.  After subtracting its scalar value
-on $1$ and removing the center-of-mass drift, obtain
-\[
-\mathcal L_g=
-\sum_i\partial_{z_i}^2
-+g\sum_{i<j}\coth\!\left(\frac{z_i-z_j}{2}\right)
- (\partial_{z_i}-\partial_{z_j}).
-\]
-On the circle, put $z_i=i\theta_i$ and conjugate by
-\[
-\Psi_0(\theta)=
-\prod_{i<j}\left|2\sin\frac{\theta_i-\theta_j}{2}\right|^g.
-\]
-Recover, up to its ground-state energy, the Sutherland Hamiltonian
-\[
-H_g=-\sum_i\partial_{\theta_i}^2
-+\frac{g(g-1)}2\sum_{i<j}
- \frac1{\sin^2((\theta_i-\theta_j)/2)}.
-\]
-Compute the eigenfunctions of degrees zero and one and, for $r=2$, degree
-two.  Identify their Sutherland eigenvalues.
-\end{exercise}
-
 \begin{definition}[Star--triangle data]
 A family of edge weights $W_u(x,y)$, one-spin weights $S(x)$, and scalar
 normalizations $R(u,v,w)$ is \emph{star--triangle data} when
@@ -4096,7 +4155,7 @@ the $p\to0$ and $q\to1$ limits change these observables.
 
 \section{Root-of-Unity Limits}
 
-\emph{Question.} In a two-path interference experiment, can a particle hidden between the paths shift the fringes?
+\emph{Question.} When particles have only finitely many charge types, which total charges can they form, and how does moving one around another change an interference pattern?
 
 \begin{definition}[Root-of-unity semisimplification]
 Fix $k\in\N$ and
@@ -4193,7 +4252,7 @@ probe charges distinguishes them because $S$ is invertible.
 
 \section{Exact State Counting}
 
-\emph{Question.} How many ways can a fixed amount of energy be shared among independent vibrations?
+\emph{Question.} How many microscopic states have a specified energy or particle number, and how rapidly does that count grow?
 
 
 
@@ -4487,7 +4546,7 @@ eigenvalues determine $c$, the primary weights, and $v$.
 
 \section{Random Matrices}
 
-\emph{Question.} Why do complicated resonators made from different materials show the same patterns in their resonance frequencies?
+\emph{Question.} What density, level spacings, and extreme-value fluctuations should the energy levels of a large chaotic system exhibit?
 
 
 \begin{exercise}[Hermite moments]
@@ -4994,7 +5053,7 @@ centering required before comparing either prediction with spectral data.
 
 \section{Free Probability}
 
-\emph{Question.} When two large disordered systems are combined, how are their resonance frequencies redistributed?
+\emph{Question.} When two large disordered Hamiltonians with unrelated eigenstates act additively, what density of energy levels results?
 
 
 \begin{definition}[Noncommutative probability spaces]
@@ -5146,7 +5205,7 @@ the observed spectral edges test the asymptotic-freeness model.
 
 \section{Integrable Probability}
 
-\emph{Question.} As a surface grows through random local changes, how quickly do its bumps grow and spread?
+\emph{Question.} For a surface built by random local growth, what are its long-time mean shape, height-fluctuation scale, correlation length, and limiting height distribution?
 
 
 \begin{definition}[Tableaux and Schur functions]
