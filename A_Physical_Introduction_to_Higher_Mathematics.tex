@@ -112,6 +112,10 @@ For a finite-dimensional linear space $V$, the canonical isomorphism
 \qquad
 \iota_V(v\otimes\varphi)(w)=\varphi(w)v,
 \]
+the canonical tensor
+\[
+\Omega_V=\iota_V^{-1}(\id_V)\in V\otimes V^\vee,
+\]
 and the contraction
 \[
 \operatorname{contr}_V:V\otimes V^\vee\longrightarrow k,
@@ -149,18 +153,14 @@ $\det(T)$ defined by the action on the highest nonzero exterior power:
 \]
 \end{definition}
 
-\begin{exercise}[Exterior powers and the determinant formula]
-For a basis $e_1,\ldots,e_n$ of $V$, prove that
-$e_1\wedge\cdots\wedge e_n$ is a basis of $\Lambda^nV$ and that
-$\Lambda^mV=0$ for $m>n$.  If $Te_j=\sum_i a_{ij}e_i$, derive
+\begin{exercise}[Exterior powers and determinant]
+For a finite-dimensional linear space $V$ of dimension $n$, prove
 \[
-Te_1\wedge\cdots\wedge Te_n
-=\left(\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)
-\prod_{j=1}^na_{\sigma(j),j}\right)
-e_1\wedge\cdots\wedge e_n.
+\dim\Lambda^mV=\binom{n}{m},
+\qquad
+\Lambda^mV=0\quad(m>n).
 \]
-Deduce that the exterior-power definition is independent of basis and
-prove
+Use functoriality of the highest exterior power to prove
 \[
 \det(ST)=\det(S)\det(T),
 \qquad
@@ -244,11 +244,12 @@ displayed sums.  Define
 \[
 \Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
 \]
-The \emph{Hilbert--Schmidt class} $S_2(H)$ consists of operators satisfying
+The \emph{Hilbert--Schmidt class} is
 \[
-\|A\|_2^2=\sum_j\|Ae_j\|^2<\infty
+S_2(H)=\{A\in B(H):A^*A\in S_1(H)\},
+\qquad
+\|A\|_2^2=\Tr(A^*A).
 \]
-for an orthonormal basis $(e_j)$ of $H$.
 \end{definition}
 
 \begin{exercise}[Hilbert-space foundations]
@@ -265,8 +266,7 @@ $\|x\|^2=\sum_j|\langle e_j,x\rangle|^2$ for every $x\in H$.
 \end{exercise}
 
 \begin{exercise}[Trace ideals]
-Prove that the definitions of $S_1(H)$, $\Tr$, and $S_2(H)$ are independent
-of the displayed decompositions and orthonormal basis. Prove that
+Prove that $S_1(H)$, $\Tr$, and $S_2(H)$ are well-defined. Prove that
 $\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space and
 that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$ isometrically
 with $B(H)$.
@@ -767,8 +767,8 @@ transform extends to a unitary map
 L^2(G)\longrightarrow L^2(\widehat G),
 \]
 and prove Fourier inversion when both $f$ and $\widehat f$ are integrable.
-Prove that $(e^{ikx})_{k\in\Z}$ is an orthonormal basis of $L^2(\T)$ and
-derive
+Prove that $(e^{ikx})_{k\in\Z}$ is a complete orthonormal family in
+$L^2(\T)$ and derive
 \[
 f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
 \qquad
@@ -843,8 +843,8 @@ condition with
 \subsection{Lattice theta series and Poisson duality}
 
 \begin{definition}[Integral lattices and theta series]
-A \emph{Euclidean lattice} $L\subset\R^d$ is the integer span of a basis of
-$\R^d$.  Its dual is
+A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup satisfying
+\(\operatorname{span}_{\R}L=\R^d\).  Its dual is
 \[
 L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
 \text{ for every }x\in L\}.
@@ -1047,8 +1047,9 @@ $SO(2)$-invariant subspace of $L^2(SO(3))$. Use Peter--Weyl to obtain
 \[
 L^2(S^2)\cong\mathop{\widehat{\bigoplus}}_{\ell=0}^\infty V_\ell
 \]
-and identify a basis of $V_\ell$ with
-$Y_{\ell m}\propto D^\ell_{m0}$. For the unit round sphere, set
+and prove that the functions
+$Y_{\ell m}\propto D^\ell_{m0}$, $-\ell\leq m\leq\ell$, form a complete
+orthogonal family in $V_\ell$. For the unit round sphere, set
 \[
 \Delta_{S^2}
 =\frac1{\sin\theta}\partial_\theta
@@ -1390,7 +1391,7 @@ and define on $L^2(\R/\Z)$ the integral operator with kernel
 \[
  K_f(x,y)=\sum_{n\in\Z}f(x-y+n).
 \]
-Diagonalize it in the Fourier basis $e^{2\pi imx}$.  Compute its trace once
+Diagonalize it using the characters $e^{2\pi imx}$.  Compute its trace once
 as the sum of its eigenvalues and once as
 $\int_0^1K_f(x,x)\,dx$, obtaining
 \[
@@ -1849,9 +1850,12 @@ The Weyl multiplier is $\sigma_\omega$.
 \end{definition}
 
 \begin{exercise}[Linear Darboux theorem]
-Prove that every symplectic space has a basis in which its form has matrix
+Prove that every finite-dimensional symplectic space is symplectically
+isomorphic to
 \[
-\begin{pmatrix}0&-I\\ I&0\end{pmatrix}.
+(\R^{2n},\omega_0),
+\qquad
+\omega_0\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
 \]
 Prove that $\sigma_{\lambda\omega}$ is a multiplier and that
 $c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}$.
@@ -2221,7 +2225,7 @@ Write $L_n=L_n^{(0)}$.
 \end{definition}
 
 \begin{exercise}[Mehler kernel and Wigner--Laguerre identity]
-Prove that $(h_n)_{n\geq0}$ is an orthonormal basis of $L^2(\R)$ and, for
+Prove that $(h_n)_{n\geq0}$ is a complete orthonormal family in $L^2(\R)$ and, for
 $|r|<1$, derive Mehler's identity
 \[
 \sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
@@ -2936,8 +2940,7 @@ action
 \]
 evaluation $\operatorname{ev}_V(\varphi\otimes v)=\varphi(v)$, and
 coevaluation
-$\operatorname{coev}_V(1)=\sum_i e_i\otimes e^i$ for a basis $(e_i)$ and
-its dual basis $(e^i)$.  In a rigid
+$\operatorname{coev}_V(1)=\Omega_V$.  In a rigid
 $C^*$-tensor category, a \emph{conjugate} of $V$ is an object
 $\overline V$ with morphisms
 \[
@@ -3006,10 +3009,12 @@ unitary tensor functor.  Define
 \right\rangle,
 \]
 where $T:V\to W$, $v\in F(V)$, and $\psi\in F(W)^*$.  Its multiplication
-is induced by tensor products, and for a basis $(e_i)$ of $F(V)$ define
+is induced by tensor products.  With
+$q_V(\varphi\otimes v)=[\varphi\otimes v]_V$, define
 \[
 \Delta[\varphi\otimes v]_V
-=\sum_i[\varphi\otimes e_i]_V\otimes[e_i^*\otimes v]_V,
+=(q_V\otimes q_V)
+\bigl(\varphi\otimes\Omega_{F(V)}\otimes v\bigr),
 \qquad
 \varepsilon[\varphi\otimes v]_V=\varphi(v).
 \]
@@ -3017,8 +3022,8 @@ The involution and antipode are induced by the conjugate data.
 \end{definition}
 
 \begin{exercise}[Tannaka--Krein theorem]
-Prove that $\mathcal A_F$ is a Hopf $*$-algebra and is independent of the
-chosen bases.  For the forgetful fiber functor
+Prove that the coproduct is well-defined on the quotient and coassociative
+and that $\mathcal A_F$ is a Hopf $*$-algebra.  For the forgetful fiber functor
 \[
 F:\operatorname{Rep}(G_q)\longrightarrow\operatorname{Hilb}_{\mathrm{fd}},
 \]
@@ -3256,7 +3261,8 @@ $r$ into a permutation of $S_{r-1}$ and prove
 =\prod_{j=1}^r\frac{1-t^j}{1-t}.
 \]
 Construct the one-row and one-column idempotents of
-$\mathcal H_t(S_r)$ by weighted sums of the standard basis elements and
+$\mathcal H_t(S_r)$ by weighted sums of the standard Hecke elements indexed
+by $S_r$ and
 show that their normalizing constants are the displayed $t$-factorial and
 its $t^{-1}$ analogue.  Identify their images under quantum Schur--Weyl
 duality with the quantum symmetric and exterior powers of the vector
@@ -3452,7 +3458,7 @@ D_{q,t}=\sum_{i=1}^r
 \]
 For generic $q,t$, the \emph{Macdonald polynomial}
 $P_\lambda(x;q,t)$ is the symmetric polynomial triangular in the
-monomial-symmetric basis and satisfying
+monomial symmetric functions and satisfying
 \[
 D_{q,t}P_\lambda
 =\left(\sum_{i=1}^r q^{\lambda_i}t^{r-i}\right)P_\lambda,
@@ -4043,7 +4049,8 @@ the cylinder.
 \begin{exercise}[Descendants, partitions, and null states]
 Use the Virasoro commutation relations to move positive modes to the right
 and prove directly the triangular Poincar\'e--Birkhoff--Witt statement that
-the ordered monomials form a basis of the Verma module:
+the following ordered monomials are linearly independent and span the Verma
+module:
 \[
 L_{-\lambda_1}\cdots L_{-\lambda_r}|h\rangle,
 \qquad \lambda_1\geq\cdots\geq\lambda_r\geq1.
@@ -4722,7 +4729,7 @@ one-time marginal.
 
 \begin{definition}[Macdonald measures and processes]
 Let $P_\lambda(\,\cdot\,;q,t)$ be the Macdonald polynomials and let
-$Q_\lambda=b_\lambda(q,t)P_\lambda$ be their dual basis.  Define the skew
+$Q_\lambda=b_\lambda(q,t)P_\lambda$ be their dual family.  Define the skew
 functions by
 \[
 P_\lambda(x,y)=\sum_\mu P_{\lambda/\mu}(x)P_\mu(y),
