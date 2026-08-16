@@ -1202,7 +1202,84 @@ Compare the two families tabulated in
 \textbf{119} (1965)} for invariant eigendistributions.
 \end{exercise}
 
-\section{Coefficient Spaces and Noncommutative Duality}
+\section{Coefficient Operator Spaces and Noncommutative Duality}
+
+\subsection{Operator-space structures}
+
+\begin{definition}[Operator spaces and completely bounded maps]
+A \emph{concrete operator space} is a closed linear subspace
+$E\subseteq B(H)$.  For $n\geq1$, identify
+\[
+M_n(E)\subseteq M_n(B(H))\cong B(H^{\oplus n})
+\]
+and use the induced norm.  For a linear map $u:E\to F$, define
+\[
+u_n:M_n(E)\to M_n(F),
+\qquad
+u_n([x_{ij}])=[u(x_{ij})],
+\qquad
+\|u\|_{\rm cb}=\sup_{n\geq1}\|u_n\|.
+\]
+The map is \emph{completely bounded}, \emph{completely contractive}, or a
+\emph{complete isometry} when $\|u\|_{\rm cb}<\infty$,
+$\|u\|_{\rm cb}\leq1$, or every $u_n$ is an isometry, respectively.
+\end{definition}
+
+\begin{definition}[Quotients, duals, and preduals]
+For a closed subspace $F\subseteq E$, the \emph{operator-space quotient}
+$E/F$ has matrix norms
+\[
+M_n(E/F)=M_n(E)/M_n(F).
+\]
+The \emph{operator-space dual} of $E$ is $E^*$ with
+\[
+M_n(E^*)=CB(E,M_n).
+\]
+If $M\subseteq B(H)$ is a von Neumann algebra, its normal-functional
+predual $M_*$ has the operator-space structure for which
+$M=(M_*)^*$ completely isometrically.  In particular,
+\[
+S_1(H)=B(H)_*
+\]
+with its canonical predual operator-space structure.
+\end{definition}
+
+\begin{definition}[Operator-projective tensor product]
+Equip $CB(F,G)$ with the operator-space structure
+\[
+M_n(CB(F,G))=CB(F,M_n(G)).
+\]
+A bilinear map $b:E\times F\to G$ is \emph{jointly completely bounded}
+when the associated map
+\[
+E\longrightarrow CB(F,G),
+\qquad x\longmapsto(y\mapsto b(x,y)),
+\]
+is completely bounded; write $JCB(E\times F,G)$ for these maps with the
+induced norm.  The \emph{operator-projective tensor product}
+$E\widehat\otimes F$ is the completion of $E\otimes F$ characterized, for
+every operator space $G$, by the natural complete isometry
+\[
+CB(E\widehat\otimes F,G)\cong JCB(E\times F,G).
+\]
+\end{definition}
+
+\begin{exercise}[Matrix norms and complete quotients]
+Prove Ruan's matrix-norm identities
+\[
+\|x\oplus y\|=\max\{\|x\|,\|y\|\},
+\qquad
+\|\alpha x\beta\|\leq\|\alpha\|\,\|x\|\,\|\beta\|.
+\]
+Prove that the quotient map $E\to E/F$ is a complete quotient and that its
+adjoint identifies $(E/F)^*$ completely isometrically with
+$F^\perp\subseteq E^*$.  Prove that
+\[
+S_1(H)\widehat\otimes S_1(K)\longrightarrow S_1(H\otimes K),
+\qquad A\otimes B\longmapsto A\otimes B,
+\]
+is completely contractive with dense range.
+\end{exercise}
 
 \subsection{Unitary coefficient spaces}
 
@@ -1221,7 +1298,7 @@ The \emph{coefficient space} of $\pi$ is
 \[
 A_\pi(G)=\Phi_\pi(S_1(H_\pi))
 \]
-with the quotient norm from
+with the quotient operator-space structure from
 $S_1(H_\pi)/\ker\Phi_\pi$.
 \end{definition}
 
@@ -1236,7 +1313,12 @@ u(s)=\sum_{j=1}^{\infty}
 and that its norm is the infimum of the displayed sums. For unitary
 representations $\pi$ and $\rho$, prove that $uv\in A_{\pi\otimes\rho}(G)$
 for $u\in A_\pi(G)$ and $v\in A_\rho(G)$, with
-$\|uv\|\leq\|u\|\,\|v\|$.
+$\|uv\|\leq\|u\|\,\|v\|$.  At every matrix level, prove that multiplication
+induces a complete contraction
+\[
+A_\pi(G)\widehat\otimes A_\rho(G)
+\longrightarrow A_{\pi\otimes\rho}(G).
+\]
 \end{exercise}
 
 \subsection{The Fourier algebra}
@@ -1253,27 +1335,24 @@ A(G)=A_\lambda(G).
 \]
 \end{definition}
 
-\begin{definition}[Pontryagin dual]
-For a locally compact abelian group $G$, its \emph{Pontryagin dual} is
-\[
-\widehat G=\{\chi:G\to\T:\chi\text{ is a continuous homomorphism}\}
-\]
-with pointwise multiplication and the compact-open topology.
-\end{definition}
-
 \begin{exercise}[Fell absorption and the Fourier algebra]
 Prove Fell's absorption principle
 \[
 \lambda\otimes\pi\cong\lambda\otimes I_{H_\pi}
 \]
 for every unitary representation $\pi$ of $G$.  Deduce that $A(G)$ is a
-contractive Banach algebra under pointwise multiplication and
-that $A(G)\subseteq C_0(G)$.  For abelian $G$, prove the isometric algebra
-identification
+completely contractive Banach algebra under pointwise multiplication, so
+the product extends to a complete contraction
+\[
+A(G)\widehat\otimes A(G)\longrightarrow A(G).
+\]
+Prove that $A(G)\subseteq C_0(G)$.  For abelian $G$, prove the completely
+isometric algebra identification
 \[
 A(G)\cong L^1(\widehat G)
 \]
-under the inverse Fourier transform.
+under the inverse Fourier transform, where $L^1(\widehat G)$ has its
+canonical predual operator-space structure from $L^\infty(\widehat G)$.
 \end{exercise}
 
 \subsection{Dual algebras and von Neumann duality}
@@ -1320,8 +1399,30 @@ positive functionals is the \emph{predual} $M_*$.  The
 von Neumann algebras is \emph{normal} when it is ultraweakly continuous.
 \end{definition}
 
+\begin{exercise}[Group coproduct and Fourier multiplication]
+Prove that the assignment
+\[
+\Gamma(\lambda_s)=\lambda_s\otimes\lambda_s
+\qquad(s\in G)
+\]
+extends uniquely to a normal unital injective $*$-homomorphism
+\[
+\Gamma:VN(G)\longrightarrow VN(G)\mathbin{\overline\otimes}VN(G)
+\]
+and satisfies
+$(\Gamma\otimes\id)\Gamma=(\id\otimes\Gamma)\Gamma$.  Compose its
+preadjoint with the canonical complete contraction
+\[
+A(G)\widehat\otimes A(G)\longrightarrow
+\bigl(VN(G)\mathbin{\overline\otimes}VN(G)\bigr)_*
+\]
+and prove that the resulting map is pointwise multiplication
+$u\otimes v\mapsto uv$.  Deduce its complete contractivity directly from
+the coproduct.
+\end{exercise}
+
 \begin{exercise}[Coefficient-space duality]
-Prove the bicommutant theorem.  Prove the isometric
+Prove the bicommutant theorem.  Prove the completely isometric
 identifications
 \[
 A_\pi(G)^*\cong VN_\pi(G),
@@ -1330,8 +1431,9 @@ A(G)^*\cong VN(G),
 \]
 with pairing induced by $(A,T)\mapsto\Tr(AT)$.  Prove that the induced
 weak-$*$ topology on $VN_\pi(G)$ is its ultraweak operator topology and
-that its predual is $A_\pi(G)$.  Prove $M\cong(M_*)^*$ isometrically for
-every von Neumann algebra $M$.
+that its operator-space predual is $A_\pi(G)$.  Prove
+$M\cong(M_*)^*$ completely isometrically for every von Neumann algebra
+$M$.
 \end{exercise}
 
 \begin{exercise}[Central Fourier inversion and character identity]
