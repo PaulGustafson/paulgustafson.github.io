@@ -100,54 +100,31 @@ The evaluation pairing induces a linear map
 $\operatorname{ev}_V:V^\vee\otimes V\to k$.
 \end{definition}
 
-\begin{definition}[Dualizability and finite dimensionality]
-A linear space $V$ is \emph{dualizable} when there is a coevaluation map
-\[
-\operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
-\]
-satisfying the two snake identities
-\[
-(\id_V\otimes\operatorname{ev}_V)
-\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
-\]
-\[
-(\operatorname{ev}_V\otimes\id_{V^\vee})
-\circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
-\]
-A linear space is \emph{finite-dimensional} if it is dualizable.
+\begin{definition}[Finite-dimensional linear spaces]
+A linear space is \emph{finite-dimensional} when it is spanned by finitely
+many vectors.
 \end{definition}
 
-\begin{definition}[Categorical trace and dimension]
-Let $V$ be dualizable, let
-$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors,
-and let $T\in\End(V)$.  The \emph{categorical trace} is the scalar
+\begin{definition}[Trace and dimension]
+For a finite-dimensional linear space $V$, the canonical isomorphism
 \[
-\operatorname{tr}(T)
-=\operatorname{ev}_V\circ s_{V,V^\vee}
- \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V,
+\iota_V:V\otimes V^\vee\longrightarrow\End(V),
+\qquad
+\iota_V(v\otimes\varphi)(w)=\varphi(w)v,
+\]
+and the contraction
+\[
+\operatorname{contr}_V:V\otimes V^\vee\longrightarrow k,
+\qquad
+\operatorname{contr}_V(v\otimes\varphi)=\varphi(v),
+\]
+define
+\[
+\operatorname{tr}(T)=\operatorname{contr}_V(\iota_V^{-1}(T)),
 \qquad
 \dim V=\operatorname{tr}(\id_V).
 \]
 \end{definition}
-
-\begin{exercise}[Dualizability recovers ordinary finite dimension]
-Construct $V\otimes W$ as a quotient of the free linear space on
-$V\times W$ and prove its universal property.  If $V$ has basis
-$e_1,\ldots,e_n$ with dual basis $e^1,\ldots,e^n$, show that
-\[
-\operatorname{coev}_V(1)=\sum_{j=1}^n e_j\otimes e^j
-\]
-is independent of the chosen basis and satisfies the snake identities.
-Conversely, write any proposed coevaluation as
-$\operatorname{coev}_V(1)=\sum_{j=1}^r v_j\otimes\varphi_j$ and use a snake
-identity to prove that the $v_j$ span $V$.  Conclude that dualizability is
-equivalent to ordinary finite dimensionality.  Finally prove
-\[
-\operatorname{tr}(T)=\sum_{j=1}^n e^j(Te_j),\qquad
-\operatorname{tr}(ST)=\operatorname{tr}(TS),\qquad
-\dim V=n.
-\]
-\end{exercise}
 
 \subsection{Exterior and symmetric powers}
 
