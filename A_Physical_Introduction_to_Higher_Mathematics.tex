@@ -149,6 +149,75 @@ equivalent to ordinary finite dimensionality.  Finally prove
 \]
 \end{exercise}
 
+\subsection{Exterior and symmetric powers}
+
+\begin{definition}[Exterior powers and determinant]
+For $m\geq0$, the $m$th \emph{exterior power} of a linear space $V$ is
+\[
+\Lambda^mV
+=V^{\otimes m}/
+\langle v_1\otimes\cdots\otimes v_m:
+v_i=v_j\text{ for some }i\ne j\rangle,
+\]
+and the image of $v_1\otimes\cdots\otimes v_m$ is written
+$v_1\wedge\cdots\wedge v_m$.  An endomorphism $T$ induces
+\[
+\Lambda^mT(v_1\wedge\cdots\wedge v_m)
+=Tv_1\wedge\cdots\wedge Tv_m.
+\]
+If $V$ has finite dimension $n$, its \emph{determinant} is the scalar
+$\det(T)$ defined by the action on the highest nonzero exterior power:
+\[
+\Lambda^nT=\det(T)\id_{\Lambda^nV}.
+\]
+\end{definition}
+
+\begin{exercise}[Exterior powers and the determinant formula]
+For a basis $e_1,\ldots,e_n$ of $V$, prove that
+$e_1\wedge\cdots\wedge e_n$ is a basis of $\Lambda^nV$ and that
+$\Lambda^mV=0$ for $m>n$.  If $Te_j=\sum_i a_{ij}e_i$, derive
+\[
+Te_1\wedge\cdots\wedge Te_n
+=\left(\sum_{\sigma\in S_n}\operatorname{sgn}(\sigma)
+\prod_{j=1}^na_{\sigma(j),j}\right)
+e_1\wedge\cdots\wedge e_n.
+\]
+Deduce that the exterior-power definition is independent of basis and
+prove
+\[
+\det(ST)=\det(S)\det(T),
+\qquad
+T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
+\]
+\end{exercise}
+
+\begin{definition}[Symmetric powers]
+For a linear space $V$, the $m$th \emph{symmetric power} is
+\[
+\operatorname{Sym}^mV
+=V^{\otimes m}/\langle v_1\otimes\cdots\otimes v_m
+-v_{\sigma(1)}\otimes\cdots\otimes v_{\sigma(m)}:\sigma\in S_m\rangle.
+\]
+An endomorphism $T$ induces $\operatorname{Sym}^mT$ on
+$\operatorname{Sym}^mV$.
+\end{definition}
+
+\begin{exercise}[Symmetric-power trace identity]
+Let $V$ be a finite-dimensional complex linear space and $T\in\End(V)$.
+Prove, first for diagonalizable $T$ and then for every $T$, that
+\[
+\sum_{m=0}^{\infty}
+\operatorname{tr}(\operatorname{Sym}^mT)z^m
+=\frac1{\det(I-zT)}
+\]
+for $|z|$ smaller than the reciprocal of the spectral radius of $T$.
+For $T=I$, deduce
+\[
+\sum_{m=0}^{\infty}\dim(\operatorname{Sym}^mV)z^m
+=(1-z)^{-\dim V}.
+\]
+\end{exercise}
+
 \subsection{Hilbert spaces and trace ideals}
 
 \begin{definition}[Hilbert spaces and orthogonality]
@@ -226,30 +295,31 @@ that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$ isometrically
 with $B(H)$.
 \end{exercise}
 
-\begin{definition}[Symmetric powers]
-For a linear space $V$, the $m$th \emph{symmetric power} is
+\begin{definition}[Fredholm determinant]
+For $A\in S_1(H)$ with nonzero eigenvalues
+$\lambda_1(A),\lambda_2(A),\ldots$, repeated according to algebraic
+multiplicity, define
 \[
-\operatorname{Sym}^mV
-=V^{\otimes m}/\langle v_1\otimes\cdots\otimes v_m
--v_{\sigma(1)}\otimes\cdots\otimes v_{\sigma(m)}:\sigma\in S_m\rangle.
+\det(I+zA)=\prod_{j=1}^{\infty}(1+z\lambda_j(A)).
 \]
-An endomorphism $T$ induces $\operatorname{Sym}^mT$ on
-$\operatorname{Sym}^mV$.
 \end{definition}
 
-\begin{exercise}[Symmetric-power trace identity]
-Let $V$ be a finite-dimensional complex linear space and $T\in\End(V)$.
-Prove, first for diagonalizable $T$ and then for every $T$, that
+\begin{exercise}[Fredholm determinant and trace identity]
+Prove that the defining product converges absolutely and locally uniformly
+in $z$ and agrees with the exterior-power determinant when $A$ has finite
+rank.  Prove
 \[
-\sum_{m=0}^{\infty}
-\operatorname{tr}(\operatorname{Sym}^mT)z^m
-=\frac1{\det(I-zT)}
+\det(I-zA)
+=\exp\!\left(-\sum_{m=1}^{\infty}
+\frac{z^m}{m}\Tr(A^m)\right)
 \]
-for $|z|$ smaller than the reciprocal of the spectral radius of $T$.
-For $T=I$, deduce
+for $|z|<\|A\|^{-1}$.  Use the product to show that the determinant is
+entire and that its zeros are the reciprocals of the negatives of the
+nonzero eigenvalues of $A$.  Construct the completed exterior powers of
+$H$ and deduce
 \[
-\sum_{m=0}^{\infty}\dim(\operatorname{Sym}^mV)z^m
-=(1-z)^{-\dim V}.
+\det(I+zA)=\sum_{m=0}^{\infty}
+z^m\Tr(\Lambda^mA).
 \]
 \end{exercise}
 
@@ -4189,18 +4259,11 @@ $\operatorname{He}_n(x)=2^{-n/2}H_n(x/\sqrt2)$, and derive
 
 \section{Random Matrices and Statistical Universality}
 
-\begin{definition}[Scalar determinants, Vandermonde determinant, and Dyson classes]
-For $A=(a_{ij})\in M_N(\C)$, define
-\[
-\det A
-=\sum_{\sigma\in S_N}\operatorname{sgn}(\sigma)
-\prod_{i=1}^N a_{i,\sigma(i)}.
-\]
+\begin{definition}[Vandermonde determinant and Dyson classes]
 For $\lambda=(\lambda_1,\ldots,\lambda_N)$, define
 \[
 \Delta(\lambda)
-=\det[\lambda_i^{j-1}]_{i,j=1}^N
-=\prod_{i<j}(\lambda_j-\lambda_i).
+=\det[\lambda_i^{j-1}]_{i,j=1}^N.
 \]
 Let $\mathbb F=\R,\C$, or $\mathbb H$ and set
 \[
@@ -4219,6 +4282,10 @@ independent real coordinates.
 \end{definition}
 
 \begin{exercise}[Eigenvalue--eigenvector Jacobian]
+Use the exterior-power determinant formula to prove
+\[
+\Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
+\]
 Diagonalize $H=U\operatorname{diag}(\lambda)U^{-1}$ in each Dyson class.
 Use the invariant metric $\Tr(dH^2)$ to prove
 \[
