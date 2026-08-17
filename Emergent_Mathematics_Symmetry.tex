@@ -1,6 +1,6 @@
 \part{Symmetry}
 
-\section{Spectral Theory}
+\section{Hamiltonian Geometry}
 
 
 
@@ -73,6 +73,17 @@ $v_1\wedge\cdots\wedge v_m$.  An endomorphism $T$ induces
 \Lambda^mT(v_1\wedge\cdots\wedge v_m)
 =Tv_1\wedge\cdots\wedge Tv_m.
 \]
+The products
+\[
+\Lambda^rV\otimes\Lambda^sV\longrightarrow\Lambda^{r+s}V,
+\qquad
+(u_1\wedge\cdots\wedge u_r)\otimes
+(v_1\wedge\cdots\wedge v_s)
+\longmapsto
+u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
+\]
+make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
+\emph{exterior algebra} of $V$.
 A finite-dimensional linear space $V$ has \emph{dimension} $n$ when
 $\Lambda^nV\ne0$ and $\Lambda^{n+1}V=0$.  Its \emph{determinant} is the scalar
 $\det(T)$ defined by the action on the highest nonzero exterior power:
@@ -104,6 +115,12 @@ Prove
 \qquad
 \Lambda^mV=0\quad(m>n).
 \]
+Prove that the exterior algebra is graded-commutative:
+\[
+\xi\wedge\eta=(-1)^{rs}\eta\wedge\xi,
+\qquad
+\xi\in\Lambda^rV,\quad\eta\in\Lambda^sV.
+\]
 Use functoriality of the highest exterior power to prove
 \[
 \det(ST)=\det(S)\det(T),
@@ -111,6 +128,194 @@ Use functoriality of the highest exterior power to prove
 T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
 \]
 \end{exercise}
+
+\begin{definition}[Smooth manifolds and tangent spaces]
+A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
+space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
+whose transition maps are smooth.  A map of smooth manifolds is
+\emph{smooth} when its chart representatives are smooth; it is a
+\emph{diffeomorphism} when it has a smooth inverse.
+
+The \emph{tangent space} $T_pM$ is the linear space of derivations
+$v:C^\infty(M)\to\R$ at $p$, satisfying
+\[
+v(fg)=f(p)v(g)+g(p)v(f).
+\]
+The \emph{cotangent space} is $T_p^*M=(T_pM)^*$.  The differential of a
+smooth map $F:M\to N$ is
+\[
+dF_p:T_pM\longrightarrow T_{F(p)}N,
+\qquad
+dF_p(v)(f)=v(f\circ F).
+\]
+\end{definition}
+
+\begin{definition}[Tangent and cotangent bundles]
+Define
+\[
+TM=\coprod_{p\in M}T_pM,
+\qquad
+T^*M=\coprod_{p\in M}T_p^*M.
+\]
+A smooth vector bundle is a smooth map $\pi:E\to M$ locally isomorphic to
+$U\times W\to U$ for a finite-dimensional real linear space $W$, by
+fiberwise linear maps.  A section is a smooth map
+$s:M\to E$ satisfying $\pi s=\id_M$.  The bundles $TM$ and $T^*M$ have
+the bundle structures induced by the differentials of chart maps and
+their duals.  A classical position--momentum state is a pair $(q,p)$ with
+$p\in T_q^*M$; for $\hbar>0$, its wave covector is $p/\hbar$.
+\end{definition}
+
+\begin{definition}[Vector fields and flows]
+A \emph{vector field} is a smooth section $X:M\to TM$.  Its local flow is
+a family of local diffeomorphisms $\Phi_t$ satisfying
+\[
+\Phi_0=\id_M,
+\qquad
+\Phi_{s+t}=\Phi_s\circ\Phi_t,
+\qquad
+\frac d{dt}f(\Phi_t(p))=X_{\Phi_t(p)}(f)
+\]
+where both sides are defined.
+For vector fields $X,Y$, define
+\[
+[X,Y](f)=X(Yf)-Y(Xf).
+\]
+\end{definition}
+
+\begin{definition}[Differential forms]
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write $\Omega^k(M)$ for the space of differential
+$k$-forms.  The exterior
+products on the cotangent spaces define
+\[
+\wedge:\Omega^r(M)\times\Omega^s(M)\longrightarrow\Omega^{r+s}(M).
+\]
+For a smooth map $F:M\to N$, define
+\[
+(F^*\alpha)_p(v_1,\ldots,v_k)
+=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+For a vector field $X$, define contraction by
+\[
+(\iota_X\alpha)_p(v_2,\ldots,v_k)
+=\alpha_p(X_p,v_2,\ldots,v_k).
+\]
+The \emph{exterior derivative} is the family
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
+Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
+For a vector field $X$ with local flow $\Phi_t$, define
+\[
+\mathcal L_X\alpha
+=\left.\frac d{dt}\right|_{t=0}\Phi_t^*\alpha.
+\]
+\end{definition}
+
+\begin{exercise}[Cartan calculus]
+Construct $d$ locally and prove its uniqueness.  For contraction
+$\iota_X$, prove Cartan's identity
+\[
+\mathcal L_X=d\iota_X+\iota_Xd.
+\]
+\end{exercise}
+
+\begin{definition}[Cotangent phase space]
+For the projection $\pi:T^*Q\to Q$, define the tautological one-form by
+\[
+\theta_\alpha(v)=\alpha(d\pi(v)),
+\qquad \alpha\in T^*Q,\quad v\in T_\alpha(T^*Q).
+\]
+The canonical two-form on $T^*Q$ is $\omega=d\theta$.
+\end{definition}
+
+\begin{exercise}[From linear to cotangent phase space]
+For a finite-dimensional real linear space $V$, construct the canonical
+identifications
+\[
+TV\cong V\times V,
+\qquad
+T^*V\cong V\times V^*.
+\]
+Prove that a phase $S\in C^\infty(Q)$ determines the momentum
+$p=dS_q\in T_q^*Q$ and wave covector $p/\hbar$.  For a diffeomorphism
+$F:Q\to Q$, construct its cotangent lift and prove that it preserves
+$\theta$ and $d\theta$.  Under $T^*V\cong V\times V^*$, prove
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+\end{exercise}
+
+\begin{definition}[Symplectic manifolds]
+A \emph{symplectic form} on a smooth manifold $M$ is a closed
+nondegenerate two-form $\omega$.  A \emph{symplectic linear space} is a
+finite-dimensional real linear space with a nondegenerate alternating
+bilinear form, regarded as a constant symplectic form.  For
+$f\in C^\infty(M)$, define
+\[
+\iota_{X_f}\omega=-df,
+\qquad
+\{f,g\}=-\omega(X_f,X_g).
+\]
+The local flow of $X_f$ is the \emph{Hamiltonian flow} of $f$.
+A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
+\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
+\end{definition}
+
+\begin{exercise}[Darboux theorem]
+Prove that the canonical two-form $d\theta$ on $T^*Q$ is nondegenerate and
+hence symplectic.
+Prove that every symplectic linear space of dimension $2n$ is
+symplectically isomorphic to
+\[
+(\R^{2n},\omega_0),
+\qquad
+\omega_0\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+Prove that every point of a $2n$-dimensional symplectic manifold has a
+neighborhood symplectomorphic to an open subset of
+$(\R^{2n},\omega_0)$.  Prove that the Poisson bracket is antisymmetric,
+satisfies the Leibniz rule and Jacobi identity, and is preserved by
+canonical transformations.  For the Hamiltonian flow $\Phi_t$ of $H$,
+prove
+\[
+\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
+\]
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the volume form $\omega^n/n!$, and every density
+depending only on the Hamiltonian.  On a symplectic linear space, prove
+that the infinitesimal generator of a linear Hamiltonian flow has trace
+zero and that the flow has determinant one.
+\end{exercise}
+
+\begin{exercise}[Elliptic pendulum period]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Expand the integral to obtain
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+\section{Spectral Theory}
 
 \begin{definition}[Hilbert spaces and orthogonality]
 An \emph{inner product} on a complex linear space is conjugate-linear in its
@@ -924,23 +1129,6 @@ $\langle\chi_U,\chi_V\rangle_G=\dim\Hom_G(U,V)$. Deduce the multiplicity
 formula and the character table constraints.
 \end{exercise}
 
-\begin{definition}[Topological and smooth manifolds]
-A \emph{topological manifold} of dimension $n$ is a Hausdorff,
-second-countable space locally homeomorphic to $\R^n$. A \emph{smooth
-manifold} is a topological manifold with a maximal atlas whose transition
-maps are smooth. A map of smooth manifolds is \emph{smooth} when its chart
-representatives are smooth; it is a \emph{diffeomorphism} when it has a
-smooth inverse.
-\end{definition}
-
-\begin{definition}[Tangent spaces]
-The \emph{tangent space} $T_pM$ is the vector space of derivations
-$v:C^\infty(M)\to\R$ at $p$, satisfying
-$v(fg)=f(p)v(g)+g(p)v(f)$. The \emph{cotangent space} is
-$T_p^*M=(T_pM)^*$. The differential of $F:M\to N$ is
-$dF_p(v)(f)=v(f\circ F)$.
-\end{definition}
-
 \begin{definition}[Matrix coefficients]
 A \emph{unitary representation} of a topological group $G$ on a Hilbert
 space $H_\pi$ is a homomorphism $\pi:G\to U(H_\pi)$ such that
@@ -1493,28 +1681,14 @@ continuous map $b:G\to\T$, $b(e)=1$, such that
 \end{definition}
 
 
-\begin{definition}[Symplectic phase space]
-A \emph{symplectic form} on a finite-dimensional real linear space $E$ is a
-nondegenerate alternating bilinear form $\omega:E\times E\to\R$.  On
-$E=V\oplus V^*$, define
-\[
-\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
+\begin{definition}[Weyl multipliers]
+Let $(E,\omega)$ be a symplectic linear space.
 For $\lambda\in\R$, define
 \[
 \sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
 \]
 For physical momentum variables and $\hbar>0$, the \emph{Weyl multiplier}
-is $\sigma_{\omega/\hbar}$.  For $a\in C^\infty(E)$, define
-$X_a:E\to E$ by
-\[
-\omega(X_a(z),u)=-da_z(u)
-\qquad(z,u\in E),
-\]
-and define the canonical Poisson bracket by
-\[
-\{a,b\}(z)=-\omega(X_a(z),X_b(z)).
-\]
+is $\sigma_{\omega/\hbar}$.
 \end{definition}
 
 \begin{exercise}[The Weyl multiplier]
@@ -1538,16 +1712,6 @@ prove
 c_{\sigma_{\omega/\hbar}}\bigl((q,p),(q',p')\bigr)
 =e^{i(p(q')-p'(q))/\hbar}.
 \]
-\end{exercise}
-
-\begin{exercise}[Linear Darboux theorem]
-Prove that every finite-dimensional symplectic space is symplectically
-isomorphic to
-\[
-(\R^{2n},\omega_0),
-\qquad
-\omega_0\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
 Prove
 \[
 c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}.
@@ -1556,7 +1720,7 @@ c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}.
 
 
 \begin{definition}[Heisenberg group]
-For a symplectic space $(E,\omega)$, its \emph{Heisenberg group} is
+For a symplectic linear space $(E,\omega)$, its \emph{Heisenberg group} is
 \[
 \mathbb H(E,\omega)=E\times\R
 \]

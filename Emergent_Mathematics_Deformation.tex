@@ -206,149 +206,10 @@ Deduce the covariance for their products and prove that each implementer is
 determined up to phase.  Show that coherent choices form the metaplectic
 double cover, whose two lifts of a fixed symplectic map differ by sign.  Use
 the Groenewold--van Hove obstruction to show why exact covariance cannot
-extend to every nonlinear canonical transformation.  Determine the
-geometric data required to formulate the same construction when position
-space is not linear.
+extend to every nonlinear canonical transformation.  On a cotangent bundle
+$T^*Q$, apply this obstruction to overlaps of Darboux charts and identify
+the equivalence data required to compare their local products.
 \end{exercise}
-
-\section{Hamiltonian Geometry}
-
-
-\begin{definition}[Cotangent bundles]
-For a smooth manifold $Q$ and $q\in Q$, let $T_qQ$ be the linear space of
-derivations $C^\infty(Q)\to\R$ at $q$, and let
-$T_q^*Q=(T_qQ)^*$.  Define
-\[
-TQ=\coprod_{q\in Q}T_qQ,
-\qquad
-T^*Q=\coprod_{q\in Q}T_q^*Q.
-\]
-A smooth vector bundle is a smooth map $\pi:E\to Q$ locally isomorphic to
-$U\times W\to U$ by fiberwise linear maps.  A section is a smooth map
-$s:Q\to E$ satisfying $\pi s=\id_Q$.  The bundles $TQ$ and $T^*Q$ are the
-tangent and cotangent bundles.  A classical position--momentum state is a
-pair $(q,p)$ with $p\in T_q^*Q$, and its wave covector is $k=p/\hbar$.
-If $x=(x^1,\ldots,x^n)$ is a coordinate chart on $U\subseteq Q$, the
-canonical tangent-bundle chart is
-\[
-TQ|_U\longrightarrow x(U)\times\R^n,
-\qquad
-v\in T_qQ\longmapsto
-\bigl(x(q),v(x^1),\ldots,v(x^n)\bigr),
-\]
-and the cotangent bundle has the dual bundle chart.
-\end{definition}
-
-\begin{exercise}[From linear to cotangent phase space]
-For a finite-dimensional real linear space $V$, construct the canonical
-identifications
-\[
-TV\cong V\times V,
-\qquad
-T^*V\cong V\times V^*.
-\]
-Prove that a phase $S\in C^\infty(Q)$ determines the momentum
-$p=dS_q\in T_q^*Q$ and local wave covector $k=dS_q/\hbar$.  For a
-diffeomorphism $F:Q\to Q$, construct its cotangent lift and prove that it
-preserves the tautological one-form
-\[
-\theta_{(q,p)}(\xi)=p(d\pi(\xi)).
-\]
-Deduce that it preserves $d\theta$, and recover the position--momentum
-pairing and symplectic form used in Weyl quantization when $Q=V$.
-\end{exercise}
-
-\begin{definition}[Differential forms]
-A \emph{differential $k$-form} on $M$ is a smooth section of
-$\Lambda^kT^*M$; write
-$\Omega^k(M)=\Gamma(\Lambda^kT^*M)$.  For a smooth map $F:M\to N$, define
-\[
-(F^*\alpha)_p(v_1,\ldots,v_k)
-=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
-\]
-The \emph{exterior derivative} is the family
-$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
-Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
-\end{definition}
-
-\begin{exercise}[Cartan calculus]
-Construct $d$ locally and prove its uniqueness.  For contraction
-$\iota_X$, prove Cartan's identity
-\[
-\mathcal L_X=d\iota_X+\iota_Xd.
-\]
-\end{exercise}
-
-\begin{definition}[Symplectic manifolds]
-A \emph{symplectic form} is a closed nondegenerate two-form $\omega$.
-For $f\in C^\infty(M)$, define
-\[
-\iota_{X_f}\omega=-df,
-\qquad
-\{f,g\}=-\omega(X_f,X_g).
-\]
-A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
-\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
-For a manifold $Q$, the tautological one-form on $T^*Q$ is
-\[
-\theta_\alpha(v)=\alpha(d\pi(v)),
-\]
-and the canonical symplectic form is $\omega=d\theta$.
-\end{definition}
-
-\begin{exercise}[Darboux theorem]
-Prove that every point of a $2n$-dimensional symplectic manifold has a
-neighborhood symplectomorphic to an open subset of
-$(\R^{2n},\omega_0)$.  Identify the canonical symplectic form on $T^*Q$
-from the tautological one-form.  Prove that the Poisson bracket is
-antisymmetric, satisfies the Leibniz rule and Jacobi identity, and is
-preserved by canonical transformations.  Prove
-\[
-\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
-\]
-\end{exercise}
-
-\begin{exercise}[Liouville's theorem]
-\label{ex:liouville-theorem}
-On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
-preserves $\omega$, the volume form $\omega^n/n!$, and every density
-depending only on the Hamiltonian.
-\end{exercise}
-
-\begin{exercise}[Elliptic pendulum period]
-On $T^*S^1$ consider
-\[
-H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
-\]
-For an oscillation of amplitude $0<\theta_0<\pi$, set
-$k=\sin(\theta_0/2)$ and define
-\[
-K(k)=\int_0^{\pi/2}\frac{d\phi}
-{\sqrt{1-k^2\sin^2\phi}}.
-\]
-Use energy conservation to prove the exact period identity
-\[
-T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
-\]
-Expand the integral to obtain
-\[
-T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
-\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
-\]
-Deduce the experimentally testable increase of period with amplitude and
-the logarithmic divergence as $\theta_0\uparrow\pi$.
-Cover the oscillatory region by Darboux charts and transport the Moyal
-product from each chart.  Prove that the local products have the same
-Poisson bracket on overlaps, and that affine symplectic transition maps
-identify them exactly by linear symplectic covariance.  For general
-canonical transition maps, compute the discrepancy through order
-$\hbar^2$.  Formulate the recursive equations for differential operators
-$T_{ij}=\id+\sum_{r\geq1}\hbar^rT_{ij,r}$ intertwining the two local
-products, and derive the cocycle condition on triple overlaps required for
-the local products to define one global product.
-\end{exercise}
-
-
 
 \section{Moyal Deformation and Magnetic Bands}
 
@@ -389,6 +250,21 @@ Prove associativity directly by checking the multiplier identity for the
 phase.  Differentiate in $k$ and $\ell$ to recover the canonical
 commutation relations and the full bidifferential expansion of the Moyal
 product on polynomials.
+\end{exercise}
+
+\begin{exercise}[Local Moyal products]
+Cover a symplectic manifold by Darboux charts and transport the Moyal
+product from each chart.  Prove that the local products have the same
+Poisson bracket on overlaps and that affine symplectic transition maps
+identify them exactly by linear symplectic covariance.  For a general
+canonical transition map, compute the discrepancy through order
+$\hbar^2$.  Formulate the recursive equations for differential operators
+\[
+T_{ij}=\id+\sum_{r\geq1}\hbar^rT_{ij,r}
+\]
+intertwining the two local products, and derive the cocycle condition on
+triple overlaps required for the local products to define one global
+product.
 \end{exercise}
 
 \begin{definition}[Magnetic lattice Hamiltonian]
