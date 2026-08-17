@@ -1,32 +1,90 @@
 \part{Counting}
 
-\section{Exact State Counting}
+\section{Graded Traces and Characters}
 
-\begin{definition}[Symmetric powers]
-For a linear space $V$, the $m$th \emph{symmetric power} is
+\begin{definition}[Symmetric powers and graded traces]
+For a linear space $V$, define
 \[
 \operatorname{Sym}^mV
-=V^{\otimes m}/\langle v_1\otimes\cdots\otimes v_m
--v_{\sigma(1)}\otimes\cdots\otimes v_{\sigma(m)}:\sigma\in S_m\rangle.
+=V^{\otimes m}/\langle \xi-\sigma\xi:
+\xi\in V^{\otimes m},\ \sigma\in S_m\rangle.
 \]
-An endomorphism $T$ induces $\operatorname{Sym}^mT$ on
-$\operatorname{Sym}^mV$.
+An endomorphism $T$ induces endomorphisms
+$\operatorname{Sym}^mT$ and $\Lambda^mT$.  Their bosonic and fermionic
+graded traces are
+\[
+Z_B(T;z)=\sum_{m\geq0}\operatorname{tr}(\operatorname{Sym}^mT)z^m,
+\qquad
+Z_F(T;z)=\sum_{m\geq0}\operatorname{tr}(\Lambda^mT)z^m.
+\]
 \end{definition}
 
-\begin{exercise}[Symmetric-power trace identity]
+\begin{definition}[Partitions]
+An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
+$\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
+$|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
+with $p(0)=1$.
+\end{definition}
+
+\begin{exercise}[Bosonic and fermionic trace generating functions]
 Let $V$ be a finite-dimensional complex linear space and $T\in\End(V)$.
-Prove that
+Using the intrinsic determinant defined by the action on the highest
+exterior power, prove
 \[
-\sum_{m=0}^{\infty}
-\operatorname{tr}(\operatorname{Sym}^mT)z^m
-=\frac1{\det(I-zT)}
+Z_B(T;z)=\frac1{\det(I-zT)},
+\qquad
+Z_F(T;z)=\det(I+zT).
 \]
-for $|z|$ smaller than the reciprocal of the spectral radius of $T$.
-For $T=I$, deduce
+The first identity holds for $|z|$ below the reciprocal spectral radius;
+the second is a polynomial identity.  Prove them first for a direct sum of
+generalized spectral subspaces and then by polynomial continuation, without
+choosing vectors in those subspaces.
+
+Let the one-particle Hamiltonian have one-dimensional spectral subspaces at
+energies $j\hbar\omega$, $j\geq1$.  Apply the identities to the finite
+spectral truncation and then pass coefficientwise to the limit to derive
 \[
-\sum_{m=0}^{\infty}\dim(\operatorname{Sym}^mV)z^m
-=(1-z)^{-\dim V}.
+\prod_{j\geq1}\frac1{1-q^j}
+=\sum_{n\geq0}p(n)q^n,
+\qquad
+\prod_{j\geq1}(1+q^j)
+=\sum_{n\geq0}p_{\rm dist}(n)q^n,
 \]
+where $p_{\rm dist}(n)$ counts partitions into distinct parts.  Construct
+the multiplicity map separating powers of two and prove
+\[
+\prod_{j\geq1}(1+q^j)
+=\prod_{j\geq1}\frac1{1-q^{2j-1}}.
+\]
+Interpret the coefficient of $q^n$ as the exact degeneracy at excitation
+energy $n\hbar\omega$ for the corresponding bosonic or fermionic system.
+\end{exercise}
+
+\begin{definition}[Gaussian binomial coefficients]
+For $0\leq r\leq n$, define
+\[
+\qbinom{n}{r}
+=\frac{(q;q)_n}{(q;q)_r(q;q)_{n-r}},
+\]
+and set it equal to zero outside this range.
+\end{definition}
+
+\begin{exercise}[Gaussian binomial theorem]
+Derive
+\[
+\qbinom{n}{r}
+=\qbinom{n-1}{r}+q^{n-r}\qbinom{n-1}{r-1}
+\]
+and prove
+\[
+\prod_{j=0}^{n-1}(1+tq^j)
+=\sum_{r=0}^n q^{r(r-1)/2}\qbinom{n}{r}t^r.
+\]
+Prove that the coefficient of $q^m$ in $\qbinom{n}{r}$ counts partitions
+of $m$ whose diagrams fit inside an $r\times(n-r)$ rectangle.  For $n$
+equally spaced fermionic levels, identify the coefficient of $t^rq^m$
+with the exact number of $r$-particle states of excitation $m$ above the
+filled lowest configuration.
 \end{exercise}
 
 \begin{exercise}[Hecke Poincar\'e identity]
@@ -34,8 +92,7 @@ Put $t=v^2$.  For $w\in S_r$, let $\ell(w)$ be the least number of adjacent
 transpositions in an expression for $w$, and let
 $T_w=T_{i_1}\cdots T_{i_{\ell(w)}}$ for any reduced expression
 $w=s_{i_1}\cdots s_{i_{\ell(w)}}$.  Prove from the braid relations that
-$T_w$ is well-defined.  Insert
-the letter $r$ into a permutation of $S_{r-1}$ and prove
+$T_w$ is well-defined and that
 \[
 \sum_{w\in S_r}t^{\ell(w)}
 =\prod_{j=1}^r\frac{1-t^j}{1-t}.
@@ -49,206 +106,71 @@ e_-=\frac{\sum_{w\in S_r}(-v^{-1})^{\ell(w)}T_w}
 {\sum_{w\in S_r}v^{-2\ell(w)}}
 \]
 are idempotents satisfying
-$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke
-action from the preceding part, identify their images with the quantum
-symmetric and exterior state spaces.
+$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke action
+from the preceding part, identify their images with the quantum symmetric
+and exterior state spaces and interpret the Poincar\'e polynomial as their
+graded state count.
 \end{exercise}
 
-
-
-
-\begin{definition}[Partitions]
-An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
-$\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
-$|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
-with $p(0)=1$.  Euler's partition generating function is
-\[
-P(q)=\sum_{n\geq0}p(n)q^n=\frac1{(q;q)_\infty}.
-\]
-\end{definition}
-
-\begin{exercise}[Occupation numbers]
-Consider oscillator modes with one-particle energies
-$\hbar\omega,2\hbar\omega,3\hbar\omega,\ldots$.  Show that a bosonic Fock
-state of excitation energy $n\hbar\omega$ is a partition of $n$, and derive
-\[
-\prod_{m\geq1}\frac1{1-q^m}=\sum_{n\geq0}p(n)q^n.
-\]
-For fermionic occupation numbers in $\{0,1\}$, show that
-$\prod_{m\geq1}(1+q^m)$ counts partitions into distinct parts.  Construct a
-bijection, by separating powers of two in the multiplicities, between
-partitions into distinct parts and partitions into odd parts, and conclude
-\[
-\prod_{m\geq1}(1+q^m)
-=\prod_{m\geq1}\frac1{1-q^{2m-1}}.
-\]
-Interpret the two products as different quasiparticle descriptions with the
-same exact degeneracies.
-\end{exercise}
-
-\begin{definition}[Gaussian binomial coefficients]
-For $0\leq r\leq n$, the \emph{Gaussian binomial coefficient} is
-\[
-\qbinom{n}{r}
-=\frac{(q;q)_n}{(q;q)_r(q;q)_{n-r}},
-\]
-and it is zero outside this range.
-\end{definition}
-
-\begin{exercise}[Gaussian binomial theorem]
-Derive the recurrence
-\[
-\qbinom{n}{r}
-=\qbinom{n-1}{r}+q^{n-r}\qbinom{n-1}{r-1}.
-\]
-Prove that $\qbinom{n}{r}$ is a polynomial in $q$ with nonnegative integer
-coefficients and that the coefficient of $q^m$ counts partitions of $m$
-whose Young diagrams fit inside an $r\times(n-r)$ rectangle.
-\end{exercise}
-
-
-\begin{definition}[Rogers--Ramanujan sum and product series]
-For $|q|<1$, define
-\[
-G_{\rm sum}(q)=\sum_{r\geq0}\frac{q^{r^2}}{(q;q)_r},
-\qquad
-H_{\rm sum}(q)=\sum_{r\geq0}\frac{q^{r(r+1)}}{(q;q)_r},
-\]
-\[
-G_{\rm prod}(q)=\frac1{(q;q^5)_\infty(q^4;q^5)_\infty},
-\qquad
-H_{\rm prod}(q)=\frac1{(q^2;q^5)_\infty(q^3;q^5)_\infty}.
-\]
-\end{definition}
-
-\begin{exercise}[Rogers--Ramanujan counting]
-Fix the number $r$ of parts.  Subtract the staircase
-$(2r-1,2r-3,\ldots,1)$ to prove that
-$q^{r^2}/(q;q)_r$ generates partitions with exactly $r$ parts whose
-successive parts differ by at least two.  Use the staircase
-$(2r,2r-2,\ldots,2)$ for the same difference condition with smallest part at
-least two.  Interpret the product sides as partitions into parts congruent
-to $1$ or $4$ modulo $5$, and to $2$ or $3$ modulo $5$, respectively.
-Compute all four series through $q^{30}$ using finite products and finite
-sums, and verify coefficientwise that
-$G_{\rm sum}=G_{\rm prod}$ and $H_{\rm sum}=H_{\rm prod}$ to that order.
-Translate the coefficient equalities into finite tests of the two partition
-identities and identify which further step would be required for a proof in
-all degrees.
-\end{exercise}
-
-
-\begin{exercise}[Partition asymptotics]
-Put $q=e^{-t}$ and use the modular transformation of $\eta$ from
-Exercise~\ref{ex:theta-eta-transformations} to prove
-\[
-P(e^{-t})
-\sim\sqrt{\frac{t}{2\pi}}
-\exp\!\left(\frac{\pi^2}{6t}\right)
-\qquad(t\downarrow0).
-\]
-Apply a saddle-point argument, or an appropriate Tauberian theorem with its
-hypotheses stated, to derive the Hardy--Ramanujan formula
-\[
-p(n)\sim\frac1{4n\sqrt3}
- \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
-\]
-Interpret $\log p(n)$ as the microcanonical entropy of the bosonic modes in
-the first exercise of this part.  Distinguish this asymptotic result from an
-exact coefficient formula; see
-\href{https://doi.org/10.1112/plms/s2-17.1.75}
-{Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
-\textbf{17} (1918)}.
-\end{exercise}
-
-\begin{definition}[Eisenstein series and the discriminant]
-Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
-weights four and six are
-\[
-E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
-\qquad
-E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
-\]
-The modular discriminant is the weight-twelve cusp form
-\[
-\Delta(\tau)=\eta(\tau)^{24}
-=q\prod_{n\geq1}(1-q^n)^{24}
-=\frac{E_4(\tau)^3-E_6(\tau)^2}{1728}.
-\]
-\end{definition}
-
-\begin{exercise}[Eisenstein series and the $E_8$ shell]
-Construct Eisenstein series by summing $(m\tau+n)^{-k}$ over nonzero lattice
-points for even $k>2$, prove their modular transformation law, and obtain the
-displayed Fourier expansions for $E_4$ and $E_6$.  For a positive-definite
-even unimodular lattice, use consistency of the $S$ and $T$ laws to prove
-that its dimension $d$ is divisible by eight and that its theta series is a
-modular form of weight $d/2$.  Construct the $E_8$ lattice as
-\[
- \{x\in\Z^8:\textstyle\sum_i x_i\equiv0\pmod2\}
- \cup
- \{x\in(\Z+\tfrac12)^8:\textstyle\sum_i x_i\equiv0\pmod2\}.
-\]
-Enumerate its vectors of squared length two and obtain $240$, matching the
-coefficient of $q$ in $E_4$.
-\end{exercise}
-
-
-
-\begin{definition}[The Virasoro algebra and its characters]
-The \emph{Virasoro algebra} has generators $L_n$ for $n\in\Z$ and a central
-element acting by $c$, with
+\begin{definition}[Virasoro characters]
+The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central element
+acting by $c$, with
 \[
 [L_m,L_n]=(m-n)L_{m+n}
- +\frac c{12}(m^3-m)\delta_{m+n,0}.
++\frac c{12}(m^3-m)\delta_{m+n,0}.
 \]
 A highest-weight vector $|h\rangle$ satisfies
 $L_0|h\rangle=h|h\rangle$ and $L_n|h\rangle=0$ for $n>0$.
-For a positive-energy module $H_a$ with finite-dimensional $L_0$
-eigenspaces, its \emph{character} is
+For $\tau$ in the upper half-plane put $q=e^{2\pi i\tau}$.  If $H_a$ is a
+positive-energy module with finite-dimensional $L_0$ spectral subspaces,
+define
 \[
-\chi_a(\tau)=\Tr_{H_a}q^{L_0-c/24}.
+\chi_a(\tau)=\Tr_{H_a}q^{L_0-c/24}
 \]
-The shift by $-c/24$ is the Casimir energy produced by mapping the plane to
-the cylinder.
+when the displayed operator is trace class; the same expression denotes
+the formal graded trace otherwise.
 \end{definition}
 
-\begin{exercise}[Descendants, partitions, and null states]
-Use the Virasoro commutation relations to move positive modes to the right
-and apply the Poincar\'e--Birkhoff--Witt theorem to deduce the Verma-module
-character
+\begin{exercise}[Descendant trace]
+Order the negative Virasoro modes by their indices.  Use the commutation
+relations to rewrite every word as an ordered word.  Check every
+three-letter overlap and use the Jacobi identity to prove that the rewriting
+is confluent.  Filter by word length and deduce that the associated graded
+algebra is the symmetric algebra on the negative modes.  Conclude that the
+Verma-module character is
 \[
 \chi_{c,h}^{\rm Verma}(\tau)
 =\frac{q^{h-c/24}}{(q;q)_\infty}.
 \]
-For the vacuum, impose $L_{-1}|0\rangle=0$ and find the resulting generic
-vacuum descendant product.  Explain why additional null vectors subtract
-states and turn unrestricted partition numbers into the more structured
-$q$-series of minimal models.
+For the vacuum impose $L_{-1}|0\rangle=0$ and derive the corresponding
+generic vacuum product.  Show how a homogeneous null relation removes its
+entire descendant tower from the graded trace.
 \end{exercise}
 
-
-\begin{definition}[Modular invariants]
-A finite family of positive-energy sectors $H_a$ is a \emph{rational modular
-character system} when its character vector carries a representation of the
-modular group,
+\begin{definition}[Unitary modular character systems]
+A finite character vector $\chi$ is a \emph{unitary modular character
+system} when
 \[
-\chi_a(-1/\tau)=\sum_bS_{ab}\chi_b(\tau),
+\chi(-1/\tau)=S\chi(\tau),
 \qquad
-\chi_a(\tau+1)=\sum_bT_{ab}\chi_b(\tau).
+\chi(\tau+1)=T\chi(\tau)
 \]
-A full torus partition function has the form
+for unitary matrices $S,T$.  For a matrix $M$ with nonnegative integral
+entries define
 \[
-Z(\tau,\bar\tau)
-=\sum_{a,b}M_{ab}\chi_a(\tau)\overline{\chi_b(\tau)}
+Z_M(\tau,\bar\tau)
+=\sum_{a,b}\overline{\chi_a(\tau)}M_{ab}\chi_b(\tau).
 \]
-with nonnegative integer multiplicities.  It is modular invariant when
-$M$ commutes with $S$ and $T$.
+It is \emph{modular invariant} when
+\[
+S^*MS=M,
+\qquad T^*MT=M.
+\]
 \end{definition}
 
-\begin{exercise}[Ising state counting]
-For the Ising theory with $c=1/2$ and primary weights
-$0,1/2,1/16$, take
+\begin{exercise}[Ising characters and fusion counts]
+For the Ising character system with $c=1/2$ and weights
+$0,1/2,1/16$, put
 \[
 \begin{aligned}
 \chi_0&=\frac12\left(
@@ -257,12 +179,11 @@ $0,1/2,1/16$, take
 \chi_{1/2}&=\frac12\left(
  \sqrt{\frac{\vartheta_3}{\eta}}-
  \sqrt{\frac{\vartheta_4}{\eta}}\right),\\
-\chi_{1/16}&=\frac1{\sqrt2}
- \sqrt{\frac{\vartheta_2}{\eta}}.
+\chi_{1/16}&=\frac1{\sqrt2}\sqrt{\frac{\vartheta_2}{\eta}}.
 \end{aligned}
 \]
-Expand each as $q^{h-c/24}$ times a power series and interpret its first
-coefficients as exact descendant degeneracies.  Derive
+Use the theta and eta transformations developed in Fourier Analysis to
+derive
 \[
 S=\frac12
 \begin{pmatrix}
@@ -273,90 +194,107 @@ S=\frac12
 \qquad
 T_{aa}=e^{2\pi i(h_a-c/24)}.
 \]
-Verify the modular invariance of
-$|\chi_0|^2+|\chi_{1/2}|^2+|\chi_{1/16}|^2$. Using the Verlinde formula
-\[
-N_{ab}^{\ \ c}=\sum_x
-\frac{S_{ax}S_{bx}\overline{S_{cx}}}{S_{0x}},
-\]
-recover the Ising fusion rules. Relate these towers to the critical Ising
-spectroscopy exercise in Quantum Topology.
+Expand each character as $q^{h-c/24}$ times a power series, identify its
+coefficients with exact descendant counts, and verify the modular
+invariance of $\sum_a|\chi_a|^2$.  Apply the Verlinde formula from the
+root-of-unity section to recover the Ising fusion multiplicities.
 \end{exercise}
 
-\begin{exercise}[The Cardy density of states]
-Let a modular-invariant unitary CFT have discrete spectrum, unique vacuum,
-and left and right central charges $c,\bar c$.  Set
-$\tau=i\beta/(2\pi)$ and use $S$-invariance to show that the
-high-temperature partition function is controlled by the vacuum at inverse
-temperature $4\pi^2/\beta$.  A saddle-point inverse Laplace transform then
-gives, for large left and right excitation numbers,
+\begin{exercise}[Modular saddle-point counts]
+Use Exercise~\ref{ex:theta-eta-transformations} to prove
+\[
+\prod_{j\geq1}(1-e^{-tj})^{-1}
+\sim\sqrt{\frac{t}{2\pi}}
+\exp\!\left(\frac{\pi^2}{6t}\right)
+\qquad(t\downarrow0).
+\]
+Insert this estimate into Cauchy's coefficient integral, locate its positive
+real saddle, expand the phase through quadratic order, and bound the
+complementary contour to derive
+\[
+p(n)\sim\frac1{4n\sqrt3}
+\exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
+\]
+For a modular-invariant unitary character system with unique vacuum, apply
+the same calculation to $Z_M(i\beta/(2\pi))$ and prove
 \[
 \log\rho(N,\bar N)
 \sim2\pi\sqrt{\frac{cN}{6}}
-    +2\pi\sqrt{\frac{\bar c\bar N}{6}}.
++2\pi\sqrt{\frac{\bar c\bar N}{6}}.
 \]
-State how $c$ is replaced by
-$c_{\rm eff}=c-24h_{\min}$ in a nonunitary theory.  For a nonrotating state
-with $c=\bar c$ and $N=\bar N$, recover the thermal entropy used in the BTZ
-exercise and hence reproduce the horizon entropy from boundary-state
-counting; see
-\href{https://doi.org/10.1016/0550-3213(86)90552-3}
-{Cardy, \emph{Nuclear Physics B} \textbf{270} (1986)}.
+For the Ising system, derive the resulting asymptotic number of states below
+a specified high energy on a circle and the corresponding entropy.  State
+the circumference, propagation speed, energy window, vacuum assumption,
+and finite-size limitations required when comparing these predictions with
+measured or transfer-matrix spectra.
 \end{exercise}
 
+\section{Transfer-Matrix Traces and Finite-Size Spectra}
 
-\begin{definition}[Transfer matrices and integrability]
-For a two-dimensional lattice model on a cylinder, a \emph{row transfer
-matrix} $T_N(u)$ propagates one width-$N$ row to the next and depends on a
-spectral parameter $u$.  The model is \emph{integrable} when it admits a
-nontrivial commuting family
+\begin{definition}[Transfer-matrix counts]
+Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
+let $T_N(z)$ be an operator on the configuration space whose matrix element
+between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
+height-$M$ periodic lattice define
 \[
-[T_N(u),T_N(v)]=0
-\qquad\text{for every }u,v,
+Z_{N,M}(z)=\Tr(T_N(z)^M).
 \]
-usually obtained from a Yang--Baxter or star--triangle relation.  Commuting
-transfer matrices permit simultaneous spectral analysis, but integrability
-alone does not guarantee that every finite-size degeneracy has a simple
-closed formula.
+When $T_N(z)$ has nonnegative entries, write $\lambda_N(z)$ for its
+spectral radius.
 \end{definition}
 
-\begin{exercise}[Hard-hexagon counting]
-In the hard-hexagon model, occupied vertices of a triangular lattice may not
-be adjacent.  On an $N\times M$ torus define
+\begin{definition}[Hard-hexagon rows]
+Let
 \[
-Z_{N,M}(z)=\sum_{I\text{ independent}}z^{|I|}.
+\mathcal R_N
+=\{a\in\{0,1\}^{\Z/N\Z}:a_i a_{i+1}=0\text{ for every }i\}.
 \]
-Index a row transfer matrix by cyclic binary rows and set its matrix element
-to zero when two consecutive rows violate nearest-neighbor exclusion, and
-otherwise to $z^{(|a|+|b|)/2}$.  Prove
-$Z_{N,M}(z)=\Tr(T_N(z)^M)$ and compute the polynomial for several small
-sizes.  Show that the coefficients are exact state counts, whereas the
-largest eigenvalue controls the thermodynamic free energy.
+Two rows $a,b\in\mathcal R_N$ are compatible when
+\[
+a_i b_i=0,
+\qquad a_i b_{i+1}=0
+\quad(i\in\Z/N\Z).
+\]
+For $z\geq0$, with $|a|=\sum_i a_i$, define
+\[
+T_N(z)_{ab}
+=\mathbf1_{\{a,b\text{ compatible}\}}
+z^{(|a|+|b|)/2}.
+\]
+\end{definition}
 
-Verify the algebraic identity
+\begin{exercise}[Hard-hexagon trace counts]
+Identify the horizontal, vertical, and diagonal nearest-neighbor edges
+encoded by the two compatibility conditions.  Prove
 \[
-z_c=\frac{11+5\sqrt5}{2}=\left(\frac{1+\sqrt5}{2}\right)^5,
+\Tr(T_N(z)^M)
+=\sum_I z^{|I|},
 \]
-and, for the finite matrices already constructed, evaluate the largest
-eigenvalue and its first two $z$-derivatives near $z_c$.  Plot their change
-with $N$ and explain why finite matrices remain analytic even when their
-large-size limit may develop a singularity.
+where the sum is over independent vertex sets of the specified triangular
+$N\times M$ torus.  Prove that every coefficient is an exact state count.
+For $z>0$, apply the spectral-radius formula to show
+\[
+\lim_{M\to\infty}\frac1{NM}\log Z_{N,M}(z)
+=\frac1N\log\lambda_N(z).
+\]
+Derive the mean occupied fraction and finite-size susceptibility from the
+first two derivatives with respect to $\log z$.  State the lattice
+geometry, boundary conditions, and finite $N,M$ limitations required when
+these quantities are compared with adsorption or exclusion-process data.
 \end{exercise}
 
-\begin{exercise}[Theta-character spectra]
-For a critical periodic system of circumference $L$ and propagation speed
-$v$, take
+\begin{exercise}[Theta-character transfer spectra]
+For a critical periodic transfer system of circumference $L$, define
+$H_L$ by $T_L=e^{-aH_L}$ and take
 \[
 H_L=E_{\rm bulk}L+\frac{2\pi v}{L}
 \left(L_0+\overline L_0-\frac{c+\bar c}{24}\right),
 \qquad
 P_L=\frac{2\pi}{L}(L_0-\overline L_0).
 \]
-Insert the Ising characters expressed through
-$\vartheta_2,\vartheta_3,\vartheta_4$, and $\eta$ into the modular-invariant
-partition function.  Prove that the coefficient of
-$q^{h+N-c/24}\bar q^{\bar h+\bar N-\bar c/24}$ is the predicted
-multiplicity at
+Use the Ising character system from the preceding section to prove that the
+coefficient of
+$q^{h+N-c/24}\bar q^{\bar h+\bar N-\bar c/24}$ is the multiplicity at
 \[
 E-E_{\rm bulk}L
 =\frac{2\pi v}{L}
@@ -366,536 +304,192 @@ P=\frac{2\pi}{L}(h-\bar h+N-\bar N).
 \]
 Compute the first spectral gaps and degeneracies in the three Ising
 sectors.  Deduce the universal gap ratios and the $L^{-1}$ Casimir-energy
-correction, and state how finite-size energy levels or transfer-matrix
-eigenvalues determine $c$, the primary weights, and $v$.
+correction.  State how finite-size transfer eigenvalues determine $c$, the
+primary weights, and $v$, including the symmetry-sector resolution and
+irrelevant-operator corrections required for the comparison.
 \end{exercise}
 
-\section{Random Matrices}
+\section{Determinantal Counting}
 
 \begin{definition}[Probability spaces and convergence]
 A \emph{probability space} is a measure space
-$(\Omega,\mathcal F,\mathbb P)$ with $\mathbb P(\Omega)=1$.  A
-\emph{random variable} is a measurable map $X:\Omega\to Y$, its
-\emph{law} is $\mathbb P_X(B)=\mathbb P(X^{-1}(B))$, and, when it is
-scalar-valued and integrable, its \emph{expectation} is its integral.
-A random vector $X=(X_1,\ldots,X_N)$ has \emph{joint density} $p$ with
-respect to a measure $\mu$ when
-\[
-\mathbb P(X\in B)=\int_Bp\,d\mu.
-\]
-The Gaussian law $N(m,v)$ on $\R$ has density
-\[
-\frac1{\sqrt{2\pi v}}\exp\!\left[-\frac{(x-m)^2}{2v}\right].
-\]
-A sequence of random variables in a metric space
-$(Y,d)$ \emph{converges in probability} to $X$ when
+$(\Omega,\mathcal F,\mathbb P)$ with $\mathbb P(\Omega)=1$.  A random
+variable is a measurable map, and its law is its pushforward of
+$\mathbb P$.  The expectation of an integrable scalar random variable is
+its integral.  A sequence $X_N$ converges in probability to $X$ when
 \[
 \mathbb P(d(X_N,X)>\varepsilon)\longrightarrow0
-\qquad(\varepsilon>0).
+\qquad(\varepsilon>0),
 \]
-It \emph{converges in distribution}, written $X_N\Longrightarrow X$,
-when
-\[
-\int f\,d\mathbb P_{X_N}\longrightarrow\int f\,d\mathbb P_X
-\]
-for every bounded continuous $f$.
+and converges in distribution when its laws converge against bounded
+continuous functions.
 \end{definition}
 
-
-
-\begin{exercise}[Hermite moments]
-Let $X\sim N(0,1)$.  Complete the square and use the Gaussian integral to
-prove
+\begin{exercise}[Hermite Gaussian moments]
+For $X\sim N(0,1)$, prove
 \[
 \mathbb E[e^{tX}]=e^{t^2/2}.
 \]
 Define the probabilists' Hermite polynomials by
 \[
-e^{xt-t^2/2}=\sum_{n=0}^{\infty}\operatorname{He}_n(x)\frac{t^n}{n!}.
+e^{xt-t^2/2}
+=\sum_{n\geq0}\operatorname{He}_n(x)\frac{t^n}{n!}
 \]
-Using two copies of the generating function, prove
+and prove
 \[
 \mathbb E[\operatorname{He}_m(X)\operatorname{He}_n(X)]
-=n!\,\delta_{mn}.
+=n!\delta_{mn},
+\qquad
+\mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!}.
 \]
-Relate them to the oscillator polynomials by
-$\operatorname{He}_n(x)=2^{-n/2}H_n(x/\sqrt2)$, and derive
-\[
-\mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!},
-\qquad \mathbb E[X^{2n+1}]=0.
-\]
+Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
+in the Kirillov section.
 \end{exercise}
 
-
 \begin{definition}[Dyson classes]
-For $\lambda=(\lambda_1,\ldots,\lambda_N)$, define
-\[
-\Delta(\lambda)
-=\det[\lambda_i^{j-1}]_{i,j=1}^N.
-\]
-Let $\mathbb F=\R,\C$, or $\mathbb H$ and set
-\[
-\beta=\dim_\R\mathbb F\in\{1,2,4\}.
-\]
-The Gaussian orthogonal, unitary, and symplectic ensembles, denoted GOE,
-GUE, and GSE, consist of the self-adjoint matrices $H=H^*$ over
-$\R,\C$, and $\mathbb H$, respectively, with density
+For $\mathbb F=\R,\C,\mathbb H$, put
+$\beta=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
+self-adjoint operators on $\mathbb F^N$ has density
 \[
 d\mathbb P_{N,\beta}(H)
-=C_{N,\beta}
-\exp\!\left[-\frac{\beta N}{4\sigma^2}\Tr(H^2)\right]dH.
+=C_{N,\beta}\exp\!\left[-\frac{\beta N}{4\sigma^2}
+\Tr(H^2)\right]dH
 \]
-Here $H^*$ is conjugate transpose, and $dH$ is the Euclidean volume induced
-by the invariant Hilbert--Schmidt inner product
-$\langle X,Y\rangle_{\rm HS}=\operatorname{Re}\Tr(XY)$ on the real space
-of self-adjoint matrices.
+for the invariant Hilbert--Schmidt volume.  For
+$\lambda=(\lambda_1,\ldots,\lambda_N)$ define
+\[
+\Delta(\lambda)=\det[\lambda_i^{j-1}]_{i,j=1}^N.
+\]
 \end{definition}
 
-\begin{exercise}[Eigenvalue--orbit Jacobian]
-Use the exterior-power determinant formula to prove
+\begin{exercise}[Orbit Jacobian and level repulsion]
+Use the exterior-power determinant to prove
 \[
 \Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
 \]
-For each Dyson class, let $G_\beta$ act on the self-adjoint matrices by
-conjugation and let $T_\beta$ be the stabilizer of a regular diagonal
-matrix.  Compute the Jacobian of the conjugation-orbit map
-\[
-(G_\beta/T_\beta)\times\R^N_{\rm reg}
-\longrightarrow\operatorname{Herm}_N(\mathbb F),
-\qquad
-(UT_\beta,\lambda)\longmapsto
-U\operatorname{diag}(\lambda)U^{-1},
-\]
-with respect to the invariant Hilbert--Schmidt metric, and prove
-\[
-dH=C\,|\Delta(\lambda)|^\beta
-\prod_{i=1}^N d\lambda_i\,d\mu_{G_\beta/T_\beta},
-\]
-with the stabilizer and permutation factors included in $C$.  Integrate
-over the conjugation orbits and derive
+For each Dyson class, compute the Jacobian of the conjugation-orbit map on
+the regular spectral locus with the stabilizer and permutation factors
+included, and derive
 \[
 p_{N,\beta}(\lambda)
 =\frac1{Z_{N,\beta}}
-\exp\!\left[-\frac{\beta N}{4\sigma^2}
-\sum_{i=1}^N\lambda_i^2\right]
-\prod_{i<j}|\lambda_i-\lambda_j|^\beta.
+e^{-\beta N\sum_i\lambda_i^2/(4\sigma^2)}
+|\Delta(\lambda)|^\beta.
 \]
-\end{exercise}
-
-\begin{definition}[Beta ensembles and Coulomb gases]
-For an interval $I\subseteq\R$, a confining potential $V$, and
-$\beta>0$, the \emph{beta ensemble} is
-\[
-d\mathbb P_{N,\beta,V}(\lambda)
-=\frac1{Z_{N,\beta,V}}
-\prod_{i<j}|\lambda_i-\lambda_j|^\beta
-\prod_{i=1}^N e^{-\beta NV(\lambda_i)/2}\,d\lambda_i.
-\]
-Its \emph{Coulomb-gas Hamiltonian} is
-\[
-\mathcal H_N(\lambda)
-=\frac N2\sum_{i=1}^NV(\lambda_i)
--\sum_{i<j}\log|\lambda_i-\lambda_j|,
-\qquad
-d\mathbb P_{N,\beta,V}=Z^{-1}e^{-\beta\mathcal H_N}\,d\lambda.
-\]
-The Jacobi beta ensemble is the Selberg law on $[0,1]^N$, and the circular
-beta ensemble is
-\[
-\frac1{Z_{N,\beta}^{\rm circ}}
-\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^\beta
-\prod_{i=1}^N\frac{d\theta_i}{2\pi}.
-\]
-\end{definition}
-
-\begin{exercise}[Jacobi beta ensemble]
-For coupling $g>0$, set $\beta=2g$.  For $a,b>0$, take the $BC_N$
-Calogero--Sutherland ground state in Jacobi coordinates $x_i\in(0,1)$,
-\[
-\Psi_0(x)=C
-\prod_{i=1}^N x_i^{(a-1)/2}(1-x_i)^{(b-1)/2}
-\prod_{i<j}|x_i-x_j|^{\beta/2}.
-\]
-Prove
-\[
-|\Psi_0(x)|^2
-=\frac1{Z_{N,\beta}^{\rm Jac}(a,b)}
-\prod_{i=1}^N x_i^{a-1}(1-x_i)^{b-1}
-\prod_{i<j}|x_i-x_j|^\beta,
-\]
-where the Selberg integral gives
-\[
-Z_{N,\beta}^{\rm Jac}(a,b)
-=\prod_{j=0}^{N-1}
-\frac{
-\Gamma(a+j\beta/2)\Gamma(b+j\beta/2)
-\Gamma(1+(j+1)\beta/2)}{
-\Gamma(a+b+(N+j-1)\beta/2)\Gamma(1+\beta/2)}.
-\]
-Interpret $|\Psi_0|^2dx_1\cdots dx_N$ as the joint law of $N$ random
-eigenvalues.  For the type-$A$ circular ground state, prove instead
-\[
-|\Psi_0(\theta)|^2
-\propto\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^\beta.
-\]
-\end{exercise}
-
-
-\begin{exercise}[Semicircle equilibrium]
-For the empirical measure $L_N=N^{-1}\sum_i\delta_{\lambda_i}$, derive
-the mean-field energy
-\[
-\mathcal I_V(\mu)
-=\int V(x)\,d\mu(x)
--\iint\log|x-y|\,d\mu(x)d\mu(y).
-\]
-Prove that its minimizer satisfies
-\[
-V(x)-2\int\log|x-y|\,d\mu_V(y)=\ell
-\]
-on its support.  For $V(x)=x^2/(2\sigma^2)$, solve the singular integral
-equation and obtain
-\[
-\rho_{\rm sc}(x)
-=\frac1{2\pi\sigma^2}
-\sqrt{4\sigma^2-x^2}\,
-\mathbf1_{[-2\sigma,2\sigma]}(x).
-\]
-\end{exercise}
-
-\begin{definition}[Wigner matrices]
-A \emph{Wigner matrix} $H_N$ is an $N\times N$ Hermitian random matrix
-whose upper-triangular entries are independent and centered, with
-$\mathbb E|H_{ij}|^2=\sigma^2/N$ off the diagonal and, for every fixed
-$m$,
-\[
-\sup_{N,i,j}\mathbb E|\sqrt N H_{ij}|^m<\infty.
-\]
-Its \emph{empirical spectral measure} is
-\[
-L_{H_N}=\frac1N\sum_{j=1}^N\delta_{\lambda_j(H_N)},
-\qquad
-\int x^k\,dL_{H_N}(x)=\frac1N\Tr(H_N^k).
-\]
-\end{definition}
-
-\begin{exercise}[Wigner semicircle law]
-Expand $N^{-1}\mathbb E\Tr(H_N^k)$ as a sum over closed index walks.
-Prove that only noncrossing pair-matched walks survive as $N\to\infty$
-and that their number is the Catalan number.  Prove that the variance tends
-to zero and conclude that $L_{H_N}$ converges in probability, in moments,
-to $\rho_{\rm sc}(x)dx$.
-\end{exercise}
-
-\begin{definition}[Brownian motion]
-A \emph{standard Brownian motion} is a continuous real process
-\(B_t\) with \(B_0=0\) and independent increments satisfying
-\[
-B_t-B_s\sim N(0,t-s)\qquad(0\leq s<t).
-\]
-Its It\^o differentials satisfy
-\[
-dB_i\,dB_j=\delta_{ij}\,dt,\qquad dB_i\,dt=dt^2=0.
-\]
-\end{definition}
-
-\begin{definition}[Dyson Brownian motion]
-For $\beta\geq1$ and a confining potential $V$, \emph{Dyson Brownian motion}
-is the interacting diffusion
-\[
-d\lambda_i
-=\sqrt{\frac{2}{\beta N}}\,dB_i
-+\left(
-\frac1N\sum_{j\ne i}\frac1{\lambda_i-\lambda_j}
--\frac12V'(\lambda_i)
-\right)dt.
-\]
-Its reversible density is
-\[
-Z^{-1}
-\prod_{i<j}|\lambda_i-\lambda_j|^\beta
-\prod_i e^{-\beta NV(\lambda_i)/2}.
-\]
-\end{definition}
-
-\begin{exercise}[Eigenvalue dynamics]
-Apply It\^o calculus to Hermitian and real-symmetric Ornstein--Uhlenbeck
-matrix processes and derive Dyson Brownian motion for $\beta=2$ and
-$\beta=1$.  Prove noncollision, compute the generator in divergence form,
-and verify the stated reversible measure.  Derive the complex Burgers
-equation for the large-$N$ Stieltjes transform and, in the unitary case,
-the sine- and Airy-kernel local equilibria.
-\end{exercise}
-
-\begin{definition}[Unfolded spectra and level repulsion]
-For a smooth approximation $\overline N(E)$ to the cumulative level count,
-define
-\[
-x_j=\overline N(E_j),
-\qquad
-s_j=x_{j+1}-x_j.
-\]
-The variables $x_j$ are the \emph{unfolded levels}.  Their local mean
-spacing is one.  Exact symmetry sectors are unfolded separately.  The
-factor $|\Delta(\lambda)|^\beta$ defines \emph{level repulsion} of order
-$\beta$.
-\end{definition}
-
-\begin{exercise}[Level repulsion]
-For $2\times2$ GOE and GUE matrices, separate the trace from the traceless
-coordinates and compute the radial distribution of the eigenvalue gap.
-After rescaling to unit mean spacing, derive
+For $2\times2$ GOE and GUE, separate the trace from the traceless operator,
+rescale the gap to unit mean, and obtain
 \[
 P_1(s)=\frac\pi2s e^{-\pi s^2/4},
 \qquad
 P_2(s)=\frac{32}{\pi^2}s^2e^{-4s^2/\pi}.
 \]
-Use the beta-ensemble density to prove
-\[
-P_\beta(s)\sim c_\beta s^\beta
-\qquad(s\downarrow0),
-\]
-and compare it with the Poisson spacing law $e^{-s}$.
+Identify the exponent $\beta$ as the small-gap repulsion prediction and
+state the symmetry-sector separation required in spectral data.
 \end{exercise}
 
-\begin{definition}[Global, bulk, and edge scales]
-Order the eigenvalues as $\lambda_1\leq\cdots\leq\lambda_N$.  Define the
-classical location $\gamma_j$ by
+\begin{definition}[Fredholm determinants]
+For $A\in S_1(H)$ define
 \[
-\frac jN=\int_{-2\sigma}^{\gamma_j}\rho_{\rm sc}(x)\,dx.
+\det(I+zA)=\prod_j(1+z\lambda_j(A)),
 \]
-At $E\in(-2\sigma,2\sigma)$, the bulk coordinate is
-\[
-u=N\rho_{\rm sc}(E)(\lambda-E),
-\]
-and at the upper soft edge it is
-\[
-\xi=\frac{N^{2/3}}{\sigma}(\lambda-2\sigma).
-\]
+where the nonzero eigenvalues are repeated with algebraic multiplicity.
 \end{definition}
 
-\begin{exercise}[Bulk and edge scales]
-Use the expected count $N\rho_{\rm sc}(E)dE$ to derive the bulk spacing
-scale $[N\rho_{\rm sc}(E)]^{-1}$.  Prove
-\[
-\rho_{\rm sc}(2\sigma-s)
-\sim\frac1{\pi\sigma^{3/2}}\sqrt{s}
-\qquad(s\downarrow0),
-\]
-and derive the edge scale $s\asymp\sigma N^{-2/3}$.
-\end{exercise}
-
-\begin{definition}[Fredholm determinant]
-For $A\in S_1(H)$ with nonzero eigenvalues
-$\lambda_1(A),\lambda_2(A),\ldots$, repeated according to algebraic
-multiplicity, define
-\[
-\det(I+zA)=\prod_{j=1}^{\infty}(1+z\lambda_j(A)).
-\]
-\end{definition}
-
-\begin{exercise}[Fredholm determinant and trace identity]
-Prove that the defining product converges absolutely and locally uniformly
-in $z$ and agrees with the exterior-power determinant when $A$ has finite
-rank.  Prove
+\begin{exercise}[Fredholm trace identity]
+Prove absolute local uniform convergence of the defining product and
 \[
 \det(I-zA)
-=\exp\!\left(-\sum_{m=1}^{\infty}
-\frac{z^m}{m}\Tr(A^m)\right)
+=\exp\!\left(-\sum_{m\geq1}\frac{z^m}{m}\Tr(A^m)\right)
+\qquad(|z|<\|A\|^{-1}).
 \]
-for $|z|<\|A\|^{-1}$.  Prove that the determinant is entire and that its
-zeros are the reciprocals of the negatives of the nonzero eigenvalues of
-$A$.  Construct the completed exterior powers of $H$ and deduce
-\[
-\det(I+zA)=\sum_{m=0}^{\infty}z^m\Tr(\Lambda^mA).
-\]
+Prove that the determinant is entire, identify its zeros, and show that its
+finite-rank specialization agrees with the exterior-power identity from the
+opening section.
 \end{exercise}
 
-\begin{definition}[Airy kernel and the Tracy--Widom law]
-Let $\operatorname{Ai}$ be the solution of $y''=xy$ decaying at
-$+\infty$.  Define
-\[
-K_{\rm Ai}(x,y)
-=\frac{\operatorname{Ai}(x)\operatorname{Ai}'(y)
--\operatorname{Ai}'(x)\operatorname{Ai}(y)}{x-y}
-\]
-by continuity on the diagonal.  The GUE Tracy--Widom distribution is
-\[
-F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
-\]
-\end{definition}
-
-
-\begin{definition}[Point processes and correlation functions]
-Let $(X,\mu)$ be a locally compact measure space.  A \emph{simple point
-process} is a random locally finite counting measure
-\[
-\Xi=\sum_i\delta_{x_i}
-\]
-with distinct points almost surely.  Its $k$-point correlation function
-$\rho_k$ is defined by
+\begin{definition}[Point processes and correlation densities]
+Let $(X,\mu)$ be locally compact.  A simple point process is a random
+locally finite counting measure $\Xi=\sum_i\delta_{x_i}$ with distinct
+points almost surely.  When its $k$th factorial moment measure is absolutely
+continuous with respect to $\mu^{\otimes k}$, its density $\rho_k$ is
+defined by
 \[
 \mathbb E\sum_{i_1,\ldots,i_k}^{\ne}
 f(x_{i_1},\ldots,x_{i_k})
-=\int_{X^k}f(x_1,\ldots,x_k)\rho_k(x_1,\ldots,x_k)
-\prod_{j=1}^k d\mu(x_j).
+=\int_{X^k}f\rho_k\,d\mu^{\otimes k}.
 \]
-For a symmetric joint density $p_N$ of exactly $N$ points,
+A \emph{determinantal point process} with kernel $K$ is one for which
 \[
-\rho_k(x_1,\ldots,x_k)
-=\frac{N!}{(N-k)!}
-\int_{X^{N-k}}p_N(x_1,\ldots,x_N)
-\prod_{j=k+1}^N d\mu(x_j).
+\rho_k(x_1,\ldots,x_k)=\det[K(x_i,x_j)]_{i,j=1}^k.
 \]
+For the existence and counting formulas below, $K$ is a locally
+trace-class positive contraction on $L^2(X,\mu)$.
 \end{definition}
 
-\begin{exercise}[Factorial moments and gap probabilities]
-For a relatively compact measurable set $B$ and $N_B=\Xi(B)$, prove,
-whenever either side is finite,
+\begin{exercise}[Determinantal counting statistics]
+For a relatively compact measurable set $B$, put $N_B=\Xi(B)$ and
+$K_B=\mathbf1_BK\mathbf1_B$.  Use factorial moments and the Fredholm series
+to prove
 \[
-\mathbb E(N_B)_k=\int_{B^k}\rho_k\,d\mu^{\otimes k},
-\qquad
-(N_B)_k=N_B(N_B-1)\cdots(N_B-k+1).
-\]
-If $\mathbb E[2^{N_B}]<\infty$, use inclusion--exclusion and justify the
-exchange of expectation and summation to prove
-\[
-\mathbb P(N_B=0)
-=\sum_{k=0}^{\infty}\frac{(-1)^k}{k!}
-\int_{B^k}\rho_k\,d\mu^{\otimes k}.
-\]
-\end{exercise}
-
-
-\begin{definition}[Determinantal and Pfaffian processes]
-For an antisymmetric matrix $A=(a_{ij})\in M_{2m}(\C)$, define
-\[
-\operatorname{Pf}(A)
-=\frac1{2^m m!}
-\sum_{\sigma\in S_{2m}}\operatorname{sgn}(\sigma)
-\prod_{j=1}^m a_{\sigma(2j-1),\sigma(2j)}.
-\]
-A point process is \emph{determinantal} with kernel $K$ when
-\[
-\rho_k(x_1,\ldots,x_k)
-=\det[K(x_i,x_j)]_{i,j=1}^k.
-\]
-It is \emph{Pfaffian} with antisymmetric $2\times2$ matrix kernel
-$\mathbb K$ when
-\[
-\rho_k(x_1,\ldots,x_k)
-=\operatorname{Pf}[\mathbb K(x_i,x_j)]_{i,j=1}^k.
-\]
-The Fredholm Pfaffian is the corresponding Pfaffian analogue of the
-Fredholm determinant.  A \emph{positive contraction} is an
-operator $K$ satisfying $0\leq K\leq I$.
-\end{definition}
-
-\begin{exercise}[Counting statistics and Fredholm formulas]
-For a determinantal process, prove
-\[
-\mathbb E[z^{N_B}]
-=\det(I+(z-1)K_B),
+\mathbb E[z^{N_B}]=\det(I+(z-1)K_B),
 \qquad
 \mathbb P(N_B=0)=\det(I-K_B).
 \]
-Derive the corresponding Fredholm-Pfaffian formula for a Pfaffian
-process.  If $K_B$ is a positive trace-class contraction with eigenvalues
-$(\lambda_j)$, prove
-\[
-\det(I+zK_B)=\prod_j(1+z\lambda_j)
-\]
-and that $N_B$ is distributed as a sum of independent Bernoulli variables
-with parameters $\lambda_j$.
+Prove that $N_B$ is distributed as a sum of independent Bernoulli variables
+whose parameters are the eigenvalues of $K_B$.
 \end{exercise}
 
-
-\begin{definition}[Orthogonal-polynomial ensembles]
-Let $w(x)d\mu(x)$ be a measure with finite moments and let $p_j$ be its
-monic orthogonal polynomials,
+\begin{definition}[Unitary polynomial ensembles]
+Let $w(x)d\mu(x)$ be a positive measure with finite moments and let $p_j$ be its monic orthogonal
+polynomials, normalized by
 \[
 \int p_j(x)p_k(x)w(x)d\mu(x)=h_j\delta_{jk}.
 \]
-The associated \emph{orthogonal-polynomial ensemble} has density
+The associated unitary polynomial ensemble has density
 \[
 p_N(x_1,\ldots,x_N)
-=\frac1{Z_N}\Delta(x)^2\prod_{i=1}^Nw(x_i),
-\qquad
-Z_N=N!\prod_{j=0}^{N-1}h_j.
+=\frac1{N!\prod_{j=0}^{N-1}h_j}
+\Delta(x)^2\prod_{i=1}^Nw(x_i)
 \]
-Its correlation kernel is
+and kernel
 \[
-K_N(x,y)
-=\sqrt{w(x)w(y)}
+K_N(x,y)=\sqrt{w(x)w(y)}
 \sum_{j=0}^{N-1}\frac{p_j(x)p_j(y)}{h_j}.
 \]
 \end{definition}
 
-\begin{exercise}[Andr\'eief identity]
+\begin{exercise}[Andr\'eief and Christoffel--Darboux identities]
 Prove Andr\'eief's identity
 \[
-\int_{X^N}\det[f_i(x_j)]\det[g_i(x_j)]
-\prod_{j=1}^N d\mu(x_j)
-=N!\det\!\left[\int_X f_i(x)g_j(x)d\mu(x)\right].
+\int_{X^N}\det[f_i(x_j)]\det[g_i(x_j)]\prod_jd\mu(x_j)
+=N!\det\!\left[\int_Xf_i g_j\,d\mu\right].
 \]
-Use the Vandermonde determinant to prove
-\[
-p_N(x_1,\ldots,x_N)
-=\frac1{N!}\det[K_N(x_i,x_j)]_{i,j=1}^N
-\]
-and
-\[
-\rho_k(x_1,\ldots,x_k)
-=\det[K_N(x_i,x_j)]_{i,j=1}^k.
-\]
-\end{exercise}
-
-\begin{exercise}[Skew-orthogonal ensembles]
-For an antisymmetric bilinear form $\langle\cdot,\cdot\rangle_s$, construct
-skew-orthogonal polynomials satisfying
-\[
-\langle p_{2j},p_{2k+1}\rangle_s=r_j\delta_{jk},
-\qquad
-\langle p_{2j},p_{2k}\rangle_s
-=\langle p_{2j+1},p_{2k+1}\rangle_s=0.
-\]
-Prove de Bruijn's Pfaffian integration identity and use it to derive the
-matrix correlation kernels for the GOE and GSE.
-\end{exercise}
-
-
-\begin{definition}[Christoffel--Darboux kernels]
-Let $q_j=p_j/\sqrt{h_j}$ and let $\kappa_j$ be the leading coefficient of
-$q_j$.  The Christoffel--Darboux kernel is
-\[
-K_N(x,y)
-=\sqrt{w(x)w(y)}\,\frac{\kappa_{N-1}}{\kappa_N}
-\frac{q_N(x)q_{N-1}(y)-q_{N-1}(x)q_N(y)}{x-y}.
-\]
-An \emph{integrable kernel} is a kernel of the form
-\[
-K(x,y)=\frac{f(x)^{\mathsf T}g(y)}{x-y},
-\qquad
-f(x)^{\mathsf T}g(x)=0.
-\]
-\end{definition}
-
-\begin{exercise}[Projection and resolvent identities]
-Derive the Christoffel--Darboux formula from the three-term recurrence.
-Prove
+Deduce that the unitary polynomial ensemble is determinantal with kernel
+$K_N$.  Derive the Christoffel--Darboux formula from the three-term
+recurrence and prove
 \[
 \int K_N(x,z)K_N(z,y)d\mu(z)=K_N(x,y),
 \qquad
 \int K_N(x,x)d\mu(x)=N.
 \]
-For an integrable trace-class kernel $K$, prove that the resolvent
-$R=K(I-K)^{-1}$ is again integrable and express its numerator using
-$(I-K)^{-1}f$ and $(I-K^{\mathsf T})^{-1}g$.
 \end{exercise}
 
-
-\begin{definition}[Universal limiting kernels]
-The bulk, soft-edge, and hard-edge kernels are respectively
+\begin{definition}[GUE and its limiting kernels]
+For the GUE weight $w_N(x)=e^{-Nx^2/(2\sigma^2)}$ and the normalized
+oscillator Hermite functions $h_j$, define
+\[
+\phi_{j,N}(x)
+=\left(\frac{N}{2\sigma^2}\right)^{1/4}
+h_j\!\left(\sqrt{\frac{N}{2\sigma^2}}x\right),
+\qquad
+K_N^{\rm GUE}(x,y)=\sum_{j=0}^{N-1}\phi_{j,N}(x)\phi_{j,N}(y).
+\]
+Define
+\[
+\rho_{\rm sc}(x)
+=\frac1{2\pi\sigma^2}\sqrt{4\sigma^2-x^2}\,
+\mathbf1_{[-2\sigma,2\sigma]}(x),
+\]
 \[
 K_{\sin}(u,v)=\frac{\sin\pi(u-v)}{\pi(u-v)},
 \]
@@ -903,369 +497,301 @@ K_{\sin}(u,v)=\frac{\sin\pi(u-v)}{\pi(u-v)},
 K_{\rm Ai}(u,v)
 =\frac{\operatorname{Ai}(u)\operatorname{Ai}'(v)
 -\operatorname{Ai}'(u)\operatorname{Ai}(v)}{u-v},
+\qquad
+F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
 \]
-and, for $\alpha>-1$,
-\[
-K_{\rm Bes}^{(\alpha)}(u,v)
-=\frac{
-J_\alpha(\sqrt u)\sqrt v\,J_\alpha'(\sqrt v)
--\sqrt u\,J_\alpha'(\sqrt u)J_\alpha(\sqrt v)}
-{2(u-v)}.
-\]
-The values on the diagonal are defined by continuity.
+Diagonal values are defined by continuity.
 \end{definition}
 
-\begin{exercise}[Classical kernel universality]
-Use the Christoffel--Darboux formula and the asymptotics of the Hermite,
-Laguerre, and Jacobi polynomials to prove convergence of their rescaled
-kernels, where applicable, to $K_{\sin}$ in the bulk, $K_{\rm Ai}$ at a
-soft edge, and $K_{\rm Bes}^{(\alpha)}$ at a hard edge.  Deduce convergence
-of every correlation function and of the associated Fredholm gap
-probabilities.  Recover the Tracy--Widom law for the largest GUE eigenvalue.
-For an unfolded spectrum, derive from $K_{\sin}$ the nearest-neighbor
-level-repulsion exponent and number variance, and state the corresponding
-predictions for a chaotic quantum spectrum in the unitary symmetry class.
-From $K_{\rm Ai}$ derive the
-$N^{-2/3}$ edge-fluctuation scale and the limiting distribution of the
-largest resonance or covariance eigenvalue.  Specify the unfolding and
-centering required before comparing either prediction with spectral data.
+\begin{exercise}[Hermite bulk and turning-point limits]
+Derive a contour integral for the normalized Hermite functions from their
+generating function.  For $E\in(-2\sigma,2\sigma)$, perform steepest descent
+at the two simple saddles; at $2\sigma$, rescale the coalescing saddles to
+the Airy integral.  Establish uniform bounds on compact bulk windows and
+exponentially weighted edge half-lines sufficient to prove
+\[
+\frac{1}{N\rho_{\rm sc}(E)}
+K_N^{\rm GUE}\!\left(
+E+\frac{u}{N\rho_{\rm sc}(E)},
+E+\frac{v}{N\rho_{\rm sc}(E)}\right)
+\longrightarrow K_{\sin}(u,v),
+\]
+\[
+\frac{\sigma}{N^{2/3}}
+K_N^{\rm GUE}\!\left(
+2\sigma+\frac{\sigma u}{N^{2/3}},
+2\sigma+\frac{\sigma v}{N^{2/3}}\right)
+\longrightarrow K_{\rm Ai}(u,v).
+\]
+Use the uniform bounds to pass to the Fredholm series.  Deduce the GUE
+largest-eigenvalue law
+\[
+\mathbb P\!\left(
+\frac{N^{2/3}}{\sigma}(\lambda_{\max}-2\sigma)\leq s\right)
+\longrightarrow F_2(s)
+\]
+and derive the logarithmic number variance of a long interval from
+$K_{\sin}$.  State the unfolding, centering, symmetry class, independence,
+and finite-size assumptions required when testing these predictions with
+resonance or covariance spectra.
 \end{exercise}
 
-\section{Free Probability}
+\section{Noncrossing Trace Limits}
 
-
-
-\begin{definition}[Noncommutative probability spaces]
-A \emph{noncommutative probability space} is a unital complex algebra
-$A$ with a unital linear functional $\varphi:A\to\C$.  Its elements are
-\emph{random variables} and their joint moments are
-$\varphi(a_1\cdots a_n)$.  In the $*$-algebra setting, a \emph{state} is a
-positive unital functional; it is \emph{tracial} when
-$\varphi(ab)=\varphi(ba)$.
+\begin{definition}[Wigner matrices]
+A Wigner matrix $H_N$ is an $N\times N$ Hermitian random matrix whose
+upper-triangular entries are independent and centered, with
+$\mathbb E|H_{ij}|^2=\sigma^2/N$ off the diagonal and uniformly bounded
+rescaled moments of every fixed order.  Its empirical spectral measure is
+\[
+L_{H_N}=\frac1N\sum_j\delta_{\lambda_j(H_N)},
+\qquad
+\int x^k\,dL_{H_N}(x)=\frac1N\Tr(H_N^k).
+\]
 \end{definition}
 
-\begin{definition}[Free independence and free cumulants]
-Unital subalgebras $(A_i)_i$ of $(A,\varphi)$ are \emph{freely independent}
-if
-\[
-\varphi(a_1\cdots a_m)=0
-\]
-whenever $a_j\in A_{i_j}$, $\varphi(a_j)=0$, and neighboring indices are
-distinct. Variables are free when their generated unital subalgebras are.
-
-Let $NC(n)$ be the lattice of noncrossing partitions of
-$\{1,\ldots,n\}$. The \emph{free cumulants} $\kappa_n$ are the multilinear
-functionals determined recursively by
+\begin{definition}[Free cumulants]
+A noncommutative probability space is a unital complex algebra $A$ with a
+unital linear functional $\varphi$.  In a $*$-algebra, a state is positive;
+it is tracial when $\varphi(ab)=\varphi(ba)$.  Let $NC(n)$ be the lattice of
+noncrossing partitions of $\{1,\ldots,n\}$.  The free cumulants are the
+multilinear maps determined by
 \[
 \varphi(a_1\cdots a_n)
-=\sum_{\pi\in NC(n)}\kappa_\pi(a_1,\ldots,a_n),
+=\sum_{\pi\in NC(n)}\kappa_\pi(a_1,\ldots,a_n).
 \]
-where $\kappa_\pi$ is the product of the cumulants associated to the blocks
-of $\pi$. Freeness is equivalently the vanishing of every mixed free
-cumulant.
+Unital subalgebras are freely independent when alternating products of
+centered elements from neighboring distinct subalgebras have zero
+expectation.
 \end{definition}
 
-\begin{definition}[Semicircular variables]
-A self-adjoint variable $S$ is \emph{semicircular} with variance $\sigma^2$
-if its distribution is
+\begin{definition}[Cauchy and \texorpdfstring{$R$}{R}-transforms]
+For a compactly supported probability measure $\mu$ on $\R$, define
 \[
-d\mu_{\mathrm{sc},\sigma}(x)
-=\frac{1}{2\pi\sigma^2}
- \sqrt{4\sigma^2-x^2}\,
- \mathbf 1_{[-2\sigma,2\sigma]}(x)\,dx.
+G_\mu(z)=\int_\R\frac{d\mu(t)}{z-t}.
 \]
-Equivalently, its only nonzero free cumulant is
-$\kappa_2(S,S)=\sigma^2$.
+Near infinity let $K_\mu=G_\mu^{\langle-1\rangle}$ and define
+\[
+K_\mu(w)=\frac1w+R_\mu(w).
+\]
+The free additive convolution $\mu\boxplus\nu$ is the law of $X+Y$ when
+$X,Y$ are freely independent with laws $\mu,\nu$.
 \end{definition}
 
-\begin{exercise}[Free central limit theorem]
-Use noncrossing pairings to prove
+\begin{exercise}[Semicircle equivalences]
+Expand $N^{-1}\mathbb E\Tr(H_N^k)$ as a sum over closed index walks and
+prove that the leading pair matches are indexed by noncrossing pairings.
+Deduce
 \[
-\varphi(S^{2m+1})=0,
+\lim_{N\to\infty}\frac1N\mathbb E\Tr(H_N^{2m})
+=C_m\sigma^{2m},
 \qquad
-\varphi(S^{2m})=C_m\sigma^{2m},
-\qquad
-C_m=\frac1{m+1}\binom{2m}{m}.
+C_m=\frac1{m+1}\binom{2m}{m},
 \]
-Let $X_1,X_2,\ldots$ be freely independent, identically distributed,
-centered self-adjoint variables with $\varphi(X_i^2)=\sigma^2$ and moments of
-every order. Use
-multilinearity and vanishing mixed cumulants to prove that the moments of
-$n^{-1/2}(X_1+\cdots+X_n)$ converge to these semicircular moments. Compare
-this free central limit theorem with the Gaussian limit for classically
-independent variables.
+with odd moments zero, and prove that the variance tends to zero.  Decompose
+a noncrossing pairing at the partner of its first point to obtain
+\[
+C_{m+1}=\sum_{j=0}^mC_jC_{m-j}.
+\]
+Use this recurrence to prove
+\[
+\sigma^2G(z)^2-zG(z)+1=0,
+\qquad zG(z)\longrightarrow1,
+\]
+and recover $\rho_{\rm sc}$ by Stieltjes inversion.
+
+Show from the moment--cumulant relation that this law has only
+$\kappa_2=\sigma^2$ nonzero.  Finally, minimize
+\[
+\mathcal I(\mu)
+=\frac1{2\sigma^2}\int x^2d\mu(x)
+-\iint\log|x-y|\,d\mu(x)d\mu(y)
+\]
+and prove that its Euler--Lagrange equation gives the same density.  Thus
+identify the logarithmic equilibrium law, Catalan trace moments, quadratic
+Cauchy equation, and free Gaussian law as four formulations of the same
+limit.
 \end{exercise}
 
-\begin{definition}[Cauchy and $R$-transforms]
-For a compactly supported probability measure $\mu$ on $\R$, its
-\emph{Cauchy transform} is
-\[
-G_\mu(z)=\int_\R\frac{d\mu(t)}{z-t},
-\qquad z\in\C\setminus\supp\mu.
-\]
-Near infinity it has a local compositional inverse
-$K_\mu(w)=G_\mu^{\langle-1\rangle}(w)$ near $w=0$. The
-\emph{$R$-transform} is defined by
-\[
-K_\mu(w)=\frac1w+R_\mu(w),
-\qquad
-R_\mu(w)=\sum_{n\geq1}\kappa_n(\mu)w^{n-1}.
-\]
-If freely independent self-adjoint variables $X,Y$ have laws $\mu,\nu$,
-then the law of $X+Y$ is their \emph{free additive convolution}
-$\mu\boxplus\nu$, characterized by
+\begin{exercise}[Free central limit and convolution]
+Prove from the alternating centered-product definition that mixed free
+cumulants vanish.  Deduce
 \[
 R_{\mu\boxplus\nu}=R_\mu+R_\nu.
 \]
-\end{definition}
-
-\begin{exercise}[Free convolution]
-Derive the additivity of the $R$-transform from the vanishing of mixed free
-cumulants. Show that a centered semicircular law of variance $\sigma^2$ has
-$R(w)=\sigma^2w$ and hence
-\[
-\sigma^2G(z)^2-zG(z)+1=0.
-\]
-Select the solution satisfying $zG(z)\to1$ at infinity and recover the
-semicircle density from the Stieltjes inversion formula. Deduce that the free
-sum of semicircular variables of variances $\sigma_1^2$ and $\sigma_2^2$ is
-semicircular of variance $\sigma_1^2+\sigma_2^2$, and rederive the free
-central limit theorem at the level of transforms.
+For freely independent identically distributed centered self-adjoint
+variables of variance $\sigma^2$, prove by cumulant scaling that their
+normalized sums converge in moments to the semicircle law.  Show that the
+free sum of semicircle laws of variances $\sigma_1^2,\sigma_2^2$ is
+semicircular of variance $\sigma_1^2+\sigma_2^2$.
 \end{exercise}
 
-
 \begin{definition}[Asymptotic freeness]
-Random matrix families
-$A_N^{(1)},\ldots,A_N^{(r)}$ are \emph{asymptotically free} when their
-normalized expected joint trace moments converge to the moments of freely
-independent variables:
+Random matrix families $A_N^{(1)},\ldots,A_N^{(r)}$ are asymptotically free
+when
 \[
-\lim_{N\to\infty}
-\frac1N\mathbb E\Tr
+\lim_{N\to\infty}\frac1N\mathbb E\Tr
 P(A_N^{(1)},\ldots,A_N^{(r)})
 =\varphi(P(a_1,\ldots,a_r))
 \]
-for every noncommutative polynomial $P$.
+for every noncommutative polynomial $P$, where the limiting variables are
+freely independent.
 \end{definition}
 
-\begin{exercise}[GUE asymptotic freeness]
-For independent GUE matrices $H_N^{(1)},\ldots,H_N^{(r)}$, apply Wick's
-rule to normalized mixed traces of centered polynomials.  Prove that
-crossing pairings are lower order and that mixed free cumulants vanish in
-the limit.  Conclude that the family converges in joint moments to freely
-independent semicircular variables.
+\begin{exercise}[Free spectral addition]
+For independent GUE matrices, apply Wick contraction to normalized mixed
+traces and prove that crossing pairings are lower order.  Deduce asymptotic
+freeness.  For two independently coupled large subsystems with limiting
+semicircle variances $\sigma_1^2$ and $\sigma_2^2$, derive
+\[
+G(z)=\frac{z-\sqrt{z^2-4(\sigma_1^2+\sigma_2^2)}}
+{2(\sigma_1^2+\sigma_2^2)}
+\]
+and predict the density-of-states edges
+$\pm2\sqrt{\sigma_1^2+\sigma_2^2}$.  State how empirical Stieltjes
+transforms and observed spectral edges test the freeness and large-size
+assumptions.
 \end{exercise}
 
-\begin{exercise}[Catalan semicircle transform]
-Let $C_n=(n+1)^{-1}\binom{2n}{n}$.  Decompose a noncrossing pairing at the
-partner of its first point to prove
-\[
-C_{n+1}=\sum_{j=0}^nC_jC_{n-j}.
-\]
-Deduce
-\[
-\sum_{n=0}^{\infty}C_nt^n
-=\frac{1-\sqrt{1-4t}}{2t}.
-\]
-Use the semicircular moment formula to recover
-\[
-G_{\rm sc}(z)=\frac{z-\sqrt{z^2-4}}2,
-\qquad zG_{\rm sc}(z)\longrightarrow1
-\quad(z\to\infty),
-\]
-and identify the branch cut with the limiting spectral interval of GUE.
-Use Stieltjes inversion to recover the semicircle density from the jump of
-$G_{\rm sc}$ across the branch cut.  For a measured large Hamiltonian or
-coupled-mode spectrum modeled by an additive free sum, use
-$R_{\mu\boxplus\nu}=R_\mu+R_\nu$ to predict the support edges and density
-of states.  State how convergence of the empirical Stieltjes transform and
-the observed spectral edges test the asymptotic-freeness model.
-\end{exercise}
+\section{Schur--Macdonald Measures and Fluctuations}
 
-\section{Integrable Probability}
-
-
-
-\begin{definition}[Tableaux and Schur functions]
-A semistandard Young tableau of shape $\lambda$ has weakly increasing rows
-and strictly increasing columns.
-For variables $a=(a_1,\ldots,a_m)$, define
-\[
-s_\lambda(a)=\sum_T\prod_{i=1}^m a_i^{m_i(T)},
-\]
-where $m_i(T)$ is the number of entries equal to $i$.
+\begin{definition}[Row insertion and RSK]
+A semistandard Young tableau has weakly increasing rows and strictly
+increasing columns.  To insert an integer $x$, replace the first entry
+strictly larger than $x$ in the first row and insert the replaced entry in
+the next row; append when no such entry exists.  For
+$A=(a_{ij})\in M_{m,n}(\Z_{\geq0})$, form the lexicographically ordered
+two-line word containing $a_{ij}$ copies of $(i,j)$, insert the lower
+letters, and record the upper letters in the created boxes.  The resulting
+pair $(P,Q)$ of tableaux of common shape $\lambda$ is the RSK image of
+$A$.
 \end{definition}
 
-\begin{definition}[RSK correspondence]
-The Robinson--Schensted--Knuth construction associates
-\[
-A=(a_{ij})\longmapsto(P,Q)
-\]
-to a matrix of nonnegative integers a pair of semistandard Young
-tableaux of the same shape $\lambda$, with the row and column sums of
-$A$ giving the contents of $P$ and $Q$.  For weights $a_{ij}\geq0$, define
+\begin{definition}[Last-passage values]
+For nonnegative weights $A=(a_{ij})$, define
 \[
 G(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
 \sum_{(i,j)\in\pi}a_{ij}.
 \]
+For parameters $a_i,b_j\geq0$ with $a_i b_j<1$, the geometric model has
+independent weights
+\[
+\mathbb P(a_{ij}=k)=(1-a_i b_j)(a_i b_j)^k,
+\qquad k\in\Z_{\geq0}.
+\]
 \end{definition}
 
-\begin{exercise}[Schensted and Greene theorems]
-Prove the RSK bijection and Greene's theorem.  For
-$A\in M_{m,n}(\Z_{\geq0})$, deduce
+\begin{exercise}[RSK and the finite Schur measure]
+Prove that row insertion is reversible and hence that RSK is a bijection.
+Show that the length of the first row of its shape is the maximal weight of
+an up-right path:
 \[
-\lambda_1=G(m,n)
+\lambda_1=G(m,n).
 \]
-and identify $\lambda_1+\cdots+\lambda_r$ with the maximal weight of
-$r$ disjoint up-right paths.  For independent geometric weights with
-parameters $a_i b_j$, use RSK to derive
+For variables $a=(a_1,\ldots,a_m)$, define
+\[
+s_\lambda(a)=\sum_T\prod_i a_i^{m_i(T)}.
+\]
+Use the contents of the two RSK tableaux and the geometric weight law to
+derive
 \[
 \mathbb P(\lambda)
 =\prod_{i,j}(1-a_i b_j)s_\lambda(a)s_\lambda(b)
 \]
-and prove the Cauchy identity
+and the Cauchy identity
 \[
 \sum_\lambda s_\lambda(a)s_\lambda(b)
 =\prod_{i,j}(1-a_i b_j)^{-1}.
 \]
 \end{exercise}
 
-
-\begin{definition}[Schur measures and processes]
-For $\mu\subseteq\lambda$, the \emph{skew Schur function}
-$s_{\lambda/\mu}$ is the tableau sum over the skew diagram
-$\lambda\setminus\mu$.  A \emph{specialization} is an algebra
-homomorphism from the algebra of symmetric functions to $\C$; it is
-\emph{Schur-positive} when
-$s_{\lambda/\mu}(\rho)\geq0$ for all $\mu\subseteq\lambda$.
-The \emph{Schur measure} associated to two Schur-positive specializations
-$\rho^+,\rho^-$ is
+\begin{definition}[Finite Schur kernel]
+For the preceding finite alphabets, set
 \[
-\mathbb P(\lambda)
-=\frac{s_\lambda(\rho^+)s_\lambda(\rho^-)}
-{\sum_\nu s_\nu(\rho^+)s_\nu(\rho^-)}.
+\Phi(z)=\frac{\prod_j(1-b_j/z)}{\prod_i(1-a_i z)}.
 \]
-An ascending \emph{Schur process} is a probability measure on
-$\lambda^{(1)}\subseteq\cdots\subseteq\lambda^{(m)}$ proportional to
+Choose concentric contours with
 \[
-s_{\lambda^{(1)}}(\rho_1^+)
-\prod_{r=2}^m
-s_{\lambda^{(r)}/\lambda^{(r-1)}}(\rho_r^+)
-s_{\lambda^{(m)}}(\rho^-).
+\max_j b_j<|w|<|z|<\min_i a_i^{-1}.
+\]
+For $r,s\in\Z+\tfrac12$, define
+\[
+K_{a,b}(r,s)
+=\frac1{(2\pi i)^2}\oint\!\oint
+\frac{\Phi(z)}{\Phi(w)}\frac{1}{z-w}
+z^{-r-1/2}w^{s-1/2}\,dz\,dw.
 \]
 \end{definition}
 
-\begin{exercise}[Schur-process correlations]
-Encode a partition by the Maya diagram
+\begin{exercise}[Schur determinantal counts]
+Encode $\lambda$ by
 \[
-\mathcal X(\lambda)=\{\lambda_i-i+\tfrac12:i\geq1\}.
+\mathcal X(\lambda)
+=\{\lambda_i-i+\tfrac12:i\geq1\}.
 \]
-Use the Cauchy and skew-Cauchy identities to prove that the induced
-space--time point process is determinantal.  Derive its double-contour
-correlation kernel and express the distribution of $\lambda_1$ as a
-Fredholm determinant.  Recover geometric last-passage percolation as a
-one-time marginal.
+Use the Cauchy identity and coefficient extraction on the displayed
+contours to prove that $\mathcal X(\lambda)$ is determinantal with kernel
+$K_{a,b}$.  Deduce the exact finite Fredholm formula
+\[
+\mathbb P(G(m,n)\leq L)
+=\det(I-K_{a,b})_{
+\ell^2(\{L+\tfrac12,L+\tfrac32,\ldots\})}.
+\]
+State how repeated last-passage or growth experiments with the specified
+geometric weights test this distribution without invoking an asymptotic
+limit.
 \end{exercise}
 
-\begin{definition}[Macdonald measures and processes]
-Let $P_\lambda(\,\cdot\,;q,t)$ be the Macdonald polynomials and let
-$Q_\lambda=b_\lambda(q,t)P_\lambda$ be their dual family.  Define the skew
-functions by
+\begin{definition}[Finite Macdonald measures]
+Let $0\leq q,t<1$, let $a=(a_1,\ldots,a_N)$ and
+$b=(b_1,\ldots,b_M)$ be nonnegative with $a_i b_j<1$, and let
+$P_\lambda$ be the Macdonald polynomials developed in the DAHA section.
+Let $Q_\lambda=b_\lambda(q,t)P_\lambda$ be the family dual to
+$P_\lambda$ for the Macdonald inner product.  Define
 \[
-P_\lambda(x,y)=\sum_\mu P_{\lambda/\mu}(x)P_\mu(y),
+\Pi(a;b)=\prod_{i,j}
+\frac{(t a_i b_j;q)_\infty}{(a_i b_j;q)_\infty},
 \qquad
-Q_\lambda(x,y)=\sum_\mu Q_{\lambda/\mu}(x)Q_\mu(y).
-\]
-For finite
-specializations $a,b$, define
-\[
-\Pi(a;b)
-=\prod_{i,j}\frac{(t a_i b_j;q)_\infty}{(a_i b_j;q)_\infty}.
-\]
-The \emph{Macdonald measure} is
-\[
 \mathbb P_{q,t}(\lambda)
 =\frac{P_\lambda(a;q,t)Q_\lambda(b;q,t)}{\Pi(a;b)}.
 \]
-The ascending \emph{Macdonald process} is
-\[
-\frac{
-P_{\lambda^{(1)}}(a^{(1)})
-\prod_{r=2}^m
-P_{\lambda^{(r)}/\lambda^{(r-1)}}(a^{(r)})
-Q_{\lambda^{(m)}}(b)}
-{\Pi(a^{(1)},\ldots,a^{(m)};b)}.
-\]
 \end{definition}
 
-\begin{exercise}[Macdonald observables]
-Apply the commuting Macdonald difference operators to the Cauchy identity
-and derive contour-integral formulas for the joint moments of
+\begin{exercise}[One Macdonald observable]
+Apply the first Macdonald difference operator in the $a$ variables to the
+Cauchy identity.  For distinct $a_i$, prove
 \[
-\sum_i q^{\lambda_i}t^{N-i}.
+\mathbb E_{q,t}\!\left[
+\sum_{i=1}^Nq^{\lambda_i}t^{N-i}\right]
+=\sum_{i=1}^N
+\prod_{j\ne i}\frac{t a_i-a_j}{a_i-a_j}
+\prod_{k=1}^M\frac{1-a_i b_k}{1-t a_i b_k},
 \]
-Prove that $q=t$ gives the Schur process, $q=0$ gives the
-Hall--Littlewood process, and $t=0$ gives the $q$-Whittaker process.
-Obtain Jack processes from the limit $q=t^\alpha$, $t\uparrow1$.
+and extend the identity to coincident parameters by continuity.  Verify
+the Schur specialization $q=t$ and the $q$-Whittaker specialization $t=0$.
+For samples from the finite measure, identify the displayed expectation as
+a directly estimable statistic and state the positivity, truncation, and
+sampling assumptions required for comparison with the formula.
 \end{exercise}
 
-
-\begin{definition}[White noise]
-\emph{Space--time white noise} on $\R_+\times\R$ is the centered Gaussian
-generalized process $\xi$ satisfying
-\[
-\mathbb E[\xi(\varphi)\xi(\psi)]
-=\int_{\R_+\times\R}\varphi(t,x)\psi(t,x)\,dt\,dx
-\]
-for test functions $\varphi,\psi$.
-\end{definition}
-
-\begin{definition}[TASEP and the KPZ equation]
-In the totally asymmetric simple exclusion process, particles on $\Z$
-attempt rate-one jumps from $x$ to $x+1$, and a jump is suppressed when
-$x+1$ is occupied.  Its integrated current defines a height function.
-The one-dimensional KPZ equation is
-\[
-\partial_t h
-=\nu\,\partial_x^2h
-+\frac{\lambda}{2}(\partial_xh)^2
-+\sqrt D\,\xi,
-\]
-where $\xi$ is space--time white noise.  Its Cole--Hopf solution is
-$h=(2\nu/\lambda)\log Z$, where $Z$ solves the corresponding stochastic
-heat equation with multiplicative noise.
-\end{definition}
-
-\begin{exercise}[KPZ scaling]
-Use the recursion
-\[
-G(m,n)=\max\{G(m-1,n),G(m,n-1)\}+a_{mn}
-\]
-to identify exponential last-passage times with TASEP currents.  For
-i.i.d.\ exponential weights, prove
+\begin{exercise}[Laguerre last-passage fluctuations]
+Set $a_i=b_j=e^{-\varepsilon/2}$ in the $n\times n$ geometric model and
+prove that $\varepsilon a_{ij}$ converges in distribution to a rate-one
+exponential variable as $\varepsilon\downarrow0$.  Take this limit in the
+finite Schur Fredholm formula and identify the resulting kernel with the
+Laguerre Christoffel--Darboux kernel.  Use the Laguerre contour integral
+and a double-saddle expansion at the upper spectral edge, together with
+uniform exponential bounds for the Fredholm series, to prove
 \[
 \frac{G(n,n)-4n}{2^{4/3}n^{1/3}}
 \Longrightarrow\chi_2,
 \qquad
 \mathbb P(\chi_2\leq s)=F_2(s).
 \]
-Derive the $1{:}2{:}3$ KPZ fluctuation scaling and its spatial Airy
-process limit.
-\end{exercise}
-
-\begin{exercise}[Macdonald--KPZ degeneration]
-At $t=0$, intertwine the $q$-Whittaker difference operators with the
-$q$-TASEP generator.  Derive a Fredholm-determinant formula for the
-$q$-Laplace transform of a particle position.  Take the $q\uparrow1$ limit
-to the O'Connell--Yor semi-discrete polymer and then its
-intermediate-disorder limit to the stochastic heat equation and the KPZ
-equation.  Identify the corresponding degenerations of the
-Macdonald-process observables.
-Under narrow-wedge initial data, carry the steepest-descent analysis of
-the limiting Fredholm kernel to the Airy kernel.  After fixing the
-nonuniversal velocity and scale from the first two cumulants, prove that
-the centered height has $t^{1/3}$ fluctuations and converges to the GUE
-Tracy--Widom distribution.  Deduce the $t^{2/3}$ correlation-length scale
-and state the resulting data collapse for repeated interface-height or
-directed-polymer free-energy measurements.
+Deduce the $n^{1/3}$ height-fluctuation scale and use the quadratic
+curvature of the deterministic limit shape to obtain the transverse
+$n^{2/3}$ scale.  State the independent-weight, boundary,
+centering, scale-calibration, and finite-size assumptions required when
+the Tracy--Widom prediction is compared with interface-height or directed
+transport data.
 \end{exercise}
