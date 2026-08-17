@@ -130,6 +130,27 @@ the expectations of $Q_\ell$ and $P_v$ for every $\ell\in V^*$ and
 $v\in V$.
 \end{exercise}
 
+\begin{exercise}[Linear symplectic covariance]
+Let $S$ be a linear symplectic automorphism of $V\oplus V^*$.  Construct
+unitary implementers for cotangent lifts of linear automorphisms of $V$,
+for symplectic shears defined by quadratic forms, and for the exchange of
+position and momentum implemented by the Fourier transform.  Prove for
+these generators that
+\[
+\mu(S)\operatorname{Op}_\hbar^W(a)\mu(S)^*
+=\operatorname{Op}_\hbar^W(a\circ S^{-1}),
+\qquad
+W_\hbar[\mu(S)\psi]=W_\hbar[\psi]\circ S^{-1}.
+\]
+Deduce the covariance for their products and prove that each implementer is
+determined up to phase.  Show that coherent choices form the metaplectic
+double cover, whose two lifts of a fixed symplectic map differ by sign.  Use
+the Groenewold--van Hove obstruction to show why exact covariance cannot
+extend to every nonlinear canonical transformation.  On a cotangent bundle
+$T^*Q$, apply this obstruction to overlaps of Darboux charts and identify
+the equivalence data required to compare their local products.
+\end{exercise}
+
 \begin{definition}[Generalized Laguerre polynomials]
 For $\alpha>-1$, define
 \[
@@ -188,27 +209,6 @@ $e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
 radial zero circles determined by $L_n$, and the sign at the phase-space
 origin.  State how homodyne quadrature data distinguish adjacent number
 states and detect Wigner negativity after inverse Radon reconstruction.
-\end{exercise}
-
-\begin{exercise}[Linear symplectic covariance]
-Let $S$ be a linear symplectic automorphism of $V\oplus V^*$.  Construct
-unitary implementers for cotangent lifts of linear automorphisms of $V$,
-for symplectic shears defined by quadratic forms, and for the exchange of
-position and momentum implemented by the Fourier transform.  Prove for
-these generators that
-\[
-\mu(S)\operatorname{Op}_\hbar^W(a)\mu(S)^*
-=\operatorname{Op}_\hbar^W(a\circ S^{-1}),
-\qquad
-W_\hbar[\mu(S)\psi]=W_\hbar[\psi]\circ S^{-1}.
-\]
-Deduce the covariance for their products and prove that each implementer is
-determined up to phase.  Show that coherent choices form the metaplectic
-double cover, whose two lifts of a fixed symplectic map differ by sign.  Use
-the Groenewold--van Hove obstruction to show why exact covariance cannot
-extend to every nonlinear canonical transformation.  On a cotangent bundle
-$T^*Q$, apply this obstruction to overlaps of Darboux charts and identify
-the equivalence data required to compare their local products.
 \end{exercise}
 
 \section{Moyal Deformation and Magnetic Bands}
@@ -356,9 +356,8 @@ $H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
 \end{definition}
 
 \begin{exercise}[de Rham classes and periods]
-On a star-shaped open subset of $\R^n$, construct a homotopy operator and
-prove the Poincar\'e lemma: every closed form of positive degree is exact.
-Use Stokes' theorem to prove that an exact $k$-form has zero integral over
+Use the local Poincar\'e lemma from Hamiltonian Geometry and Stokes' theorem
+to prove that an exact $k$-form has zero integral over
 every closed oriented $k$-manifold mapped smoothly into $M$. Prove
 $H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
 
@@ -560,7 +559,7 @@ On $C_c^\infty(\operatorname{Conf}_N(S^1))^{S_N}$ define
 \frac1{\sin^2((\theta_i-\theta_j)/2)}\right]
 \]
 and let the same symbol denote its Friedrichs realization in
-$L^2((S^1)^N)^{S_N}$.  Its ground-state factor is
+$L^2((S^1)^N)^{S_N}$.  Define
 \[
 \Psi_0(\theta)=\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^g.
 \]
@@ -959,7 +958,18 @@ lines are the \emph{$q$-Clebsch--Gordan coefficients}.
 \end{definition}
 
 \begin{exercise}[XXZ coupling amplitudes]
-On $V_1^{\otimes L}$ let
+Use the distinguished weight-line realization
+$V_1=\C e_+\oplus\C e_-$ of the fundamental type-$1$ module.  Define the
+Pauli endomorphisms, relative to the ordered weight lines, by
+\[
+\sigma^x=\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+\sigma^y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},
+\qquad
+\sigma^z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},
+\]
+and let $\sigma_j^a$ act as $\sigma^a$ on the $j$th tensor factor and as
+the identity on the others.  On $V_1^{\otimes L}$ let
 \[
 \begin{aligned}
 H_{\rm XXZ}=J\sum_{j=1}^{L-1}\biggl(&
@@ -1284,14 +1294,6 @@ $(T-k)(T+k^{-1})=0$, and define
 \[
 e=\frac{T+k^{-1}}{k+k^{-1}}.
 \]
-Its basic polynomial representation is on
-$\mathcal L=\C[z^{\pm1}]$ by reflection--$q$-difference operators, and
-\[
-e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
-=\C[z+z^{-1}].
-\]
-The action of $e\widehat{\mathsf H}_q e$ on $e\mathcal L$ is the
-\emph{spherical rank-one polynomial representation}.
 \end{definition}
 
 \begin{definition}[Generalized hypergeometric series]
@@ -1349,8 +1351,15 @@ $\widehat{\mathsf H}_q(C_1^\vee,C_1)$ from the involutions
 (s_0f)(z)=f(qz^{-1})
 \]
 and first-order reflection--$q$-difference operators.  Verify the four
-Hecke relations and the product relation.  Prove that the spherical
-subalgebra is generated in its polynomial representation by multiplication
+Hecke relations and the product relation on
+$\mathcal L=\C[z^{\pm1}]$.  Prove
+\[
+e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
+=\C[z+z^{-1}],
+\]
+and define the resulting action of $e\widehat{\mathsf H}_q e$ on this
+subspace to be the spherical rank-one polynomial representation.  Prove that
+the spherical subalgebra is generated in its polynomial representation by multiplication
 by $z+z^{-1}$ and $\mathcal D_{AW}$.  Prove
 \[
 \mathcal D_{AW}p_n
@@ -1410,12 +1419,9 @@ and
 \[
 (\pi f)(x_1,\ldots,x_r)=f(x_2,\ldots,x_r,qx_1).
 \]
-For generic independent parameters $q,t$, the operator algebra generated
-by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ is the polynomial realization of
-the $GL_r$ \emph{double affine Hecke algebra} $\mathsf H_{q,t}(GL_r)$.
-The subalgebra generated by $T_i$ and $\pi^{\pm1}$ is an extended affine
-Hecke algebra; its translation elements form a commuting family
-$Y_1,\ldots,Y_r$ of $q$-difference-reflection operators.
+For generic independent parameters $q,t$, call the operator algebra
+generated by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ the type-$A$
+polynomial operator model.
 \end{definition}
 
 \begin{exercise}[DAHA polynomial quotient]
@@ -1433,6 +1439,8 @@ from the double-affine braid-group algebra by imposing
 (T_i-t^{1/2})(T_i+t^{-1/2})=0
 \]
 and specializing its central parameter to $q$.
+Conclude that the polynomial operator model is a realization of
+$\mathsf H_{q,t}(GL_r)$.
 \end{exercise}
 
 \begin{definition}[Macdonald operators and polynomials]
@@ -1611,9 +1619,11 @@ and compute the limit $q\to1^-$ with $z_i=e^{i\theta_i}$.
 \end{exercise}
 
 \begin{exercise}[Askey--Wilson spectrum]
-Fix $M\geq0$ and let $\mathcal H_M$ be the span of the normalized
-Askey--Wilson polynomials $p_0,\ldots,p_M$ with their positive
-Askey--Wilson inner product.  Model a finite programmable $q$-difference
+Fix $M\geq4$ and parameters $a,b,c,d\in(-1,1)$ for which the
+Askey--Wilson weight is positive and the first $M+1$ eigenvalues are
+distinct.  Let $\mathcal H_M$ be the span of the normalized Askey--Wilson
+polynomials $p_0,\ldots,p_M$ with their positive Askey--Wilson inner
+product.  Model a finite programmable $q$-difference
 simulator by the self-adjoint Hamiltonian
 $\widehat H_M=\varepsilon\mathcal D_{AW}|_{\mathcal H_M}$, where
 $\varepsilon>0$ is a calibrated energy scale.  Prove that its spectral
@@ -1629,14 +1639,21 @@ and compute the corresponding normalized matrix elements.  Deduce that a
 periodic perturbation proportional to the compression of $z+z^{-1}$ to
 $\mathcal H_M$ produces only neighboring transitions, with resonance frequencies
 $|E_{n+1}-E_n|/\hbar$ and intensities determined by $A_n$ and $C_{n+1}$.
-Assuming $\varepsilon$ is known and sufficiently many nondegenerate lines
-are resolved, derive the equations satisfied by $q$ and the product
-$abcd$.  Compute the Jacobian of two independent gap ratios and state the
+Assuming $\varepsilon$ is known and at least three nondegenerate lines are
+resolved, derive the equations satisfied by $q$ and the product $abcd$.
+Compute the Jacobian of two independent gap ratios and state the
 nonvanishing and parameter-range hypotheses under which these two
 quantities are locally identifiable.
-Prove that the relative strengths determine only the unordered parameter
-set $\{a,b,c,d\}$ unless additional observables break its permutation
-symmetry.  State that these are predictions for the engineered simulator.
+
+Form the data map from $(a,b,c,d)$ to four selected squared normalized
+neighboring matrix elements.  Prove that it is invariant under permutation
+of the parameters.  At a chosen parameter point, compute its differential
+in the four elementary symmetric functions and state the full-rank
+hypothesis under which the measured strengths locally determine the
+unordered set $\{a,b,c,d\}$.  When this rank condition fails, identify the
+remaining fiber instead of asserting identifiability; state also that
+squared strengths cannot distinguish any additional discrete ambiguity in
+that fiber.  State that these are predictions for the engineered simulator.
 \end{exercise}
 
 \begin{exercise}[Macdonald--Ruijsenaars spectroscopy]
@@ -1717,21 +1734,6 @@ h(px)=h(x).
 \]
 Its parameters are \emph{balanced} when the products of the numerator and
 denominator parameters required by this ellipticity agree.
-The deformation and degeneration orders are
-\[
-\text{ordinary/additive}
-\longrightarrow
-\text{basic/multiplicative}
-\longrightarrow
-\text{elliptic},
-\]
-\[
-\text{elliptic}
-\xrightarrow{\ p\to0\ }
-\text{basic}
-\xrightarrow{\ q\to1\ }
-\text{ordinary}.
-\]
 \end{definition}
 
 \begin{exercise}[Elliptic degenerations]

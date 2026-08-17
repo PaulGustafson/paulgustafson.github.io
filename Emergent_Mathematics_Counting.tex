@@ -3,7 +3,7 @@
 \section{Graded Traces and Characters}
 
 \begin{definition}[Symmetric powers and graded traces]
-For a linear space $V$, define
+For a finite-dimensional complex linear space $V$, define
 \[
 \operatorname{Sym}^mV
 =V^{\otimes m}/\langle \xi-\sigma\xi:
@@ -215,18 +215,32 @@ complementary contour to derive
 p(n)\sim\frac1{4n\sqrt3}
 \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
 \]
-For a modular-invariant unitary character system with unique vacuum, apply
-the same calculation to $Z_M(i\beta/(2\pi))$ and prove
+For the diagonal Ising system, define nonnegative integers $d_a(N)$ by
 \[
-\log\rho(N,\bar N)
-\sim2\pi\sqrt{\frac{cN}{6}}
-+2\pi\sqrt{\frac{\bar c\bar N}{6}}.
+\chi_a(\tau)
+=q^{h_a-c/24}\sum_{N\geq0}d_a(N)q^N
 \]
-For the Ising system, derive the resulting asymptotic number of states below
-a specified high energy on a circle and the corresponding entropy.  State
+and define the resolved two-sided degeneracy
+\[
+\rho_{\rm Ising}(N,\bar N)
+=\sum_{a\in\{0,1/2,1/16\}}d_a(N)d_a(\bar N).
+\]
+Use the explicit theta-product formulas and the $S$-transformation to
+control each character in a complex neighborhood of the positive real
+saddle.  Bound the complementary arcs as in the partition calculation and
+prove, as $N,\bar N\to\infty$ with $N/\bar N$ in a fixed compact subset of
+$(0,\infty)$,
+\[
+\log\rho_{\rm Ising}(N,\bar N)
+\sim2\pi\sqrt{\frac{cN}{6}}
++2\pi\sqrt{\frac{c\bar N}{6}},
+\qquad c=\frac12.
+\]
+Derive the resulting asymptotic number of states below a specified high
+energy on a circle and the corresponding entropy.  State
 the circumference, propagation speed, energy window, vacuum assumption,
-and finite-size limitations required when comparing these predictions with
-measured or transfer-matrix spectra.
+sector resolution, saddle-point regime, and finite-size limitations required
+when comparing these predictions with measured or transfer-matrix spectra.
 \end{exercise}
 
 \section{Transfer-Matrix Traces and Finite-Size Spectra}
@@ -742,15 +756,65 @@ geometric weights test this distribution without invoking an asymptotic
 limit.
 \end{exercise}
 
+\begin{definition}[Symmetric-function Macdonald pairing]
+Let $\Lambda_{\rm sym}=\C[p_1,p_2,\ldots]$ be graded by
+$\deg p_r=r$.  For a partition $\mu$, let $m_r(\mu)$ be the number of its
+parts equal to $r$, and define
+\[
+z_\mu=\prod_{r\geq1}r^{m_r(\mu)}m_r(\mu)!,
+\qquad
+p_\mu=\prod_jp_{\mu_j},
+\qquad
+p_r(x)=\sum_i x_i^r.
+\]
+Define the symmetric-function Macdonald pairing by
+\[
+\langle p_\mu,p_\nu\rangle^{\rm sym}_{q,t}
+=\delta_{\mu\nu}z_\mu
+\prod_j\frac{1-q^{\mu_j}}{1-t^{\mu_j}}.
+\]
+For a cell $s=(i,j)$ in the diagram of $\lambda$, define its arm and leg by
+\[
+a_\lambda(s)=\lambda_i-j,
+\qquad
+\ell_\lambda(s)=\lambda'_j-i,
+\]
+and put
+\[
+b_\lambda(q,t)
+=\prod_{s\in\lambda}
+\frac{1-q^{a_\lambda(s)}t^{\ell_\lambda(s)+1}}
+{1-q^{a_\lambda(s)+1}t^{\ell_\lambda(s)}}.
+\]
+\end{definition}
+
+\begin{exercise}[Stable Macdonald pairing and Cauchy identity]
+Prove that the finite-variable Macdonald polynomials are stable under
+adjoining a zero variable and hence determine elements $P_\lambda$ of
+$\Lambda_{\rm sym}$.  Put $Q_\lambda=b_\lambda(q,t)P_\lambda$.
+Use the adjointness of the DAHA difference operators
+and triangularity to prove
+\[
+\langle P_\lambda,P_\mu\rangle^{\rm sym}_{q,t}
+=\delta_{\lambda\mu}b_\lambda(q,t)^{-1}.
+\]
+Deduce that $P_\lambda$ and $Q_\lambda$ are dual.  Expand the reproducing
+kernel in the power sums and use the $q$-binomial identity to prove
+\[
+\sum_\lambda P_\lambda(a;q,t)Q_\lambda(b;q,t)
+=\prod_{i,j}\frac{(t a_i b_j;q)_\infty}
+{(a_i b_j;q)_\infty}
+\]
+for finite alphabets with $a_i b_j<1$.
+\end{exercise}
+
 \begin{definition}[Finite Macdonald measures]
 Let $0\leq q,t<1$, let $a=(a_1,\ldots,a_N)$ and
 $b=(b_1,\ldots,b_M)$ be nonnegative with $a_i b_j<1$, and let
-$P_\lambda$ be the Macdonald polynomials developed in the DAHA section.
-Let $Q_\lambda=b_\lambda(q,t)P_\lambda$ be the family dual to
-$P_\lambda$ for the Macdonald inner product.  Define
+$P_\lambda,Q_\lambda$ be the preceding Macdonald functions.  Define
 \[
-\Pi(a;b)=\prod_{i,j}
-\frac{(t a_i b_j;q)_\infty}{(a_i b_j;q)_\infty},
+\Pi(a;b)=\sum_\lambda
+P_\lambda(a;q,t)Q_\lambda(b;q,t),
 \qquad
 \mathbb P_{q,t}(\lambda)
 =\frac{P_\lambda(a;q,t)Q_\lambda(b;q,t)}{\Pi(a;b)}.
