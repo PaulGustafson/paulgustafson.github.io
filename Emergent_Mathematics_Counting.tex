@@ -9,9 +9,8 @@ For a finite-dimensional complex linear space $V$, define
 =V^{\otimes m}/\langle \xi-\sigma\xi:
 \xi\in V^{\otimes m},\ \sigma\in S_m\rangle.
 \]
-An endomorphism $T$ induces endomorphisms
-$\operatorname{Sym}^mT$ and $\Lambda^mT$.  Their bosonic and fermionic
-graded traces are
+An endomorphism $T$ induces $\operatorname{Sym}^mT$.  Using the exterior
+powers and trace defined in Hamiltonian Geometry, define
 \[
 Z_B(T;z)=\sum_{m\geq0}\operatorname{tr}(\operatorname{Sym}^mT)z^m,
 \qquad
@@ -60,31 +59,18 @@ Interpret the coefficient of $q^n$ as the exact degeneracy at excitation
 energy $n\hbar\omega$ for the corresponding bosonic or fermionic system.
 \end{exercise}
 
-\begin{definition}[Gaussian binomial coefficients]
-For $0\leq r\leq n$, define
-\[
-\qbinom{n}{r}
-=\frac{(q;q)_n}{(q;q)_r(q;q)_{n-r}},
-\]
-and set it equal to zero outside this range.
-\end{definition}
-
-\begin{exercise}[Gaussian binomial theorem]
-Derive
-\[
-\qbinom{n}{r}
-=\qbinom{n-1}{r}+q^{n-r}\qbinom{n-1}{r-1}
-\]
-and prove
-\[
-\prod_{j=0}^{n-1}(1+tq^j)
-=\sum_{r=0}^n q^{r(r-1)/2}\qbinom{n}{r}t^r.
-\]
+\begin{exercise}[Gaussian-binomial state counts]
+Apply the Gaussian binomial theorem from Quantum Groups with $u=q$.
 Prove that the coefficient of $q^m$ in $\qbinom{n}{r}$ counts partitions
 of $m$ whose diagrams fit inside an $r\times(n-r)$ rectangle.  For $n$
-equally spaced fermionic levels, identify the coefficient of $t^rq^m$
-with the exact number of $r$-particle states of excitation $m$ above the
-filled lowest configuration.
+fermionic levels with energies $j\hbar\omega$, $0\leq j<n$, prove that the
+coefficient of $t^rq^{m+r(r-1)/2}$ in
+\[
+\prod_{j=0}^{n-1}(1+tq^j)
+\]
+is the exact number of $r$-particle states at excitation energy
+$m\hbar\omega$ above the filled lowest configuration, and identify it with
+the coefficient of $q^m$ in $\qbinom{n}{r}$.
 \end{exercise}
 
 \begin{exercise}[Hecke Poincar\'e identity]

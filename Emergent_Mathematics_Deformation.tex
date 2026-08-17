@@ -726,18 +726,34 @@ coboundary Lie bialgebra on $\mathfrak{sl}_2$.  Prove that the relations and
 coproduct tend to those of $U(\mathfrak{sl}_2)$ as $\hbar\to0$.
 \end{exercise}
 
-\begin{exercise}[Quantum-group binomial identity]
-For $YX=q^2XY$, define
+\begin{definition}[Gaussian binomial coefficients]
+For an indeterminate $u$, $n\geq0$, and $0\leq r\leq n$, define
 \[
-\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}
-=\prod_{j=1}^r\frac{1-q^{2(n-r+j)}}{1-q^{2j}}.
+\genfrac{[}{]}{0pt}{}{n}{r}_{u}
+=\prod_{j=1}^r\frac{1-u^{n-r+j}}{1-u^j},
 \]
-Prove the noncommutative binomial identity
+with value $1$ for $r=0$ and value $0$ outside this range.
+\end{definition}
+
+\begin{exercise}[Gaussian and quantum-group binomial identities]
+Derive
+\[
+\genfrac{[}{]}{0pt}{}{n}{r}_{u}
+=\genfrac{[}{]}{0pt}{}{n-1}{r}_{u}
++u^{n-r}\genfrac{[}{]}{0pt}{}{n-1}{r-1}_{u}
+\]
+and prove
+\[
+\prod_{j=0}^{n-1}(1+tu^j)
+=\sum_{r=0}^n
+u^{r(r-1)/2}\genfrac{[}{]}{0pt}{}{n}{r}_{u}t^r.
+\]
+For $YX=uXY$, prove the noncommutative identity
 \[
 (X+Y)^n=\sum_{r=0}^n
-\genfrac{[}{]}{0pt}{}{n}{r}_{q^2}X^rY^{n-r}.
+\genfrac{[}{]}{0pt}{}{n}{r}_{u}X^rY^{n-r}.
 \]
-Apply it to
+Set $u=q^2$ and apply it to
 $X=E\otimes1$ and $Y=K\otimes E$ in $U_q(\mathfrak{sl}_2)$ to obtain an
 explicit formula for $\Delta(E^n)$.  Show that the limit $q\to1$ recovers
 the ordinary binomial theorem and the undeformed coproduct.
