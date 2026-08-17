@@ -208,6 +208,15 @@ $U\times W\to U$ by fiberwise linear maps.  A section is a smooth map
 $s:Q\to E$ satisfying $\pi s=\id_Q$.  The bundles $TQ$ and $T^*Q$ are the
 tangent and cotangent bundles.  A classical position--momentum state is a
 pair $(q,p)$ with $p\in T_q^*Q$, and its wave covector is $k=p/\hbar$.
+If $x=(x^1,\ldots,x^n)$ is a coordinate chart on $U\subseteq Q$, the
+canonical tangent-bundle chart is
+\[
+TQ|_U\longrightarrow x(U)\times\R^n,
+\qquad
+v\in T_qQ\longmapsto
+\bigl(x(q),v(x^1),\ldots,v(x^n)\bigr),
+\]
+and the cotangent bundle has the dual bundle chart.
 \end{definition}
 
 \begin{exercise}[From linear to cotangent phase space]
@@ -1551,6 +1560,21 @@ e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
 \]
 The action of $e\widehat{\mathsf H}_q e$ on $e\mathcal L$ is the
 \emph{spherical rank-one polynomial representation}.
+\end{definition}
+
+\begin{definition}[Generalized hypergeometric series]
+If no denominator parameter $b_j$ is a nonpositive integer, define
+\[
+{}_rF_s\!\left(
+\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};z
+\right)
+=\sum_{m=0}^\infty
+\frac{(a_1)_m\cdots(a_r)_m}
+{(b_1)_m\cdots(b_s)_m}\frac{z^m}{m!}.
+\]
+The series is finite when a numerator parameter is a nonpositive integer.
+Otherwise it converges for every $z$ when $r\leq s$, for $|z|<1$ when
+$r=s+1$, and only at $z=0$ when $r>s+1$.
 \end{definition}
 
 \begin{definition}[Wilson polynomials]

@@ -2,6 +2,33 @@
 
 \section{Exact State Counting}
 
+\begin{definition}[Symmetric powers]
+For a linear space $V$, the $m$th \emph{symmetric power} is
+\[
+\operatorname{Sym}^mV
+=V^{\otimes m}/\langle v_1\otimes\cdots\otimes v_m
+-v_{\sigma(1)}\otimes\cdots\otimes v_{\sigma(m)}:\sigma\in S_m\rangle.
+\]
+An endomorphism $T$ induces $\operatorname{Sym}^mT$ on
+$\operatorname{Sym}^mV$.
+\end{definition}
+
+\begin{exercise}[Symmetric-power trace identity]
+Let $V$ be a finite-dimensional complex linear space and $T\in\End(V)$.
+Prove that
+\[
+\sum_{m=0}^{\infty}
+\operatorname{tr}(\operatorname{Sym}^mT)z^m
+=\frac1{\det(I-zT)}
+\]
+for $|z|$ smaller than the reciprocal of the spectral radius of $T$.
+For $T=I$, deduce
+\[
+\sum_{m=0}^{\infty}\dim(\operatorname{Sym}^mV)z^m
+=(1-z)^{-\dim V}.
+\]
+\end{exercise}
+
 
 
 
@@ -114,6 +141,38 @@ exact coefficient formula; see
 \href{https://doi.org/10.1112/plms/s2-17.1.75}
 {Hardy--Ramanujan, \emph{Proceedings of the London Mathematical Society}
 \textbf{17} (1918)}.
+\end{exercise}
+
+\begin{definition}[Eisenstein series and the discriminant]
+Let $\sigma_r(n)=\sum_{d\mid n}d^r$.  The normalized Eisenstein series of
+weights four and six are
+\[
+E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
+\qquad
+E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
+\]
+The modular discriminant is the weight-twelve cusp form
+\[
+\Delta(\tau)=\eta(\tau)^{24}
+=q\prod_{n\geq1}(1-q^n)^{24}
+=\frac{E_4(\tau)^3-E_6(\tau)^2}{1728}.
+\]
+\end{definition}
+
+\begin{exercise}[Eisenstein series and the $E_8$ shell]
+Construct Eisenstein series by summing $(m\tau+n)^{-k}$ over nonzero lattice
+points for even $k>2$, prove their modular transformation law, and obtain the
+displayed Fourier expansions for $E_4$ and $E_6$.  For a positive-definite
+even unimodular lattice, use consistency of the $S$ and $T$ laws to prove
+that its dimension $d$ is divisible by eight and that its theta series is a
+modular form of weight $d/2$.  Construct the $E_8$ lattice as
+\[
+ \{x\in\Z^8:\textstyle\sum_i x_i\equiv0\pmod2\}
+ \cup
+ \{x\in(\Z+\tfrac12)^8:\textstyle\sum_i x_i\equiv0\pmod2\}.
+\]
+Enumerate its vectors of squared length two and obtain $240$, matching the
+coefficient of $q$ in $E_4$.
 \end{exercise}
 
 
@@ -294,6 +353,35 @@ eigenvalues determine $c$, the primary weights, and $v$.
 \end{exercise}
 
 \section{Random Matrices}
+
+\begin{definition}[Probability spaces and convergence]
+A \emph{probability space} is a measure space
+$(\Omega,\mathcal F,\mathbb P)$ with $\mathbb P(\Omega)=1$.  A
+\emph{random variable} is a measurable map $X:\Omega\to Y$, its
+\emph{law} is $\mathbb P_X(B)=\mathbb P(X^{-1}(B))$, and, when it is
+scalar-valued and integrable, its \emph{expectation} is its integral.
+A random vector $X=(X_1,\ldots,X_N)$ has \emph{joint density} $p$ with
+respect to a measure $\mu$ when
+\[
+\mathbb P(X\in B)=\int_Bp\,d\mu.
+\]
+The Gaussian law $N(m,v)$ on $\R$ has density
+\[
+\frac1{\sqrt{2\pi v}}\exp\!\left[-\frac{(x-m)^2}{2v}\right].
+\]
+A sequence of random variables in a metric space
+$(Y,d)$ \emph{converges in probability} to $X$ when
+\[
+\mathbb P(d(X_N,X)>\varepsilon)\longrightarrow0
+\qquad(\varepsilon>0).
+\]
+It \emph{converges in distribution}, written $X_N\Longrightarrow X$,
+when
+\[
+\int f\,d\mathbb P_{X_N}\longrightarrow\int f\,d\mathbb P_X
+\]
+for every bounded continuous $f$.
+\end{definition}
 
 
 
@@ -577,6 +665,32 @@ scale $[N\rho_{\rm sc}(E)]^{-1}$.  Prove
 \qquad(s\downarrow0),
 \]
 and derive the edge scale $s\asymp\sigma N^{-2/3}$.
+\end{exercise}
+
+\begin{definition}[Fredholm determinant]
+For $A\in S_1(H)$ with nonzero eigenvalues
+$\lambda_1(A),\lambda_2(A),\ldots$, repeated according to algebraic
+multiplicity, define
+\[
+\det(I+zA)=\prod_{j=1}^{\infty}(1+z\lambda_j(A)).
+\]
+\end{definition}
+
+\begin{exercise}[Fredholm determinant and trace identity]
+Prove that the defining product converges absolutely and locally uniformly
+in $z$ and agrees with the exterior-power determinant when $A$ has finite
+rank.  Prove
+\[
+\det(I-zA)
+=\exp\!\left(-\sum_{m=1}^{\infty}
+\frac{z^m}{m}\Tr(A^m)\right)
+\]
+for $|z|<\|A\|^{-1}$.  Prove that the determinant is entire and that its
+zeros are the reciprocals of the negatives of the nonzero eigenvalues of
+$A$.  Construct the completed exterior powers of $H$ and deduce
+\[
+\det(I+zA)=\sum_{m=0}^{\infty}z^m\Tr(\Lambda^mA).
+\]
 \end{exercise}
 
 \begin{definition}[Airy kernel and the Tracy--Widom law]

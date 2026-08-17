@@ -16,6 +16,10 @@ These rules apply to the manuscript entry point
   definition "shows," "means," "records," or "indicates."
 - Do not add minor computational drills merely to fill out a section. Keep
   exercises for structurally important results.
+- Require each exercise to be solvable from definitions and results developed
+  earlier in the manuscript. Do not compress a theorem requiring substantial
+  undeveloped machinery into a single instruction to prove it; either build a
+  sufficient exercise sequence or restrict the result to a developed model.
 - Preserve mathematical qualifications and normalization conventions needed
   for correctness; concision must not remove hypotheses or domain conditions.
 - Keep the manuscript coordinate-free in substance, not merely in vocabulary.
