@@ -1415,7 +1415,7 @@ Identify discrepancies produced by the finite boundary, loss, and
 discretization.
 \end{exercise}
 
-\section{Kirillov Orbit Method}
+\section{Heisenberg Group}
 
 
 
@@ -1791,8 +1791,19 @@ in the weak operator topology.
 
 
 \begin{exercise}[Schr\"odinger character]
-For $V=\R^n$ and $f$ satisfying
-$f\circ\exp\in\mathcal S(\mathfrak h_n)$, prove
+For $V=\R^n$, let $f\in C^\infty(\mathbb H_n)$ satisfy
+\[
+(q,p,s)\longmapsto f\bigl(\exp(q,p,s)\bigr)
+\in\mathcal S(\R^{2n+1})
+\]
+under the canonical identification
+$\mathfrak h_n=\R^n\oplus(\R^n)^*\oplus\R$.  With Haar measure
+$dq\,dp\,ds$, put
+\[
+\pi_\lambda(f)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)\,dg.
+\]
+Prove
 \[
 \Tr\pi_\lambda(f)
 =(2\pi)^n|\lambda|^{-n}
