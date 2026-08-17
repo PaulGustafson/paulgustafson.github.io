@@ -85,6 +85,10 @@ These rules apply to the manuscript entry point
   application follows from the preceding development.
 - Introduce prerequisites before their first use and do not reintroduce them
   in later sections.
+- Treat general topology, including compactness, local compactness, Borel
+  sets, regular Borel measures, and the spaces $C_b(X)$, $C_0(X)$, and
+  $C_c(X)$, as a prerequisite for the course; do not define these notions in
+  the manuscript.
 - Preserve the definitions-and-exercises format: applications and
   experimental interpretations belong in exercises, not in transitional
   prose.
