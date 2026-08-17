@@ -43,7 +43,7 @@ These rules apply to the manuscript entry point
   the geometric object itself. Structural choices and normalization data such
   as positive roots, Haar measures, branches, and Frobenius conventions must
   remain explicit when the resulting formulas depend on them.
-- Define a finite-dimensional linear space by the existence of evaluation and
+- Define a finite-dimensional vector space by the existence of evaluation and
   coevaluation maps satisfying the two snake identities. Use the term
   "finite-dimensional" directly; do not introduce the word "dualizable" or
   compare this definition with a coordinate definition.

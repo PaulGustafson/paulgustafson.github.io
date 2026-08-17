@@ -4,8 +4,8 @@
 
 
 
-\begin{definition}[Linear spaces and maps]
-Let $k$ be a field.  A \emph{linear space} over $k$ is an abelian group
+\begin{definition}[Vector spaces and linear maps]
+Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
 $V$ with scalar multiplication satisfying
 \[
 a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
@@ -42,8 +42,8 @@ The evaluation pairing induces a linear map
 $\operatorname{ev}_V:V^\vee\otimes V\to k$.
 \end{definition}
 
-\begin{definition}[Finite-dimensional linear spaces]
-A linear space $V$ is \emph{finite-dimensional} when there is a
+\begin{definition}[Finite-dimensional vector spaces]
+A vector space $V$ is \emph{finite-dimensional} when there is a
 coevaluation map
 \[
 \operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
@@ -60,7 +60,7 @@ satisfying the snake identities
 \end{definition}
 
 \begin{definition}[Exterior powers, dimension, and determinant]
-For $m\geq0$, the $m$th \emph{exterior power} of a linear space $V$ is
+For $m\geq0$, the $m$th \emph{exterior power} of a vector space $V$ is
 \[
 \Lambda^mV
 =V^{\otimes m}/
@@ -84,7 +84,7 @@ u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
 \]
 make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
 \emph{exterior algebra} of $V$.
-A finite-dimensional linear space $V$ has \emph{dimension} $n$ when
+A finite-dimensional vector space $V$ has \emph{dimension} $n$ when
 $\Lambda^nV\ne0$ and $\Lambda^{n+1}V=0$.  Its \emph{determinant} is the scalar
 $\det(T)$ defined by the action on the highest nonzero exterior power:
 \[
@@ -93,7 +93,7 @@ $\det(T)$ defined by the action on the highest nonzero exterior power:
 \end{definition}
 
 \begin{definition}[Trace]
-For a finite-dimensional linear space $V$, let
+For a finite-dimensional vector space $V$, let
 $s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors.
 For $T\in\End(V)$, define
 \[
@@ -104,7 +104,7 @@ For $T\in\End(V)$, define
 \end{definition}
 
 \begin{exercise}[Dimension, trace, and determinant]
-Prove that every finite-dimensional linear space has a unique dimension $n$
+Prove that every finite-dimensional vector space has a unique dimension $n$
 and that
 \[
 \operatorname{tr}(\id_V)=n\,1_k.
@@ -136,7 +136,7 @@ whose transition maps are smooth.  A map of smooth manifolds is
 \emph{smooth} when its chart representatives are smooth; it is a
 \emph{diffeomorphism} when it has a smooth inverse.
 
-The \emph{tangent space} $T_pM$ is the linear space of derivations
+The \emph{tangent space} $T_pM$ is the vector space of derivations
 $v:C^\infty(M)\to\R$ at $p$, satisfying
 \[
 v(fg)=f(p)v(g)+g(p)v(f).
@@ -158,7 +158,7 @@ TM=\coprod_{p\in M}T_pM,
 T^*M=\coprod_{p\in M}T_p^*M.
 \]
 A smooth vector bundle is a smooth map $\pi:E\to M$ locally isomorphic to
-$U\times W\to U$ for a finite-dimensional real linear space $W$, by
+$U\times W\to U$ for a finite-dimensional real vector space $W$, by
 fiberwise linear maps.  A section is a smooth map
 $s:M\to E$ satisfying $\pi s=\id_M$.  The bundles $TM$ and $T^*M$ have
 the bundle structures induced by the differentials of chart maps and
@@ -221,7 +221,7 @@ $\iota_X$, prove Cartan's identity
 
 \begin{exercise}[Local Poincar\'e lemma]
 Let $U$ be a star-shaped open neighborhood of $0$ in a finite-dimensional
-real linear space.  For $\alpha\in\Omega^k(U)$ with $k>0$, define
+real vector space.  For $\alpha\in\Omega^k(U)$ with $k>0$, define
 \[
 (K\alpha)_x(v_1,\ldots,v_{k-1})
 =\int_0^1t^{k-1}\alpha_{tx}(x,v_1,\ldots,v_{k-1})\,dt.
@@ -244,7 +244,7 @@ The canonical two-form on $T^*Q$ is $\omega=d\theta$.
 \end{definition}
 
 \begin{exercise}[From linear to cotangent phase space]
-For a finite-dimensional real linear space $V$, construct the canonical
+For a finite-dimensional real vector space $V$, construct the canonical
 identifications
 \[
 TV\cong V\times V,
@@ -262,8 +262,8 @@ $\theta$ and $d\theta$.  Under $T^*V\cong V\times V^*$, prove
 
 \begin{definition}[Symplectic manifolds]
 A \emph{symplectic form} on a smooth manifold $M$ is a closed
-nondegenerate two-form $\omega$.  A \emph{symplectic linear space} is a
-finite-dimensional real linear space with a nondegenerate alternating
+nondegenerate two-form $\omega$.  A \emph{symplectic vector space} is a
+finite-dimensional real vector space with a nondegenerate alternating
 bilinear form, regarded as a constant symplectic form.  For
 $f\in C^\infty(M)$, define
 \[
@@ -279,7 +279,7 @@ A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
 \begin{exercise}[Darboux theorem]
 Prove that the canonical two-form $d\theta$ on $T^*Q$ is nondegenerate and
 hence symplectic.
-Prove that every symplectic linear space of dimension $2n$ is
+Prove that every symplectic vector space of dimension $2n$ is
 symplectically isomorphic to
 \[
 (\R^{2n},\omega_0),
@@ -315,9 +315,39 @@ prove
 \label{ex:liouville-theorem}
 On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
 preserves $\omega$, the volume form $\omega^n/n!$, and every density
-depending only on the Hamiltonian.  On a symplectic linear space, prove
+depending only on the Hamiltonian.  On a symplectic vector space, prove
 that the infinitesimal generator of a linear Hamiltonian flow has trace
 zero and that the flow has determinant one.
+\end{exercise}
+
+\begin{definition}[Rising factorial and binomial series]
+For $a\in\C$ and $m\in\Z_{\geq0}$, define
+\[
+(a)_0=1,
+\qquad
+(a)_m=a(a+1)\cdots(a+m-1)\quad(m\geq1).
+\]
+For $|z|<1$, define the \emph{binomial series}
+\[
+B_a(z)=\sum_{m=0}^{\infty}\frac{(a)_m}{m!}z^m.
+\]
+\end{definition}
+
+\begin{exercise}[Generalized binomial theorem]
+Prove that the binomial series converges for $|z|<1$ and satisfies
+\[
+(1-z)B_a'(z)=aB_a(z),
+\qquad B_a(0)=1.
+\]
+For the branch normalized to equal $1$ at $z=0$, deduce
+\[
+B_a(z)=(1-z)^{-a}.
+\]
+For $a=-n$, $n\in\Z_{\geq0}$, prove that the series terminates and, after
+replacing $z$ by $-z$, recover
+\[
+(1+z)^n=\sum_{m=0}^n\binom{n}{m}z^m.
+\]
 \end{exercise}
 
 \begin{exercise}[Elliptic pendulum period]
@@ -335,7 +365,23 @@ Use energy conservation to prove
 \[
 T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
 \]
-Expand the integral to obtain
+Apply the generalized binomial theorem with $a=\frac12$.  For
+\[
+I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
+\]
+use integration by parts to prove
+\[
+I_0=\frac{\pi}{2},
+\qquad
+I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
+\]
+and obtain
+\[
+K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
+\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
+\qquad |k|<1.
+\]
+Deduce
 \[
 T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
 \left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
@@ -347,7 +393,7 @@ the logarithmic divergence as $\theta_0\uparrow\pi$.
 \section{Spectral Theory}
 
 \begin{definition}[Hilbert spaces and orthogonality]
-An \emph{inner product} on a complex linear space is conjugate-linear in its
+An \emph{inner product} on a complex vector space is conjugate-linear in its
 first argument, linear in its second, positive definite, and satisfies
 $\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
 $\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
@@ -636,7 +682,7 @@ matrix coefficients and prove uniqueness of the self-adjoint generator.
 \end{exercise}
 
 \begin{exercise}[Spring and string frequencies]
-Let $V$ be a finite-dimensional real linear space with positive-definite
+Let $V$ be a finite-dimensional real vector space with positive-definite
 mass form $m$ and nonnegative stiffness form $k$.  Use $m$ to define the
 self-adjoint operator $A$ by $k(x,y)=m(x,Ay)$.  Prove that solutions of
 $\ddot x+Ax=0$ decompose intrinsically through the spectral projections of
@@ -1314,14 +1360,8 @@ $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
 
 \begin{definition}[Gauss hypergeometric function]
-For $m\in\Z_{\geq0}$, define
-\[
-(a)_0=1,
-\qquad
-(a)_m=a(a+1)\cdots(a+m-1)\quad(m\geq1).
-\]
-Where the quotient is defined, $(a)_m=\Gamma(a+m)/\Gamma(a)$.  For
-$c\notin\Z_{\leq0}$, the \emph{Gauss hypergeometric function} is
+Using the rising factorial defined in Hamiltonian Geometry, for
+$c\notin\Z_{\leq0}$ the \emph{Gauss hypergeometric function} is
 \[
 {}_2F_1\!\left(\begin{matrix}a,b\\c\end{matrix};z\right)
 =\sum_{m=0}^\infty
@@ -1729,7 +1769,7 @@ continuous map $b:G\to\T$, $b(e)=1$, such that
 
 
 \begin{definition}[Weyl multipliers]
-Let $(E,\omega)$ be a symplectic linear space.
+Let $(E,\omega)$ be a symplectic vector space.
 For $\lambda\in\R$, define
 \[
 \sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
@@ -1767,7 +1807,7 @@ c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}.
 
 
 \begin{definition}[Heisenberg group]
-For a symplectic linear space $(E,\omega)$, its \emph{Heisenberg group} is
+For a symplectic vector space $(E,\omega)$, its \emph{Heisenberg group} is
 \[
 \mathbb H(E,\omega)=E\times\R
 \]
@@ -1955,7 +1995,7 @@ $U$ is
 \end{definition}
 
 \begin{definition}[Fourier--Wigner transform]
-Let $V$ be an $n$-dimensional real linear space with Lebesgue measure $dq$,
+Let $V$ be an $n$-dimensional real vector space with Lebesgue measure $dq$,
 let $\hbar>0$, and equip $V^*$ with the dual measure $dp$ for which
 $(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq$ is unitary on $L^2$.
 For $q\in V$ and $p\in V^*$, define
