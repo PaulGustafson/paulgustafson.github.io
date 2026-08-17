@@ -1225,18 +1225,64 @@ Define the Wigner $6j$ symbol by
 \end{definition}
 
 \begin{exercise}[Wigner and Jacobi functions]
-For a rotation through angle $\beta$ about the second axis, set
+For
+\[
+D^j_{m'm}(g)=\langle jm'|\pi_j(g)|jm\rangle,
+\qquad
+d^j_{m'm}(\beta)
+=\langle jm'|e^{-i\beta J_2/\hbar}|jm\rangle,
+\]
+complete the following steps.
+\begin{enumerate}[label=(\alph*)]
+\item Apply Schur orthogonality and the Peter--Weyl decomposition to prove
+\[
+\int_{SU(2)}
+ \overline{D^j_{m'm}(g)}D^{j'}_{n'n}(g)\,dg
+=\frac{\delta_{jj'}\delta_{m'n'}\delta_{mn}}{2j+1}.
+\]
+
+\item Use the Casimir equation for $J^2$ to prove
+\[
+\left[
+\frac1{\sin\beta}\frac d{d\beta}
+ \left(\sin\beta\frac d{d\beta}\right)
+j(j+1)
+-\frac{m^2+(m')^2-2mm'\cos\beta}{\sin^2\beta}
+\right]d^j_{m'm}(\beta)=0.
+\]
+
+\item Put
+\[
+a=|m'-m|,\qquad b=|m'+m|,\qquad
+r=j-\frac{a+b}{2}.
+\]
+After extracting the endpoint factors
+$\sin^a(\beta/2)\cos^b(\beta/2)$, transform the Casimir equation into the
+Jacobi equation with parameters $(a,b)$.  Use the ladder normalization and
+the value at $\beta=0$ to determine the phase and normalization in
 \[
 d^j_{m'm}(\beta)
-=\langle jm'|e^{-i\beta J_2/\hbar}|jm\rangle.
+=C^j_{m'm}
+ \sin^a(\beta/2)\cos^b(\beta/2)
+ P_r^{(a,b)}(\cos\beta).
 \]
-Use the $SU(2)$ differential equation and the value at $\beta=0$ to express
-$d^j_{m'm}(\beta)$ as a normalized product of powers of
-$\sin(\beta/2)$ and $\cos(\beta/2)$ with a Jacobi polynomial in
-$\cos\beta$.  Deduce its orthogonality from Peter--Weyl.  Use the
-Clebsch--Gordan decomposition to derive the linearization formula for a
-product of two Wigner coefficients and identify its coefficients as
-products of Clebsch--Gordan coefficients.
+
+\item Write a group element in Euler angles and reduce the orthogonality in
+part (a) to Jacobi orthogonality on $[-1,1]$.  Identify the resulting norm
+with the norm obtained from the Jacobi spectral equation.
+
+\item Use the Clebsch--Gordan decomposition to prove
+\[
+D^{j_1}_{m_1'm_1}(g)D^{j_2}_{m_2'm_2}(g)
+=\sum_{j,m',m}
+C^{jm'}_{j_1m_1',j_2m_2'}
+\overline{C^{jm}_{j_1m_1,j_2m_2}}
+D^j_{m'm}(g),
+\]
+with the sum restricted by the coupling rules.  Deduce the corresponding
+linearization identity for the Jacobi realizations of the Wigner
+coefficients.
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}[Angular amplitudes]
