@@ -29,21 +29,39 @@ For $T=I$, deduce
 \]
 \end{exercise}
 
+\begin{exercise}[Hecke Poincar\'e identity]
+Put $t=v^2$.  For $w\in S_r$, let $\ell(w)$ be the least number of adjacent
+transpositions in an expression for $w$, and let
+$T_w=T_{i_1}\cdots T_{i_{\ell(w)}}$ for any reduced expression
+$w=s_{i_1}\cdots s_{i_{\ell(w)}}$.  Prove from the braid relations that
+$T_w$ is well-defined.  Insert
+the letter $r$ into a permutation of $S_{r-1}$ and prove
+\[
+\sum_{w\in S_r}t^{\ell(w)}
+=\prod_{j=1}^r\frac{1-t^j}{1-t}.
+\]
+Prove that
+\[
+e_+=\frac{\sum_{w\in S_r}v^{\ell(w)}T_w}
+{\sum_{w\in S_r}v^{2\ell(w)}},
+\qquad
+e_-=\frac{\sum_{w\in S_r}(-v^{-1})^{\ell(w)}T_w}
+{\sum_{w\in S_r}v^{-2\ell(w)}}
+\]
+are idempotents satisfying
+$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke
+action from the preceding part, identify their images with the quantum
+symmetric and exterior state spaces.
+\end{exercise}
 
 
 
-\begin{definition}[Partitions and $q$-Pochhammer symbols]
+
+\begin{definition}[Partitions]
 An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
 $\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
 $|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
-with $p(0)=1$.  For a formal variable $q$, set
-\[
-(a;q)_n=\prod_{j=0}^{n-1}(1-aq^j),
-\qquad
-(a;q)_\infty=\prod_{j=0}^{\infty}(1-aq^j).
-\]
-Analytically, the infinite product converges for $|q|<1$.  Euler's partition
-generating function is
+with $p(0)=1$.  Euler's partition generating function is
 \[
 P(q)=\sum_{n\geq0}p(n)q^n=\frac1{(q;q)_\infty}.
 \]
