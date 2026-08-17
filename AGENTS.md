@@ -6,16 +6,14 @@ These rules apply to the manuscript entry point
 `Emergent_Mathematics_Deformation.tex`, and
 `Emergent_Mathematics_Counting.tex`.
 
-- Except for the required opening physical question in each section, the body
-  should consist of definitions and exercises stating major results.
+- The body should consist of definitions and exercises stating major results.
 - Put theorem statements and substantial consequences in exercises, not in
   definition environments.
 - Definitions should contain only the hypotheses, notation, conventions, and
   formulas needed to define the object.
-- Do not add motivational, transitional, interpretive, or summary prose beyond
-  the required opening physical question. In particular, omit any additional
-  section introduction and sentences explaining what a definition "shows,"
-  "means," "records," or "indicates."
+- Do not add motivational, transitional, interpretive, or summary prose. In
+  particular, omit section introductions and sentences explaining what a
+  definition "shows," "means," "records," or "indicates."
 - Do not add minor computational drills merely to fill out a section. Keep
   exercises for structurally important results.
 - Preserve mathematical qualifications and normalization conventions needed
@@ -86,37 +84,6 @@ These rules apply to the manuscript entry point
 - Preserve the definitions-and-exercises format: applications and
   experimental interpretations belong in exercises, not in transitional
   prose.
-
-### Opening physical questions
-
-- Immediately after every `\section` heading, place exactly one opening
-  physical question, formatted as `\emph{Question.} ...` and written as a
-  single sentence.
-- Make the question as short as possible while remaining self-contained for a
-  reader who has not yet read the section. Specify enough physical input and
-  enough of the observable to determine one central mathematical problem.
-- Use ordinary physical language only. Do not mention mathematical theories,
-  structures, formalisms, named special functions, or notation that the
-  section has not yet defined.
-- Ask a forward or inverse problem that the section actually solves under its
-  stated hypotheses. Do not claim unique reconstruction when the measured data
-  lose information, and do not treat incompatible observables as an ordinary
-  joint measurement.
-- Do not assume unexplained physical vocabulary or a prior expectation that
-  needs justification. Prefer "When an atom is illuminated, why does it
-  absorb some colors of light but not others?" to "Why are some atomic
-  spectral lines missing?"
-- Require every major block of the section to contribute to the question's
-  precise mathematical formulation or solution. Do not let one introductory
-  example or the culminating experiment determine a question narrower than
-  the section.
-- Let the definitions and exercises progressively answer the question, and
-  let the culminating special-function exercise sharpen the same physical
-  problem into a quantitative experimental prediction.
-- Treat inability to formulate a simple, self-contained physical question as
-  evidence that the section is unmotivated in its present form. Merge,
-  divide, relocate, or remove the section instead of writing an abstract or
-  forced question.
 
 - After changing the TeX source, rebuild and validate the tracked PDF. Commit
   and push the TeX and PDF together unless the user requests otherwise.
