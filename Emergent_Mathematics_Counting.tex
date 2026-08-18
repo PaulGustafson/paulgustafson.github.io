@@ -57,6 +57,30 @@ the multiplicity map separating powers of two and prove
 \]
 Interpret the coefficient of $q^n$ as the exact degeneracy at excitation
 energy $n\hbar\omega$ for the corresponding bosonic or fermionic system.
+
+For the bosonic system put $q=e^{-\beta\hbar\omega}$, where
+$\beta=(k_BT)^{-1}$, and define
+\[
+Z(\beta)=\prod_{j\geq1}\frac1{1-e^{-\beta j\hbar\omega}},
+\qquad
+\Psi(\beta)=\log Z(\beta).
+\]
+In $J^1\R_{>0}$ use the contact form
+\[
+d\Psi+U\,d\beta.
+\]
+Prove that the equilibrium curve is Legendrian when
+\[
+U=-\frac{d\Psi}{d\beta}.
+\]
+For
+\[
+\mathcal S=k_B(\Psi+\beta U),
+\qquad
+C=k_B\beta^2\frac{d^2\Psi}{d\beta^2},
+\]
+prove $d\mathcal S=k_B\beta\,dU$ along this curve and express
+$d^2\Psi/d\beta^2$ as the energy variance.
 \end{exercise}
 
 \begin{exercise}[Gaussian-binomial state counts]
@@ -194,8 +218,31 @@ Use Exercise~\ref{ex:theta-eta-transformations} to prove
 \exp\!\left(\frac{\pi^2}{6t}\right)
 \qquad(t\downarrow0).
 \]
+For $t=\beta\hbar\omega$, differentiate the transformed eta-product identity
+to strengthen this to
+\[
+\Psi(\beta)
+=\frac{\pi^2}{6t}+\frac12\log\frac{t}{2\pi}
+-\frac{t}{24}+O(e^{-4\pi^2/t})
+\]
+and derive
+\[
+U=\hbar\omega\left(
+\frac{\pi^2}{6t^2}-\frac1{2t}+\frac1{24}+o(1)\right),
+\]
+\[
+C=k_B\left(\frac{\pi^2}{3t}-\frac12+o(1)\right),
+\qquad
+\mathcal S=k_B\left(
+\frac{\pi^2}{3t}+\frac12\log\frac{t}{2\pi}-\frac12+o(1)\right).
+\]
 Insert this estimate into Cauchy's coefficient integral, locate its positive
-real saddle, expand the phase through quadratic order, and bound the
+real saddle, prove that its equation is
+\[
+n=\frac{U}{\hbar\omega},
+\]
+and identify the leading saddle exponent with the Legendre transform
+$\mathcal S/k_B$.  Expand the phase through quadratic order and bound the
 complementary contour to derive
 \[
 p(n)\sim\frac1{4n\sqrt3}
@@ -277,8 +324,29 @@ For $z>0$, apply the spectral-radius formula to show
 \lim_{M\to\infty}\frac1{NM}\log Z_{N,M}(z)
 =\frac1N\log\lambda_N(z).
 \]
-Derive the mean occupied fraction and finite-size susceptibility from the
-first two derivatives with respect to $\log z$.  State the lattice
+Put $\eta=\log z=\beta\mu$ and
+\[
+\Psi_{N,M}(\eta)=\log Z_{N,M}(e^\eta).
+\]
+Prove that the graph of $\Psi_{N,M}$ is Legendrian for the contact form
+\[
+d\Psi_{N,M}-A\,d\eta
+\]
+when $A=\partial_\eta\Psi_{N,M}$.  Prove
+\[
+A=\mathbb E_\eta|I|,
+\qquad
+\partial_\eta A=\operatorname{Var}_\eta(|I|),
+\]
+and derive the mean occupied fraction and isothermal finite-size
+susceptibility
+\[
+\rho_{N,M}=\frac{A}{NM},
+\qquad
+\chi_{N,M}=\frac{\partial\rho_{N,M}}{\partial\mu}
+=\frac{\beta}{NM}\operatorname{Var}_\eta(|I|).
+\]
+State the lattice
 geometry, boundary conditions, and finite $N,M$ limitations required when
 these quantities are compared with adsorption or exclusion-process data.
 \end{exercise}

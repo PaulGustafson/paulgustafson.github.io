@@ -276,32 +276,9 @@ A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
 \emph{canonical transformation} when $F^*\omega_N=\omega_M$.
 \end{definition}
 
-\begin{exercise}[Darboux theorem]
+\begin{exercise}[Hamiltonian identities]
 Prove that the canonical two-form $d\theta$ on $T^*Q$ is nondegenerate and
 hence symplectic.
-Prove that every symplectic vector space of dimension $2n$ is
-symplectically isomorphic to
-\[
-(\R^{2n},\omega_0),
-\qquad
-\omega_0\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
-For $p$ in a $2n$-dimensional symplectic manifold, choose a chart identifying
-$p$ with $0$ and use the linear result to make $\omega_p=\omega_0$.  Apply
-the local Poincar\'e lemma to write
-\[
-\omega-\omega_0=d\eta,
-\qquad \eta_0=0.
-\]
-After shrinking the chart, prove that
-$\omega_t=\omega_0+t(\omega-\omega_0)$ is nondegenerate for
-$0\leq t\leq1$.  Define $X_t$ intrinsically by
-\[
-\iota_{X_t}\omega_t=-\eta
-\]
-and use its local flow and Cartan's identity to prove
-$\Phi_1^*\omega=\omega_0$.  Thus prove that every point has a neighborhood
-symplectomorphic to an open subset of $(\R^{2n},\omega_0)$.
 Prove that the Poisson bracket is antisymmetric,
 satisfies the Leibniz rule and Jacobi identity, and is preserved by
 canonical transformations.  For the Hamiltonian flow $\Phi_t$ of $H$,
@@ -318,6 +295,95 @@ preserves $\omega$, the volume form $\omega^n/n!$, and every density
 depending only on the Hamiltonian.  On a symplectic vector space, prove
 that the infinitesimal generator of a linear Hamiltonian flow has trace
 zero and that the flow has determinant one.
+\end{exercise}
+
+\begin{definition}[Contact manifolds]
+Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
+a \emph{contact form} when
+\[
+\alpha\wedge(d\alpha)^n
+\]
+is nowhere zero.  Its kernel $\xi=\ker\alpha$ is the associated cooriented
+\emph{contact structure}; contact forms defining the same cooriented
+contact structure differ by multiplication by a positive smooth function.  The
+\emph{Reeb vector field} $R_\alpha$ is defined by
+\[
+\alpha(R_\alpha)=1,
+\qquad
+\iota_{R_\alpha}d\alpha=0.
+\]
+An immersed $n$-manifold $\iota:L\to Y$ is \emph{Legendrian} when
+$\iota^*\alpha=0$.  A diffeomorphism $F:(Y,\xi)\to(Y',\xi')$ is a
+\emph{contact transformation} when
+$F^*\alpha'=h\alpha$ for a positive smooth function $h$.
+\end{definition}
+
+\begin{exercise}[Contactification and symplectization]
+Let $(M,\omega=d\lambda)$ be an exact symplectic manifold.  On
+$M\times\R$, with coordinate function $u$ on the second factor, prove that
+\[
+\alpha=du-\lambda
+\]
+is a contact form and that $R_\alpha$ is the infinitesimal generator of
+translation in the $\R$ factor.  For a manifold $X$, identify
+$J^1X=T^*X\times\R$ with this contactification and prove that
+\[
+j^1f:X\longrightarrow J^1X,
+\qquad
+j^1f(x)=(df_x,f(x)),
+\]
+is Legendrian for every $f\in C^\infty(X)$.  Prove that every section of
+$J^1X\to X$ with Legendrian image is of this form.
+
+For a contact manifold $(Y,\alpha)$ and the positive coordinate $r$ on
+$\R_{>0}$, prove that
+\[
+\Omega=d(r\alpha)
+\]
+is symplectic on $\R_{>0}\times Y$.  Determine the vector field $Z$
+satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
+$\alpha$ by a positive function gives a symplectomorphic symplectization.
+\end{exercise}
+
+\begin{exercise}[Thermodynamic Legendrians]
+Let $X$ be the open cone of extensive variables $(S,V,N)$ and equip
+$J^1X$ with the thermodynamic notation
+\[
+\alpha=dU-T\,dS+p\,dV-\mu\,dN.
+\]
+For a fundamental relation $U=U(S,V,N)$, prove that its first jet is
+Legendrian exactly when
+\[
+dU=T\,dS-p\,dV+\mu\,dN.
+\]
+For
+\[
+F=U-TS,
+\qquad
+G=U-TS+pV,
+\]
+derive
+\[
+dF=-S\,dT-p\,dV+\mu\,dN,
+\qquad
+dG=-S\,dT+V\,dp+\mu\,dN,
+\]
+and prove that these Legendre transformations preserve the contact
+structure.  Derive the Maxwell relations from $d^2U=0$.
+
+Assume
+\[
+U(cS,cV,cN)=cU(S,V,N)
+\qquad(c>0).
+\]
+Prove the Euler relation
+\[
+U=TS-pV+\mu N
+\]
+and the Gibbs--Duhem relation
+\[
+S\,dT-V\,dp+N\,d\mu=0.
+\]
 \end{exercise}
 
 \begin{definition}[Rising factorial and binomial series]

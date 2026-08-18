@@ -146,9 +146,7 @@ Deduce the covariance for their products and prove that each implementer is
 determined up to phase.  Show that coherent choices form the metaplectic
 double cover, whose two lifts of a fixed symplectic map differ by sign.  Use
 the Groenewold--van Hove obstruction to show why exact covariance cannot
-extend to every nonlinear canonical transformation.  On a cotangent bundle
-$T^*Q$, apply this obstruction to overlaps of Darboux charts and identify
-the equivalence data required to compare their local products.
+extend to every nonlinear canonical transformation.
 \end{exercise}
 
 \begin{definition}[Generalized Laguerre polynomials]
@@ -238,33 +236,35 @@ Two star products are \emph{equivalent} when they are intertwined by an
 operator $T=\id+\sum_{r\geq1}\hbar^rT_r$ with differential $T_r$.
 \end{definition}
 
-\begin{exercise}[Moyal plane-wave identity]
-On $\R^{2n}$ let $\Pi$ be the canonical Poisson tensor and write
-$\Pi(k,\ell)=k_i\Pi^{ij}\ell_j$ for covectors $k,\ell$.  Derive from the
-Moyal product
+\begin{exercise}[Affine Moyal product]
+Let $(E,\omega)$ be a symplectic vector space and let
+$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and write
+$\Pi(k,\ell)=\ell(\Pi(k))$.  Let $D_\Pi$ be the constant bidifferential
+operator characterized on decomposable functions by
 \[
-e^{ik\cdot z}\star_\hbar e^{i\ell\cdot z}
-=e^{-i\hbar\Pi(k,\ell)/2}e^{i(k+\ell)\cdot z}.
+D_\Pi(f\otimes g)(x,y)
+=d_yg\bigl(\Pi(d_xf)\bigr).
+\]
+On $C^\infty(E)[[\hbar]]$, define
+\[
+f\star g
+=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
+\]
+where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
+associativity from the commutation of the induced constant bidifferential
+operators on $E^3$, and prove
+\[
+f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
+\]
+For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive
+\[
+e_k\star e_\ell
+=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
 \]
 Prove associativity directly by checking the multiplier identity for the
 phase.  Differentiate in $k$ and $\ell$ to recover the canonical
-commutation relations and the full bidifferential expansion of the Moyal
-product on polynomials.
-\end{exercise}
-
-\begin{exercise}[Local Moyal products]
-Cover a symplectic manifold by Darboux charts and transport the Moyal
-product from each chart.  Prove that the local products have the same
-Poisson bracket on overlaps and that affine symplectic transition maps
-identify them exactly by linear symplectic covariance.  For a general
-canonical transition map, compute the discrepancy through order
-$\hbar^2$.  Formulate the recursive equations for differential operators
-\[
-T_{ij}=\id+\sum_{r\geq1}\hbar^rT_{ij,r}
-\]
-intertwining the two local products, and derive the cocycle condition on
-triple overlaps required for the local products to define one global
-product.
+commutation relations.  Prove that every affine symplectic transformation
+of $E$ preserves $\star$.
 \end{exercise}
 
 \begin{definition}[Magnetic lattice Hamiltonian]
