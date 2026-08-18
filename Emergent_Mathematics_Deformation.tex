@@ -1,6 +1,6 @@
-\part{Deformation}
+\part{Quantization}
 
-\section{Symplectic Geometry}
+\section{Geometric Quantization}
 
 \begin{definition}[Differential forms]
 A \emph{differential $k$-form} on $M$ is a smooth section of
@@ -164,47 +164,246 @@ satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
 $\alpha$ by a positive function gives a symplectomorphic symplectization.
 \end{exercise}
 
-\begin{exercise}[Elliptic pendulum period]
-On $T^*S^1$ consider
+\begin{definition}[Integration of forms]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+compactly supported top form is defined using orientation-preserving charts
+and a partition of unity.
+\end{definition}
+
+\begin{exercise}[Stokes' theorem]
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
 \[
-H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\int_Md\omega=\int_{\partial M}\omega.
 \]
-For an oscillation of amplitude $0<\theta_0<\pi$, set
-$k=\sin(\theta_0/2)$ and define
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
 \[
-K(k)=\int_0^{\pi/2}\frac{d\phi}
-{\sqrt{1-k^2\sin^2\phi}}.
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
 \]
-Use energy conservation to prove
-\[
-T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
-\]
-Apply the generalized binomial theorem with $a=\frac12$.  For
-\[
-I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
-\]
-use integration by parts to prove
-\[
-I_0=\frac{\pi}{2},
-\qquad
-I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
-\]
-and obtain
-\[
-K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
-\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
-\qquad |k|<1.
-\]
-Deduce
-\[
-T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
-\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
-\]
-Deduce the experimentally testable increase of period with amplitude and
-the logarithmic divergence as $\theta_0\uparrow\pi$.
+recovering the observed flux--emf law.
 \end{exercise}
 
-\section{Weyl Quantization}
+\begin{definition}[de Rham cohomology]
+A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
+\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
+\emph{de Rham cohomology} of $M$ is
+\[
+H_{\mathrm{dR}}^k(M)
+=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
+{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
+\]
+Pullback induces maps on de Rham cohomology, and the wedge product makes
+$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
+\end{definition}
+
+\begin{exercise}[de Rham classes and periods]
+Use the local Poincar\'e lemma and Stokes' theorem
+to prove that an exact $k$-form has zero integral over
+every closed oriented $k$-manifold mapped smoothly into $M$. Prove
+$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
+
+On $\R^2\setminus\{0\}$, show that
+\[
+\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
+\]
+is closed and has integral $2\pi$ around the unit circle, hence is not exact.
+Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
+closed electromagnetic field strength has local potentials, while it has a
+global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
+
+\begin{definition}[Connections and parallel transport]
+\label{def:connections-parallel-transport}
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers.
+\end{definition}
+
+\begin{definition}[Curvature and holonomy]
+\label{def:curvature-holonomy}
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
+\end{definition}
+
+\begin{exercise}[Parallel transport and curvature]
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
+\end{exercise}
+
+\begin{definition}[Principal connections]
+For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
+$P\to M$ with a free right $G$-action, transitive on each fiber, and local
+$G$-equivariant trivializations.  For a representation
+$G\to\operatorname{GL}(W)$, its
+associated vector bundle is
+$P\times_GW=(P\times W)/((pg,w)\sim(p,gw))$.
+A \emph{principal connection} is an
+equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
+vertical fields. It induces connections on every associated bundle, and its
+\emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
+\end{definition}
+
+\begin{exercise}[Gauge covariance and Bianchi identity]
+Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
+$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
+a flat connection has trivial holonomy on contractible loops and is
+gauge-equivalent to a product connection on a connected base exactly when
+its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
+around a
+generator of the fundamental group and exhibit the obstruction to removing
+a flat connection globally.
+\end{exercise}
+
+
+
+\begin{definition}[Prequantum line bundles]
+A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
+$L\to M$ with a unitary connection $\nabla$ satisfying
+\[
+F_\nabla=-\frac{i}{\hbar}\omega.
+\]
+For $f\in C^\infty(M)$, its \emph{Kostant--Souriau operator} is
+\[
+\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+\]
+\end{definition}
+
+\begin{definition}[Metaplectic correction]
+A \emph{complex polarization} is an involutive Lagrangian subbundle
+$P\subset T_\C M$.  Its annihilator and canonical line are
+\[
+P^\circ=\{\alpha\in T_\C^*M:\alpha|_P=0\},
+\qquad
+K_P=\Lambda^{\rm top}P^\circ.
+\]
+A \emph{half-form bundle} is a line bundle $\delta_P$ with
+$\delta_P^{\otimes2}\cong K_P$, equipped with the partial connection along
+$P$ induced by Lie derivatives.  A corrected polarized section of
+$L\otimes\delta_P$ is covariantly constant along $P$ and square-integrable
+for the density determined by the half-form pairing.  The corrected quantum
+space is its Hilbert completion when this pairing is positive.
+\end{definition}
+
+\begin{exercise}[Prequantization and polarization]
+Prove that a prequantum line bundle exists if and only if the period
+condition
+\[
+\frac1{2\pi\hbar}\int_\Sigma f^*\omega\in\Z
+\]
+holds for every smooth map from a closed oriented surface
+$f:\Sigma\to M$.  Construct the line-bundle transition functions from
+local symplectic potentials and prove that the period condition is exactly
+their cocycle condition.
+Prove
+\[
+[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
+=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
+\]
+Let $\pi:S(L)\to M$ be the unit-circle bundle of $L$, let
+$A\in\Omega^1(S(L);i\R)$ be its connection form normalized by
+$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.
+Prove
+\[
+d\alpha=-\frac1\hbar\pi^*\omega,
+\]
+that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
+sections of $L$ correspond to functions $F:S(L)\to\C$ satisfying
+$F(ue^{i\theta})=e^{-i\theta}F(u)$.
+For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
+operators
+\[
+\psi(x)\longmapsto \ell(x)\psi(x),
+\qquad
+\psi(x)\longmapsto-i\hbar\,d\psi_x(v).
+\]
+For a compact
+K\"ahler manifold with $P=T^{0,1}M$, prove $P^\circ=T^{*1,0}M$ and
+$K_P=K_M$.  For a positive prequantum line bundle, identify the
+corrected quantum space with
+$H^0(M,L\otimes K_M^{1/2})$.
+\end{exercise}
+
+
+\begin{definition}[Theta functions with characteristics]
+For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
+\[
+\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
+=\sum_{n\in\Z}
+\exp\!\left(
+\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
+\right).
+\]
+\end{definition}
+
+\begin{exercise}[Landau theta functions]
+Let
+$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
+charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
+assume $eB>0$.  Put
+\[
+N=\frac{eBA}{2\pi\hbar},
+\qquad
+\tau=i\frac{L_y}{L_x},
+\qquad
+z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
+\]
+Use the prequantization condition to prove that a magnetic line bundle
+$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$, use the holomorphic-gauge
+automorphy laws
+\[
+f(z+1)=f(z),
+\qquad
+f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z)
+\]
+to prove the magnetic-translation decomposition
+\[
+H^0(Q,L)
+=\bigoplus_{r\in\Z/N\Z}
+\C\,\vartheta\!\begin{bmatrix}r/N\\0\end{bmatrix}(Nz\mid N\tau).
+\]
+Derive the automorphy and magnetic-translation eigenvalue laws directly
+from the defining series.  Relate the holomorphic-gauge sections to
+physical wavefunctions by their common unitary-gauge factor.
+
+For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy around a
+fundamental magnetic cell to prove
+\[
+UV=e^{2\pi i/N}VU.
+\]
+For the covariant Landau Hamiltonian, construct the raising and lowering
+operators and prove
+\[
+E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
+\qquad
+\dim E_{\widehat H}(\{E_n\})H=N.
+\]
+Deduce the cyclotron resonance spacing, the degeneracy density
+$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
+State how measurements of these three quantities separately test the
+energy, flux-integrality, and theta-function predictions.
+\end{exercise}
+
+\section{Deformation Quantization}
 
 \begin{definition}[Coadjoint action and stabilizers]
 For a Lie group $G$ with Lie algebra $\mathfrak g$, define
@@ -797,9 +996,6 @@ origin.  State how homodyne quadrature data distinguish adjacent number
 states and detect Wigner negativity after inverse Radon reconstruction.
 \end{exercise}
 
-\section{Moyal Deformation}
-
-
 \begin{definition}[Poisson manifolds]
 A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
 $C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
@@ -852,7 +1048,9 @@ e_k\star e_\ell
 Prove associativity directly by checking the multiplier identity for the
 phase.  Differentiate in $k$ and $\ell$ to recover the canonical
 commutation relations.  Prove that every affine symplectic transformation
-of $E$ preserves $\star$.
+of $E$ preserves $\star$.  For $E=V\oplus V^*$, prove that the restriction
+to Schwartz functions is the formal $\hbar$-expansion of the Weyl product
+defined by operator composition above.
 \end{exercise}
 
 \begin{definition}[Magnetic lattice Hamiltonian]
@@ -903,327 +1101,7 @@ flux makes their corner cocycle trivial.  Prove that nonzero integral flux
 still obstructs a single globally periodic vector potential.
 \end{exercise}
 
-\section{Geometric Quantization}
 
-
-\begin{definition}[Integration of forms]
-An \emph{orientation} of an $n$-manifold is a continuous choice of component
-of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
-compactly supported top form is defined using orientation-preserving charts
-and a partition of unity.
-\end{definition}
-
-\begin{exercise}[Stokes' theorem]
-Prove that the integral is independent of charts and partition of unity.
-For an oriented manifold with boundary, prove
-\[
-\int_Md\omega=\int_{\partial M}\omega.
-\]
-Deduce the fundamental theorem of calculus, Green's theorem, the divergence
-theorem, and the classical curl theorem. For time-dependent magnetic
-two-form $B$ and electric one-form $E$, prove the equivalence of
-\[
-\int_{\partial S}E=-\frac d{dt}\int_SB
-\qquad\text{and}\qquad
-dE=-\partial_tB,
-\]
-recovering the observed flux--emf law.
-\end{exercise}
-
-\begin{definition}[de Rham cohomology]
-A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
-\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
-\emph{de Rham cohomology} of $M$ is
-\[
-H_{\mathrm{dR}}^k(M)
-=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
-{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
-\]
-Pullback induces maps on de Rham cohomology, and the wedge product makes
-$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
-\end{definition}
-
-\begin{exercise}[de Rham classes and periods]
-Use the local Poincar\'e lemma from Symplectic Geometry and Stokes' theorem
-to prove that an exact $k$-form has zero integral over
-every closed oriented $k$-manifold mapped smoothly into $M$. Prove
-$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
-
-On $\R^2\setminus\{0\}$, show that
-\[
-\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
-\]
-is closed and has integral $2\pi$ around the unit circle, hence is not exact.
-Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
-closed electromagnetic field strength has local potentials, while it has a
-global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
-\end{exercise}
-
-
-\begin{definition}[Connections and parallel transport]
-\label{def:connections-parallel-transport}
-A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
-$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
-functions in the first variable and satisfying
-$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
-covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
-\emph{parallel transport} between endpoint fibers.
-\end{definition}
-
-\begin{definition}[Curvature and holonomy]
-\label{def:curvature-holonomy}
-The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
-two-form
-\[
-R^\nabla(X,Y)s
-=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
-\]
-The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
-obtained by parallel transport around loops based at $p$.
-\end{definition}
-
-\begin{exercise}[Parallel transport and curvature]
-Prove existence, uniqueness, composition, and inverse properties of parallel
-transport. Prove that curvature is tensorial and gives the leading failure
-of transport around an infinitesimal parallelogram to return a vector to
-itself. Deduce that a flat connection has path-independent transport on every
-simply connected coordinate domain.
-\end{exercise}
-
-\begin{definition}[Principal connections]
-For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
-$P\to M$ with a free right $G$-action, transitive on each fiber, and local
-$G$-equivariant trivializations.  For a representation
-$G\to\operatorname{GL}(W)$, its
-associated vector bundle is
-$P\times_GW=(P\times W)/((pg,w)\sim(p,gw))$.
-A \emph{principal connection} is an
-equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
-vertical fields. It induces connections on every associated bundle, and its
-\emph{curvature} is
-$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
-$G$-equivariant bundle automorphism covering $\id_M$.
-\end{definition}
-
-\begin{exercise}[Gauge covariance and Bianchi identity]
-Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
-$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
-a flat connection has trivial holonomy on contractible loops and is
-gauge-equivalent to a product connection on a connected base exactly when
-its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
-around a
-generator of the fundamental group and exhibit the obstruction to removing
-a flat connection globally.
-\end{exercise}
-
-
-
-\begin{definition}[Prequantum line bundles]
-A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
-$L\to M$ with a unitary connection $\nabla$ satisfying
-\[
-F_\nabla=-\frac{i}{\hbar}\omega.
-\]
-For $f\in C^\infty(M)$, its \emph{Kostant--Souriau operator} is
-\[
-\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
-\]
-\end{definition}
-
-\begin{definition}[Metaplectic correction]
-A \emph{complex polarization} is an involutive Lagrangian subbundle
-$P\subset T_\C M$.  Its annihilator and canonical line are
-\[
-P^\circ=\{\alpha\in T_\C^*M:\alpha|_P=0\},
-\qquad
-K_P=\Lambda^{\rm top}P^\circ.
-\]
-A \emph{half-form bundle} is a line bundle $\delta_P$ with
-$\delta_P^{\otimes2}\cong K_P$, equipped with the partial connection along
-$P$ induced by Lie derivatives.  A corrected polarized section of
-$L\otimes\delta_P$ is covariantly constant along $P$ and square-integrable
-for the density determined by the half-form pairing.  The corrected quantum
-space is its Hilbert completion when this pairing is positive.
-\end{definition}
-
-\begin{exercise}[Prequantization and polarization]
-Prove that a prequantum line bundle exists if and only if the period
-condition
-\[
-\frac1{2\pi\hbar}\int_\Sigma f^*\omega\in\Z
-\]
-holds for every smooth map from a closed oriented surface
-$f:\Sigma\to M$.  Construct the line-bundle transition functions from
-local symplectic potentials and prove that the period condition is exactly
-their cocycle condition.
-Prove
-\[
-[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
-=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
-\]
-Let $\pi:S(L)\to M$ be the unit-circle bundle of $L$, let
-$A\in\Omega^1(S(L);i\R)$ be its connection form normalized by
-$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.
-Prove
-\[
-d\alpha=-\frac1\hbar\pi^*\omega,
-\]
-that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
-sections of $L$ correspond to functions $F:S(L)\to\C$ satisfying
-$F(ue^{i\theta})=e^{-i\theta}F(u)$.
-For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
-operators $Q_\ell$ and $P_v$.  For a compact
-K\"ahler manifold with $P=T^{0,1}M$, prove $P^\circ=T^{*1,0}M$ and
-$K_P=K_M$.  For a positive prequantum line bundle, identify the
-corrected quantum space with
-$H^0(M,L\otimes K_M^{1/2})$.
-\end{exercise}
-
-
-\begin{definition}[Theta functions with characteristics]
-For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
-\[
-\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
-=\sum_{n\in\Z}
-\exp\!\left(
-\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
-\right).
-\]
-\end{definition}
-
-\begin{exercise}[Landau theta functions]
-Let
-$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
-charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
-assume $eB>0$.  Put
-\[
-N=\frac{eBA}{2\pi\hbar},
-\qquad
-\tau=i\frac{L_y}{L_x},
-\qquad
-z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
-\]
-Use the prequantization condition to prove that a magnetic line bundle
-$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$, use the holomorphic-gauge
-automorphy laws
-\[
-f(z+1)=f(z),
-\qquad
-f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z)
-\]
-to prove the magnetic-translation decomposition
-\[
-H^0(Q,L)
-=\bigoplus_{r\in\Z/N\Z}
-\C\,\vartheta\!\begin{bmatrix}r/N\\0\end{bmatrix}(Nz\mid N\tau).
-\]
-Derive the automorphy and magnetic-translation eigenvalue laws directly
-from the defining series.  Relate the holomorphic-gauge sections to
-physical wavefunctions by their common unitary-gauge factor.
-
-For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy and the
-Moyal plane-wave identity to prove
-\[
-UV=e^{2\pi i/N}VU.
-\]
-For the covariant Landau Hamiltonian, construct the raising and lowering
-operators and prove
-\[
-E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
-\qquad
-\dim E_{\widehat H}(\{E_n\})H=N.
-\]
-Deduce the cyclotron resonance spacing, the degeneracy density
-$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
-State how measurements of these three quantities separately test the
-energy, flux-integrality, and theta-function predictions.
-\end{exercise}
-
-\section{Jack Polynomials}
-
-
-\begin{definition}[Sutherland model]
-For $N$ identical particles of mass $m$ on a ring of radius $R$ and
-$g\geq1$, let
-\[
-\operatorname{Conf}_N(S^1)
-=\{(\theta_1,\ldots,\theta_N):\theta_i\ne\theta_j\text{ for }i\ne j\}.
-\]
-On $C_c^\infty(\operatorname{Conf}_N(S^1))^{S_N}$ define
-\[
-\widehat H_g=\frac{\hbar^2}{2mR^2}
-\left[-\sum_{j=1}^N\partial_{\theta_j}^2
-+\frac{g(g-1)}2\sum_{i<j}
-\frac1{\sin^2((\theta_i-\theta_j)/2)}\right]
-\]
-and let the same symbol denote its Friedrichs realization in
-$L^2((S^1)^N)^{S_N}$.  Define
-\[
-\Psi_0(\theta)=\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^g.
-\]
-For a partition $\lambda$ of length at most $N$, use the monomial
-symmetric polynomial $m_\lambda$ and dominance order defined in Counting,
-evaluated at $z_j=e^{i\theta_j}$.
-\end{definition}
-
-\begin{definition}[Jack polynomials]
-The Jack polynomial $P_\lambda^{(1/g)}$ is the symmetric polynomial
-normalized by
-\[
-P_\lambda^{(1/g)}=m_\lambda+
-\sum_{\mu<\lambda}c_{\lambda\mu}(g)m_\mu
-\]
-and by satisfying
-\[
-\left[
-\sum_i(z_i\partial_{z_i})^2
-+g\sum_{i<j}\frac{z_i+z_j}{z_i-z_j}
-(z_i\partial_{z_i}-z_j\partial_{z_j})
-\right]P_\lambda^{(1/g)}
-=\left[\sum_i
-\bigl(\lambda_i^2+g(N+1-2i)\lambda_i\bigr)\right]
-P_\lambda^{(1/g)};
-\]
-here $<$ is dominance order.
-\end{definition}
-
-\begin{exercise}[Sutherland integrability]
-Construct a Lax equation $\dot L=[M,L]$ and its classical $r$-matrix
-bracket for the Sutherland system, and prove that the spectral invariants
-of $L$ Poisson-commute.
-Conjugate the quantum Hamiltonian by $\Psi_0$, identify its commuting
-quantum integrals, and prove that
-\[
-\Psi_\lambda=\Psi_0P_\lambda^{(1/g)}(e^{i\theta_1},\ldots,e^{i\theta_N})
-\]
-is a joint eigenfunction with
-\[
-E_\lambda=\frac{\hbar^2}{2mR^2}
-\left[\frac{g^2N(N^2-1)}{12}
-+\sum_{j=1}^N
-\bigl(\lambda_j^2+g(N+1-2j)\lambda_j\bigr)\right].
-\]
-At $g=1$, prove that $P_\lambda^{(1)}=s_\lambda$ for the Schur polynomial
-defined in Counting.
-\end{exercise}
-
-\begin{exercise}[Jack transition spectrum]
-Let $\rho_r=\sum_{j=1}^Ne^{ir\theta_j}$ be a density mode.  Derive the
-Jack Pieri identity in orthonormal normalization for
-$\rho_1P_\lambda^{(1/g)}$ and show that only
-nonincreasing tuples obtained from $\lambda$ by increasing one entry by
-one occur.
-For a weak periodic drive proportional to
-$\rho_1e^{-i\Omega t}+\rho_{-1}e^{i\Omega t}$, deduce the allowed
-resonance frequencies
-\[
-\Omega_{\mu\lambda}=\frac{|E_\mu-E_\lambda|}{\hbar}
-\]
-and express their relative intensities as squared normalized Jack Pieri
-coefficients.  State how spectroscopy of particles confined to a ring
-determines $g$ from the line shifts and tests the Jack selection rule from
-the missing lines.
-\end{exercise}
 
 \section{Quantum Groups}
 
@@ -1617,8 +1495,6 @@ and nondegeneracy assumptions under which the measured line positions and
 strengths determine $q$.
 \end{exercise}
 
-\section{Braided Tensor Categories}
-
 \begin{definition}[Deformation parameters]
 In this section, $0<v<1$ is the quantum-group deformation parameter and
 $\kappa\ne0$ is the independent $q$KZ shift.  In the next section, $q$ is
@@ -1883,7 +1759,249 @@ cycle and state the twist, unitarity, preparation, and detection assumptions
 under which it is an interference observable.
 \end{exercise}
 
-\section{Double Affine Hecke Algebras}
+\begin{definition}[Temperley--Lieb algebras]
+For $d\in\C$, the Temperley--Lieb algebra $TL_n(d)$ is generated by
+$U_1,\ldots,U_{n-1}$ with
+\[
+U_i^2=dU_i,
+\qquad
+U_iU_{i\pm1}U_i=U_i,
+\qquad
+U_iU_j=U_jU_i\quad(|i-j|>1).
+\]
+Its diagram trace is normalized by
+\[
+\operatorname{tr}_0(1)=1,
+\qquad
+\operatorname{tr}_{n+1}(x)=d\operatorname{tr}_n(x),
+\qquad
+\operatorname{tr}_{n+1}(xU_n)=\operatorname{tr}_n(x),
+\]
+where $x\in TL_n(d)$ is embedded in $TL_{n+1}(d)$.
+\end{definition}
+
+\begin{definition}[Jones--Wenzl recursion]
+Put
+\[
+q=e^{\pi i/(k+2)},
+\qquad
+d=q+q^{-1},
+\qquad
+[n]_q=\frac{q^n-q^{-n}}{q-q^{-1}}.
+\]
+With $f_0=f_1=1$, define recursively in $TL_{n+1}(d)$
+\[
+f_{n+1}=f_n-\frac{[n]_q}{[n+1]_q}f_nU_nf_n
+\qquad(1\leq n\leq k).
+\]
+Let $\mathcal C_k$ be the idempotent-complete tensor quotient of the
+Temperley--Lieb category by the tensor ideal generated by $f_{k+1}$, and
+write $V_a$ for the image of $f_a$, $0\leq a\leq k$.
+\end{definition}
+
+\begin{exercise}[Jones--Wenzl truncation]
+Use the Temperley--Lieb relations to prove inductively
+\[
+f_n^2=f_n,
+\qquad
+U_if_n=f_nU_i=0\quad(1\leq i<n),
+\qquad
+\operatorname{tr}(f_n)=[n+1]_q.
+\]
+Deduce $\operatorname{tr}(f_{k+1})=[k+2]_q=0$ and prove that imposing
+$f_{k+1}=0$ makes the recursion close on $V_0,\ldots,V_k$.  Derive
+\[
+V_a\otimes V_b
+\cong
+\bigoplus_{\substack{|a-b|\leq c\leq
+\min(a+b,2k-a-b)\\a+b+c\equiv0\pmod2}}V_c
+\]
+and
+\[
+d_a=\dim_q(V_a)
+=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))}.
+\]
+\end{exercise}
+
+\begin{definition}[\texorpdfstring{$SU(2)_k$}{SU(2)k} modular data]
+For $0\leq a,b\leq k$, define
+\[
+S_{ab}
+=\sqrt{\frac{2}{k+2}}
+\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right),
+\qquad
+\theta_a
+=\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
+\]
+Let $N_{ab}^{\ \ c}$ be the multiplicity of $V_c$ in
+$V_a\otimes V_b$.
+\end{definition}
+
+\begin{exercise}[Verlinde diagonalization]
+Use sine orthogonality to prove that $S$ is real, symmetric, and unitary.
+For each $a$, let $(N_a)_{bc}=N_{ab}^{\ \ c}$.  Use the truncated
+Chebyshev recursion to prove
+\[
+N_a=S\,\operatorname{diag}\!\left(
+\frac{S_{ax}}{S_{0x}}
+\right)_{x=0}^kS^{-1}
+\]
+and hence
+\[
+N_{ab}^{\ \ c}
+=\sum_{x=0}^k
+\frac{S_{ax}S_{bx}\overline{S_{cx}}}{S_{0x}}.
+\]
+Deduce that the number of fusion channels from
+$a_1,\ldots,a_n$ to $c$ is
+$(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
+of sine functions.  Apply the same formula to the Ising modular matrix
+derived in Counting and recover the Ising fusion multiplicities.
+\end{exercise}
+
+\begin{exercise}[Anyon interference and fusion counting]
+For simple charges $a,b$, prove that the normalized monodromy amplitude is
+\[
+M_{ab}=\frac{S_{ab}S_{00}}{S_{0a}S_{0b}}.
+\]
+In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
+\[
+I_b(\phi)=I_1+I_2
++2\sqrt{I_1I_2}\,\Re(e^{i\phi}M_{ab}).
+\]
+Insert the sine formula and predict the visibility and phase for every
+enclosed charge.  For a collection of prepared charges, use the Verlinde
+formula to predict the exact number of fusion outcomes in each total-charge
+sector.  Identify indistinguishable charges for one probe and prove that
+the full family of probes distinguishes them.  State the coherence,
+topological-gap, charge-preparation, and readout assumptions separately
+from the predicted fringes and integer state counts.
+\end{exercise}
+
+\section{Integrable Systems}
+
+\begin{exercise}[Elliptic pendulum period]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Apply the generalized binomial theorem with $a=\frac12$.  For
+\[
+I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
+\]
+use integration by parts to prove
+\[
+I_0=\frac{\pi}{2},
+\qquad
+I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
+\]
+and obtain
+\[
+K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
+\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
+\qquad |k|<1.
+\]
+Deduce
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+\begin{definition}[Sutherland model]
+For $N$ identical particles of mass $m$ on a ring of radius $R$ and
+$g\geq1$, let
+\[
+\operatorname{Conf}_N(S^1)
+=\{(\theta_1,\ldots,\theta_N):\theta_i\ne\theta_j\text{ for }i\ne j\}.
+\]
+On $C_c^\infty(\operatorname{Conf}_N(S^1))^{S_N}$ define
+\[
+\widehat H_g=\frac{\hbar^2}{2mR^2}
+\left[-\sum_{j=1}^N\partial_{\theta_j}^2
++\frac{g(g-1)}2\sum_{i<j}
+\frac1{\sin^2((\theta_i-\theta_j)/2)}\right]
+\]
+and let the same symbol denote its Friedrichs realization in
+$L^2((S^1)^N)^{S_N}$.  Define
+\[
+\Psi_0(\theta)=\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^g.
+\]
+For a partition $\lambda$ of length at most $N$, use the monomial
+symmetric polynomial $m_\lambda$ and dominance order defined in Counting,
+evaluated at $z_j=e^{i\theta_j}$.
+\end{definition}
+
+\begin{definition}[Jack polynomials]
+The Jack polynomial $P_\lambda^{(1/g)}$ is the symmetric polynomial
+normalized by
+\[
+P_\lambda^{(1/g)}=m_\lambda+
+\sum_{\mu<\lambda}c_{\lambda\mu}(g)m_\mu
+\]
+and by satisfying
+\[
+\left[
+\sum_i(z_i\partial_{z_i})^2
++g\sum_{i<j}\frac{z_i+z_j}{z_i-z_j}
+(z_i\partial_{z_i}-z_j\partial_{z_j})
+\right]P_\lambda^{(1/g)}
+=\left[\sum_i
+\bigl(\lambda_i^2+g(N+1-2i)\lambda_i\bigr)\right]
+P_\lambda^{(1/g)};
+\]
+here $<$ is dominance order.
+\end{definition}
+
+\begin{exercise}[Sutherland integrability]
+Construct a Lax equation $\dot L=[M,L]$ and its classical $r$-matrix
+bracket for the Sutherland system, and prove that the spectral invariants
+of $L$ Poisson-commute.
+Conjugate the quantum Hamiltonian by $\Psi_0$, identify its commuting
+quantum integrals, and prove that
+\[
+\Psi_\lambda=\Psi_0P_\lambda^{(1/g)}(e^{i\theta_1},\ldots,e^{i\theta_N})
+\]
+is a joint eigenfunction with
+\[
+E_\lambda=\frac{\hbar^2}{2mR^2}
+\left[\frac{g^2N(N^2-1)}{12}
++\sum_{j=1}^N
+\bigl(\lambda_j^2+g(N+1-2j)\lambda_j\bigr)\right].
+\]
+At $g=1$, prove that $P_\lambda^{(1)}=s_\lambda$ for the Schur polynomial
+defined in Counting.
+\end{exercise}
+
+\begin{exercise}[Jack transition spectrum]
+Let $\rho_r=\sum_{j=1}^Ne^{ir\theta_j}$ be a density mode.  Derive the
+Jack Pieri identity in orthonormal normalization for
+$\rho_1P_\lambda^{(1/g)}$ and show that only
+nonincreasing tuples obtained from $\lambda$ by increasing one entry by
+one occur.
+For a weak periodic drive proportional to
+$\rho_1e^{-i\Omega t}+\rho_{-1}e^{i\Omega t}$, deduce the allowed
+resonance frequencies
+\[
+\Omega_{\mu\lambda}=\frac{|E_\mu-E_\lambda|}{\hbar}
+\]
+and express their relative intensities as squared normalized Jack Pieri
+coefficients.  State how spectroscopy of particles confined to a ring
+determines $g$ from the line shifts and tests the Jack selection rule from
+the missing lines.
+\end{exercise}
 
 \begin{definition}[Double-affine braid group]
 Let $T^2=\R^2/\Z^2$ and let
@@ -2431,9 +2549,6 @@ any discrete parameter ambiguity, and that the prediction concerns the
 engineered simulator.
 \end{exercise}
 
-\section{Elliptic Hypergeometric Integrability}
-
-
 \begin{definition}[Elliptic shifted factorials and gamma function]
 For $|p|,|q|<1$, define
 \[
@@ -2558,126 +2673,4 @@ partition function is exactly $\mathcal T_n(a;b,c,d)$.  Take $p\to0$ and
 then $q\to1$ and compute the corresponding multiplicative and additive
 limits.  Determine how zeros of the shifted factorials truncate the
 internal-state sum when $q$ approaches a root of unity.
-\end{exercise}
-
-\section{Verlinde Theory}
-
-
-\begin{definition}[Temperley--Lieb algebras]
-For $d\in\C$, the Temperley--Lieb algebra $TL_n(d)$ is generated by
-$U_1,\ldots,U_{n-1}$ with
-\[
-U_i^2=dU_i,
-\qquad
-U_iU_{i\pm1}U_i=U_i,
-\qquad
-U_iU_j=U_jU_i\quad(|i-j|>1).
-\]
-Its diagram trace is normalized by
-\[
-\operatorname{tr}_0(1)=1,
-\qquad
-\operatorname{tr}_{n+1}(x)=d\operatorname{tr}_n(x),
-\qquad
-\operatorname{tr}_{n+1}(xU_n)=\operatorname{tr}_n(x),
-\]
-where $x\in TL_n(d)$ is embedded in $TL_{n+1}(d)$.
-\end{definition}
-
-\begin{definition}[Jones--Wenzl recursion]
-Put
-\[
-q=e^{\pi i/(k+2)},
-\qquad
-d=q+q^{-1},
-\qquad
-[n]_q=\frac{q^n-q^{-n}}{q-q^{-1}}.
-\]
-With $f_0=f_1=1$, define recursively in $TL_{n+1}(d)$
-\[
-f_{n+1}=f_n-\frac{[n]_q}{[n+1]_q}f_nU_nf_n
-\qquad(1\leq n\leq k).
-\]
-Let $\mathcal C_k$ be the idempotent-complete tensor quotient of the
-Temperley--Lieb category by the tensor ideal generated by $f_{k+1}$, and
-write $V_a$ for the image of $f_a$, $0\leq a\leq k$.
-\end{definition}
-
-\begin{exercise}[Jones--Wenzl truncation]
-Use the Temperley--Lieb relations to prove inductively
-\[
-f_n^2=f_n,
-\qquad
-U_if_n=f_nU_i=0\quad(1\leq i<n),
-\qquad
-\operatorname{tr}(f_n)=[n+1]_q.
-\]
-Deduce $\operatorname{tr}(f_{k+1})=[k+2]_q=0$ and prove that imposing
-$f_{k+1}=0$ makes the recursion close on $V_0,\ldots,V_k$.  Derive
-\[
-V_a\otimes V_b
-\cong
-\bigoplus_{\substack{|a-b|\leq c\leq
-\min(a+b,2k-a-b)\\a+b+c\equiv0\pmod2}}V_c
-\]
-and
-\[
-d_a=\dim_q(V_a)
-=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))}.
-\]
-\end{exercise}
-
-\begin{definition}[\texorpdfstring{$SU(2)_k$}{SU(2)k} modular data]
-For $0\leq a,b\leq k$, define
-\[
-S_{ab}
-=\sqrt{\frac{2}{k+2}}
-\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right),
-\qquad
-\theta_a
-=\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
-\]
-Let $N_{ab}^{\ \ c}$ be the multiplicity of $V_c$ in
-$V_a\otimes V_b$.
-\end{definition}
-
-\begin{exercise}[Verlinde diagonalization]
-Use sine orthogonality to prove that $S$ is real, symmetric, and unitary.
-For each $a$, let $(N_a)_{bc}=N_{ab}^{\ \ c}$.  Use the truncated
-Chebyshev recursion to prove
-\[
-N_a=S\,\operatorname{diag}\!\left(
-\frac{S_{ax}}{S_{0x}}
-\right)_{x=0}^kS^{-1}
-\]
-and hence
-\[
-N_{ab}^{\ \ c}
-=\sum_{x=0}^k
-\frac{S_{ax}S_{bx}\overline{S_{cx}}}{S_{0x}}.
-\]
-Deduce that the number of fusion channels from
-$a_1,\ldots,a_n$ to $c$ is
-$(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
-of sine functions.  Apply the same formula to the Ising modular matrix
-derived in Counting and recover the Ising fusion multiplicities.
-\end{exercise}
-
-\begin{exercise}[Anyon interference and fusion counting]
-For simple charges $a,b$, prove that the normalized monodromy amplitude is
-\[
-M_{ab}=\frac{S_{ab}S_{00}}{S_{0a}S_{0b}}.
-\]
-In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
-\[
-I_b(\phi)=I_1+I_2
-+2\sqrt{I_1I_2}\,\Re(e^{i\phi}M_{ab}).
-\]
-Insert the sine formula and predict the visibility and phase for every
-enclosed charge.  For a collection of prepared charges, use the Verlinde
-formula to predict the exact number of fusion outcomes in each total-charge
-sector.  Identify indistinguishable charges for one probe and prove that
-the full family of probes distinguishes them.  State the coherence,
-topological-gap, charge-preparation, and readout assumptions separately
-from the predicted fringes and integer state counts.
 \end{exercise}
