@@ -1,6 +1,6 @@
 \part{Symmetry}
 
-\section{Hamiltonian Geometry}
+\section{Spectral Theory}
 
 
 
@@ -129,263 +129,6 @@ T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
 \]
 \end{exercise}
 
-\begin{definition}[Smooth manifolds and tangent spaces]
-A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
-space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
-whose transition maps are smooth.  A map of smooth manifolds is
-\emph{smooth} when its chart representatives are smooth; it is a
-\emph{diffeomorphism} when it has a smooth inverse.
-
-The \emph{tangent space} $T_pM$ is the vector space of derivations
-$v:C^\infty(M)\to\R$ at $p$, satisfying
-\[
-v(fg)=f(p)v(g)+g(p)v(f).
-\]
-The \emph{cotangent space} is $T_p^*M=(T_pM)^*$.  The differential of a
-smooth map $F:M\to N$ is
-\[
-dF_p:T_pM\longrightarrow T_{F(p)}N,
-\qquad
-dF_p(v)(f)=v(f\circ F).
-\]
-\end{definition}
-
-\begin{definition}[Tangent and cotangent bundles]
-Define
-\[
-TM=\coprod_{p\in M}T_pM,
-\qquad
-T^*M=\coprod_{p\in M}T_p^*M.
-\]
-A smooth vector bundle is a smooth map $\pi:E\to M$ locally isomorphic to
-$U\times W\to U$ for a finite-dimensional real vector space $W$, by
-fiberwise linear maps.  A section is a smooth map
-$s:M\to E$ satisfying $\pi s=\id_M$.  The bundles $TM$ and $T^*M$ have
-the bundle structures induced by the differentials of chart maps and
-their duals.  A classical position--momentum state is a pair $(q,p)$ with
-$p\in T_q^*M$; for $\hbar>0$, its wave covector is $p/\hbar$.
-\end{definition}
-
-\begin{definition}[Vector fields and flows]
-A \emph{vector field} is a smooth section $X:M\to TM$.  Its local flow is
-a family of local diffeomorphisms $\Phi_t$ satisfying
-\[
-\Phi_0=\id_M,
-\qquad
-\Phi_{s+t}=\Phi_s\circ\Phi_t,
-\qquad
-\frac d{dt}f(\Phi_t(p))=X_{\Phi_t(p)}(f)
-\]
-where both sides are defined.
-For vector fields $X,Y$, define
-\[
-[X,Y](f)=X(Yf)-Y(Xf).
-\]
-\end{definition}
-
-\begin{definition}[Differential forms]
-A \emph{differential $k$-form} on $M$ is a smooth section of
-$\Lambda^kT^*M$; write $\Omega^k(M)$ for the space of differential
-$k$-forms.  The exterior
-products on the cotangent spaces define
-\[
-\wedge:\Omega^r(M)\times\Omega^s(M)\longrightarrow\Omega^{r+s}(M).
-\]
-For a smooth map $F:M\to N$, define
-\[
-(F^*\alpha)_p(v_1,\ldots,v_k)
-=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
-\]
-For a vector field $X$, define contraction by
-\[
-(\iota_X\alpha)_p(v_2,\ldots,v_k)
-=\alpha_p(X_p,v_2,\ldots,v_k).
-\]
-The \emph{exterior derivative} is the family
-$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
-Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
-For a vector field $X$ with local flow $\Phi_t$, define
-\[
-\mathcal L_X\alpha
-=\left.\frac d{dt}\right|_{t=0}\Phi_t^*\alpha.
-\]
-\end{definition}
-
-\begin{exercise}[Cartan calculus]
-Construct $d$ locally and prove its uniqueness.  For contraction
-$\iota_X$, prove Cartan's identity
-\[
-\mathcal L_X=d\iota_X+\iota_Xd.
-\]
-\end{exercise}
-
-\begin{exercise}[Local Poincar\'e lemma]
-Let $U$ be a star-shaped open neighborhood of $0$ in a finite-dimensional
-real vector space.  For $\alpha\in\Omega^k(U)$ with $k>0$, define
-\[
-(K\alpha)_x(v_1,\ldots,v_{k-1})
-=\int_0^1t^{k-1}\alpha_{tx}(x,v_1,\ldots,v_{k-1})\,dt.
-\]
-Use Cartan's identity for the radial flow to prove
-\[
-dK+Kd=\id
-\]
-on positive-degree forms.  Deduce that every closed form of positive degree
-on $U$ is exact, with a primitive vanishing at the origin.
-\end{exercise}
-
-\begin{definition}[Cotangent phase space]
-For the projection $\pi:T^*Q\to Q$, define the tautological one-form by
-\[
-\theta_\alpha(v)=\alpha(d\pi(v)),
-\qquad \alpha\in T^*Q,\quad v\in T_\alpha(T^*Q).
-\]
-The canonical two-form on $T^*Q$ is $\omega=d\theta$.
-\end{definition}
-
-\begin{exercise}[From linear to cotangent phase space]
-For a finite-dimensional real vector space $V$, construct the canonical
-identifications
-\[
-TV\cong V\times V,
-\qquad
-T^*V\cong V\times V^*.
-\]
-Prove that a phase $S\in C^\infty(Q)$ determines the momentum
-$p=dS_q\in T_q^*Q$ and wave covector $p/\hbar$.  For a diffeomorphism
-$F:Q\to Q$, construct its cotangent lift and prove that it preserves
-$\theta$ and $d\theta$.  Under $T^*V\cong V\times V^*$, prove
-\[
-\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
-\end{exercise}
-
-\begin{definition}[Symplectic manifolds]
-A \emph{symplectic form} on a smooth manifold $M$ is a closed
-nondegenerate two-form $\omega$.  A \emph{symplectic vector space} is a
-finite-dimensional real vector space with a nondegenerate alternating
-bilinear form, regarded as a constant symplectic form.  For
-$f\in C^\infty(M)$, define
-\[
-\iota_{X_f}\omega=-df,
-\qquad
-\{f,g\}=-\omega(X_f,X_g).
-\]
-The local flow of $X_f$ is the \emph{Hamiltonian flow} of $f$.
-A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
-\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
-\end{definition}
-
-\begin{exercise}[Hamiltonian identities]
-Prove that the canonical two-form $d\theta$ on $T^*Q$ is nondegenerate and
-hence symplectic.
-Prove that the Poisson bracket is antisymmetric,
-satisfies the Leibniz rule and Jacobi identity, and is preserved by
-canonical transformations.  For the Hamiltonian flow $\Phi_t$ of $H$,
-prove
-\[
-\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
-\]
-\end{exercise}
-
-\begin{exercise}[Liouville's theorem]
-\label{ex:liouville-theorem}
-On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
-preserves $\omega$, the volume form $\omega^n/n!$, and every density
-depending only on the Hamiltonian.  On a symplectic vector space, prove
-that the infinitesimal generator of a linear Hamiltonian flow has trace
-zero and that the flow has determinant one.
-\end{exercise}
-
-\begin{definition}[Contact manifolds]
-Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
-a \emph{contact form} when
-\[
-\alpha\wedge(d\alpha)^n
-\]
-is nowhere zero.  Its kernel $\xi=\ker\alpha$ is the associated cooriented
-\emph{contact structure}; contact forms defining the same cooriented
-contact structure differ by multiplication by a positive smooth function.  The
-\emph{Reeb vector field} $R_\alpha$ is defined by
-\[
-\alpha(R_\alpha)=1,
-\qquad
-\iota_{R_\alpha}d\alpha=0.
-\]
-An immersed $n$-manifold $\iota:L\to Y$ is \emph{Legendrian} when
-$\iota^*\alpha=0$.  A diffeomorphism $F:(Y,\xi)\to(Y',\xi')$ is a
-\emph{contact transformation} when
-$F^*\alpha'=h\alpha$ for a positive smooth function $h$.
-\end{definition}
-
-\begin{exercise}[Contactification and symplectization]
-Let $(M,\omega=d\lambda)$ be an exact symplectic manifold.  On
-$M\times\R$, with coordinate function $u$ on the second factor, prove that
-\[
-\alpha=du-\lambda
-\]
-is a contact form and that $R_\alpha$ is the infinitesimal generator of
-translation in the $\R$ factor.  For a manifold $X$, identify
-$J^1X=T^*X\times\R$ with this contactification and prove that
-\[
-j^1f:X\longrightarrow J^1X,
-\qquad
-j^1f(x)=(df_x,f(x)),
-\]
-is Legendrian for every $f\in C^\infty(X)$.  Prove that every section of
-$J^1X\to X$ with Legendrian image is of this form.
-
-For a contact manifold $(Y,\alpha)$ and the positive coordinate $r$ on
-$\R_{>0}$, prove that
-\[
-\Omega=d(r\alpha)
-\]
-is symplectic on $\R_{>0}\times Y$.  Determine the vector field $Z$
-satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
-$\alpha$ by a positive function gives a symplectomorphic symplectization.
-\end{exercise}
-
-\begin{exercise}[Thermodynamic Legendrians]
-Let $X$ be the open cone of extensive variables $(S,V,N)$ and equip
-$J^1X$ with the thermodynamic notation
-\[
-\alpha=dU-T\,dS+p\,dV-\mu\,dN.
-\]
-For a fundamental relation $U=U(S,V,N)$, prove that its first jet is
-Legendrian exactly when
-\[
-dU=T\,dS-p\,dV+\mu\,dN.
-\]
-For
-\[
-F=U-TS,
-\qquad
-G=U-TS+pV,
-\]
-derive
-\[
-dF=-S\,dT-p\,dV+\mu\,dN,
-\qquad
-dG=-S\,dT+V\,dp+\mu\,dN,
-\]
-and prove that these Legendre transformations preserve the contact
-structure.  Derive the Maxwell relations from $d^2U=0$.
-
-Assume
-\[
-U(cS,cV,cN)=cU(S,V,N)
-\qquad(c>0).
-\]
-Prove the Euler relation
-\[
-U=TS-pV+\mu N
-\]
-and the Gibbs--Duhem relation
-\[
-S\,dT-V\,dp+N\,d\mu=0.
-\]
-\end{exercise}
-
 \begin{definition}[Rising factorial and binomial series]
 For $a\in\C$ and $m\in\Z_{\geq0}$, define
 \[
@@ -415,48 +158,6 @@ replacing $z$ by $-z$, recover
 (1+z)^n=\sum_{m=0}^n\binom{n}{m}z^m.
 \]
 \end{exercise}
-
-\begin{exercise}[Elliptic pendulum period]
-On $T^*S^1$ consider
-\[
-H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
-\]
-For an oscillation of amplitude $0<\theta_0<\pi$, set
-$k=\sin(\theta_0/2)$ and define
-\[
-K(k)=\int_0^{\pi/2}\frac{d\phi}
-{\sqrt{1-k^2\sin^2\phi}}.
-\]
-Use energy conservation to prove
-\[
-T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
-\]
-Apply the generalized binomial theorem with $a=\frac12$.  For
-\[
-I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
-\]
-use integration by parts to prove
-\[
-I_0=\frac{\pi}{2},
-\qquad
-I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
-\]
-and obtain
-\[
-K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
-\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
-\qquad |k|<1.
-\]
-Deduce
-\[
-T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
-\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
-\]
-Deduce the experimentally testable increase of period with amplitude and
-the logarithmic divergence as $\theta_0\uparrow\pi$.
-\end{exercise}
-
-\section{Spectral Theory}
 
 \begin{definition}[Hilbert spaces and orthogonality]
 An \emph{inner product} on a complex vector space is conjugate-linear in its
@@ -914,7 +615,58 @@ threshold heights and resonance frequencies determine $g$.
 
 \section{Fourier Analysis}
 
+\begin{definition}[Smooth manifolds and tangent spaces]
+A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
+space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
+whose transition maps are smooth.  A map of smooth manifolds is
+\emph{smooth} when its chart representatives are smooth; it is a
+\emph{diffeomorphism} when it has a smooth inverse.
 
+The \emph{tangent space} $T_pM$ is the vector space of derivations
+$v:C^\infty(M)\to\R$ at $p$, satisfying
+\[
+v(fg)=f(p)v(g)+g(p)v(f).
+\]
+The \emph{cotangent space} is $T_p^*M=(T_pM)^*$.  The differential of a
+smooth map $F:M\to N$ is
+\[
+dF_p:T_pM\longrightarrow T_{F(p)}N,
+\qquad
+dF_p(v)(f)=v(f\circ F).
+\]
+\end{definition}
+
+\begin{definition}[Tangent and cotangent bundles]
+Define
+\[
+TM=\coprod_{p\in M}T_pM,
+\qquad
+T^*M=\coprod_{p\in M}T_p^*M.
+\]
+A smooth vector bundle is a smooth map $\pi:E\to M$ locally isomorphic to
+$U\times W\to U$ for a finite-dimensional real vector space $W$, by
+fiberwise linear maps.  A section is a smooth map
+$s:M\to E$ satisfying $\pi s=\id_M$.  The bundles $TM$ and $T^*M$ have
+the bundle structures induced by the differentials of chart maps and
+their duals.
+\end{definition}
+
+\begin{definition}[Vector fields and flows]
+A \emph{vector field} is a smooth section $X:M\to TM$.  Its local flow is
+a family of local diffeomorphisms $\Phi_t$ satisfying
+\[
+\Phi_0=\id_M,
+\qquad
+\Phi_{s+t}=\Phi_s\circ\Phi_t,
+\qquad
+\frac d{dt}f(\Phi_t(p))=X_{\Phi_t(p)}(f)
+\]
+where both sides are defined.
+For vector fields $X,Y$, define
+\[
+[X,Y](f)=X(Yf)-Y(Xf).
+\]
+\end{definition}
 
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
@@ -1384,7 +1136,7 @@ $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
 
 \begin{definition}[Gauss hypergeometric function]
-Using the rising factorial defined in Hamiltonian Geometry, for
+Using the rising factorial defined in Spectral Theory, for
 $c\notin\Z_{\leq0}$ the \emph{Gauss hypergeometric function} is
 \[
 {}_2F_1\!\left(\begin{matrix}a,b\\c\end{matrix};z\right)
