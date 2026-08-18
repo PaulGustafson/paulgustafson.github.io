@@ -22,8 +22,69 @@ Z_F(T;z)=\sum_{m\geq0}\operatorname{tr}(\Lambda^mT)z^m.
 An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
 $\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
 $|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
-with $p(0)=1$.
+with $p(0)=1$.  For partitions of equal size, write $\mu<\lambda$ in
+dominance order when
+\[
+\sum_{i=1}^k\mu_i\leq\sum_{i=1}^k\lambda_i
+\]
+for every $k\geq1$, with missing parts interpreted as zero, and at least
+one inequality strict.
 \end{definition}
+
+\begin{definition}[Symmetric polynomials]
+For $N\geq1$, let
+\[
+\Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
+\]
+For a partition $\lambda$ of length at most $N$, let $m_\lambda$ be the
+sum of the distinct permutations of
+$x_1^{\lambda_1}\cdots x_N^{\lambda_N}$.  Define
+\[
+e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\qquad
+h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\]
+\[
+p_r=\sum_{i=1}^Nx_i^r,
+\qquad
+e_0=h_0=1.
+\]
+Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.
+\end{definition}
+
+\begin{definition}[Schur polynomials]
+For a partition $\lambda$ of length at most $N$, define
+\[
+s_\lambda(x_1,\ldots,x_N)
+=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
+\]
+\end{definition}
+
+\begin{exercise}[Fundamental symmetric identities]
+Prove that every element of $\Lambda_N$ is uniquely a polynomial in
+$e_1,\ldots,e_N$.  Prove
+\[
+\sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
+\qquad
+\sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
+\]
+and deduce
+\[
+\left(\sum_{r\geq0}h_rt^r\right)
+\left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
+\qquad
+rh_r=\sum_{j=1}^rp_jh_{r-j}.
+\]
+Derive the alternant formula
+\[
+s_\lambda(x)
+=\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
+{\det[x_i^{N-j}]_{i,j=1}^N}
+\]
+and prove $s_{(r)}=h_r$ and $s_{(1^r)}=e_r$.
+\end{exercise}
 
 \begin{exercise}[Bosonic and fermionic trace generating functions]
 Let $V$ be a finite-dimensional complex vector space and $T\in\End(V)$.
@@ -38,6 +99,15 @@ The first identity holds for $|z|$ below the reciprocal spectral radius;
 the second is a polynomial identity.  Prove them first for a direct sum of
 generalized spectral subspaces and then by polynomial continuation, without
 choosing vectors in those subspaces.
+If $\lambda_1,\ldots,\lambda_N$ are the eigenvalues counted with algebraic
+multiplicity, prove
+\[
+\operatorname{tr}(\operatorname{Sym}^mT)
+=h_m(\lambda_1,\ldots,\lambda_N),
+\qquad
+\operatorname{tr}(\Lambda^mT)
+=e_m(\lambda_1,\ldots,\lambda_N).
+\]
 
 Let the one-particle Hamiltonian have one-dimensional spectral subspaces at
 energies $j\hbar\omega$, $j\geq1$.  Apply the identities to the finite
@@ -83,45 +153,6 @@ prove $d\mathcal S=k_B\beta\,dU$ along this curve and express
 $d^2\Psi/d\beta^2$ as the energy variance.
 \end{exercise}
 
-\begin{exercise}[Gaussian-binomial state counts]
-Apply the Gaussian binomial theorem from Quantum Groups with $u=q$.
-Prove that the coefficient of $q^m$ in $\qbinom{n}{r}$ counts partitions
-of $m$ whose diagrams fit inside an $r\times(n-r)$ rectangle.  For $n$
-fermionic levels with energies $j\hbar\omega$, $0\leq j<n$, prove that the
-coefficient of $t^rq^{m+r(r-1)/2}$ in
-\[
-\prod_{j=0}^{n-1}(1+tq^j)
-\]
-is the exact number of $r$-particle states at excitation energy
-$m\hbar\omega$ above the filled lowest configuration, and identify it with
-the coefficient of $q^m$ in $\qbinom{n}{r}$.
-\end{exercise}
-
-\begin{exercise}[Hecke Poincar\'e identity]
-Put $t=v^2$.  For $w\in S_r$, let $\ell(w)$ be the least number of adjacent
-transpositions in an expression for $w$, and let
-$T_w=T_{i_1}\cdots T_{i_{\ell(w)}}$ for any reduced expression
-$w=s_{i_1}\cdots s_{i_{\ell(w)}}$.  Prove from the braid relations that
-$T_w$ is well-defined and that
-\[
-\sum_{w\in S_r}t^{\ell(w)}
-=\prod_{j=1}^r\frac{1-t^j}{1-t}.
-\]
-Prove that
-\[
-e_+=\frac{\sum_{w\in S_r}v^{\ell(w)}T_w}
-{\sum_{w\in S_r}v^{2\ell(w)}},
-\qquad
-e_-=\frac{\sum_{w\in S_r}(-v^{-1})^{\ell(w)}T_w}
-{\sum_{w\in S_r}v^{-2\ell(w)}}
-\]
-are idempotents satisfying
-$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke action
-from the preceding part, identify their images with the quantum symmetric
-and exterior state spaces and interpret the Poincar\'e polynomial as their
-graded state count.
-\end{exercise}
-
 \begin{definition}[Virasoro characters]
 The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central element
 acting by $c$, with
@@ -150,7 +181,7 @@ algebra is the symmetric algebra on the negative modes.  Conclude that the
 Verma-module character is
 \[
 \chi_{c,h}^{\rm Verma}(\tau)
-=\frac{q^{h-c/24}}{(q;q)_\infty}.
+=q^{h-c/24}\prod_{m\geq1}(1-q^m)^{-1}.
 \]
 For the vacuum impose $L_{-1}|0\rangle=0$ and derive the corresponding
 generic vacuum product.  Show how a homogeneous null relation removes its
@@ -178,7 +209,7 @@ S^*MS=M,
 \]
 \end{definition}
 
-\begin{exercise}[Ising characters and fusion counts]
+\begin{exercise}[Ising characters and modular invariance]
 For the Ising character system with $c=1/2$ and weights
 $0,1/2,1/16$, put
 \[
@@ -192,7 +223,8 @@ $0,1/2,1/16$, put
 \chi_{1/16}&=\frac1{\sqrt2}\sqrt{\frac{\vartheta_2}{\eta}}.
 \end{aligned}
 \]
-Use the theta and eta transformations developed in Fourier Analysis to
+Use the theta and eta transformations developed in Automorphic Forms and
+Theta Series to
 derive
 \[
 S=\frac12
@@ -206,8 +238,7 @@ T_{aa}=e^{2\pi i(h_a-c/24)}.
 \]
 Expand each character as $q^{h-c/24}$ times a power series, identify its
 coefficients with exact descendant counts, and verify the modular
-invariance of $\sum_a|\chi_a|^2$.  Apply the Verlinde formula from the
-root-of-unity section to recover the Ising fusion multiplicities.
+invariance of $\sum_a|\chi_a|^2$.
 \end{exercise}
 
 \begin{exercise}[Modular saddle-point counts]
@@ -411,7 +442,29 @@ and prove
 \mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!}.
 \]
 Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
-in the Kirillov section.
+in Spectral Theory.
+\end{exercise}
+
+\begin{definition}[Generalized Laguerre polynomials]
+For $\alpha>-1$, define
+\[
+L_n^{(\alpha)}(x)
+=\frac{x^{-\alpha}e^x}{n!}
+\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right),
+\qquad
+L_n=L_n^{(0)}.
+\]
+\end{definition}
+
+\begin{exercise}[Laguerre orthogonality]
+Use the Rodrigues formula and integration by parts to prove
+\[
+\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
+x^\alpha e^{-x}\,dx
+=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
+\]
+Derive the three-term recurrence and a contour integral for
+$L_n^{(\alpha)}$.
 \end{exercise}
 
 \begin{definition}[Dyson classes]
@@ -721,7 +774,7 @@ transforms and observed spectral edges test the freeness and large-size
 assumptions.
 \end{exercise}
 
-\section{Schur--Macdonald Measures and Fluctuations}
+\section{Schur Measures and Fluctuations}
 
 \begin{definition}[Row insertion and RSK]
 A semistandard Young tableau has weakly increasing rows and strictly
@@ -756,10 +809,11 @@ an up-right path:
 \[
 \lambda_1=G(m,n).
 \]
-For variables $a=(a_1,\ldots,a_m)$, define
+For variables $a=(a_1,\ldots,a_m)$, prove the tableau formula
 \[
-s_\lambda(a)=\sum_T\prod_i a_i^{m_i(T)}.
+s_\lambda(a)=\sum_T\prod_i a_i^{m_i(T)}
 \]
+for the Schur polynomial defined in Graded Traces and Characters.
 Use the contents of the two RSK tableaux and the geometric weight law to
 derive
 \[
@@ -808,88 +862,6 @@ $K_{a,b}$.  Deduce the exact finite Fredholm formula
 State how repeated last-passage or growth experiments with the specified
 geometric weights test this distribution without invoking an asymptotic
 limit.
-\end{exercise}
-
-\begin{definition}[Symmetric-function Macdonald pairing]
-Let $\Lambda_{\rm sym}=\C[p_1,p_2,\ldots]$ be graded by
-$\deg p_r=r$.  For a partition $\mu$, let $m_r(\mu)$ be the number of its
-parts equal to $r$, and define
-\[
-z_\mu=\prod_{r\geq1}r^{m_r(\mu)}m_r(\mu)!,
-\qquad
-p_\mu=\prod_jp_{\mu_j},
-\qquad
-p_r(x)=\sum_i x_i^r.
-\]
-Define the symmetric-function Macdonald pairing by
-\[
-\langle p_\mu,p_\nu\rangle^{\rm sym}_{q,t}
-=\delta_{\mu\nu}z_\mu
-\prod_j\frac{1-q^{\mu_j}}{1-t^{\mu_j}}.
-\]
-For a cell $s=(i,j)$ in the diagram of $\lambda$, define its arm and leg by
-\[
-a_\lambda(s)=\lambda_i-j,
-\qquad
-\ell_\lambda(s)=\lambda'_j-i,
-\]
-and put
-\[
-b_\lambda(q,t)
-=\prod_{s\in\lambda}
-\frac{1-q^{a_\lambda(s)}t^{\ell_\lambda(s)+1}}
-{1-q^{a_\lambda(s)+1}t^{\ell_\lambda(s)}}.
-\]
-\end{definition}
-
-\begin{exercise}[Stable Macdonald pairing and Cauchy identity]
-Prove that the finite-variable Macdonald polynomials are stable under
-adjoining a zero variable and hence determine elements $P_\lambda$ of
-$\Lambda_{\rm sym}$.  Put $Q_\lambda=b_\lambda(q,t)P_\lambda$.
-Use the adjointness of the DAHA difference operators
-and triangularity to prove
-\[
-\langle P_\lambda,P_\mu\rangle^{\rm sym}_{q,t}
-=\delta_{\lambda\mu}b_\lambda(q,t)^{-1}.
-\]
-Deduce that $P_\lambda$ and $Q_\lambda$ are dual.  Expand the reproducing
-kernel in the power sums and use the $q$-binomial identity to prove
-\[
-\sum_\lambda P_\lambda(a;q,t)Q_\lambda(b;q,t)
-=\prod_{i,j}\frac{(t a_i b_j;q)_\infty}
-{(a_i b_j;q)_\infty}
-\]
-for finite alphabets with $a_i b_j<1$.
-\end{exercise}
-
-\begin{definition}[Finite Macdonald measures]
-Let $0\leq q,t<1$, let $a=(a_1,\ldots,a_N)$ and
-$b=(b_1,\ldots,b_M)$ be nonnegative with $a_i b_j<1$, and let
-$P_\lambda,Q_\lambda$ be the preceding Macdonald functions.  Define
-\[
-\Pi(a;b)=\sum_\lambda
-P_\lambda(a;q,t)Q_\lambda(b;q,t),
-\qquad
-\mathbb P_{q,t}(\lambda)
-=\frac{P_\lambda(a;q,t)Q_\lambda(b;q,t)}{\Pi(a;b)}.
-\]
-\end{definition}
-
-\begin{exercise}[One Macdonald observable]
-Apply the first Macdonald difference operator in the $a$ variables to the
-Cauchy identity.  For distinct $a_i$, prove
-\[
-\mathbb E_{q,t}\!\left[
-\sum_{i=1}^Nq^{\lambda_i}t^{N-i}\right]
-=\sum_{i=1}^N
-\prod_{j\ne i}\frac{t a_i-a_j}{a_i-a_j}
-\prod_{k=1}^M\frac{1-a_i b_k}{1-t a_i b_k},
-\]
-and extend the identity to coincident parameters by continuity.  Verify
-the Schur specialization $q=t$ and the $q$-Whittaker specialization $t=0$.
-For samples from the finite measure, identify the displayed expectation as
-a directly estimable statistic and state the positivity, truncation, and
-sampling assumptions required for comparison with the formula.
 \end{exercise}
 
 \begin{exercise}[Laguerre last-passage fluctuations]
