@@ -59,6 +59,17 @@ satisfying the snake identities
 \]
 \end{definition}
 
+\begin{exercise}[Coevaluation uniqueness]
+Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
+$\operatorname{ev}_V$.  Apply
+\[
+\id_V\otimes\operatorname{ev}_V\otimes\id_{V^\vee}
+\]
+to $d\otimes c:k\to V\otimes V^\vee\otimes V\otimes V^\vee$ and use the
+snake identity for $d$ to identify the result with $c$.  Use the snake
+identity for $c$ to identify the same result with $d$, and deduce $c=d$.
+\end{exercise}
+
 \begin{definition}[Exterior powers, dimension, and determinant]
 For $m\geq0$, the $m$th \emph{exterior power} of a vector space $V$ is
 \[
@@ -127,6 +138,12 @@ Use functoriality of the highest exterior power to prove
 \qquad
 T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
 \]
+For $T\in\End(V)$, extend scalars to $k[z]$ and prove
+\[
+\det(I+zT)=\sum_{m=0}^n
+\operatorname{tr}(\Lambda^mT)z^m.
+\]
+Recover $(1+z)^n=\sum_m\binom nmz^m$ by taking $T=I$.
 \end{exercise}
 
 \begin{definition}[Rising factorial and binomial series]
@@ -213,16 +230,30 @@ $(X,\mathcal F,\mu)$ is a \emph{measure space}.  A map is
 For a measure space $(X,\mathcal F,\mu)$ and $1\leq p<\infty$, define
 \[
 L^p(X,\mu)=
-\left\{f:\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.}
+\left\{f:X\to\C\text{ measurable}:
+\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.}.
 \]
-with its usual norm, and let $L^\infty(X,\mu)$ consist of essentially
-bounded measurable functions.
+Its norm is
+\[
+\|f\|_p=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
+\]
+Let $L^\infty(X,\mu)$ consist of essentially bounded measurable functions
+modulo equality almost everywhere, with
+\[
+\|f\|_\infty=\operatorname*{ess\,sup}_{x\in X}|f(x)|.
+\]
 \end{definition}
 
 \begin{exercise}[Lebesgue integration and convergence]
 Construct the Lebesgue integral from nonnegative simple functions.  Prove
-the monotone convergence theorem, Fatou's lemma, the dominated convergence
-theorem.
+the monotone convergence theorem and Fatou's lemma.
+\end{exercise}
+
+\begin{exercise}[Dominated convergence]
+Prove the dominated convergence theorem by applying Fatou's lemma to an
+integrable dominating function.  Deduce convergence in $L^1$ and justify
+interchanging a convergent series with an integral under an integrable
+majorant.
 \end{exercise}
 
 \begin{exercise}[Product integration]
@@ -236,8 +267,14 @@ of finite-dimensional Euclidean spaces.
 \begin{exercise}[\texorpdfstring{$L^p$}{Lp} geometry]
 Prove H\"older's and Minkowski's inequalities and deduce that
 $L^p(X,\mu)$ is complete for $1\leq p\leq\infty$.  For $1<p<\infty$ with
-$p^{-1}+q^{-1}=1$, identify the continuous dual of $L^p$ with $L^q$ under
-the stated semifiniteness hypotheses.
+$p^{-1}+q^{-1}=1$, assume that $(X,\mathcal F,\mu)$ is $\sigma$-finite and
+prove that
+\[
+L^q(X,\mu)\longrightarrow L^p(X,\mu)^*,
+\qquad
+g\longmapsto\left(f\mapsto\int_X\overline{g}f\,d\mu\right)
+\]
+is an isometric isomorphism.
 \end{exercise}
 
 \begin{definition}[Gamma and beta integrals]
@@ -345,17 +382,39 @@ For a topological space $X$, the measure is \emph{regular} when every
 scalar measure $B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
 \end{definition}
 
-\begin{exercise}[Riesz--Markov representation]
+\begin{exercise}[Positive Riesz--Markov representation]
 Let $X$ be locally compact Hausdorff.  Prove that every positive linear
 functional $\varphi:C_c(X)\to\C$ that is bounded on functions supported in
 each compact set has a unique regular Borel measure $\mu_\varphi$ satisfying
 \[
 \varphi(f)=\int_Xf\,d\mu_\varphi.
 \]
-Use the decomposition of a bounded functional into four positive
-functionals to prove that every $\varphi\in C_0(X)^*$ has a unique finite
-complex regular measure $\mu_\varphi$, and prove
+\end{exercise}
+
+\begin{exercise}[Complex Riesz--Markov representation]
+Prove that the real and imaginary parts of a bounded functional on
+$C_0(X)$ are differences of positive functionals.  Apply the positive
+Riesz--Markov theorem to prove that every $\varphi\in C_0(X)^*$ has a
+unique finite complex regular measure $\mu_\varphi$, and prove
 $\|\varphi\|=|\mu_\varphi|(X)$.
+\end{exercise}
+
+\begin{exercise}[Spectral distributions of states]
+Let $A$ be a unital $C^*$-algebra, let $a=a^*\in A$, and let $\varphi$ be a
+state.  Apply the continuous functional calculus and Riesz--Markov theorem
+to prove that there is a unique Borel probability measure
+$\mu_{\varphi,a}$ on $\spec(a)$ such that
+\[
+\varphi(f(a))=\int_{\spec(a)}f(\lambda)\,d\mu_{\varphi,a}(\lambda),
+\qquad f\in C(\spec(a)).
+\]
+Deduce
+\[
+\varphi(a)=\int\lambda\,d\mu_{\varphi,a}(\lambda),
+\qquad
+\varphi(a^2)-\varphi(a)^2
+=\int(\lambda-\varphi(a))^2\,d\mu_{\varphi,a}(\lambda).
+\]
 \end{exercise}
 
 \begin{exercise}[\texorpdfstring{$C_0(X)$}{C0(X)} representations]
@@ -443,9 +502,22 @@ A=\int_\R\lambda\,dE_A(\lambda),\qquad
 \begin{exercise}[Stone's theorem]
 Use the measurable functional calculus of $E_A$ to prove that $e^{-itA}$
 is a strongly continuous unitary group with generator $-iA$.  Conversely,
-for a strongly continuous one-parameter unitary group, construct the
-spectral measure of its generator from the Fourier transforms of its scalar
-matrix coefficients and prove uniqueness of the self-adjoint generator.
+let $(U_t)_{t\in\R}$ be a strongly continuous unitary group and define
+\[
+\mathcal D(A)=\left\{x:\lim_{t\to0}
+i\frac{U_tx-x}{t}\text{ exists}\right\},
+\qquad
+Ax=\lim_{t\to0}i\frac{U_tx-x}{t}.
+\]
+Prove that $\mathcal D(A)$ is dense and that $A$ is symmetric.  Use the
+strong integrals
+\[
+i\int_0^\infty e^{-t}U_t\,dt,
+\qquad
+-i\int_{-\infty}^0e^tU_t\,dt
+\]
+to prove that $A-iI$ and $A+iI$ are surjective.  Deduce that $A$ is
+self-adjoint, prove $U_t=e^{-itA}$, and prove uniqueness of $A$.
 \end{exercise}
 
 \begin{exercise}[Spring and string frequencies]
@@ -509,9 +581,15 @@ h_n(x)=\frac{e^{-x^2/2}H_n(x)}
 \]
 \end{definition}
 
+\begin{exercise}[Hermite orthogonality]
+Use the generating function and the Gaussian integral to prove that
+$(h_n)_{n\geq0}$ is an orthonormal family in $L^2(\R)$.  Derive the
+Hermite differential equation and recurrence relations.
+\end{exercise}
+
 \begin{exercise}[Mehler kernel]
-Prove that $(h_n)_{n\geq0}$ is a complete orthonormal family in
-$L^2(\R)$ and, for $|r|<1$, derive Mehler's identity
+For $|r|<1$, use the Hermite generating function and Gaussian integration
+to derive Mehler's identity
 \[
 \sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
 =\frac1{\sqrt{\pi(1-r^2)}}
@@ -519,6 +597,16 @@ $L^2(\R)$ and, for $|r|<1$, derive Mehler's identity
 -\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
 \right).
 \]
+\end{exercise}
+
+\begin{exercise}[Hermite completeness]
+Let $K_r$ be the integral operator with the Mehler kernel for $0<r<1$.
+Use its explicit Gaussian form to prove
+\[
+K_rf\longrightarrow f\qquad\text{in }L^2(\R)quad(r\uparrow1).
+\]
+Prove that the image of $K_r$ lies in the closed linear span of the Hermite
+functions and deduce that $(h_n)_{n\geq0}$ is complete in $L^2(\R)$.
 \end{exercise}
 
 \begin{exercise}[Oscillator spectroscopy]
@@ -530,23 +618,23 @@ On Schwartz functions let
 \]
 For
 \[
-\widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dx^2}
-+\frac{m\omega^2x^2}{2},
+\widehat H=-\frac{\hbar^2}{2M}\frac{d^2}{dx^2}
++\frac{M\omega^2x^2}{2},
 \]
 use the Hermite functions to prove that
 \[
-\psi_n(x)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
-h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}x\right),
+\psi_n(x)=\left(\frac{M\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{M\omega}{\hbar}}x\right),
 \qquad
 E_n=\hbar\omega\left(n+\frac12\right)
 \]
 give the complete spectral decomposition of $\widehat H$.  Construct the
 creation and annihilation operators and compute
 \[
-\langle\psi_m,Q\psi_n\rangle
-=\sqrt{\frac{\hbar}{2m\omega}}
-\bigl(\sqrt{n+1}\,\delta_{m,n+1}
-+\sqrt n\,\delta_{m,n-1}\bigr).
+\langle\psi_k,Q\psi_n\rangle
+=\sqrt{\frac{\hbar}{2M\omega}}
+\bigl(\sqrt{n+1}\,\delta_{k,n+1}
++\sqrt n\,\delta_{k,n-1}\bigr).
 \]
 Deduce the spectral-line prediction
 $|E_{n\pm1}-E_n|/\hbar=\omega$ and the relative line strengths for a
@@ -559,25 +647,39 @@ normalization of
 show that its number statistics are Poisson with mean $|\alpha|^2$, and
 derive its sinusoidal position expectation.  Analytically continue
 Mehler's identity with the usual $t-i0$ prescription to obtain the
-oscillator propagator
+oscillator propagator for $t\notin(\pi/\omega)\Z$,
 \[
 K_t(x,y)=
-\sqrt{\frac{m\omega}{2\pi i\hbar\sin(\omega t)}}
+\sqrt{\frac{M\omega}{2\pi i\hbar\sin(\omega t)}}
 \exp\!\left[
-\frac{im\omega}{2\hbar\sin(\omega t)}
+\frac{iM\omega}{2\hbar\sin(\omega t)}
 \bigl((x^2+y^2)\cos(\omega t)-2xy\bigr)
 \right].
 \]
+Determine the Maslov phase obtained by continuation across each caustic.
+Prove
+\[
+e^{-2\pi i\widehat H/(\hbar\omega)}=-I,
+\qquad
+e^{-4\pi i\widehat H/(\hbar\omega)}=I,
+\]
+and distinguish the projective and observable revival period
+$2\pi/\omega$ from the exact operator period $4\pi/\omega$.
 Use these formulas to predict the spectral spacing, coherent oscillation
 frequency, occupation-number distribution, and revival period measured in
 an oscillator experiment.
 \end{exercise}
 
 \begin{definition}[Airy function]
-The Airy function is the oscillatory integral
+The Airy function $\operatorname{Ai}$ is the unique real solution of
 \[
-\operatorname{Ai}(x)=\frac1\pi\int_0^\infty
-\cos\!\left(\frac{t^3}{3}+xt\right)\,dt.
+\operatorname{Ai}''(x)=x\operatorname{Ai}(x)
+\]
+normalized by
+\[
+\operatorname{Ai}(x)\sim
+\frac{x^{-1/4}}{2\sqrt\pi}e^{-2x^{3/2}/3}
+\qquad(x\to+\infty).
 \]
 Let $a_n>0$ be determined by
 $\operatorname{Ai}(-a_n)=0$, ordered increasingly.
@@ -586,17 +688,16 @@ $\operatorname{Ai}(-a_n)=0$, ordered increasingly.
 \begin{exercise}[Airy spectrum of the quantum bouncer]
 On $L^2((0,\infty),dz)$ consider the self-adjoint Dirichlet realization
 \[
-\widehat H=-\frac{\hbar^2}{2m}\frac{d^2}{dz^2}+mgz,
+\widehat H=-\frac{\hbar^2}{2M}\frac{d^2}{dz^2}+Mgz,
 \qquad \psi(0)=0.
 \]
-Prove that $\operatorname{Ai}''(x)=x\operatorname{Ai}(x)$ and that
-$\operatorname{Ai}$ decays as $x\to+\infty$.  With
+With
 \[
-\ell_g=\left(\frac{\hbar^2}{2m^2g}\right)^{1/3},
+\ell_g=\left(\frac{\hbar^2}{2M^2g}\right)^{1/3},
 \]
 derive
 \[
-E_n=mg\ell_g a_n,
+E_n=Mg\ell_g a_n,
 \qquad
 \psi_n(z)=C_n\operatorname{Ai}\!\left(\frac z{\ell_g}-a_n\right).
 \]
@@ -606,11 +707,22 @@ the $k$th level only through the block
 $E_{\widehat H}(\{E_k\})BE_{\widehat H}(\{E_n\})$, at the resonant
 frequency
 \[
-\Omega_{kn}=\frac{mg\ell_g}{\hbar}|a_k-a_n|.
+\Omega_{kn}=\frac{Mg\ell_g}{\hbar}|a_k-a_n|.
 \]
-Deduce the transmission thresholds $z_n=\ell_g a_n$ for a horizontal
-absorber above a gravitationally bound beam and state how measured
-threshold heights and resonance frequencies determine $g$.
+Deduce the classical turning heights $z_n=\ell_g a_n$.  Model an absorber
+with lower face at height $h$, width $w$, and loss strength $\Gamma>0$ by
+the potential $-i\Gamma\mathbf1_{[h,h+w]}$.  In first-order decay theory,
+derive
+\[
+\gamma_n(h)=\frac{2\Gamma}{\hbar}
+\int_h^{h+w}|\psi_n(z)|^2\,dz
+\]
+and the transmission factor $e^{-T\gamma_n(h)}$ after flight time $T$.
+Use the Airy asymptotic to prove that the onset occurs across a height
+interval of order $\ell_g$ near $z_n$, rather than as a sharp step.  State
+how measured onset heights and resonance frequencies determine $g$, and
+separate the predicted Airy scales from absorber roughness, finite width,
+and loss.
 \end{exercise}
 
 \section{Fourier Analysis}
@@ -668,6 +780,8 @@ For vector fields $X,Y$, define
 \]
 \end{definition}
 
+
+
 \begin{definition}[Groups, homomorphisms, and quotients]
 A \emph{group} is a set $G$ with an associative multiplication, an identity,
 and inverses. A \emph{homomorphism} $\phi:G\to H$ preserves multiplication.
@@ -692,12 +806,49 @@ subspace. Direct sums and tensor products carry the actions
 $\rho\oplus\sigma$ and $g\mapsto\rho(g)\otimes\sigma(g)$.
 \end{definition}
 
-\begin{definition}[Haar normalization and modular function]
-Every locally compact group below is equipped with a chosen nonzero left
-Haar measure $\mu$.  Its \emph{modular function} is determined by
+\begin{definition}[Lie groups]
+A \emph{Lie group} is a topological group with a smooth manifold structure
+for which multiplication and inversion are smooth. Its \emph{Lie algebra} is
+$\mathfrak g=T_eG$ with bracket induced by left-invariant vector fields. A
+\emph{one-parameter subgroup} is a smooth homomorphism $\R\to G$. The
+\emph{exponential map} $\exp:\mathfrak g\to G$ sends $X$ to the value at
+$1$ of the one-parameter subgroup with initial velocity $X$.
+\end{definition}
+
+\begin{definition}[Riemannian metrics and Laplacians]
+A \emph{Riemannian metric} on an $n$-manifold $M$ is a smooth family of
+positive-definite inner products $g_p$ on $T_pM$.  Its Riemannian density
+is characterized by
 \[
-\mu(Eg)=\Delta_G(g)^{-1}\mu(E).
+|\operatorname{vol}_g|_p(v_1\wedge\cdots\wedge v_n)
+=\det\bigl(g_p(v_i,v_j)\bigr)^{1/2},
 \]
+and determines the Riemannian measure $d\operatorname{vol}_g$.  The
+gradient is defined by
+\[
+g(\operatorname{grad}_g f,X)=Xf.
+\]
+The divergence is determined by
+\[
+\int_M Xf\,d\operatorname{vol}_g
+=-\int_M f\,\operatorname{div}_gX\,d\operatorname{vol}_g
+\]
+for compactly supported $f$, and the Laplace--Beltrami operator is
+$\Delta_g=\operatorname{div}_g\operatorname{grad}_g$.
+\end{definition}
+
+\begin{exercise}[Riemannian invariance]
+Prove that an isometry preserves the Riemannian density, gradient,
+divergence, and Laplace--Beltrami operator.  Prove that a left-invariant
+Riemannian metric on a Lie group has left-invariant Riemannian measure.
+For the Euclidean metric, recover Lebesgue measure and
+$\Delta=\sum_j\partial_j^2$.
+\end{exercise}
+
+\begin{definition}[Haar normalization]
+Every locally compact group below is equipped with a chosen nonzero left
+Haar measure $\mu$.  Haar measure on a compact group is normalized by
+$\mu(G)=1$.
 \end{definition}
 
 \begin{definition}[Regular representation]
@@ -743,11 +894,10 @@ Identify
 \qquad
 \widehat{\mathbb T^n}\cong\mathbb Z^n,
 \]
-and verify the double-dual map in each case. Show that the group Fourier
-transform recovers Fourier transforms on $\R^n$ and Fourier series on
-$\mathbb T^n$. For a closed subgroup $H\leq G$, define its annihilator
-$H^\perp\subseteq\widehat G$ and prove
-$\widehat{G/H}\cong H^\perp$.
+and verify the double-dual map in each case.  For a linear subspace
+$W\subseteq\R^n$ and a full-rank
+lattice $\Gamma\subseteq\R^n$, compute their annihilators and identify the
+duals of $\R^n/W$ and $\R^n/\Gamma$.
 \end{exercise}
 
 
@@ -779,7 +929,8 @@ for all multi-indices $\alpha,\beta$.  For integrable functions, define
 
 \begin{definition}[Fourier transform]
 Let $V$ be an $n$-dimensional real Euclidean space with Lebesgue measure
-$dq$, and equip $V^*$ with the dual measure $dp$.  For
+$dq$.  Equip $V^*$ with its dual Euclidean structure and the resulting
+Lebesgue measure $dp$.  For
 $f\in\mathcal S(V)$, the semiclassical Fourier transform is
 \[
 (\mathcal F_\hbar f)(p)
@@ -868,7 +1019,7 @@ angular nodal lines and state how measured resonance ratios determine the
 ratios of Bessel zeros without knowledge of $c/R$.
 
 For a uniformly illuminated circular aperture of radius $a$, average the
-Fraunhofer kernel over the aperture and derive
+Fraunhofer kernel over the aperture, put $k=2\pi/\lambda$, and derive
 \[
 \frac{I(\theta)}{I(0)}
 =\left[
@@ -989,14 +1140,7 @@ subspace.  The \emph{unitary dual} $\widehat G$ is the set of
 unitary-equivalence classes of irreducible unitary representations.
 \end{definition}
 
-\begin{definition}[Lie groups]
-A \emph{Lie group} is a topological group with a smooth manifold structure
-for which multiplication and inversion are smooth. Its \emph{Lie algebra} is
-$\mathfrak g=T_eG$ with bracket induced by left-invariant vector fields. A
-\emph{one-parameter subgroup} is a smooth homomorphism $\R\to G$. The
-\emph{exponential map} $\exp:\mathfrak g\to G$ sends $X$ to the value at
-$1$ of the one-parameter subgroup with initial velocity $X$.
-\end{definition}
+
 
 \begin{exercise}[Exponential map]
 Prove existence and uniqueness of the one-parameter subgroup generated by
@@ -1047,9 +1191,14 @@ A\longmapsto\int_G\pi(g)A\sigma(g)^*\,dg
 is zero when $\pi\not\simeq\sigma$ and is
 $A\mapsto\operatorname{tr}(A)I_{H_\pi}/\dim H_\pi$ when
 $\pi=\sigma$.  Deduce that the coefficient map identifies
-$H_\pi\otimes H_\pi^*$, after multiplication by
+$H_\pi\otimes H_\pi^\vee$, after multiplication by
 $\sqrt{\dim H_\pi}$, with an isometric subspace of $L^2(G)$, and that
-distinct irreducible coefficient spaces are orthogonal.
+distinct irreducible coefficient spaces are orthogonal, where
+\[
+C_\pi:H_\pi\otimes H_\pi^\vee\longrightarrow L^2(G),
+\qquad
+C_\pi(x\otimes\varphi)(g)=\varphi(\pi(g)x).
+\]
 \end{exercise}
 
 \begin{exercise}[Peter--Weyl decomposition]
@@ -1057,10 +1206,10 @@ Use density and Schur orthogonality to prove
 \[
 L^2(G)\cong
 \mathop{\widehat{\bigoplus}}_{\pi\in\widehat G}
-H_\pi\otimes H_\pi^*,
+H_\pi\otimes H_\pi^\vee,
 \]
 with the left regular representation acting as
-$\pi\otimes I_{H_\pi^*}$ on the $\pi$-summand.  For
+$\pi\otimes I_{H_\pi^\vee}$ on the $\pi$-summand.  For
 $f\in L^2(G)\subseteq L^1(G)$, define
 $\widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg$ and prove
 \[
@@ -1089,8 +1238,7 @@ f(e)=\sum_{\pi\in\widehat G}d_\pi\Tr(\widehat f(\pi))
 =\sum_{\pi\in\widehat G}d_\pi^2c_\pi
 \]
 and prove that convolution by $f$ acts by the scalar $c_\pi$ on every
-copy of $\pi$ in $L^2(G)$.  Extend the identity to the natural Sobolev
-classes for which the character series converges absolutely.
+copy of $\pi$ in $L^2(G)$.
 \end{exercise}
 
 \begin{definition}[Rotations and spin]
@@ -1101,8 +1249,9 @@ SO(3)&=\{R\in\End(\R^3):R^*R=\id,\ \det R=1\},\\
 SU(2)&=\{U\in\End(\C^2):U^*U=\id,\ \det U=1\}.
 \end{aligned}
 \]
-An \emph{angular-momentum representation} is a unitary representation of
-$SU(2)$; with Planck constant $\hbar$, its infinitesimal generators
+An \emph{angular-momentum representation} is a finite-dimensional smooth
+unitary representation of $SU(2)$; with Planck constant $\hbar$, its
+infinitesimal generators
 $J_1,J_2,J_3$ are normalized by
 $[J_i,J_j]=i\hbar\varepsilon_{ijk}J_k$.
 \end{definition}
@@ -1201,7 +1350,12 @@ $SO(2)$-invariant subspace of $L^2(SO(3))$. Use Peter--Weyl to obtain
 \[
 L^2(S^2)\cong\mathop{\widehat{\bigoplus}}_{\ell=0}^\infty V_\ell
 \]
-and prove that the functions
+For normalized $J_3$-eigenstates $|\ell m\rangle$, define the Wigner
+matrix coefficients
+\[
+D^\ell_{mn}(g)=\langle \ell m|\pi_\ell(g)|\ell n\rangle.
+\]
+Prove that the functions
 $Y_{\ell m}\propto D^\ell_{m0}$, $-\ell\leq m\leq\ell$, form a complete
 orthogonal family in $V_\ell$. For the unit round sphere, set
 \[
@@ -1218,25 +1372,50 @@ Y_{\ell m}(\theta,\phi)
 =C_{\ell m}e^{im\phi}(\sin\theta)^{|m|}
 P_{\ell-|m|}^{(|m|,|m|)}(\cos\theta)
 \]
-with $C_{\ell m}$ fixed by unit norm. Separate the Coulomb Hamiltonian in spherical
-coordinates, identify its angular factor, and recover
+with $C_{\ell m}$ fixed by unit norm.  On
+\[
+L^2(\R^3,d^3x)
+\cong L^2((0,\infty),r^2\,dr)\otimes L^2(S^2,d\Omega),
+\]
+consider the Coulomb Hamiltonian
+\[
+\widehat H_C=-\frac{\hbar^2}{2M}\Delta_{\R^3}-\frac{\kappa}{r},
+\qquad M,\kappa>0.
+\]
+Separate $\widehat H_C$ in spherical coordinates and prove that its radial
+operator on the $\ell$th angular sector is
+\[
+-\frac{\hbar^2}{2M}
+\left(\frac{d^2}{dr^2}+\frac2r\frac d{dr}
+-\frac{\ell(\ell+1)}{r^2}\right)-\frac\kappa r
+\]
+on $L^2((0,\infty),r^2\,dr)$.  Recover
 $\psi_{n\ell m}(r,\theta,\phi)=R_{n\ell}(r)Y_{\ell m}(\theta,\phi)$.
 Determine the angular nodes of the $s$, $p$, and $d$ orbitals and relate them
 to symmetry-enforced zeros in photoelectron angular distributions in the
-plane-wave final-state approximation. Compare with
-\href{https://doi.org/10.1103/PhysRevB.72.195417}
-{Matsui et al., \emph{Physical Review B} \textbf{72} (2005)}.
+plane-wave final-state approximation. Compare the predicted momentum-space
+nodal suppression with
+\href{https://doi.org/10.1038/ncomms9287}
+{Wei\ss{} et al., \emph{Nature Communications} \textbf{6} (2015)}, and
+distinguish the orbital-symmetry prediction, plane-wave approximation,
+measured intensity, and final-state scattering corrections.
 \end{exercise}
 
 \begin{definition}[Clebsch--Gordan and Wigner coefficients]
-For the normalized $J_3$-eigenstates in the irreducible angular-momentum
-representations, define
+Choose the normalized $J_3$-eigenstates in each irreducible
+angular-momentum representation by the Condon--Shortley ladder convention
+\[
+J_-|jm\rangle
+=\hbar\sqrt{(j+m)(j-m+1)}\,|j,m-1\rangle.
+\]
+Define
 \[
 |jm\rangle
 =\sum_{m_1+m_2=m}C^{jm}_{j_1m_1,j_2m_2}
 |j_1m_1\rangle\otimes|j_2m_2\rangle,
 \]
-with the highest-weight coefficient positive, and set
+with all coefficients real and with the coefficient of
+$|j_1,j_1\rangle\otimes|j_2,j-j_1\rangle$ in $|jj\rangle$ positive, and set
 \[
 \begin{pmatrix}j_1&j_2&j\\m_1&m_2&m_3\end{pmatrix}
 =\frac{(-1)^{j_1-j_2-m_3}}{\sqrt{2j+1}}
@@ -1327,8 +1506,16 @@ on $a_r$, $r\geq0$.
 \end{exercise}
 
 \begin{definition}[Rank-one spherical transform]
-For $\lambda\in\R$, let $\varphi_\lambda$ be the smooth radial function on
-$\mathbb H^2$ determined by
+For $\lambda\in\R$, let $\varphi_\lambda$ be the normalized smooth
+$K$-invariant Laplace--Beltrami eigenfunction on $G/K=\mathbb H^2$ satisfying
+\[
+\Delta_{\mathbb H^2}\varphi_\lambda
+=-(\lambda^2+\tfrac14)\varphi_\lambda,
+\qquad
+\varphi_\lambda(eK)=1.
+\]
+Regarded as a $K$-bi-invariant function on $G$ and written in the radial
+coordinate $a_rK$, it is determined by
 \[
 \varphi_\lambda''(r)+\coth r\,\varphi_\lambda'(r)
 =-(\lambda^2+\tfrac14)\varphi_\lambda(r),
@@ -1387,32 +1574,33 @@ equation with a constant-coefficient equation and show how the discrete
 parameters become continuous as $R\to\infty$.
 \end{exercise}
 
-\begin{exercise}[Mehler--Fock inversion]
+\begin{exercise}[Harish--Chandra normalization]
 Use the large-$r$ asymptotics of the conical Legendre function and the
 Wronskian identity to derive
 \[
 c(\lambda)=\frac{\Gamma(i\lambda)}
 {\sqrt\pi\,\Gamma(\tfrac12+i\lambda)},
 \qquad
-|c(\lambda)|^{-2}=C'\lambda\tanh(\pi\lambda),
+|c(\lambda)|^{-2}=\pi\lambda\tanh(\pi\lambda).
 \]
-and compute $C'$.  Let $C_{\mathbb H}$ denote the inversion constant fixed
-by the radial measure $2\pi\sinh r\,dr$.  Prove, in the
-distributional sense,
+\end{exercise}
+
+\begin{exercise}[Mehler--Fock inversion]
+For $\lambda,\mu>0$, prove in the distributional sense that
 \[
 2\pi\int_0^\infty
 \varphi_\lambda(r)\varphi_\mu(r)\sinh r\,dr
-=\frac{\delta(\lambda-\mu)}
-{C_{\mathbb H}|c(\lambda)|^{-2}}.
+=\frac{2\pi}{\lambda\tanh(\pi\lambda)}
+\delta(\lambda-\mu).
 \]
 Deduce the Mehler--Fock inversion and Plancherel formulas
 \[
-f(r)=C_{\mathbb H}\int_0^\infty
+f(r)=\frac1{2\pi^2}\int_0^\infty
 \widetilde f(\lambda)P_{-1/2+i\lambda}(\cosh r)
 |c(\lambda)|^{-2}\,d\lambda,
 \]
 \[
-\|f\|_2^2=C_{\mathbb H}\int_0^\infty
+\|f\|_2^2=\frac1{2\pi^2}\int_0^\infty
 |\widetilde f(\lambda)|^2|c(\lambda)|^{-2}\,d\lambda.
 \]
 \end{exercise}
@@ -1423,7 +1611,7 @@ $u(0,r)=f(r)$ and $u_t(0,r)=g(r)$ in $C_c^\infty$.  Put
 $\omega_\lambda=(\lambda^2+1/4)^{1/2}$.  Use Mehler--Fock inversion to
 prove
 \[
-u(t,r)=C_{\mathbb H}\int_0^\infty
+u(t,r)=\frac1{2\pi^2}\int_0^\infty
 \left(
 \cos(t\omega_\lambda)\widetilde f(\lambda)
 +\frac{\sin(t\omega_\lambda)}{\omega_\lambda}\widetilde g(\lambda)
@@ -1432,7 +1620,7 @@ P_{-1/2+i\lambda}(\cosh r)|c(\lambda)|^{-2}\,d\lambda.
 \]
 Deduce the radial arrival profile of a localized pulse and its
 high-frequency spectral density from
-$|c(\lambda)|^{-2}=C'\lambda\tanh(\pi\lambda)$.
+$|c(\lambda)|^{-2}=\pi\lambda\tanh(\pi\lambda)$.
 \end{exercise}
 
 \begin{exercise}[Hyperbolic-drum resonances]
@@ -1454,16 +1642,42 @@ Use the $c$-function asymptotics to derive the large-$R$ quantization law
 with the indexing convention stated explicitly, and deduce the predicted
 radial frequency spacings.
 
-Let a finite regular hyperbolic circuit approximate $D_R$ by a real
-symmetric positive graph Laplacian $L_R$ whose calibration fixes the same
-curvature radius and wave speed.  Compare the measured values
-$v\sqrt{\lambda_j(L_R)}$ and radial pulse profile with the conical-function
-zeros and the Mehler--Fock wave kernel, and with the circuit measurements in
+For the $\{3,7\}$ tessellation used in
 \href{https://doi.org/10.1038/s41467-022-32042-4}
-{Lenggenhager et al., \emph{Nature Communications} \textbf{13} (2022)}.
-State separately the predicted frequencies and arrival profile, the graph
-calibration, the measured circuit quantities, and the discrepancies caused
-by boundary shape, loss, and discretization.
+{Lenggenhager et al., \emph{Nature Communications} \textbf{13} (2022)},
+let $Q_R$ be the graph Laplacian in their sign convention, put
+$L_R=-Q_R\geq0$, and write $\Lambda_j(L_R)$ for its eigenvalues.  The
+experiment uses curvature $-4$ and lattice parameter
+$h=\tanh(0.545275)$.  Prove the long-wavelength calibration
+\[
+\Lambda_j(L_R)
+=\frac74h^2\nu_j^{(-4)}+O(h^3),
+\qquad
+\nu_j^{(-4)}=4\nu_j^{(-1)},
+\]
+where $\nu_j^{(-1)}=\lambda_j^2+\tfrac14$ is the curvature-$-1$
+continuum eigenvalue.  Prove that the metric and geodesic-radius
+normalizations satisfy $g_{-1}=4g_{-4}$ and $R_{-1}=2R_{-4}$.
+
+For circuit capacitance $C$ and grounding inductance $L$, derive from the
+grounded circuit Laplacian
+\[
+J(\omega)=-i\omega C Q_R+\frac1{i\omega L}I
+\]
+that the measured circuit resonance satisfies
+\[
+\omega_j^{\rm circ}
+=\frac1{\sqrt{LC\,\Lambda_j(L_R)}},
+\qquad
+\nu_j^{(-1)}
+\sim\frac{\Lambda_j(L_R)}{7h^2}
+=\frac1{28\pi^2h^2LC(f_j^{\rm circ})^2}.
+\]
+Use this calibration to compare the inferred conical parameters, measured
+voltage eigenmodes, and radial phase fronts with the conical-function zeros
+and Mehler--Fock wave kernel.  State separately the curvature rescaling,
+continuum prediction, circuit resonance law, measured quantities, and the
+errors caused by boundary shape, loss, and discretization.
 \end{exercise}
 
 \section{Automorphic Forms}
@@ -1538,7 +1752,6 @@ Set
 \end{definition}
 
 \begin{exercise}[Theta transformations]
-\label{ex:theta-eta-transformations}
 Use Poisson summation on shifted and phase-twisted Gaussians to derive
 \[
 \vartheta_2(-1/\tau)=(-i\tau)^{1/2}\vartheta_4(\tau),
@@ -1547,20 +1760,46 @@ Use Poisson summation on shifted and phase-twisted Gaussians to derive
 \quad
 \vartheta_4(-1/\tau)=(-i\tau)^{1/2}\vartheta_2(\tau).
 \]
-Prove the $T$-transformation laws directly from the series and derive
+Use the branch positive for $\tau$ on the positive imaginary axis.  Prove
+directly from the series that
 \[
-\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
+\vartheta_2(\tau+1)=e^{\pi i/4}\vartheta_2(\tau),
 \qquad
-\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau),
+\vartheta_3(\tau+1)=\vartheta_4(\tau),
+\qquad
+\vartheta_4(\tau+1)=\vartheta_3(\tau).
 \]
-using the holomorphic square root on the upper half-plane.  Establish the
-Jacobi triple product, first as an identity of formal Laurent series,
+Write these
+$S$- and $T$-laws as a vector-valued transformation law of weight
+$\tfrac12$ for $(\vartheta_2,\vartheta_3,\vartheta_4)^T$ and prove that it
+is not an instance of the preceding scalar integral-weight definition.
+\end{exercise}
+
+\begin{exercise}[Jacobi triple product and eta transformations]
+\label{ex:theta-eta-transformations}
+Establish the Jacobi triple product, first as an identity of formal Laurent
+series,
 \[
 \sum_{n\in\Z}z^nq^{n^2/2}
 =\prod_{m\geq1}(1-q^m)
  (1+zq^{m-1/2})(1+z^{-1}q^{m-1/2}),
 \]
 and use specializations to recover product forms for the theta functions.
+Deduce
+\[
+2\eta(\tau)^3
+=\vartheta_2(\tau)\vartheta_3(\tau)\vartheta_4(\tau).
+\]
+Use the theta transformations and the branch positive on the positive
+imaginary axis to derive
+\[
+\eta(\tau+1)=e^{\pi i/12}\eta(\tau),
+\qquad
+\eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau).
+\]
+Prove that these laws give $\eta$ weight $\tfrac12$ with a nontrivial
+scalar multiplier, rather than the integral-weight trivial-multiplier law
+defined above.
 Explain how the two sides encode charge sectors and independent oscillator
 modes, respectively.
 \end{exercise}
