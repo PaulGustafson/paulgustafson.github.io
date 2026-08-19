@@ -529,11 +529,25 @@ $A$ and that the observed angular frequencies are $\sqrt{\lambda}$ for
 $\lambda\in\spec(A)\setminus\{0\}$.
 
 For a stretched string of length $L$, wave speed $c$, and fixed endpoints,
-use the self-adjoint Dirichlet realization of $-c^2d^2/dx^2$ to prove
+let $D$ be the self-adjoint operator on $L^2((0,L);\C)$ given by
 \[
-\omega_n=\frac{n\pi c}{L},
+D\phi=-c^2\phi'',
+\]
+on the domain of functions $\phi$ for which $\phi$ and $\phi'$ are
+absolutely continuous on $[0,L]$, $\phi''\in L^2((0,L))$, and
+$\phi(0)=\phi(L)=0$.  For the wave equation
+\[
+\partial_t^2u+Du=0,
+\]
+prove that a nonzero time-harmonic solution
+$u(t,x)=\operatorname{Re}(e^{i\omega t}\phi(x))$, with $\omega>0$,
+exists exactly when, for some $n\geq1$,
+\[
+\omega=\omega_n=\frac{n\pi c}{L},
 \qquad
-u_n(x)=\sin\!\left(\frac{n\pi x}{L}\right).
+\phi\in(\C\phi_n)\setminus\{0\},
+\qquad
+\phi_n(x)=\sqrt{\frac2L}\sin\!\left(\frac{n\pi x}{L}\right),
 \]
 Deduce the harmonic resonance ratios and the nodal locations measured by
 driving the string at each $\omega_n$.
