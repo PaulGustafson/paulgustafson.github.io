@@ -507,28 +507,6 @@ Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
 in Spectral Theory.
 \end{exercise}
 
-\begin{definition}[Generalized Laguerre polynomials]
-For $\alpha>-1$, define
-\[
-L_n^{(\alpha)}(x)
-=\frac{x^{-\alpha}e^x}{n!}
-\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right),
-\qquad
-L_n=L_n^{(0)}.
-\]
-\end{definition}
-
-\begin{exercise}[Laguerre orthogonality]
-Use the Rodrigues formula and integration by parts to prove
-\[
-\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
-x^\alpha e^{-x}\,dx
-=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn}.
-\]
-Derive the three-term recurrence and a contour integral for
-$L_n^{(\alpha)}$.
-\end{exercise}
-
 \begin{definition}[Dyson classes]
 For $\mathbb F=\R,\C,\mathbb H$, put
 $\beta_{\rm D}=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
@@ -706,6 +684,18 @@ F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
 Diagonal values are defined by continuity.
 \end{definition}
 
+\begin{definition}[Hastings--McLeod function]
+The \emph{Hastings--McLeod function} is the real pole-free solution $q$ of
+the second Painlev\'e equation
+\[
+q''(s)=s q(s)+2q(s)^3
+\]
+with
+\[
+q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty).
+\]
+\end{definition}
+
 \begin{exercise}[Hermite steepest descent]
 Derive a contour integral for the normalized Hermite functions from their
 generating function.  For $E\in(-2\sigma,2\sigma)$, perform steepest descent
@@ -756,6 +746,67 @@ deduce the GUE largest-eigenvalue law
 State the centering, scale calibration, symmetry class, and finite-size
 assumptions required when testing this prediction with extreme resonance or
 Hamiltonian levels.
+\end{exercise}
+
+\begin{exercise}[Painlev\'e form of the Tracy--Widom law]
+Let $K_s$ be the Airy-kernel operator on $L^2((s,\infty))$ and define
+\[
+Q_s=(I-K_s)^{-1}\operatorname{Ai},
+\qquad
+P_s=(I-K_s)^{-1}\operatorname{Ai}'.
+\]
+With the inner product on $L^2((s,\infty))$, put
+\[
+q(s)=Q_s(s),\qquad p(s)=P_s(s),
+\qquad
+u(s)=\langle Q_s,\operatorname{Ai}\rangle,
+\qquad
+v(s)=\langle P_s,\operatorname{Ai}\rangle.
+\]
+Use the integrable form of $K_{\rm Ai}$, the Airy equation, and
+differentiation of the moving endpoint to prove
+\[
+q'=p-qu,
+\qquad
+p'=sq+pu-2qv,
+\qquad
+u'=-q^2,
+\qquad
+v'=-pq.
+\]
+Prove that $u^2-2v-q^2$ is constant and vanishes as $s\to+\infty$.
+Deduce
+\[
+q''=sq+2q^3,
+\qquad
+q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty).
+\]
+Use the positive integral representation
+\[
+K_{\rm Ai}(x,y)=\int_0^\infty
+\operatorname{Ai}(x+t)\operatorname{Ai}(y+t)\,dt
+\]
+to prove that $I-K_s$ is invertible for every real $s$.  Conclude that the
+resolvent construction gives the real pole-free Hastings--McLeod solution.
+For the resolvent $R_s=K_s(I-K_s)^{-1}$, prove
+\[
+\frac d{ds}\log\det(I-K_s)=R_s(s,s)=u(s)
+=\int_s^\infty q(x)^2\,dx.
+\]
+Conclude that the Fredholm and Painlev\'e definitions agree:
+\[
+F_2(s)
+=\exp\!\left[-\int_s^\infty(x-s)q(x)^2\,dx\right].
+\]
+Use the Airy asymptotic of the Hastings--McLeod solution to derive
+\[
+1-F_2(s)
+\sim\frac{e^{-4s^{3/2}/3}}{16\pi s^{3/2}}
+\quad(s\to+\infty).
+\]
+State how exceedance counts for centered and edge-scaled extreme eigenvalues
+or resonance levels test this right-tail prediction, including the
+finite-size range over which the asymptotic is used.
 \end{exercise}
 
 \section{Schur Measures}

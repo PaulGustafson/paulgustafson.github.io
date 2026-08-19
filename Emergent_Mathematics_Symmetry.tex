@@ -603,7 +603,7 @@ to derive Mehler's identity
 Let $K_r$ be the integral operator with the Mehler kernel for $0<r<1$.
 Use its explicit Gaussian form to prove
 \[
-K_rf\longrightarrow f\qquad\text{in }L^2(\R)quad(r\uparrow1).
+K_rf\longrightarrow f\qquad\text{in }L^2(\R)\quad(r\uparrow1).
 \]
 Prove that the image of $K_r$ lies in the closed linear span of the Hermite
 functions and deduce that $(h_n)_{n\geq0}$ is complete in $L^2(\R)$.
@@ -1320,6 +1320,78 @@ and Gauss's summation
 State the parameter conditions for the integral and the summation.
 \end{exercise}
 
+\begin{definition}[Kummer and Whittaker functions]
+For $b\notin\Z_{\leq0}$, define the Kummer function
+\[
+M(a,b,z)={}_1F_1(a;b;z)
+=\sum_{m=0}^\infty\frac{(a)_m}{(b)_m}\frac{z^m}{m!}.
+\]
+For $2\mu+1\notin\Z_{\leq0}$, define
+\[
+M_{\lambda,\mu}(z)
+=e^{-z/2}z^{\mu+1/2}
+M\!\left(\mu-\lambda+\tfrac12,2\mu+1,z\right),
+\]
+with a branch of $z^{\mu+1/2}$ fixed.  The Whittaker function
+$W_{\lambda,\mu}$ is the solution of
+\[
+w''+\left(-\frac14+\frac{\lambda}{z}
++\frac{1/4-\mu^2}{z^2}\right)w=0
+\]
+normalized by
+$W_{\lambda,\mu}(z)\sim e^{-z/2}z^\lambda$ as $z\to+\infty$.
+\end{definition}
+
+\begin{definition}[Generalized Laguerre polynomials]
+For $\alpha>-1$ and $n\in\Z_{\geq0}$, define
+\[
+L_n^{(\alpha)}(x)
+=\frac{x^{-\alpha}e^x}{n!}
+\frac{d^n}{dx^n}\left(e^{-x}x^{n+\alpha}\right)
+=\frac{(\alpha+1)_n}{n!}M(-n,\alpha+1,x).
+\]
+Write $L_n=L_n^{(0)}$.
+\end{definition}
+
+\begin{exercise}[Confluence and Laguerre functions]
+Prove locally uniformly in $z$ that
+\[
+\lim_{B\to+\infty}
+{}_2F_1\!\left(\begin{matrix}a,B\\c\end{matrix};\frac zB\right)
+=M(a,c,z),
+\]
+and derive Kummer's equation
+\[
+zy''+(b-z)y'-ay=0.
+\]
+Apply the substitution
+$w(z)=e^{-z/2}z^{\mu+1/2}y(z)$ to obtain the Whittaker equation with
+$a=\mu-\lambda+\tfrac12$ and $b=2\mu+1$.
+
+Derive the equality of the two displayed definitions of
+$L_n^{(\alpha)}$.  Use the Rodrigues formula and integration by parts to
+prove
+\[
+\int_0^\infty L_m^{(\alpha)}(x)L_n^{(\alpha)}(x)
+x^\alpha e^{-x}\,dx
+=\frac{\Gamma(n+\alpha+1)}{n!}\delta_{mn},
+\]
+and derive
+\[
+(n+1)L_{n+1}^{(\alpha)}(x)
+=(2n+\alpha+1-x)L_n^{(\alpha)}(x)
+-(n+\alpha)L_{n-1}^{(\alpha)}(x).
+\]
+Prove
+\[
+\sum_{n\geq0}L_n^{(\alpha)}(x)t^n
+=(1-t)^{-\alpha-1}
+\exp\!\left(-\frac{xt}{1-t}\right),
+\qquad |t|<1,
+\]
+and obtain the corresponding coefficient contour integral around $t=0$.
+\end{exercise}
+
 \begin{definition}[Jacobi polynomials]
 For $\alpha,\beta>-1$, the \emph{Jacobi polynomial} is
 \[
@@ -1391,6 +1463,43 @@ operator on the $\ell$th angular sector is
 \]
 on $L^2((0,\infty),r^2\,dr)$.  Recover
 $\psi_{n\ell m}(r,\theta,\phi)=R_{n\ell}(r)Y_{\ell m}(\theta,\phi)$.
+Put
+\[
+a_0=\frac{\hbar^2}{M\kappa},
+\qquad
+\beta=\frac{\sqrt{-2ME}}{\hbar},
+\qquad
+\rho=2\beta r
+\]
+for $E<0$, and set $u(r)=rR(r)$.  Reduce the radial eigenvalue equation to
+the Whittaker equation with
+\[
+\lambda=\frac1{a_0\beta},
+\qquad
+\mu=\ell+\frac12.
+\]
+Use regularity at the origin and square-integrability at infinity to prove
+that
+\[
+\ell+1-\lambda=-n_r,
+\qquad n_r\in\Z_{\geq0}.
+\]
+Writing $n=n_r+\ell+1$, deduce
+\[
+E_n=-\frac{M\kappa^2}{2\hbar^2n^2},
+\qquad
+R_{n\ell}(r)
+\propto e^{-r/(na_0)}
+\left(\frac{2r}{na_0}\right)^\ell
+L_{n-\ell-1}^{(2\ell+1)}\!\left(\frac{2r}{na_0}\right).
+\]
+Prove that the spatial multiplicity of $E_n$ is $n^2$ and derive the
+spectral-line frequencies
+\[
+\omega_{n_i\to n_f}
+=\frac{M\kappa^2}{2\hbar^3}
+\left|\frac1{n_f^2}-\frac1{n_i^2}\right|.
+\]
 Determine the angular nodes of the $s$, $p$, and $d$ orbitals and relate them
 to symmetry-enforced zeros in photoelectron angular distributions in the
 plane-wave final-state approximation. Compare the predicted momentum-space
@@ -1738,6 +1847,93 @@ $f(\tau)=\sum_{n\geq0}a_nq^n$ has no negative powers.  It is a
 \emph{cusp form} if $a_0=0$.
 \end{definition}
 
+\begin{definition}[Zeta and Eisenstein functions]
+For $\operatorname{Re}s>1$, define the Riemann zeta function by
+\[
+\zeta(s)=\sum_{n\geq1}n^{-s}.
+\]
+For a $d$-dimensional Euclidean lattice $L$, with $d\geq1$, and
+$\operatorname{Re}s>d/2$, define its Epstein zeta function by
+\[
+Z_L(s)=\sum_{x\in L\setminus\{0\}}\|x\|^{-2s}.
+\]
+For $m\geq2$ and $\tau$ in the upper half-plane, define
+\[
+G_{2m}(\tau)
+=\sum_{(c,d)\in\Z^2\setminus\{(0,0)\}}
+\frac1{(c\tau+d)^{2m}},
+\qquad
+E_{2m}(\tau)=\frac{G_{2m}(\tau)}{2\zeta(2m)}.
+\]
+\end{definition}
+
+\begin{exercise}[Theta Mellin transform and zeta functional equation]
+Put $\theta_L(t)=\Theta_L(it)$.  For $\operatorname{Re}s>d/2$, prove
+\[
+\pi^{-s}\Gamma(s)Z_L(s)
+=\int_0^\infty\bigl(\theta_L(t)-1\bigr)t^{s-1}\,dt.
+\]
+Split the integral at $1$ and use Poisson duality to prove the meromorphic
+continuation
+\[
+\begin{aligned}
+\pi^{-s}\Gamma(s)Z_L(s)
+={}&\int_1^\infty(\theta_L(t)-1)t^{s-1}\,dt\\
+&+\frac1{\vol(L)}\int_1^\infty
+(\theta_{L^*}(t)-1)t^{d/2-s-1}\,dt
++\frac1{\vol(L)(s-d/2)}-\frac1s.
+\end{aligned}
+\]
+Deduce
+\[
+\pi^{-s}\Gamma(s)Z_L(s)
+=\frac1{\vol(L)}
+\pi^{-(d/2-s)}\Gamma(d/2-s)Z_{L^*}(d/2-s),
+\]
+$Z_L(0)=-1$, and
+\[
+\operatorname*{res}_{s=d/2}Z_L(s)
+=\frac{\pi^{d/2}}{\vol(L)\Gamma(d/2)}.
+\]
+For $L=\Z$, use $Z_\Z(s)=2\zeta(2s)$ to derive the functional equation of
+$\zeta$.  Use Fourier series and Parseval to prove
+\[
+\zeta(2)=\frac{\pi^2}{6},
+\qquad
+\zeta(4)=\frac{\pi^4}{90},
+\]
+and then deduce
+\[
+\zeta(-1)=-\frac1{12},
+\qquad
+\zeta(-3)=\frac1{120}.
+\]
+\end{exercise}
+
+\begin{exercise}[Holomorphic Eisenstein series]
+Prove absolute local uniform convergence of $G_{2m}$ and prove
+\[
+G_{2m}\!\left(\frac{a\tau+b}{c\tau+d}\right)
+=(c\tau+d)^{2m}G_{2m}(\tau)
+\]
+for every
+$\left(\begin{smallmatrix}a&b\\c&d\end{smallmatrix}\right)
+\in SL_2(\Z)$.
+Using Poisson summation in one lattice direction, derive
+\[
+G_{2m}(\tau)
+=2\zeta(2m)
++\frac{2(2\pi i)^{2m}}{(2m-1)!}
+\sum_{n\geq1}\sigma_{2m-1}(n)q^n,
+\qquad
+\sigma_r(n)=\sum_{d\mid n}d^r.
+\]
+Deduce that $E_{2m}$ is a modular form of weight $2m$ and that
+\[
+E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n.
+\]
+\end{exercise}
+
 \begin{definition}[Theta and eta functions]
 Set
 \[
@@ -1825,4 +2021,45 @@ Prove that the heat-trace exponents and diffraction-peak radii determine
 the same reciprocal squared lengths $\|\xi\|^2$.  Deduce the predicted
 peak locations, systematic absences, and thermal decay rates from the
 theta coefficients of $L^*$.
+\end{exercise}
+
+\begin{exercise}[Zeta-regularized Casimir pressure]
+For a massless scalar field between parallel Dirichlet plates of area $A$
+and separation $a$, neglect edge effects and take the normal-mode
+frequencies to be
+\[
+\omega_{n,k}=c\sqrt{|k|^2+\left(\frac{\pi n}{a}\right)^2},
+\qquad n\geq1,\quad k\in\R^2.
+\]
+For $\mu>0$ and $\operatorname{Re}s$ sufficiently large, define the
+regulated vacuum energy density by
+\[
+\frac{\mathcal E_D(s)}A
+=\frac{\hbar c}{2}\mu^{2s}
+\sum_{n\geq1}\int_{\R^2}\frac{d^2k}{(2\pi)^2}
+\left(|k|^2+\frac{\pi^2n^2}{a^2}\right)^{1/2-s}.
+\]
+Use the gamma integral to continue this expression as
+\[
+\frac{\mathcal E_D(s)}A
+=\frac{\hbar c\,\mu^{2s}}{8\pi}
+\frac{\Gamma(s-3/2)}{\Gamma(s-1/2)}
+\left(\frac\pi a\right)^{3-2s}\zeta(2s-3).
+\]
+After subtracting the infinite-separation and plate-local terms, evaluate
+at $s=0$ and prove
+\[
+\frac{\mathcal E_D}A=-\frac{\pi^2\hbar c}{1440a^3}.
+\]
+For the ideal electromagnetic field, account for the two polarizations and
+deduce
+\[
+\frac{\mathcal E_{\rm EM}}A=-\frac{\pi^2\hbar c}{720a^3},
+\qquad
+P=-\frac{\partial(\mathcal E_{\rm EM}/A)}{\partial a}
+=-\frac{\pi^2\hbar c}{240a^4}.
+\]
+State how a force measurement tests the $a^{-4}$ law and its coefficient,
+separating the ideal prediction from finite conductivity, temperature,
+roughness, alignment, and edge corrections.
 \end{exercise}
