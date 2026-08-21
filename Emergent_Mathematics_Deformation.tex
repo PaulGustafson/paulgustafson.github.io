@@ -1794,6 +1794,65 @@ eigenvalues depend on $u$ and hence that the spectral family itself does
 not satisfy one parameter-independent Hecke polynomial.
 \end{exercise}
 
+\begin{definition}[Six-vertex row transfer]
+On the fundamental module $V_1$, put
+\[
+\check R(u)=uT-u^{-1}T^{-1},
+\qquad
+R(u)=\tau\circ\check R(u),
+\]
+where $T=vP_2-v^{-1}P_0$ and $\tau$ is the flip.  For an auxiliary copy
+$V_a\cong V_1$ and a periodic row of length $N$, define
+\[
+\mathsf T_N(u)
+=\Tr_{V_a}\bigl(R_{aN}(u)\cdots R_{a1}(u)\bigr)
+\quad\text{on }V_1^{\otimes N},
+\]
+and for an $N\times M$ periodic lattice define
+\[
+Z^{6\mathrm V}_{N,M}(u)=\Tr_{V_1^{\otimes N}}\mathsf T_N(u)^M.
+\]
+\end{definition}
+
+\begin{exercise}[Six-vertex integrability and the XXZ spectrum]
+Use invariance of $P_2$ and $P_0$ under the Cartan action to prove
+\[
+[R(u),K\otimes K]=0.
+\]
+Relative to the distinguished weight lines of $V_1$, deduce that exactly
+the six arrow configurations preserving total weight can have nonzero
+local weights, and compute those weights from $P_2$ and $P_0$.  Prove the
+spectral Yang--Baxter equation for $R$ from the Baxterization identity.
+Apply it to an auxiliary pair and take their intrinsic traces to prove
+\[
+[\mathsf T_N(u),\mathsf T_N(w)]=0.
+\]
+Show that $Z^{6\mathrm V}_{N,M}(u)$ is the sum of products of the six local
+weights over arrow configurations on the periodic square lattice.
+
+Use $\check R(1)=(v-v^{-1})I$ and compute the logarithmic derivative at
+the regular point.  Prove that
+\[
+\widehat H_N
+=J\left[(v-v^{-1})\mathsf T_N'(1)\mathsf T_N(1)^{-1}
+-N(v+v^{-1})I\right]
+\]
+is the periodic version of the XXZ Hamiltonian in the preceding exercise,
+with $\Delta=(v+v^{-1})/2$ and with the telescoping boundary term equal to
+zero.  On the sector with one reversed spin, apply the distinguished
+Fourier modes and derive
+\[
+E(k)=4J(\cos k-\Delta),
+\qquad
+k=\frac{2\pi m}{N},\quad 0\leq m<N.
+\]
+Deduce the finite-size line spacings and the band edges.  State the energy
+calibration, periodic-boundary, polarization-sector, and spectral-resolution
+assumptions required when these values are compared with an XXZ spin-chain
+simulator, and determine the scalar gauge and real spectral-parameter
+regime under which the same six weights are nonnegative Boltzmann weights.
+\end{exercise}
+
 \begin{definition}[$q$KZ transport]
 Let $v$ be the quantum-group parameter and let $\kappa\ne0$ be an
 independent shift parameter.  Let $D\in\operatorname{End}(V)$ be
@@ -1941,6 +2000,121 @@ $a_1,\ldots,a_n$ to $c$ is
 $(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
 of sine functions.  Apply the same formula to the Ising modular matrix
 derived in Counting and recover the Ising fusion multiplicities.
+\end{exercise}
+
+\begin{definition}[Levin--Wen string-net Hamiltonian]
+Let $\Gamma$ be a trivalent cellulation of a closed oriented surface and
+let $\mathcal C_k$ be the preceding finite semisimple rigid
+$C^*$-tensor category with simple objects $V_0,\ldots,V_k$, fusion
+multiplicities $N_{ab}^{\ \ c}$, standard categorical trace, and quantum
+dimensions $d_a$.  Put
+\[
+\mathcal H_\Gamma
+=\ell^2\!\left(\{0,\ldots,k\}^{E(\Gamma)}\right),
+\qquad
+\mathcal D^2=\sum_{a=0}^kd_a^2.
+\]
+For each vertex $v$, let $Q_v$ be the projection onto edge labelings
+admissible under the fusion rules.  For a face $p$, let $B_p^a$ insert a
+coevaluation--evaluation loop labelled $V_a$ inside $p$ and resolve it
+into the boundary edges by the associator and the quantum recoupling maps;
+set it equal to zero off the subspace on which the vertices incident to
+$p$ are admissible.
+Define
+\[
+B_p=\frac1{\mathcal D^2}\sum_{a=0}^kd_aB_p^a
+\]
+and, for $\Delta_v,\Delta_p>0$,
+\[
+\widehat H_\Gamma
+=\Delta_v\sum_v(I-Q_v)+\Delta_p\sum_p(I-B_p).
+\]
+\end{definition}
+
+\begin{exercise}[String-net commuting projectors]
+Use the snake identities, the standard categorical trace, and the quantum recoupling
+pentagon to prove
+\[
+(B_p^a)^*=B_p^{a^\vee},
+\qquad
+B_p^aB_p^b=\sum_cN_{ab}^{\ \ c}B_p^c.
+\]
+Use
+\[
+d_ad_b=\sum_cN_{ab}^{\ \ c}d_c
+\]
+to prove
+\[
+Q_v^2=Q_v=Q_v^*,
+\qquad
+B_p^2=B_p=B_p^*,
+\qquad
+[Q_v,B_p]=[B_p,B_{p'}]=0.
+\]
+Deduce that $\widehat H_\Gamma$ is positive and frustration-free and that
+its ground space is the simultaneous $+1$ space of all $Q_v$ and $B_p$.
+Prove that recoupling across an edge gives a unitary identification of the
+ground spaces before and after the corresponding local change of
+cellulation.
+
+For $k=1$, identify the labels with $\Z/2\Z$, let $Z_e$ act on a label
+$a_e$ by $(-1)^{a_e}$, and let $X_e$ reverse that label.  Show that
+\[
+Q_v=\frac12\left(I+\prod_{e\ni v}Z_e\right),
+\qquad
+B_p=\frac12\left(I+\prod_{e\subset\partial p}X_e\right).
+\]
+On a torus, count the two independent relations among the vertex and face
+constraints and prove that the ground-state degeneracy is $4$.  Identify
+the two pairs of noncontractible string operators and their mutual sign,
+and state the boundary conditions and gap-preserving perturbation regime
+under which the fourfold low-energy multiplicity is a measurable
+prediction of a qubit realization.
+\end{exercise}
+
+\begin{definition}[String-net loop operators]
+On a torus let $W_a^{\alpha,+}$ and $W_a^{\alpha,-}$ insert a
+noncontractible $V_a$ loop along a cycle $\alpha$, using respectively the
+braiding and inverse braiding of $\mathcal C_k$ when the loop is resolved
+through the string net.  Define $W_a^{\beta,+}$ and $W_a^{\beta,-}$ for a
+cycle $\beta$ with intersection number one with $\alpha$.
+\end{definition}
+
+\begin{exercise}[String-net loop spectroscopy]
+Use local recoupling to reduce a torus cellulation to a trivalent spine and
+prove that the ground space of the $\mathcal C_k$ string-net Hamiltonian
+has sectors indexed by pairs $(x,y)$ with $0\leq x,y\leq k$.  Deduce
+\[
+\dim\ker\widehat H_\Gamma=(k+1)^2.
+\]
+Prove the loop fusion relations
+\[
+W_a^{\alpha,\pm}W_b^{\alpha,\pm}
+=\sum_cN_{ab}^{\ \ c}W_c^{\alpha,\pm}
+\]
+and use Verlinde diagonalization to show that their eigenvalues in the
+sector $(x,y)$ are
+\[
+W_a^{\alpha,+}:\frac{S_{ax}}{S_{0x}},
+\qquad
+W_a^{\alpha,-}:\overline{\frac{S_{ay}}{S_{0y}}}.
+\]
+For a weak calibrated loop perturbation
+\[
+\widehat V=-\sum_a\left(
+\epsilon_a^+W_a^{\alpha,+}
++\epsilon_a^-W_a^{\alpha,-}+\text{adjoints}\right),
+\]
+derive the first-order splitting
+\[
+\delta E_{x,y}=-2\operatorname{Re}\sum_a\left(
+\epsilon_a^+\frac{S_{ax}}{S_{0x}}
++\epsilon_a^-\overline{\frac{S_{ay}}{S_{0y}}}\right).
+\]
+Insert the sine formula for $S$ and list the distinct splittings for a
+chosen $k$.  State the topological-gap, system-size, loop-support,
+calibration, and sector-resolution assumptions under which these spectral
+lines test the doubled $SU(2)_k$ string-net model.
 \end{exercise}
 
 \begin{exercise}[Anyon interference and fusion counting]
@@ -2840,6 +3014,181 @@ difference between the $n$th and $(n-1)$st terminating sums and prove
 \]
 Take $p\to0$ and identify the terminating very-well-poised basic
 hypergeometric summation.
+\end{exercise}
+
+\begin{definition}[Elliptic face weights and dynamical exchange]
+Fix logarithms of $p,q$ with $|p|,|q|<1$ and put
+\[
+[x]_{p,q}
+=q^{(1-x)/2}\frac{\theta(q^x;p)}{\theta(q;p)}.
+\]
+For integer heights $i,j,k,l$ satisfying
+\[
+|i-j|=|j-k|=|k-l|=|l-i|=1,
+\]
+define $W(i,j,k,l\mid x)$ by
+\[
+\begin{aligned}
+W(l\!\pm\!1,l\!\pm\!2,l\!\pm\!1,l\mid x)
+&=[x+1]_{p,q},\\
+W(l\!\mp\!1,l,l\!\pm\!1,l\mid x)
+&=\frac{[l+1\pm1]_{p,q}[x]_{p,q}}{[l+1]_{p,q}},\\
+W(l\!\pm\!1,l,l\!\pm\!1,l\mid x)
+&=\frac{[l+1\mp x]_{p,q}}{[l+1]_{p,q}},
+\end{aligned}
+\]
+whenever the denominators are nonzero, and set all other weights equal to
+zero.  On $V=\C e_+\oplus\C e_-$ let $he_\pm=\pm e_\pm$ and define
+$R(x,\lambda)\in\End(V\otimes V)$ at $\lambda=l+1$ by
+\[
+\left\langle e_{j-k}\otimes e_{k-l},
+R(x,l+1)(e_{i-l}\otimes e_{j-i})\right\rangle
+=W(i,j,k,l\mid x),
+\]
+using the orthonormal distinguished weight lines and extending
+meromorphically in $\lambda$.
+\end{definition}
+
+\begin{definition}[Vertex--face intertwiners]
+Let $R^{\rm vert}(u)\in\End(V\otimes V)$ be a spectral exchange operator.
+For each admissible oriented height edge $|a-b|=1$, let
+$\psi(a,b\mid u)\in V$ be meromorphic in $u$.  The pair
+$(R^{\rm vert},\psi)$ satisfies the vertex--face relation for $W$ when
+\[
+\begin{aligned}
+&R^{\rm vert}(u-v)
+\bigl(\psi(a,b\mid u)\otimes\psi(b,c\mid v)\bigr)\\
+&\quad=\sum_{\substack{b'\\|a-b'|=|b'-c|=1}}
+W(a,b,c,b'\mid u-v)
+\psi(a,b'\mid v)\otimes\psi(b',c\mid u).
+\end{aligned}
+\]
+The intertwiners are nondegenerate when the maps from admissible
+height-path spaces induced by their tensor products are injective for
+generic spectral parameters.
+\end{definition}
+
+\begin{exercise}[Elliptic face Yang--Baxter relation]
+Prove $[-x]_{p,q}=-[x]_{p,q}$ and rewrite the theta addition identity as
+the corresponding four-term identity for the brackets $[x]_{p,q}$.
+Verify that $R(x,\lambda)$ has weight zero and prove the dynamical
+Yang--Baxter equation
+\[
+\begin{aligned}
+&R_{12}(x,\lambda+h^{(3)})
+R_{13}(x+y,\lambda)
+R_{23}(y,\lambda+h^{(1)})\\
+&\qquad={}
+R_{23}(y,\lambda)
+R_{13}(x+y,\lambda+h^{(2)})
+R_{12}(x,\lambda)
+\end{aligned}
+\]
+by reducing every nontrivial weight component to that bracket identity.
+Translate the two sides into the two sums over the admissible internal
+height of a three-face patch.  Show directly that the shifts by
+$h^{(1)},h^{(2)},h^{(3)}$ are the changes of the adjacent face height and
+that $\lambda$, unlike $x$ and $y$, is therefore the dynamical parameter.
+
+For periodic admissible height paths, form the row-to-row transfer maps by
+multiplying the displayed face weights and summing over the intermediate
+path.  Use the face Yang--Baxter relation to prove commutation of transfer
+maps with distinct spectral parameters.  For fixed boundary heights of a
+three-face patch with two admissible internal heights, compute their
+normalized probabilities from the two products of $W$ and prove that a
+star--triangle move preserves the boundary partition function.  State the
+real parameter and gauge conditions under which the normalized weights are
+positive statistical-mechanical probabilities.
+\end{exercise}
+
+\begin{exercise}[Vertex--face transfer correspondence]
+Assume nondegenerate vertex--face intertwiners.  Apply the ordinary
+spectral Yang--Baxter equation for $R^{\rm vert}$ to
+\[
+\psi(a,b\mid u)\otimes
+\psi(b,c\mid v)\otimes
+\psi(c,d\mid w)
+\]
+and use the vertex--face relation in the two orders.  Prove that equality
+of the resulting coefficients is the face Yang--Baxter relation and hence
+the dynamical Yang--Baxter equation of the preceding exercise.  Conversely,
+use nondegeneracy to prove the ordinary Yang--Baxter equation on the image
+of the height-path map from the face relation.
+
+For inhomogeneities $z_1,\ldots,z_N$, tensor the edge intertwiners around a
+periodic row to obtain the map $\Phi_u$ from periodic height paths to the
+corresponding vertex sector.  Prove the row-transfer intertwining identity
+\[
+\mathsf T_N^{\rm vert}(u)\Phi_u
+=\Phi_u\mathsf T_N^{\rm face}(u)
+\]
+with the boundary twist dictated by the net height change.  Deduce equality
+of the matched transfer spectra and periodic-strip partition functions.
+In the trigonometric degeneration $p\to0$, identify the vertex transfer
+operator with the six-vertex family and the face transfer operator with
+the trigonometric solid-on-solid model.  State the boundary-sector,
+normalization, injectivity, and face-gauge conditions required when their
+finite-size spectra are compared.
+\end{exercise}
+
+\begin{definition}[Terminating elliptic \texorpdfstring{$6j$}{6j} series]
+For $bcdefg=a^3q^{n+2}$, define
+\[
+\begin{aligned}
+&{}_{12}V_{11}
+ (a;b,c,d,e,f,g,q^{-n};q,p)\\
+&\quad=\sum_{m=0}^n
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}
+\frac{(a,b,c,d,e,f,g,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq/f,aq/g,
+aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+\end{definition}
+
+\begin{exercise}[Frenkel--Turaev elliptic face recoupling]
+Let
+\[
+\lambda=\frac{a^2q}{bcd},
+\qquad
+g=\frac{\lambda aq^{n+1}}{ef},
+\]
+and assume no displayed denominator vanishes.  Expand the series on the
+right, interchange the resulting finite sums, and apply the
+Frenkel--Turaev ${}_{10}V_9$ summation to prove
+\[
+\begin{aligned}
+&{}_{12}V_{11}
+ (a;b,c,d,e,f,g,q^{-n};q,p)\\
+&\quad=
+\frac{(aq,aq/(ef),\lambda q/e,\lambda q/f;q,p)_n}
+{(aq/e,aq/f,\lambda q/(ef),\lambda q;q,p)_n}\\
+&\qquad\quad\times
+{}_{12}V_{11}\!\left(
+\lambda;\frac{\lambda b}{a},\frac{\lambda c}{a},
+\frac{\lambda d}{a},e,f,g,q^{-n};q,p\right).
+\end{aligned}
+\]
+Fuse $n$ consecutive elementary face weights by summing over admissible
+internal height paths.  Factor the endpoint theta products and show that
+the remaining path sum has the displayed ${}_{12}V_{11}$ term ratio.
+Identify the two sides of the transformation with the two fusion orders
+and hence with the two recouplings of the four external height paths.
+Deduce the tetrahedral change of channel for the resulting elliptic
+$6j$ coefficients and recover the face Yang--Baxter relation for fused
+weights.
+
+Choose a numerator parameter so that the transformed series reduces to
+its zeroth term and recover the preceding ${}_{10}V_9$ summation.  Take
+$p\to0$ to obtain Bailey's terminating very-well-poised
+${}_{10}\phi_9$ transformation, and then take the spectral degeneration
+to the $Q$-Racah quantum $6j$ coefficients developed earlier.  For a
+finite fused face strip, express the relative Boltzmann probabilities of
+two resolved intermediate heights as ratios of normalized fused face
+weights.  Separately, in a unitary recoupling specialization, express
+channel probabilities as squared normalized elliptic $6j$ coefficients.
+State the positivity, face-gauge, boundary-height, unitarity, and
+spectral-resolution assumptions required for the two interpretations.
 \end{exercise}
 
 \begin{definition}[Elliptic beta kernel]
