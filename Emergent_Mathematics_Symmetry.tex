@@ -70,7 +70,22 @@ snake identity for $d$ to identify the result with $c$.  Use the snake
 identity for $c$ to identify the same result with $d$, and deduce $c=d$.
 \end{exercise}
 
-\begin{definition}[Exterior powers, dimension, and determinant]
+\begin{definition}[Trace and dimension]
+For a finite-dimensional vector space $V$, let
+$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors.
+For $T\in\End(V)$, define
+\[
+\operatorname{tr}(T)
+=\operatorname{ev}_V\circ s_{V,V^\vee}
+ \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V.
+\]
+The \emph{dimension} of $V$ is the scalar
+\[
+\dim_k(V)=\operatorname{tr}(\id_V)\in k.
+\]
+\end{definition}
+
+\begin{definition}[Exterior powers]
 For $m\geq0$, the $m$th \emph{exterior power} of a vector space $V$ is
 \[
 \Lambda^mV
@@ -95,34 +110,22 @@ u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
 \]
 make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
 \emph{exterior algebra} of $V$.
-A finite-dimensional vector space $V$ has \emph{dimension} $n$ when
-$\Lambda^nV\ne0$ and $\Lambda^{n+1}V=0$.  Its \emph{determinant} is the scalar
-$\det(T)$ defined by the action on the highest nonzero exterior power:
-\[
-\Lambda^nT=\det(T)\id_{\Lambda^nV}.
-\]
 \end{definition}
 
-\begin{definition}[Trace]
-For a finite-dimensional vector space $V$, let
-$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors.
-For $T\in\End(V)$, define
+\begin{exercise}[Exterior rank]
+Let $V$ be finite-dimensional.  Prove that there is a unique
+$n\in\mathbb Z_{\geq0}$ such that
 \[
-\operatorname{tr}(T)
-=\operatorname{ev}_V\circ s_{V,V^\vee}
- \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V.
+\Lambda^nV\ne0,
+\qquad
+\Lambda^{n+1}V=0,
 \]
-\end{definition}
-
-\begin{exercise}[Dimension, trace, and determinant]
-Prove that every finite-dimensional vector space has a unique dimension $n$
-and that
+and that every endomorphism of $\Lambda^nV$ is a unique scalar multiple of
+the identity.  Prove that every $\Lambda^mV$ is finite-dimensional and that
 \[
-\operatorname{tr}(\id_V)=n\,1_k.
-\]
-Prove
-\[
-\dim\Lambda^mV=\binom{n}{m},
+\dim_k(V)=n\,1_k,
+\qquad
+\dim_k(\Lambda^mV)=\binom{n}{m}1_k,
 \qquad
 \Lambda^mV=0\quad(m>n).
 \]
@@ -132,6 +135,28 @@ Prove that the exterior algebra is graded-commutative:
 \qquad
 \xi\in\Lambda^rV,\quad\eta\in\Lambda^sV.
 \]
+Deduce that $\dim_k(V)$ determines $n$ when $\operatorname{char}k=0$, whereas
+it determines only the residue class of $n$ modulo $p$ when
+$\operatorname{char}k=p>0$.
+\end{exercise}
+
+\begin{definition}[Exterior rank and determinant]
+The \emph{exterior rank} of a finite-dimensional vector space $V$ is the
+unique integer $\rank(V)=n$ such that
+\[
+\Lambda^nV\ne0,
+\qquad
+\Lambda^{n+1}V=0.
+\]
+For $T\in\End(V)$, its \emph{determinant} is the unique scalar $\det(T)$
+satisfying
+\[
+\Lambda^nT=\det(T)\id_{\Lambda^nV}.
+\]
+\end{definition}
+
+\begin{exercise}[Determinant and exterior traces]
+Let $V$ have exterior rank $n$.
 Use functoriality of the highest exterior power to prove
 \[
 \det(ST)=\det(S)\det(T),
