@@ -1398,7 +1398,108 @@ Use the explicit Haar state to derive quantum Schur orthogonality and prove
 algebraically and as a Hilbert direct sum in the Haar GNS space.
 \end{exercise}
 
-\begin{definition}[Conjugates and quantum dimension]
+\begin{definition}[\texorpdfstring{$\C$}{C}-linear and
+\texorpdfstring{$C^*$}{C*}-tensor categories]
+A \emph{$\C$-linear category} $\mathcal C$ consists of objects, complex
+vector spaces $\Hom_{\mathcal C}(X,Y)$, bilinear associative compositions
+\[
+\Hom_{\mathcal C}(Y,Z)\otimes\Hom_{\mathcal C}(X,Y)
+\longrightarrow\Hom_{\mathcal C}(X,Z),
+\qquad (g,f)\longmapsto gf,
+\]
+and identity morphisms $\id_X$.  A \emph{$\C$-linear tensor category} also
+has a bilinear tensor product on objects and morphisms, a tensor unit
+$\mathbf1$, and isomorphisms
+\[
+a_{X,Y,Z}:(X\otimes Y)\otimes Z\longrightarrow X\otimes(Y\otimes Z),
+\quad
+l_X:\mathbf1\otimes X\longrightarrow X,
+\quad
+r_X:X\otimes\mathbf1\longrightarrow X.
+\]
+The tensor product satisfies
+\[
+(f'f)\otimes(g'g)=(f'\otimes g')(f\otimes g),
+\qquad
+\id_X\otimes\id_Y=\id_{X\otimes Y},
+\]
+and the structure maps commute with morphisms; in particular,
+\[
+a_{X',Y',Z'}((f\otimes g)\otimes h)
+=(f\otimes(g\otimes h))a_{X,Y,Z}.
+\]
+They satisfy the pentagon and triangle identities
+\[
+a_{W,X,Y\otimes Z}a_{W\otimes X,Y,Z}
+=(\id_W\otimes a_{X,Y,Z})a_{W,X\otimes Y,Z}
+(a_{W,X,Y}\otimes\id_Z),
+\]
+\[
+(\id_X\otimes l_Y)a_{X,\mathbf1,Y}=r_X\otimes\id_Y.
+\]
+A \emph{$C^*$-category} has Banach morphism spaces and conjugate-linear
+maps $f\mapsto f^*$ with
+\[
+f^*:Y\longrightarrow X,
+\qquad
+(f^*)^*=f,
+\qquad
+(gf)^*=f^*g^*,
+\]
+\[
+\|gf\|\leq\|g\|\|f\|,
+\qquad
+\|f^*f\|=\|f\|^2.
+\]
+A \emph{$C^*$-tensor category} is a $\C$-linear tensor category with this
+structure, with
+\[
+(f\otimes g)^*=f^*\otimes g^*,
+\qquad
+a^*=a^{-1},\quad l^*=l^{-1},\quad r^*=r^{-1}.
+\]
+A nonzero object $X$ is \emph{simple} when
+$\End(X)=\C\id_X$.  An \emph{orthogonal direct sum}
+$X=\bigoplus_{i=1}^rX_i$ is specified by morphisms $u_i:X_i\to X$ satisfying
+\[
+u_i^*u_j=\delta_{ij}\id_{X_i},
+\qquad
+\sum_{i=1}^ru_iu_i^*=\id_X.
+\]
+All $C^*$-tensor categories below have simple tensor unit
+$\End(\mathbf1)=\C\id_{\mathbf1}$.  Associators and unit maps are suppressed
+in subsequent tensor composites.
+\end{definition}
+
+\begin{definition}[Corepresentation tensor categories]
+For a compact quantum group $\mathbb G$, let
+$\operatorname{Rep}(\mathbb G)$ have finite-dimensional unitary
+corepresentations as objects and
+\[
+\Hom_{\mathbb G}(U,V)
+=\{A:H_U\to H_V:(A\otimes1)U=V(A\otimes1)\}
+\]
+as morphism spaces.  Composition and adjoints are those of Hilbert-space
+operators.  Define
+\[
+U\boxtimes V=U_{13}V_{23}
+\quad\text{on }H_U\otimes H_V,
+\]
+and take the trivial corepresentation on $\C$ as tensor unit, with the
+Hilbert-space associator and unit maps.
+\end{definition}
+
+\begin{exercise}[Corepresentations as a tensor category]
+Prove that the adjoint of an intertwiner is an intertwiner, that
+$U\boxtimes V$ is a unitary corepresentation, and that tensor products of
+intertwiners are intertwiners.  Verify the pentagon, triangle, and
+$C^*$-identities and deduce that $\operatorname{Rep}(\mathbb G)$ is a
+$C^*$-tensor category.  For $C(\mathbb G)=\C$, identify it with
+$\operatorname{Hilb}_{\mathrm{fd}}$, the category of finite-dimensional
+Hilbert spaces and all linear maps.
+\end{exercise}
+
+\begin{definition}[Duals and rigidity]
 For a finite-dimensional $H$-module $V$, its \emph{left dual} $V^\vee$ has
 action
 \[
@@ -1406,8 +1507,55 @@ action
 \]
 evaluation $\operatorname{ev}_V(\varphi\otimes v)=\varphi(v)$, and
 coevaluation
-$\operatorname{coev}_V$.  In a rigid
-$C^*$-tensor category, a \emph{conjugate} of $V$ is an object
+$\operatorname{coev}_V$.
+
+In a $\C$-linear tensor category, a \emph{left dual} of $V$ is an object
+$V^\vee$ with morphisms
+\[
+\operatorname{ev}_V:V^\vee\otimes V\longrightarrow\mathbf1,
+\qquad
+\operatorname{coev}_V:\mathbf1\longrightarrow V\otimes V^\vee
+\]
+satisfying
+\[
+(\id_V\otimes\operatorname{ev}_V)
+(\operatorname{coev}_V\otimes\id_V)=\id_V,
+\]
+\[
+(\operatorname{ev}_V\otimes\id_{V^\vee})
+(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
+\]
+A \emph{right dual} ${}^\vee V$ has maps
+\[
+\widetilde{\operatorname{ev}}_V:V\otimes{}^\vee V\longrightarrow\mathbf1,
+\qquad
+\widetilde{\operatorname{coev}}_V:\mathbf1
+\longrightarrow{}^\vee V\otimes V
+\]
+satisfying
+\[
+(\widetilde{\operatorname{ev}}_V\otimes\id_V)
+(\id_V\otimes\widetilde{\operatorname{coev}}_V)=\id_V,
+\]
+\[
+(\id_{{}^\vee V}\otimes\widetilde{\operatorname{ev}}_V)
+(\widetilde{\operatorname{coev}}_V\otimes\id_{{}^\vee V})
+=\id_{{}^\vee V}.
+\]
+The category is \emph{rigid} when every object has left and right duals.
+For $f:V\to W$,
+the left-dual morphism is
+\[
+f^\vee
+=(\operatorname{ev}_W\otimes\id_{V^\vee})
+(\id_{W^\vee}\otimes f\otimes\id_{V^\vee})
+(\id_{W^\vee}\otimes\operatorname{coev}_V)
+:W^\vee\longrightarrow V^\vee.
+\]
+\end{definition}
+
+\begin{definition}[Conjugates and quantum dimension]
+In a $C^*$-tensor category, a \emph{conjugate} of an object $V$ is an object
 $\overline V$ with morphisms
 \[
 R_V:\mathbf 1\longrightarrow\overline V\otimes V,
@@ -1421,9 +1569,18 @@ satisfying
 (R_V^*\otimes\id_{\overline V})
 (\id_{\overline V}\otimes\overline R_V)=\id_{\overline V}.
 \]
-The adjoints $R_V^*$ and $\overline R_V^*$ are evaluation maps, and
-$R_V$ and $\overline R_V$ are coevaluation maps.  A solution is
-\emph{standard} when
+Its dual maps are
+\[
+\operatorname{ev}_V=R_V^*,
+\qquad
+\operatorname{coev}_V=\overline R_V,
+\qquad
+\widetilde{\operatorname{ev}}_V=\overline R_V^*,
+\qquad
+\widetilde{\operatorname{coev}}_V=R_V.
+\]
+A $C^*$-tensor category is rigid when every object has a conjugate.
+A solution of the conjugate equations is \emph{standard} when
 \[
 R_V^*(\id_{\overline V}\otimes T)R_V
 =\overline R_V^*(T\otimes\id_{\overline V})\overline R_V
@@ -1431,14 +1588,65 @@ R_V^*(\id_{\overline V}\otimes T)R_V
 \]
 For a standard solution, define
 \[
-\operatorname{tr}_v(T)
+\operatorname{tr}_{\mathcal C}(T)
 =R_V^*(\id_{\overline V}\otimes T)R_V,
 \qquad
-\dim_v(V)=\operatorname{tr}_v(\id_V).
+\dim_{\mathcal C}(V)=\operatorname{tr}_{\mathcal C}(\id_V).
 \]
+For $\mathcal C=\operatorname{Rep}(SU_v(2))$, write
+$\operatorname{tr}_v$ and $\dim_v$.
 \end{definition}
 
-\begin{exercise}[$SU_v(2)$ fusion and dimensions]
+\begin{exercise}[Standard categorical trace]
+Let two standard solutions of the conjugate equations be given for $V$.
+Use the snake identities and standardness to construct the unitary
+isomorphism between their conjugate objects and prove that they define the
+same trace.  For $S:V\to W$ and $T:W\to V$, prove
+\[
+\operatorname{tr}_{\mathcal C}(TS)
+=\operatorname{tr}_{\mathcal C}(ST),
+\qquad
+\operatorname{tr}_{\mathcal C}(T^*T)\geq0.
+\]
+Construct standard solutions for tensor products, conjugates, and existing
+orthogonal direct sums and prove
+\[
+\dim_{\mathcal C}(V\otimes W)
+=\dim_{\mathcal C}(V)\dim_{\mathcal C}(W),
+\qquad
+\dim_{\mathcal C}(\overline V)=\dim_{\mathcal C}(V),
+\]
+\[
+\dim_{\mathcal C}(V\oplus W)
+=\dim_{\mathcal C}(V)+\dim_{\mathcal C}(W).
+\]
+\end{exercise}
+
+\begin{exercise}[Finite Hilbert-space trace]
+For a finite-dimensional Hilbert space $V$, let
+$j_V:\overline V\to V^\vee$ be the Riesz isomorphism
+$j_V(\overline v)=\langle v,-\rangle$.  From the coevaluation and symmetry
+defined in Spectral Theory, put
+\[
+\overline R_V=(\id_V\otimes j_V^{-1})\operatorname{coev}_V
+:\C\longrightarrow V\otimes\overline V,
+\qquad
+R_V=s_{V,\overline V}\overline R_V
+:\C\longrightarrow\overline V\otimes V.
+\]
+Prove the conjugate equations and standardness.  Prove, without choosing a
+basis, that
+\[
+\operatorname{tr}_{\operatorname{Hilb}_{\mathrm{fd}}}(T)
+=\operatorname{tr}(T),
+\qquad
+\dim_{\operatorname{Hilb}_{\mathrm{fd}}}(V)=\dim_{\C}(V),
+\]
+where the right-hand sides are the trace and dimension defined in Spectral
+Theory.
+\end{exercise}
+
+\begin{exercise}[$SU_v(2)$ fusion and quantum dimensions]
 Let $V_n$ be the irreducible type-$1$ $U_v(\mathfrak{sl}_2)$-module of
 highest weight $n$.  Construct its conjugate equations and prove
 \[
@@ -1450,15 +1658,17 @@ Normalize the conjugate solutions by the compact involution and compute
 \dim_v(V_n)=[n+1]_v
 =\frac{v^{n+1}-v^{-(n+1)}}{v-v^{-1}}.
 \]
-Prove
+Prove that finite orthogonal direct sums of the $V_n$ are closed under tensor
+products and conjugates and form a rigid $C^*$-tensor category.  Prove
 \[
-\dim V_n=n+1,
-\qquad
-\lim_{v\to1}\dim_v(V_n)=n+1,
-\qquad
-\dim_v(V_n)>n+1
+\begin{aligned}
+\dim_\C(V_1)&=2,
+&\dim_v(V_1)&=v+v^{-1},\\
+\dim_\C(V_n)&=n+1,
+&\lim_{v\to1}\dim_v(V_n)&=n+1,\\
+&&\dim_v(V_n)&>n+1\quad(0<v<1,\ n\geq1).
+\end{aligned}
 \]
-for $0<v<1$ and $n\geq1$.
 \end{exercise}
 
 \begin{definition}[Basic hypergeometric series]
@@ -1565,7 +1775,7 @@ and nondegeneracy assumptions under which the measured line positions and
 strengths determine $v$.
 \end{exercise}
 
-\begin{definition}[Universal $R$-matrix and braiding]
+\begin{definition}[Universal $R$-matrices]
 A \emph{universal $R$-matrix} for a Hopf algebra $H$ is an invertible
 element $\mathcal R$ in a completion of $H\otimes H$ on which the
 finite-dimensional tensor-product representations under consideration
@@ -1586,6 +1796,30 @@ V\otimes W\longrightarrow W\otimes V.
 The pair $(H,\mathcal R)$ is \emph{quasitriangular}.
 \end{definition}
 
+\begin{definition}[Braided tensor categories]
+A \emph{braiding} on a $\C$-linear tensor category $\mathcal C$ is a family
+of isomorphisms
+\[
+c_{X,Y}:X\otimes Y\longrightarrow Y\otimes X
+\]
+satisfying, for $f:X\to X'$ and $g:Y\to Y'$,
+\[
+(g\otimes f)c_{X,Y}=c_{X',Y'}(f\otimes g),
+\]
+and the two hexagon identities
+\[
+c_{X,Y\otimes Z}
+=(\id_Y\otimes c_{X,Z})(c_{X,Y}\otimes\id_Z),
+\]
+\[
+c_{X\otimes Y,Z}
+=(c_{X,Z}\otimes\id_Y)(\id_X\otimes c_{Y,Z}).
+\]
+The category is \emph{braided} when it has a braiding.  A braiding on a
+$C^*$-tensor category is \emph{unitary} when
+$c_{X,Y}^*=c_{X,Y}^{-1}$.
+\end{definition}
+
 \begin{definition}[Spectral exchange operators]
 Let $V$ be finite-dimensional.  A meromorphic family
 $R(u)\in\End(V\otimes V)$ satisfies the spectral Yang--Baxter equation
@@ -1599,8 +1833,9 @@ unitary up to scalar when $R_{12}(u)R_{21}(u^{-1})$ is scalar.
 \end{definition}
 
 \begin{exercise}[Hexagon identities]
-Prove that $c_{V,W}$ is a natural module intertwiner and that the two
-coproduct identities for $\mathcal R$ give the two hexagon identities.
+Prove that $c_{V,W}$ is a module intertwiner satisfying naturality and that
+the two coproduct identities for $\mathcal R$ give the two hexagon
+identities, so that the finite-dimensional module category is braided.
 Derive
 \[
 \mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
@@ -1615,9 +1850,12 @@ tensor powers of every finite-dimensional type-$1$ module.
 \end{exercise}
 
 \begin{definition}[Ribbon categories]
-Let $\mathcal C$ be a braided rigid $\C$-linear monoidal category.  A
-\emph{twist} is a natural isomorphism
-$\theta:\id_{\mathcal C}\to\id_{\mathcal C}$ satisfying
+Let $\mathcal C$ be a braided rigid $\C$-linear tensor category.  A
+\emph{twist} is a family of isomorphisms $\theta_X:X\to X$ satisfying
+\[
+\theta_Yf=f\theta_X\qquad(f:X\to Y)
+\]
+and
 \[
 \theta_{\mathbf1}=\id_{\mathbf1},
 \qquad
@@ -1883,8 +2121,18 @@ cycle and state the twist, unitarity, preparation, and detection assumptions
 under which it is an interference observable.
 \end{exercise}
 
-\begin{definition}[Temperley--Lieb algebras]
-For $d\in\C$, the Temperley--Lieb algebra $TL_n(d)$ is generated by
+\begin{definition}[Temperley--Lieb category and algebras]
+For $d\in\C$, the \emph{Temperley--Lieb category} $\mathsf{TL}_d$ has
+objects $n\in\Z_{\geq0}$.  The morphism space
+$\Hom_{\mathsf{TL}_d}(m,n)$ is the complex span of planar nonintersecting
+pairings of $m$ lower and $n$ upper boundary points.  Composition is vertical
+stacking, with every resulting closed loop removed and replaced by the
+scalar $d$; tensor product is horizontal juxtaposition and has tensor unit
+$0$.  For $d\in\R$, reflection across a horizontal line defines $f^*$.
+The cup and cap diagrams give coevaluation and evaluation morphisms.
+
+The \emph{Temperley--Lieb algebra} is
+$TL_n(d)=\End_{\mathsf{TL}_d}(n)$.  It is generated by
 $U_1,\ldots,U_{n-1}$ with
 \[
 U_i^2=dU_i,
@@ -1920,16 +2168,48 @@ f_{n+1}=f_n-\frac{[n]_\zeta}{[n+1]_\zeta}f_nU_nf_n
 \]
 \end{definition}
 
-\begin{definition}[Negligible morphisms]
-In a pivotal category with trace $\operatorname{tr}$, a morphism
-$f:X\to Y$ is \emph{negligible} when
+\begin{definition}[Tensor ideals and unitary fusion categories]
+A \emph{tensor ideal} $\mathcal I$ in a $\C$-linear tensor category
+$\mathcal C$ consists of subspaces
+$\mathcal I(X,Y)\subseteq\Hom_{\mathcal C}(X,Y)$ such that, for
+$f\in\mathcal I(X,Y)$,
 \[
-\operatorname{tr}(gf)=0
-\qquad\text{for every }g:Y\to X.
+gfh\in\mathcal I(X',Y'),
+\qquad
+f\otimes u\in\mathcal I(X\otimes Z,Y\otimes Z'),
+\qquad
+u\otimes f\in\mathcal I(Z\otimes X,Z'\otimes Y)
 \]
-Let $\mathcal N$ be the tensor ideal of negligible morphisms.  Let
-$\mathcal C_k$ be the idempotent completion of the quotient of the
-Temperley--Lieb category at $d=\zeta+\zeta^{-1}$ by $\mathcal N$, and write
+whenever the displayed composites are defined.  The quotient
+$\mathcal C/\mathcal I$ has the same objects and morphism spaces
+\[
+\Hom_{\mathcal C/\mathcal I}(X,Y)
+=\Hom_{\mathcal C}(X,Y)/\mathcal I(X,Y).
+\]
+The \emph{idempotent completion} of $\mathcal C$ has objects $(X,p)$ with
+$p\in\End_{\mathcal C}(X)$ and $p^2=p$, and
+\[
+\Hom((X,p),(Y,q))
+=q\Hom_{\mathcal C}(X,Y)p.
+\]
+The $C^*$-idempotent completion requires $p=p^*$.
+
+A $C^*$-category is \emph{semisimple} when every object is a finite
+orthogonal direct sum of simple objects.  A \emph{unitary fusion
+category} is a rigid semisimple $C^*$-tensor category with finite-dimensional
+morphism spaces and finitely many simple objects up to unitary isomorphism.
+\end{definition}
+
+\begin{definition}[Negligible morphisms]
+At $d=\zeta+\zeta^{-1}$, a morphism
+$f:m\to n$ in $\mathsf{TL}_d$ is \emph{negligible} when
+\[
+\operatorname{tr}_m(gf)=0
+\qquad\text{for every }g:n\to m.
+\]
+Let $\mathcal N(m,n)$ be the space of negligible morphisms.  Let
+$\mathcal C_k$ be the idempotent completion of
+$\mathsf{TL}_d/\mathcal N$, and write
 $V_a$ for the image of $f_a$, $0\leq a\leq k$.
 \end{definition}
 
@@ -1937,6 +2217,8 @@ $V_a$ for the image of $f_a$, $0\leq a\leq k$.
 Use the Temperley--Lieb relations to prove inductively
 \[
 f_n^2=f_n,
+\qquad
+f_n^*=f_n,
 \qquad
 U_if_n=f_nU_i=0\quad(1\leq i<n),
 \qquad
@@ -1946,9 +2228,14 @@ Deduce $\operatorname{tr}(f_{k+1})=[k+2]_\zeta=0$.
 \end{exercise}
 
 \begin{exercise}[Temperley--Lieb semisimplification]
-Prove that
-$\mathcal N$ is the tensor ideal generated by $f_{k+1}$, and prove that
-the quotient removes every trace-zero summand and is finite semisimple.
+Prove that $\mathcal N$ is the $*$-closed tensor ideal generated by
+$f_{k+1}$.  Prove that
+\[
+\langle f,g\rangle=\operatorname{tr}_m(f^*g),
+\qquad f,g:m\to n,
+\]
+is positive semidefinite with radical $\mathcal N(m,n)$, and that the
+quotient removes every trace-zero summand.
 \end{exercise}
 
 \begin{exercise}[Truncated fusion]
@@ -1964,6 +2251,26 @@ and
 d_a=[a+1]_\zeta
 =\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))}.
 \]
+\end{exercise}
+
+\begin{exercise}[Unitary fusion structure]
+Use left composition on the positive quotient spaces and diagram reflection
+to equip $\mathcal C_k$ with $C^*$-norms.  Use the cup and cap diagrams to
+construct standard conjugates.  Prove from truncated fusion that every
+simple object is unitarily isomorphic to exactly one of
+\[
+V_0,V_1,\ldots,V_k,
+\]
+and deduce that $\mathcal C_k$ is a unitary fusion category.  Prove that its
+standard categorical trace agrees with the quotient diagram trace and that
+the recoupling maps between simple-summand decompositions are unitary and
+satisfy the pentagon identity.  With
+$\zeta^{1/2}=e^{\pi i/(2(k+2))}$, prove that
+\[
+c_i=\zeta^{1/2}\id-\zeta^{-1/2}U_i
+\]
+is unitary, satisfies the braid relations, preserves $\mathcal N$, and
+descends to a unitary braiding on $\mathcal C_k$.
 \end{exercise}
 
 \begin{definition}[\texorpdfstring{$SU(2)_k$}{SU(2)k} modular data]
@@ -2004,10 +2311,11 @@ derived in Counting and recover the Ising fusion multiplicities.
 
 \begin{definition}[Levin--Wen string-net Hamiltonian]
 Let $\Gamma$ be a trivalent cellulation of a closed oriented surface and
-let $\mathcal C_k$ be the preceding finite semisimple rigid
-$C^*$-tensor category with simple objects $V_0,\ldots,V_k$, fusion
+let $\mathcal C_k$ be the preceding unitary fusion category with simple
+objects $V_0,\ldots,V_k$, fusion
 multiplicities $N_{ab}^{\ \ c}$, standard categorical trace, and quantum
-dimensions $d_a$.  Put
+dimensions $d_a$.  Write $a^\vee$ for the unique label satisfying
+$\overline{V_a}\cong V_{a^\vee}$.  Put
 \[
 \mathcal H_\Gamma
 =\ell^2\!\left(\{0,\ldots,k\}^{E(\Gamma)}\right),
@@ -2118,6 +2426,13 @@ lines test the doubled $SU(2)_k$ string-net model.
 \end{exercise}
 
 \begin{exercise}[Anyon interference and fusion counting]
+Prove that the phases $\theta_a$ define a ribbon twist on $\mathcal C_k$.
+On every simple fusion channel $V_c\subseteq V_a\otimes V_b$, prove the
+balancing identity
+\[
+\left.c_{V_b,V_a}c_{V_a,V_b}\right|_{V_c}
+=\frac{\theta_c}{\theta_a\theta_b}\id_{V_c}.
+\]
 For simple charges $a,b$, prove that the normalized monodromy amplitude is
 \[
 M_{ab}=\frac{S_{ab}S_{00}}{S_{0a}S_{0b}}.
@@ -2127,6 +2442,9 @@ In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
 I_b(\phi)=I_1+I_2
 +2\sqrt{I_1I_2}\,\Re(e^{i\phi}M_{ab}).
 \]
+Prove that a calibrated full framing twist of the probe path replaces
+$M_{ab}$ by $\theta_aM_{ab}$ and shifts the interference phase by
+$\arg\theta_a$.
 Insert the sine formula and predict the visibility and phase for every
 enclosed charge.  For a collection of prepared charges, use the Verlinde
 formula to predict the exact number of fusion outcomes in each total-charge
