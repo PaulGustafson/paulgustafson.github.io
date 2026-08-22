@@ -160,7 +160,7 @@ prove $d\mathcal S=k_B\beta_{\rm th}\,dU$ as $\beta_{\rm th}$ varies and
 express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
 \end{exercise}
 
-\section{Modular Characters}
+\section{Modular and Moonshine Characters}
 
 \begin{definition}[Virasoro characters]
 The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
@@ -354,6 +354,185 @@ energy on a circle and the corresponding entropy.  State
 the circumference, propagation speed, energy window, vacuum assumption,
 sector resolution, saddle-point regime, and finite-size limitations required
 when comparing these predictions with measured or transfer-matrix spectra.
+\end{exercise}
+
+\begin{definition}[Positive-energy vertex operator algebras]
+A \emph{positive-energy vertex operator algebra} is a graded complex vector
+space
+\[
+V=\bigoplus_{m\geq0}V_m,
+\qquad \dim V_m<\infty,
+\qquad V_0=\C\mathbf1,
+\]
+with a vacuum $\mathbf1$, a conformal vector $\omega\in V_2$, and a
+state--field map
+\[
+Y(v,z)=\sum_{n\in\Z}v_nz^{-n-1}\in(\End V)[[z,z^{-1}]].
+\]
+For homogeneous $v\in V_r$, put $\operatorname{wt}(v)=r$.  The map satisfies
+$v_nw=0$ for $n$ sufficiently large,
+$v_nV_m\subseteq V_{m+\operatorname{wt}(v)-n-1}$,
+\[
+Y(\mathbf1,z)=\id_V,
+\qquad
+Y(v,z)\mathbf1\in v+zV[[z]],
+\]
+and, for every $u,v\in V$, there is $N\geq0$ such that
+\[
+(z-w)^N[Y(u,z),Y(v,w)]=0.
+\]
+Writing
+\[
+Y(\omega,z)=\sum_{n\in\Z}L_nz^{-n-2},
+\]
+the modes satisfy the Virasoro relations with central charge $c$,
+$L_0|_{V_m}=m\id_{V_m}$, and
+$Y(L_{-1}v,z)=\partial_zY(v,z)$.
+An automorphism preserves $\mathbf1$, $\omega$, and the state--field map.
+\end{definition}
+
+\begin{definition}[Lattice oscillator state spaces]
+For an even positive-definite lattice $L$ of rank $d$, let
+$\varepsilon:L\times L\to\{\pm1\}$ satisfy
+\[
+\varepsilon(\lambda,0)=\varepsilon(0,\lambda)=1,
+\qquad
+\varepsilon(\lambda,\mu)\varepsilon(\lambda+\mu,\nu)
+=\varepsilon(\mu,\nu)\varepsilon(\lambda,\mu+\nu),
+\]
+\[
+\frac{\varepsilon(\lambda,\mu)}{\varepsilon(\mu,\lambda)}
+=(-1)^{\langle\lambda,\mu\rangle}.
+\]
+Let $\C_\varepsilon[L]$ have symbols $e^\lambda$, $\lambda\in L$, with
+$e^\lambda e^\mu=\varepsilon(\lambda,\mu)e^{\lambda+\mu}$, and define
+\[
+\mathcal F_L
+=\operatorname{Sym}\!\left(
+\bigoplus_{n\geq1}(L\otimes_\Z\C)t^{-n}\right)
+\otimes\C_\varepsilon[L],
+\]
+where $\operatorname{Sym}(W)=\bigoplus_{r\geq0}\operatorname{Sym}^r(W)$.
+Give $(L\otimes_\Z\C)t^{-n}$ degree $n$, give the element $e^\lambda$ of
+the twisted group algebra degree $\|\lambda\|^2/2$, and let $L_0$ act by
+total degree.
+\end{definition}
+
+\begin{exercise}[Leech lattice and oscillator character]
+The standard lattice vertex-operator construction equips $\mathcal F_L$ with
+a central-charge-$d$ vertex operator algebra structure.  Use the
+symmetric-power trace formula and the definition of the lattice theta series
+to prove
+\[
+\Tr_{\mathcal F_L}q^{L_0-d/24}
+=\frac{\Theta_L(\tau)}{\eta(\tau)^d}.
+\]
+For the Leech lattice, use Exercise~\ref{ex:leech-theta-series} to derive
+\[
+\Tr_{\mathcal F_\Lambda}q^{L_0-1}
+=\frac{\Theta_\Lambda}{\eta^{24}}=J+24.
+\]
+Show directly from the graded construction that the coefficient $24$ counts
+the degree-one oscillator states and that
+\[
+196884=196560+324,
+\qquad
+324=24+\dim\operatorname{Sym}^2(\Lambda\otimes_\Z\C),
+\]
+splits the degree-two states into nonzero lattice momenta and oscillator
+states.
+\end{exercise}
+
+\begin{definition}[McKay--Thompson series]
+Let $G$ act by automorphisms on a positive-energy vertex operator algebra
+$V$.  For $g\in G$, define its \emph{McKay--Thompson series} by
+\[
+T_g(\tau)=\Tr_V\!\left(gq^{L_0-c/24}\right).
+\]
+Let $\mathbb M$ denote the Monster sporadic simple group.
+\end{definition}
+
+\begin{exercise}[Monstrous moonshine]
+Take the Frenkel--Lepowsky--Meurman construction and
+\href{https://doi.org/10.1007/BF01232032}{Borcherds's monstrous moonshine
+theorem} as theorem input.  If $\theta$ lifts $\lambda\mapsto-\lambda$ to the
+Leech-lattice vertex operator algebra and $V_\Lambda^{T,+}$ is the
+$+1$ eigenspace in its $\theta$-twisted module, the orbifold
+\[
+V^\natural=V_\Lambda^+\oplus V_\Lambda^{T,+}
+\]
+is a central-charge-$24$ vertex operator algebra with
+\[
+\operatorname{Aut}(V^\natural)=\mathbb M,
+\qquad
+T_1(\tau)=J(\tau),
+\]
+and, for every $g\in\mathbb M$, the series $T_g$ is the normalized Hauptmodul
+for the Conway--Norton genus-zero group $\Gamma_g$.  Deduce
+\[
+\dim V^\natural_0=1,
+\qquad
+\dim V^\natural_1=0,
+\qquad
+\dim V^\natural_2=196884,
+\qquad
+\dim V^\natural_3=21493760.
+\]
+If $\mathbf d$ denotes the indicated irreducible Monster representation of
+dimension $d$, verify the first decompositions supplied by the Monster
+character table,
+\[
+V^\natural_2\cong\mathbf1\oplus\mathbf{196883},
+\qquad
+V^\natural_3\cong
+\mathbf1\oplus\mathbf{196883}\oplus\mathbf{21296876}.
+\]
+With $p=e^{2\pi i\sigma}$, use Borcherds's denominator identity
+\[
+p^{-1}\prod_{m>0,\ n\in\Z}
+(1-p^mq^n)^{c(mn)}=J(\sigma)-J(\tau)
+\]
+as a formal product in the region $|p|<|q|<1$.  Compare coefficients through
+order $p$ and derive the first replication identity
+\[
+\frac12\left(J(\tau)^2-\sum_{n\in\Z}c(n)q^{2n}\right)
+-\sum_{n\in\Z}c(2n)q^n=196884.
+\]
+\end{exercise}
+
+\begin{exercise}[Monster-resolved finite-size spectrum]
+Let $\chi_\rho$ be the character of an irreducible Monster representation
+$\rho$.  Use finite-group character orthogonality to prove that its
+multiplicity in $V_m^\natural$ is
+\[
+\mu_\rho(m)=\frac1{|\mathbb M|}\sum_{g\in\mathbb M}
+\overline{\chi_\rho(g)}\,[q^{m-1}]T_g(\tau).
+\]
+Deduce that the symmetry-resolved series
+\[
+Z_\rho(\tau)=\frac{\dim(\rho)}{|\mathbb M|}
+\sum_{g\in\mathbb M}\overline{\chi_\rho(g)}T_g(\tau)
+\]
+has coefficient $\dim(\rho)\mu_\rho(m)$ at $q^{m-1}$.
+Model an exactly Monster-symmetric chiral edge of circumference $\ell$ and
+propagation speed $u$ by
+\[
+H=\frac{2\pi\hbar u}{\ell}(L_0-1).
+\]
+Derive the excitation energies
+\[
+E_m-E_0=\frac{2\pi\hbar u}{\ell}m
+\]
+and predict a missing level at $2\pi\hbar u/\ell$, followed by levels of
+degeneracy $196884$ and $21493760$ at $4\pi\hbar u/\ell$ and
+$6\pi\hbar u/\ell$.  Express the symmetry-resolved degeneracy at level $m$
+as $\dim(\rho)\mu_\rho(m)$.  State the assumptions of exact Monster symmetry,
+linear chiral dispersion, periodic boundary conditions, access to the twined
+sectors, and the low-energy finite-size regime.  Explain why a
+purely chiral central-charge-$24$ theory must be realized as an anomalous edge
+or accompanied by a compensating opposite-chirality sector, and distinguish
+the derived spectral prediction from evidence for a particular physical
+realization.
 \end{exercise}
 
 \section{Transfer Matrices}

@@ -1883,7 +1883,8 @@ f(\gamma\tau)=(c\tau+d)^k f(\tau)
 \]
 and holomorphic at the cusp, meaning that its Fourier expansion
 $f(\tau)=\sum_{n\geq0}a_nq^n$ has no negative powers.  It is a
-\emph{cusp form} if $a_0=0$.
+\emph{cusp form} if $a_0=0$.  Write $M_k$ for the vector space of modular
+forms of weight $k$.
 \end{definition}
 
 \begin{definition}[Zeta and Eisenstein functions]
@@ -1969,7 +1970,9 @@ G_{2m}(\tau)
 \]
 Deduce that $E_{2m}$ is a modular form of weight $2m$ and that
 \[
-E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n.
+E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
+\qquad
+E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
 \]
 \end{exercise}
 
@@ -2037,6 +2040,79 @@ scalar multiplier, rather than the integral-weight trivial-multiplier law
 defined above.
 Explain how the two sides encode charge sectors and independent oscillator
 modes, respectively.
+\end{exercise}
+
+\begin{definition}[Modular functions and Hauptmoduln]
+Put $PSL_2(\R)=SL_2(\R)/\{\pm I\}$ and define $PSL_2(\Z)$ similarly.  Let
+$\Gamma\subset PSL_2(\R)$ be commensurable with $PSL_2(\Z)$ and suppose that
+the cusp at infinity has width one.  A \emph{modular function} for $\Gamma$
+is a $\Gamma$-invariant function meromorphic on the upper half-plane and at
+the cusps.  Write $X_\Gamma$ for the compactified quotient.  A
+\emph{normalized Hauptmodul} is a modular function inducing an isomorphism
+$X_\Gamma\cong\mathbb P^1(\C)$ and having Fourier expansion
+\[
+q^{-1}+O(q)
+\]
+at infinity.
+\end{definition}
+
+\begin{definition}[The modular discriminant and $J$-function]
+Define
+\[
+\Delta(\tau)=\eta(\tau)^{24},
+\qquad
+j(\tau)=\frac{E_4(\tau)^3}{\Delta(\tau)},
+\qquad
+J(\tau)=j(\tau)-744=\sum_{n\geq-1}c(n)q^n.
+\]
+\end{definition}
+
+\begin{exercise}[Valence formula and the $J$-function]
+Let $\mathbb H$ be the upper half-plane, let $\rho=e^{2\pi i/3}$, and let
+$\mathcal F$ be the standard fundamental domain for $PSL_2(\Z)$.  Apply the
+argument principle to a truncated copy of $\mathcal F$, pair its boundary
+arcs by $S$ and $T$, and prove that every nonzero modular form $f$ of weight
+$k$ satisfies
+\[
+v_\infty(f)+\frac12v_i(f)+\frac13v_\rho(f)
++\sum_{\substack{[z]\in PSL_2(\Z)\backslash\mathbb H\\
+[z]\neq[i],[\rho]}}v_z(f)=\frac{k}{12}.
+\]
+Use the eta transformation laws and product to show that $\Delta$ is a
+weight-$12$ cusp form with a simple zero at infinity and no zero in the upper
+half-plane.  Deduce
+\[
+M_{12}=\C E_4^3\oplus\C\Delta,
+\qquad
+\Delta=\frac{E_4^3-E_6^2}{1728}.
+\]
+Show that $j$ has one simple pole on $X_{PSL_2(\Z)}$ and hence induces an
+isomorphism with $\mathbb P^1(\C)$.  Expand the products and prove that
+\[
+J(\tau)=q^{-1}+196884q+21493760q^2+864299970q^3+O(q^4),
+\]
+so $J$ is the normalized Hauptmodul for $PSL_2(\Z)$.
+\end{exercise}
+
+\begin{definition}[Leech lattice]
+Let $\Lambda$ denote the Leech lattice, an even unimodular Euclidean lattice
+of rank $24$ with no nonzero vector of squared length less than $4$.
+\end{definition}
+
+\begin{exercise}[Leech theta series and its first diffraction shell]
+\label{ex:leech-theta-series}
+Use Poisson duality to prove that $\Theta_\Lambda$ is a modular form of weight
+$12$.  Use the absence of vectors of squared length $2$ and the preceding
+description of $M_{12}$ to derive
+\[
+\Theta_\Lambda=E_4^3-720\Delta
+=1+196560q^2+O(q^3).
+\]
+For the idealized $24$-dimensional crystal with lattice $\Lambda$ and a
+one-point motif, deduce that the first nonzero reciprocal-lattice shell has
+radius $4\pi$ in the physical reciprocal convention and consists of
+$196560$ Bragg peaks.  State how a nontrivial motif changes their intensities
+without changing the shell radius.
 \end{exercise}
 
 
