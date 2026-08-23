@@ -4,7 +4,7 @@
 
 
 
-\begin{exercise}[Coevaluation uniqueness]
+\begin{exercise}[Vector spaces and finite dimension]
 Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
 $V$ with scalar multiplication satisfying
 \[
@@ -64,7 +64,7 @@ snake identity for $d$ to identify the result with $c$.  Use the snake
 identity for $c$ to identify the same result with $d$, and deduce $c=d$.
 \end{exercise}
 
-\begin{exercise}[Exterior rank]
+\begin{exercise}[Trace, dimension, and exterior powers]
 For a finite-dimensional vector space $V$, let
 $s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors.
 For $T\in\End(V)$, define
@@ -103,7 +103,9 @@ u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
 make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
 \emph{exterior algebra} of $V$.
 
-Let $V$ be finite-dimensional.  Prove that there is a unique
+Let $V$ be finite-dimensional.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that there is a unique
 $n\in\mathbb Z_{\geq0}$ such that
 \[
 \Lambda^nV\ne0,
@@ -119,7 +121,7 @@ the identity.  Prove that every $\Lambda^mV$ is finite-dimensional and that
 \qquad
 \Lambda^mV=0\quad(m>n).
 \]
-Prove that the exterior algebra is graded-commutative:
+\item Prove that the exterior algebra is graded-commutative:
 \[
 \xi\wedge\eta=(-1)^{rs}\eta\wedge\xi,
 \qquad
@@ -128,9 +130,10 @@ Prove that the exterior algebra is graded-commutative:
 Deduce that $\dim_k(V)$ determines $n$ when $\operatorname{char}k=0$, whereas
 it determines only the residue class of $n$ modulo $p$ when
 $\operatorname{char}k=p>0$.
+\end{enumerate}
 \end{exercise}
 
-\begin{exercise}[Determinant and exterior traces]
+\begin{exercise}[Exterior rank and determinant]
 The \emph{exterior rank} of a finite-dimensional vector space $V$ is the
 unique integer $\rank(V)=n$ such that
 \[
@@ -145,21 +148,23 @@ satisfying
 \]
 
 Let $V$ have exterior rank $n$.
-Use functoriality of the highest exterior power to prove
+\begin{enumerate}[label=(\alph*)]
+\item Use functoriality of the highest exterior power to prove
 \[
 \det(ST)=\det(S)\det(T),
 \qquad
 T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
 \]
-For $T\in\End(V)$, extend scalars to $k[z]$ and prove
+\item For $T\in\End(V)$, extend scalars to $k[z]$ and prove
 \[
 \det(I+zT)=\sum_{m=0}^n
 \operatorname{tr}(\Lambda^mT)z^m.
 \]
 Recover $(1+z)^n=\sum_m\binom nmz^m$ by taking $T=I$.
+\end{enumerate}
 \end{exercise}
 
-\begin{exercise}[Generalized binomial theorem]
+\begin{exercise}[Rising factorials and the binomial series]
 For $a\in\C$ and $m\in\Z_{\geq0}$, define
 \[
 (a)_0=1,
@@ -187,7 +192,7 @@ replacing $z$ by $-z$, recover
 \]
 \end{exercise}
 
-\begin{exercise}[Hilbert-space foundations]
+\begin{exercise}[Hilbert spaces and bounded operators]
 An \emph{inner product} on a complex vector space is conjugate-linear in its
 first argument, linear in its second, positive definite, and satisfies
 $\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
@@ -214,17 +219,19 @@ normal when $T^*T=TT^*$.  An \emph{orthogonal projection} is an operator
 $P$ satisfying $P=P^*=P^2$.  A bounded operator is \emph{compact} when it
 maps the closed unit ball to a subset with compact closure.
 
-Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
+\begin{enumerate}[label=(\alph*)]
+\item Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
 representation theorem.  Deduce the existence of adjoints and prove
 \[
 \|T\|^2=\|T^*T\|,\qquad
 (\im T)^\perp=\ker T^*.
 \]
-For every closed subspace $M\subseteq H$, prove
+\item For every closed subspace $M\subseteq H$, prove
 $H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
+\end{enumerate}
 \end{exercise}
 
-\begin{exercise}[Lebesgue integration and convergence]
+\begin{exercise}[Measure and \texorpdfstring{$L^p$}{Lp} spaces]
 A \emph{$\sigma$-algebra} $\mathcal F$ on a set $X$ contains
 $\varnothing$ and is closed under complements and countable unions.  A
 \emph{measure} is a countably additive map
@@ -280,7 +287,7 @@ g\longmapsto\left(f\mapsto\int_X\overline{g}f\,d\mu\right)
 is an isometric isomorphism.
 \end{exercise}
 
-\begin{exercise}[Beta--gamma identities]
+\begin{exercise}[Gamma and beta integrals]
 For $s,t>0$, define
 \[
 \Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx,
@@ -307,7 +314,7 @@ convergence in the derivation.
 
 
 
-\begin{exercise}[Spectrum and spectral radius]
+\begin{exercise}[$C^*$-algebras, spectra, and states]
 A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
 conjugate-linear involution satisfying
 \[
@@ -361,7 +368,7 @@ $\spec_A(a)\subseteq[0,\infty)$.
 \end{exercise}
 
 
-\begin{exercise}[Positive Riesz--Markov representation]
+\begin{exercise}[Projection-valued and scalar measures]
 A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
 from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
 \[
@@ -455,7 +462,7 @@ in operator norm, and prove that the spectral subspaces in the displayed
 sum are mutually orthogonal.
 \end{exercise}
 
-\begin{exercise}[Cayley transform]
+\begin{exercise}[Unbounded self-adjoint operators and the Cayley transform]
 An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
 domain.  Its adjoint has domain
 \[
@@ -573,7 +580,7 @@ Prove that a line at $(\mu-\lambda)/\hbar$ occurs only when this quantity is
 nonzero, and identify vanishing spectral blocks as selection rules.
 \end{exercise}
 
-\begin{exercise}[Hermite orthogonality]
+\begin{exercise}[Hermite polynomials and functions]
 Define the physicists' Hermite polynomials by
 \[
 e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!}.
@@ -672,7 +679,7 @@ frequency, occupation-number distribution, and revival period measured in
 an oscillator experiment.
 \end{exercise}
 
-\begin{exercise}[Airy spectrum of the quantum bouncer]
+\begin{exercise}[Airy functions and quantum-bouncer spectroscopy]
 The Airy function $\operatorname{Ai}$ is the unique real solution of
 \[
 \operatorname{Ai}''(x)=x\operatorname{Ai}(x)
@@ -727,7 +734,7 @@ and loss.
 
 \section{Fourier Analysis}
 
-\begin{exercise}[Riemannian invariance]
+\begin{exercise}[Manifolds, Lie groups, and invariant geometry]
 A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
 space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
 whose transition maps are smooth.  A map of smooth manifolds is
@@ -822,14 +829,17 @@ The divergence is determined by
 for compactly supported $f$, and the Laplace--Beltrami operator is
 $\Delta_g=\operatorname{div}_g\operatorname{grad}_g$.
 
-Prove that an isometry preserves the Riemannian density, gradient,
-divergence, and Laplace--Beltrami operator.  Prove that a left-invariant
-Riemannian metric on a Lie group has left-invariant Riemannian measure.
-For the Euclidean metric, recover Lebesgue measure and
+\begin{enumerate}[label=(\alph*)]
+\item Prove that an isometry preserves the Riemannian density, gradient,
+divergence, and Laplace--Beltrami operator.
+\item Prove that a left-invariant Riemannian metric on a Lie group has
+left-invariant Riemannian measure.
+\item For the Euclidean metric, recover Lebesgue measure and
 $\Delta=\sum_j\partial_j^2$.
+\end{enumerate}
 \end{exercise}
 
-\begin{exercise}[Haar regular representation]
+\begin{exercise}[Haar measure, convolution, and regular representations]
 Every locally compact group below is equipped with a chosen nonzero left
 Haar measure $\mu$.  Haar measure on a compact group is normalized by
 $\mu(G)=1$.
@@ -853,7 +863,7 @@ of a compact group, average an inner product over $G$ to obtain an invariant
 one.
 \end{exercise}
 
-\begin{exercise}[Abelian Fourier duality]
+\begin{exercise}[Pontryagin duality and Abelian Fourier analysis]
 For a locally compact abelian group $G$, its \emph{Pontryagin dual}
 $\widehat G$ is the group of continuous characters $\chi:G\to U(1)$, with
 pointwise multiplication and the compact-open topology. For $f\in L^1(G)$,
@@ -880,7 +890,7 @@ duals of $\R^n/W$ and $\R^n/\Gamma$.
 
 
 
-\begin{exercise}[Fourier series and Plancherel]
+\begin{exercise}[Fourier series, Schwartz functions, and Fourier transforms]
 On $\T=\R/2\pi\Z$, write
 \[
 dm_{\T}(x)=\frac{dx}{2\pi}
@@ -951,7 +961,7 @@ momentum.
 \end{exercise}
 
 
-\begin{exercise}[Radial Bessel transform]
+\begin{exercise}[Bessel functions and radial Fourier analysis]
 For $\alpha>-1$, the Bessel function of the first kind is
 \[
 J_\alpha(z)
@@ -1003,7 +1013,7 @@ resonances and diffraction minima measure zeros of the same Bessel
 functions.
 \end{exercise}
 
-\begin{exercise}[Poisson summation]
+\begin{exercise}[Lattices, structure factors, and Poisson summation]
 A \emph{lattice} in $\R^n$ is a subgroup
 $\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
 covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
@@ -1075,7 +1085,7 @@ endomorphism of an irreducible representation is scalar. Deduce uniqueness
 of irreducible multiplicities in a decomposition.
 \end{exercise}
 
-\begin{exercise}[Character orthogonality and decomposition]
+\begin{exercise}[Characters and finite-group harmonic analysis]
 The \emph{character} of a finite-dimensional representation $V$ is the class
 function $\chi_V(g)=\Tr(\rho_V(g))$. For class functions on a finite group,
 define
@@ -1090,7 +1100,7 @@ $\langle\chi_U,\chi_V\rangle_G=\dim\Hom_G(U,V)$. Deduce the multiplicity
 formula and the character table constraints.
 \end{exercise}
 
-\begin{exercise}[Exponential map]
+\begin{exercise}[Unitary representations and the exponential map]
 A \emph{unitary representation} of a topological group $G$ on a Hilbert
 space $H_\pi$ is a homomorphism $\pi:G\to U(H_\pi)$ such that
 $g\mapsto\pi(g)x$ is continuous for every $x\in H_\pi$.  Its
@@ -1111,7 +1121,7 @@ $t\mapsto e^{tX}$, identify the commutator bracket, and compute the first
 nontrivial terms of the Baker--Campbell--Hausdorff formula.
 \end{exercise}
 
-\begin{exercise}[Compact convolution operators]
+\begin{exercise}[Infinitesimal representations and compact convolution]
 For a finite-dimensional smooth representation
 $\rho:G\to\operatorname{GL}(V)$, its
 \emph{infinitesimal representation} is
@@ -1201,7 +1211,7 @@ and prove that convolution by $f$ acts by the scalar $c_\pi$ on every
 copy of $\pi$ in $L^2(G)$.
 \end{exercise}
 
-\begin{exercise}[$SU(2)$ double-covers $SO(3)$]
+\begin{exercise}[Rotations, spin, and the map \texorpdfstring{$SU(2)\to SO(3)$}{SU(2) to SO(3)}]
 Define
 \[
 \begin{aligned}
@@ -1242,7 +1252,7 @@ and compute the singlet and triplet decomposition of
 $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
 
-\begin{exercise}[Gauss equation and integral]
+\begin{exercise}[Gauss hypergeometric functions]
 Using the rising factorial defined in Spectral Theory, for
 $c\notin\Z_{\leq0}$ the \emph{Gauss hypergeometric function} is
 \[
@@ -1276,7 +1286,7 @@ and Gauss's summation
 State the parameter conditions for the integral and the summation.
 \end{exercise}
 
-\begin{exercise}[Confluence and Laguerre functions]
+\begin{exercise}[Kummer, Whittaker, and Laguerre functions]
 For $b\notin\Z_{\leq0}$, define the Kummer function
 \[
 M(a,b,z)={}_1F_1(a;b;z)
@@ -1344,7 +1354,7 @@ Prove
 and obtain the corresponding coefficient contour integral around $t=0$.
 \end{exercise}
 
-\begin{exercise}[Jacobi spectral equation]
+\begin{exercise}[Jacobi polynomials and their spectral equation]
 For $\alpha,\beta>-1$, the \emph{Jacobi polynomial} is
 \[
 P_n^{(\alpha,\beta)}(x)
@@ -1460,7 +1470,7 @@ distinguish the orbital-symmetry prediction, plane-wave approximation,
 measured intensity, and final-state scattering corrections.
 \end{exercise}
 
-\begin{exercise}[Wigner and Jacobi functions]
+\begin{exercise}[Clebsch--Gordan and Wigner coefficients]
 Choose the normalized $J_3$-eigenstates in each irreducible
 angular-momentum representation by the Condon--Shortley ladder convention
 \[
@@ -1830,7 +1840,7 @@ and detector acceptance alter the comparison with measured counts.
 \section{Harish--Chandra Theory}
 
 
-\begin{exercise}[Rank-one Iwasawa and Cartan decompositions]
+\begin{exercise}[The hyperbolic plane and rank-one decompositions]
 Let
 \[
 G=SL_2(\R),
@@ -1862,7 +1872,7 @@ group and prove that a $K$-bi-invariant function is determined by its value
 on $a_r$, $r\geq0$.
 \end{exercise}
 
-\begin{exercise}[Conical eigenfunctions on $\mathbb H^2$]
+\begin{exercise}[Rank-one spherical functions and transforms]
 For $\lambda\in\R$, let $\varphi_\lambda$ be the normalized smooth
 $K$-invariant Laplace--Beltrami eigenfunction on $G/K=\mathbb H^2$ satisfying
 \[
@@ -2038,7 +2048,7 @@ errors caused by boundary shape, loss, and discretization.
 \section{Automorphic Forms}
 
 
-\begin{exercise}[Poisson duality for lattice theta series]
+\begin{exercise}[Integral lattices and theta series]
 A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
 $\R^d/L$ is compact.  Its dual is
 \[
@@ -2073,7 +2083,7 @@ modular form by itself.
 \end{exercise}
 
 
-\begin{exercise}[Theta Mellin transform and zeta functional equation]
+\begin{exercise}[Modular forms, zeta functions, and Eisenstein series]
 The modular group $SL_2(\Z)$ acts on the upper half-plane by
 \[
 \gamma\tau=\frac{a\tau+b}{c\tau+d},
@@ -2177,7 +2187,7 @@ E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
 \]
 \end{exercise}
 
-\begin{exercise}[Theta transformations]
+\begin{exercise}[Theta and eta functions]
 Set
 \[
 \begin{aligned}
@@ -2241,7 +2251,7 @@ Explain how the two sides encode charge sectors and independent oscillator
 modes, respectively.
 \end{exercise}
 
-\begin{exercise}[Valence formula and the $J$-function]
+\begin{exercise}[Modular functions, the discriminant, and the $J$-function]
 Put $PSL_2(\R)=SL_2(\R)/\{\pm I\}$ and define $PSL_2(\Z)$ similarly.  Let
 $\Gamma\subset PSL_2(\R)$ be commensurable with $PSL_2(\Z)$ and suppose that
 the cusp at infinity has width one.  A \emph{modular function} for $\Gamma$

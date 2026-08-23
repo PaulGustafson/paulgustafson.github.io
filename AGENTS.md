@@ -12,6 +12,10 @@ These rules apply to the manuscript entry point
   together with its hypotheses, notation, conventions, and defining formulas,
   at the beginning of the first exercise that uses it.
 - Put theorem statements and substantial consequences in exercises.
+- Title each exercise by the full mathematical subject it introduces and
+  develops, not merely by the last lemma or calculation requested.
+- Use lettered parts when an exercise has genuinely distinct stages.  Keep a
+  single continuous argument unitemized.
 - Do not add motivational, transitional, interpretive, or summary prose. In
   particular, omit section introductions and sentences explaining what a
   definition "shows," "means," "records," or "indicates."
