@@ -2095,15 +2095,18 @@ so $J$ is the normalized Hauptmodul for $PSL_2(\Z)$.
 \end{exercise}
 
 \begin{definition}[Leech lattice]
-Let $\Lambda$ denote the Leech lattice, an even unimodular Euclidean lattice
-of rank $24$ with no nonzero vector of squared length less than $4$.
+A \emph{root} of an integral Euclidean lattice is a vector of squared length
+$2$.  A \emph{Leech lattice} is an even unimodular Euclidean lattice of rank
+$24$ having no roots.
 \end{definition}
 
 \begin{exercise}[Leech theta series and its first diffraction shell]
 \label{ex:leech-theta-series}
+Take the rootless case of the Niemeier classification as theorem input: Leech
+lattices exist and any two are isometric.  Fix one and denote it by $\Lambda$.
 Use Poisson duality to prove that $\Theta_\Lambda$ is a modular form of weight
-$12$.  Use the absence of vectors of squared length $2$ and the preceding
-description of $M_{12}$ to derive
+$12$.  Use the absence of roots and the preceding description of $M_{12}$ to
+derive
 \[
 \Theta_\Lambda=E_4^3-720\Delta
 =1+196560q^2+O(q^3).
