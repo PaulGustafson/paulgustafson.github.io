@@ -4,7 +4,7 @@
 
 
 
-\begin{exercise}[Vector spaces and finite dimension]
+\begin{exercise}[Vector spaces, duality, trace, and dimension]
 Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
 $V$ with scalar multiplication satisfying
 \[
@@ -54,20 +54,8 @@ satisfying the snake identities
 \circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
 \]
 
-Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
-$\operatorname{ev}_V$.  Apply
-\[
-\id_V\otimes\operatorname{ev}_V\otimes\id_{V^\vee}
-\]
-to $d\otimes c:k\to V\otimes V^\vee\otimes V\otimes V^\vee$ and use the
-snake identity for $d$ to identify the result with $c$.  Use the snake
-identity for $c$ to identify the same result with $d$, and deduce $c=d$.
-\end{exercise}
-
-\begin{exercise}[Trace, dimension, and exterior powers]
-For a finite-dimensional vector space $V$, let
-$s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the factors.
-For $T\in\End(V)$, define
+Let $s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the
+factors.  For $T\in\End(V)$, define
 \[
 \operatorname{tr}(T)
 =\operatorname{ev}_V\circ s_{V,V^\vee}
@@ -78,6 +66,24 @@ The \emph{dimension} of $V$ is the scalar
 \dim_k(V)=\operatorname{tr}(\id_V)\in k.
 \]
 
+\begin{enumerate}[label=(\alph*)]
+\item Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
+$\operatorname{ev}_V$.  Apply
+\[
+\id_V\otimes\operatorname{ev}_V\otimes\id_{V^\vee}
+\]
+to $d\otimes c:k\to V\otimes V^\vee\otimes V\otimes V^\vee$ and use the
+snake identity for $d$ to identify the result with $c$.  Use the snake
+identity for $c$ to identify the same result with $d$, and deduce $c=d$.
+\item Prove that $T\mapsto\operatorname{tr}(T)$ is linear and that
+\[
+\operatorname{tr}(ST)=\operatorname{tr}(TS)
+\qquad(S,T\in\End(V)).
+\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Exterior algebra, rank, and determinant]
 For $m\geq0$, the $m$th \emph{exterior power} of a vector space $V$ is
 \[
 \Lambda^mV
@@ -103,17 +109,32 @@ u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
 make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
 \emph{exterior algebra} of $V$.
 
-Let $V$ be finite-dimensional.
-\begin{enumerate}[label=(\alph*)]
-\item Prove that there is a unique
-$n\in\mathbb Z_{\geq0}$ such that
+For a finite-dimensional vector space $V$, an integer
+$n\in\mathbb Z_{\geq0}$ satisfying
 \[
 \Lambda^nV\ne0,
 \qquad
-\Lambda^{n+1}V=0,
+\Lambda^{n+1}V=0
 \]
-and that every endomorphism of $\Lambda^nV$ is a unique scalar multiple of
-the identity.  Prove that every $\Lambda^mV$ is finite-dimensional and that
+is its \emph{exterior rank}, written $\rank(V)=n$, when it exists and is
+unique.  When $\rank(V)=n$, the \emph{determinant} of $T\in\End(V)$ is the
+scalar $\det(T)$ satisfying
+\[
+\Lambda^nT=\det(T)\id_{\Lambda^nV}.
+\]
+
+Let $V$ be finite-dimensional.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the exterior algebra is graded-commutative:
+\[
+\xi\wedge\eta=(-1)^{rs}\eta\wedge\xi,
+\qquad
+\xi\in\Lambda^rV,\quad\eta\in\Lambda^sV.
+\]
+\item Prove that the exterior rank exists and is unique, that every
+$\Lambda^mV$ is finite-dimensional, and that every endomorphism of
+$\Lambda^nV$ is a unique scalar multiple of the identity.
+\item Prove
 \[
 \dim_k(V)=n\,1_k,
 \qquad
@@ -121,35 +142,11 @@ the identity.  Prove that every $\Lambda^mV$ is finite-dimensional and that
 \qquad
 \Lambda^mV=0\quad(m>n).
 \]
-\item Prove that the exterior algebra is graded-commutative:
-\[
-\xi\wedge\eta=(-1)^{rs}\eta\wedge\xi,
-\qquad
-\xi\in\Lambda^rV,\quad\eta\in\Lambda^sV.
-\]
 Deduce that $\dim_k(V)$ determines $n$ when $\operatorname{char}k=0$, whereas
 it determines only the residue class of $n$ modulo $p$ when
 $\operatorname{char}k=p>0$.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Exterior rank and determinant]
-The \emph{exterior rank} of a finite-dimensional vector space $V$ is the
-unique integer $\rank(V)=n$ such that
-\[
-\Lambda^nV\ne0,
-\qquad
-\Lambda^{n+1}V=0.
-\]
-For $T\in\End(V)$, its \emph{determinant} is the unique scalar $\det(T)$
-satisfying
-\[
-\Lambda^nT=\det(T)\id_{\Lambda^nV}.
-\]
-
-Let $V$ have exterior rank $n$.
-\begin{enumerate}[label=(\alph*)]
-\item Use functoriality of the highest exterior power to prove
+\item Prove that the determinant is well-defined.  Use functoriality of the
+highest exterior power to prove
 \[
 \det(ST)=\det(S)\det(T),
 \qquad
