@@ -2,7 +2,7 @@
 
 \section{Graded Characters}
 
-\begin{definition}[Probability laws]
+\begin{exercise}[Fundamental symmetric identities]
 A probability space is a measure space $(\Omega,\mathcal F,\mathbb P)$ with
 $\mathbb P(\Omega)=1$.  A random variable with values in a metric space
 $(S,d)$ is a measurable map $X:\Omega\to S$, and its law is the pushforward
@@ -25,9 +25,7 @@ $X_N,X:\Omega\to S$, define convergence in probability by
 and convergence in distribution by convergence of their laws against bounded
 continuous functions.  The standard normal law $N(0,1)$ on $\R$ has density
 $(2\pi)^{-1/2}e^{-x^2/2}$ with respect to Lebesgue measure.
-\end{definition}
 
-\begin{definition}[Symmetric powers and graded traces]
 For a finite-dimensional complex vector space $V$, define
 \[
 \operatorname{Sym}^mV
@@ -41,9 +39,7 @@ Z_B(T;z)=\sum_{m\geq0}\operatorname{tr}(\operatorname{Sym}^mT)z^m,
 \qquad
 Z_F(T;z)=\sum_{m\geq0}\operatorname{tr}(\Lambda^mT)z^m.
 \]
-\end{definition}
 
-\begin{definition}[Partitions]
 An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
 $\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
 $|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
@@ -54,9 +50,7 @@ dominance order when
 \]
 for every $k\geq1$, with missing parts interpreted as zero, and at least
 one inequality strict.
-\end{definition}
 
-\begin{definition}[Symmetric polynomials]
 For $N\geq1$, let
 \[
 \Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
@@ -77,9 +71,7 @@ p_r=\sum_{i=1}^Nx_i^r,
 e_0=h_0=1.
 \]
 Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.
-\end{definition}
 
-\begin{exercise}[Fundamental symmetric identities]
 Prove that every element of $\Lambda_N$ is uniquely a polynomial in
 $e_1,\ldots,e_N$.  Prove
 \[
@@ -162,7 +154,7 @@ express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
 
 \section{Modular and Moonshine Characters}
 
-\begin{definition}[Virasoro characters]
+\begin{exercise}[Ordered Virasoro descendants]
 The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
 $C$, with
 \[
@@ -181,9 +173,7 @@ define
 \]
 when the displayed operator is trace class; the same expression denotes
 the formal graded trace otherwise.
-\end{definition}
 
-\begin{exercise}[Ordered Virasoro descendants]
 Order the negative Virasoro modes by their indices.  Use the commutation
 relations to rewrite every word as an ordered word.  Check every
 three-letter overlap and use the Jacobi identity to prove that the rewriting
@@ -216,7 +206,7 @@ when the intersections of their descendant submodules have been accounted
 for.
 \end{exercise}
 
-\begin{definition}[Unitary modular character systems]
+\begin{exercise}[Ising characters and modular invariance]
 A finite character vector $\chi$ is a \emph{unitary modular character
 system} when
 \[
@@ -235,9 +225,7 @@ It is \emph{modular invariant} when
 S^*MS=M,
 \qquad T^*MT=M.
 \]
-\end{definition}
 
-\begin{exercise}[Ising characters and modular invariance]
 For the Ising character system with $c=1/2$ and weights
 $0,1/2,1/16$, choose the square roots whose $q$-expansions have the
 displayed positive leading coefficients and put
@@ -356,7 +344,7 @@ sector resolution, saddle-point regime, and finite-size limitations required
 when comparing these predictions with measured or transfer-matrix spectra.
 \end{exercise}
 
-\begin{definition}[Positive-energy vertex operator algebras]
+\begin{exercise}[Leech lattice and oscillator character]
 A \emph{positive-energy vertex operator algebra} is a graded complex vector
 space
 \[
@@ -389,9 +377,7 @@ the modes satisfy the Virasoro relations with central charge $c$,
 $L_0|_{V_m}=m\id_{V_m}$, and
 $Y(L_{-1}v,z)=\partial_zY(v,z)$.
 An automorphism preserves $\mathbf1$, $\omega$, and the state--field map.
-\end{definition}
 
-\begin{definition}[Lattice oscillator state spaces]
 For an even positive-definite lattice $L$ of rank $d$, let
 $\varepsilon:L\times L\to\{\pm1\}$ satisfy
 \[
@@ -416,9 +402,7 @@ where $\operatorname{Sym}(W)=\bigoplus_{r\geq0}\operatorname{Sym}^r(W)$.
 Give $(L\otimes_\Z\C)t^{-n}$ degree $n$, give the element $e^\lambda$ of
 the twisted group algebra degree $\|\lambda\|^2/2$, and let $L_0$ act by
 total degree.
-\end{definition}
 
-\begin{exercise}[Leech lattice and oscillator character]
 The standard lattice vertex-operator construction equips $\mathcal F_L$ with
 a central-charge-$d$ vertex operator algebra structure.  Use the
 symmetric-power trace formula and the definition of the lattice theta series
@@ -443,16 +427,14 @@ splits the degree-two states into nonzero lattice momenta and oscillator
 states.
 \end{exercise}
 
-\begin{definition}[McKay--Thompson series]
+\begin{exercise}[Monstrous moonshine]
 Let $G$ act by automorphisms on a positive-energy vertex operator algebra
 $V$.  For $g\in G$, define its \emph{McKay--Thompson series} by
 \[
 T_g(\tau)=\Tr_V\!\left(gq^{L_0-c/24}\right).
 \]
 Let $\mathbb M$ denote the Monster sporadic simple group.
-\end{definition}
 
-\begin{exercise}[Monstrous moonshine]
 Take the Frenkel--Lepowsky--Meurman construction and
 \href{https://doi.org/10.1007/BF01232032}{Borcherds's monstrous moonshine
 theorem} as theorem input.  If $\theta$ lifts $\lambda\mapsto-\lambda$ to the
@@ -537,7 +519,7 @@ realization.
 
 \section{Transfer Matrices}
 
-\begin{definition}[Transfer-matrix counts]
+\begin{exercise}[Hard-hexagon trace counts]
 Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
 let $T_N(z)$ be an operator on the configuration space whose matrix element
 between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
@@ -547,9 +529,7 @@ Z_{N,M}(z)=\Tr(T_N(z)^M).
 \]
 When $T_N(z)$ has nonnegative entries, write $\lambda_N(z)$ for its
 spectral radius.
-\end{definition}
 
-\begin{definition}[Hard-hexagon rows]
 Let
 \[
 \mathcal R_N
@@ -567,9 +547,7 @@ T_N(z)_{ab}
 =\mathbf1_{\{a,b\text{ compatible}\}}
 z^{(|a|+|b|)/2}.
 \]
-\end{definition}
 
-\begin{exercise}[Hard-hexagon trace counts]
 Identify the horizontal, vertical, and diagonal nearest-neighbor edges
 encoded by the two compatibility conditions.  Prove
 \[
@@ -611,7 +589,7 @@ geometry, boundary conditions, and finite $N,M$ limitations required when
 these quantities are compared with adsorption or exclusion-process data.
 \end{exercise}
 
-\begin{definition}[Planar Ising model]
+\begin{exercise}[Ising duality and the square-lattice critical point]
 Let $G=(V,E)$ be a finite connected graph with a fixed planar embedding.
 For couplings $K_e>0$, define
 \[
@@ -626,9 +604,7 @@ which every vertex has even degree.  The dual couplings are determined by
 \[
 e^{-2K_{e^*}^*}=\tanh K_e.
 \]
-\end{definition}
 
-\begin{exercise}[Ising duality and the square-lattice critical point]
 Expand each edge factor as
 \[
 e^{K_es_us_v}=\cosh K_e(1+s_us_v\tanh K_e)
@@ -706,7 +682,7 @@ critical temperatures are compared with an Ising magnet or a programmable
 spin array.
 \end{exercise}
 
-\begin{definition}[Ising row transfer and Clifford operators]
+\begin{exercise}[Free-fermion Ising transfer spectrum]
 Let $\mathcal S_N=\{-1,1\}^{\Z/N\Z}$ and $K_h,K_v>0$.  For row
 configurations $s,t\in\mathcal S_N$ define
 \[
@@ -740,9 +716,7 @@ Let $K_v^*>0$ satisfy $e^{-2K_v^*}=\tanh K_v$, and set
 \]
 Write $a_x$ and $a_t$ for the spatial and transfer-step lattice spacings
 and $L=Na_x$ for the circumference.
-\end{definition}
 
-\begin{exercise}[Free-fermion Ising transfer spectrum]
 Verify
 \[
 R_NT_N^{\rm Is}(K_h,K_v)
@@ -873,7 +847,7 @@ Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
 in Spectral Theory.
 \end{exercise}
 
-\begin{definition}[Dyson classes]
+\begin{exercise}[Unitary orbit Jacobian]
 For $\mathbb F=\R,\C,\mathbb H$, put
 $\beta_{\rm D}=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
 self-adjoint operators on $\mathbb F^N$ has density
@@ -887,9 +861,7 @@ $\lambda=(\lambda_1,\ldots,\lambda_N)$ define
 \[
 \Delta(\lambda)=\det[\lambda_i^{j-1}]_{i,j=1}^N.
 \]
-\end{definition}
 
-\begin{exercise}[Unitary orbit Jacobian]
 Use the exterior-power determinant to prove
 \[
 \Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
@@ -924,7 +896,7 @@ Identify the exponent $\beta_{\rm D}$ as the small-gap repulsion prediction and
 state the symmetry-sector separation required in spectral data.
 \end{exercise}
 
-\begin{definition}[Fredholm determinants]
+\begin{exercise}[Fredholm trace identity]
 Let $A$ be a positive compact operator on a Hilbert space.  It is
 \emph{trace class} when its nonzero spectral values, repeated with
 multiplicity, satisfy $\sum_j\lambda_j(A)<\infty$.  Define
@@ -933,9 +905,7 @@ multiplicity, satisfy $\sum_j\lambda_j(A)<\infty$.  Define
 \qquad
 \Tr(A^m)=\sum_j\lambda_j(A)^m.
 \]
-\end{definition}
 
-\begin{exercise}[Fredholm trace identity]
 Prove absolute local uniform convergence of the defining product and
 \[
 \det(I-zA)
@@ -947,7 +917,7 @@ finite-rank specialization agrees with the exterior-power identity from the
 opening section.
 \end{exercise}
 
-\begin{definition}[Point processes and correlation densities]
+\begin{exercise}[Determinantal counting statistics]
 Let $X$ be a locally compact second-countable Hausdorff space and let $\mu$
 be a Radon measure on $X$.  A simple point process is a random
 locally finite counting measure $\Xi=\sum_i\delta_{x_i}$ with distinct
@@ -967,9 +937,7 @@ is one for which
 \]
 For the existence and counting formulas below, the integral operator defined
 by $K$ is a locally trace-class positive contraction on $L^2(X,\mu)$.
-\end{definition}
 
-\begin{exercise}[Determinantal counting statistics]
 For a relatively compact measurable set $B$, put $N_B=\Xi(B)$ and
 $K_B=\mathbf1_BK\mathbf1_B$.  Use factorial moments and the Fredholm series
 to prove
@@ -982,7 +950,7 @@ Prove that $N_B$ is distributed as a sum of independent Bernoulli variables
 whose parameters are the eigenvalues of $K_B$.
 \end{exercise}
 
-\begin{definition}[Unitary polynomial ensembles]
+\begin{exercise}[Andr\'eief and Christoffel--Darboux identities]
 Let $\mu$ be a Radon measure on $\R$ such that $w(x)d\mu(x)$ has infinite
 support and finite moments, and let $P_j$ be its monic orthogonal
 polynomials, normalized by
@@ -1002,9 +970,7 @@ and kernel
 K_N(x,y)=\sqrt{w(x)w(y)}
 \sum_{j=0}^{N-1}\frac{P_j(x)P_j(y)}{H_j}.
 \]
-\end{definition}
 
-\begin{exercise}[Andr\'eief and Christoffel--Darboux identities]
 Prove Andr\'eief's identity
 \[
 \int_{X^N}\det[f_i(x_j)]\det[g_i(x_j)]\prod_jd\mu(x_j)
@@ -1020,7 +986,7 @@ recurrence and prove
 \]
 \end{exercise}
 
-\begin{definition}[GUE and its limiting kernels]
+\begin{exercise}[Hermite steepest descent]
 For the GUE weight $w_N(x)=e^{-Nx^2/(2\sigma^2)}$, write
 $\psi_j^{\rm H}$ for the normalized oscillator Hermite functions developed
 in Spectral Theory and define
@@ -1048,9 +1014,7 @@ K_{\rm Ai}(u,v)
 F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
 \]
 Diagonal values are defined by continuity.
-\end{definition}
 
-\begin{definition}[Hastings--McLeod function]
 The \emph{Hastings--McLeod function} is the real pole-free solution $q$ of
 the second Painlev\'e equation
 \[
@@ -1060,9 +1024,7 @@ with
 \[
 q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty).
 \]
-\end{definition}
 
-\begin{exercise}[Hermite steepest descent]
 Derive a contour integral for the normalized Hermite functions from their
 generating function.  For $E\in(-2\sigma,2\sigma)$, perform steepest descent
 at the two simple saddles; at $2\sigma$, rescale the coalescing saddles to
@@ -1177,15 +1139,13 @@ finite-size range over which the asymptotic is used.
 
 \section{Schur Measures}
 
-\begin{definition}[Schur polynomials]
+\begin{exercise}[Schur identities]
 For a partition $\lambda$ of length at most $N$, define
 \[
 s_\lambda(x_1,\ldots,x_N)
 =\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
 \]
-\end{definition}
 
-\begin{exercise}[Schur identities]
 Derive the alternant formula
 \[
 s_\lambda(x)
@@ -1196,7 +1156,7 @@ from the fundamental symmetric identities.  Prove
 $s_{(r)}=h_r$ and $s_{(1^r)}=e_r$.
 \end{exercise}
 
-\begin{definition}[Row insertion and RSK]
+\begin{exercise}[RSK and the finite Schur measure]
 A semistandard Young tableau has weakly increasing rows and strictly
 increasing columns.  To insert an integer $x$, replace the first entry
 strictly larger than $x$ in the first row and insert the replaced entry in
@@ -1206,9 +1166,7 @@ two-line word containing $W_{ij}$ copies of $(i,j)$, insert the lower
 letters, and record the upper letters in the created boxes.  The resulting
 pair $(P,Q)$ of tableaux of common shape $\lambda$ is the RSK image of
 $W$.
-\end{definition}
 
-\begin{definition}[Last-passage values]
 For nonnegative weights $W=(W_{ij})$, define
 \[
 G(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
@@ -1221,9 +1179,7 @@ $\alpha_i\gamma_j<1$, the geometric model has independent weights
 =(1-\alpha_i\gamma_j)(\alpha_i\gamma_j)^k,
 \qquad k\in\Z_{\geq0}.
 \]
-\end{definition}
 
-\begin{exercise}[RSK and the finite Schur measure]
 Prove that row insertion is reversible and hence that RSK is a bijection.
 Show that the length of the first row of its shape is the maximal weight of
 an up-right path:
@@ -1248,14 +1204,12 @@ and the Cauchy identity
 \]
 \end{exercise}
 
-\begin{definition}[Interlacing partitions]
+\begin{exercise}[Nonintersecting Schur paths]
 For partitions $\mu$ and $\lambda$, write $\mu\prec\lambda$ when
 \[
 \lambda_1\geq\mu_1\geq\lambda_2\geq\mu_2\geq\cdots.
 \]
-\end{definition}
 
-\begin{exercise}[Nonintersecting Schur paths]
 Prove the branching formula
 \[
 s_\lambda(\alpha_1,\ldots,\alpha_m)
@@ -1277,7 +1231,7 @@ to prove
 Apply this identity to the interlacing-chain encoding of $s_\lambda$.
 \end{exercise}
 
-\begin{definition}[Finite Schur kernel]
+\begin{exercise}[Schur correlation kernel]
 For the preceding finite alphabets, set
 \[
 \Phi(z)=\frac{\prod_j(1-\gamma_j/z)}
@@ -1294,9 +1248,7 @@ K_{\alpha,\gamma}(r,s)
 \frac{\Phi(z)}{\Phi(w)}\frac{1}{z-w}
 z^{-r-1/2}w^{s-1/2}\,dz\,dw.
 \]
-\end{definition}
 
-\begin{exercise}[Schur correlation kernel]
 Encode $\lambda$ by
 \[
 \mathcal X(\lambda)
@@ -1318,15 +1270,13 @@ geometric weights test this distribution without invoking an asymptotic
 limit.
 \end{exercise}
 
-\begin{definition}[Exponential last-passage model]
+\begin{exercise}[Exponential last-passage kernel]
 Let $E_{ij}$ be independent rate-one exponential random variables and define
 \[
 G_{\exp}(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
 \sum_{(i,j)\in\pi}E_{ij}.
 \]
-\end{definition}
 
-\begin{exercise}[Exponential last-passage kernel]
 Set $\alpha_i=\gamma_j=e^{-\varepsilon/2}$ in the $n\times n$ geometric
 model and prove that $\varepsilon W_{ij}$ converges in distribution to a
 rate-one exponential variable as $\varepsilon\downarrow0$.  Take this limit
