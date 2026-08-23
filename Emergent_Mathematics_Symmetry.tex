@@ -1616,6 +1616,308 @@ squared absolute value of the resulting spherical-harmonic amplitude and
 identify its symmetry-enforced dark directions and absent spectral lines.
 \end{exercise}
 
+\section{Scattering Theory}
+
+\begin{exercise}[Outgoing Green kernel and Born amplitudes]
+Let $\mu>0$ be a reduced mass, let $k>0$, put
+\[
+E=\frac{\hbar^2k^2}{2\mu},
+\qquad
+H=-\frac{\hbar^2}{2\mu}\Delta+V,
+\]
+and initially take $V$ to be a real Schwartz function on $\R^3$.  For an
+incident direction $\omega\in S^2$, call a solution of $(H-E)\psi=0$
+\emph{outgoing} when
+\[
+\psi(x)=e^{ik\omega\cdot x}
++f(\widehat x,\omega;k)\frac{e^{ik|x|}}{|x|}
++o(|x|^{-1}),
+\qquad \widehat x=\frac{x}{|x|},
+\]
+and call $f$ its \emph{scattering amplitude}.  For outgoing direction
+$\omega'$, define the scattering angle by
+$\cos\theta=\omega'\cdot\omega$.
+
+Prove in the sense of distributions that
+\[
+G_k^+(x)=\frac{e^{ik|x|}}{4\pi|x|},
+\qquad
+(-\Delta-k^2)G_k^+=\delta_0,
+\]
+and verify the Sommerfeld condition
+$(\partial_r-ik)G_k^+=o(r^{-1})$.  Derive the Lippmann--Schwinger equation
+\[
+\psi(x)=e^{ik\omega\cdot x}
+-\frac{2\mu}{\hbar^2}
+\int_{\R^3}G_k^+(x-y)V(y)\psi(y)\,dy.
+\]
+First take $V$ compactly supported and use
+\[
+G_k^+(x-y)=\frac{e^{ik|x|}}{4\pi|x|}
+e^{-ik\widehat x\cdot y}+O(|x|^{-2})
+\]
+for bounded $y$ to prove
+\[
+f(\omega',\omega;k)
+=-\frac{\mu}{2\pi\hbar^2}
+\int_{\R^3}e^{-ik\omega'\cdot y}V(y)\psi(y)\,dy.
+\]
+Extend the formula to Schwartz $V$ by controlling the tails with its decay.
+For the probability current
+\[
+j_\psi=\frac{\hbar}{\mu}\operatorname{Im}(\overline\psi\nabla\psi),
+\]
+divide the outgoing radial flux through $r^2d\Omega$ by the incident flux and
+derive
+\[
+\frac{d\sigma}{d\Omega}=|f(\omega',\omega;k)|^2.
+\]
+
+Replace $\psi$ in the amplitude by the incident plane wave to obtain the first
+Born term
+\[
+f_{\rm B}(\omega',\omega;k)
+=-\frac{\mu}{2\pi\hbar^2}
+\int_{\R^3}e^{-iQ\cdot y}V(y)\,dy,
+\qquad Q=k(\omega'-\omega).
+\]
+For the screened Coulomb potential
+\[
+V_\alpha(x)=g\frac{e^{-\alpha|x|}}{|x|},
+\qquad \alpha>0,
+\]
+justify the same calculation by approximation, prove
+\[
+\int_{\R^3}e^{-iQ\cdot x}\frac{e^{-\alpha|x|}}{|x|}\,dx
+=\frac{4\pi}{\|Q\|^2+\alpha^2},
+\qquad
+\|Q\|^2=4k^2\sin^2\frac\theta2,
+\]
+and derive
+\[
+\frac{d\sigma_{\rm B}}{d\Omega}
+=\frac{4\mu^2g^2}{\hbar^4
+\left(4k^2\sin^2(\theta/2)+\alpha^2\right)^2}.
+\]
+State the weak-coupling, single-scattering, wave-packet, far-field, and angular
+resolution assumptions under which this differential cross section predicts
+detector counts.
+\end{exercise}
+
+\begin{exercise}[Partial-wave unitarity and the optical theorem]
+For a real radial potential supported in $\{x:\|x\|\leq R\}$, define the
+on-shell scattering operator $S(k)$ on angular wave packets by sending the
+incoming far-field coefficient to the outgoing one, with the free propagation
+phases normalized so that $V=0$ gives $S(k)=I$.  Use conservation of
+probability current to prove that $S(k)$ is unitary, and use rotation covariance
+together with the multiplicity-free decomposition
+\[
+L^2(S^2)=\mathop{\widehat{\bigoplus}}_{\ell\geq0}\mathcal H_\ell
+\]
+where $\mathcal H_\ell$ is the degree-$\ell$ spherical-harmonic summand, to
+prove
+\[
+S(k)|_{\mathcal H_\ell}=S_\ell(k)I,
+\qquad
+S_\ell(k)=e^{2i\delta_\ell(k)}
+\]
+for real phase shifts $\delta_\ell$, determined modulo $\pi$.
+
+Put
+\[
+j_\ell(z)=\sqrt{\frac{\pi}{2z}}J_{\ell+1/2}(z).
+\]
+Project the Euclidean Fourier kernel onto the spherical-harmonic summands and
+derive the distinguished expansion
+\[
+e^{ikr\cos\theta}
+=\sum_{\ell\geq0}i^\ell(2\ell+1)j_\ell(kr)P_\ell(\cos\theta),
+\]
+where $P_\ell=P_\ell^{(0,0)}$ is the Legendre polynomial.  Separate the radial
+equation and show that the regular radial function $u_\ell$ satisfies
+\[
+u_\ell''(r)+\left(k^2-\frac{\ell(\ell+1)}{r^2}
+-\frac{2\mu}{\hbar^2}V(r)\right)u_\ell(r)=0,
+\]
+with
+\[
+u_\ell(r)\sim
+\sin\left(kr-\frac{\ell\pi}{2}+\delta_\ell(k)\right)
+\qquad(r\to\infty).
+\]
+Match incoming and outgoing spherical waves to derive
+\[
+f(\theta;k)
+=\frac1{2ik}\sum_{\ell\geq0}(2\ell+1)
+(S_\ell(k)-1)P_\ell(\cos\theta)
+=\frac1k\sum_{\ell\geq0}(2\ell+1)e^{i\delta_\ell}
+\sin\delta_\ell P_\ell(\cos\theta).
+\]
+Use Legendre orthogonality and $P_\ell(1)=1$ to prove
+\[
+\sigma_{\rm el}(k)
+=\frac{4\pi}{k^2}\sum_{\ell\geq0}(2\ell+1)\sin^2\delta_\ell(k),
+\qquad
+\sigma_{\rm el}(k)=\frac{4\pi}{k}\operatorname{Im}f(0;k),
+\]
+and obtain the partial-wave unitarity bound
+\[
+\sigma_\ell(k)\leq\frac{4\pi}{k^2}(2\ell+1).
+\]
+Identify exactly where reality of the potential and absence of inelastic
+channels enter the proof.
+\end{exercise}
+
+\begin{exercise}[Hard spheres and square-well resonances]
+Define the spherical Neumann function by
+\[
+n_\ell(z)=(-1)^{\ell+1}
+\sqrt{\frac{\pi}{2z}}J_{-\ell-1/2}(z).
+\]
+For scattering from an impenetrable sphere of radius $a$, impose the Dirichlet
+condition at $r=a$ and write the exterior radial factor as
+\[
+\cos\delta_\ell\,j_\ell(kr)-\sin\delta_\ell\,n_\ell(kr).
+\]
+Prove
+\[
+\tan\delta_\ell(k)=\frac{j_\ell(ka)}{n_\ell(ka)}.
+\]
+Use the Bessel series to show that $\delta_0=-ka$ modulo $\pi$ and
+$\delta_\ell=O((ka)^{2\ell+1})$ for $\ell>0$.  Deduce the low-energy
+predictions
+\[
+f(\theta;k)\longrightarrow-a,
+\qquad
+\sigma_{\rm el}(k)\longrightarrow4\pi a^2
+\qquad(ka\downarrow0).
+\]
+
+For the attractive square well
+\[
+V(r)=\begin{cases}-V_0,&0<r<a,\\0,&r>a,\end{cases}
+\qquad V_0>0,
+\]
+put $K=(k^2+2\mu V_0/\hbar^2)^{1/2}$ and match the logarithmic derivatives of
+the regular $s$-wave solutions to prove
+\[
+K\cot(Ka)=k\cot(ka+\delta_0(k)).
+\]
+Define the scattering length by $\delta_0(k)=-ka_s+o(k)$ and derive
+\[
+a_s=a-\frac{\tan(\gamma a)}{\gamma},
+\qquad
+\gamma=\frac{\sqrt{2\mu V_0}}{\hbar}.
+\]
+Show that $a_s$ diverges when $\gamma a=(n+\tfrac12)\pi$, $n\in\Z_{\geq0}$,
+and identify these values with the appearance of an $s$-wave state at zero
+binding energy.
+
+If an elastic phase shift has a simple resonance at $E_R$ with
+\[
+\cot\delta_\ell(E)
+=\frac{2(E_R-E)}{\Gamma}
++O\!\left(\frac{(E-E_R)^2}{\Gamma^2}\right),
+\qquad \Gamma>0,
+\]
+derive the Breit--Wigner line shape
+\[
+\sigma_\ell(E)
+=\frac{4\pi}{k^2}(2\ell+1)
+\frac{\Gamma^2/4}{(E-E_R)^2+\Gamma^2/4}
+\]
+to leading order, prove that its full width at half maximum is $\Gamma$, and
+show that the Wigner delay $2\hbar\,d\delta_\ell/dE$ equals
+$4\hbar/\Gamma$ at the resonance.  State the hard-core or square-well model,
+elastic-channel, energy-resolution, and finite-range assumptions needed to
+infer a radius, scattering length, resonance energy, or width from measured
+angular distributions.
+\end{exercise}
+
+\begin{exercise}[Coulomb amplitude and the Rutherford law]
+For the repulsive Coulomb potential $V(r)=\kappa/r$, with $\kappa>0$, put
+\[
+\rho=kr,
+\qquad
+\eta=\frac{\mu\kappa}{\hbar^2k},
+\qquad
+C_\ell(\eta)
+=\frac{2^\ell e^{-\pi\eta/2}|\Gamma(\ell+1+i\eta)|}{(2\ell+1)!}.
+\]
+Verify that the regular radial solution is
+\[
+F_\ell(\eta,\rho)
+=C_\ell(\eta)\rho^{\ell+1}e^{-i\rho}
+M(\ell+1-i\eta,2\ell+2,2i\rho).
+\]
+Derive from the Kummer series and the beta integral that
+\[
+M(a,b,z)=\frac{\Gamma(b)}{\Gamma(a)\Gamma(b-a)}
+\int_0^1e^{zt}t^{a-1}(1-t)^{b-a-1}\,dt
+\]
+when $\operatorname{Re}b>\operatorname{Re}a>0$.  Analyze its two endpoints
+for the displayed Coulomb parameters and prove
+\[
+F_\ell(\eta,\rho)
+=\sin\left(\rho-\eta\log(2\rho)-\frac{\ell\pi}{2}
++\sigma_\ell(\eta)\right)+o(1),
+\qquad
+\sigma_\ell(\eta)=\arg\Gamma(\ell+1+i\eta),
+\]
+where the argument is chosen continuously from $\sigma_\ell(0)=0$.
+Deduce the Coulomb partial-wave factor
+\[
+S_\ell^{\rm C}
+=e^{2i\sigma_\ell}
+=\frac{\Gamma(\ell+1+i\eta)}{\Gamma(\ell+1-i\eta)}.
+\]
+Because the Coulomb potential is not short-range, use the logarithmically
+modified radial phase above and define its nonforward amplitude by Abel
+regularization of the partial-wave expression.
+
+For $\operatorname{Re}s>0$, use the hypergeometric form of $P_\ell$ to prove
+\[
+\int_{-1}^1(1-x)^{s-1}P_\ell(x)\,dx
+=2^s(-1)^\ell
+\frac{\Gamma(s)^2}{\Gamma(s-\ell)\Gamma(s+\ell+1)}.
+\]
+Continue in $s$ and use the Legendre generating function to obtain, for
+$-1<x<1$, the Abel-summed identity
+\[
+\lim_{r\uparrow1}\sum_{\ell\geq0}(2\ell+1)
+(S_\ell^{\rm C}-1)r^\ell P_\ell(x)
+=-2i\eta\,2^{i\eta}
+\frac{\Gamma(1+i\eta)}{\Gamma(1-i\eta)}
+(1-x)^{-1-i\eta}.
+\]
+With $x=\cos\theta$, derive the exact Coulomb amplitude away from the forward
+direction,
+\[
+f_{\rm C}(\theta)
+=-\frac{\eta}{2k\sin^2(\theta/2)}
+\frac{\Gamma(1+i\eta)}{\Gamma(1-i\eta)}
+\exp\!\left(-i\eta\log\sin^2\frac\theta2\right),
+\]
+and hence the Rutherford law
+\[
+\frac{d\sigma_{\rm C}}{d\Omega}
+=\left(\frac{\kappa}{4E\sin^2(\theta/2)}\right)^2.
+\]
+For incident particle rate $\dot N_{\rm in}$, target areal density $n_T$,
+acquisition time $T$, detector efficiency $\epsilon(\theta)$, and a narrow
+solid-angle bin $\Delta\Omega$ away from $\theta=0$, derive
+\[
+N(\theta;\Delta\Omega)
+\simeq \dot N_{\rm in}n_TT\epsilon(\theta)
+\frac{d\sigma_{\rm C}}{d\Omega}\Delta\Omega.
+\]
+State separately the assumptions of nonrelativistic spinless two-body motion,
+a thin target, pointlike unscreened charges, single scattering, negligible
+inelasticity, far-field detection, and sufficiently fine angular bins.  State
+how screening, finite charge radius, recoil calibration, multiple scattering,
+and detector acceptance alter the comparison with measured counts.
+\end{exercise}
+
 \section{Harish--Chandra Theory}
 
 
