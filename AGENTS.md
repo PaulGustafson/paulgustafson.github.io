@@ -6,11 +6,12 @@ These rules apply to the manuscript entry point
 `Emergent_Mathematics_Deformation.tex`, and
 `Emergent_Mathematics_Counting.tex`.
 
-- The body should consist of definitions and exercises stating major results.
-- Put theorem statements and substantial consequences in exercises, not in
-  definition environments.
-- Definitions should contain only the hypotheses, notation, conventions, and
-  formulas needed to define the object.
+- The body should consist of exercises that introduce the required definitions
+  and state major results.
+- Do not use standalone `definition` environments. Introduce each definition,
+  together with its hypotheses, notation, conventions, and defining formulas,
+  at the beginning of the first exercise that uses it.
+- Put theorem statements and substantial consequences in exercises.
 - Do not add motivational, transitional, interpretive, or summary prose. In
   particular, omit section introductions and sentences explaining what a
   definition "shows," "means," "records," or "indicates."
@@ -89,9 +90,9 @@ These rules apply to the manuscript entry point
   sets, regular Borel measures, and the spaces $C_b(X)$, $C_0(X)$, and
   $C_c(X)$, as a prerequisite for the course; do not define these notions in
   the manuscript.
-- Preserve the definitions-and-exercises format: applications and
-  experimental interpretations belong in exercises, not in transitional
-  prose.
+- Preserve the exercise-driven format: definitions precede their first use
+  within the relevant exercise, and applications and experimental
+  interpretations belong in exercises, not in transitional prose.
 
 - After changing the TeX source, rebuild and validate the tracked PDF. Commit
   and push the TeX and PDF together unless the user requests otherwise.
