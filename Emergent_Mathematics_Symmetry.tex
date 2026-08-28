@@ -12,13 +12,12 @@ a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
 (ab)v=a(bv),\quad 1v=v.
 \]
 A map $T:V\to W$ is \emph{linear} when
-$T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
+$T(av+bw)=aT(v)+bT(w)$.
+Its kernel and image are
 \[
-\ker T=\{v:T(v)=0\},\qquad \im T=\{T(v):v\in V\}.
+\ker T=\{v:T(v)=0\},
+\qquad \im T=\{T(v):v\in V\}.
 \]
-For $T:V\to V$, a scalar $\lambda$ is an \emph{eigenvalue} when
-$\ker(T-\lambda I)\ne0$; a nonzero vector in this kernel is an
-\emph{eigenvector}.
 
 The \emph{dual space} of $V$ is
 $V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
@@ -26,9 +25,6 @@ $V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
 \operatorname{ev}_V:V^\vee\times V\longrightarrow k,
 \qquad (\varphi,v)\longmapsto\varphi(v).
 \]
-The algebraic transpose of $T:V\to W$ is
-$T^\vee:W^\vee\to V^\vee$, defined by $T^\vee(\varphi)=\varphi\circ T$.
-
 The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
 $(v,w)\mapsto v\otimes w$ with the following universal property: every
 bilinear map $b:V\times W\to X$ factors uniquely as
@@ -211,10 +207,8 @@ An \emph{adjoint} of $T$ is an operator $T^*:K\to H$ satisfying
 \[
 \langle x,Ty\rangle=\langle T^*x,y\rangle.
 \]
-An operator is self-adjoint when $T=T^*$, unitary when $T^*T=TT^*=I$, and
-normal when $T^*T=TT^*$.  An \emph{orthogonal projection} is an operator
-$P$ satisfying $P=P^*=P^2$.  A bounded operator is \emph{compact} when it
-maps the closed unit ball to a subset with compact closure.
+An \emph{orthogonal projection} is an operator $P$ satisfying
+$P=P^*=P^2$.
 
 \begin{enumerate}[label=(\alph*)]
 \item Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
@@ -236,22 +230,6 @@ $\mu:\mathcal F\to[0,\infty]$ with $\mu(\varnothing)=0$, and
 $(X,\mathcal F,\mu)$ is a \emph{measure space}.  A map is
 \emph{measurable} when inverse images of measurable sets are measurable.
 
-For a measure space $(X,\mathcal F,\mu)$ and $1\leq p<\infty$, define
-\[
-L^p(X,\mu)=
-\left\{f:X\to\C\text{ measurable}:
-\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.}.
-\]
-Its norm is
-\[
-\|f\|_p=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
-\]
-Let $L^\infty(X,\mu)$ consist of essentially bounded measurable functions
-modulo equality almost everywhere, with
-\[
-\|f\|_\infty=\operatorname*{ess\,sup}_{x\in X}|f(x)|.
-\]
-
 Construct the Lebesgue integral from nonnegative simple functions.  Prove
 the monotone convergence theorem and Fatou's lemma.
 \end{exercise}
@@ -272,6 +250,20 @@ of finite-dimensional Euclidean spaces.
 \end{exercise}
 
 \begin{exercise}[\texorpdfstring{$L^p$}{Lp} geometry]
+For a measure space $(X,\mathcal F,\mu)$ and $1\leq p<\infty$, define
+\[
+L^p(X,\mu)=
+\left\{f:X\to\C\text{ measurable}:
+\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.},
+\qquad
+\|f\|_p=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
+\]
+Let $L^\infty(X,\mu)$ consist of essentially bounded measurable functions
+modulo equality almost everywhere, with
+\[
+\|f\|_\infty=\operatorname*{ess\,sup}_{x\in X}|f(x)|.
+\]
+
 Prove H\"older's and Minkowski's inequalities and deduce that
 $L^p(X,\mu)$ is complete for $1\leq p\leq\infty$.  For $1<p<\infty$ with
 $p^{-1}+q^{-1}=1$, assume that $(X,\mathcal F,\mu)$ is $\sigma$-finite and
@@ -311,7 +303,7 @@ convergence in the derivation.
 
 
 
-\begin{exercise}[$C^*$-algebras, spectra, and states]
+\begin{exercise}[$C^*$-algebras and spectra]
 A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
 conjugate-linear involution satisfying
 \[
@@ -322,21 +314,7 @@ For a unital $C^*$-algebra, define
 \[
 \spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
 \]
-An element is \emph{positive}, written $a\geq0$, when $a=b^*b$ for some
-$b\in A$.  It is \emph{self-adjoint} when $a=a^*$ and \emph{normal} when
-$a^*a=aa^*$.
-
-For a commutative $C^*$-algebra $A$, let $\widehat A$ be the space of
-nonzero homomorphisms $\chi:A\to\C$ with its weak-$*$ topology.  The
-\emph{Gelfand transform} is
-\[
-\Gamma:A\longrightarrow C_0(\widehat A),
-\qquad \Gamma(a)(\chi)=\chi(a).
-\]
-
-A linear functional $\varphi:A\to\C$ on a unital $C^*$-algebra is
-\emph{positive} when $\varphi(a^*a)\geq0$ for every $a\in A$.  A
-\emph{state} is a positive functional satisfying $\varphi(1)=1$.
+An element is \emph{normal} when $a^*a=aa^*$.
 
 Prove that $\spec_A(a)$ is nonempty and compact and that
 \[
@@ -346,12 +324,23 @@ For normal $a$, prove $r(a)=\|a\|$.
 \end{exercise}
 
 \begin{exercise}[Commutative Gelfand theory]
+For a commutative $C^*$-algebra $A$, a \emph{character} is a nonzero
+homomorphism $\chi:A\to\C$.  Let $\widehat A$ be the space of characters
+with its weak-$*$ topology.  The \emph{Gelfand transform} is
+\[
+\Gamma:A\longrightarrow C_0(\widehat A),
+\qquad \Gamma(a)(\chi)=\chi(a).
+\]
+
 Prove that every character of a commutative $C^*$-algebra is continuous
 and that the Gelfand transform is an isometric $*$-isomorphism
 $A\cong C_0(\widehat A)$.
 \end{exercise}
 
 \begin{exercise}[Continuous functional calculus]
+An element $a$ of a $C^*$-algebra is \emph{self-adjoint} when $a=a^*$ and
+\emph{positive}, written $a\geq0$, when $a=b^*b$ for some $b$.
+
 For every normal element $a$ of a unital $C^*$-algebra, apply commutative
 Gelfand theory to $C^*(1,a)$ and prove that there is a unique unital isometric
 $*$-homomorphism
@@ -365,20 +354,10 @@ $\spec_A(a)\subseteq[0,\infty)$.
 \end{exercise}
 
 
-\begin{exercise}[Projection-valued and scalar measures]
-A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
-from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
-\[
-E(\varnothing)=0,\qquad E(X)=I,
-\qquad
-E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
-=\sum_{j=1}^\infty E(B_j)
-\]
-for pairwise disjoint measurable sets, where the sum converges in the strong
-operator topology.  The spectral integral $\int_X f\,dE$ for bounded
-measurable $f$ is defined by uniform approximation from simple functions.
-For a topological space $X$, the measure is \emph{regular} when every
-scalar measure $B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
+\begin{exercise}[Positive functionals and scalar measures]
+For a locally compact Hausdorff space $X$, a linear functional
+$\varphi:C_c(X)\to\C$ is \emph{positive} when $\varphi(f)\geq0$ for every
+real-valued $f\geq0$.
 
 Let $X$ be locally compact Hausdorff.  Prove that every positive linear
 functional $\varphi:C_c(X)\to\C$ that is bounded on functions supported in
@@ -397,6 +376,10 @@ $\|\varphi\|=|\mu_\varphi|(X)$.
 \end{exercise}
 
 \begin{exercise}[Spectral distributions of states]
+For a unital $C^*$-algebra, a positive linear functional is one satisfying
+$\varphi(a^*a)\geq0$ for every $a$, and a \emph{state} is a positive
+functional with $\varphi(1)=1$.
+
 Let $A$ be a unital $C^*$-algebra, let $a=a^*\in A$, and let $\varphi$ be a
 state.  Apply the continuous functional calculus and Riesz--Markov theorem
 to prove that there is a unique Borel probability measure
@@ -415,6 +398,20 @@ Deduce
 \end{exercise}
 
 \begin{exercise}[\texorpdfstring{$C_0(X)$}{C0(X)} representations]
+A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
+from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
+\[
+E(\varnothing)=0,\qquad E(X)=I,
+\qquad
+E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
+=\sum_{j=1}^\infty E(B_j)
+\]
+for pairwise disjoint measurable sets, where the sum converges in the strong
+operator topology.  The spectral integral $\int_X f\,dE$ for bounded
+measurable $f$ is defined by uniform approximation from simple functions.
+It is regular when each scalar measure
+$B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
+
 Let $X$ be locally compact Hausdorff.  A representation
 $\pi:C_0(X)\to B(H)$ is \emph{nondegenerate} when
 $\overline{\pi(C_0(X))H}=H$.  Prove that every nondegenerate
@@ -448,6 +445,9 @@ T|_{E_T(\{\lambda\})H}=\lambda I.
 \end{exercise}
 
 \begin{exercise}[Compact spectral theorem]
+An operator $K\in B(H)$ is compact when it maps the closed unit ball to a
+set with compact closure.
+
 For a compact normal operator $K$, prove that every nonzero spectral value is an eigenvalue of
 finite multiplicity, that the nonzero eigenvalues can accumulate only at
 zero, and that
@@ -470,8 +470,7 @@ domain.  Its adjoint has domain
 For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
 $\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
 $x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
-including equality of domains, and \emph{closed} when its graph is closed
-in $H\oplus H$.
+including equality of domains.
 
 For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
 $\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
@@ -743,8 +742,7 @@ $v:C^\infty(M)\to\R$ at $p$, satisfying
 \[
 v(fg)=f(p)v(g)+g(p)v(f).
 \]
-The \emph{cotangent space} is $T_p^*M=(T_pM)^*$.  The differential of a
-smooth map $F:M\to N$ is
+The differential of a smooth map $F:M\to N$ is
 \[
 dF_p:T_pM\longrightarrow T_{F(p)}N,
 \qquad
@@ -754,57 +752,17 @@ dF_p(v)(f)=v(f\circ F).
 Define
 \[
 TM=\coprod_{p\in M}T_pM,
-\qquad
-T^*M=\coprod_{p\in M}T_p^*M.
 \]
 A smooth vector bundle is a smooth map $\pi:E\to M$ locally isomorphic to
 $U\times W\to U$ for a finite-dimensional real vector space $W$, by
 fiberwise linear maps.  A section is a smooth map
-$s:M\to E$ satisfying $\pi s=\id_M$.  The bundles $TM$ and $T^*M$ have
-the bundle structures induced by the differentials of chart maps and
-their duals.
-
-A \emph{vector field} is a smooth section $X:M\to TM$.  Its local flow is
-a family of local diffeomorphisms $\Phi_t$ satisfying
-\[
-\Phi_0=\id_M,
-\qquad
-\Phi_{s+t}=\Phi_s\circ\Phi_t,
-\qquad
-\frac d{dt}f(\Phi_t(p))=X_{\Phi_t(p)}(f)
-\]
-where both sides are defined.
-For vector fields $X,Y$, define
-\[
-[X,Y](f)=X(Yf)-Y(Xf).
-\]
-
-
-
-A \emph{group} is a set $G$ with an associative multiplication, an identity,
-and inverses. A \emph{homomorphism} $\phi:G\to H$ preserves multiplication.
-A subgroup $N\leq G$ is \emph{normal} if $gNg^{-1}=N$ for every $g\in G$;
-the \emph{quotient group} $G/N$ consists of cosets with induced
-multiplication.
-
-A \emph{left action} of $G$ on $X$ is a homomorphism
-$G\to\operatorname{Bij}(X)$. The \emph{orbit} and \emph{stabilizer} of
-$x\in X$ are $Gx=\{gx:g\in G\}$ and $G_x=\{g:gx=x\}$.
-
-A \emph{representation} of $G$ on $V$ is a homomorphism
-$\rho:G\to\operatorname{GL}(V)$. An \emph{intertwiner}
-$T:(V,\rho)\to(W,\sigma)$ satisfies $T\rho(g)=\sigma(g)T$. A subspace is
-\emph{invariant} if it is preserved by every $\rho(g)$; a nonzero
-representation is \emph{irreducible} if it has no proper nonzero invariant
-subspace. Direct sums and tensor products carry the actions
-$\rho\oplus\sigma$ and $g\mapsto\rho(g)\otimes\sigma(g)$.
+$s:M\to E$ satisfying $\pi s=\id_M$.  The bundle $TM$ has the bundle
+structure induced by the differentials of chart maps.
 
 A \emph{Lie group} is a topological group with a smooth manifold structure
-for which multiplication and inversion are smooth. Its \emph{Lie algebra} is
-$\mathfrak g=T_eG$ with bracket induced by left-invariant vector fields. A
-\emph{one-parameter subgroup} is a smooth homomorphism $\R\to G$. The
-\emph{exponential map} $\exp:\mathfrak g\to G$ sends $X$ to the value at
-$1$ of the one-parameter subgroup with initial velocity $X$.
+for which multiplication and inversion are smooth.  For $g\in G$, write
+$L_g(h)=gh$.  A Riemannian metric on $G$ is \emph{left-invariant} when
+$L_g$ is an isometry for every $g$.
 
 A \emph{Riemannian metric} on an $n$-manifold $M$ is a smooth family of
 positive-definite inner products $g_p$ on $T_pM$.  Its Riemannian density
@@ -825,6 +783,9 @@ The divergence is determined by
 \]
 for compactly supported $f$, and the Laplace--Beltrami operator is
 $\Delta_g=\operatorname{div}_g\operatorname{grad}_g$.
+
+An isometry $F:(M,g)\to(N,h)$ is a diffeomorphism satisfying
+$h_{F(p)}(dF_pv,dF_pw)=g_p(v,w)$.
 
 \begin{enumerate}[label=(\alph*)]
 \item Prove that an isometry preserves the Riemannian density, gradient,
@@ -850,6 +811,8 @@ The \emph{left regular representation} on $L^2(G)$ is
 \[
 (\lambda_s\xi)(t)=\xi(s^{-1}t).
 \]
+A unitary representation of a topological group $G$ on a Hilbert space $H$
+is a strongly continuous homomorphism $G\to U(H)$.
 
 Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$. Construct
 normalized Haar measure on a compact Lie group from a left-invariant metric.
@@ -863,11 +826,7 @@ one.
 \begin{exercise}[Pontryagin duality and Abelian Fourier analysis]
 For a locally compact abelian group $G$, its \emph{Pontryagin dual}
 $\widehat G$ is the group of continuous characters $\chi:G\to U(1)$, with
-pointwise multiplication and the compact-open topology. For $f\in L^1(G)$,
-define
-\[
-\widehat f(\chi)=\int_G f(x)\overline{\chi(x)}\,d\mu(x).
-\]
+pointwise multiplication and the compact-open topology.
 The \emph{double-dual map} sends
 $x\in G$ to the character $\chi\mapsto\chi(x)$ of $\widehat G$.
 
@@ -887,7 +846,7 @@ duals of $\R^n/W$ and $\R^n/\Gamma$.
 
 
 
-\begin{exercise}[Fourier series, Schwartz functions, and Fourier transforms]
+\begin{exercise}[Fourier series]
 On $\T=\R/2\pi\Z$, write
 \[
 dm_{\T}(x)=\frac{dx}{2\pi}
@@ -899,26 +858,6 @@ for normalized Haar measure and define
 The \emph{Fourier series} of $f$ is
 $\sum_{k\in\Z}\widehat f(k)e^{ikx}$.
 
-The \emph{Schwartz space} $\mathcal S(\R^n)$ consists of the smooth
-functions $f$ satisfying
-\[
-\sup_{x\in\R^n}|x^\alpha\partial^\beta f(x)|<\infty
-\]
-for all multi-indices $\alpha,\beta$.  For integrable functions, define
-\[
-(f*g)(x)=\int_{\R^n}f(y)g(x-y)\,dy.
-\]
-
-Let $V$ be an $n$-dimensional real Euclidean space with Lebesgue measure
-$dq$.  Equip $V^*$ with its dual Euclidean structure and the resulting
-Lebesgue measure $dp$.  For
-$f\in\mathcal S(V)$, the semiclassical Fourier transform is
-\[
-(\mathcal F_\hbar f)(p)
-=(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq.
-\]
-Write $\mathcal F=\mathcal F_1$.
-
 Prove that $(e^{ikx})_{k\in\Z}$ is a complete orthonormal family in
 $L^2(\T)$ and derive
 \[
@@ -929,6 +868,22 @@ f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
 \end{exercise}
 
 \begin{exercise}[Euclidean Fourier inversion]
+The \emph{Schwartz space} $\mathcal S(V)$ consists of the smooth functions
+$f$ satisfying
+\[
+\sup_{q\in V}(1+\|q\|)^m\|d^rf(q)\|<\infty
+\]
+for all $m,r\geq0$, where the norm on the symmetric covariant tensors is
+induced by the Euclidean structure.
+Let $V$ be an $n$-dimensional real Euclidean space with Lebesgue measure
+$dq$.  Equip $V^*$ with its dual Euclidean structure and the resulting
+Lebesgue measure $dp$.  For $f\in\mathcal S(V)$, define
+\[
+(\mathcal F_\hbar f)(p)
+=(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq,
+\qquad \mathcal F=\mathcal F_1.
+\]
+
 Prove Fourier inversion on $\mathcal S(V)$ and prove that
 $\mathcal F_\hbar$ extends uniquely to a unitary operator on $L^2(V)$.
 For $v\in V$, prove
@@ -1010,7 +965,7 @@ resonances and diffraction minima measure zeros of the same Bessel
 functions.
 \end{exercise}
 
-\begin{exercise}[Lattices, structure factors, and Poisson summation]
+\begin{exercise}[Lattices and Poisson summation]
 A \emph{lattice} in $\R^n$ is a subgroup
 $\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
 covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
@@ -1024,12 +979,6 @@ For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
 \[
 P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
 \]
-For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its
-\emph{structure factor} is
-\[
-S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
-\]
-
 \label{ex:poisson-summation}
 Prove that $P_\Gamma f$ converges with all derivatives and compute its
 Fourier coefficients. With the Fourier-transform normalization above, prove
@@ -1042,6 +991,12 @@ transformation by applying it to a Gaussian.
 \end{exercise}
 
 \begin{exercise}[Crystal diffraction and Bragg peaks]
+For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its
+\emph{structure factor} is
+\[
+S_B(q)=\sum_{b\in B}c_b e^{-iq\cdot b}.
+\]
+
 Let $\Gamma_N$ be a finite rectangular portion of $\Gamma$. In the
 single-scattering approximation, prove that the amplitude at momentum
 transfer $q$ factors as
@@ -1069,6 +1024,11 @@ condition with
 
 
 \begin{exercise}[Maschke's theorem]
+For a group $G$, a representation on a vector space $V$ is a homomorphism
+$\rho:G\to\operatorname{GL}(V)$.  A subspace is invariant when it is
+preserved by every $\rho(g)$, and a nonzero representation is irreducible
+when it has no proper nonzero invariant subspace.
+
 Let $G$ be finite and let the characteristic of $k$ not divide $|G|$.
 Average an arbitrary projection over $G$ to construct an invariant
 complement to every invariant subspace. Deduce that every finite-dimensional
@@ -1076,6 +1036,9 @@ representation is a direct sum of irreducible representations.
 \end{exercise}
 
 \begin{exercise}[Schur's lemma]
+An intertwiner $T:(V,\rho)\to(W,\sigma)$ between representations satisfies
+$T\rho(g)=\sigma(g)T$.
+
 Prove that a nonzero intertwiner between irreducible complex
 finite-dimensional representations is an isomorphism and that every
 endomorphism of an irreducible representation is scalar. Deduce uniqueness
@@ -1097,20 +1060,7 @@ $\langle\chi_U,\chi_V\rangle_G=\dim\Hom_G(U,V)$. Deduce the multiplicity
 formula and the character table constraints.
 \end{exercise}
 
-\begin{exercise}[Unitary representations and the exponential map]
-A \emph{unitary representation} of a topological group $G$ on a Hilbert
-space $H_\pi$ is a homomorphism $\pi:G\to U(H_\pi)$ such that
-$g\mapsto\pi(g)x$ is continuous for every $x\in H_\pi$.  Its
-\emph{matrix coefficients} are
-\[
-g\longmapsto\langle y,\pi(g)x\rangle,
-\qquad x,y\in H_\pi.
-\]
-It is \emph{irreducible} when it has no proper nonzero closed invariant
-subspace.  The \emph{unitary dual} $\widehat G$ is the set of
-unitary-equivalence classes of irreducible unitary representations.
-
-
+\begin{exercise}[One-parameter subgroups and the exponential map]
 
 Prove existence and uniqueness of the one-parameter subgroup generated by
 $X\in\mathfrak g$. For a closed matrix group, prove that it is
@@ -1118,16 +1068,7 @@ $t\mapsto e^{tX}$, identify the commutator bracket, and compute the first
 nontrivial terms of the Baker--Campbell--Hausdorff formula.
 \end{exercise}
 
-\begin{exercise}[Infinitesimal representations and compact convolution]
-For a finite-dimensional smooth representation
-$\rho:G\to\operatorname{GL}(V)$, its
-\emph{infinitesimal representation} is
-\[
-d\rho:\mathfrak g\to\End(V),\qquad
-d\rho(X)=\left.\frac{d}{dt}\right|_{0}\rho(\exp tX).
-\]
-
-
+\begin{exercise}[Compact convolution operators]
 Let $G$ be compact with normalized Haar measure and $k\in C(G)$.  Prove
 that
 \[
@@ -1142,6 +1083,9 @@ finite-dimensional invariant subspace of the left regular representation.
 \end{exercise}
 
 \begin{exercise}[Density of matrix coefficients]
+For a unitary representation $\pi:G\to U(H_\pi)$, its matrix coefficients
+are the functions $g\mapsto\langle y,\pi(g)x\rangle$.
+
 Construct continuous convolution kernels that approximate the identity on
 $C(G)$.  Apply the compact spectral theorem to their self-adjoint
 symmetrizations and prove that the linear span of matrix coefficients of
@@ -1169,6 +1113,9 @@ C_\pi(x\otimes\varphi)(g)=\varphi(\pi(g)x).
 \end{exercise}
 
 \begin{exercise}[Peter--Weyl decomposition]
+The unitary dual $\widehat G$ is the set of unitary-equivalence classes of
+irreducible finite-dimensional unitary representations of $G$.
+
 Use density and Schur orthogonality to prove
 \[
 L^2(G)\cong
@@ -1888,21 +1835,6 @@ coordinate $a_rK$, it is determined by
 \qquad
 \varphi_\lambda'(0)=0.
 \]
-For a compactly supported smooth radial function, define
-\[
-\widetilde f(\lambda)
-=2\pi\int_0^\infty
-f(r)\varphi_\lambda(r)\sinh r\,dr.
-\]
-Define $c(\lambda)$ by the asymptotic normalization
-\[
-\varphi_\lambda(r)
-=c(\lambda)e^{(i\lambda-1/2)r}
-+c(-\lambda)e^{(-i\lambda-1/2)r}
-+o(e^{-r/2})
-\]
-for real $\lambda\ne0$.
-
 For the sign convention in which the Laplace--Beltrami operator is
 \[
 \Delta_{\mathbb H^2}=y^2(\partial_x^2+\partial_y^2),
@@ -1937,6 +1869,14 @@ parameters become continuous as $R\to\infty$.
 \end{exercise}
 
 \begin{exercise}[Harish--Chandra normalization]
+For real $\lambda\ne0$, define $c(\lambda)$ by the asymptotic normalization
+\[
+\varphi_\lambda(r)
+=c(\lambda)e^{(i\lambda-1/2)r}
++c(-\lambda)e^{(-i\lambda-1/2)r}
++o(e^{-r/2}).
+\]
+
 Use the large-$r$ asymptotics of the conical Legendre function and the
 Wronskian identity to derive
 \[
@@ -1948,6 +1888,13 @@ c(\lambda)=\frac{\Gamma(i\lambda)}
 \end{exercise}
 
 \begin{exercise}[Mehler--Fock inversion]
+For a compactly supported smooth radial function, define
+\[
+\widetilde f(\lambda)
+=2\pi\int_0^\infty
+f(r)\varphi_\lambda(r)\sinh r\,dr.
+\]
+
 For $\lambda,\mu>0$, prove in the distributional sense that
 \[
 2\pi\int_0^\infty
@@ -2045,26 +1992,19 @@ errors caused by boundary shape, loss, and discretization.
 \section{Automorphic Forms}
 
 
-\begin{exercise}[Integral lattices and theta series]
+\begin{exercise}[Lattice theta series]
 A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
 $\R^d/L$ is compact.  Its dual is
 \[
 L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
 \text{ for every }x\in L\}.
 \]
-It is \emph{integral} if $L\subseteq L^*$, \emph{unimodular} if
-$L=L^*$, and \emph{even} if $\|x\|^2\in2\Z$ for every $x\in L$.
 For $\tau$ in the upper half-plane and $q=e^{2\pi i\tau}$, its theta series
 is
 \[
 \Theta_L(\tau)=\sum_{x\in L}q^{\|x\|^2/2}.
 \]
 Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
-If the same lattice is used as a crystal lattice, its physical reciprocal
-lattice is
-\[
-L^*_{\rm physical}=2\pi L^*.
-\]
 
 Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
 \[
@@ -2298,6 +2238,11 @@ so $J$ is the normalized Hauptmodul for $PSL_2(\Z)$.
 
 \begin{exercise}[Leech theta series and its first diffraction shell]
 \label{ex:leech-theta-series}
+For a Euclidean lattice $L$, call $L$ integral when $L\subseteq L^*$,
+unimodular when $L=L^*$, and even when $\|x\|^2\in2\Z$ for every $x\in L$.
+If the same lattice is used as a crystal lattice, its physical reciprocal
+lattice is $L^*_{\rm physical}=2\pi L^*$.
+
 Call a vector of squared length $2$ in an integral Euclidean lattice a
 \emph{root}.  Take the rootless case of the Niemeier classification as theorem
 input: there is a unique isometry class of even unimodular Euclidean lattices

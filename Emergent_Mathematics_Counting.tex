@@ -2,62 +2,12 @@
 
 \section{Graded Characters}
 
-\begin{exercise}[Probability, partitions, and symmetric functions]
-A probability space is a measure space $(\Omega,\mathcal F,\mathbb P)$ with
-$\mathbb P(\Omega)=1$.  A random variable with values in a metric space
-$(S,d)$ is a measurable map $X:\Omega\to S$, and its law is the pushforward
-$X_*\mathbb P$.  For an integrable complex random variable define
-\(\mathbb EX=\int_\Omega X\,d\mathbb P\).  For square-integrable complex
-random variables define
-\[
-\operatorname{Var}(X)=\mathbb E|X-\mathbb EX|^2,
-\quad
-\operatorname{Cov}(X,Y)
-=\mathbb E[(X-\mathbb EX)\overline{(Y-\mathbb EY)}].
-\]
-Random variables $X_i:\Omega\to S_i$, $1\leq i\leq r$, are independent when
-their joint law is the product of their marginal laws.  For random variables
-$X_N,X:\Omega\to S$, define convergence in probability by
-\[
-\mathbb P(d(X_N,X)>\varepsilon)\longrightarrow0
-\qquad(\varepsilon>0),
-\]
-and convergence in distribution by convergence of their laws against bounded
-continuous functions.  The standard normal law $N(0,1)$ on $\R$ has density
-$(2\pi)^{-1/2}e^{-x^2/2}$ with respect to Lebesgue measure.
-
-For a finite-dimensional complex vector space $V$, define
-\[
-\operatorname{Sym}^mV
-=V^{\otimes m}/\langle \xi-\sigma\xi:
-\xi\in V^{\otimes m},\ \sigma\in S_m\rangle.
-\]
-An endomorphism $T$ induces $\operatorname{Sym}^mT$.  Using the exterior
-powers and trace defined in Spectral Theory, define
-\[
-Z_B(T;z)=\sum_{m\geq0}\operatorname{tr}(\operatorname{Sym}^mT)z^m,
-\qquad
-Z_F(T;z)=\sum_{m\geq0}\operatorname{tr}(\Lambda^mT)z^m.
-\]
-
-An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
-$\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
-$|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
-with $p(0)=1$.  For partitions of equal size, write $\mu<\lambda$ in
-dominance order when
-\[
-\sum_{i=1}^k\mu_i\leq\sum_{i=1}^k\lambda_i
-\]
-for every $k\geq1$, with missing parts interpreted as zero, and at least
-one inequality strict.
-
+\begin{exercise}[Symmetric polynomials]
 For $N\geq1$, let
 \[
 \Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
 \]
-For a partition $\lambda$ of length at most $N$, let $m_\lambda$ be the
-sum of the distinct permutations of
-$x_1^{\lambda_1}\cdots x_N^{\lambda_N}$.  Define
+Define
 \[
 e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
 x_{i_1}\cdots x_{i_r},
@@ -92,6 +42,25 @@ rh_r=\sum_{j=1}^rp_jh_{r-j}.
 \end{exercise}
 
 \begin{exercise}[Bosonic and fermionic trace generating functions]
+For a finite-dimensional complex vector space $V$, define
+\[
+\operatorname{Sym}^mV
+=V^{\otimes m}/\langle \xi-\sigma\xi:
+\xi\in V^{\otimes m},\ \sigma\in S_m\rangle.
+\]
+An endomorphism $T$ induces $\operatorname{Sym}^mT$.  Using the exterior
+powers and trace defined in Spectral Theory, define
+\[
+Z_B(T;z)=\sum_{m\geq0}\operatorname{tr}(\operatorname{Sym}^mT)z^m,
+\qquad
+Z_F(T;z)=\sum_{m\geq0}\operatorname{tr}(\Lambda^mT)z^m.
+\]
+
+An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
+$\lambda=(\lambda_1,\ldots,\lambda_r)$ of positive integers with
+$|\lambda|=\sum_i\lambda_i=n$.  Let $p(n)$ be the number of partitions,
+with $p(0)=1$.
+
 Let $V$ be a finite-dimensional complex vector space and $T\in\End(V)$.
 Using the intrinsic determinant defined by the action on the highest
 exterior power, prove
@@ -157,7 +126,7 @@ express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
 
 \section{Modular and Moonshine Characters}
 
-\begin{exercise}[Virasoro characters and ordered descendants]
+\begin{exercise}[Virasoro algebra and ordered descendants]
 The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
 $C$, with
 \[
@@ -168,14 +137,6 @@ $C$, with
 A module has central charge $c$ when $C$ acts by $cI$.
 A highest-weight vector $|h\rangle$ satisfies
 $L_0|h\rangle=h|h\rangle$ and $L_n|h\rangle=0$ for $n>0$.
-For $\tau$ in the upper half-plane put $q=e^{2\pi i\tau}$.  If $H_a$ is a
-positive-energy module with finite-dimensional $L_0$ spectral subspaces,
-define
-\[
-\chi_a(\tau)=\Tr_{H_a}q^{L_0-c/24}
-\]
-when the displayed operator is trace class; the same expression denotes
-the formal graded trace otherwise.
 
 Order the negative Virasoro modes by their indices.  Use the commutation
 relations to rewrite every word as an ordered word.  Check every
@@ -187,6 +148,15 @@ universal highest-weight module.
 \end{exercise}
 
 \begin{exercise}[Verma and vacuum characters]
+For $\tau$ in the upper half-plane put $q=e^{2\pi i\tau}$.  If $H_a$ is a
+positive-energy module with finite-dimensional $L_0$ spectral subspaces,
+define
+\[
+\chi_a(\tau)=\Tr_{H_a}q^{L_0-c/24}
+\]
+when the displayed operator is trace class; the same expression denotes
+the formal graded trace otherwise.
+
 Use the ordered descendants to prove that the Verma-module character is
 \[
 \chi_{c,h}^{\rm Verma}(\tau)
@@ -347,39 +317,7 @@ sector resolution, saddle-point regime, and finite-size limitations required
 when comparing these predictions with measured or transfer-matrix spectra.
 \end{exercise}
 
-\begin{exercise}[Vertex operator algebras and the Leech lattice]
-A \emph{positive-energy vertex operator algebra} is a graded complex vector
-space
-\[
-V=\bigoplus_{m\geq0}V_m,
-\qquad \dim V_m<\infty,
-\qquad V_0=\C\mathbf1,
-\]
-with a vacuum $\mathbf1$, a conformal vector $\omega\in V_2$, and a
-state--field map
-\[
-Y(v,z)=\sum_{n\in\Z}v_nz^{-n-1}\in(\End V)[[z,z^{-1}]].
-\]
-For homogeneous $v\in V_r$, put $\operatorname{wt}(v)=r$.  The map satisfies
-$v_nw=0$ for $n$ sufficiently large,
-$v_nV_m\subseteq V_{m+\operatorname{wt}(v)-n-1}$,
-\[
-Y(\mathbf1,z)=\id_V,
-\qquad
-Y(v,z)\mathbf1\in v+zV[[z]],
-\]
-and, for every $u,v\in V$, there is $N\geq0$ such that
-\[
-(z-w)^N[Y(u,z),Y(v,w)]=0.
-\]
-Writing
-\[
-Y(\omega,z)=\sum_{n\in\Z}L_nz^{-n-2},
-\]
-the modes satisfy the Virasoro relations with central charge $c$,
-$L_0|_{V_m}=m\id_{V_m}$, and
-$Y(L_{-1}v,z)=\partial_zY(v,z)$.
-An automorphism preserves $\mathbf1$, $\omega$, and the state--field map.
+\begin{exercise}[Lattice Fock characters]
 
 For an even positive-definite lattice $L$ of rank $d$, let
 $\varepsilon:L\times L\to\{\pm1\}$ satisfy
@@ -434,8 +372,10 @@ states.
 \end{exercise}
 
 \begin{exercise}[McKay--Thompson series and monstrous moonshine]
-Let $G$ act by automorphisms on a positive-energy vertex operator algebra
-$V$.  For $g\in G$, define its \emph{McKay--Thompson series} by
+Let $V=\bigoplus_{m\geq0}V_m$ be a positive-energy vertex operator algebra
+with finite-dimensional graded pieces and central charge $c$, and let
+$L_0|_{V_m}=m\id$.  Let $G$ act by grading-preserving automorphisms of $V$.
+For $g\in G$, define its \emph{McKay--Thompson series} by
 \[
 T_g(\tau)=\Tr_V\!\left(gq^{L_0-c/24}\right).
 \]
@@ -576,6 +516,11 @@ Put $\eta=\log z=\beta_{\rm th}\mu$ and
 \[
 \Psi_{N,M}(\eta)=\log Z_{N,M}(e^\eta).
 \]
+Give the independent sets the probability
+$\mathbb P_\eta(I)=e^{\eta|I|}/Z_{N,M}(e^\eta)$ and write
+$\mathbb E_\eta$ for expectation with respect to this measure.  For a
+square-integrable random variable $Y$, write
+$\operatorname{Var}_\eta(Y)=\mathbb E_\eta|Y-\mathbb E_\eta Y|^2$.
 Set $A=\partial_\eta\Psi_{N,M}$ and prove
 \[
 A=\mathbb E_\eta|I|,
@@ -835,7 +780,11 @@ the comparison.
 \section{Determinantal Ensembles}
 
 \begin{exercise}[Hermite Gaussian moments]
-For $X\sim N(0,1)$, prove
+Let $\mathbb P$ be the probability measure on $\R$ with density
+$(2\pi)^{-1/2}e^{-x^2/2}$, let $X(x)=x$, and write
+$\mathbb Ef(X)=\int_\R f(x)\,d\mathbb P(x)$ whenever the integral exists.
+
+For this $X$, prove
 \[
 \mathbb E[e^{tX}]=e^{t^2/2}.
 \]
@@ -954,6 +903,8 @@ to prove
 \qquad
 \mathbb P(N_B=0)=\det(I-K_B).
 \]
+Random variables are independent when their joint law is the product of
+their marginal laws.
 Prove that $N_B$ is distributed as a sum of independent Bernoulli variables
 whose parameters are the eigenvalues of $K_B$.
 \end{exercise}
@@ -994,44 +945,9 @@ recurrence and prove
 \]
 \end{exercise}
 
-\begin{exercise}[GUE limiting kernels and the Hastings--McLeod function]
-For the GUE weight $w_N(x)=e^{-Nx^2/(2\sigma^2)}$, write
-$\psi_j^{\rm H}$ for the normalized oscillator Hermite functions developed
-in Spectral Theory and define
-\[
-\phi_{j,N}(x)
-=\left(\frac{N}{2\sigma^2}\right)^{1/4}
-\psi_j^{\rm H}\!\left(\sqrt{\frac{N}{2\sigma^2}}x\right),
-\qquad
-K_N^{\rm GUE}(x,y)=\sum_{j=0}^{N-1}\phi_{j,N}(x)\phi_{j,N}(y).
-\]
-Define
-\[
-\rho_{\rm sc}(x)
-=\frac1{2\pi\sigma^2}\sqrt{4\sigma^2-x^2}\,
-\mathbf1_{[-2\sigma,2\sigma]}(x),
-\]
-\[
-K_{\sin}(u,v)=\frac{\sin\pi(u-v)}{\pi(u-v)},
-\]
-\[
-K_{\rm Ai}(u,v)
-=\frac{\operatorname{Ai}(u)\operatorname{Ai}'(v)
--\operatorname{Ai}'(u)\operatorname{Ai}(v)}{u-v},
-\qquad
-F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)}.
-\]
-Diagonal values are defined by continuity.
-
-The \emph{Hastings--McLeod function} is the real pole-free solution $q$ of
-the second Painlev\'e equation
-\[
-q''(s)=s q(s)+2q(s)^3
-\]
-with
-\[
-q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty).
-\]
+\begin{exercise}[Hermite steepest descent]
+Write $\psi_j^{\rm H}$ for the normalized oscillator Hermite functions
+developed in Spectral Theory.
 
 Derive a contour integral for the normalized Hermite functions from their
 generating function.  For $E\in(-2\sigma,2\sigma)$, perform steepest descent
@@ -1041,6 +957,21 @@ windows and uniform exponentially weighted bounds on edge half-lines.
 \end{exercise}
 
 \begin{exercise}[GUE bulk statistics]
+For $E\in(-2\sigma,2\sigma)$, define
+\[
+\rho_{\rm sc}(E)=\frac1{2\pi\sigma^2}\sqrt{4\sigma^2-E^2},
+\qquad
+K_{\sin}(u,v)=\frac{\sin\pi(u-v)}{\pi(u-v)}.
+\]
+Define
+\[
+\phi_{j,N}(x)
+=\left(\frac{N}{2\sigma^2}\right)^{1/4}
+\psi_j^{\rm H}\!\left(\sqrt{\frac{N}{2\sigma^2}}x\right),
+\qquad
+K_N^{\rm GUE}(x,y)=\sum_{j=0}^{N-1}\phi_{j,N}(x)\phi_{j,N}(y).
+\]
+
 Insert the bulk Hermite asymptotics into the Christoffel--Darboux identity
 and prove
 \[
@@ -1063,6 +994,16 @@ with resonance or Hamiltonian spectra.
 \end{exercise}
 
 \begin{exercise}[GUE edge statistics]
+Define
+\[
+K_{\rm Ai}(u,v)
+=\frac{\operatorname{Ai}(u)\operatorname{Ai}'(v)
+-\operatorname{Ai}'(u)\operatorname{Ai}(v)}{u-v},
+\qquad
+F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)},
+\]
+with diagonal values defined by continuity.
+
 Insert the turning-point asymptotics into the Christoffel--Darboux identity
 and prove
 \[
@@ -1085,6 +1026,12 @@ Hamiltonian levels.
 \end{exercise}
 
 \begin{exercise}[Painlev\'e form of the Tracy--Widom law]
+The Hastings--McLeod function is the real pole-free solution $q$ of
+\[
+q''(s)=s q(s)+2q(s)^3,
+\qquad q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty).
+\]
+
 Let $K_s$ be the Airy-kernel operator on $L^2((s,\infty))$ and define
 \[
 Q_s=(I-K_s)^{-1}\operatorname{Ai},
@@ -1148,6 +1095,10 @@ finite-size range over which the asymptotic is used.
 \section{Schur Measures}
 
 \begin{exercise}[Schur polynomials and identities]
+An integer partition is a finite nonincreasing sequence of positive
+integers.  Its size is the sum of its parts, and its length is the number
+of nonzero parts.
+
 For a partition $\lambda$ of length at most $N$, define
 \[
 s_\lambda(x_1,\ldots,x_N)
@@ -1285,6 +1236,10 @@ G_{\exp}(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
 \sum_{(i,j)\in\pi}E_{ij}.
 \]
 
+The variables $E_{ij}$ are independent when their joint law is the product
+of their marginal laws.
+For random variables $Y_\varepsilon,Y$, write $Y_\varepsilon\Longrightarrow Y$
+when their laws converge against bounded continuous test functions.
 Set $\alpha_i=\gamma_j=e^{-\varepsilon/2}$ in the $n\times n$ geometric
 model and prove that $\varepsilon W_{ij}$ converges in distribution to a
 rate-one exponential variable as $\varepsilon\downarrow0$.  Take this limit
