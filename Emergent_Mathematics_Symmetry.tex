@@ -1481,7 +1481,7 @@ identify its symmetry-enforced dark directions and absent spectral lines.
 
 \section{Scattering Theory}
 
-\begin{exercise}[Outgoing Green kernel and Born amplitudes]
+\begin{exercise}[Outgoing Green kernels and the Lippmann--Schwinger equation]
 Let $\mu>0$ be a reduced mass, let $k>0$, put
 \[
 E=\frac{\hbar^2k^2}{2\mu},
@@ -1501,6 +1501,9 @@ and call $f$ its \emph{scattering amplitude}.  For outgoing direction
 $\omega'$, define the scattering angle by
 $\cos\theta=\omega'\cdot\omega$.
 
+For $\phi\in C_c^\infty(\R^3)$, define the Dirac distribution at the origin
+by $\langle\delta_0,\phi\rangle=\phi(0)$, and interpret an identity of
+distributions after pairing both sides with every such $\phi$.
 Prove in the sense of distributions that
 \[
 G_k^+(x)=\frac{e^{ik|x|}}{4\pi|x|},
@@ -1526,6 +1529,9 @@ f(\omega',\omega;k)
 \int_{\R^3}e^{-ik\omega'\cdot y}V(y)\psi(y)\,dy.
 \]
 Extend the formula to Schwartz $V$ by controlling the tails with its decay.
+\end{exercise}
+
+\begin{exercise}[Probability current, Born series, and screened-Coulomb counts]
 For the probability current
 \[
 j_\psi=\frac{\hbar}{\mu}\operatorname{Im}(\overline\psi\nabla\psi),
@@ -1544,6 +1550,27 @@ f_{\rm B}(\omega',\omega;k)
 \int_{\R^3}e^{-iQ\cdot y}V(y)\,dy,
 \qquad Q=k(\omega'-\omega).
 \]
+On any Banach space $X$ containing the incident plane wave and on which
+\[
+K_k\phi=\frac{2\mu}{\hbar^2}G_k^+*(V\phi)
+\]
+is bounded, prove that $\|K_k\|_{X\to X}<1$ implies the convergent Born
+series
+\[
+\psi=\sum_{n\geq0}(-K_k)^n e^{ik\omega\cdot x}.
+\]
+Writing $q=\|K_k\|_{X\to X}$, prove the geometric remainder bounds
+\[
+\|\psi-e^{ik\omega\cdot x}\|_X
+\leq\frac{q}{1-q}\|e^{ik\omega\cdot x}\|_X,
+\]
+\[
+\|\psi-(I-K_k)e^{ik\omega\cdot x}\|_X
+\leq\frac{q^2}{1-q}\|e^{ik\omega\cdot x}\|_X,
+\]
+and explain which bound controls the first and second Born approximations
+to the amplitude when the amplitude integral is a bounded functional on
+$X$.
 For the screened Coulomb potential
 \[
 V_\alpha(x)=g\frac{e^{-\alpha|x|}}{|x|},
@@ -1567,7 +1594,7 @@ resolution assumptions under which this differential cross section predicts
 detector counts.
 \end{exercise}
 
-\begin{exercise}[Partial-wave unitarity and the optical theorem]
+\begin{exercise}[Scattering operators and elastic unitarity]
 For a real radial potential supported in $\{x:\|x\|\leq R\}$, define the
 on-shell scattering operator $S(k)$ on angular wave packets by sending the
 incoming far-field coefficient to the outgoing one, with the free propagation
@@ -1585,7 +1612,9 @@ S(k)|_{\mathcal H_\ell}=S_\ell(k)I,
 S_\ell(k)=e^{2i\delta_\ell(k)}
 \]
 for real phase shifts $\delta_\ell$, determined modulo $\pi$.
+\end{exercise}
 
+\begin{exercise}[Partial waves, Legendre amplitudes, and the optical theorem]
 Put
 \[
 j_\ell(z)=\sqrt{\frac{\pi}{2z}}J_{\ell+1/2}(z).
@@ -1631,7 +1660,48 @@ Identify exactly where reality of the potential and absence of inelastic
 channels enter the proof.
 \end{exercise}
 
-\begin{exercise}[Hard spheres and square-well resonances]
+\begin{exercise}[P\"oschl--Teller Jost functions and reflectionless transmission]
+For $k>0$ and a nonnegative integer $\nu$, consider
+\[
+-\psi''(x)-\nu(\nu+1)\operatorname{sech}^2x\,\psi(x)=k^2\psi(x).
+\]
+Put $z=(1-\tanh x)/2$ and prove that the right Jost solution normalized by
+$\phi_{\nu,k}(x)\sim e^{ikx}$ as $x\to+\infty$ is
+\[
+\phi_{\nu,k}(x)=e^{ikx}
+{}_2F_1(-\nu,\nu+1;1-ik;z(x)).
+\]
+Use the hypergeometric connection formula, interpreted by continuation from
+generic parameters, to determine the coefficients
+\[
+\phi_{\nu,k}(x)
+\sim A_\nu(k)e^{ikx}+B_\nu(k)e^{-ikx}
+\qquad(x\to-\infty).
+\]
+Show that polynomial termination gives
+\[
+B_\nu(k)=0,
+\qquad
+A_\nu(k)=\prod_{j=1}^{\nu}\frac{k-ij}{k+ij}.
+\]
+
+For unit incoming amplitude, define
+$T_\nu(k)=A_\nu(k)^{-1}$ and
+$R_\nu(k)=B_\nu(k)A_\nu(k)^{-1}$.  Prove
+\[
+R_\nu(k)=0,
+\qquad
+T_\nu(k)=\prod_{j=1}^{\nu}\frac{k+ij}{k-ij},
+\qquad
+|T_\nu(k)|=1.
+\]
+Continue $T_\nu$ meromorphically in $k$ and identify its poles at
+$k=ij$, $1\leq j\leq\nu$, with the bound-state energies $E=-j^2$.
+Thus transmission measurements test both reflectionlessness and the
+hypergeometric pole set.
+\end{exercise}
+
+\begin{exercise}[Hard-sphere phase shifts and effective-range scattering]
 Define the spherical Neumann function by
 \[
 n_\ell(z)=(-1)^{\ell+1}
@@ -1656,6 +1726,23 @@ f(\theta;k)\longrightarrow-a,
 \qquad(ka\downarrow0).
 \]
 
+For a short-range $s$-wave phase shift, define the effective-range
+parameters by
+\[
+k\cot\delta_0(k)
+=-\frac1{a_s}+\frac12r_e k^2+O(k^4).
+\]
+For the hard sphere, use $\delta_0=-ka$ to prove
+\[
+a_s=a,
+\qquad
+r_e=\frac{2a}{3}.
+\]
+State how low-energy measurements at two or more momenta distinguish the
+scattering length from the effective range.
+\end{exercise}
+
+\begin{exercise}[Square-well thresholds and Breit--Wigner resonances]
 For the attractive square well
 \[
 V(r)=\begin{cases}-V_0,&0<r<a,\\0,&r>a,\end{cases}
@@ -1697,7 +1784,7 @@ infer a radius, scattering length, resonance energy, or width from measured
 angular distributions.
 \end{exercise}
 
-\begin{exercise}[Coulomb amplitude and the Rutherford law]
+\begin{exercise}[Coulomb radial functions and phase shifts]
 For the repulsive Coulomb potential $V(r)=\kappa/r$, with $\kappa>0$, put
 \[
 \rho=kr,
@@ -1734,6 +1821,9 @@ S_\ell^{\rm C}
 =e^{2i\sigma_\ell}
 =\frac{\Gamma(\ell+1+i\eta)}{\Gamma(\ell+1-i\eta)}.
 \]
+\end{exercise}
+
+\begin{exercise}[Coulomb amplitude and Rutherford detector counts]
 Because the Coulomb potential is not short-range, use the logarithmically
 modified radial phase above and define its nonforward amplitude by Abel
 regularization of the partial-wave expression.
@@ -1814,11 +1904,73 @@ Prove that $K$ is the stabilizer of $i$ and that the orbit map identifies
 $G/K$ isometrically with the hyperbolic plane.  Identify the two-point Weyl
 group and prove that a $K$-bi-invariant function is determined by its value
 on $a_r$, $r\geq0$.
+
+Derive geodesic polar coordinates about $i$,
+\[
+ds^2=dr^2+\sinh^2r\,d\theta^2,
+\qquad
+d\operatorname{vol}_{\mathbb H^2}
+=\sinh r\,dr\,d\theta.
+\]
+Normalize $dk$ to have total mass one and derive the Iwasawa and radial
+integration formulas
+\[
+\int_G F(g)\,dg
+=\int_K\int_\R\int_\R
+F(ka_rn_x)e^r\,dx\,dr\,dk,
+\]
+\[
+\int_{\mathbb H^2}f(z)\,d\operatorname{vol}(z)
+=2\pi\int_0^\infty f(a_rK)\sinh r\,dr
+\]
+for radial $f$.
 \end{exercise}
 
-\begin{exercise}[Rank-one spherical functions and transforms]
-For $\lambda\in\R$, let $\varphi_\lambda$ be the normalized smooth
-$K$-invariant Laplace--Beltrami eigenfunction on $G/K=\mathbb H^2$ satisfying
+\begin{exercise}[Spherical convolution and the rank-one Gelfand pair]
+For $K$-bi-invariant functions $f_1,f_2\in C_c(G)$, define
+\[
+(f_1*f_2)(g)=\int_G f_1(h)f_2(h^{-1}g)\,dh.
+\]
+Use the Cartan decomposition to prove that $g$ and $g^{-1}$ belong to the
+same double coset $KgK$.  Apply the anti-involution $g\mapsto g^{-1}$ to
+prove
+\[
+f_1*f_2=f_2*f_1.
+\]
+Thus $(G,K)$ is a \emph{Gelfand pair}.
+
+A normalized continuous $K$-bi-invariant function $\varphi$ is
+\emph{spherical} when
+\[
+\int_K\varphi(gkh)\,dk=\varphi(g)\varphi(h).
+\]
+Show that integration against $\varphi$ is a character of the commutative
+convolution algebra, and prove the converse for characters represented by
+continuous functions.  Deduce that spherical functions are the
+distinguished special functions diagonalizing radial convolution.
+\end{exercise}
+
+\begin{exercise}[Poisson kernels and rank-one spherical functions]
+For the sign convention
+\[
+\Delta_{\mathbb H^2}=y^2(\partial_x^2+\partial_y^2),
+\]
+derive its radial part
+\[
+\Delta_{\rm rad}=\frac{d^2}{dr^2}
+ +\coth r\frac d{dr}.
+\]
+
+For $\lambda\in\R$, define
+\[
+\varphi_\lambda(r)
+=\frac1{2\pi}\int_0^{2\pi}
+(\cosh r-\sinh r\cos\theta)^{-1/2-i\lambda}\,d\theta.
+\]
+Interpret the integrand as a complex power of the hyperbolic Poisson kernel.
+Prove that $\varphi_\lambda$ is real-valued, even in $\lambda$, normalized
+at $r=0$, and satisfies the spherical product formula from the preceding
+exercise.  Differentiate under the integral to prove
 \[
 \Delta_{\mathbb H^2}\varphi_\lambda
 =-(\lambda^2+\tfrac14)\varphi_\lambda,
@@ -1835,15 +1987,6 @@ coordinate $a_rK$, it is determined by
 \qquad
 \varphi_\lambda'(0)=0.
 \]
-For the sign convention in which the Laplace--Beltrami operator is
-\[
-\Delta_{\mathbb H^2}=y^2(\partial_x^2+\partial_y^2),
-\]
-derive its radial part
-\[
-\Delta_{\rm rad}=\frac{d^2}{dr^2}
- +\coth r\frac d{dr}.
-\]
 Show that the normalized radial eigenfunction satisfying
 \[
 \Delta\varphi_\lambda
@@ -1854,6 +1997,9 @@ is the conical Legendre function
 \[
 \varphi_\lambda(r)=P_{-1/2+i\lambda}(\cosh r).
 \]
+\end{exercise}
+
+\begin{exercise}[Finite-radius conical orthogonality]
 For real $\lambda,\mu$, derive the Wronskian identity
 \[
 (\mu^2-\lambda^2)\int_0^R
@@ -1861,11 +2007,47 @@ For real $\lambda,\mu$, derive the Wronskian identity
 =\left[\sinh r\,
 (\varphi_\mu\varphi_\lambda'-\varphi_\lambda\varphi_\mu')\right]_0^R.
 \]
-Fix one self-adjoint boundary condition
-$a\varphi(R)+b\varphi'(R)=0$, with $(a,b)\ne(0,0)$.  Prove orthogonality only for the discrete
-parameters $\lambda_j$ satisfying this condition.  Compare the large-$r$
-equation with a constant-coefficient equation and show how the discrete
-parameters become continuous as $R\to\infty$.
+Impose the Dirichlet condition $\varphi_\lambda(R)=0$.  Use the radial
+Sturm--Liouville operator to prove that its positive roots $\lambda_j$ are
+real and simple and that the corresponding conical functions are
+orthogonal in $L^2((0,R),\sinh r\,dr)$.  Compare the large-$r$ equation
+with a constant-coefficient equation and show how the discrete parameters
+become continuous as $R\to\infty$.
+\end{exercise}
+
+\begin{exercise}[Abel transforms and Euclidean Fourier reduction]
+For a smooth compactly supported radial function $f$ on $\mathbb H^2$,
+define its Abel transform by
+\[
+(\mathcal Af)(t)
+=e^{t/2}\int_\R f(a_tn_xK)\,dx.
+\]
+Use the Iwasawa integration formula and the Poisson integral for
+$\varphi_\lambda$ to prove
+\[
+\widetilde f(\lambda)
+:=\int_{\mathbb H^2}f(z)\varphi_\lambda(z)\,
+d\operatorname{vol}(z)
+=\int_\R(\mathcal Af)(t)e^{-i\lambda t}\,dt.
+\]
+Prove that $\mathcal A$ intertwines radial convolution on $G/K$ with
+ordinary convolution on $\R$.  Deduce injectivity of the spherical
+transform from Euclidean Fourier inversion and recover the commutativity of
+radial convolution.
+
+For $f$ supported in a geodesic disk of radius $R$, determine the support
+and parity properties of $\mathcal Af$.  Derive the rank-one formulas
+\[
+(\mathcal Af)(t)
+=\sqrt2\int_{|t|}^\infty
+\frac{f(r)\sinh r}{\sqrt{\cosh r-\cosh t}}\,dr,
+\]
+\[
+f(r)=-\frac1{\pi\sqrt2}\int_r^\infty
+\frac{(\mathcal Af)'(t)}{\sqrt{\cosh t-\cosh r}}\,dt,
+\]
+and use them to express $f(r)$ in terms of the inverse Euclidean Fourier
+transform of $\widetilde f$.
 \end{exercise}
 
 \begin{exercise}[Harish--Chandra normalization]
@@ -1877,8 +2059,8 @@ For real $\lambda\ne0$, define $c(\lambda)$ by the asymptotic normalization
 +o(e^{-r/2}).
 \]
 
-Use the large-$r$ asymptotics of the conical Legendre function and the
-Wronskian identity to derive
+Apply endpoint asymptotics to the Poisson integral and evaluate the
+resulting beta integrals to derive
 \[
 c(\lambda)=\frac{\Gamma(i\lambda)}
 {\sqrt\pi\,\Gamma(\tfrac12+i\lambda)},
@@ -1888,7 +2070,8 @@ c(\lambda)=\frac{\Gamma(i\lambda)}
 \end{exercise}
 
 \begin{exercise}[Mehler--Fock inversion]
-For a compactly supported smooth radial function, define
+For the spherical transform defined by the Abel transform, use radial
+integration to obtain
 \[
 \widetilde f(\lambda)
 =2\pi\int_0^\infty
@@ -1903,7 +2086,9 @@ distribution by
 \]
 Interpret the following identity after pairing both sides with such test
 functions:
-For $\lambda,\mu>0$, prove in the distributional sense that
+truncate the radial integral at $R$, use the Harish--Chandra asymptotics in
+the Wronskian identity, and apply the distributional limit of
+$\sin(R(\lambda-\mu))/(\lambda-\mu)$ to prove
 \[
 2\pi\int_0^\infty
 \varphi_\lambda(r)\varphi_\mu(r)\sinh r\,dr
@@ -1922,10 +2107,43 @@ f(r)=\frac1{2\pi^2}\int_0^\infty
 \]
 \end{exercise}
 
-\begin{exercise}[Hyperbolic wave propagation]
-Let $u_{tt}=\Delta_{\mathbb H^2}u$ have radial initial data
+\begin{exercise}[Associated Legendre functions and hyperbolic-disk modes]
+In geodesic polar coordinates, derive the full Laplace--Beltrami operator
+\[
+\Delta_{\mathbb H^2}
+=\frac{\partial^2}{\partial r^2}
++\coth r\frac{\partial}{\partial r}
++\frac1{\sinh^2r}\frac{\partial^2}{\partial\theta^2}.
+\]
+For the intrinsic $SO(2)$ character $e^{i\ell\theta}$, derive the radial
+equation
+\[
+R''+\coth r\,R'
+-\frac{\ell^2}{\sinh^2r}R
+=-(\lambda^2+\tfrac14)R.
+\]
+Show that the solution regular at the origin is proportional to
+\[
+P_{-1/2+i\lambda}^{-|\ell|}(\cosh r)
+\]
+and determine its normalization from
+$R(r)\sim r^{|\ell|}$ as $r\downarrow0$.
+
+For the geodesic disk $D_R$, prove that its Dirichlet eigenmodes are
+\[
+e^{i\ell\theta}
+P_{-1/2+i\lambda_{n\ell}}^{-|\ell|}(\cosh r),
+\qquad
+P_{-1/2+i\lambda_{n\ell}}^{-|\ell|}(\cosh R)=0.
+\]
+Establish orthogonality for distinct pairs $(n,\ell)$ and identify the
+$\ell=0$ family with the conical modes in Mehler--Fock theory.
+\end{exercise}
+
+\begin{exercise}[Harish--Chandra wave kernels and geodesic phase fronts]
+Let $u_{tt}=v^2\Delta_{\mathbb H^2}u$ have radial initial data
 $u(0,r)=f(r)$ and $u_t(0,r)=g(r)$ in $C_c^\infty$.  Put
-$\omega_\lambda=(\lambda^2+1/4)^{1/2}$.  Use Mehler--Fock inversion to
+$\omega_\lambda=v(\lambda^2+1/4)^{1/2}$.  Use Mehler--Fock inversion to
 prove
 \[
 u(t,r)=\frac1{2\pi^2}\int_0^\infty
@@ -1935,29 +2153,47 @@ u(t,r)=\frac1{2\pi^2}\int_0^\infty
 \right)
 P_{-1/2+i\lambda}(\cosh r)|c(\lambda)|^{-2}\,d\lambda.
 \]
-Deduce the radial arrival profile of a localized pulse and its
-high-frequency spectral density from
-$|c(\lambda)|^{-2}=\pi\lambda\tanh(\pi\lambda)$.
+
+For a point source at $z_0$, define the point distribution by
+$\langle\delta_{z_0},\phi\rangle=\phi(z_0)$.  Take
+$f=0$, $g=\delta_{z_0}$, use $G$-invariance to replace $r$ by the
+hyperbolic distance $d(z,z_0)$, and derive the impulse kernel
+\[
+K_t(d)=\frac1{2\pi^2}\int_0^\infty
+\frac{\sin(t\omega_\lambda)}{\omega_\lambda}
+P_{-1/2+i\lambda}(\cosh d)
+|c(\lambda)|^{-2}\,d\lambda.
+\]
+Use finite propagation speed and high-frequency stationary phase to show
+that the leading phase fronts are the geodesic circles
+$d(z,z_0)=vt$.  Derive the high-frequency spectral density from
+$|c(\lambda)|^{-2}=\pi\lambda\tanh(\pi\lambda)$ and state the interior tail
+present for the two-dimensional wave equation.
 \end{exercise}
 
-\begin{exercise}[Hyperbolic-drum resonances]
+\begin{exercise}[Hyperbolic-drum spectra and circuit phase fronts]
 Let $D_R\subset\mathbb H^2$ be the geodesic disk of radius $R$ in curvature
 $-1$, impose Dirichlet boundary conditions, and let the wave speed be $v$.
-Prove that the radial resonances are indexed by the positive solutions of
+For $n\geq1$ and $\ell\in\mathbb Z$, prove that the normal modes are indexed
+by the positive solutions of
 \[
-P_{-1/2+i\lambda_j}(\cosh R)=0
+P_{-1/2+i\lambda_{n\ell}}^{-|\ell|}(\cosh R)=0
 \]
 and have angular frequencies
 \[
-\omega_j=v\sqrt{\lambda_j^2+\tfrac14}.
+\omega_{n\ell}=v\sqrt{\lambda_{n\ell}^2+\tfrac14}.
 \]
-Use the $c$-function asymptotics to derive the large-$R$ quantization law
+For $\ell=0$, use the $c$-function asymptotics to derive the large-$R$
+quantization law
 \[
-\lambda_jR+\arg c(\lambda_j)
-=\left(j+\tfrac12\right)\pi+o(1),
+\lambda_{n0}R+\arg c(\lambda_{n0})
+=\left(n-\tfrac12\right)\pi+o(1),
 \]
-with the indexing convention stated explicitly, and deduce the predicted
-radial frequency spacings.
+with the indexing convention stated explicitly.  Use the associated
+Legendre equations to compare the $(n,\ell)$ branches and deduce the
+curvature-dependent reordering of radial and angular modes.
+Order the pairs $(n,\ell)$ by increasing continuum eigenvalue, with
+multiplicity, and write the resulting parameter as $\lambda_j$.
 
 For the $\{3,7\}$ tessellation used in
 \href{https://doi.org/10.1038/s41467-022-32042-4}
@@ -1965,7 +2201,21 @@ For the $\{3,7\}$ tessellation used in
 let $Q_R$ be the graph Laplacian in their sign convention, put
 $L_R=-Q_R\geq0$, and write $\Lambda_j(L_R)$ for its eigenvalues.  The
 experiment uses curvature $-4$ and lattice parameter
-$h=\tanh(0.545275)$.  Prove the long-wavelength calibration
+$h=\tanh(0.545275)$.  At an interior vertex $p$, define
+\[
+(Q_Rf)(p)=\sum_{q\sim p}\bigl(f(q)-f(p)\bigr).
+\]
+For the seven tangent displacements $v_j$ to neighboring vertices, treat
+$h$ as the long-wavelength expansion parameter, use the continuum
+normalization $\|v_j\|=h$, and verify the isotropic moment
+identities
+\[
+\sum_{j=1}^7v_j=0,
+\qquad
+\sum_{j=1}^7v_j\otimes v_j=\frac72h^2 I.
+\]
+Apply the covariant Taylor expansion of $f(\exp_pv_j)$ to prove the
+long-wavelength calibration
 \[
 \Lambda_j(L_R)
 =\frac74h^2\nu_j^{(-4)}+O(h^3),
@@ -1990,11 +2240,15 @@ that the measured circuit resonance satisfies
 \sim\frac{\Lambda_j(L_R)}{7h^2}
 =\frac1{28\pi^2h^2LC(f_j^{\rm circ})^2}.
 \]
-Use this calibration to compare the inferred conical parameters, measured
-voltage eigenmodes, and radial phase fronts with the conical-function zeros
-and Mehler--Fock wave kernel.  State separately the curvature rescaling,
-continuum prediction, circuit resonance law, measured quantities, and the
-errors caused by boundary shape, loss, and discretization.
+Use this calibration to compare the inferred parameters
+$\lambda_{n\ell}$ and measured voltage eigenmodes with the associated
+Legendre zeros and their predicted angular-momentum reordering.  For the
+time-resolved experiment, plot the measured phase against
+$d_{\mathbb H^2}(z,z_0)$ and against Euclidean distance, and compare the
+result with the Harish--Chandra impulse kernel and its geodesic phase
+fronts.  State separately the curvature rescaling, continuum prediction,
+circuit resonance law, measured quantities, and errors caused by boundary
+shape, loss, finite frequency resolution, and discretization.
 \end{exercise}
 
 \section{Automorphic Forms}

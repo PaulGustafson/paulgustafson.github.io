@@ -1,351 +1,477 @@
 \part{Geometry}
 
-\section{Elliptic Curves, Periods, and Monodromy}
+\section{Algebraic Curves, Periods, and Monodromy}
 
-\begin{exercise}[Elliptic energy curves and pendulum periods]
-Consider a pendulum of mass $m$ and length $\ell$, with
-$\omega_0^2=g/\ell$.  Its equation and conserved energy are
-
+\begin{exercise}[Affine and projective algebraic curves]
+For a square-free polynomial $F\in\mathbb C[x,y]$, define its affine plane
+curve and coordinate algebra by
 \[
-\ddot\theta+\omega_0^2\sin\theta=0,
+V(F)=\{(x,y)\in\mathbb C^2:F(x,y)=0\},
 \qquad
-E=\frac{m\ell^2}{2}\dot\theta^{\,2}
-  +m\ell^2\omega_0^2(1-\cos\theta).
+\mathbb C[V(F)]=\mathbb C[x,y]/(F).
 \]
+A point $p\in V(F)$ is \emph{nonsingular} when $dF_p\ne0$.  For a homogeneous
+polynomial $\mathcal F\in\mathbb C[X,Y,Z]$, define its projective curve as
+the zero locus of $\mathcal F$ in the space $\mathbb P^2$ of complex lines
+in $\mathbb C^3$.
 
-For $0<E<2m\ell^2\omega_0^2$, put
-$k^2=E/(2m\ell^2\omega_0^2)$ and define the complete elliptic integral
-
+For $m\in\mathbb C\setminus\{0,1\}$, consider the Legendre curve
 \[
-K(k)=\int_0^{\pi/2}\frac{du}{\sqrt{1-k^2\sin^2u}}.
+E_m:\quad Y^2Z=X(X-Z)(X-mZ).
 \]
-
-Derive the quarter-period substitution
-$\sin(\theta/2)=k\sin u$ and prove
-
+Show that $E_m$ is nonsingular.  Put $O=[0:1:0]$ and show that the rational
+function $x=X/Z$ extends to a degree-two morphism
 \[
-T(E)=\frac{4}{\omega_0}K(k).
-\]
-
-For $0<k<1$, let $C_k$ be the smooth projective completion of the affine
-curve
-
-\[
-y^2=(1-x^2)(1-k^2x^2).
-\]
-
-Show that $C_k$ is a two-sheeted cover of the projective $x$-line branched at
-$x=\pm1,\pm k^{-1}$, and that it is nonsingular away from the collisions of
-these branch points.  If $\gamma_k$ is the oval lying over $[-1,1]$, prove
-
-\[
-\oint_{\gamma_k}\frac{dx}{y}=4K(k),
+\pi_m:E_m\longrightarrow\mathbb P^1,
 \qquad
-T(E)=\frac1{\omega_0}\oint_{\gamma_k}\frac{dx}{y}.
+\pi_m([X:Y:Z])=[X:Z]\quad([X:Y:Z]\ne O),
+\qquad
+\pi_m(O)=[1:0],
+\]
+ramified exactly over $0,1,m,\infty$.  Prove directly
+in this four-branch-point case that the Euler characteristic satisfies
+\[
+\chi(E_m)=2\chi(\mathbb P^1)-4=0,
+\]
+and hence that $E_m$ has genus one.
+
+On the affine chart $Z=1$, put
+\[
+\eta_m=\frac{dx}{y},
+\qquad
+y^2=x(x-1)(x-m).
+\]
+Check at each ramification point and at infinity that $\eta_m$ extends to a
+nowhere-vanishing holomorphic one-form on $E_m$.  For $0<m<1$, let
+$\gamma_m$ be the closed real oval over $[0,m]$.  With $m=k^2$, prove
+\[
+\oint_{\gamma_m}\eta_m
+=2\int_0^m\frac{dx}{\sqrt{x(x-1)(x-m)}}
+=4K(k).
+\]
+Thus the elliptic integral occurring in the pendulum period is a period of
+a holomorphic differential on a projective algebraic curve.
+\end{exercise}
+
+\begin{exercise}[Period lattices and elliptic uniformization]
+For a compact Riemann surface $C$ and a holomorphic one-form $\eta$, define
+the period homomorphism and period subgroup by
+\[
+\operatorname{per}_\eta:H_1(C;\mathbb Z)\longrightarrow\mathbb C,
+\qquad
+[\gamma]\longmapsto\int_\gamma\eta,
+\qquad
+\Lambda_\eta=\operatorname{im}(\operatorname{per}_\eta).
+\]
+For the genus-one curve $E_m$ and $\eta_m$ above, prove that
+$\Lambda_{\eta_m}$ is a discrete subgroup of rank two.  For a fixed
+$p_0\in E_m$, define
+\[
+\mathcal A_{p_0}(p)
+=\left[\int_{p_0}^{p}\eta_m\right]\in\mathbb C/\Lambda_{\eta_m}.
+\]
+Show that this is independent of the path modulo periods, is holomorphic,
+and has nowhere-vanishing differential.  Prove that it is a biholomorphism
+\[
+E_m\cong\mathbb C/\Lambda_{\eta_m}.
+\]
+Under this identification, show that translation on the complex torus
+defines an intrinsic group law on $E_m$ with identity $p_0$.
+\end{exercise}
+
+\begin{exercise}[Picard--Fuchs equations, monodromy, and pendulum periods]
+Let $U=\mathbb C\setminus\{0,1\}$.  Along a path in $U$, transport a closed
+cycle continuously through the family $E_m$ and call the resulting
+identification of the groups $H_1(E_m;\mathbb Z)$ \emph{Gauss--Manin
+transport}.  Transport around a loop defines its \emph{monodromy}.
+
+For a transported cycle $\gamma_m$, put
+\[
+\Pi(m)=\oint_{\gamma_m}\eta_m.
+\]
+Differentiate under the integral sign and reduce differentials modulo exact
+differentials on $E_m$ to prove the Picard--Fuchs equation
+\[
+m(1-m)\Pi''(m)+(1-2m)\Pi'(m)-\frac14\Pi(m)=0.
+\]
+Identify this with the Gauss hypergeometric equation already developed in
+Symmetry.  Prove that the projective cubic has discriminant
+\[
+\Delta(m)=16m^2(1-m)^2
+\]
+in the displayed normalization and that the family has singular fibers at
+$m=0,1,\infty$.
+
+Show that local monodromy at $m=1$ fixes one analytic solution and sends a
+logarithmic companion to itself plus a multiple of the analytic solution.
+For the real oval, use $\Pi(m)=4K(\sqrt m)$ and the hypergeometric connection
+formula to obtain
+\[
+K(\sqrt m)
+=\log\frac4{\sqrt{1-m}}
++O\bigl((1-m)|\log(1-m)|\bigr)
+\qquad(m\uparrow1).
+\]
+For the pendulum of length $\ell$ developed in Quantization, where
+$m=\sin^2(\theta_0/2)$, deduce
+\[
+T(\theta_0)
+=4\sqrt{\frac{\ell}{g}}\log\frac4{\cos(\theta_0/2)}
++O\!\left(
+\cos^2\frac{\theta_0}{2}
+\left|\log\cos^2\frac{\theta_0}{2}\right|
+\right).
+\]
+State how a period-versus-amplitude measurement tests the location and
+logarithmic type of the singular fiber.
+\end{exercise}
+
+\section{Divisors, Line Bundles, and Characteristic Classes}
+
+\begin{exercise}[Divisors, line bundles, and first Chern classes]
+On a compact Riemann surface $C$, a \emph{divisor} is a finite formal sum
+\[
+D=\sum_{p\in C}n_p[p],
+\qquad n_p\in\mathbb Z,
+\qquad
+\deg D=\sum_p n_p.
+\]
+For a nonzero meromorphic function $f$, define
+$\operatorname{div}(f)=\sum_p\operatorname{ord}_p(f)[p]$.  Use the argument
+principle to prove
+\[
+\deg\operatorname{div}(f)=0.
+\]
+
+For a divisor $D=\sum_pn_p[p]$, define $\mathcal O(D)$ to be the sheaf of
+meromorphic functions $h$ satisfying
+$\operatorname{div}(h)+D\geq0$ on each open set.  Show that this sheaf is
+the sheaf of holomorphic sections of a holomorphic line bundle.
+
+A holomorphic line bundle is specified by nowhere-vanishing holomorphic
+transition functions $g_{ij}$ satisfying $g_{ij}g_{jk}=g_{ik}$.  For a
+nonzero meromorphic section $s$, define $\operatorname{div}(s)$ from its
+local representatives.  Prove that
+\[
+\deg L:=\deg\operatorname{div}(s)
+\]
+is independent of $s$, that tensor products add degrees, and that
+$L\cong\mathcal O(\operatorname{div}(s))$.
+
+For a Hermitian connection $\nabla$ on $L$, define
+\[
+c_1(L)=\left[\frac{i}{2\pi}F_\nabla\right]\in H_{\mathrm{dR}}^2(C;\mathbb R).
+\]
+Show that this class is independent of the Hermitian connection and is
+natural under pullback.  Compare connection forms on overlaps and use
+Stokes' theorem around the zeros and poles of a meromorphic section to
+prove
+\[
+\int_C c_1(L)=\deg L.
 \]
 \end{exercise}
 
-\begin{exercise}[Elliptic degeneration and the pendulum frequency prediction]
-For the period in the preceding exercise, use the binomial series to prove
+\begin{exercise}[Theta divisors and genus-one Riemann--Roch]
+For the elliptic curve $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ and the
+degree-$N$ magnetic line bundle $L_N$ developed in Quantization, use the
+theta automorphy factors to show that every nonzero holomorphic section has
+a zero divisor of degree $N$.
 
+Let $\operatorname{Pic}^d(E_\tau)$ denote the isomorphism classes of
+holomorphic line bundles of degree $d$, with tensor product as the
+operation on $\operatorname{Pic}^0(E_\tau)$.  Fix $0\in E_\tau$ and prove
+that
 \[
-K(k)=\frac{\pi}{2}\,{}_2F_1\!\left(\frac12,\frac12;1;k^2\right)
- =\frac{\pi}{2}\sum_{n\geq0}
- \left(\frac{(1/2)_n}{n!}\right)^2 k^{2n}.
+E_\tau\longrightarrow\operatorname{Pic}^0(E_\tau),
+\qquad
+p\longmapsto\mathcal O([p]-[0]),
 \]
+is an isomorphism of complex groups.  Show that tensoring with
+$\mathcal O(N[0])$ identifies $\operatorname{Pic}^0(E_\tau)$ with
+$\operatorname{Pic}^N(E_\tau)$.
 
-By differentiating the series, show that $K$ satisfies
-
+Using the distinguished level-$N$ theta sections already constructed,
+prove the genus-one Riemann--Roch statements
 \[
-k(1-k^2)K''(k)+(1-3k^2)K'(k)-kK(k)=0.
+\dim H^0(E_\tau,L)=N\quad(\deg L=N>0),
 \]
-
-The discriminant of the branch divisor is proportional to
-$k^2(1-k^2)$.  Continue a period along a loop in the complex $k$-plane
-avoiding $0,1,-1$, and call the resulting linear transformation of the
-period space its monodromy.  Use the local expansion
-
 \[
-K(k)=\log\frac{4}{\sqrt{1-k^2}}
- +O\bigl((1-k^2)\log(1-k^2)\bigr)
-\qquad (k\uparrow1)
+\dim H^0(E_\tau,L)=
+\begin{cases}
+1,&L\cong\mathcal O,\\
+0,&L\not\cong\mathcal O
+\end{cases}
+\quad(\deg L=0).
 \]
-
-to prove that the degeneration at $k=1$ has nontrivial logarithmic
-monodromy.  Translate this asymptotic into the physical prediction
-
-\[
-T(E)=\frac{4}{\omega_0}\log
-\left(\frac{4}{\sqrt{1-E/(2m\ell^2\omega_0^2)}}\right)
- +O\bigl((1-k^2)\log(1-k^2)\bigr)
-\]
-
-as $E$ approaches the separatrix energy, and state how a period-versus-energy
-measurement tests the curve's discriminant.
+Relate translation of theta-function zeros to the parameter space
+$\operatorname{Pic}^N(E_\tau)$.
 \end{exercise}
 
-\section{Theta Functions, Line Bundles, and Characteristic Classes}
-
-\begin{exercise}[Theta sections on an elliptic curve]
-Let $\tau\in\mathbb C$ satisfy $\operatorname{Im}\tau>0$ and put
-$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$.  For an integer $N\geq1$ and
-$r\in\{0,\ldots,N-1\}$, define the level-$N$ theta function
-
+\begin{exercise}[Chern number and robust magnetic zero-mode degeneracy]
+Let $L\to E_\tau$ be a Hermitian line bundle with unitary connection
+$\nabla$ representing a possibly nonuniform magnetic field $B$ through
+the curvature convention
 \[
-\vartheta_{r,N}(z;\tau)
- =\sum_{n\in\mathbb Z}
- \exp\!\left(\pi iN\tau\left(n+\frac rN\right)^2
- +2\pi iN\left(n+\frac rN\right)z\right).
+F_\nabla=-\frac{ie}{\hbar}B\,dA,
+\]
+where $dA$ is the flat area form, and assume
+\[
+N=\frac{e}{2\pi\hbar}\int_{E_\tau}B\,dA>0.
+\]
+Use the complex structure to decompose the connection and define the
+positive Pauli Hamiltonian
+\[
+H_+
+=\frac{\hbar^2}{2m}
+\left(\nabla^*\nabla-\frac{e}{\hbar}B\right)
+=\frac{\hbar^2}{m}\,
+\bar\partial_\nabla^*\bar\partial_\nabla.
+\]
+Prove that its zero modes are precisely the holomorphic sections of $L$.
+Use the Chern--Weil identity and genus-one Riemann--Roch to prove
+\[
+\dim\ker H_+=N.
 \]
 
-Define a holomorphic section of $L_N$ to be a holomorphic function $f$ on
-$\mathbb C$ satisfying
-
-\[
-f(z+1)=f(z),
-\qquad
-f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z).
-\]
-
-Prove that each $\vartheta_{r,N}$ is a section of $L_N$.  Use its zeros and
-the argument principle to show that a nonzero section has exactly $N$ zeros
-on $E_\tau$, counted with multiplicity.  Prove that the $N$ displayed theta
-sections are linearly independent and that every holomorphic section of
-$L_N$ is a unique linear combination of them.  Interpret the integer $N$ as
-the degree of the automorphy factor.
-\end{exercise}
-
-\begin{exercise}[Magnetic line bundles and Landau-level degeneracy]
-Let a unit-charge particle move on the flat torus $E_\tau$ of area
-$\mathcal A$, in a uniform magnetic field represented locally by a unitary
-connection
-
-\[
-\nabla=d-i\mathcal A,
-\qquad
-F=d\mathcal A,
-\qquad
-B=\frac1{\mathcal A}\int_{E_\tau}F.
-\]
-
-Assume the wavefunction has the transition law of $L_N$ from the preceding
-exercise.  Prove the flux quantization condition
-
-\[
-\frac1{2\pi}\int_{E_\tau}F=N\in\mathbb Z,
-\qquad
-B=\frac{2\pi N}{\mathcal A}.
-\]
-
-With $\hbar=1$, define the magnetic Hamiltonian by
-
-\[
-H_B=\frac1{2m}\bigl((-i\nabla_x)^2+(-i\nabla_y)^2\bigr).
-\]
-
-Show that the lowest Landau level is identified, after the Gaussian metric
-factor, with the holomorphic sections of $L_N$.  Use the preceding theta
-calculation to prove that its degeneracy is exactly $N$, and use
-$[-i\nabla_x,-i\nabla_y]=B$ to derive
-
-\[
-E_q=\frac{|B|}{m}\left(q+\frac12\right),
-\qquad q=0,1,2,\ldots.
-\]
-
-Conclude that the number of lowest-level states and the phase acquired around
-a loop are determined by the first Chern number
-$N=(2\pi)^{-1}\int F$.  State the uniform-field, torus-boundary, and
-noninteracting assumptions under which this is a physical prediction.
-\end{exercise}
-
-\section{Hypergeometric Monodromy and Solvable Scattering}
-
-\begin{exercise}[Gauss hypergeometric equations and monodromy]
-For $c\notin\{0,-1,-2,\ldots\}$, define
-
-\[
-{}_2F_1(a,b;c;z)
- =\sum_{n\geq0}\frac{(a)_n(b)_n}{(c)_n n!}z^n,
- \qquad |z|<1.
-\]
-
-Substitute the series into
-
-\[
-z(1-z)f''+[c-(a+b+1)z]f'-abf=0
-\]
-
-to prove the equation.  Determine its local exponents at $0,1,\infty$.
-For the vector space of local solutions, define monodromy along a loop in
-$\mathbb P^1\setminus\{0,1,\infty\}$ to be analytic continuation along the
-loop.  Use the connection formula at $z=1$ to show that the two powers
-$1$ and $(1-z)^{c-a-b}$ acquire distinct nontrivial phases under monodromy when
-$c-a-b\notin\mathbb Z$.  Identify the parameter values for which one of the
-solutions terminates to a polynomial.  The connection formula to be used is
-\[
-\begin{aligned}
-{}_2F_1(a,b;c;z)
-&=\frac{\Gamma(c)\Gamma(c-a-b)}
-{\Gamma(c-a)\Gamma(c-b)}
-{}_2F_1(a,b;a+b-c+1;1-z)\\
-&\quad +(1-z)^{c-a-b}
-\frac{\Gamma(c)\Gamma(a+b-c)}
-{\Gamma(a)\Gamma(b)}
-{}_2F_1(c-a,c-b;c-a-b+1;1-z),
-\end{aligned}
-\]
-under the usual nonintegrality and nonvanishing-denominator conditions.
-\end{exercise}
-
-\begin{exercise}[Pöschl--Teller scattering and hypergeometric transmission]
-For $k>0$ and a nonnegative integer $\nu$, consider the one-dimensional
-Schr\"odinger equation
-
-\[
--\psi''(x)-\nu(\nu+1)\operatorname{sech}^2x\,\psi(x)=k^2\psi(x).
-\]
-
-Put $z=(1-\tanh x)/2$ and prove that
-
-\[
-\phi_{\nu,k}(x)=e^{ikx}
-{}_2F_1(-\nu,\nu+1;1-ik;z(x))
-\]
-
-solves the equation.  Since $-\nu$ is a nonpositive integer, use polynomial
-termination and the connection formula at $z=1$, interpreted by continuation
-from generic parameters, to show that, after
-normalizing the incoming wave at $x=-\infty$ to have unit amplitude,
-
-\[
-\psi(x)\sim e^{ikx}+R_\nu(k)e^{-ikx}\quad(x\to-\infty),
-\qquad
-\psi(x)\sim T_\nu(k)e^{ikx}\quad(x\to+\infty),
-\]
-
-with
-
-\[
-R_\nu(k)=0,
-\qquad
-T_\nu(k)=\prod_{j=1}^{\nu}\frac{k+ij}{k-ij},
-\qquad
-|T_\nu(k)|^2=1.
-\]
-
-Relate the vanishing reflected coefficient to the disappearance of one
-monodromy branch and identify the poles of $T_\nu$ with the bound-state
-energies $-j^2$.  Thus the special-function calculation predicts
-reflectionless transmission and the complete bound-state pole set.
+For constant $B$, identify these zero modes with the level-$N$ theta
+sections and recover the Landau degeneracy derived in Quantization.  Show
+that the integer zero-mode count is unchanged under smooth deformations of
+the unitary connection on the fixed line bundle.  State the
+spin-coupling, compact-surface, positivity, and noninteracting assumptions
+under which spectroscopy predicts this robust degeneracy.
 \end{exercise}
 
 \section{Character Varieties and Wilson Loops}
 
-\begin{exercise}[Trace characters of commuting holonomies]
-Let $A,B\in SL_2(\mathbb C)$ satisfy $AB=BA$.  Identify commuting pairs
-under simultaneous conjugation and put
+\begin{exercise}[Invariant coordinate algebras and the torus character variety]
+If an algebraic group $G$ acts on an affine algebraic set $X$, define the
+coordinate algebra of its affine quotient to be the invariant algebra
+\[
+\mathbb C[X/\!/G]=\mathbb C[X]^G.
+\]
+For
+\[
+\mathcal R(T^2,SL_2)
+=\{(A,B)\in SL_2(\mathbb C)^2:AB=BA\},
+\]
+let $SL_2(\mathbb C)$ act by simultaneous conjugation and define its
+\emph{character variety} as this affine quotient.
 
+Put
 \[
 x=\operatorname{tr}A,
-\qquad y=\operatorname{tr}B,
-\qquad z=\operatorname{tr}(AB).
+\qquad
+y=\operatorname{tr}B,
+\qquad
+z=\operatorname{tr}(AB).
 \]
-
-For a generic pair, diagonalize $A$ and $B$ simultaneously and prove that
-the invariant trace coordinates obey
-
+Use only the Cayley--Hamilton identity and cyclicity of trace to prove
 \[
-x^2+y^2+z^2-xyz-4=0.
+\operatorname{tr}A\,\operatorname{tr}B
+=\operatorname{tr}(AB)+\operatorname{tr}(AB^{-1})
 \]
-
-Call this affine cubic the $SL_2$ character variety of the torus in these
-coordinates.  Show conversely that its generic points arise from a pair of
-commuting diagonal holonomies.  Define the Chebyshev polynomials of the
-first kind
-
+and the Fricke identity
 \[
-T_0(t)=1,
-\qquad T_1(t)=t,
-\qquad T_{n+1}(t)=2tT_n(t)-T_{n-1}(t),
+\operatorname{tr}[A,B]
+=x^2+y^2+z^2-xyz-2.
 \]
-
-and prove
-
+Conclude that the torus character variety is the affine cubic
 \[
-\operatorname{tr}(A^n)=2T_n\!\left(\frac{\operatorname{tr}A}{2}\right).
+\mathcal X(T^2,SL_2)
+=\{(x,y,z)\in\mathbb C^3:
+x^2+y^2+z^2-xyz-4=0\}.
 \]
+Show that its regular semisimple points are determined by their trace
+coordinates and identify the singular points of the cubic.
 \end{exercise}
 
-\begin{exercise}[Wilson-loop characters and a gauge-theory prediction]
-Let a flat $SU(2)$ connection on a physical two-torus have commuting
-holonomies $U$ and $V$.  For $(p,q)\in\mathbb Z^2$, define the Wilson loop
-
+\begin{exercise}[Chebyshev characters and Wilson-loop skein relations]
+Define the Chebyshev polynomials of the first kind by
 \[
-W_{p,q}=\operatorname{tr}(U^pV^q).
+T_0(t)=1,\qquad T_1(t)=t,\qquad
+T_{n+1}(t)=2tT_n(t)-T_{n-1}(t).
+\]
+For $A\in SL_2(\mathbb C)$, derive intrinsically from Cayley--Hamilton that
+\[
+\operatorname{tr}(A^n)
+=2T_n\!\left(\frac{\operatorname{tr}A}{2}\right).
+\]
+Use the Chebyshev polynomials $U_n$ developed in Quantization to prove that
+the spin-$j$ character satisfies
+\[
+\chi_j(A)=U_{2j}\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]
 
-Write $U$ and $V$ in a common maximal torus as
-
+For oriented loops $\alpha,\beta$ meeting once, let $W_\gamma$ denote the
+trace of the holonomy around $\gamma$.  Prove the $SL_2$ skein identity
 \[
-U=\begin{pmatrix}e^{i\alpha}&0\\0&e^{-i\alpha}\end{pmatrix},
-\qquad
-V=\begin{pmatrix}e^{i\beta}&0\\0&e^{-i\beta}\end{pmatrix}.
+W_\alpha W_\beta=W_{\alpha\beta}+W_{\alpha\beta^{-1}}.
 \]
+Iterate it to express every torus Wilson loop $W_{p,q}$ as a polynomial in
+$x=W_{1,0}$, $y=W_{0,1}$, and $z=W_{1,1}$.  Identify the resulting
+polynomials as two-variable extensions of the Chebyshev characters.
+\end{exercise}
 
-Use the character-variety equation from the preceding exercise to prove
-
+\begin{exercise}[Flat holonomies and Wilson-loop constraints]
+Let a flat $SU(2)$ connection on a physical two-torus have holonomies
+$U,V$.  Since the fundamental cycles commute, show that their conjugacy
+class is represented by angles $\alpha,\beta$, uniquely up to the Weyl
+action
+\[
+(\alpha,\beta)\longmapsto(-\alpha,-\beta).
+\]
+For $(p,q)\in\mathbb Z^2$, prove
 \[
 W_{p,q}=2\cos(p\alpha+q\beta),
-\qquad
-W_{1,0}^2+W_{0,1}^2+W_{1,1}^2
- -W_{1,0}W_{0,1}W_{1,1}=4.
 \]
-
-For the spin-$j$ representation, prove
-
+\[
+W_{1,0}^2+W_{0,1}^2+W_{1,1}^2
+-W_{1,0}W_{0,1}W_{1,1}=4,
+\]
+and
 \[
 W_{p,q}^{(j)}
- =U_{2j}\!\left(\frac{W_{p,q}}2\right)
- =\frac{\sin((2j+1)(p\alpha+q\beta))}
- {\sin(p\alpha+q\beta)}.
+=U_{2j}\!\left(\frac{W_{p,q}}2\right)
+=\frac{\sin((2j+1)(p\alpha+q\beta))}
+{\sin(p\alpha+q\beta)}.
 \]
 
-Conclude that a flat-torus measurement of the three fundamental Wilson
-loops must lie on the real cubic above, that $|W_{p,q}|\leq2$, and that the
-zeros of $W_{p,q}^{(j)}$ give representation-dependent holonomy selection
-rules.  State the flatness, compact-gauge-group, and noiseless-measurement
-assumptions of this prediction.
+Deduce the exact polynomial constraint on the three fundamental Wilson-loop
+measurements, the bound $|W_{p,q}|\leq2$, and the holonomy values at which
+the spin-$j$ interference signal vanishes.  State the flatness,
+compact-gauge-group, fixed-representation, and measurement-resolution
+assumptions separately from these predictions.
 \end{exercise}
 
-\section{Spectral Curves and Periodic Waves}
+\section{Spectral Curves and Finite-Gap Waves}
 
-\begin{exercise}[Jacobi elliptic functions and the Lam\'e operator]
-For $0<k<1$, define $\operatorname{sn}(x;k)$ by the inverse relation
-
+\begin{exercise}[Jacobi elliptic functions and elliptic uniformization]
+For $0<k<1$, define $\operatorname{sn}(u;k)$ near $u=0$ by
 \[
-x=\int_0^{\operatorname{sn}(x;k)}
-\frac{du}{\sqrt{(1-u^2)(1-k^2u^2)}}.
+u=\int_0^{\operatorname{sn}(u;k)}
+\frac{dt}{\sqrt{(1-t^2)(1-k^2t^2)}}
 \]
-
-Define it first for $|x|<K(k)$ and extend it by its Jacobi differential
-equation and real periods.  Put
-
+and extend it by analytic continuation.  Define
+$\operatorname{cn}(u;k)$ and $\operatorname{dn}(u;k)$ by
 \[
-\operatorname{cn}(x;k)=\frac{d}{dx}\operatorname{sn}(x;k),
+\operatorname{cn}^2=1-\operatorname{sn}^2,
 \qquad
-\operatorname{dn}(x;k)=\sqrt{1-k^2\operatorname{sn}^2(x;k)}.
+\operatorname{dn}^2=1-k^2\operatorname{sn}^2,
+\qquad
+\operatorname{cn}(0;k)=\operatorname{dn}(0;k)=1.
 \]
-
-Derive the differential identities for $\operatorname{sn}$, $\operatorname{cn}$,
-and $\operatorname{dn}$, and prove that the Lam\'e operator
-
+Derive
 \[
-L_k=-\frac{d^2}{dx^2}+2k^2\operatorname{sn}^2(x;k)
+\operatorname{sn}'=\operatorname{cn}\operatorname{dn},
+\qquad
+\operatorname{cn}'=-\operatorname{sn}\operatorname{dn},
+\qquad
+\operatorname{dn}'=-k^2\operatorname{sn}\operatorname{cn}.
 \]
 
-satisfies
+Put $m=k^2$ and define
+\[
+x(u)=m\operatorname{sn}^2(u;k),
+\qquad
+y(u)=m\operatorname{sn}(u;k)\operatorname{cn}(u;k)
+\operatorname{dn}(u;k).
+\]
+Prove
+\[
+y(u)^2=x(u)(x(u)-1)(x(u)-m),
+\qquad
+\frac{dx}{y}=2\,du.
+\]
+Identify the period lattice of $(x(u),y(u))$ and recover the
+uniformization of the Legendre curve constructed earlier.
+\end{exercise}
 
+\begin{exercise}[Floquet monodromy and Bloch curves]
+Let
+\[
+L=-\frac{d^2}{du^2}+V(u)
+\]
+with real smooth potential of period $P$.  Let $\mathcal S_E$ be the
+two-dimensional solution space of $L\psi=E\psi$, and define the monodromy
+automorphism
+\[
+M(E):\mathcal S_E\longrightarrow\mathcal S_E,
+\qquad
+\psi(u)\longmapsto\psi(u+P).
+\]
+Use constancy of the Wronskian to prove $\det M(E)=1$.  Define
+\[
+\Delta(E)=\operatorname{tr}M(E)
+\]
+and call $\rho$ a Bloch multiplier when $M(E)\psi=\rho\psi$ for a nonzero
+solution.  Prove
+\[
+\rho+\rho^{-1}=\Delta(E)
+\]
+and define the Bloch curve by
+\[
+\mathcal B_L:\quad \rho^2-\Delta(E)\rho+1=0.
+\]
+Show that its branch points occur at the periodic and antiperiodic energies
+$\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
+exactly when $|\Delta(E)|\leq2$.
+\end{exercise}
+
+\begin{exercise}[Lam\'e theta functions and the spectral curve]
+Let $K=K(k)$, $K'=K(\sqrt{1-k^2})$, and
+$\tau=iK'/K$.  Using the Jacobi theta functions developed in Quantization,
+put
+\[
+H(u)=
+\vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
+\left(\frac{u}{2K}\,\middle|\,\tau\right),
+\qquad
+\Theta(u)=
+\vartheta\!\begin{bmatrix}0\\[1pt]\frac12\end{bmatrix}
+\left(\frac{u}{2K}\,\middle|\,\tau\right),
+\qquad
+Z(u)=\frac d{du}\log\Theta(u).
+\]
+For the Lam\'e operator
+\[
+L_k=-\frac{d^2}{du^2}+2k^2\operatorname{sn}^2(u;k),
+\]
+use the theta addition identities to verify the Hermite solutions
+\[
+\psi_\pm(u,a)
+=\frac{H(u\pm a)}{\Theta(u)}
+\exp\bigl(\mp uZ(a)\bigr),
+\]
+\[
+L_k\psi_\pm(\,\cdot\,,a)=E(a)\psi_\pm(\,\cdot\,,a),
+\qquad
+E(a)=1+k^2-k^2\operatorname{sn}^2(a;k).
+\]
+From the theta automorphy laws, derive their Bloch multipliers over the
+potential period $2K$:
+\[
+\rho_\pm(a)=-\exp\bigl(\mp2KZ(a)\bigr).
+\]
+
+Define
+\[
+\mu(a)=\frac{i}{2}\frac{dE(a)}{da}.
+\]
+Use the Jacobi differential identities to prove
+\[
+\mu(a)^2
+=(E(a)-k^2)(E(a)-1)(E(a)-1-k^2).
+\]
+Thus the parameter $a$ uniformizes the Lam\'e spectral curve
+\[
+\Sigma_k:\quad
+\mu^2=(E-k^2)(E-1)(E-1-k^2).
+\]
+\end{exercise}
+
+\begin{exercise}[Lam\'e band edges and attenuation prediction]
+Use the half-period values of the Jacobi functions to recover the three
+band-edge solutions
 \[
 L_k\operatorname{dn}=k^2\operatorname{dn},
 \qquad
@@ -353,41 +479,24 @@ L_k\operatorname{cn}=\operatorname{cn},
 \qquad
 L_k\operatorname{sn}=(1+k^2)\operatorname{sn}.
 \]
-
-If $K=K(k)$, show that $\operatorname{dn}$ is periodic with period $2K$,
-whereas $\operatorname{sn}$ and $\operatorname{cn}$ change sign under
-$x\mapsto x+2K$.  Explain why these three special-function solutions give
-periodic or antiperiodic band-edge states for the periodic Schr\"odinger
-operator $L_k$.
-\end{exercise}
-
-\begin{exercise}[The Lam\'e spectral curve and a band-gap prediction]
-For a real $2K$-periodic Schr\"odinger operator, let $M(E)$ be the intrinsic
-monodromy automorphism on its two-dimensional solution space after one
-period.  Define the Floquet discriminant by
-$\Delta(E)=\operatorname{tr}M(E)$.  Since $\det M(E)=1$, prove that a real
-energy supports a unit-modulus Bloch multiplier precisely when
-$|\Delta(E)|\leq2$.
-
-For the Lam\'e operator in the preceding exercise, define the spectral curve
-
+Determine which are periodic and antiperiodic over $2K$.  Use the
+theta-function Bloch multipliers to prove
 \[
-\Sigma_k:
-\mu^2=(E-k^2)(E-1)(E-1-k^2).
+\operatorname{spec}(L_k)
+=[k^2,1]\cup[1+k^2,\infty)
 \]
+and identify $(1,1+k^2)$ as the unique open gap.
 
-Use the periodic and antiperiodic special-function states to identify the
-three branch energies of $\Sigma_k$.  Apply the Floquet criterion and the
-one-gap ordering of these edge states to show that the propagating spectrum
-is
-
+For an energy in the gap, choose $a$ with $E=E(a)$ and prove that a Bloch
+wave changes in magnitude by $e^{-2K\kappa(E)}$ per cell, where
 \[
-\operatorname{spec}(L_k)=[k^2,1]\cup[1+k^2,\infty),
+\kappa(E)=\frac1{2K}\left|\log|\rho_\pm(a)|\right|
+=|\operatorname{Re}Z(a)|.
 \]
-
-with a forbidden band $(1,1+k^2)$.  Predict the band-edge energies and the
-attenuation of a wave with energy in this gap for a periodic medium whose
-cell potential is $2k^2\operatorname{sn}^2(x;k)$.  Explain how the gap closes
-in the trigonometric limit $k\to0$ and how a transmission measurement tests
-the branch structure of the spectral curve.
+Predict the three band-edge energies and show that, up to interface factors,
+the transmitted amplitude through $M$ cells is suppressed by
+$e^{-2KM\kappa(E)}$ and the transmitted intensity by
+$e^{-4KM\kappa(E)}$.  Show that the gap closes as $k\to0$, and state the
+periodic-medium, coherence, finite-sample, and energy-resolution assumptions
+under which a transmission experiment tests the spectral curve.
 \end{exercise}
