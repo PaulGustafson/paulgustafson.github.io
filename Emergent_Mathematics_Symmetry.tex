@@ -1489,6 +1489,348 @@ squared absolute value of the resulting spherical-harmonic amplitude and
 identify its symmetry-enforced dark directions and absent spectral lines.
 \end{exercise}
 
+\section{Poincar\'e Symmetry and Relativistic Particles}
+
+\begin{exercise}[Minkowski momentum orbits and relativistic dispersion]
+A \emph{time-oriented Minkowski space} is a real four-dimensional vector
+space $M$ with a symmetric nondegenerate form $g$ of signature $(1,3)$
+and a chosen component of the cone $\{v:g(v,v)>0\}$.  Let
+$SO^+(M,g)$ be the group preserving $g$, the orientation, and the time
+orientation.  Define the proper orthochronous Poincar\'e group by
+\[
+\mathcal P^+(M,g)=M\rtimes SO^+(M,g),
+\qquad
+(a,A)(b,B)=(a+Ab,AB).
+\]
+Prove that $(a,A)$ acts on the affine space underlying $M$ by
+$x\mapsto a+Ax$, that this identifies $\mathcal P^+(M,g)$ with its
+orientation- and time-orientation-preserving affine isometries, and that
+the induced action on momentum covectors factors through $SO^+(M,g)$.
+Use $g$ to identify $M^\vee$ with $M$.  For $m\geq0$, define the
+positive mass shell
+\[
+\mathcal O_m^+
+=\{p\in M^\vee:g^{-1}(p,p)=m^2c^2,\ p^\sharp\text{ is future-pointing}\},
+\]
+with the zero covector removed when $m=0$.
+
+Let $u$ be a future-pointing observer with $g(u,u)=c^2$.  Define
+\[
+E_u(p)=g(p^\sharp,u),
+\qquad
+\mathbf p_u=p^\sharp-\frac{E_u(p)}{c^2}u,
+\qquad
+|\mathbf p_u|^2=-g(\mathbf p_u,\mathbf p_u).
+\]
+Prove
+\[
+E_u(p)^2=c^2|\mathbf p_u|^2+m^2c^4
+\]
+and show that $SO^+(M,g)$ acts transitively on each $\mathcal O_m^+$.
+For $m>0$, prove that the stabilizer of a point is the rotation group of
+its negative-definite orthogonal complement and hence is isomorphic to
+$SO(3)$.  For $m=0$, show that the stabilizer preserves the Euclidean
+plane $p^\perp/\mathbb Rp$ and is isomorphic to
+$SO(2)\ltimes\mathbb R^2$.
+
+Put $Q(p)=g^{-1}(p,p)$.  For a Lorentz-invariant volume form $dV$ on
+$M^\vee$, choose along the shell a vector field $N$ satisfying
+$dQ(N)=1$.  Define
+\[
+(\iota_NdV)(v_1,v_2,v_3)=dV(N,v_1,v_2,v_3)
+\]
+and restrict this three-form to the shell.  Prove that the
+restriction is independent of $N$ and constructs an invariant measure
+$d\mu_m$, unique up to scale.  Show that in the observer decomposition it
+is proportional to
+\[
+\frac{d^3\mathbf p_u}{E_u(\mathbf p)}.
+\]
+Deduce that the mass-shell relation and this measure are independent of
+the observer used to express them.
+\end{exercise}
+
+\begin{exercise}[The Lorentz spin cover and finite-dimensional fields]
+Let $S$ be a two-dimensional complex vector space equipped with a nonzero
+alternating form $\epsilon:\Lambda^2S\to\mathbb C$.  Let
+$\operatorname{Herm}(S)$ be the fixed real subspace of
+$S\otimes\overline S$ under conjugation followed by exchange of the
+factors, and use $\epsilon\otimes\overline\epsilon$ to define its
+determinant.
+Prove that
+\[
+q(X)=\det X
+\]
+has signature $(1,3)$, with the positive-definite forms selecting a time
+orientation.  For $A\in SL(S)$, define
+\[
+X\longmapsto(A\otimes\overline A)X.
+\]
+Prove that this action preserves $q$ and the chosen orientations and
+induces an exact sequence
+\[
+1\longrightarrow\{\pm I\}\longrightarrow SL(S)
+\longrightarrow SO^+(\operatorname{Herm}(S),q)
+\longrightarrow1.
+\]
+
+For a complex vector space $V$ and $n\geq0$, define
+\[
+\operatorname{Sym}^nV
+=V^{\otimes n}/\langle\xi-\sigma\xi:
+\xi\in V^{\otimes n},\ \sigma\in S_n\rangle.
+\]
+Use as theorem input the finite-dimensional Lorentz-representation
+classification: every irreducible finite-dimensional complex
+representation of $SL(S)$, regarded as the spin cover of the real Lorentz
+group, is uniquely of the form
+\[
+\operatorname{Sym}^{2j_L}S\otimes
+\operatorname{Sym}^{2j_R}\overline S,
+\qquad
+j_L,j_R\in\tfrac12\mathbb Z_{\geq0}.
+\]
+Identify the scalar, left- and right-handed Weyl-spinor, Lorentz-vector,
+and self-dual and anti-self-dual two-form representations.  Restrict to
+the massive little group $SU(2)\subset SL(S)$ and derive
+\[
+(j_L,j_R)|_{SU(2)}
+\cong\bigoplus_{j=|j_L-j_R|}^{j_L+j_R}V_j.
+\]
+Prove that no nontrivial representation in the displayed family is
+unitary for the full Lorentz group, and distinguish these covariant field
+representations from the unitary one-particle representations constructed
+below.
+\end{exercise}
+
+\begin{exercise}[Wigner induction and the Poincar\'e particle classification]
+Let
+\[
+\widetilde{\mathcal P}=M\rtimes SL(S)
+\]
+be the spin Poincar\'e group.  Fix a Lorentz orbit
+$\mathcal O\subset M^\vee$, a point $p_0\in\mathcal O$, its little group
+$K\subset SL(S)$, and a unitary representation
+$\sigma:K\to U(V_\sigma)$.  Define the associated bundle
+\[
+\mathcal E_\sigma=SL(S)\times_KV_\sigma
+\longrightarrow\mathcal O
+\]
+as the quotient by $(A,v)\sim(Ak,\sigma(k)^{-1}v)$, with $[A,v]$ lying
+over $Ap_0$.  Define the Hilbert space
+$L^2(\mathcal O,\mathcal E_\sigma;d\mu)$ of its
+square-integrable sections.  For $(a,A)\in\widetilde{\mathcal P}$, define
+intrinsically
+\[
+[U(a,A)\psi](p)
+=e^{-ip(a)/\hbar}\,A\cdot\psi(A^{-1}p),
+\]
+where $A\cdot$ is the induced map between the associated fibers.  Prove
+that this is a strongly continuous unitary representation and that the
+translation spectral measure is supported on $\mathcal O$.
+
+Call a unitary Poincar\'e representation \emph{positive-energy} when its
+translation spectral measure is supported in the closed future cone.
+Use as theorem input the Mackey--Wigner imprimitivity theorem: every
+irreducible positive-energy unitary representation whose translation
+spectrum is supported on one orbit is obtained by this construction, and
+two such representations are equivalent exactly when their orbit and
+little-group representation data are equivalent.  Deduce that a massive
+particle is labelled by $m>0$ and an irreducible $SU(2)$ representation
+$V_j$, so it has $2j+1$ rest-frame polarizations.  For a massless orbit,
+show that little-group representations trivial on the translation
+subgroup are labelled by helicity
+$h\in\tfrac12\mathbb Z$, while nontrivial translation action produces the
+continuous-spin family and an additional positive scale.
+
+On the common invariant space of smooth vectors, let $P$ be the
+translation generator and let $J$ be the Lorentz bivector generator.
+Using the Minkowski volume form, define the Pauli--Lubanski covector by
+\[
+W=*\,(P\wedge J).
+\]
+With the sign convention of the preceding Minkowski form, prove
+\[
+P^2=m^2c^2I,
+\qquad
+W^2=-m^2c^2\hbar^2j(j+1)I
+\]
+in the massive representation and
+\[
+P^2=0,
+\qquad
+W=h\hbar P
+\]
+in a finite-helicity massless representation.  Explain why this
+classification constrains masses, spins, helicities, and polarization
+counts but does not determine the numerical masses or interactions.
+\end{exercise}
+
+\begin{exercise}[Covariant wave equations and helicity polarizations]
+Use units $c=1$ in this exercise.  Let $\Box$ be the constant-coefficient
+d'Alembertian whose symbol is $-g^{-1}(p,p)$.  For
+$\widehat\phi\in C_c^\infty(\mathcal O_m^+)$, put
+\[
+\phi(x)=\int_{\mathcal O_m^+}
+e^{-ip(x)/\hbar}\widehat\phi(p)\,d\mu_m(p).
+\]
+Prove
+\[
+(\Box+m^2/\hbar^2)\phi=0
+\]
+and show that completion in the mass-shell norm realizes the positive
+energy spin-zero Wigner representation.
+
+Let $\operatorname{Cl}(M,g)$ be the Clifford algebra defined by
+\[
+vw+wv=2g(v,w)I.
+\]
+A \emph{complex spin module} is a four-dimensional
+$\mathbb Z/2\mathbb Z$-graded irreducible module
+$\Sigma=\Sigma^+\oplus\Sigma^-$ for the complexified Clifford algebra in
+which multiplication by $M$ exchanges the two graded summands.  Let
+$\mathcal D$ be Clifford multiplication followed by differentiation.
+Prove $\mathcal D^2=\Box$ and show that
+\[
+(i\hbar\mathcal D-m)\psi=0
+\]
+implies the Klein--Gordon equation and that its positive-frequency
+solution space realizes the massive spin-$1/2$ mass shell.  At $m=0$,
+prove that the two chiral positive-frequency solution spaces carry
+helicities $\pm\frac12$.
+
+Put $M_\mathbb C=M\otimes_\mathbb R\mathbb C$.  For a null covector $p$,
+define the complex transverse-polarization space
+\[
+\mathcal T_p
+=\{\varepsilon\in M_\mathbb C^\vee:
+g^{-1}(p,\varepsilon)=0\}/\mathbb Cp.
+\]
+Interpret $\varepsilon$ as the amplitude of a plane-wave vector potential
+and the quotient by $\mathbb Cp$ as its gauge equivalence.  Show that
+rotations in the massless little group split $\mathcal T_p$ into
+helicities $+1$ and $-1$, giving the two plane-wave polarizations of the
+source-free Maxwell equations.  Show that the transverse traceless
+symmetric square has precisely the two helicity lines $+2$ and $-2$.
+State the gauge, positive-energy, and finite-helicity assumptions required
+for these polarization counts, without invoking the spin--statistics
+relation.
+\end{exercise}
+
+\begin{exercise}[Spin-weighted spherical harmonics and radiation patterns]
+Write $S^2=SU(2)/U(1)$.  The \emph{spin-weight-$s$ line bundle} is the
+bundle associated to the character of $U(1)$ under which rotation of an
+oriented tangent frame through $\psi$ acts by $e^{-is\psi}$.
+Write it as
+\[
+\mathcal L_s=SU(2)\times_{U(1)}\mathbb C_s\longrightarrow S^2.
+\]
+For integers $\ell\geq|s|$ and $-\ell\leq m\leq\ell$, define
+\[
+{}_sY_{\ell m}(\theta,\phi)
+=(-1)^s\sqrt{\frac{2\ell+1}{4\pi}}\,
+\overline{D^\ell_{m,-s}
+\bigl(R_z(\phi)R_y(\theta)\bigr)},
+\]
+using the Wigner coefficients and Condon--Shortley convention developed
+above.  Verify the frame-equivariance law, prove
+\[
+\int_{S^2}{}_sY_{\ell m}\,
+\overline{{}_sY_{\ell' m'}}\,d\Omega
+=\delta_{\ell\ell'}\delta_{mm'},
+\]
+and prove completeness in $L^2(S^2,\mathcal L_s)$.
+Use the Jacobi-polynomial formula for the Wigner $d$-functions to express
+every ${}_sY_{\ell m}$ as a phase times powers of
+$\sin(\theta/2)$ and $\cos(\theta/2)$ times a Jacobi polynomial.
+
+Deduce that helicity-$h$ radiation has no angular multipoles with
+$\ell<|h|$.  In the spin-weight $-2$ convention, derive
+\[
+{}_{-2}Y_{2,2}
+=\sqrt{\frac5{64\pi}}(1+\cos\theta)^2e^{2i\phi},
+\qquad
+{}_{-2}Y_{2,-2}
+=\sqrt{\frac5{64\pi}}(1-\cos\theta)^2e^{-2i\phi}.
+\]
+For a prepared pure quadrupole helicity mode, deduce the normalized angular
+intensity
+\[
+\frac{I_\pm(\theta)}{I_\pm^{\max}}
+=\left(\frac{1\pm\cos\theta}{2}\right)^4
+\]
+and its symmetry-enforced dark direction.  State the linearized
+massless-spin-$2$, far-field, single-mode, polarization-frame, and
+angular-resolution assumptions under
+which this pattern and the absence of monopole and dipole spin-$2$
+radiation are tested.
+\end{exercise}
+
+\begin{exercise}[Bessel mass-shell kernels and relativistic signal propagation]
+Use units $c=\hbar=1$, put $E_p=\sqrt{|p|^2+m^2}$, and let $\Theta$ be the
+Heaviside function.  For a test function $f$ on spacetime, define the
+Dirac distribution at the origin by $\langle\delta_0,f\rangle=f(0)$.
+Define the retarded Klein--Gordon kernel by
+\[
+G_{\rm ret}(t,x)
+=\Theta(t)\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3}
+\frac{\sin(E_pt)}{E_p}e^{ip\cdot x}.
+\]
+Using the radial Fourier--Bessel transform developed earlier, prove
+\[
+(\Box+m^2)G_{\rm ret}=\delta_0
+\]
+and, for $r=|x|$ and $\tau=\sqrt{t^2-r^2}$,
+\[
+G_{\rm ret}(t,r)
+=\Theta(t)\left[
+\frac{\delta(t^2-r^2)}{2\pi}
+-\Theta(t^2-r^2)\frac{mJ_1(m\tau)}{4\pi\tau}
+\right].
+\]
+Deduce exact vanishing outside the light cone, a light-cone impulse, and
+the massive interior tail.  Show that the tail kernel has proper-time
+zeros $m\tau=j_{1,n}$, where $j_{1,n}$ are the positive zeros of $J_1$.
+
+For $\operatorname{Re}z>0$, define the modified Bessel function by
+\[
+K_\nu(z)=\int_0^\infty e^{-z\cosh u}\cosh(\nu u)\,du.
+\]
+For the positive-frequency mass-shell kernel
+\[
+\Delta_+(t,x)
+=\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3\,2E_p}
+e^{-iE_pt+ip\cdot x},
+\]
+prove that at spacelike separation $\rho=\sqrt{r^2-t^2}>0$,
+\[
+\Delta_+(t,r)=\frac{m}{4\pi^2\rho}K_1(m\rho).
+\]
+Derive
+\[
+K_1(z)\sim\sqrt{\frac\pi{2z}}e^{-z}
+\qquad(z\to+\infty)
+\]
+by Laplace's method.  Restore $c$ and $\hbar$ to identify the Compton
+length $\hbar/(mc)$ and the invariant tail-node lengths
+$j_{1,n}\hbar/(mc)$.  Distinguish this nonzero spacelike
+positive-frequency correlation from the causal response represented by
+$G_{\rm ret}$.
+
+For a wave packet concentrated near spatial momentum $p_0$, derive
+\[
+v_{\rm group}=\frac{c^2p_0}{\sqrt{c^2|p_0|^2+m^2c^4}},
+\qquad
+\Delta t
+\sim\frac{Lm^2c}{2|p_0|^2}
+\quad(|p_0|\gg mc)
+\]
+for its delay relative to a light signal over distance $L$.  State the
+flat-spacetime, free-field, point-impulse, wave-packet, and detector-smearing
+assumptions under which the causal front, Bessel tail nodes, exponential
+spacelike decay, and time-of-flight delay are physical predictions.
+\end{exercise}
+
 \section{Scattering Theory}
 
 \begin{exercise}[Outgoing Green kernels and the Lippmann--Schwinger equation]
@@ -1511,8 +1853,8 @@ and call $f$ its \emph{scattering amplitude}.  For outgoing direction
 $\omega'$, define the scattering angle by
 $\cos\theta=\omega'\cdot\omega$.
 
-For $\phi\in C_c^\infty(\R^3)$, define the Dirac distribution at the origin
-by $\langle\delta_0,\phi\rangle=\phi(0)$, and interpret an identity of
+For $\phi\in C_c^\infty(\R^3)$, let $\delta_0$ be the Dirac distribution
+at the origin defined in Poincar\'e Symmetry, and interpret an identity of
 distributions after pairing both sides with every such $\phi$.
 Prove in the sense of distributions that
 \[
