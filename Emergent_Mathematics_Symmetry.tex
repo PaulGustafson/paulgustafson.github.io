@@ -1023,7 +1023,10 @@ condition with
 \section{Peter--Weyl Theory}
 
 
-\begin{exercise}[Maschke's theorem]
+\begin{exercise}[Finite symmetry sectors and Maschke's theorem]
+Let a finite symmetry group $G$ act unitarily on the finite-dimensional
+state space $H$ of a quantum system, and let a self-adjoint Hamiltonian
+$A$ satisfy $A\rho(g)=\rho(g)A$ for every $g\in G$.
 For a group $G$, a representation on a vector space $V$ is a homomorphism
 $\rho:G\to\operatorname{GL}(V)$.  A subspace is invariant when it is
 preserved by every $\rho(g)$, and a nonzero representation is irreducible
@@ -1032,7 +1035,14 @@ when it has no proper nonzero invariant subspace.
 Let $G$ be finite and let the characteristic of $k$ not divide $|G|$.
 Average an arbitrary projection over $G$ to construct an invariant
 complement to every invariant subspace. Deduce that every finite-dimensional
-representation is a direct sum of irreducible representations.
+representation is a direct sum of irreducible representations.  Apply this
+to $H$ and to each spectral subspace of $A$.  Prove that exact symmetry
+organizes every energy level into irreducible multiplets.  If $A_s$ is a
+norm-continuous family of self-adjoint operators commuting with $G$ and a
+spectral cluster remains isolated, use its spectral projection to prove that
+the multiplicity of every irreducible type in the cluster is locally constant.
+Deduce that a change in these multiplicities requires a collision with another
+spectral cluster.
 \end{exercise}
 
 \begin{exercise}[Schur's lemma]
@@ -2164,7 +2174,10 @@ K_t(d)=\frac1{2\pi^2}\int_0^\infty
 P_{-1/2+i\lambda}(\cosh d)
 |c(\lambda)|^{-2}\,d\lambda.
 \]
-Use finite propagation speed and high-frequency stationary phase to show
+Use as theorem input finite propagation speed for the wave equation and
+the one-dimensional stationary-phase estimate for a nondegenerate critical
+point, including its uniform form for compact parameter sets.  Apply them
+to show
 that the leading phase fronts are the geodesic circles
 $d(z,z_0)=vt$.  Derive the high-frequency spectral density from
 $|c(\lambda)|^{-2}=\pi\lambda\tanh(\pi\lambda)$ and state the interior tail
@@ -2547,7 +2560,7 @@ peak locations, systematic absences, and thermal decay rates from the
 theta coefficients of $L^*$.
 \end{exercise}
 
-\begin{exercise}[Zeta-regularized Casimir pressure]
+\begin{exercise}[Theta heat kernels, spectral zeta functions, and Casimir pressure]
 For a massless scalar field between parallel Dirichlet plates of area $A$
 and separation $a$, neglect edge effects and take the normal-mode
 frequencies to be
@@ -2555,6 +2568,33 @@ frequencies to be
 \omega_{n,k}=c\sqrt{|k|^2+\left(\frac{\pi n}{a}\right)^2},
 \qquad n\geq1,\quad k\in\R^2.
 \]
+Define the normal-direction theta sum and the heat trace per unit area by
+\[
+\Theta_a(t)=\sum_{n\in\mathbb Z}
+e^{-\pi^2tn^2/a^2},
+\]
+\[
+\frac{K_D(t)}A
+=\sum_{n\geq1}\int_{\R^2}\frac{d^2k}{(2\pi)^2}
+e^{-t(|k|^2+\pi^2n^2/a^2)}
+=\frac{\Theta_a(t)-1}{8\pi t}.
+\]
+Apply the Jacobi theta transformation to prove
+\[
+\Theta_a(t)=\frac{a}{\sqrt{\pi t}}
+\sum_{m\in\mathbb Z}e^{-a^2m^2/t}
+\]
+and hence
+\[
+\frac{K_D(t)}A
+=\frac{a}{8\pi^{3/2}t^{3/2}}
+-\frac1{8\pi t}
++\frac{a}{4\pi^{3/2}t^{3/2}}
+\sum_{m\geq1}e^{-a^2m^2/t}.
+\]
+Identify the first term as the infinite-volume contribution, the second
+as plate-local, and the remaining image sum as the interaction term.
+
 For $\mu>0$ and $\operatorname{Re}s$ sufficiently large, define the
 regulated vacuum energy density by
 \[
@@ -2563,15 +2603,22 @@ regulated vacuum energy density by
 \sum_{n\geq1}\int_{\R^2}\frac{d^2k}{(2\pi)^2}
 \left(|k|^2+\frac{\pi^2n^2}{a^2}\right)^{1/2-s}.
 \]
-Use the gamma integral to continue this expression as
+Use the Mellin identity
 \[
-\frac{\mathcal E_D(s)}A
-=\frac{\hbar c\,\mu^{2s}}{8\pi}
-\frac{\Gamma(s-3/2)}{\Gamma(s-1/2)}
-\left(\frac\pi a\right)^{3-2s}\zeta(2s-3).
+\lambda^{1/2-s}
+=\frac1{\Gamma(s-\tfrac12)}
+\int_0^\infty t^{s-3/2}e^{-t\lambda}\,dt
 \]
-After subtracting the infinite-separation and plate-local terms, evaluate
-at $s=0$ and prove
+to express $\mathcal E_D(s)$ through the heat trace.  Remove the bulk and
+plate-local terms identified above and evaluate the image integrals to
+continue the interaction energy as
+\[
+\frac{\mathcal E_D^{\rm int}(s)}A
+=\frac{\hbar c\,\mu^{2s}a^{2s-3}}{8\pi^{3/2}}
+\frac{\Gamma(2-s)}{\Gamma(s-\tfrac12)}
+\zeta(4-2s).
+\]
+Evaluate at $s=0$ and prove
 \[
 \frac{\mathcal E_D}A=-\frac{\pi^2\hbar c}{1440a^3}.
 \]

@@ -126,7 +126,7 @@ express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
 
 \section{Modular and Moonshine Characters}
 
-\begin{exercise}[Virasoro algebra and ordered descendants]
+\begin{exercise}[Virasoro symmetry and chiral finite-size levels]
 The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
 $C$, with
 \[
@@ -137,6 +137,11 @@ $C$, with
 A module has central charge $c$ when $C$ acts by $cI$.
 A highest-weight vector $|h\rangle$ satisfies
 $L_0|h\rangle=h|h\rangle$ and $L_n|h\rangle=0$ for $n>0$.
+For a chiral system on a circle of circumference $\ell$ and propagation
+speed $u$, define the finite-size Hamiltonian on such a module by
+\[
+H_{\rm cyl}=\frac{2\pi\hbar u}{\ell}(L_0-c/24).
+\]
 
 Order the negative Virasoro modes by their indices.  Use the commutation
 relations to rewrite every word as an ordered word.  Check every
@@ -144,7 +149,11 @@ three-letter overlap and use the Jacobi identity to prove that the rewriting
 is confluent.  Filter by word length and deduce that the associated graded
 algebra is the symmetric algebra on the negative modes.  Conclude that the
 ordered monomials in the negative modes are linearly independent in the
-universal highest-weight module.
+universal highest-weight module.  Prove that
+$L_{-n_1}\cdots L_{-n_r}|h\rangle$ has excitation energy
+$2\pi\hbar u(n_1+\cdots+n_r)/\ell$ above the highest-weight state and
+identify its exact degeneracy with a partition count before null-vector
+relations are imposed.
 \end{exercise}
 
 \begin{exercise}[Verma and vacuum characters]
@@ -506,7 +515,10 @@ Let $0$ denote the empty row.  For $z>0$, prove
 \[
 (T_N(z)^2)_{ab}\geq T_N(z)_{a0}T_N(z)_{0b}>0.
 \]
-Apply the Perron--Frobenius theorem to show that $\lambda_N(z)$ is simple,
+Use as theorem input the finite Perron--Frobenius statement that a strictly
+positive matrix has a positive simple spectral radius and every other
+spectral value has strictly smaller modulus.  Apply it to show that
+$\lambda_N(z)$ is simple,
 that every other spectral value has smaller modulus, and that
 \[
 \lim_{M\to\infty}\frac1{NM}\log Z_{N,M}(z)
@@ -945,15 +957,74 @@ recurrence and prove
 \]
 \end{exercise}
 
+\begin{exercise}[Simple and coalescing saddle estimates]
+Let
+\[
+I_N(u)=\frac1{2\pi i}\int_{\mathcal C_N(u)}
+e^{N\Phi_u(z)}a_u(z)\,dz,
+\]
+where $u$ ranges over a compact set, the phases and amplitudes are
+holomorphic on fixed neighborhoods of the contours, and the contour
+lengths grow at most polynomially in $N$.
+
+Suppose first that $\mathcal C_N(u)$ passes through finitely many
+nondegenerate critical points $z_j(u)$ along steepest directions.  Assume
+that the critical points remain uniformly separated, that
+$|\Phi_u''(z_j(u))|$ is bounded below by a positive constant, and that,
+outside fixed neighborhoods of these points,
+\[
+\operatorname{Re}\Phi_u(z)
+\leq\max_j\operatorname{Re}\Phi_u(z_j(u))-\delta
+\]
+for one $\delta>0$ independent of $u$.  Rescale each fixed local
+neighborhood by $z-z_j=N^{-1/2}w$, use Taylor's theorem and Gaussian
+domination there, and use the displayed gap on the complement to derive
+the sum of the Gaussian saddle contributions with absolute remainder
+$O(N^{-3/2}e^{NM(u)})$, where
+$M(u)=\max_j\operatorname{Re}\Phi_u(z_j(u))$.  Deduce an $O(N^{-1})$
+relative error whenever the normalized leading saddle sum is bounded away
+from zero, uniformly in $u$.
+
+Suppose instead that two critical points coalesce at $u=u_*$ and that a
+local analytic variable $w$ has been exhibited for which
+\[
+\Phi_u(z)=c(u)+\frac{w^3}{3}-s(u)w,
+\qquad s(u_*)=0,
+\]
+while the transformed amplitude and its first two derivatives are
+uniformly bounded.  Deform the local contour to the Airy rays and prove,
+uniformly
+for bounded $N^{2/3}s(u)$, that $I_N(u)$ is the corresponding linear
+combination of
+\[
+N^{-1/3}\operatorname{Ai}\!\left(N^{2/3}s(u)\right),
+\qquad
+N^{-2/3}\operatorname{Ai}'\!\left(N^{2/3}s(u)\right),
+\]
+with a uniform $O(N^{-1})$ remainder after the common exponential factor
+is removed.  Prove exponentially weighted bounds when
+$N^{2/3}s(u)$ lies on the positive real half-line.  State precisely how
+the contour gap and amplitude bounds make both conclusions uniform.
+\end{exercise}
+
 \begin{exercise}[Hermite steepest descent]
 Write $\psi_j^{\rm H}$ for the normalized oscillator Hermite functions
 developed in Spectral Theory.
 
-Derive a contour integral for the normalized Hermite functions from their
-generating function.  For $E\in(-2\sigma,2\sigma)$, perform steepest descent
-at the two simple saddles; at $2\sigma$, rescale the coalescing saddles to
-the Airy integral.  Establish uniform asymptotic formulas on compact bulk
-windows and uniform exponentially weighted bounds on edge half-lines.
+From the generating function derive
+\[
+H_j(x)=\frac{j!}{2\pi i}\oint
+e^{2xz-z^2}z^{-j-1}\,dz
+\]
+and the resulting contour integral for $\psi_j^{\rm H}$.  After the GUE
+scaling used below, show that the critical-point equation is quadratic,
+has two simple conjugate roots for $E\in(-2\sigma,2\sigma)$, and has a
+double root at $E=2\sigma$.  Exhibit the local Gaussian coordinates in the
+bulk and the cubic Airy coordinate at the edge.  Apply the preceding
+saddle estimates to establish uniform Plancherel--Rotach formulas on
+compact bulk windows and uniform exponentially weighted Airy formulas on
+edge half-lines, including the same estimates for the neighboring indices
+$j=N-1,N$ needed in the Christoffel--Darboux kernel.
 \end{exercise}
 
 \begin{exercise}[GUE bulk statistics]
@@ -1248,10 +1319,19 @@ kernel with the Laguerre Christoffel--Darboux kernel.
 \end{exercise}
 
 \begin{exercise}[Laguerre edge limit]
-Use the Laguerre contour integral to locate the double saddle at the upper
-spectral edge.  Perform the cubic rescaling, prove uniform exponential bounds
-on the deformed contours, and derive convergence of the rescaled Laguerre
-kernel to $K_{\rm Ai}$.  Use the bounds to pass to the Fredholm series.
+Use the generating function to derive
+\[
+L_n^{(\alpha)}(x)
+=\frac1{2\pi i}\oint
+\frac{\exp(-xz/(1-z))}{(1-z)^{\alpha+1}z^{n+1}}\,dz.
+\]
+For the Laguerre kernel obtained in the preceding exercise, write its
+scaled phase explicitly and locate the double saddle at the upper spectral
+edge.  Exhibit the cubic coordinate and contours satisfying the gap
+hypotheses of the coalescing-saddle exercise.  Apply that exercise to
+derive convergence of the rescaled Laguerre kernel to $K_{\rm Ai}$ with
+uniform exponentially weighted bounds, and use those bounds to pass
+termwise to the Fredholm series.
 \end{exercise}
 
 \begin{exercise}[Last-passage fluctuations]

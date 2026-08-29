@@ -2,7 +2,15 @@
 
 \section{Algebraic Curves, Periods, and Monodromy}
 
-\begin{exercise}[Affine and projective algebraic curves]
+\begin{exercise}[Pendulum periods and the Legendre curve]
+For the pendulum developed in Quantization, recall
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}K(k),
+\qquad
+k=\sin\frac{\theta_0}{2},
+\qquad
+m=k^2.
+\]
 For a square-free polynomial $F\in\mathbb C[x,y]$, define its affine plane
 curve and coordinate algebra by
 \[
@@ -53,8 +61,9 @@ Thus the elliptic integral occurring in the pendulum period is a period of
 a holomorphic differential on a projective algebraic curve.
 \end{exercise}
 
-\begin{exercise}[Period lattices and elliptic uniformization]
-For a compact Riemann surface $C$ and a holomorphic one-form $\eta$, define
+\begin{exercise}[Riemann bilinear identity and period lattices]
+For a compact genus-one Riemann surface $C$ and a nowhere-vanishing
+holomorphic one-form $\eta$, define
 the period homomorphism and period subgroup by
 \[
 \operatorname{per}_\eta:H_1(C;\mathbb Z)\longrightarrow\mathbb C,
@@ -63,15 +72,43 @@ the period homomorphism and period subgroup by
 \qquad
 \Lambda_\eta=\operatorname{im}(\operatorname{per}_\eta).
 \]
-For the genus-one curve $E_m$ and $\eta_m$ above, prove that
-$\Lambda_{\eta_m}$ is a discrete subgroup of rank two.  For a fixed
+
+Let $\alpha,\beta$ be oriented simple closed curves meeting once
+positively and generating the first homology of $C$, and put
+\[
+A=\int_\alpha\eta,
+\qquad
+B=\int_\beta\eta.
+\]
+Cut $C$ along $\alpha\cup\beta$, choose a primitive of $\eta$ on the
+resulting polygon, and apply Stokes' theorem to its boundary to prove the
+genus-one Riemann bilinear identity
+\[
+\frac{i}{2}\int_C\eta\wedge\overline\eta
+=\operatorname{Im}(\overline A B)>0.
+\]
+Deduce that $A$ and $B$ are linearly independent over $\mathbb R$ and
+that
+\[
+\Lambda_\eta=A\mathbb Z+B\mathbb Z
+\]
+is a discrete subgroup of rank two.  Apply this to $(E_m,\eta_m)$ and
+identify the real generator $A=4K(\sqrt m)$ for $0<m<1$.
+\end{exercise}
+
+\begin{exercise}[Abel maps and elliptic uniformization]
+Let $\Lambda_{\eta_m}$ be the period lattice obtained above.  For a fixed
 $p_0\in E_m$, define
 \[
 \mathcal A_{p_0}(p)
 =\left[\int_{p_0}^{p}\eta_m\right]\in\mathbb C/\Lambda_{\eta_m}.
 \]
 Show that this is independent of the path modulo periods, is holomorphic,
-and has nowhere-vanishing differential.  Prove that it is a biholomorphism
+and has nowhere-vanishing differential.  Show that it is therefore a
+finite covering.  Identify its induced map on first homology with
+$\operatorname{per}_{\eta_m}:H_1(E_m;\mathbb Z)\to\Lambda_{\eta_m}$ and
+use the preceding period-pairing calculation to prove that the covering
+has one sheet.  Conclude that it is a biholomorphism
 \[
 E_m\cong\mathbb C/\Lambda_{\eta_m}.
 \]
@@ -117,7 +154,7 @@ $m=\sin^2(\theta_0/2)$, deduce
 \[
 T(\theta_0)
 =4\sqrt{\frac{\ell}{g}}\log\frac4{\cos(\theta_0/2)}
-+O\!\left(
++O\!\left(\sqrt{\frac{\ell}{g}}\,
 \cos^2\frac{\theta_0}{2}
 \left|\log\cos^2\frac{\theta_0}{2}\right|
 \right).
@@ -147,11 +184,20 @@ For a divisor $D=\sum_pn_p[p]$, define $\mathcal O(D)$ to be the sheaf of
 meromorphic functions $h$ satisfying
 $\operatorname{div}(h)+D\geq0$ on each open set.  Show that this sheaf is
 the sheaf of holomorphic sections of a holomorphic line bundle.
+Two divisors are \emph{linearly equivalent} when their difference is
+principal, namely the divisor of a nonzero meromorphic function.  Prove
+\[
+\mathcal O(D)\cong\mathcal O(D')
+\quad\Longleftrightarrow\quad
+D\text{ and }D'\text{ are linearly equivalent}.
+\]
 
 A holomorphic line bundle is specified by nowhere-vanishing holomorphic
 transition functions $g_{ij}$ satisfying $g_{ij}g_{jk}=g_{ik}$.  For a
 nonzero meromorphic section $s$, define $\operatorname{div}(s)$ from its
-local representatives.  Prove that
+local representatives.  Use as theorem input the meromorphic-section
+theorem: every holomorphic line bundle on a compact Riemann surface has a
+nonzero meromorphic section.  Prove that
 \[
 \deg L:=\deg\operatorname{div}(s)
 \]
@@ -171,11 +217,42 @@ prove
 \]
 \end{exercise}
 
-\begin{exercise}[Theta divisors and genus-one Riemann--Roch]
-For the elliptic curve $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ and the
-degree-$N$ magnetic line bundle $L_N$ developed in Quantization, use the
-theta automorphy factors to show that every nonzero holomorphic section has
-a zero divisor of degree $N$.
+\begin{exercise}[Abel's theorem and theta divisors]
+Let $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ and put
+\[
+\vartheta_1(z\mid\tau)
+=\vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
+(z\mid\tau).
+\]
+Use the theta product and automorphy laws developed earlier to prove that
+$\vartheta_1$ has one simple zero modulo the period lattice, at the
+origin.
+
+For a degree-zero divisor $D=\sum_pn_p[p]$, define its Abel sum by
+\[
+\mathfrak a(D)=\sum_p n_pp\in E_\tau.
+\]
+Show that this is independent of the chosen lifts of the points to
+$\mathbb C$.  If
+\[
+D=[p_1]+\cdots+[p_N]-[q_1]-\cdots-[q_N]
+\]
+and $\mathfrak a(D)=0$, choose lifts with
+$\sum p_j-\sum q_j=m+n\tau$ and prove that
+\[
+f_D(z)=e^{-2\pi inz}
+\frac{\prod_{j=1}^N\vartheta_1(z-p_j\mid\tau)}
+{\prod_{j=1}^N\vartheta_1(z-q_j\mid\tau)}
+\]
+is elliptic and satisfies $\operatorname{div}(f_D)=D$.  Conversely, apply
+the argument principle to $f'/f$ and $zf'/f$ around a period
+parallelogram to prove that a principal divisor has degree zero and Abel
+sum zero.  Conclude the genus-one Abel theorem
+\[
+D\text{ is principal}
+\quad\Longleftrightarrow\quad
+\deg D=0\text{ and }\mathfrak a(D)=0.
+\]
 
 Let $\operatorname{Pic}^d(E_\tau)$ denote the isomorphism classes of
 holomorphic line bundles of degree $d$, with tensor product as the
@@ -188,13 +265,36 @@ p\longmapsto\mathcal O([p]-[0]),
 \]
 is an isomorphism of complex groups.  Show that tensoring with
 $\mathcal O(N[0])$ identifies $\operatorname{Pic}^0(E_\tau)$ with
-$\operatorname{Pic}^N(E_\tau)$.
+$\operatorname{Pic}^N(E_\tau)$.  Identify effective divisors of degree
+$N$ with unordered $N$-tuples of theta zeros and show that their Abel sum
+determines the corresponding line bundle.
+\end{exercise}
 
-Using the distinguished level-$N$ theta sections already constructed,
-prove the genus-one Riemann--Roch statements
+\begin{exercise}[Theta sections and genus-one Riemann--Roch]
+For the degree-$N$ magnetic line bundle $L_N$ developed in Quantization,
+use the theta automorphy factors to prove that every nonzero holomorphic
+section has a zero divisor of degree $N$.
+
+For any line bundle $L$ of degree $N>0$, use Abel's theorem to write
 \[
-\dim H^0(E_\tau,L)=N\quad(\deg L=N>0),
+L\cong\mathcal O((N-1)[0]+[p])
 \]
+for a unique $p\in E_\tau$.  Prove from
+$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ that multiplication by $N$
+is surjective, choose $a\in E_\tau$ with $-Na=p$, and identify $L$ with
+the pullback of the standard degree-$N$ theta bundle by translation by
+$a$.  Translate the distinguished level-$N$ theta sections and use their
+distinct magnetic-translation characters to construct $N$ linearly
+independent sections of $L$.  Conversely, expand a section on the
+universal cover in Fourier modes and use its two
+automorphy laws to show that all coefficients are determined by $N$
+initial values.  Deduce
+\[
+\dim H^0(E_\tau,L)=N.
+\]
+
+Prove that a nonzero holomorphic section of a degree-zero line bundle has
+no zeros and therefore trivializes the bundle.  Deduce
 \[
 \dim H^0(E_\tau,L)=
 \begin{cases}
@@ -203,7 +303,14 @@ prove the genus-one Riemann--Roch statements
 \end{cases}
 \quad(\deg L=0).
 \]
-Relate translation of theta-function zeros to the parameter space
+Show that a negative-degree line bundle has no nonzero holomorphic
+sections.  Since the nowhere-vanishing form $dz$ trivializes the canonical
+line bundle, combine these cases to prove the genus-one Riemann--Roch
+identity
+\[
+\dim H^0(E_\tau,L)-\dim H^0(E_\tau,L^{-1})=\deg L.
+\]
+Relate translation of theta-function zeros to
 $\operatorname{Pic}^N(E_\tau)$.
 \end{exercise}
 
