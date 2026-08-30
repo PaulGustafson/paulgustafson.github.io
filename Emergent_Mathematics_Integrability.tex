@@ -1,0 +1,2802 @@
+\part{Integrability}
+
+\section{Transfer Matrices}
+
+\begin{exercise}[Hard-hexagon transfer matrices]
+Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
+let $T_N(z)$ be an operator on the configuration space whose matrix element
+between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
+height-$M$ periodic lattice define
+\[
+Z_{N,M}(z)=\Tr(T_N(z)^M).
+\]
+When $T_N(z)$ has nonnegative entries, write $\lambda_N(z)$ for its
+spectral radius.
+
+Let
+\[
+\mathcal R_N
+=\{a\in\{0,1\}^{\Z/N\Z}:a_i a_{i+1}=0\text{ for every }i\}.
+\]
+Two rows $a,b\in\mathcal R_N$ are compatible when
+\[
+a_i b_i=0,
+\qquad a_i b_{i+1}=0
+\quad(i\in\Z/N\Z).
+\]
+For $z\geq0$, with $|a|=\sum_i a_i$, define
+\[
+T_N(z)_{ab}
+=\mathbf1_{\{a,b\text{ compatible}\}}
+z^{(|a|+|b|)/2}.
+\]
+
+Identify the horizontal, vertical, and diagonal nearest-neighbor edges
+encoded by the two compatibility conditions.  Prove
+\[
+\Tr(T_N(z)^M)
+=\sum_I z^{|I|},
+\]
+where the sum is over independent vertex sets of the specified triangular
+$N\times M$ torus.  Prove that every coefficient is an exact state count.
+Let $0$ denote the empty row.  For $z>0$, prove
+\[
+(T_N(z)^2)_{ab}\geq T_N(z)_{a0}T_N(z)_{0b}>0.
+\]
+Use as theorem input the finite Perron--Frobenius statement that a strictly
+positive matrix has a positive simple spectral radius and every other
+spectral value has strictly smaller modulus.  Apply it to show that
+$\lambda_N(z)$ is simple,
+that every other spectral value has smaller modulus, and that
+\[
+\lim_{M\to\infty}\frac1{NM}\log Z_{N,M}(z)
+=\frac1N\log\lambda_N(z).
+\]
+Put $\eta=\log z=\beta_{\rm th}\mu$ and
+\[
+\Psi_{N,M}(\eta)=\log Z_{N,M}(e^\eta).
+\]
+Give the independent sets the probability
+$\mathbb P_\eta(I)=e^{\eta|I|}/Z_{N,M}(e^\eta)$ and write
+$\mathbb E_\eta$ for expectation with respect to this measure.  For a
+square-integrable random variable $Y$, write
+$\operatorname{Var}_\eta(Y)=\mathbb E_\eta|Y-\mathbb E_\eta Y|^2$.
+Set $A=\partial_\eta\Psi_{N,M}$ and prove
+\[
+A=\mathbb E_\eta|I|,
+\qquad
+\partial_\eta A=\operatorname{Var}_\eta(|I|),
+\]
+and derive the mean occupied fraction and isothermal finite-size
+susceptibility
+\[
+\rho_{N,M}=\frac{A}{NM},
+\qquad
+\chi_{N,M}=\frac{\partial\rho_{N,M}}{\partial\mu}
+=\frac{\beta_{\rm th}}{NM}\operatorname{Var}_\eta(|I|).
+\]
+State the lattice
+geometry, boundary conditions, and finite $N,M$ limitations required when
+these quantities are compared with adsorption or exclusion-process data.
+\end{exercise}
+
+\begin{exercise}[The planar Ising model and Kramers--Wannier duality]
+Let $G=(V,E)$ be a finite connected graph with a fixed planar embedding.
+For couplings $K_e>0$, define
+\[
+Z_G^{\mathrm f}(K)
+=\sum_{s:V\to\{-1,1\}}
+\exp\!\left(\sum_{e=uv}K_es_us_v\right).
+\]
+Let $G^*$ be the planar dual, fix the spin of its outer-face vertex to
+$+1$, and denote the corresponding partition function by
+$Z_{G^*}^{+}(K^*)$.  Let $\mathcal E(G)$ be the family of edge subsets in
+which every vertex has even degree.  The dual couplings are determined by
+\[
+e^{-2K_{e^*}^*}=\tanh K_e.
+\]
+
+Expand each edge factor as
+\[
+e^{K_es_us_v}=\cosh K_e(1+s_us_v\tanh K_e)
+\]
+and prove
+\[
+Z_G^{\mathrm f}(K)
+=2^{|V|}\prod_{e\in E}\cosh K_e
+\sum_{\gamma\in\mathcal E(G)}
+\prod_{e\in\gamma}\tanh K_e.
+\]
+Identify $\mathcal E(G)$ with the domain walls of dual spin configurations
+whose outer-face spin is fixed, and deduce the exact planar duality
+\[
+Z_G^{\mathrm f}(K)
+=2^{|V|}\prod_{e\in E}\bigl(\cosh K_e\,e^{-K_{e^*}^*}\bigr)
+Z_{G^*}^{+}(K^*).
+\]
+For horizontal and vertical square-lattice couplings $K_h,K_v$, show that
+the duality interchanges the directions and that its fixed locus is
+\[
+\sinh(2K_h)\sinh(2K_v)=1.
+\]
+Assuming the infinite-volume ferromagnetic model has a single transition
+and that duality interchanges its high- and low-temperature phases, deduce
+in the isotropic case
+\[
+K_c=\frac12\log(1+\sqrt2).
+\]
+State separately the exact finite-graph identity, the infinite-volume
+assumptions, and the conclusion about the critical temperature.
+\end{exercise}
+
+\begin{exercise}[Ising star--triangle transformation]
+For $K_1,K_2,K_3>0$ and boundary spins $s_1,s_2,s_3$, prove that there are
+unique $A>0$ and real $L_{12},L_{23},L_{31}$ satisfying
+\[
+\sum_{s_0=\pm1}
+e^{K_1s_0s_1+K_2s_0s_2+K_3s_0s_3}
+=A e^{L_{12}s_1s_2+L_{23}s_2s_3+L_{31}s_3s_1}.
+\]
+Put
+\[
+\begin{aligned}
+w_0&=2\cosh(K_1+K_2+K_3),&
+w_1&=2\cosh(-K_1+K_2+K_3),\\
+w_2&=2\cosh(K_1-K_2+K_3),&
+w_3&=2\cosh(K_1+K_2-K_3).
+\end{aligned}
+\]
+Derive
+\[
+A=(w_0w_1w_2w_3)^{1/4},
+\]
+\[
+e^{4L_{12}}=\frac{w_0w_3}{w_1w_2},\qquad
+e^{4L_{23}}=\frac{w_0w_1}{w_2w_3},\qquad
+e^{4L_{31}}=\frac{w_0w_2}{w_1w_3}.
+\]
+Show that replacing every star of one sublattice of the honeycomb model
+by a triangle changes the partition function only by the product of the
+local factors $A$.  In the isotropic case derive
+\[
+e^{4L}=\frac{\cosh(3K)}{\cosh K}.
+\]
+Combine this transformation with planar duality and, under the
+single-transition hypothesis of the preceding exercise, obtain
+\[
+K_c^{\rm tri}=\frac14\log3,
+\qquad
+K_c^{\rm hex}=\frac12\log(2+\sqrt3).
+\]
+Identify the coupling normalization and lattice geometry needed when these
+critical temperatures are compared with an Ising magnet or a programmable
+spin array.
+\end{exercise}
+
+\begin{exercise}[Ising transfer matrices and free fermions]
+Let $\mathcal S_N=\{-1,1\}^{\Z/N\Z}$ and $K_h,K_v>0$.  For row
+configurations $s,t\in\mathcal S_N$ define
+\[
+T_N^{\rm Is}(K_h,K_v)_{s,t}
+=\exp\!\left[
+\frac{K_h}{2}\sum_i(s_is_{i+1}+t_it_{i+1})
++K_v\sum_i s_it_i\right].
+\]
+Let $R_N$ be cyclic row translation.  On
+$\mathcal H_N=\ell^2(\mathcal S_N)$ let
+\[
+(Z_jf)(s)=s_jf(s),
+\qquad
+(X_jf)(s)=f(s^{(j)}),
+\qquad
+Y_j=iX_jZ_j,
+\]
+where $s^{(j)}$ is obtained by reversing $s_j$.  Put
+\[
+P=\prod_{j=1}^NX_j,
+\qquad
+c_{2j-1}=\left(\prod_{\ell<j}X_\ell\right)Z_j,
+\qquad
+c_{2j}=\left(\prod_{\ell<j}X_\ell\right)Y_j.
+\]
+Let $K_v^*>0$ satisfy $e^{-2K_v^*}=\tanh K_v$, and set
+\[
+\mathcal K_+=\left\{\frac{(2m+1)\pi}{N}:0\leq m<N\right\},
+\qquad
+\mathcal K_-=\left\{\frac{2m\pi}{N}:0\leq m<N\right\}.
+\]
+Write $a_x$ and $a_t$ for the spatial and transfer-step lattice spacings
+and $L=Na_x$ for the circumference.
+
+\begin{enumerate}[label=(\alph*)]
+\item Verify
+\[
+R_NT_N^{\rm Is}(K_h,K_v)
+=T_N^{\rm Is}(K_h,K_v)R_N.
+\]
+\item Prove
+\[
+T_N^{\rm Is}(K_h,K_v)
+=(2\sinh(2K_v))^{N/2}
+e^{\frac{K_h}{2}\sum_jZ_jZ_{j+1}}
+e^{K_v^*\sum_jX_j}
+e^{\frac{K_h}{2}\sum_jZ_jZ_{j+1}}.
+\]
+\item Verify the Clifford relations
+\[
+c_rc_s+c_sc_r=2\delta_{rs}I,
+\qquad
+X_j=ic_{2j-1}c_{2j},
+\qquad
+Z_jZ_{j+1}=ic_{2j}c_{2j+1}\quad(j<N),
+\]
+and
+\[
+Z_NZ_1=-iPc_{2N}c_1.
+\]
+\item On the $P=+1$ and $P=-1$ sectors use, respectively, the distinguished
+Fourier modes with momenta in $\mathcal K_+$ and $\mathcal K_-$ to
+diagonalize the induced action on the Clifford generators.  Derive
+\[
+\cosh\gamma(k)
+=\cosh(2K_h)\cosh(2K_v^*)
+-\sinh(2K_h)\sinh(2K_v^*)\cos k,
+\qquad \gamma(k)\geq0,
+\]
+and prove that the transfer eigenvalues are
+\[
+\Lambda
+=(2\sinh(2K_v))^{N/2}
+\exp\!\left(\frac12\sum_{k\in\mathcal K_\pm}
+\epsilon_k\gamma(k)\right),
+\qquad \epsilon_k\in\{-1,1\},
+\]
+with the fermion-parity condition determined by the chosen $P$ sector.
+
+\item At $K_h=K_v=K_c$ prove
+\[
+\gamma(k)=2\operatorname{arsinh}|\sin(k/2)|
+=|k|+O(|k|^3).
+\]
+After subtracting the sector ground energy and measuring gaps in units
+$2\pi(a_x/a_t)/L$, use the parity projections to obtain the chiral
+scaling products
+\[
+\begin{aligned}
+\chi_0(q)&=\frac{q^{-1/48}}2
+\left[\prod_{m\geq0}(1+q^{m+1/2})
++\prod_{m\geq0}(1-q^{m+1/2})\right],\\
+\chi_{1/2}(q)&=\frac{q^{-1/48}}2
+\left[\prod_{m\geq0}(1+q^{m+1/2})
+-\prod_{m\geq0}(1-q^{m+1/2})\right],\\
+\chi_{1/16}(q)&=q^{1/24}\prod_{m\geq1}(1+q^m).
+\end{aligned}
+\]
+Use the Jacobi triple product to recover the theta--eta formulas in the
+Ising character exercise.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Theta-character transfer spectra]
+Let $\Lambda_0(L)>0$ be the Perron eigenvalue of
+$T_N^{\rm Is}(K_c,K_c)$ and let
+$\Lambda_{a,r,\bar r}(L)$ denote its low-lying symmetry-resolved eigenvalues.
+Define
+\[
+E_{a,r,\bar r}(L)
+=-\frac1{a_t}\log|\Lambda_{a,r,\bar r}(L)|.
+\]
+Use the critical Clifford spectrum and Euler--Maclaurin summation to prove
+the finite-size asymptotic
+\[
+E_{a,r,\bar r}(L)
+=e_\infty L+\frac{2\pi v}{L}
+\left(h_a+\bar h_a+r+\bar r-\frac{c+\bar c}{24}\right)
++o(L^{-1}).
+\]
+If $R_N$ acts on the same state by $e^{i\mathsf p a_x}$, prove
+\[
+\mathsf p=\frac{2\pi}{L}(h_a-\bar h_a+r-\bar r)
+\pmod{2\pi/a_x}.
+\]
+Prove that $v=a_x/a_t$ for the displayed isotropic transfer normalization.
+Use the three Ising character products derived in the preceding transfer
+exercise to prove that the coefficient of
+$q^{h_a+r-c/24}\bar q^{\bar h_a+\bar r-\bar c/24}$ gives the predicted
+multiplicity at these energy and momentum values.  Express every excitation
+gap directly as
+\[
+E_j(L)-E_0(L)
+=-\frac1{a_t}\log\left|\frac{\Lambda_j(L)}{\Lambda_0(L)}\right|.
+\]
+Compute the first spectral gaps and degeneracies in the three Ising
+sectors.  Deduce the universal gap ratios and the $L^{-1}$ Casimir-energy
+correction.  State how finite-size transfer eigenvalues determine $c$, the
+primary weights, and $v$, including the symmetry-sector resolution,
+anisotropy corrections, and irrelevant-operator corrections required for
+the comparison.
+\end{exercise}
+
+\section{Quantum Groups and \texorpdfstring{$q$}{q}-Harmonic Analysis}
+
+
+
+\begin{exercise}[Poisson--Lie groups and classical Yang--Baxter equations]
+A \emph{Poisson--Lie group} is a Lie group $G$ with a Poisson structure for
+which multiplication $G\times G\to G$ is Poisson.  A \emph{Lie bialgebra}
+is a Lie algebra $\mathfrak g$ with a linear map
+\[
+\delta:\mathfrak g\to\mathfrak g\wedge\mathfrak g
+\]
+that is a $1$-cocycle for the adjoint action and whose transpose defines a
+Lie bracket on $\mathfrak g^*$.  It is \emph{coboundary} when
+\[
+\delta(x)=[x\otimes1+1\otimes x,r]
+\]
+for some $r\in\mathfrak g\otimes\mathfrak g$.
+
+Define
+\[
+\operatorname{CYB}(r)
+=[r_{12},r_{13}]+[r_{12},r_{23}]+[r_{13},r_{23}].
+\]
+Differentiate a Poisson--Lie structure at the identity and prove that it
+defines a Lie bialgebra.
+Prove that the co-Jacobi identity is equivalent to
+$\operatorname{CYB}(r)$ being invariant under the diagonal adjoint action.
+Under the additional triangular hypothesis
+$\operatorname{CYB}(r)=0$, recover the classical Yang--Baxter equation;
+state the modified classical Yang--Baxter equation as
+$\operatorname{CYB}(r)=\Omega$ for an invariant tensor $\Omega$ and
+distinguish the case $\Omega\ne0$.
+\end{exercise}
+
+
+\begin{exercise}[Hopf algebras and \texorpdfstring{$U_v(\mathfrak{sl}_2)$}{Uv(sl2)}]
+A \emph{bialgebra} is a unital associative algebra $H$ with unital algebra
+homomorphisms
+\[
+\Delta:H\to H\otimes H,
+\qquad
+\varepsilon:H\to\C
+\]
+satisfying coassociativity and the counit identities.  A \emph{Hopf
+algebra} is a bialgebra with a linear antipode $S:H\to H$ satisfying
+\[
+m(S\otimes\id)\Delta
+=\eta\varepsilon
+=m(\id\otimes S)\Delta.
+\]
+
+Fix a quantum-group parameter $0<v<1$.
+
+For $0<v<1$, $U_v(\mathfrak{sl}_2)$ is generated by
+$E,F,K,K^{-1}$ with
+\[
+KEK^{-1}=v^2E,
+\qquad KFK^{-1}=v^{-2}F,
+\qquad [E,F]=\frac{K-K^{-1}}{v-v^{-1}},
+\]
+and
+\[
+\Delta(K)=K\otimes K,
+\quad
+\Delta(E)=E\otimes1+K\otimes E,
+\quad
+\Delta(F)=F\otimes K^{-1}+1\otimes F.
+\]
+Its counit, antipode, and compact real-form involution are
+\[
+\varepsilon(E)=\varepsilon(F)=0,
+\quad \varepsilon(K)=1,
+\quad
+S(E)=-K^{-1}E,
+\quad S(F)=-FK,
+\quad S(K)=K^{-1},
+\]
+\[
+K^*=K,
+\qquad E^*=KF,
+\qquad F^*=EK^{-1}.
+\]
+
+Verify that the coproduct preserves the defining relations and that the
+displayed counit, antipode, and involution make
+$U_v(\mathfrak{sl}_2)$ a Hopf $*$-algebra.  In the $\hbar$-adic
+completion put
+\[
+v=e^{-\hbar},\qquad K=v^H=e^{-\hbar H}.
+\]
+Prove that
+\[
+[H,E]=2E,\qquad [H,F]=-2F,
+\qquad
+\frac{K-K^{-1}}{v-v^{-1}}=H+O(\hbar^2),
+\]
+and that the relations and coproduct tend to those of
+$U(\mathfrak{sl}_2)$ as $\hbar\to0$.  Expand the coproduct through first
+order and compute the resulting coboundary Lie bialgebra.
+\end{exercise}
+
+\begin{exercise}[Gaussian binomial coefficients]
+For an indeterminate $u$, $n\geq0$, and $0\leq r\leq n$, define
+\[
+\genfrac{[}{]}{0pt}{}{n}{r}_{u}
+=\prod_{j=1}^r\frac{1-u^{n-r+j}}{1-u^j},
+\]
+with value $1$ for $r=0$ and value $0$ outside this range.
+
+Derive
+\[
+\genfrac{[}{]}{0pt}{}{n}{r}_{u}
+=\genfrac{[}{]}{0pt}{}{n-1}{r}_{u}
++u^{n-r}\genfrac{[}{]}{0pt}{}{n-1}{r-1}_{u}
+\]
+and prove
+\[
+\prod_{j=0}^{n-1}(1+tu^j)
+=\sum_{r=0}^n
+u^{r(r-1)/2}\genfrac{[}{]}{0pt}{}{n}{r}_{u}t^r.
+\]
+For $YX=uXY$, prove the noncommutative identity
+\[
+(X+Y)^n=\sum_{r=0}^n
+\genfrac{[}{]}{0pt}{}{n}{r}_{u}X^rY^{n-r}.
+\]
+Set $u=v^2$ and apply it to
+$X=E\otimes1$ and $Y=K\otimes E$ in $U_v(\mathfrak{sl}_2)$ to obtain an
+explicit formula for $\Delta(E^n)$.  Show that the limit $v\to1$ recovers
+the ordinary binomial theorem and the undeformed coproduct.
+\end{exercise}
+
+
+\begin{exercise}[Gaussian-binomial state counts]
+An \emph{integer partition} $\lambda$ is a finite nonincreasing sequence
+of positive integers; its size $|\lambda|$ is the sum of its parts, and its
+length $\ell(\lambda)$ is the number of nonzero parts.  Its Young diagram
+has one left-justified row for each part.
+Apply the Gaussian binomial theorem from the preceding exercise.
+Prove that the coefficient of $u^m$ in
+$\genfrac{[}{]}{0pt}{}{n}{r}_u$ counts partitions
+of $m$ whose diagrams fit inside an $r\times(n-r)$ rectangle.  For $n$
+fermionic levels with energies $j\hbar\omega$, $0\leq j<n$, prove that the
+coefficient of $t^ru^{m+r(r-1)/2}$ in
+\[
+\prod_{j=0}^{n-1}(1+tu^j)
+\]
+is the exact number of $r$-particle states at excitation energy
+$m\hbar\omega$ above the filled lowest configuration, and identify it with
+the coefficient of $u^m$ in $\genfrac{[}{]}{0pt}{}{n}{r}_u$.
+\end{exercise}
+
+\begin{exercise}[Compact quantum groups and $SU_v(2)$]
+A \emph{compact quantum group} $\mathbb G$ is a unital $C^*$-algebra
+$C(\mathbb G)$ with a unital $*$-homomorphism
+\[
+\Delta:C(\mathbb G)\longrightarrow
+C(\mathbb G)\otimes_{\min}C(\mathbb G)
+\]
+where $\otimes_{\min}$ is the closure of the algebraic tensor product in
+$B(H\otimes K)$ for faithful representations on $H$ and $K$.  The
+coproduct satisfies
+\[
+(\Delta\otimes\id)\Delta=(\id\otimes\Delta)\Delta
+\]
+and
+\[
+\overline{\Delta(C(\mathbb G))(1\otimes C(\mathbb G))}
+=C(\mathbb G)\otimes_{\min}C(\mathbb G)
+=\overline{\Delta(C(\mathbb G))(C(\mathbb G)\otimes1)}.
+\]
+Here a state on a unital $C^*$-algebra is a linear functional $h$ with
+$h(a^*a)\geq0$ and $h(1)=1$.  A \emph{Haar state} is a state
+$h$ satisfying
+\[
+(h\otimes\id)\Delta(a)=h(a)1=(\id\otimes h)\Delta(a).
+\]
+
+Let $\operatorname{Pol}(SU_v(2))$ be the universal unital $*$-algebra
+generated by $\alpha,\gamma$ so that
+\[
+u=\begin{pmatrix}
+\alpha&-v\gamma^*\\
+\gamma&\alpha^*
+\end{pmatrix}
+\]
+is unitary.  Equivalently, its relations are
+\[
+\begin{gathered}
+\alpha^*\alpha+\gamma^*\gamma=1,
+\qquad \alpha\alpha^*+v^2\gamma\gamma^*=1,
+\qquad \gamma^*\gamma=\gamma\gamma^*,\\
+\alpha\gamma=v\gamma\alpha,
+\qquad \alpha\gamma^*=v\gamma^*\alpha,
+\end{gathered}
+\]
+Define $\Delta(u_{ij})=\sum_k u_{ik}\otimes u_{kj}$, and let
+$C(SU_v(2))$ be the universal $C^*$-completion.
+
+Prove that $\Delta$ is a coassociative $*$-homomorphism satisfying the
+cancellation conditions.  On $\ell^2(\Z_{\geq0})$, define for $\xi\in\T$
+\[
+\pi_\xi(\gamma)e_n=\xi v^ne_n,
+\qquad
+\pi_\xi(\alpha)e_n=(1-v^{2n})^{1/2}e_{n-1},
+\qquad e_{-1}=0.
+\]
+Verify the relations and prove that
+\[
+h(a)=(1-v^2)\sum_{n\geq0}v^{2n}
+\int_\T\langle e_n,\pi_\xi(a)e_n\rangle\,dm_\T(\xi)
+\]
+is the Haar state.
+\end{exercise}
+
+\begin{exercise}[Quantum-group coefficient pairings]
+For a finite-dimensional type-$1$ $U_v(\mathfrak{sl}_2)$-module $V$,
+$\xi\in V$, and $\varphi\in V^\vee$, define
+\[
+c_{\varphi,\xi}(x)=\varphi(x\xi)
+\qquad(x\in U_v(\mathfrak{sl}_2)).
+\]
+Let $\mathcal O_v$ be the Hopf algebra generated by these coefficient
+functionals.  Its pairing with $U_v(\mathfrak{sl}_2)$ is
+\[
+\langle x,c_{\varphi,\xi}\rangle=c_{\varphi,\xi}(x),
+\]
+with multiplication and coproduct characterized by
+\[
+\langle x,ab\rangle=\langle\Delta x,a\otimes b\rangle,
+\qquad
+\langle xy,a\rangle=\langle x\otimes y,\Delta a\rangle.
+\]
+
+Prove that the coefficient map of a tensor product is the product of the
+coefficient maps, that the coefficient map of a dual module is obtained
+from the antipode, and that the displayed pairing is a nondegenerate Hopf
+pairing.  Apply it to the fundamental module and prove that sending its
+coefficient corepresentation to the displayed matrix $u$ extends to a
+Hopf $*$-isomorphism
+\[
+\mathcal O_v\longrightarrow\operatorname{Pol}(SU_v(2)).
+\]
+\end{exercise}
+
+\begin{exercise}[$SU_v(2)$ Peter--Weyl decomposition]
+For a finite-dimensional unitary corepresentation $U$, a coefficient is
+$u_\omega=(\omega\otimes\id)(U)$ for $\omega\in B(H_U)^*$.  The algebra
+$\operatorname{Pol}(SU_v(2))$ is the unital $*$-subalgebra generated by all
+such coefficients.
+
+Construct the irreducible type-$1$ unitary
+$U_v(\mathfrak{sl}_2)$-modules $V_n$ from their highest-weight lines and
+form their coefficient corepresentations of $\operatorname{Pol}(SU_v(2))$
+using the Hopf pairing.
+Use the explicit Haar state to derive quantum Schur orthogonality and prove
+\[
+\operatorname{Pol}(SU_v(2))
+=\bigoplus_{n\geq0}C(V_n)
+\]
+algebraically and as a Hilbert direct sum in the Haar GNS space.
+\end{exercise}
+
+\begin{exercise}[$C^*$-tensor categories and corepresentations]
+A finite-dimensional unitary corepresentation of a compact quantum group
+$\mathbb G$ on $H_U$ is a unitary $U\in B(H_U)\otimes C(\mathbb G)$ with
+$(\id\otimes\Delta)(U)=U_{12}U_{13}$.
+
+A \emph{$\C$-linear category} $\mathcal C$ consists of objects, complex
+vector spaces $\Hom_{\mathcal C}(X,Y)$, bilinear associative compositions
+\[
+\Hom_{\mathcal C}(Y,Z)\otimes\Hom_{\mathcal C}(X,Y)
+\longrightarrow\Hom_{\mathcal C}(X,Z),
+\qquad (g,f)\longmapsto gf,
+\]
+and identity morphisms $\id_X$.  A \emph{$\C$-linear tensor category} also
+has a bilinear tensor product on objects and morphisms, a tensor unit
+$\mathbf1$, and isomorphisms
+\[
+a_{X,Y,Z}:(X\otimes Y)\otimes Z\longrightarrow X\otimes(Y\otimes Z),
+\quad
+l_X:\mathbf1\otimes X\longrightarrow X,
+\quad
+r_X:X\otimes\mathbf1\longrightarrow X.
+\]
+The tensor product satisfies
+\[
+(f'f)\otimes(g'g)=(f'\otimes g')(f\otimes g),
+\qquad
+\id_X\otimes\id_Y=\id_{X\otimes Y},
+\]
+and the structure maps commute with morphisms; in particular,
+\[
+a_{X',Y',Z'}((f\otimes g)\otimes h)
+=(f\otimes(g\otimes h))a_{X,Y,Z}.
+\]
+They satisfy the pentagon and triangle identities
+\[
+a_{W,X,Y\otimes Z}a_{W\otimes X,Y,Z}
+=(\id_W\otimes a_{X,Y,Z})a_{W,X\otimes Y,Z}
+(a_{W,X,Y}\otimes\id_Z),
+\]
+\[
+(\id_X\otimes l_Y)a_{X,\mathbf1,Y}=r_X\otimes\id_Y.
+\]
+A \emph{$C^*$-category} has Banach morphism spaces and conjugate-linear
+maps $f\mapsto f^*$ with
+\[
+f^*:Y\longrightarrow X,
+\qquad
+(f^*)^*=f,
+\qquad
+(gf)^*=f^*g^*,
+\]
+\[
+\|gf\|\leq\|g\|\|f\|,
+\qquad
+\|f^*f\|=\|f\|^2.
+\]
+A \emph{$C^*$-tensor category} is a $\C$-linear tensor category with this
+structure, with
+\[
+(f\otimes g)^*=f^*\otimes g^*,
+\qquad
+a^*=a^{-1},\quad l^*=l^{-1},\quad r^*=r^{-1}.
+\]
+Associators and unit maps are suppressed in subsequent tensor composites.
+
+For a compact quantum group $\mathbb G$, let
+$\operatorname{Rep}(\mathbb G)$ have finite-dimensional unitary
+corepresentations as objects and
+\[
+\Hom_{\mathbb G}(U,V)
+=\{A:H_U\to H_V:(A\otimes1)U=V(A\otimes1)\}
+\]
+as morphism spaces.  Composition and adjoints are those of Hilbert-space
+operators.  Define
+\[
+U\boxtimes V=U_{13}V_{23}
+\quad\text{on }H_U\otimes H_V,
+\]
+and take the trivial corepresentation on $\C$ as tensor unit, with the
+Hilbert-space associator and unit maps.
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the adjoint of an intertwiner is an intertwiner, that
+$U\boxtimes V$ is a unitary corepresentation, and that tensor products of
+intertwiners are intertwiners.
+\item Verify the pentagon, triangle, and
+$C^*$-identities and deduce that $\operatorname{Rep}(\mathbb G)$ is a
+$C^*$-tensor category.
+\item For $C(\mathbb G)=\C$, identify it with
+$\operatorname{Hilb}_{\mathrm{fd}}$, the category of finite-dimensional
+Hilbert spaces and all linear maps.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Rigidity, conjugates, and quantum dimension]
+An orthogonal direct sum $X=\bigoplus_{i=1}^rX_i$ is specified by morphisms
+$u_i:X_i\to X$ satisfying
+\[
+u_i^*u_j=\delta_{ij}\id_{X_i},
+\qquad
+\sum_{i=1}^ru_iu_i^*=\id_X.
+\]
+
+In a $\C$-linear tensor category, a \emph{left dual} of $V$ is an object
+$V^\vee$ with morphisms
+\[
+\operatorname{ev}_V:V^\vee\otimes V\longrightarrow\mathbf1,
+\qquad
+\operatorname{coev}_V:\mathbf1\longrightarrow V\otimes V^\vee
+\]
+satisfying
+\[
+(\id_V\otimes\operatorname{ev}_V)
+(\operatorname{coev}_V\otimes\id_V)=\id_V,
+\]
+\[
+(\operatorname{ev}_V\otimes\id_{V^\vee})
+(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
+\]
+A \emph{right dual} ${}^\vee V$ has maps
+\[
+\widetilde{\operatorname{ev}}_V:V\otimes{}^\vee V\longrightarrow\mathbf1,
+\qquad
+\widetilde{\operatorname{coev}}_V:\mathbf1
+\longrightarrow{}^\vee V\otimes V
+\]
+satisfying
+\[
+(\widetilde{\operatorname{ev}}_V\otimes\id_V)
+(\id_V\otimes\widetilde{\operatorname{coev}}_V)=\id_V,
+\]
+\[
+(\id_{{}^\vee V}\otimes\widetilde{\operatorname{ev}}_V)
+(\widetilde{\operatorname{coev}}_V\otimes\id_{{}^\vee V})
+=\id_{{}^\vee V}.
+\]
+In a $C^*$-tensor category, a \emph{conjugate} of an object $V$ is an object
+$\overline V$ with morphisms
+\[
+R_V:\mathbf 1\longrightarrow\overline V\otimes V,
+\qquad
+\overline R_V:\mathbf 1\longrightarrow V\otimes\overline V
+\]
+satisfying
+\[
+(\overline R_V^*\otimes\id_V)(\id_V\otimes R_V)=\id_V,
+\qquad
+(R_V^*\otimes\id_{\overline V})
+(\id_{\overline V}\otimes\overline R_V)=\id_{\overline V}.
+\]
+Its dual maps are
+\[
+\operatorname{ev}_V=R_V^*,
+\qquad
+\operatorname{coev}_V=\overline R_V,
+\qquad
+\widetilde{\operatorname{ev}}_V=\overline R_V^*,
+\qquad
+\widetilde{\operatorname{coev}}_V=R_V.
+\]
+A solution of the conjugate equations is \emph{standard} when
+\[
+R_V^*(\id_{\overline V}\otimes T)R_V
+=\overline R_V^*(T\otimes\id_{\overline V})\overline R_V
+\qquad(T\in\End(V)).
+\]
+For a standard solution, define
+\[
+\operatorname{tr}_{\mathcal C}(T)
+=R_V^*(\id_{\overline V}\otimes T)R_V,
+\qquad
+\dim_{\mathcal C}(V)=\operatorname{tr}_{\mathcal C}(\id_V).
+\]
+For $\mathcal C=\operatorname{Rep}(SU_v(2))$, write
+$\operatorname{tr}_v$ and $\dim_v$.
+
+\begin{enumerate}[label=(\alph*)]
+\item Let two standard solutions of the conjugate equations be given for $V$.
+Use the snake identities and standardness to construct the unitary
+isomorphism between their conjugate objects and prove that they define the
+same trace.
+\item For $S:V\to W$ and $T:W\to V$, prove
+\[
+\operatorname{tr}_{\mathcal C}(TS)
+=\operatorname{tr}_{\mathcal C}(ST),
+\qquad
+\operatorname{tr}_{\mathcal C}(T^*T)\geq0.
+\]
+\item Construct standard solutions for tensor products, conjugates, and existing
+orthogonal direct sums and prove
+\[
+\dim_{\mathcal C}(V\otimes W)
+=\dim_{\mathcal C}(V)\dim_{\mathcal C}(W),
+\qquad
+\dim_{\mathcal C}(\overline V)=\dim_{\mathcal C}(V),
+\]
+\[
+\dim_{\mathcal C}(V\oplus W)
+=\dim_{\mathcal C}(V)+\dim_{\mathcal C}(W).
+\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Finite Hilbert-space trace]
+For a finite-dimensional Hilbert space $V$, let
+$j_V:\overline V\to V^\vee$ be the Riesz isomorphism
+$j_V(\overline v)=\langle v,-\rangle$.  From the coevaluation and symmetry
+defined in Spectral Theory, put
+\[
+\overline R_V=(\id_V\otimes j_V^{-1})\operatorname{coev}_V
+:\C\longrightarrow V\otimes\overline V,
+\qquad
+R_V=s_{V,\overline V}\overline R_V
+:\C\longrightarrow\overline V\otimes V.
+\]
+Prove the conjugate equations and standardness.  Prove, without choosing a
+basis, that
+\[
+\operatorname{tr}_{\operatorname{Hilb}_{\mathrm{fd}}}(T)
+=\operatorname{tr}(T),
+\qquad
+\dim_{\operatorname{Hilb}_{\mathrm{fd}}}(V)=\dim_{\C}(V),
+\]
+where the right-hand sides are the trace and dimension defined in Spectral
+Theory.
+\end{exercise}
+
+\begin{exercise}[$SU_v(2)$ fusion and quantum dimensions]
+Let $V_n$ be the irreducible type-$1$ $U_v(\mathfrak{sl}_2)$-module of
+highest weight $n$.  Construct its conjugate equations and prove
+\[
+V_m\otimes V_n
+\cong\bigoplus_{k=0}^{\min(m,n)}V_{m+n-2k}.
+\]
+Normalize the conjugate solutions by the compact involution and compute
+\[
+\dim_v(V_n)=[n+1]_v
+=\frac{v^{n+1}-v^{-(n+1)}}{v-v^{-1}}.
+\]
+Prove that finite orthogonal direct sums of the $V_n$ are closed under tensor
+products and conjugates and form a rigid $C^*$-tensor category.  Prove
+\[
+\begin{aligned}
+\dim_\C(V_1)&=2,
+&\dim_v(V_1)&=v+v^{-1},\\
+\dim_\C(V_n)&=n+1,
+&\lim_{v\to1}\dim_v(V_n)&=n+1,\\
+&&\dim_v(V_n)&>n+1\quad(0<v<1,\ n\geq1).
+\end{aligned}
+\]
+\end{exercise}
+
+\begin{exercise}[Basic hypergeometric series and summations]
+For $m\in\N$, define
+\[
+(a;Q)_m=\prod_{j=0}^{m-1}(1-aQ^j),
+\qquad
+(a;Q)_\infty=\prod_{j=0}^{\infty}(1-aQ^j),
+\]
+\[
+(a_1,\ldots,a_r;Q)_m=\prod_{i=1}^r(a_i;Q)_m,
+\qquad
+(a_1,\ldots,a_r;Q)_\infty=\prod_{i=1}^r(a_i;Q)_\infty.
+\]
+The \emph{basic hypergeometric series} is
+\[
+{}_r\phi_s\!\left(
+\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};Q,z
+\right)
+=\sum_{m=0}^\infty
+\frac{(a_1,\ldots,a_r;Q)_m}
+     {(Q,b_1,\ldots,b_s;Q)_m}
+\left((-1)^mQ^{m(m-1)/2}\right)^{1+s-r}z^m.
+\]
+It is terminating when one numerator parameter is $Q^{-n}$.
+
+Prove the $Q$-Gauss identity
+\[
+{}_2\phi_1\!\left(
+\begin{matrix}a,b\\c\end{matrix};Q,\frac{c}{ab}
+\right)
+=\frac{(c/a,c/b;Q)_\infty}{(c,c/(ab);Q)_\infty},
+\qquad \left|\frac{c}{ab}\right|<1,
+\]
+and the terminating $Q$-Pfaff--Saalsch\"utz identity
+\[
+{}_3\phi_2\!\left(
+\begin{matrix}a,b,Q^{-n}\\c,abQ^{1-n}/c\end{matrix};Q,Q
+\right)
+=\frac{(c/a,c/b;Q)_n}{(c,c/(ab);Q)_n}
+\]
+by comparing coefficients after multiplication by the denominator
+$Q$-products in the first identity, and by showing that the two sides of
+the second identity satisfy the same recurrence in $n$ and have the same
+initial value.
+\end{exercise}
+
+\begin{exercise}[Quantum coupling coefficients and XXZ symmetry]
+Use the distinguished weight-line realization
+$V_1=\C e_+\oplus\C e_-$ of the fundamental type-$1$ module.  Define the
+Pauli endomorphisms, relative to the ordered weight lines, by
+\[
+\sigma^x=\begin{pmatrix}0&1\\1&0\end{pmatrix},
+\qquad
+\sigma^y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},
+\qquad
+\sigma^z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},
+\]
+and let $\sigma_j^a$ act as $\sigma^a$ on the $j$th tensor factor and as
+the identity on the others.  On $V_1^{\otimes L}$ let
+\[
+\begin{aligned}
+H_{\rm XXZ}=J\sum_{j=1}^{L-1}\biggl(&
+\sigma_j^x\sigma_{j+1}^x+\sigma_j^y\sigma_{j+1}^y
++\frac{v+v^{-1}}2(\sigma_j^z\sigma_{j+1}^z-I)\\
+&+\frac{v-v^{-1}}2(\sigma_j^z-\sigma_{j+1}^z)\biggr).
+\end{aligned}
+\]
+For $J\in\R$ and $0<v<1$, prove that this open-chain Hamiltonian is
+self-adjoint and commutes with the iterated coproduct action of
+$U_v(\mathfrak{sl}_2)$.
+\end{exercise}
+
+\begin{exercise}[Dual \texorpdfstring{$Q$}{Q}-Hahn coupling coefficients]
+For irreducible type-$1$ modules $V_a,V_b,V_c$, let
+\[
+C_{ab}^c:V_c\longrightarrow V_a\otimes V_b
+\]
+be the intertwining isometry normalized by its positive highest-weight
+coefficient.  Its matrix coefficients between the distinguished weight
+lines are the $v$-Clebsch--Gordan coefficients.
+
+Decompose two coupled irreducible spin sectors by
+the projections $C_{ab}^c(C_{ab}^c)^*$ and derive the orthogonality
+relations for their $v$-Clebsch--Gordan coefficients.  Prove that their
+weight dependence satisfies the dual $Q$-Hahn recurrence with $Q=v^2$ and
+normalized amplitudes with a terminating ${}_3\phi_2$ of base $Q$.
+
+\end{exercise}
+
+\begin{exercise}[XXZ transition strengths]
+Let the weak drive be an irreducible tensor operator $A^{(s)}_\mu$ for the
+$U_v(\mathfrak{sl}_2)$ action.  Prove the $v$-Wigner--Eckart factorization
+of its matrix elements into a reduced matrix element and a
+$v$-Clebsch--Gordan coefficient.  Derive the relative transition strengths
+at fixed reduced matrix element as squared $v$-Clebsch--Gordan
+coefficients.  State
+the chain length, open boundary terms, resolved weights, energy scale $J$,
+and nondegeneracy assumptions under which the measured line positions and
+strengths determine $v$.
+\end{exercise}
+
+\section{Braided Symmetry and Six-Vertex Models}
+
+\begin{exercise}[Universal $R$-matrices and braided tensor categories]
+A \emph{universal $R$-matrix} for a Hopf algebra $H$ is an invertible
+element $\mathcal R$ in a completion of $H\otimes H$ on which the
+finite-dimensional tensor-product representations under consideration
+extend, satisfying
+\[
+\mathcal R\Delta(x)\mathcal R^{-1}=\Delta^{\rm op}(x),
+\quad
+(\Delta\otimes\id)(\mathcal R)=\mathcal R_{13}\mathcal R_{23},
+\quad
+(\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
+\]
+For finite-dimensional modules $V,W$, define
+\[
+c_{V,W}
+=\tau\circ(\pi_V\otimes\pi_W)(\mathcal R):
+V\otimes W\longrightarrow W\otimes V.
+\]
+A \emph{braiding} on a $\C$-linear tensor category $\mathcal C$ is a family
+of isomorphisms
+\[
+c_{X,Y}:X\otimes Y\longrightarrow Y\otimes X
+\]
+satisfying, for $f:X\to X'$ and $g:Y\to Y'$,
+\[
+(g\otimes f)c_{X,Y}=c_{X',Y'}(f\otimes g),
+\]
+and the two hexagon identities
+\[
+c_{X,Y\otimes Z}
+=(\id_Y\otimes c_{X,Z})(c_{X,Y}\otimes\id_Z),
+\]
+\[
+c_{X\otimes Y,Z}
+=(c_{X,Z}\otimes\id_Y)(\id_X\otimes c_{Y,Z}).
+\]
+The category is \emph{braided} when it has a braiding.
+
+Prove that $c_{V,W}$ is a module intertwiner satisfying naturality and that
+the two coproduct identities for $\mathcal R$ give the two hexagon
+identities, so that the finite-dimensional module category is braided.
+Derive
+\[
+\mathcal R_{12}\mathcal R_{13}\mathcal R_{23}
+=\mathcal R_{23}\mathcal R_{13}\mathcal R_{12}
+\]
+and, on $V^{\otimes3}$,
+\[
+c_{12}c_{23}c_{12}=c_{23}c_{12}c_{23}.
+\]
+Prove that the operators $c_{j,j+1}$ define braid-group representations on
+tensor powers of every finite-dimensional type-$1$ module.
+\end{exercise}
+
+\begin{exercise}[Ribbon categories and ribbon elements]
+Let $\mathcal C$ be a braided rigid $\C$-linear tensor category.  A
+\emph{twist} is a family of isomorphisms $\theta_X:X\to X$ satisfying
+\[
+\theta_Yf=f\theta_X\qquad(f:X\to Y)
+\]
+and
+\[
+\theta_{\mathbf1}=\id_{\mathbf1},
+\qquad
+\theta_{X\otimes Y}
+=c_{Y,X}c_{X,Y}(\theta_X\otimes\theta_Y).
+\]
+The category is \emph{ribbon} when
+\[
+\theta_{X^\vee}=(\theta_X)^\vee
+\]
+for every object $X$.
+
+For the universal $R$-matrix of the preceding exercise, set
+\[
+u=m(S\otimes\id)(\mathcal R_{21}).
+\]
+Let $\nu_R\in H$ be central and invertible and satisfy
+\[
+\nu_R^2=uS(u),
+\qquad S(\nu_R)=\nu_R,
+\qquad \varepsilon(\nu_R)=1,
+\qquad
+\Delta(\nu_R)=(\mathcal R_{21}\mathcal R)^{-1}
+(\nu_R\otimes \nu_R).
+\]
+Prove that
+\[
+\theta_V=\pi_V(\nu_R^{-1})
+\]
+defines a ribbon twist on the category of finite-dimensional $H$-modules.
+Derive invariance of the quantum trace under framed ribbon isotopy.
+\end{exercise}
+
+\begin{exercise}[Chebyshev quantum dimensions]
+For the irreducible $SU_v(2)$ objects $V_n$, use
+$V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
+\[
+d_{n+1}=(v+v^{-1})d_n-d_{n-1},
+\qquad d_0=1,\quad d_1=v+v^{-1},
+\]
+where $d_n=\dim_v(V_n)$.  Using the Chebyshev polynomial $U_n$ defined in
+Geometry, deduce
+\[
+\dim_v(V_n)=U_n\!\left(\frac{v+v^{-1}}2\right)
+=\frac{v^{n+1}-v^{-(n+1)}}{v-v^{-1}}.
+\]
+\end{exercise}
+
+\begin{exercise}[Quantum recoupling coefficients]
+The matrix coefficients of the recoupling map
+\[
+(V_a\otimes V_b)\otimes V_c
+\longrightarrow
+V_a\otimes(V_b\otimes V_c)
+\]
+between fixed intermediate irreducible summands are the $v$-$6j$
+coefficients.
+
+Compute the change between the two coupling orders of
+$V_a\otimes V_b\otimes V_c$ and express its entries as terminating
+${}_4\phi_3$ series with base $Q=v^2$.  Identify them with
+$Q$-Racah polynomials and derive
+their orthogonality from unitarity of the recoupling map for the compact
+real form.  Prove the pentagon identity by comparing the five coupling
+orders of four factors.  For three resolved XXZ spin sectors, derive the
+recoupling probabilities as squared $v$-$6j$ coefficients and state the
+unitarity and spectral-resolution assumptions required for this
+probability interpretation.
+\end{exercise}
+
+
+
+\begin{exercise}[Type-$A$ Hecke actions]
+For $v\ne0$, the Hecke algebra $\mathcal H_v(S_r)$ is generated by
+$T_1,\ldots,T_{r-1}$ with
+\[
+T_iT_{i+1}T_i=T_{i+1}T_iT_{i+1},
+\qquad T_iT_j=T_jT_i\quad(|i-j|>1),
+\]
+\[
+(T_i-v)(T_i+v^{-1})=0.
+\]
+Let $V_1$ be the fundamental $U_v(\mathfrak{sl}_2)$-module.  On
+$V_1\otimes V_1\cong V_2\oplus V_0$, let $P_2,P_0$ be the invariant
+orthogonal projections, and define
+\[
+T=vP_2-v^{-1}P_0,
+\qquad
+\rho_r(T_i)=\id^{\otimes(i-1)}\otimes T
+ \otimes\id^{\otimes(r-i-1)}.
+\]
+
+Prove that the coproduct action of $U_v(\mathfrak{sl}_2)$ commutes with
+$\rho_r(T_i)$.  Derive the braid relation from the $Q$-Racah recoupling
+identity and the Hecke relation from the two displayed spectral
+projections.  Put $e_i=(v-T_i)/(v+v^{-1})$ and prove that the action factors
+through the Temperley--Lieb relations
+\[
+e_i^2=e_i,
+\qquad e_ie_{i\pm1}e_i=(v+v^{-1})^{-2}e_i.
+\]
+\end{exercise}
+
+\begin{exercise}[Hecke Poincar\'e identity]
+Put $\tau=v^2$.  For $w\in S_r$, let $\ell(w)$ be the least number of adjacent
+transpositions in an expression for $w$, and let
+$T_w=T_{i_1}\cdots T_{i_{\ell(w)}}$ for any reduced expression
+$w=s_{i_1}\cdots s_{i_{\ell(w)}}$.  Prove from the braid relations that
+$T_w$ is well-defined and that
+\[
+\sum_{w\in S_r}\tau^{\ell(w)}
+=\prod_{j=1}^r\frac{1-\tau^j}{1-\tau}.
+\]
+Prove that
+\[
+e_+=\frac{\sum_{w\in S_r}v^{\ell(w)}T_w}
+{\sum_{w\in S_r}v^{2\ell(w)}},
+\qquad
+e_-=\frac{\sum_{w\in S_r}(-v^{-1})^{\ell(w)}T_w}
+{\sum_{w\in S_r}v^{-2\ell(w)}}
+\]
+are idempotents satisfying
+$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke action
+from the preceding exercise, identify their images with the quantum symmetric
+and exterior state spaces and interpret the Poincar\'e polynomial as their
+graded state count.
+\end{exercise}
+
+\begin{exercise}[Affine Hecke algebras and Baxterization]
+The extended affine Hecke algebra
+$\mathcal H_v^{\mathrm{aff}}(GL_r)$ is generated by
+$T_1,\ldots,T_{r-1}$ and commuting invertible elements
+$X_1,\ldots,X_r$, subject to the finite Hecke relations and
+\[
+T_iX_iT_i=X_{i+1},
+\qquad
+T_iX_j=X_jT_i\quad(j\neq i,i+1).
+\]
+Equivalently, it is the Hecke quotient of the extended affine braid group
+of $\Z^r\rtimes S_r$.
+
+For an invertible spectral parameter $u$, define
+\[
+\check R_i(u)=uT_i-u^{-1}T_i^{-1}.
+\]
+Its eigenvalues on the $v$ and $-v^{-1}$ eigenspaces of $T_i$ are
+\[
+uv-u^{-1}v^{-1},
+\qquad
+-uv^{-1}+u^{-1}v.
+\]
+
+Use the braid and Hecke relations for $T_i$ to prove
+\[
+\check R_i(u)\check R_{i+1}(uv)\check R_i(v)
+=\check R_{i+1}(v)\check R_i(uv)\check R_{i+1}(u).
+\]
+Prove that $\check R_i(1)$ is a scalar multiple of the identity and compute
+$\check R_i(u)\check R_i(u^{-1})$.  For $|u|=1$, prove that
+$\check R_i(u)^*=\check R_i(u^{-1})$ and normalize the operators to be
+unitary wherever the scalar product is nonzero.  Prove that their two
+eigenvalues depend on $u$ and hence that the spectral family itself does
+not satisfy one parameter-independent Hecke polynomial.
+\end{exercise}
+
+\begin{exercise}[Six-vertex transfer matrices and the XXZ spectrum]
+On the fundamental module $V_1$, put
+\[
+\check R(u)=uT-u^{-1}T^{-1},
+\qquad
+R(u)=\tau\circ\check R(u),
+\]
+where $T=vP_2-v^{-1}P_0$ and $\tau$ is the flip.  For an auxiliary copy
+$V_a\cong V_1$ and a periodic row of length $N$, define
+\[
+\mathsf T_N(u)
+=\Tr_{V_a}\bigl(R_{aN}(u)\cdots R_{a1}(u)\bigr)
+\quad\text{on }V_1^{\otimes N},
+\]
+and for an $N\times M$ periodic lattice define
+\[
+Z^{6\mathrm V}_{N,M}(u)=\Tr_{V_1^{\otimes N}}\mathsf T_N(u)^M.
+\]
+
+Use invariance of $P_2$ and $P_0$ under the Cartan action to prove
+\[
+[R(u),K\otimes K]=0.
+\]
+Relative to the distinguished weight lines of $V_1$, deduce that exactly
+the six arrow configurations preserving total weight can have nonzero
+local weights, and compute those weights from $P_2$ and $P_0$.  Prove the
+spectral Yang--Baxter equation for $R$ from the Baxterization identity.
+Apply it to an auxiliary pair and take their intrinsic traces to prove
+\[
+[\mathsf T_N(u),\mathsf T_N(w)]=0.
+\]
+Show that $Z^{6\mathrm V}_{N,M}(u)$ is the sum of products of the six local
+weights over arrow configurations on the periodic square lattice.
+
+Use $\check R(1)=(v-v^{-1})I$ and compute the logarithmic derivative at
+the regular point.  Prove that
+\[
+\widehat H_N
+=J\left[(v-v^{-1})\mathsf T_N'(1)\mathsf T_N(1)^{-1}
+-N(v+v^{-1})I\right]
+\]
+is the periodic version of the XXZ Hamiltonian in the preceding exercise,
+with $\Delta=(v+v^{-1})/2$ and with the telescoping boundary term equal to
+zero.  On the sector with one reversed spin, apply the distinguished
+Fourier modes and derive
+\[
+E(k)=4J(\cos k-\Delta),
+\qquad
+k=\frac{2\pi m}{N},\quad 0\leq m<N.
+\]
+Deduce the finite-size line spacings and the band edges.  State the energy
+calibration, periodic-boundary, polarization-sector, and spectral-resolution
+assumptions required when these values are compared with an XXZ spin-chain
+simulator, and determine the scalar gauge and real spectral-parameter
+regime under which the same six weights are nonnegative Boltzmann weights.
+\end{exercise}
+
+\begin{exercise}[$q$KZ transport]
+Let $v$ be the quantum-group parameter and let $\kappa\ne0$ be an
+independent shift parameter.  Let $D\in\operatorname{End}(V)$ be
+invertible and satisfy $[D\otimes D,\check R(u)]=0$.  Let $D_1$ act on
+the transported tensor factor and define
+\[
+\mathcal K_1(z_1,\ldots,z_r)
+=D_1\check R_{1r}(z_1/z_r)\cdots\check R_{12}(z_1/z_2).
+\]
+The first $q$KZ equation is
+\[
+\Psi(z_2,\ldots,z_r,\kappa z_1)
+=\mathcal K_1(z_1,\ldots,z_r)\Psi(z_1,\ldots,z_r),
+\]
+and the remaining equations are obtained by cyclic conjugation.
+
+Use Baxterization to prove consistency of the adjacent exchange rules and
+the $q$KZ difference equations.  Identify the constant exchanges and
+winding operators with the generators of
+$\mathcal H_v^{\mathrm{aff}}(GL_r)$, keeping $v$ and $\kappa$ independent.
+For the unitary normalization, prepare and detect three resolved XXZ spin
+sectors and prove that the two factorizations of a three-spin exchange give
+the same output probabilities.  Express this equality as the $Q$-Racah
+recoupling identity.  Derive the phase accumulated in one $\kappa$-shift
+cycle and state the twist, unitarity, preparation, and detection assumptions
+under which it is an interference observable.
+\end{exercise}
+
+\begin{exercise}[Izergin determinant and domain-wall ice entropy]
+Use the additive trigonometric normalization of the six-vertex
+Yang--Baxter family.  For horizontal rapidities
+$x=(x_1,\ldots,x_N)$, vertical rapidities $y=(y_1,\ldots,y_N)$, and
+crossing parameter $\eta$, put
+\[
+a(x_i,y_j)=\sin(x_i-y_j+\eta),
+\qquad
+b(x_i,y_j)=\sin(x_i-y_j),
+\qquad
+c=\sin\eta.
+\]
+Impose domain-wall boundary arrows, with the top and bottom arrows pointing
+inward and the left and right arrows pointing outward, and let
+$Z_N^{\rm DW}(x;y)$ be the sum of products of these local weights over all
+allowed arrow configurations.
+
+Use the Yang--Baxter equation to prove that $Z_N^{\rm DW}$ is separately
+symmetric in the $x_i$ and in the $y_j$.  At $x_N=y_N$, show that the
+vertex at their intersection has weight $c$, that its row and column
+freeze, and that
+\[
+\left.Z_N^{\rm DW}(x;y)\right|_{x_N=y_N}
+=c\prod_{i=1}^{N-1}a(x_i,y_N)
+\prod_{j=1}^{N-1}a(x_N,y_j)
+Z_{N-1}^{\rm DW}(\widehat x_N;\widehat y_N).
+\]
+Here a hat means that the indicated rapidity is omitted.
+With $X_i=e^{2ix_i}$ and $Y_j=e^{2iy_j}$, prove that
+$X_i^{(N-1)/2}Z_N^{\rm DW}$ is a polynomial of degree $N-1$ in $X_i$
+and that the analogous statement holds for every $Y_j$.  Use as theorem
+input the Korepin interpolation lemma: separate symmetry, these degree
+bounds, the displayed freezing recursion, and $Z_1^{\rm DW}=c$ uniquely
+determine the domain-wall partition function.
+
+Verify that the determinant below has these properties and deduce the
+Izergin identity
+\[
+Z_N^{\rm DW}(x;y)
+=\frac{\displaystyle\prod_{i,j=1}^N
+a(x_i,y_j)b(x_i,y_j)}
+{\displaystyle\prod_{1\leq i<j\leq N}
+\sin(x_i-x_j)\sin(y_j-y_i)}
+\det\!\left[
+\frac{c}{a(x_i,y_j)b(x_i,y_j)}
+\right]_{i,j=1}^N.
+\]
+
+Take the homogeneous ice limit
+\[
+x_i-y_j=\eta=\frac\pi3,
+\qquad
+a=b=c=\frac{\sqrt3}{2},
+\]
+and divide every local weight by $\sqrt3/2$.  Let $A_N$ be the resulting
+unit-weight partition function.  When every $x_i=x$ and every $y_j=y$,
+put $z=x-y$, $a(z)=\sin(z+\eta)$, $b(z)=\sin z$, and write the unnormalized
+partition function as $Z_N^{\rm hom}(z;\eta)$.  Take the confluent limit of
+the Izergin determinant and prove
+\[
+Z_N^{\rm hom}(z;\eta)
+=\frac{[a(z)b(z)]^{N^2}}
+{\displaystyle\prod_{j=0}^{N-1}(j!)^2}
+\det\!\left[
+\frac{d^{i+j}}{dz^{i+j}}
+\frac{c}{a(z)b(z)}
+\right]_{i,j=0}^{N-1}.
+\]
+Use as theorem input the homogeneous determinant evaluation obtained from
+its Desnanot--Jacobi recurrence at $z=\eta=\pi/3$:
+\[
+\frac{A_N}{A_{N-1}}
+=\frac{(3N-2)!(N-1)!}{(2N-1)!(2N-2)!},
+\qquad N\geq2,qquad A_1=1,
+\]
+and deduce
+\[
+A_N=\prod_{j=0}^{N-1}\frac{(3j+1)!}{(N+j)!}.
+\]
+Compute $A_N$ for $1\leq N\leq5$ and use Stirling's formula to derive
+\[
+\lim_{N\to\infty}\frac1{N^2}\log A_N
+=\log\frac{3\sqrt3}{4}.
+\]
+Deduce the exact finite-size state count and the residual configurational
+entropy per vertex
+\[
+s_{\rm DW}=k_B\log\frac{3\sqrt3}{4}
+\]
+for a unit-weight domain-wall ice sample.  State the domain-wall
+preparation, equal-weight calibration, equilibration, and finite-size
+assumptions under which configuration counts or free-energy measurements
+test the determinant and product identities.
+\end{exercise}
+
+\section{Fusion Categories and Anyon Physics}
+
+\begin{exercise}[Temperley--Lieb categories and Jones--Wenzl projectors]
+For $d\in\C$, the \emph{Temperley--Lieb category} $\mathsf{TL}_d$ has
+objects $n\in\Z_{\geq0}$.  The morphism space
+$\Hom_{\mathsf{TL}_d}(m,n)$ is the complex span of planar nonintersecting
+pairings of $m$ lower and $n$ upper boundary points.  Composition is vertical
+stacking, with every resulting closed loop removed and replaced by the
+scalar $d$; tensor product is horizontal juxtaposition and has tensor unit
+$0$.  For $d\in\R$, reflection across a horizontal line defines $f^*$.
+The cup and cap diagrams give coevaluation and evaluation morphisms.
+
+The \emph{Temperley--Lieb algebra} is
+$TL_n(d)=\End_{\mathsf{TL}_d}(n)$.  It is generated by
+$U_1,\ldots,U_{n-1}$ with
+\[
+U_i^2=dU_i,
+\qquad
+U_iU_{i\pm1}U_i=U_i,
+\qquad
+U_iU_j=U_jU_i\quad(|i-j|>1).
+\]
+Its diagram trace is normalized by
+\[
+\operatorname{tr}_0(1)=1,
+\qquad
+\operatorname{tr}_{n+1}(x)=d\operatorname{tr}_n(x),
+\qquad
+\operatorname{tr}_{n+1}(xU_n)=\operatorname{tr}_n(x),
+\]
+where $x\in TL_n(d)$ is embedded in $TL_{n+1}(d)$.
+
+Put
+\[
+\zeta=e^{\pi i/(k+2)},
+\qquad
+d=\zeta+\zeta^{-1},
+\qquad
+[n]_\zeta=\frac{\zeta^n-\zeta^{-n}}{\zeta-\zeta^{-1}}.
+\]
+With $f_0=f_1=1$, define recursively in $TL_{n+1}(d)$
+\[
+f_{n+1}=f_n-\frac{[n]_\zeta}{[n+1]_\zeta}f_nU_nf_n
+\qquad(1\leq n\leq k).
+\]
+
+\begin{enumerate}[label=(\alph*)]
+\item Use the Temperley--Lieb relations to prove inductively
+\[
+f_n^2=f_n,
+\qquad
+f_n^*=f_n,
+\qquad
+U_if_n=f_nU_i=0\quad(1\leq i<n),
+\qquad
+\operatorname{tr}(f_n)=[n+1]_\zeta.
+\]
+\item Deduce $\operatorname{tr}(f_{k+1})=[k+2]_\zeta=0$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Temperley--Lieb semisimplification and the positive quotient]
+At $d=\zeta+\zeta^{-1}$, a morphism $f:m\to n$ in
+$\mathsf{TL}_d$ is negligible when
+\[
+\operatorname{tr}_m(gf)=0
+\qquad\text{for every }g:n\to m.
+\]
+Let $\mathcal N(m,n)$ be the space of negligible morphisms.  A tensor ideal
+$\mathcal I$ is a collection of morphism subspaces closed under composition
+and tensoring.  The quotient has morphisms
+\[
+\operatorname{Hom}_{\mathcal C/\mathcal I}(X,Y)
+=\operatorname{Hom}_{\mathcal C}(X,Y)/\mathcal I(X,Y).
+\]
+The $C^*$-idempotent completion has objects $(X,p)$ with $p=p^2=p^*$ and
+morphisms $q\operatorname{Hom}(X,Y)p$.  Let $\mathcal C_k$ be the
+idempotent completion of $\mathsf{TL}_d/\mathcal N$, and let $V_a$ be the
+image of $f_a$.
+
+Use as theorem input the root-of-unity Markov-form theorem: the forms
+\[
+\langle f,g\rangle=\operatorname{tr}_m(f^*g),
+\qquad f,g:m\to n,
+\]
+are positive semidefinite, their radicals form the $*$-closed tensor ideal
+$\mathcal N$ generated by $f_{k+1}$, and every negligible idempotent lies
+in that ideal.  Deduce that composition and tensor product descend to
+positive-definite quotient morphism spaces, that the quotient removes
+every trace-zero summand, and that its $C^*$-idempotent completion has
+faithful positive categorical trace.
+\end{exercise}
+
+\begin{exercise}[Truncated fusion]
+Derive
+\[
+V_a\otimes V_b
+\cong
+\bigoplus_{\substack{|a-b|\leq c\leq
+\min(a+b,2k-a-b)\\a+b+c\equiv0\pmod2}}V_c
+\]
+and
+\[
+d_a=[a+1]_\zeta
+=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))}.
+\]
+\end{exercise}
+
+\begin{exercise}[Unitary fusion structure]
+A nonzero object is simple when its endomorphism algebra is the scalar
+multiples of its identity.  A $C^*$-tensor category is rigid when every
+object has a conjugate.
+
+A $C^*$-category is semisimple when every object
+is a finite orthogonal direct sum of simple objects.  A unitary fusion
+category is a rigid semisimple $C^*$-tensor category with finite-dimensional
+morphism spaces and finitely many simple objects up to unitary isomorphism.
+
+Use left composition on the positive quotient spaces and diagram reflection
+to equip $\mathcal C_k$ with $C^*$-norms.  Use the cup and cap diagrams to
+construct standard conjugates.  Prove from truncated fusion that every
+simple object is unitarily isomorphic to exactly one of
+\[
+V_0,V_1,\ldots,V_k,
+\]
+and deduce that $\mathcal C_k$ is a unitary fusion category.  Prove that its
+standard categorical trace agrees with the quotient diagram trace and that
+the recoupling maps between simple-summand decompositions are unitary and
+satisfy the pentagon identity.  With
+$\zeta^{1/2}=e^{\pi i/(2(k+2))}$, prove that
+\[
+c_i=\zeta^{1/2}\id-\zeta^{-1/2}U_i
+\]
+is unitary, satisfies the braid relations, preserves $\mathcal N$, and
+descends to a unitary braiding on $\mathcal C_k$.
+\end{exercise}
+
+\begin{exercise}[$SU(2)_k$ modular data and Verlinde diagonalization]
+For $0\leq a,b\leq k$, define
+\[
+S_{ab}
+=\sqrt{\frac{2}{k+2}}
+\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right),
+\qquad
+\theta_a
+=\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
+\]
+Let $N_{ab}^{\ \ c}$ be the multiplicity of $V_c$ in
+$V_a\otimes V_b$.
+
+Use sine orthogonality to prove that $S$ is real, symmetric, and unitary.
+For each $a$, let $(N_a)_{bc}=N_{ab}^{\ \ c}$.  Use the truncated
+Chebyshev recursion to prove
+\[
+N_a=S\,\operatorname{diag}\!\left(
+\frac{S_{ax}}{S_{0x}}
+\right)_{x=0}^kS^{-1}
+\]
+and hence
+\[
+N_{ab}^{\ \ c}
+=\sum_{x=0}^k
+\frac{S_{ax}S_{bx}\overline{S_{cx}}}{S_{0x}}.
+\]
+Deduce that the number of fusion channels from
+$a_1,\ldots,a_n$ to $c$ is
+$(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
+of sine functions.
+\end{exercise}
+
+\begin{exercise}[Levin--Wen string-net Hamiltonians]
+Let $\Gamma$ be a trivalent cellulation of a closed oriented surface and
+let $\mathcal C_k$ be the preceding unitary fusion category with simple
+objects $V_0,\ldots,V_k$, fusion
+multiplicities $N_{ab}^{\ \ c}$, standard categorical trace, and quantum
+dimensions $d_a$.  Write $a^\vee$ for the unique label satisfying
+$\overline{V_a}\cong V_{a^\vee}$.  Put
+\[
+\mathcal H_\Gamma
+=\ell^2\!\left(\{0,\ldots,k\}^{E(\Gamma)}\right),
+\qquad
+\mathcal D^2=\sum_{a=0}^kd_a^2.
+\]
+For each vertex $v$, let $Q_v$ be the projection onto edge labelings
+admissible under the fusion rules.  For a face $p$, let $B_p^a$ insert a
+coevaluation--evaluation loop labelled $V_a$ inside $p$ and resolve it
+into the boundary edges by the associator and the quantum recoupling maps;
+set it equal to zero off the subspace on which the vertices incident to
+$p$ are admissible.
+Define
+\[
+B_p=\frac1{\mathcal D^2}\sum_{a=0}^kd_aB_p^a
+\]
+and, for $\Delta_v,\Delta_p>0$,
+\[
+\widehat H_\Gamma
+=\Delta_v\sum_v(I-Q_v)+\Delta_p\sum_p(I-B_p).
+\]
+
+Use the snake identities, the standard categorical trace, and the quantum recoupling
+pentagon to prove
+\[
+(B_p^a)^*=B_p^{a^\vee},
+\qquad
+B_p^aB_p^b=\sum_cN_{ab}^{\ \ c}B_p^c.
+\]
+Use
+\[
+d_ad_b=\sum_cN_{ab}^{\ \ c}d_c
+\]
+to prove
+\[
+Q_v^2=Q_v=Q_v^*,
+\qquad
+B_p^2=B_p=B_p^*,
+\qquad
+[Q_v,B_p]=[B_p,B_{p'}]=0.
+\]
+Deduce that $\widehat H_\Gamma$ is positive and frustration-free and that
+its ground space is the simultaneous $+1$ space of all $Q_v$ and $B_p$.
+Prove that recoupling across an edge gives a unitary identification of the
+ground spaces before and after the corresponding local change of
+cellulation.
+
+For $k=1$, identify the labels with $\Z/2\Z$, let $Z_e$ act on a label
+$a_e$ by $(-1)^{a_e}$, and let $X_e$ reverse that label.  Show that
+\[
+Q_v=\frac12\left(I+\prod_{e\ni v}Z_e\right),
+\qquad
+B_p=\frac12\left(I+\prod_{e\subset\partial p}X_e\right).
+\]
+On a torus, count the two independent relations among the vertex and face
+constraints and prove that the ground-state degeneracy is $4$.  Identify
+the two pairs of noncontractible string operators and their mutual sign,
+and state the boundary conditions and gap-preserving perturbation regime
+under which the fourfold low-energy multiplicity is a measurable
+prediction of a qubit realization.
+\end{exercise}
+
+\begin{exercise}[String-net loop operators and spectroscopy]
+On a torus let $W_a^{\alpha,+}$ and $W_a^{\alpha,-}$ insert a
+noncontractible $V_a$ loop along a cycle $\alpha$, using respectively the
+braiding and inverse braiding of $\mathcal C_k$ when the loop is resolved
+through the string net.  Define $W_a^{\beta,+}$ and $W_a^{\beta,-}$ for a
+cycle $\beta$ with intersection number one with $\alpha$.
+
+Use as theorem input the torus-sector theorem for the preceding string-net
+model: local recoupling identifies its ground space with one-dimensional
+sectors indexed by pairs $(x,y)$ with $0\leq x,y\leq k$.  Deduce
+\[
+\dim\ker\widehat H_\Gamma=(k+1)^2.
+\]
+Prove the loop fusion relations
+\[
+W_a^{\alpha,\pm}W_b^{\alpha,\pm}
+=\sum_cN_{ab}^{\ \ c}W_c^{\alpha,\pm}
+\]
+and use Verlinde diagonalization to show that their eigenvalues in the
+sector $(x,y)$ are
+\[
+W_a^{\alpha,+}:\frac{S_{ax}}{S_{0x}},
+\qquad
+W_a^{\alpha,-}:\overline{\frac{S_{ay}}{S_{0y}}}.
+\]
+For a weak calibrated loop perturbation
+\[
+\widehat V=-\sum_a\left(
+\epsilon_a^+W_a^{\alpha,+}
++\epsilon_a^-W_a^{\alpha,-}+\text{adjoints}\right),
+\]
+derive the first-order splitting
+\[
+\delta E_{x,y}=-2\operatorname{Re}\sum_a\left(
+\epsilon_a^+\frac{S_{ax}}{S_{0x}}
++\epsilon_a^-\overline{\frac{S_{ay}}{S_{0y}}}\right).
+\]
+Insert the sine formula for $S$ and list the distinct splittings for a
+chosen $k$.  State the topological-gap, system-size, loop-support,
+calibration, and sector-resolution assumptions under which these spectral
+lines test the doubled $SU(2)_k$ string-net model.
+\end{exercise}
+
+\begin{exercise}[Anyon interference and fusion counting]
+Prove that the phases $\theta_a$ define a ribbon twist on $\mathcal C_k$.
+On every simple fusion channel $V_c\subseteq V_a\otimes V_b$, prove the
+balancing identity
+\[
+\left.c_{V_b,V_a}c_{V_a,V_b}\right|_{V_c}
+=\frac{\theta_c}{\theta_a\theta_b}\id_{V_c}.
+\]
+For simple charges $a,b$, prove that the normalized monodromy amplitude is
+\[
+M_{ab}=\frac{S_{ab}S_{00}}{S_{0a}S_{0b}}.
+\]
+Identify
+\[
+\frac{S_{ab}}{S_{0b}}
+=U_a\!\left(\cos\frac{(b+1)\pi}{k+2}\right)
+\]
+with the specialized $SU(2)$ Weyl character, where $U_a$ is the
+Chebyshev family developed earlier.
+In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
+\[
+I_b(\phi)=I_1+I_2
++2\sqrt{I_1I_2}\,\Re(e^{i\phi}M_{ab}).
+\]
+Prove that a calibrated full framing twist of the probe path replaces
+$M_{ab}$ by $\theta_aM_{ab}$ and shifts the interference phase by
+$\arg\theta_a$.
+Insert the sine formula and predict the visibility and phase for every
+enclosed charge.  For a collection of prepared charges, use the Verlinde
+formula to predict the exact number of fusion outcomes in each total-charge
+sector.  Identify indistinguishable charges for one probe and prove that
+the full family of probes distinguishes them.  State the coherence,
+topological-gap, charge-preparation, and readout assumptions separately
+from the predicted fringes and integer state counts.
+\end{exercise}
+
+\section{Symmetric Functions and Jack Spectra}
+
+\begin{exercise}[Symmetric polynomials]
+For $N\geq1$, let
+\[
+\Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
+\]
+Define
+\[
+e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\qquad
+h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\]
+\[
+p_r=\sum_{i=1}^Nx_i^r,
+\qquad
+e_0=h_0=1.
+\]
+Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove that every element of $\Lambda_N$ is uniquely a polynomial in
+$e_1,\ldots,e_N$.
+\item Prove
+\[
+\sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
+\qquad
+\sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
+\]
+and deduce
+\[
+\left(\sum_{r\geq0}h_rt^r\right)
+\left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
+\qquad
+rh_r=\sum_{j=1}^rp_jh_{r-j}.
+\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Semistandard tableaux and Schur polynomials]
+For a partition $\lambda$ of length at most $N$, a
+\emph{semistandard Young tableau} of shape $\lambda$ is a filling $T$ of
+its Young diagram by entries in $\{1,\ldots,N\}$ that is
+weakly increasing along rows and strictly increasing down columns.  If
+$m_i(T)$ is the number of entries equal to $i$, define
+\[
+s_\lambda(x_1,\ldots,x_N)
+=\sum_T\prod_i x_i^{m_i(T)}.
+\]
+
+Encode $h_r$ by lattice paths directed east and south whose east steps at
+height $i$ have weight $x_i$.  For sources
+$A_i=(i-\lambda_i,N)$ and sinks $B_j=(j,1)$, expand
+$\det[h_{\lambda_i-i+j}]_{i,j=1}^N$ as a signed sum of path families and
+pair every intersecting family with the family obtained by exchanging the
+two tails after its first intersection.  Show that the remaining
+nonintersecting families correspond weight-preservingly to semistandard
+tableaux by reading each path's east-step heights from right to left, and
+deduce
+\[
+s_\lambda(x_1,\ldots,x_N)
+=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
+\]
+Call this the \emph{Schur polynomial}.  Derive the alternant formula
+\[
+s_\lambda(x)
+=\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
+{\det[x_i^{N-j}]_{i,j=1}^N}
+\]
+from the fundamental symmetric identities.  Prove
+$s_{(r)}=h_r$ and $s_{(1^r)}=e_r$.
+\end{exercise}
+
+\begin{exercise}[The Sutherland model and Jack polynomials]
+For $N$ identical particles of mass $m$ on a ring of radius $R$ and
+$g\geq1$, let
+\[
+\operatorname{Conf}_N(S^1)
+=\{(\theta_1,\ldots,\theta_N):\theta_i\ne\theta_j\text{ for }i\ne j\}.
+\]
+On $C_c^\infty(\operatorname{Conf}_N(S^1))^{S_N}$ define
+\[
+\widehat H_g=\frac{\hbar^2}{2mR^2}
+\left[-\sum_{j=1}^N\partial_{\theta_j}^2
++\frac{g(g-1)}2\sum_{i<j}
+\frac1{\sin^2((\theta_i-\theta_j)/2)}\right]
+\]
+and let the same symbol denote its Friedrichs realization in
+$L^2((S^1)^N)^{S_N}$.  Define
+\[
+\Psi_0(\theta)=\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^g.
+\]
+For partitions of equal size, write $\mu<\lambda$ in dominance
+order when
+\[
+\sum_{i=1}^k\mu_i\leq\sum_{i=1}^k\lambda_i
+\]
+for every $k\geq1$, with missing parts interpreted as zero, and with at
+least one inequality strict.  For a partition $\lambda$ of length at most
+$N$, let $m_\lambda$ be the sum of the distinct permutations of
+$z_1^{\lambda_1}\cdots z_N^{\lambda_N}$.
+
+The Jack polynomial $P_\lambda^{(1/g)}$ is the symmetric polynomial
+normalized by
+\[
+P_\lambda^{(1/g)}=m_\lambda+
+\sum_{\mu<\lambda}c_{\lambda\mu}(g)m_\mu
+\]
+and by satisfying
+\[
+\left[
+\sum_i(z_i\partial_{z_i})^2
++g\sum_{i<j}\frac{z_i+z_j}{z_i-z_j}
+(z_i\partial_{z_i}-z_j\partial_{z_j})
+\right]P_\lambda^{(1/g)}
+=\left[\sum_i
+\bigl(\lambda_i^2+g(N+1-2i)\lambda_i\bigr)\right]
+P_\lambda^{(1/g)};
+\]
+here $<$ is dominance order.
+
+Conjugate the quantum Hamiltonian by $\Psi_0$, identify its commuting
+quantum integrals, and prove that
+\[
+\Psi_\lambda=\Psi_0P_\lambda^{(1/g)}(e^{i\theta_1},\ldots,e^{i\theta_N})
+\]
+is a joint eigenfunction with
+\[
+E_\lambda=\frac{\hbar^2}{2mR^2}
+\left[\frac{g^2N(N^2-1)}{12}
++\sum_{j=1}^N
+\bigl(\lambda_j^2+g(N+1-2j)\lambda_j\bigr)\right].
+\]
+At $g=1$, prove that $P_\lambda^{(1)}=s_\lambda$ for the Schur polynomial
+defined earlier in this section.
+\end{exercise}
+
+\begin{exercise}[Jack transition spectrum]
+Let $\rho_r=\sum_{j=1}^Ne^{ir\theta_j}$ be a density mode.  Derive the
+Jack Pieri identity in orthonormal normalization for
+$\rho_1P_\lambda^{(1/g)}$ and show that only
+nonincreasing tuples obtained from $\lambda$ by increasing one entry by
+one occur.
+For a weak periodic drive proportional to
+$\rho_1e^{-i\Omega t}+\rho_{-1}e^{i\Omega t}$, deduce the allowed
+resonance frequencies
+\[
+\Omega_{\mu\lambda}=\frac{|E_\mu-E_\lambda|}{\hbar}
+\]
+and express their relative intensities as squared normalized Jack Pieri
+coefficients.  State how spectroscopy of particles confined to a ring
+determines $g$ from the line shifts and tests the Jack selection rule from
+the missing lines.
+\end{exercise}
+
+\section{Double-Affine Harmonic Analysis and Degenerations}
+
+\begin{exercise}[Double-affine braid groups]
+For $r\geq2$, the \emph{double-affine braid group} $\widetilde B_r$ of
+type $GL_r$ is generated by $T_i$ for $1\leq i<r$, commuting invertible elements $X_j$,
+commuting invertible elements $Y_j$, and a central invertible element
+$\mathsf q$, subject to the braid relations and
+\[
+T_iX_iT_i=X_{i+1},\qquad
+T_iX_j=X_jT_i\quad(j\neq i,i+1),
+\]
+\[
+T_i^{-1}Y_iT_i^{-1}=Y_{i+1},\qquad
+T_iY_j=Y_jT_i\quad(j\neq i,i+1),
+\]
+\[
+Y_1X_1\cdots X_r
+=\mathsf q\,X_1\cdots X_rY_1,
+\qquad
+X_1^{-1}Y_2=Y_2X_1^{-1}T_1^{-2}.
+\]
+
+Let $T^2=\R^2/\Z^2$.  Interpret $T_i$ as an adjacent braid and $X_j,Y_j$
+as motions of the $j$th point around the two cycles of $T^2$.  Derive the
+displayed relations from these motions and identify $\widetilde B_r$ with
+the central extension of
+\[
+\pi_1\bigl(\operatorname{Conf}_r(T^2)/S_r\bigr)
+\]
+whose total cycle commutator is $\mathsf q$.  Prove that deleting either
+the $X$-family or the $Y$-family leaves an affine braid group.
+\end{exercise}
+
+\begin{exercise}[Rank-one DAHA and the Askey--Wilson operator]
+For nonzero parameters $q,t$, the \emph{double affine Hecke algebra}
+$\mathsf H_{q,t}(GL_r)$ is the quotient of
+$\C(q,t)[\widetilde B_r]$ by
+\[
+\mathsf q=q,
+\qquad
+(T_i-t^{1/2})(T_i+t^{-1/2})=0.
+\]
+
+For nonzero $k_0,k_1,u_0,u_1$ and a choice of $q^{1/2}$, the rank-one DAHA
+$\mathsf H_q(C_1^\vee,C_1)$ is generated by
+$T_0^{\pm1},T_1^{\pm1},(T_0^\vee)^{\pm1},(T_1^\vee)^{\pm1}$ subject to
+\[
+(T_i-k_i)(T_i+k_i^{-1})=0,
+\qquad
+(T_i^\vee-u_i)(T_i^\vee+u_i^{-1})=0
+\quad(i=0,1),
+\]
+\[
+\qquad
+T_1^\vee T_1T_0T_0^\vee=q^{-1/2}.
+\]
+For the finite Hecke generator $T_1$, define
+\[
+e=\frac{T_1+k_1^{-1}}{k_1+k_1^{-1}}.
+\]
+
+Fix nonzero $k_0,k_1,u_0,u_1$ and choose $q^{1/2}$.  On
+$\mathcal L=\C[z^{\pm1}]$ put
+\[
+(s_1f)(z)=f(z^{-1}),\qquad
+(s_0f)(z)=f(qz^{-1}),
+\]
+\[
+\begin{aligned}
+(T_1f)(z)
+&=k_1f(z^{-1})
++\frac{(k_1-k_1^{-1})+(u_1-u_1^{-1})z}
+{1-z^2}\bigl(f(z)-f(z^{-1})\bigr),\\
+(T_0f)(z)
+&=k_0f(qz^{-1})
++\frac{(k_0-k_0^{-1})+(u_0-u_0^{-1})q^{1/2}z^{-1}}
+{1-qz^{-2}}\bigl(f(z)-f(qz^{-1})\bigr).
+\end{aligned}
+\]
+Let $X$ act by multiplication by $z$.  The Askey--Wilson parameters in
+this convention are
+\[
+a=k_1u_1,\qquad b=-k_1u_1^{-1},\qquad
+c=q^{1/2}k_0u_0,\qquad d=-q^{1/2}k_0u_0^{-1}.
+\]
+Put
+\[
+T_1^\vee=X^{-1}T_1^{-1},
+\qquad
+T_0^\vee=q^{-1/2}T_0^{-1}X.
+\]
+
+For $0<q<1$ and nonzero $a,b,c,d$, define
+\[
+A(z)=\frac{(1-az)(1-bz)(1-cz)(1-dz)}
+{(1-z^2)(1-qz^2)}
+\]
+and, on $f(z)=f(z^{-1})$,
+\[
+(\mathcal D_{AW}f)(z)
+=A(z)\bigl(f(qz)-f(z)\bigr)
++A(z^{-1})\bigl(f(q^{-1}z)-f(z)\bigr).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Verify that the displayed reflection--difference operators preserve
+$\mathcal L$, that $T_0,T_1,T_0^\vee,T_1^\vee$ satisfy the four quadratic
+Hecke relations and the product relation, and that they give the rank-one
+DAHA polynomial representation with the stated parameter map.
+\item Prove
+\[
+e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
+=\C[z+z^{-1}],
+\]
+and prove that the spherical action contains multiplication by
+$z+z^{-1}$ and $\mathcal D_{AW}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Askey--Wilson spectral theorem]
+For $x=(z+z^{-1})/2$, define the Askey--Wilson polynomial by
+\[
+\begin{aligned}
+p_n(x;a,b,c,d\mid q)
+={}&a^{-n}(ab,ac,ad;q)_n\\
+&\times{}_4\phi_3\!\left(
+\begin{matrix}q^{-n},abcdq^{n-1},az,az^{-1}\\
+ab,ac,ad\end{matrix};q,q
+\right).
+\end{aligned}
+\]
+Its weight on the unit circle is
+\[
+w_{AW}(z)=
+\frac{(z^2,z^{-2};q)_\infty}
+{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
+\]
+
+Prove
+\[
+\mathcal D_{AW}p_n
+=(q^{-n}-1)(1-abcdq^{n-1})p_n.
+\]
+For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
+\[
+\langle f,g\rangle_{AW}
+=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
+\frac{dz}{2\pi iz},
+\]
+and deduce the orthogonality and three-term recurrence of the
+Askey--Wilson polynomials.
+\end{exercise}
+
+\begin{exercise}[Wilson polynomials and degeneration]
+For positive $a,b,c,d$, define
+\[
+\begin{aligned}
+W_n(x^2;a,b,c,d)
+={}&(a+b)_n(a+c)_n(a+d)_n\\
+&\times{}_4F_3\!\left(
+\begin{matrix}-n,n+a+b+c+d-1,a+ix,a-ix\\
+a+b,a+c,a+d\end{matrix};1
+\right).
+\end{aligned}
+\]
+
+Set $q=e^{-\varepsilon}$ and scale the Askey--Wilson parameters and
+spectral variable by
+\[
+(a,b,c,d,z)=(q^A,q^B,q^C,q^D,q^{ix}).
+\]
+After the scalar normalization by $(1-q)^{-3n}$, prove that the
+Askey--Wilson polynomial tends to
+$W_n(x^2;A,B,C,D)$ as $\varepsilon\downarrow0$.  Derive the Wilson
+difference equation, weight, orthogonality, and three-term recurrence as
+limits of the corresponding Askey--Wilson identities.
+\end{exercise}
+
+
+\begin{exercise}[Type-$A$ polynomial representations]
+Let
+\[
+\mathcal P_r=\C(q,t^{1/2})[x_1^{\pm1},\ldots,x_r^{\pm1}],
+\]
+let $X_j$ act by multiplication by $x_j$, and let $s_i$ exchange
+$x_i$ and $x_{i+1}$.  Define
+\[
+T_i=t^{1/2}s_i+(t^{1/2}-t^{-1/2})
+       \frac{s_i-1}{x_i/x_{i+1}-1},
+\qquad 1\leq i<r,
+\]
+and
+\[
+(\pi f)(x_1,\ldots,x_r)=f(x_2,\ldots,x_r,qx_1).
+\]
+For generic independent parameters $q,t$, call the operator algebra
+generated by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ the type-$A$
+polynomial operator model.
+
+Prove that the displayed operators preserve $\mathcal P_r$ and satisfy
+the braid and Hecke relations.  Prove
+\[
+\pi X_i\pi^{-1}=X_{i+1}\quad(1\leq i<r),
+\qquad
+\pi X_r\pi^{-1}=qX_1,
+\]
+and identify the two affine-Hecke subalgebras generated respectively by
+$T_i,X_j$ and by $T_i,Y_j$.  Prove that this representation is obtained
+from the double-affine braid-group algebra by imposing
+\[
+(T_i-t^{1/2})(T_i+t^{-1/2})=0
+\]
+and specializing its central parameter to $q$.
+Conclude that the polynomial operator model is a realization of
+$\mathsf H_{q,t}(GL_r)$.
+\end{exercise}
+
+\begin{exercise}[Macdonald operators and polynomials]
+Let
+\[
+(T_{q,x_i}f)(x_1,\ldots,x_r)
+=f(x_1,\ldots,qx_i,\ldots,x_r).
+\]
+The first type-$A$ \emph{Macdonald operator} is
+\[
+D_{q,t}=\sum_{i=1}^r
+ \left(\prod_{j\ne i}\frac{tx_i-x_j}{x_i-x_j}\right)T_{q,x_i}.
+\]
+Define
+\[
+Y_i=T_i\cdots T_{r-1}\pi
+T_1^{-1}\cdots T_{i-1}^{-1}.
+\]
+Use the displayed polynomial representation and the affine braid relations
+to prove that the $Y_i$ commute.  Prove that their symmetric Laurent
+polynomials preserve $\mathcal P_r^{S_r}$ and identify
+$t^{-(r-1)/2}(Y_1+\cdots+Y_r)$ with $D_{q,t}$.
+\end{exercise}
+
+\begin{exercise}[Macdonald spectral theory]
+For generic $q,t$, the \emph{Macdonald polynomial}
+$P_\lambda(x;q,t)$ is the symmetric polynomial triangular in the
+monomial symmetric functions and satisfying
+\[
+D_{q,t}P_\lambda
+=\left(\sum_{i=1}^r q^{\lambda_i}t^{r-i}\right)P_\lambda,
+\qquad
+\lambda_1\geq\cdots\geq\lambda_r\geq0.
+\]
+For $0<q,t<1$, define
+\[
+\Delta_{q,t}(x)=
+\prod_{i\neq j}\frac{(x_i/x_j;q)_\infty}
+{(t x_i/x_j;q)_\infty},
+\]
+and
+\[
+\langle f,g\rangle_{q,t}
+=\frac1{r!}\int_{(S^1)^r}
+f(x)\overline{g(x)}\Delta_{q,t}(x)
+\prod_{j=1}^r\frac{dx_j}{2\pi i x_j}.
+\]
+
+Order monomial symmetric functions by dominance and prove that $D_{q,t}$
+is triangular with the displayed diagonal entries.  For generic $q,t$,
+deduce existence and uniqueness of $P_\lambda$.  Prove directly from the
+torus integral that $D_{q,t}$ is symmetric when $0<q,t<1$, and deduce
+orthogonality and joint diagonalization for symmetric Laurent polynomials
+in the commuting $Y_i$.
+\end{exercise}
+
+\begin{exercise}[DAHA Fourier duality]
+Define the DAHA Fourier assignment on the torus, winding, and Hecke
+generators by
+\[
+\mathcal F(X_j)=Y_j^{-1},\qquad
+\mathcal F(Y_j)=X_j,\qquad
+\mathcal F(T_i)=T_i.
+\]
+For $\rho=(r-1,r-2,\ldots,0)$ and a partition $\lambda$, put
+\[
+\xi_\lambda=(q^{\lambda_1}t^{r-1},
+q^{\lambda_2}t^{r-2},\ldots,q^{\lambda_r}).
+\]
+
+Verify the DAHA relations after applying $\mathcal F$ and prove that it
+extends to an automorphism.  Use as theorem input the polynomial
+intertwiner theorem: for generic $q,t$, this automorphism is implemented
+between the polynomial representation and its spectral realization by a
+nondegenerate transform whose kernel is normalized to equal $1$ at
+$(t^\rho,t^\rho)$.  Apply the intertwining relations to the commuting
+$X$- and $Y$-operators and prove the evaluation symmetry
+\[
+\frac{P_\lambda(\xi_\mu;q,t)}{P_\lambda(t^\rho;q,t)}
+=
+\frac{P_\mu(\xi_\lambda;q,t)}{P_\mu(t^\rho;q,t)}.
+\]
+Derive the duality between multiplication recurrences in $\lambda$ and
+the commuting Macdonald difference equations in the spectral variable.
+\end{exercise}
+
+\begin{exercise}[Macdonald pairings and the Cauchy identity]
+Let $\Lambda_{\rm sym}=\C[p_1,p_2,\ldots]$ be graded by
+$\deg p_r=r$.  For a partition $\mu$, let $m_r(\mu)$ be the number of its
+parts equal to $r$, and define
+\[
+z_\mu=\prod_{r\geq1}r^{m_r(\mu)}m_r(\mu)!,
+\qquad
+p_\mu=\prod_jp_{\mu_j},
+\qquad
+p_r(x)=\sum_i x_i^r.
+\]
+Define the symmetric-function Macdonald pairing by
+\[
+\langle p_\mu,p_\nu\rangle^{\rm sym}_{q,t}
+=\delta_{\mu\nu}z_\mu
+\prod_j\frac{1-q^{\mu_j}}{1-t^{\mu_j}}.
+\]
+For a cell $s=(i,j)$ in the diagram of $\lambda$, define its arm and leg by
+\[
+a_\lambda(s)=\lambda_i-j,
+\qquad
+\ell_\lambda(s)=\lambda'_j-i,
+\]
+and put
+\[
+b_\lambda(q,t)
+=\prod_{s\in\lambda}
+\frac{1-q^{a_\lambda(s)}t^{\ell_\lambda(s)+1}}
+{1-q^{a_\lambda(s)+1}t^{\ell_\lambda(s)}}.
+\]
+
+Prove that the finite-variable Macdonald polynomials are stable under
+adjoining a zero variable and hence determine elements $P_\lambda$ of
+$\Lambda_{\rm sym}$.  Put $Q_\lambda=b_\lambda(q,t)P_\lambda$.
+Use the adjointness of the DAHA difference operators
+and triangularity to prove
+\[
+\langle P_\lambda,P_\mu\rangle^{\rm sym}_{q,t}
+=\delta_{\lambda\mu}b_\lambda(q,t)^{-1}.
+\]
+Deduce that $P_\lambda$ and $Q_\lambda$ are dual.  Expand the reproducing
+kernel in the power sums and use the $q$-binomial identity to prove
+\[
+\sum_\lambda P_\lambda(a;q,t)Q_\lambda(b;q,t)
+=\prod_{i,j}\frac{(t a_i b_j;q)_\infty}
+{(a_i b_j;q)_\infty}
+\]
+for finite alphabets with $|a_i b_j|<1$.
+\end{exercise}
+
+\begin{exercise}[Finite Macdonald measures]
+Let $0\leq q,t<1$, let $a=(a_1,\ldots,a_N)$ and
+$b=(b_1,\ldots,b_M)$ be nonnegative with $a_i b_j<1$, and let
+$P_\lambda,Q_\lambda$ be the preceding Macdonald functions.  Define
+\[
+\Pi(a;b)=\sum_\lambda
+P_\lambda(a;q,t)Q_\lambda(b;q,t),
+\qquad
+\mathbb P_{q,t}(\lambda)
+=\frac{P_\lambda(a;q,t)Q_\lambda(b;q,t)}{\Pi(a;b)}.
+\]
+
+Apply the first Macdonald difference operator in the $a$ variables to the
+Cauchy identity.  For distinct $a_i$, prove
+\[
+\mathbb E_{q,t}\!\left[
+\sum_{i=1}^Nq^{\lambda_i}t^{N-i}\right]
+=\sum_{i=1}^N
+\prod_{j\ne i}\frac{t a_i-a_j}{a_i-a_j}
+\prod_{k=1}^M\frac{1-a_i b_k}{1-t a_i b_k},
+\]
+and extend the identity to coincident parameters by continuity.  Verify
+the Schur specialization $q=t$ and the $q$-Whittaker specialization $t=0$.
+For samples from the finite measure, identify the displayed expectation as
+a directly estimable statistic and state the positivity, truncation, and
+sampling assumptions required for comparison with the formula.
+\end{exercise}
+
+\begin{exercise}[Theta functions and the elliptic Ruijsenaars operator]
+For $|p|<1$, define
+\[
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty.
+\]
+
+For type $A_{r-1}$, define
+\[
+D_{p,q,t}^{\mathrm{ell}}
+=\sum_{i=1}^r
+\left(
+\prod_{j\neq i}
+\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
+\right)T_{q,x_i}.
+\]
+
+Prove directly from $\theta(z;0)=1-z$ that
+\[
+D_{p,q,t}^{\mathrm{ell}}
+\longrightarrow D_{q,t}
+\qquad(p\to0).
+\]
+Set $q=e^{-\varepsilon}$ and $t=e^{-g\varepsilon}$ and derive the
+Heckman--Opdam differential operator from the second-order term as
+$\varepsilon\to0$.  Take the rational scaling limit of its hyperbolic
+coefficients and obtain the rational Calogero--Moser operator.
+\end{exercise}
+
+\begin{exercise}[The Calogero--Sutherland limit]
+Write $x_i=e^{z_i}$, set $q=e^{-\epsilon}$ and $t=e^{-g\epsilon}$, and expand
+$D_{q,t}$ through order $\epsilon^2$.  After subtracting its scalar value
+on $1$ and removing the center-of-mass drift, obtain
+\[
+\mathcal L_g=
+\sum_i\partial_{z_i}^2
++g\sum_{i<j}\coth\!\left(\frac{z_i-z_j}{2}\right)
+ (\partial_{z_i}-\partial_{z_j}).
+\]
+On the circle, put $z_i=i\theta_i$ and conjugate by
+\[
+\Psi_0(\theta)=
+\prod_{i<j}\left|2\sin\frac{\theta_i-\theta_j}{2}\right|^g.
+\]
+Recover, up to its ground-state energy, the Sutherland Hamiltonian
+\[
+H_g=-\sum_i\partial_{\theta_i}^2
++\frac{g(g-1)}2\sum_{i<j}
+ \frac1{\sin^2((\theta_i-\theta_j)/2)}.
+\]
+Compute the eigenfunctions of degrees zero and one and, for $r=2$, degree
+two.  Identify their Sutherland eigenvalues.
+\end{exercise}
+
+\begin{exercise}[Hypergeometric degeneration]
+If no denominator parameter $b_j$ is a nonpositive integer, define
+\[
+{}_rF_s\!\left(
+\begin{matrix}a_1,\ldots,a_r\\b_1,\ldots,b_s\end{matrix};z
+\right)
+=\sum_{m=0}^\infty
+\frac{(a_1)_m\cdots(a_r)_m}
+     {(b_1)_m\cdots(b_s)_m}\frac{z^m}{m!}.
+\]
+The series is finite when a numerator parameter is a nonpositive integer.
+
+Set $q=e^{-\varepsilon}$.  Prove
+\[
+\lim_{\varepsilon\to0^+}
+\frac{(q^a;q)_m}{(1-q)^m}=(a)_m,
+\qquad
+\lim_{q\to1^-}
+(1-q)^{1-a}\frac{(q;q)_\infty}{(q^a;q)_\infty}
+=\Gamma(a).
+\]
+Deduce
+\[
+\lim_{q\to1^-}
+{}_r\phi_{r-1}\!\left(
+\begin{matrix}q^{a_1},\ldots,q^{a_r}\\
+q^{b_1},\ldots,q^{b_{r-1}}
+\end{matrix};q,z\right)
+=
+{}_rF_{r-1}\!\left(
+\begin{matrix}a_1,\ldots,a_r\\
+b_1,\ldots,b_{r-1}
+\end{matrix};z\right).
+\]
+Derive Gauss's summation from the $q$-Gauss summation.  Prove
+the corresponding degeneration of the basic hypergeometric $q$-difference
+equation to the Gauss equation.
+\end{exercise}
+
+\begin{exercise}[\texorpdfstring{$BC_r$}{BCr} weights and the Koornwinder operator]
+Write $f(z^{\pm m})=f(z^m)f(z^{-m})$ and
+\[
+f(z_i^{\pm1}z_j^{\pm1})
+=\prod_{\epsilon,\delta=\pm1}f(z_i^\epsilon z_j^\delta).
+\]
+For $|q|,|t|,|a_s|<1$, define
+\[
+\begin{aligned}
+\Delta_{BC_r}(z)={}&
+\prod_{i=1}^r
+ \frac{(z_i^{\pm2};q)_\infty}
+      {\prod_{s=1}^4(a_sz_i^{\pm1};q)_\infty}\\
+&\times
+\prod_{1\leq i<j\leq r}
+ \frac{(z_i^{\pm1}z_j^{\pm1};q)_\infty}
+      {(t z_i^{\pm1}z_j^{\pm1};q)_\infty}.
+\end{aligned}
+\]
+Use the normalized torus measure
+\[
+\frac1{2^rr!}\prod_{i=1}^r\frac{dz_i}{2\pi iz_i}.
+\]
+
+For $z=(z_1,\ldots,z_r)$ put
+\[
+A_i(z)=
+\frac{\prod_{s=1}^4(1-a_sz_i)}
+{(1-z_i^2)(1-qz_i^2)}
+\prod_{j\ne i}
+\frac{(1-tz_iz_j)(1-tz_i/z_j)}
+{(1-z_iz_j)(1-z_i/z_j)}.
+\]
+On Laurent polynomials invariant under permutations and inversions define
+\[
+\mathcal D_K
+=\sum_{i=1}^r\left[
+A_i(z)(T_{q,z_i}-1)
++A_i(z^{-1})(T_{q,z_i}^{-1}-1)\right].
+\]
+Prove that $\Delta_{BC_r}$ is invariant under permutations and independent
+inversions of the $z_i$.  Identify its factors with the roots
+$\pm e_i$, $\pm2e_i$, and $\pm e_i\pm e_j$.  For $r=1$, recover the
+Askey--Wilson weight and its order-two Weyl normalization, and identify
+$\mathcal D_K$ with $\mathcal D_{AW}$.
+\end{exercise}
+
+\begin{exercise}[Koornwinder spectral theory]
+The Koornwinder polynomial $K_\lambda$ is the Weyl-invariant Laurent
+polynomial triangular in orbit sums and satisfying
+\[
+\mathcal D_KK_\lambda
+=\left(\sum_{i=1}^r
+\left[
+a_1a_2a_3a_4q^{-1}t^{2r-i-1}(q^{\lambda_i}-1)
++t^{i-1}(q^{-\lambda_i}-1)
+\right]
+\right)K_\lambda,
+\]
+with the scalar eigenvalue fixed by the displayed convention.
+
+Prove that $\mathcal D_K$ is
+symmetric for the $\Delta_{BC_r}$ inner product and that its triangular
+eigenfunctions are mutually orthogonal when the displayed eigenvalues are
+distinct.
+\end{exercise}
+
+\begin{exercise}[Koornwinder spectral values and \texorpdfstring{$BC_r$}{BCr} simulator frequencies]
+Assume $r\geq2$, $M\geq2$, the Koornwinder weight is positive, and the
+eigenvalues displayed in the preceding exercise are distinct on
+\[
+\Lambda_M=\{\lambda:\ell(\lambda)\leq r,\ |\lambda|\leq M\}.
+\]
+Let $\mathcal H_M$ be the span of the normalized Koornwinder polynomials
+$K_\lambda$, $\lambda\in\Lambda_M$, and define the finite programmable
+$q$-difference Hamiltonian
+\[
+\widehat H_M=\varepsilon\mathcal D_K|_{\mathcal H_M},
+\qquad \varepsilon>0.
+\]
+Prove that $\mathcal H_M$ is invariant and that $\widehat H_M$ is
+self-adjoint with spectral values
+\[
+E_\lambda=\varepsilon\sum_{i=1}^r
+\left[
+a_1a_2a_3a_4q^{-1}t^{2r-i-1}(q^{\lambda_i}-1)
++t^{i-1}(q^{-\lambda_i}-1)
+\right].
+\]
+
+For prepared normalized eigenstates $K_\lambda$ and $K_\mu$, derive the
+spectral spacing
+\[
+\Omega_{\mu\lambda}=\frac{|E_\mu-E_\lambda|}{\hbar}
+\]
+and compute all pairwise gaps among the four levels indexed by
+$0,(1),(2),(1,1)$.  State the
+positivity, finite-truncation, state-preparation, resolved-partition,
+energy-calibration, and nondegeneracy assumptions under which the observed
+lines test the Koornwinder eigenvalue formula.
+\end{exercise}
+
+\section{Integrable Special-Function Spectra}
+
+\begin{exercise}[Askey--Wilson spectrum]
+Fix $M\geq4$ and parameters
+$a,b,c,d\in(-1,1)$ for which the
+Askey--Wilson weight is positive and the first $M+1$ eigenvalues are
+distinct.  Let $\mathcal H_M$ be the span of the normalized Askey--Wilson
+polynomials $p_0,\ldots,p_M$ with their positive Askey--Wilson inner
+product.  Use the self-adjoint Hamiltonian
+$\widehat H_M=\varepsilon\mathcal D_{AW}|_{\mathcal H_M}$, where
+$\varepsilon>0$ is a calibrated energy scale.  Prove that its spectral
+values are
+\[
+E_n=\varepsilon(q^{-n}-1)(1-abcdq^{n-1}).
+\]
+Write the three-term recurrence in the form
+\[
+(z+z^{-1})p_n=A_np_{n+1}+B_np_n+C_np_{n-1}
+\]
+and compute the corresponding normalized matrix elements.  Deduce that a
+periodic perturbation proportional to the compression of $z+z^{-1}$ to
+$\mathcal H_M$ produces only neighboring transitions, with resonance frequencies
+$|E_{n+1}-E_n|/\hbar$ and intensities determined by $A_n$ and $C_{n+1}$.
+Assuming $\varepsilon$ is known and at least three nondegenerate lines are
+resolved, derive the equations satisfied by $q$ and the product $abcd$.
+Compute the Jacobian of two independent gap ratios and state the
+nonvanishing and parameter-range hypotheses under which these two
+quantities are locally identifiable.
+
+Form the data map from $(a,b,c,d)$ to four selected squared normalized
+neighboring matrix elements.  Prove that it is invariant under permutation
+of the parameters.  At a chosen parameter point, compute its differential
+in the four elementary symmetric functions and state the full-rank
+hypothesis under which the measured strengths locally determine the
+unordered set $\{a,b,c,d\}$.  When this rank condition fails, identify the
+remaining fiber instead of asserting identifiability; state also that
+squared strengths cannot distinguish any additional discrete ambiguity in
+that fiber.  State that these are predictions for the engineered simulator.
+\end{exercise}
+
+\begin{exercise}[Macdonald--Ruijsenaars spectrum]
+Let $0<q,t<1$, fix $M\geq0$, and define
+\[
+\mathcal H_{q,t}^{(M)}
+=\operatorname{span}\{P_\lambda(x;q,t):|\lambda|\leq M\}
+\]
+with the positive Macdonald inner product.  Put
+\[
+d_0=\sum_{i=1}^r t^{r-i},
+\qquad
+\widehat H_{q,t}^{(M)}
+=\varepsilon(d_0-D_{q,t})|_{\mathcal H_{q,t}^{(M)}},
+\qquad \varepsilon>0.
+\]
+Identify $D_{q,t}$ with the first symmetric function of the commuting
+DAHA winding operators and derive its compatibility with the Hecke
+exchange relations.  Prove that $\mathcal H_{q,t}^{(M)}$ is invariant,
+that $\widehat H_{q,t}^{(M)}$ is self-adjoint, and
+that the normalized Macdonald states have energies
+\[
+E_\lambda
+=\varepsilon\sum_{i=1}^r
+t^{r-i}(1-q^{\lambda_i}).
+\]
+\end{exercise}
+
+\begin{exercise}[Macdonald transition spectrum]
+Model a finite programmable $q$-difference simulator by this operator.
+Use the Macdonald Pieri identity for
+$\rho_1=x_1+\cdots+x_r$ and its adjoint to determine every nonzero matrix
+element of the compression of $\rho_1+\rho_1^*$ to
+$\mathcal H_{q,t}^{(M)}$.  For a periodic drive proportional to this
+compressed observable, derive the resonance frequencies
+\[
+\Omega_{\mu\lambda}=|E_\mu-E_\lambda|/\hbar
+\]
+and the relative intensities as squared normalized Macdonald Pieri
+coefficients.  Explain that recovery of
+$q,t$ requires known $\varepsilon$ and $r$, resolved partition labels,
+sufficiently many nondegenerate transitions, and a fixed convention for
+any discrete parameter ambiguity, and that the prediction concerns the
+engineered simulator.
+\end{exercise}
+
+\begin{exercise}[Macdonald--Jack degeneration]
+Set $q=e^{-\delta}$ and $t=e^{-g\delta}$; after the scalar
+and center-of-mass normalizations in the Calogero--Sutherland limit
+exercise, prove that
+\[
+\lim_{\delta\downarrow0}
+P_\lambda(x;e^{-\delta},e^{-g\delta})
+=P_\lambda^{(1/g)}(x)
+\]
+in the monic normalization.  Prove that the rescaled spectral gaps and
+normalized Macdonald Pieri coefficients converge to the Sutherland
+energies and Jack Pieri coefficients.  State how measured line
+locations and strengths test this degeneration.  Explain that recovery of
+the deformation parameter requires resolved partition labels and
+sufficiently many nondegenerate transitions.
+\end{exercise}
+
+\section{Elliptic Integrability and Star--Triangle Relations}
+
+\begin{exercise}[Elliptic gamma functions and the deformation hierarchy]
+For $|p|,|q|<1$, define
+\[
+\theta(z_1,\ldots,z_s;p)=\prod_{j=1}^s\theta(z_j;p),
+\]
+\[
+(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
+\]
+\[
+(a_1,\ldots,a_s;q,p)_m
+=\prod_{i=1}^s(a_i;q,p)_m,
+\]
+and
+\[
+\Gamma(z;p,q)=\prod_{j,k\geq0}
+\frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
+\]
+
+Prove
+\[
+\theta(pz;p)=-z^{-1}\theta(z;p),
+\qquad
+\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q),
+\]
+\[
+\Gamma(pz;p,q)=\theta(z;q)\Gamma(z;p,q),
+\qquad
+\Gamma(z;p,q)\Gamma(pq/z;p,q)=1.
+\]
+Prove
+\[
+\theta(z;0)=1-z,
+\qquad
+(a;q,0)_m=(a;q)_m,
+\qquad
+\Gamma(z;0,q)=\frac1{(z;q)_\infty}.
+\]
+\end{exercise}
+
+\begin{exercise}[The Frenkel--Turaev sum]
+For $a^2q^{n+1}=bcde$, define
+\[
+\begin{aligned}
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\sum_{m=0}^n{}&
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}\\
+&\times
+\frac{(a,b,c,d,e,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove the multiplicative theta addition formula
+\[
+\begin{aligned}
+&\theta(xz,x/z,yw,y/w;p)-\theta(xw,x/w,yz,y/z;p)\\
+&\hspace{4em}=\frac{y}{z}\theta(xy,x/y,zw,z/w;p)
+\end{aligned}
+\]
+by comparing quasi-periodicity and zeros.
+\item Use it to telescope the
+difference between the $n$th and $(n-1)$st terminating sums and prove
+\[
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\frac{(aq,aq/(bc),aq/(bd),aq/(cd);q,p)_n}
+{(aq/b,aq/c,aq/d,aq/(bcd);q,p)_n}.
+\]
+\item Take $p\to0$ and identify the terminating very-well-poised basic
+hypergeometric summation.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Elliptic face weights and vertex--face intertwiners]
+Fix logarithms of $p,q$ with $|p|,|q|<1$ and put
+\[
+[x]_{p,q}
+=q^{(1-x)/2}\frac{\theta(q^x;p)}{\theta(q;p)}.
+\]
+For integer heights $i,j,k,l$ satisfying
+\[
+|i-j|=|j-k|=|k-l|=|l-i|=1,
+\]
+define $W(i,j,k,l\mid x)$ by
+\[
+\begin{aligned}
+W(l\!\pm\!1,l\!\pm\!2,l\!\pm\!1,l\mid x)
+&=[x+1]_{p,q},\\
+W(l\!\mp\!1,l,l\!\pm\!1,l\mid x)
+&=\frac{[l+1\pm1]_{p,q}[x]_{p,q}}{[l+1]_{p,q}},\\
+W(l\!\pm\!1,l,l\!\pm\!1,l\mid x)
+&=\frac{[l+1\mp x]_{p,q}}{[l+1]_{p,q}},
+\end{aligned}
+\]
+whenever the denominators are nonzero, and set all other weights equal to
+zero.  On $V=\C e_+\oplus\C e_-$ let $he_\pm=\pm e_\pm$ and define
+$R(x,\lambda)\in\End(V\otimes V)$ at $\lambda=l+1$ by
+\[
+\left\langle e_{j-k}\otimes e_{k-l},
+R(x,l+1)(e_{i-l}\otimes e_{j-i})\right\rangle
+=W(i,j,k,l\mid x),
+\]
+using the orthonormal distinguished weight lines and extending
+meromorphically in $\lambda$.
+
+Let $R^{\rm vert}(u)\in\End(V\otimes V)$ be a spectral exchange operator.
+For each admissible oriented height edge $|a-b|=1$, let
+$\psi(a,b\mid u)\in V$ be meromorphic in $u$.  The pair
+$(R^{\rm vert},\psi)$ satisfies the vertex--face relation for $W$ when
+\[
+\begin{aligned}
+&R^{\rm vert}(u-v)
+\bigl(\psi(a,b\mid u)\otimes\psi(b,c\mid v)\bigr)\\
+&\quad=\sum_{\substack{b'\\|a-b'|=|b'-c|=1}}
+W(a,b,c,b'\mid u-v)
+\psi(a,b'\mid v)\otimes\psi(b',c\mid u).
+\end{aligned}
+\]
+The intertwiners are nondegenerate when the maps from admissible
+height-path spaces induced by their tensor products are injective for
+generic spectral parameters.
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove $[-x]_{p,q}=-[x]_{p,q}$ and rewrite the theta addition identity as
+the corresponding four-term identity for the brackets $[x]_{p,q}$.
+\item Verify that $R(x,\lambda)$ has weight zero and prove the dynamical
+Yang--Baxter equation
+\[
+\begin{aligned}
+&R_{12}(x,\lambda+h^{(3)})
+R_{13}(x+y,\lambda)
+R_{23}(y,\lambda+h^{(1)})\\
+&\qquad={}
+R_{23}(y,\lambda)
+R_{13}(x+y,\lambda+h^{(2)})
+R_{12}(x,\lambda)
+\end{aligned}
+\]
+by reducing every nontrivial weight component to that bracket identity.
+Translate the two sides into the two sums over the admissible internal
+height of a three-face patch.  Show directly that the shifts by
+$h^{(1)},h^{(2)},h^{(3)}$ are the changes of the adjacent face height and
+that $\lambda$, unlike $x$ and $y$, is therefore the dynamical parameter.
+
+\item For periodic admissible height paths, form the row-to-row transfer maps by
+multiplying the displayed face weights and summing over the intermediate
+path.  Use the face Yang--Baxter relation to prove commutation of transfer
+maps with distinct spectral parameters.  For fixed boundary heights of a
+three-face patch with two admissible internal heights, compute their
+normalized probabilities from the two products of $W$ and prove that a
+star--triangle move preserves the boundary partition function.  State the
+real parameter and gauge conditions under which the normalized weights are
+positive statistical-mechanical probabilities.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Vertex--face transfer correspondence]
+Assume nondegenerate vertex--face intertwiners.  Apply the ordinary
+spectral Yang--Baxter equation for $R^{\rm vert}$ to
+\[
+\psi(a,b\mid u)\otimes
+\psi(b,c\mid v)\otimes
+\psi(c,d\mid w)
+\]
+and use the vertex--face relation in the two orders.  Prove that equality
+of the resulting coefficients is the face Yang--Baxter relation and hence
+the dynamical Yang--Baxter equation of the preceding exercise.  Conversely,
+use nondegeneracy to prove the ordinary Yang--Baxter equation on the image
+of the height-path map from the face relation.
+
+For inhomogeneities $z_1,\ldots,z_N$, tensor the edge intertwiners around a
+periodic row to obtain the map $\Phi_u$ from periodic height paths to the
+corresponding vertex sector.  Prove the row-transfer intertwining identity
+\[
+\mathsf T_N^{\rm vert}(u)\Phi_u
+=\Phi_u\mathsf T_N^{\rm face}(u)
+\]
+with the boundary twist dictated by the net height change.  Deduce equality
+of the matched transfer spectra and periodic-strip partition functions.
+In the trigonometric degeneration $p\to0$, identify the vertex transfer
+operator with the six-vertex family and the face transfer operator with
+the trigonometric solid-on-solid model.  State the boundary-sector,
+normalization, injectivity, and face-gauge conditions required when their
+finite-size spectra are compared.
+\end{exercise}
+
+\begin{exercise}[Terminating elliptic \texorpdfstring{$6j$}{6j}-symbols]
+For $bcdefg=a^3q^{n+2}$, define
+\[
+\begin{aligned}
+&{}_{12}V_{11}
+ (a;b,c,d,e,f,g,q^{-n};q,p)\\
+&\quad=\sum_{m=0}^n
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}
+\frac{(a,b,c,d,e,f,g,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq/f,aq/g,
+aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+
+Let
+\[
+\lambda=\frac{a^2q}{bcd},
+\qquad
+g=\frac{\lambda aq^{n+1}}{ef},
+\]
+and assume no displayed denominator vanishes.  Expand the series on the
+right, interchange the resulting finite sums, and apply the
+Frenkel--Turaev ${}_{10}V_9$ summation to prove
+\[
+\begin{aligned}
+&{}_{12}V_{11}
+ (a;b,c,d,e,f,g,q^{-n};q,p)\\
+&\quad=
+\frac{(aq,aq/(ef),\lambda q/e,\lambda q/f;q,p)_n}
+{(aq/e,aq/f,\lambda q/(ef),\lambda q;q,p)_n}\\
+&\qquad\quad\times
+{}_{12}V_{11}\!\left(
+\lambda;\frac{\lambda b}{a},\frac{\lambda c}{a},
+\frac{\lambda d}{a},e,f,g,q^{-n};q,p\right).
+\end{aligned}
+\]
+Fuse $n$ consecutive elementary face weights by summing over admissible
+internal height paths.  Factor the endpoint theta products and show that
+the remaining path sum has the displayed ${}_{12}V_{11}$ term ratio.
+Identify the two sides of the transformation with the two fusion orders
+and hence with the two recouplings of the four external height paths.
+Deduce the tetrahedral change of channel for the resulting elliptic
+$6j$ coefficients and recover the face Yang--Baxter relation for fused
+weights.
+
+Choose a numerator parameter so that the transformed series reduces to
+its zeroth term and recover the preceding ${}_{10}V_9$ summation.  Take
+$p\to0$ to obtain Bailey's terminating very-well-poised
+${}_{10}\phi_9$ transformation, and then take the spectral degeneration
+to the $Q$-Racah quantum $6j$ coefficients developed earlier.  For a
+finite fused face strip, express the relative Boltzmann probabilities of
+two resolved intermediate heights as ratios of normalized fused face
+weights.  Separately, in a unitary recoupling specialization, express
+channel probabilities as squared normalized elliptic $6j$ coefficients.
+State the positivity, face-gauge, boundary-height, unitarity, and
+spectral-resolution assumptions required for the two interpretations.
+\end{exercise}
+
+\begin{exercise}[Elliptic beta kernels]
+Write
+\[
+\Gamma(tz^{\pm1};p,q)=\Gamma(tz;p,q)\Gamma(t/z;p,q),
+\qquad
+\kappa_{p,q}=\frac{(p;p)_\infty(q;q)_\infty}{2}.
+\]
+For $|t_j|<1$ with $\prod_{j=1}^6t_j=pq$, define
+\[
+\mathcal B(t_1,\ldots,t_6)
+=\kappa_{p,q}\int_{\T}
+\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}\,\frac{dz}{2\pi iz}.
+\]
+
+Use the elliptic-gamma difference equations to derive the parameter-shift
+recurrences of $\mathcal B$.
+\end{exercise}
+
+\begin{exercise}[Elliptic beta integral]
+Evaluate the residue degeneration in which two parameters multiply to
+$pq$ and normalize the product side by the same degeneration.  Use as
+theorem input the elliptic-shift uniqueness lemma: a meromorphic function
+of the balanced parameters that satisfies the two independent
+$p$- and $q$-shift recurrences from the preceding exercise and has the
+specified residue normalization is uniquely determined.  Apply the lemma
+and analytic continuation to prove
+\[
+\mathcal B(t_1,\ldots,t_6)
+=\prod_{1\leq i<j\leq6}\Gamma(t_it_j;p,q).
+\]
+Take $p\to0$ and identify the resulting basic hypergeometric beta
+integral.
+\end{exercise}
+
+\begin{exercise}[Elliptic integral operators and the star--triangle relation]
+For $|t|<1$ define
+\[
+(\mathcal M_t f)(w)
+=\frac{\kappa_{p,q}}{\Gamma(t^2;p,q)}
+\int_{\T}
+\frac{\Gamma(tw^{\pm1}z^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}f(z)\,\frac{dz}{2\pi iz},
+\]
+and
+\[
+\mathcal D_s(y,w)
+=\Gamma\!\left((pq)^{1/2}s^{-1}y^{\pm1}w^{\pm1};p,q\right).
+\]
+
+Apply the elliptic beta integral to the internal integration variable and
+prove the operator identity
+\[
+\mathcal M_s\mathcal D_{st}(y,\cdot)\mathcal M_t
+=\mathcal D_t(y,\cdot)\mathcal M_{st}\mathcal D_s(y,\cdot)
+\]
+whenever the contours separate reciprocal pole sequences and the
+parameters satisfy the corresponding modulus bounds.  Interpret the
+kernels as edge weights and $\mathcal D$ as a site weight of a continuous
+spin model.  Prove that the two local triangular partition functions are
+equal and that the row transfer operators obtained by the two
+factorizations commute.  For a finite periodic strip, deduce equality of
+the transfer spectra and partition functions under a star--triangle move;
+state the positivity regime and contour assumptions under which these are
+statistical-mechanical observables.
+\end{exercise}

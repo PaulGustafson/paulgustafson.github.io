@@ -1,5 +1,341 @@
 \part{Geometry}
 
+\section{Differential and Symplectic Geometry}
+
+\begin{exercise}[Differential forms and Cartan calculus]
+Let $M$ be a smooth manifold.  Its cotangent space at $p$ is
+$T_p^*M=(T_pM)^*$, and $T^*M$ is the union of these spaces over $p\in M$.
+
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write $\Omega^k(M)$ for the space of differential
+$k$-forms.  The exterior
+products on the cotangent spaces define
+\[
+\wedge:\Omega^r(M)\times\Omega^s(M)\longrightarrow\Omega^{r+s}(M).
+\]
+For a smooth map $F:M\to N$, define
+\[
+(F^*\alpha)_p(v_1,\ldots,v_k)
+=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+For a vector field $X$, define contraction by
+\[
+(\iota_X\alpha)_p(v_2,\ldots,v_k)
+=\alpha_p(X_p,v_2,\ldots,v_k).
+\]
+The \emph{exterior derivative} is the family
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
+Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
+For a vector field $X$ with local flow $\Phi_t$, define
+\[
+\mathcal L_X\alpha
+=\left.\frac d{dt}\right|_{t=0}\Phi_t^*\alpha.
+\]
+
+Construct $d$ locally and prove its uniqueness.  For contraction
+$\iota_X$, prove Cartan's identity
+\[
+\mathcal L_X=d\iota_X+\iota_Xd.
+\]
+For $A\in\Omega^1(M)$, put $F=dA$.  Prove that replacing $A$ by
+$A+d\chi$, with $\chi\in C^\infty(M)$, leaves $F$ unchanged.  Use
+Cartan's identity to derive
+\[
+\mathcal L_XA=\iota_XF+d(\iota_XA).
+\]
+\end{exercise}
+
+\begin{exercise}[Local Poincar\'e lemma]
+Let $U$ be a star-shaped open neighborhood of $0$ in a finite-dimensional
+real vector space.  For $\alpha\in\Omega^k(U)$ with $k>0$, define
+\[
+(K\alpha)_x(v_1,\ldots,v_{k-1})
+=\int_0^1t^{k-1}\alpha_{tx}(x,v_1,\ldots,v_{k-1})\,dt.
+\]
+Use Cartan's identity for the radial flow to prove
+\[
+dK+Kd=\id
+\]
+on positive-degree forms.  Deduce that every closed form of positive degree
+on $U$ is exact, with a primitive vanishing at the origin.
+\end{exercise}
+
+\begin{exercise}[Cotangent phase space]
+For the projection $\pi:T^*Q\to Q$, define the tautological one-form by
+\[
+\theta_\alpha(v)=\alpha(d\pi(v)),
+\qquad \alpha\in T^*Q,\quad v\in T_\alpha(T^*Q).
+\]
+The canonical two-form on $T^*Q$ is $\omega=d\theta$.
+
+For a finite-dimensional real vector space $V$, construct the canonical
+identifications
+\[
+TV\cong V\times V,
+\qquad
+T^*V\cong V\times V^*.
+\]
+Prove that a phase $S\in C^\infty(Q)$ determines the momentum
+$p=dS_q\in T_q^*Q$.  For a diffeomorphism
+$F:Q\to Q$, construct its cotangent lift and prove that it preserves
+$\theta$ and $d\theta$.  Under $T^*V\cong V\times V^*$, prove
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+\end{exercise}
+
+\begin{exercise}[Symplectic manifolds and Hamiltonian fields]
+A \emph{symplectic form} on a smooth manifold $M$ is a closed
+nondegenerate two-form $\omega$.  A \emph{symplectic vector space} is a
+finite-dimensional real vector space with a nondegenerate alternating
+bilinear form, regarded as a constant symplectic form.  For
+$f\in C^\infty(M)$, define
+\[
+\iota_{X_f}\omega=-df,
+\qquad
+\{f,g\}=-\omega(X_f,X_g).
+\]
+The local flow of $X_f$ is the \emph{Hamiltonian flow} of $f$.
+A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
+\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
+
+Prove that the canonical two-form $d\theta$ on $T^*Q$ is nondegenerate and
+hence symplectic.
+Prove that the Poisson bracket is antisymmetric,
+satisfies the Leibniz rule and Jacobi identity, and is preserved by
+canonical transformations.  For the Hamiltonian flow $\Phi_t$ of $H$,
+prove
+\[
+\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
+\]
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the volume form $\omega^n/n!$, and every density
+depending only on the Hamiltonian.  On a symplectic vector space, prove
+that the infinitesimal generator of a linear Hamiltonian flow has trace
+zero and that the flow has determinant one.
+\end{exercise}
+
+\begin{exercise}[Contact manifolds and symplectization]
+Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
+a \emph{contact form} when
+\[
+\alpha\wedge(d\alpha)^n
+\]
+is nowhere zero.  Its kernel $\xi=\ker\alpha$ is the associated cooriented
+\emph{contact structure}; contact forms defining the same cooriented
+contact structure differ by multiplication by a positive smooth function.  The
+\emph{Reeb vector field} $R_\alpha$ is defined by
+\[
+\alpha(R_\alpha)=1,
+\qquad
+\iota_{R_\alpha}d\alpha=0.
+\]
+An immersed $n$-manifold $\iota:L\to Y$ is \emph{Legendrian} when
+$\iota^*\alpha=0$.
+
+Let $(M,\omega=d\lambda)$ be an exact symplectic manifold.  On
+$M\times\R$, with coordinate function $u$ on the second factor, prove that
+\[
+\alpha=du-\lambda
+\]
+is a contact form and that $R_\alpha$ is the infinitesimal generator of
+translation in the $\R$ factor.  For a manifold $X$, identify
+$J^1X=T^*X\times\R$ with this contactification and prove that
+\[
+j^1f:X\longrightarrow J^1X,
+\qquad
+j^1f(x)=(df_x,f(x)),
+\]
+is Legendrian for every $f\in C^\infty(X)$.  Prove that every section of
+$J^1X\to X$ with Legendrian image is of this form.
+
+For a contact manifold $(Y,\alpha)$ and the positive coordinate $r$ on
+$\R_{>0}$, prove that
+\[
+\Omega=d(r\alpha)
+\]
+is symplectic on $\R_{>0}\times Y$.  Determine the vector field $Z$
+satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
+$\alpha$ by a positive function gives a symplectomorphic symplectization.
+\end{exercise}
+
+\begin{exercise}[Integration of forms and Stokes' theorem]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+compactly supported top form is defined using orientation-preserving charts
+and a partition of unity.
+
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
+\[
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
+\]
+recovering the observed flux--emf law.
+\end{exercise}
+
+\begin{exercise}[de Rham cohomology]
+A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
+\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
+\emph{de Rham cohomology} of $M$ is
+\[
+H_{\mathrm{dR}}^k(M)
+=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
+{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
+\]
+Pullback induces maps on de Rham cohomology, and the wedge product makes
+$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
+
+Use the local Poincar\'e lemma and Stokes' theorem
+to prove that an exact $k$-form has zero integral over
+every closed oriented $k$-manifold mapped smoothly into $M$. Prove
+$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
+
+On $\R^2\setminus\{0\}$, show that
+\[
+\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
+\]
+is closed and has integral $2\pi$ around the unit circle, hence is not exact.
+Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
+closed electromagnetic field strength has local potentials, while it has a
+global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
+
+\begin{exercise}[Connections, curvature, and holonomy]
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers.
+
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
+
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
+\end{exercise}
+
+\begin{exercise}[Principal connections and gauge covariance]
+For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
+$P\to M$ with a free right $G$-action, transitive on each fiber, and local
+$G$-equivariant trivializations.  For a representation
+$G\to\operatorname{GL}(W)$, its
+associated vector bundle is
+$P\times_GW=(P\times W)/((pg,w)\sim(p,gw))$.
+A \emph{principal connection} is an
+equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
+vertical fields. It induces connections on every associated bundle, and its
+\emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
+
+Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
+$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
+a flat connection has trivial holonomy on contractible loops and is
+gauge-equivalent to a product connection on a connected base exactly when
+its holonomy representation is trivial.  For $G=U(1)$, compute the holonomy
+around a
+generator of the fundamental group and exhibit the obstruction to removing
+a flat connection globally.
+\end{exercise}
+
+
+
+\begin{exercise}[Integral curvature and circle cocycles]
+A \emph{good cover} of a manifold is an open cover
+$\{U_i\}_{i\in I}$ for which every nonempty finite intersection is
+contractible.  Let $F\in\Omega^2(M;i\R)$ be closed and choose, on a good
+cover,
+\[
+dA_i=F|_{U_i}.
+\]
+On $U_i\cap U_j$, choose $f_{ij}:U_i\cap U_j\to i\R$ with
+$A_j-A_i=df_{ij}$ and $f_{ji}=-f_{ij}$.  Prove that
+\[
+c_{ijk}=f_{ij}+f_{jk}+f_{ki}
+\]
+is constant on every nonempty triple intersection.
+
+Use the following good-cover form of the integral de Rham theorem as
+theorem input:
+\[
+\frac{1}{2\pi i}\int_\Sigma h^*F\in\Z
+\quad\text{for every smooth }h:\Sigma\to M
+\]
+from a closed oriented surface if and only if the $f_{ij}$ may be chosen
+so that $c_{ijk}\in2\pi i\Z$.  Under this condition put
+\[
+g_{ij}=e^{f_{ij}}.
+\]
+Prove the cocycle identities for the $g_{ij}$, construct the associated
+Hermitian line bundle, and show that the local operators $d+A_i$ define a
+unitary connection of curvature $F$.  Conversely, compare local unitary
+frames of a Hermitian line bundle with connection and recover the integral
+period condition from its transition functions.
+\end{exercise}
+
+\begin{exercise}[Elliptic pendulum period]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Apply the generalized binomial theorem with $a=\frac12$.  For
+\[
+I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
+\]
+use integration by parts to prove
+\[
+I_0=\frac{\pi}{2},
+\qquad
+I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
+\]
+and obtain
+\[
+K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
+\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
+\qquad |k|<1.
+\]
+Deduce
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
 \section{Affine and Projective Geometry, Singularities, and Caustics}
 
 \begin{exercise}[Affine spectra, localization, and structure sheaves]
@@ -277,7 +613,7 @@ infinity, and deduce that $C_q$ has genus $g$.
 \end{exercise}
 
 \begin{exercise}[Pendulum periods and the Legendre curve]
-For the pendulum developed in Quantization, recall
+For the pendulum developed in Differential and Symplectic Geometry, recall
 \[
 T(\theta_0)=4\sqrt{\frac{\ell}{g}}K(k),
 \qquad
@@ -411,7 +747,8 @@ K(\sqrt m)
 +O\bigl((1-m)|\log(1-m)|\bigr)
 \qquad(m\uparrow1).
 \]
-For the pendulum of length $\ell$ developed in Quantization, where
+For the pendulum of length $\ell$ developed in Differential and Symplectic
+Geometry, where
 $m=\sin^2(\theta_0/2)$, deduce
 \[
 T(\theta_0)
@@ -610,9 +947,30 @@ determines the corresponding line bundle.
 \end{exercise}
 
 \begin{exercise}[Theta sections and genus-one Riemann--Roch]
-For the degree-$N$ magnetic line bundle $L_N$ developed in Quantization,
-use the theta automorphy factors to prove that every nonzero holomorphic
-section has a zero divisor of degree $N$.
+For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
+\[
+\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
+=\sum_{n\in\Z}
+\exp\!\left(
+\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
+\right).
+\]
+On $E_\tau=\C/(\Z+\tau\Z)$, define the standard degree-$N$ theta line
+bundle $L_N$ by representing its holomorphic sections as functions on
+$\C$ satisfying
+\[
+f(z+1)=f(z),
+\qquad
+f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z).
+\]
+Use these automorphy factors and the argument principle to prove that every
+nonzero holomorphic section has a zero divisor of degree $N$.  For
+$r\in\Z/N\Z$, define
+\[
+f_r(z)=
+\vartheta\!\begin{bmatrix}r/N\\0\end{bmatrix}(Nz\mid N\tau)
+\]
+and derive its two automorphy laws directly from the series.
 
 For any line bundle $L$ of degree $N>0$, use Abel's theorem to write
 \[
@@ -680,7 +1038,7 @@ Use the Chern--Weil identity and genus-one Riemann--Roch to prove
 \]
 
 For constant $B$, identify these zero modes with the level-$N$ theta
-sections and recover the Landau degeneracy derived in Quantization.  Show
+sections and recover their $N$-fold Landau degeneracy.  Show
 that the integer zero-mode count is unchanged under smooth deformations of
 the unitary connection on the fixed line bundle.  State the
 spin-coupling, compact-surface, positivity, and noninteracting assumptions
@@ -690,19 +1048,16 @@ under which spectroscopy predicts this robust degeneracy.
 \section{Vector Bundles, Berry Curvature, and Topological Transport}
 
 \begin{exercise}[Connections, curvature, and Chern--Weil forms]
-A smooth complex vector bundle of rank $r$ over a manifold $M$ is a smooth
-map $E\to M$ whose fibers are $r$-dimensional complex vector spaces and
-which is locally isomorphic, fiberwise linearly, to a product
-$U\times\mathbb C^r$.  Define its direct sum, tensor product, dual, and
-pullback by the corresponding fiberwise operations.  A connection is a
-complex-linear map
+Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
+direct sum, tensor product, dual, and pullback by the corresponding
+fiberwise operations.  Call a connection from Differential and Symplectic
+Geometry \emph{complex} when
+$\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
+$E$-valued forms by the graded Leibniz rule and write
 \[
-\nabla:\Gamma(E)\longrightarrow\Omega^1(M;E),
-\qquad
-\nabla(fs)=df\otimes s+f\nabla s.
+F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
 \]
-Extend it to $E$-valued forms by the graded Leibniz rule and define its
-curvature by $F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)$.
+for its curvature.
 
 Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
 trace and determinant developed earlier, define
@@ -978,8 +1333,12 @@ For $A\in SL_2(\mathbb C)$, derive intrinsically from Cayley--Hamilton that
 \operatorname{tr}(A^n)
 =2T_n\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]
-Use the Chebyshev polynomials $U_n$ developed in Quantization to prove that
-the spin-$j$ character satisfies
+Define the Chebyshev polynomials of the second kind by
+\[
+U_0(t)=1,\qquad U_1(t)=2t,\qquad
+U_{n+1}(t)=2tU_n(t)-U_{n-1}(t).
+\]
+Prove that the spin-$j$ character satisfies
 \[
 \chi_j(A)=U_{2j}\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]
@@ -1193,8 +1552,8 @@ exactly when $|\Delta(E)|\leq2$.
 
 \begin{exercise}[Lam\'e theta functions and the spectral curve]
 Let $K=K(k)$, $K'=K(\sqrt{1-k^2})$, and
-$\tau=iK'/K$.  Using the Jacobi theta functions developed in Quantization,
-put
+$\tau=iK'/K$.  Using the theta functions with characteristics defined in
+Theta Sections and Genus-One Riemann--Roch, put
 \[
 H(u)=
 \vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
