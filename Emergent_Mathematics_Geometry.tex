@@ -86,9 +86,8 @@ $\theta$ and $d\theta$.  Under $T^*V\cong V\times V^*$, prove
 
 \begin{exercise}[Symplectic manifolds and Hamiltonian fields]
 A \emph{symplectic form} on a smooth manifold $M$ is a closed
-nondegenerate two-form $\omega$.  A \emph{symplectic vector space} is a
-finite-dimensional real vector space with a nondegenerate alternating
-bilinear form, regarded as a constant symplectic form.  For
+nondegenerate two-form $\omega$.  A symplectic vector space as defined in
+Symmetry carries the corresponding constant symplectic form.  For
 $f\in C^\infty(M)$, define
 \[
 \iota_{X_f}\omega=-df,
@@ -434,6 +433,246 @@ T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
 \]
 Deduce the experimentally testable increase of period with amplitude and
 the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+\section{Geometric Quantization}
+
+\begin{exercise}[Prequantum line bundles]
+A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
+$L\to M$ with a unitary connection $\nabla$ satisfying
+\[
+F_\nabla=-\frac{i}{\hbar}\omega.
+\]
+Prove that a prequantum line bundle exists if and only if the period
+condition
+\[
+\frac1{2\pi\hbar}\int_\Sigma f^*\omega\in\Z
+\]
+holds for every smooth map from a closed oriented surface
+$f:\Sigma\to M$.  Apply the circle-cocycle construction above to
+$F=-i\omega/\hbar$, identify its local connection forms with symplectic
+potentials, and prove that the changes
+\[
+A_i\longmapsto A_i+d\phi_i,
+\qquad
+f_{ij}\longmapsto f_{ij}+\phi_j-\phi_i
+\]
+produce an isomorphic prequantum line bundle with connection.  Show that
+two arbitrary prequantum line bundles with this curvature differ by a flat
+Hermitian line bundle, so curvature alone need not determine the
+prequantization up to isomorphism.
+\end{exercise}
+
+\begin{exercise}[Kostant--Souriau commutators]
+For $f\in C^\infty(M)$, define the Kostant--Souriau operator by
+\[
+\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+\]
+
+Prove
+\[
+[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
+=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
+\]
+\end{exercise}
+
+\begin{exercise}[Contactification]
+Let $\pi:S(L)\to M$ be the unit-circle bundle of $L$, let
+$A\in\Omega^1(S(L);i\R)$ be its connection form normalized by
+$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.
+Prove
+\[
+d\alpha=-\frac1\hbar\pi^*\omega,
+\]
+that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
+sections of $L$ correspond to functions $F:S(L)\to\C$ satisfying
+$F(ue^{i\theta})=e^{-i\theta}F(u)$.
+\end{exercise}
+
+\begin{exercise}[Polarized quantum spaces]
+The vertical polarization on $T^*V$ is the tangent distribution to the
+fibers of $T^*V\to V$.  A complex polarization is an involutive Lagrangian
+subbundle $P\subset T_\C M$; its annihilator and canonical line are
+\[
+P^\circ=\{\alpha\in T_\C^*M:\alpha|_P=0\},
+\qquad K_P=\Lambda^{\rm top}P^\circ.
+\]
+A half-form bundle is a line bundle $\delta_P$ with
+$\delta_P^{\otimes2}\cong K_P$.  The corrected polarized sections of
+$L\otimes\delta_P$ are covariantly constant along $P$ and square-integrable
+for the half-form pairing.
+
+For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
+operators
+\[
+\psi(x)\longmapsto \ell(x)\psi(x),
+\qquad
+\psi(x)\longmapsto-i\hbar\,d\psi_x(v).
+\]
+For a compact
+K\"ahler manifold with $P=T^{0,1}M$, prove $P^\circ=T^{*1,0}M$ and
+$K_P=K_M$.  For a positive prequantum line bundle, identify the
+corrected quantum space with
+$H^0(M,L\otimes K_M^{1/2})$.
+\end{exercise}
+
+
+\begin{exercise}[Theta functions and Landau levels]
+Let
+$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
+charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
+assume $eB>0$.  Put
+\[
+N=\frac{eBA}{2\pi\hbar},
+\qquad
+\tau=i\frac{L_y}{L_x},
+\qquad
+z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
+\]
+Use the prequantization condition to prove that a magnetic line bundle
+$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$ and
+$r\in\mathbb Z/N\mathbb Z$, define the level-$N$ theta function
+\[
+\theta_{N,r}(z\mid\tau)
+=\sum_{n\in\mathbb Z}
+\exp\!\left(
+\pi iN\tau(n+r/N)^2+2\pi iN(n+r/N)z
+\right).
+\]
+Use the holomorphic-gauge automorphy laws
+\[
+f(z+1)=f(z),
+\qquad
+f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z)
+\]
+to prove the magnetic-translation decomposition
+\[
+H^0(Q,L)
+=\bigoplus_{r\in\Z/N\Z}
+\C\,\theta_{N,r}(z\mid\tau).
+\]
+Derive the automorphy and magnetic-translation eigenvalue laws directly
+from the defining series.  Relate the holomorphic-gauge sections to
+physical wavefunctions by their common unitary-gauge factor.
+
+For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy around a
+fundamental magnetic cell to prove
+\[
+UV=e^{2\pi i/N}VU.
+\]
+For the covariant Landau Hamiltonian, construct the raising and lowering
+operators and prove
+\[
+E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
+\qquad
+\dim E_{\widehat H}(\{E_n\})H=N.
+\]
+Deduce the cyclotron resonance spacing, the degeneracy density
+$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
+State how measurements of these three quantities separately test the
+energy, flux-integrality, and theta-function predictions.
+\end{exercise}
+
+
+\section{Deformation Quantization}
+
+\begin{exercise}[Poisson manifolds and star products]
+A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
+$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
+Equivalently, there is a bivector $\Pi\in\Gamma(\Lambda^2TM)$ satisfying
+\[
+\{f,g\}=\Pi(df,dg),
+\qquad [\Pi,\Pi]_{\rm Sch}=0.
+\]
+
+A \emph{differential star product} on a Poisson manifold is an associative
+$\C[[\hbar]]$-bilinear product on $C^\infty(M)[[\hbar]]$ of the form
+\[
+f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
+\]
+where the $C_r$ are bidifferential operators, $1$ is a unit, and
+\[
+C_1(f,g)-C_1(g,f)=i\{f,g\}.
+\]
+Let $(E,\omega)$ be a symplectic vector space and let
+$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and write
+$\Pi(k,\ell)=\ell(\Pi(k))$.  Let $D_\Pi$ be the constant bidifferential
+operator characterized on decomposable functions by
+\[
+D_\Pi(f\otimes g)(x,y)
+=d_yg\bigl(\Pi(d_xf)\bigr).
+\]
+On $C^\infty(E)[[\hbar]]$, define
+\[
+f\star g
+=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
+\]
+where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
+associativity from the commutation of the induced constant bidifferential
+operators on $E^3$, and prove
+\[
+f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
+\]
+Verify that this product is a differential star product in the preceding
+sense.
+For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive
+\[
+e_k\star e_\ell
+=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
+\]
+Prove associativity directly by checking the multiplier identity for the
+phase.  Differentiate in $k$ and $\ell$ to recover the canonical
+commutation relations.  Prove that every affine symplectic transformation
+of $E$ preserves $\star$.  For $E=V\oplus V^*$, prove that the restriction
+to Schwartz functions is the formal $\hbar$-expansion of the Weyl product
+defined by operator composition above.
+\end{exercise}
+
+\begin{exercise}[Magnetic lattice Hamiltonians]
+Let $U,V$ be unitary translations satisfying
+\[
+UV=e^{2\pi i\alpha}VU,
+\]
+where $\alpha$ is the magnetic flux through one lattice cell in units of
+the flux quantum.  The magnetic nearest-neighbor Hamiltonian is
+\[
+H_\alpha=U+U^*+V+V^*.
+\]
+In the position realization on $\ell^2(\Z)$, with transverse phase
+$\theta$, it is the Harper operator
+\[
+(H_{\alpha,\theta}\psi)_m
+=\psi_{m+1}+\psi_{m-1}
++2\cos(2\pi\alpha m+\theta)\psi_m.
+\]
+
+Derive the magnetic-translation relation from the Moyal plane-wave
+identity.  Prove that the commutator phase $e^{2\pi i\alpha}$ is the phase
+accumulated around one lattice cell.  Show that nonintegral total flux on a
+periodic sample obstructs consistent torus boundary phases, while integral
+total flux makes their corner cocycle trivial.  Prove that nonzero integral
+flux still obstructs a single globally periodic vector potential.
+
+For rational flux $\alpha=p/q$, prove that the Harper equation
+has $q$-periodic coefficients and reduce it by the Floquet condition
+$\psi_{m+q}=e^{iqk}\psi_m$ to a $q$-dimensional spectral problem.
+At zero flux, use the Chebyshev identity
+\[
+T_q(\cos t)=\cos(qt)
+\]
+to derive the $q$-step discriminant
+\[
+\Delta_{0,q}(E,\theta)
+=2T_q\!\left(\frac{E-2\cos\theta}{2}\right).
+\]
+At half a flux quantum, compute the two bands
+\[
+E_\pm(k,\theta)
+=\pm2\sqrt{\cos^2k+\cos^2\theta}.
+\]
+Deduce the flux-dependent band edges and the touching energy, and state
+how microwave, photonic, or electronic lattice spectroscopy tests the
+Chebyshev discriminant and the half-flux splitting.
 \end{exercise}
 
 \section{Affine and Projective Geometry, Singularities, and Caustics}
@@ -849,8 +1088,7 @@ K(\sqrt m)
 +O\bigl((1-m)|\log(1-m)|\bigr)
 \qquad(m\uparrow1).
 \]
-For the pendulum of length $\ell$ developed in Differential and Symplectic
-Geometry, where
+For the pendulum of length $\ell$ developed in the opening section, where
 $m=\sin^2(\theta_0/2)$, deduce
 \[
 T(\theta_0)
@@ -1072,6 +1310,7 @@ $r\in\Z/N\Z$, define
 \[
 f_r(z)=
 \vartheta\!\begin{bmatrix}r/N\\0\end{bmatrix}(Nz\mid N\tau)
+\;=\theta_{N,r}(z\mid\tau)
 \]
 and derive its two automorphy laws directly from the series.
 

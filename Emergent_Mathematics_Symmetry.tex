@@ -1492,6 +1492,579 @@ squared absolute value of the resulting spherical-harmonic amplitude and
 identify its symmetry-enforced dark directions and absent spectral lines.
 \end{exercise}
 
+\section{Heisenberg Harmonic Analysis and Phase-Space Quantization}
+
+\begin{exercise}[Coadjoint orbits and the Kirillov form]
+For a Lie group $G$ with Lie algebra $\mathfrak g$, define
+\[
+\Ad_g=d(h\mapsto ghg^{-1})_e,
+\qquad
+(\Ad_g^*\ell)(X)=\ell(\Ad_{g^{-1}}X).
+\]
+For $\ell\in\mathfrak g^*$, define
+\[
+\mathcal O_\ell=\Ad^*(G)\ell,
+\qquad
+G_\ell=\{g\in G:\Ad_g^*\ell=\ell\},
+\]
+and
+\[
+\mathfrak g_\ell
+=\{X\in\mathfrak g:\ell([X,Y])=0
+\text{ for every }Y\in\mathfrak g\}.
+\]
+For $X\in\mathfrak g$, set
+\[
+(\ad_X^*\ell)(Y)=-\ell([X,Y]).
+\]
+
+On $T_\ell\mathcal O_\ell$, define
+\[
+\omega_\ell(\ad_X^*\ell,\ad_Y^*\ell)=\ell([X,Y]).
+\]
+For $\eta=\Ad_g^*\ell$, transport $\omega_\ell$ by the coadjoint
+action to define $\omega_\eta$.
+
+Prove
+\[
+T_\ell\mathcal O_\ell
+=\{\ad_X^*\ell:X\in\mathfrak g\}
+\cong\mathfrak g/\mathfrak g_\ell.
+\]
+Prove that the Kirillov form is well-defined, alternating, nondegenerate,
+and $G$-invariant.  Prove the cyclic identity
+\[
+\ell([X,[Y,Z]])+\ell([Y,[Z,X]])+\ell([Z,[X,Y]])=0
+\]
+and prove directly that it is the cyclic identity satisfied by the
+transported field $\omega$ on $\mathcal O_\ell$.
+
+For $G=SO(3)$, use the Euclidean inner product and
+orientation to identify $\mathfrak{so}(3)$ and its dual with $\R^3$, with
+bracket $[X,Y]=X\times Y$.  Prove that $\mathcal O_\ell$ is the sphere of
+radius $L=\lVert\ell\rVert$, that
+\[
+\omega_\ell(X\times\ell,Y\times\ell)
+=\ell\mathbin{\cdot}(X\times Y),
+\]
+and that the Kirillov form is $L^{-1}$ times the Riemannian area form on
+this sphere.  Deduce
+\[
+\int_{\mathcal O_\ell}\omega=4\pi L.
+\]
+\end{exercise}
+
+
+\begin{exercise}[Weyl multipliers]
+A \emph{normalized multiplier} on a locally compact group $G$ is a
+continuous map
+$\sigma:G\times G\to\T$ satisfying
+\[
+\sigma(x,e)=\sigma(e,x)=1,
+\qquad
+\sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
+\]
+A \emph{symplectic vector space} is a finite-dimensional real vector
+space $E$ equipped with a nondegenerate alternating bilinear form
+$\omega$.  Let $(E,\omega)$ be such a space.
+For $\lambda\in\R$, define
+\[
+\sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
+\]
+
+Prove that $\sigma_{\lambda\omega}$ is a normalized multiplier for every
+$\lambda\in\R$.
+\end{exercise}
+
+
+\begin{exercise}[Commutator bicharacter]
+For a multiplier $\sigma$ on an abelian group $A$, define
+\[
+c_\sigma(x,y)=\sigma(x,y)\overline{\sigma(y,x)}.
+\]
+Multipliers $\sigma$ and $\sigma'$ are cohomologous when there is a
+continuous map $b:A\to\T$, $b(e)=1$, with
+\[
+\sigma'(x,y)=b(x)b(y)\overline{b(x+y)}\,\sigma(x,y).
+\]
+For $E=V\oplus V^*$, call $\sigma_{\omega/\hbar}$ the Weyl multiplier.
+
+Prove that $c_\sigma$ is an alternating bicharacter and depends only on the
+cohomology class of $\sigma$.  For the Weyl multiplier on $V\oplus V^*$,
+prove
+\[
+c_{\sigma_{\omega/\hbar}}\bigl((q,p),(q',p')\bigr)
+=e^{i(p(q')-p'(q))/\hbar}.
+\]
+Prove
+\[
+c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}.
+\]
+\end{exercise}
+
+
+\begin{exercise}[Heisenberg groups and central characters]
+A $\sigma$-projective unitary representation of a group $E$ is a strongly
+continuous map $U:E\to U(H)$ satisfying
+$U_zU_{z'}=\sigma(z,z')U_{z+z'}$ and $U_0=I$.
+
+For a symplectic vector space $(E,\omega)$, its \emph{Heisenberg group} is
+\[
+\mathbb H(E,\omega)=E\times\R
+\]
+with multiplication
+\[
+(z,s)(z',s')
+=(z+z',s+s'+\tfrac12\omega(z,z')).
+\]
+Write
+$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
+symplectic form on $\R^n\oplus(\R^n)^*$.  Its Lie algebra is
+$\mathfrak h(E,\omega)=E\oplus\R Z$ with
+\[
+[(z,sZ),(z',s'Z)]=\omega(z,z')Z.
+\]
+For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
+representation} on $L^2(V)$ is
+\[
+\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
+=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
+\]
+Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
+$\{0\}\times\R$ and that
+\[
+\pi_\lambda(0,s)=e^{i\lambda s}I.
+\]
+Prove that projective representations of $E$ with multiplier
+$e^{i\lambda\omega/2}$ correspond to representations of
+$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
+\end{exercise}
+
+\begin{exercise}[Canonical commutation and Weyl relations]
+For $\hbar>0$, $\ell\in V^*$, and $v\in V$, define on $\mathcal S(V)$
+\[
+Q_\ell\psi(x)=\ell(x)\psi(x),
+\qquad
+P_v\psi(x)=-i\hbar\,d\psi_x(v).
+\]
+
+Prove
+\[
+[Q_\ell,P_v]=i\hbar\ell(v)I.
+\]
+For
+\[
+(T_q\psi)(x)=\psi(x-q),
+\qquad
+(M_p^\hbar\psi)(x)=e^{ip(x)/\hbar}\psi(x),
+\]
+prove
+\[
+M_p^\hbar T_q=e^{ip(q)/\hbar}T_qM_p^\hbar.
+\]
+For
+\[
+W_\hbar(q,p)=e^{-ip(q)/(2\hbar)}M_p^\hbar T_q,
+\]
+prove
+\[
+W_\hbar(z)W_\hbar(z')
+=e^{i\omega(z,z')/(2\hbar)}W_\hbar(z+z')
+\]
+and identify $W_\hbar(z)$ with
+$\pi_{1/\hbar}(z,0)$ under the canonical set-theoretic section
+$z\mapsto(z,0)$.  Prove that this section is not a homomorphism and that
+its failure to preserve multiplication is exactly the displayed multiplier.
+\end{exercise}
+
+
+\begin{exercise}[Schr\"odinger model]
+For a connected simply connected nilpotent group $G$ and
+$\ell\in\mathfrak g^*$, a \emph{polarization} is a Lie subalgebra
+$\mathfrak p\subseteq\mathfrak g$ satisfying
+\[
+\ell([\mathfrak p,\mathfrak p])=0,
+\qquad
+\dim\mathfrak p
+=\frac{\dim\mathfrak g+\dim\mathfrak g_\ell}{2}.
+\]
+For $P=\exp(\mathfrak p)$, set
+$\chi_\ell(\exp X)=e^{i\ell(X)}$.  The induced representation
+$\operatorname{Ind}_P^G\chi_\ell$ acts by left translation on the
+$L^2$-sections over $G/P$ satisfying
+$F(gp)=\chi_\ell(p)^{-1}F(g)$.
+
+Identify
+\[
+\mathfrak h(E,\omega)^*=E^*\oplus\R Z^*.
+\]
+For $(\xi,\lambda)\in E^*\oplus\R Z^*$, prove
+\[
+\Ad_{(z,s)}^*(\xi,\lambda)
+=\bigl(\xi-\lambda\omega(z,{\cdot}),\lambda\bigr).
+\]
+Deduce that the orbits with $\lambda=0$ are points and that, for
+$\lambda\ne0$,
+\[
+\mathcal O_\lambda
+=\{(\xi,\lambda):\xi\in E^*\}.
+\]
+Prove that
+\[
+E\longrightarrow\mathcal O_\lambda,
+\qquad
+z\longmapsto\bigl(-\lambda\omega(z,{\cdot}),\lambda\bigr),
+\]
+pulls the Kirillov form back to $\lambda\omega$.
+
+For $E=V\oplus V^*$ and
+$\mathfrak p=V^*\oplus\R Z$, prove that $\mathfrak p$ is a polarization
+at $(0,\lambda)$.  Identify
+$\mathbb H(E,\omega)/\exp(\mathfrak p)$ with $V$ and compute the
+induced action to obtain
+\[
+\bigl(\pi_\lambda(q,p,s)\psi\bigr)(x)
+=e^{i\lambda(s+p(x-q/2))}\psi(x-q).
+\]
+For $\lambda=0$, recover every character of $E$ from a point orbit.
+\end{exercise}
+
+
+\begin{exercise}[Irreducibility of the Schr\"odinger representation]
+Prove that an operator on $L^2(V)$ commuting with every translation and
+every modulation is scalar: first use the Fourier transform to identify the
+commutant of translations, and then impose commutation with modulations.
+Deduce that $\pi_\lambda$ is irreducible for $\lambda\ne0$.
+\end{exercise}
+
+\begin{exercise}[Stone--von Neumann theorem]
+Let $U$ be a strongly continuous irreducible unitary representation of
+$\mathbb H(V\oplus V^*,\omega)$ with central character
+$U(0,s)=e^{i\lambda s}I$, where $\lambda\ne0$.  Integrate Schwartz
+functions on $V\oplus V^*$ against the canonical section of $U$.  Use
+Fourier inversion and a Gaussian approximate identity to show that this
+integrated representation contains the same nonzero finite-rank operators
+as the Schr\"odinger model.  Construct a nonzero intertwiner and use
+irreducibility to prove $U\simeq\pi_\lambda$.
+\end{exercise}
+
+\begin{exercise}[Trace and Hilbert--Schmidt classes]
+For $x,y\in H$, let
+\[
+\theta_{x,y}(\xi)=\langle y,\xi\rangle x.
+\]
+The \emph{trace class} $S_1(H)$ consists of operators admitting a representation
+\[
+A=\sum_{j=1}^{\infty}\theta_{x_j,y_j},
+\qquad
+\sum_{j=1}^{\infty}\|x_j\|\,\|y_j\|<\infty,
+\]
+where the series converges in operator norm, with norm the infimum of the
+displayed sums.  Define
+\[
+\Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
+\]
+The \emph{Hilbert--Schmidt class} is
+\[
+S_2(H)=\{A\in B(H):A^*A\in S_1(H)\},
+\qquad
+\|A\|_2^2=\Tr(A^*A).
+\]
+
+Prove that $S_1(H)$, $\Tr$, and $S_2(H)$ are well-defined.  Prove that
+$\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space and
+that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$ isometrically
+with $B(H)$.
+\end{exercise}
+
+
+\begin{exercise}[Coefficient and Fourier--Wigner transforms]
+Let $V$ be an $n$-dimensional real vector space with Lebesgue measure $dq$,
+let $\hbar>0$, and equip $V^*$ with the dual measure $dp$ for which
+$(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq$ is unitary on $L^2$.
+For $q\in V$ and $p\in V^*$, define
+\[
+(T_q\xi)(x)=\xi(x-q),
+\qquad
+(M_p^\hbar\xi)(x)=e^{ip(x)/\hbar}\xi(x).
+\]
+For $z=(q,p)\in V\oplus V^*$, define
+\[
+W_\hbar(z)=e^{-ip(q)/(2\hbar)}M_p^\hbar T_q.
+\]
+The \emph{Fourier--Wigner transform} is
+\[
+\mathcal W_\hbar:S_1(L^2(V))\longrightarrow C_b(V\oplus V^*),
+\qquad
+\mathcal W_\hbar(A)(z)=(2\pi\hbar)^{-n/2}\Tr(AW_\hbar(z)).
+\]
+
+Prove
+\[
+W_\hbar(z)^*=W_\hbar(-z).
+\]
+For $A,B\in S_1(L^2(V))\cap S_2(L^2(V))$, prove the Fourier--Wigner
+orthogonality identity
+\[
+\int_{V\oplus V^*}
+\overline{\mathcal W_\hbar(A)(z)}\mathcal W_\hbar(B)(z)\,dz
+=\Tr(A^*B).
+\]
+Deduce that $\mathcal W_\hbar$ extends uniquely to a unitary map
+\[
+S_2(L^2(V))\longrightarrow L^2(V\oplus V^*)
+\]
+and, whenever $\mathcal W_\hbar(A)\in L^1(V\oplus V^*)$, prove
+\[
+A=(2\pi\hbar)^{-n/2}\int_{V\oplus V^*}
+\mathcal W_\hbar(A)(z)W_\hbar(z)^*\,dz
+\]
+in the weak operator topology.
+\end{exercise}
+
+
+\begin{exercise}[Schr\"odinger character]
+For $V=\R^n$, let $f\in C^\infty(\mathbb H_n)$ satisfy
+\[
+(q,p,s)\longmapsto f\bigl(\exp(q,p,s)\bigr)
+\in\mathcal S(\R^{2n+1})
+\]
+under the canonical identification
+$\mathfrak h_n=\R^n\oplus(\R^n)^*\oplus\R$.  With Haar measure
+$dq\,dp\,ds$, put
+\[
+\pi_\lambda(f)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)\,dg.
+\]
+Prove
+\[
+\Tr\pi_\lambda(f)
+=(2\pi)^n|\lambda|^{-n}
+\int_\R f(0,0,s)e^{i\lambda s}\,ds.
+\]
+Derive this identity directly from the Schr\"odinger kernel and identify
+the factor $|\lambda|^{-n}$ with the symplectic-volume scaling of
+$\mathcal O_\lambda$.
+\end{exercise}
+
+\begin{exercise}[Heisenberg Plancherel and inversion]
+\label{ex:heisenberg-harmonic-analysis}
+For $f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
+$dq\,dp\,ds$ and the scalar Fourier transform
+$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
+\[
+\widehat f(\lambda)
+=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
+\]
+Compute the integral kernel of $\widehat f(\lambda)$ and apply Euclidean
+Plancherel in the central and phase-space variables.  Deduce the Plancherel measure
+$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
+\[
+\|f\|_2^2
+=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
+\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
+\]
+Prove the inversion formula and the distributional orthogonality of Weyl
+operators.  Prove that representations with trivial central character have
+zero Plancherel measure.
+\end{exercise}
+
+\begin{exercise}[Weyl quantization and Wigner distributions]
+For $a\in\mathcal S(V\oplus V^*)$, define
+$\operatorname{Op}_\hbar^W(a):\mathcal S(V)\to\mathcal S(V)$ by
+\[
+\bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
+=\frac{1}{(2\pi\hbar)^n}
+\int_{V\times V^*}
+e^{ip(x-y)/\hbar}
+a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
+\]
+For polynomial symbols, use the same formula as an oscillatory integral on
+$\mathcal S(V)$.
+
+For $\psi,\varphi\in\mathcal S(V)$, define
+\[
+W_\hbar(\psi,\varphi)(q,p)
+=\frac{1}{(2\pi\hbar)^n}
+\int_Ve^{-ip(y)/\hbar}
+\overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
+\]
+Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
+
+Let $\Pi:(V\oplus V^*)^*\to V\oplus V^*$ be the inverse of
+$z\mapsto\omega(z,-)$ and define the canonical Poisson bracket by
+\[
+\{a,b\}=db\bigl(\Pi(da)\bigr).
+\]
+For $\ell\in V^*$ and $v\in V$, prove
+\[
+\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr)=Q_\ell,
+\qquad
+\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto p(v)\bigr)=P_v.
+\]
+Prove
+\[
+\operatorname{Op}_\hbar^W(a)^*
+=\operatorname{Op}_\hbar^W(\overline a),
+\qquad
+\|\operatorname{Op}_\hbar^W(a)\|_{\rm HS}
+=(2\pi\hbar)^{-n/2}\|a\|_2,
+\]
+and
+\[
+\langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
+=\int_{V\oplus V^*}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
+\]
+Prove that for $a,b\in\mathcal S(V\oplus V^*)$ there is a unique
+$a\star_\hbar b\in\mathcal S(V\oplus V^*)$ satisfying
+\[
+\operatorname{Op}_\hbar^W(a\star_\hbar b)
+=\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
+\]
+Derive the oscillatory-integral formula for $\star_\hbar$ and prove
+\[
+a\star_\hbar b
+=ab+\frac{i\hbar}{2}\{a,b\}+O(\hbar^2),
+\qquad
+\frac{a\star_\hbar b-b\star_\hbar a}{i\hbar}
+=\{a,b\}+O(\hbar^2)
+\]
+in the Schwartz-symbol topology.
+\end{exercise}
+
+\begin{exercise}[Groenewold--van Hove obstruction]
+Specialize to $V=\R$ and write $Q=Q_{\id_\R}$ and $P=P_1$.
+Prove that the polynomials of degree at most two form a Lie subalgebra for
+the Poisson bracket and that Weyl quantization is an exact Lie-algebra
+quantization on this subalgebra.  Quantize $q^2p^2$ using
+\[
+q^2p^2=\frac19\{q^3,p^3\}
+=\frac13\{q^2p,qp^2\}
+\]
+and prove that there is no linear quantization of the polynomial Poisson
+algebra satisfying
+\[
+\mathcal Q(1)=I,\qquad
+\mathcal Q(q)=Q,\qquad
+\mathcal Q(p)=P,\qquad
+\mathcal Q(q^m)=Q^m,\qquad
+\mathcal Q(p^m)=P^m,
+\]
+together with
+\[
+\mathcal Q(\{f,g\})=(i\hbar)^{-1}
+[\mathcal Q(f),\mathcal Q(g)]
+\]
+on a common invariant domain.
+\end{exercise}
+
+
+\begin{exercise}[Classical and quantum evolution]
+Let $H\in C^\infty(V\oplus V^*,\R)$ have bounded derivatives of order at
+least two.  Define its Hamiltonian field by
+\[
+da(X_H)=\{a,H\}
+\]
+for every smooth $a$, let $\Phi_t$ be the flow of $X_H$, and let
+$\operatorname{Op}_\hbar^W(H)$ denote its self-adjoint realization.  Define
+\[
+U_\hbar(t)=e^{-it\operatorname{Op}_\hbar^W(H)/\hbar}.
+\]
+For $a\in\mathcal S(V\oplus V^*)$, define
+\[
+a_t=a\circ\Phi_t,
+\qquad
+A_\hbar(t)=U_\hbar(t)^*\operatorname{Op}_\hbar^W(a)U_\hbar(t).
+\]
+
+Prove
+\[
+\frac{d}{dt}a_t=\{a_t,H\},
+\qquad
+\frac{d}{dt}A_\hbar(t)
+=\frac{i}{\hbar}
+[\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
+\]
+Use as theorem input the semiclassical operator estimate that the Moyal
+commutator remainder obtained from symbols with the displayed derivative
+bounds has operator norm $O(\hbar)$, uniformly for $|t|\leq T$, after
+division by $i\hbar$.  Apply Duhamel's formula to prove, for every $T>0$,
+Egorov's theorem
+\[
+\sup_{|t|\leq T}
+\left\|
+A_\hbar(t)-\operatorname{Op}_\hbar^W(a\circ\Phi_t)
+\right\|=O_T(\hbar).
+\]
+Prove exact equality for quadratic $H$.  Derive Ehrenfest's equations for
+the expectations of $Q_\ell$ and $P_v$ for every $\ell\in V^*$ and
+$v\in V$.
+\end{exercise}
+
+\begin{exercise}[Linear symplectic covariance]
+Let $S$ be a linear symplectic automorphism of $V\oplus V^*$.  Construct
+unitary implementers for cotangent lifts of linear automorphisms of $V$,
+for symplectic shears defined by quadratic forms, and for the exchange of
+position and momentum implemented by the Fourier transform.  Prove for
+these generators that
+\[
+\mu(S)\operatorname{Op}_\hbar^W(a)\mu(S)^*
+=\operatorname{Op}_\hbar^W(a\circ S^{-1}),
+\qquad
+W_\hbar[\mu(S)\psi]=W_\hbar[\psi]\circ S^{-1}.
+\]
+Deduce the covariance for their products and prove that each implementer is
+determined up to phase.  Show that coherent choices form the metaplectic
+double cover, whose two lifts of a fixed symplectic map differ by sign.  Use
+the Groenewold--van Hove obstruction to show why exact covariance cannot
+extend to every nonlinear canonical transformation.
+\end{exercise}
+
+\begin{exercise}[Wigner--Laguerre identity]
+Use the generalized Laguerre polynomials and their orthogonality from
+Peter--Weyl Theory.  For
+\[
+H_{\rm cl}(q,p)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2},
+\qquad
+\psi_n(q)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}q\right),
+\]
+prove
+\[
+W_\hbar[\psi_n](q,p)
+=\frac{(-1)^n}{\pi\hbar}
+e^{-2H_{\rm cl}(q,p)/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}(q,p)}{\hbar\omega}\right).
+\]
+Verify the position and momentum marginals and identify the zeros and sign
+changes of the Wigner distribution from those of $L_n$.
+\end{exercise}
+
+
+\begin{exercise}[Laguerre tomography]
+For the dimensionless quadrature
+\[
+X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
++\frac{P}{\sqrt{m\hbar\omega}}\sin\theta,
+\]
+prove that its probability density in a state $\psi$ is the Radon
+transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
+Derive the Fourier-slice inversion formula reconstructing the Wigner
+distribution from the family of quadrature densities.  For the oscillator
+state $\psi_n$, use the Wigner--Laguerre identity to prove that the
+reconstructed radial profile is
+\[
+\frac{(-1)^n}{\pi\hbar}e^{-2H_{\rm cl}/(\hbar\omega)}
+L_n\!\left(\frac{4H_{\rm cl}}{\hbar\omega}\right),
+\]
+while every quadrature density is a scaled
+$e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
+radial zero circles determined by $L_n$, and the sign at the phase-space
+origin.  State how homodyne quadrature data distinguish adjacent number
+states and detect Wigner negativity after inverse Radon reconstruction.
+\end{exercise}
+
+
 \section{Poincar\'e Symmetry and Relativistic Particles}
 
 \begin{exercise}[Minkowski momentum orbits and relativistic dispersion]
