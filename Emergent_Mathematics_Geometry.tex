@@ -2,7 +2,17 @@
 
 \section{Affine and Projective Geometry, Singularities, and Caustics}
 
-\begin{exercise}[Affine spectra, localization, and structure sheaves]
+\begin{exercise}[Stationary-ray families, affine spectra, and structure sheaves]
+Near a cusp diffraction pattern, use the canonical phase
+\[
+S(t;a,b)=\frac{t^4}{4}+\frac{at^2}{2}+bt.
+\]
+Show that its stationary rays satisfy $t^3+at+b=0$, and define the
+polynomial functions on the full ray-and-control-parameter family by
+\[
+A_{\rm ray}=\mathbb C[t,a,b]/(t^3+at+b).
+\]
+
 Let $A$ be a finitely generated commutative $\mathbb C$-algebra.  An ideal
 $\mathfrak p\subsetneq A$ is \emph{prime} when $ab\in\mathfrak p$ implies
 $a\in\mathfrak p$ or $b\in\mathfrak p$.  Define
@@ -44,6 +54,10 @@ closed points but can change the structure sheaf.  In particular, compare
 $\operatorname{Spec}\mathbb C[\varepsilon]/(\varepsilon^2)$ with a reduced
 point and identify the nilpotent section that records its infinitesimal
 thickening.
+For the special fiber of $A_{\rm ray}$ at $a=b=0$, obtain
+$\mathbb C[t]/(t^3)$ and show that its unique closed point retains a
+nilpotent triple-ray thickening, whereas fibers with three distinct
+stationary roots are reduced.
 \end{exercise}
 
 \begin{exercise}[Morphisms, local rings, tangent spaces, and singularities]
@@ -243,7 +257,13 @@ scaling.
 
 \section{Algebraic Curves, Periods, and Monodromy}
 
-\begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
+\begin{exercise}[Turning-point covers and the Riemann--Hurwitz formula]
+For a one-dimensional conservative oscillator whose energy equation is
+$\dot x^2=q_E(x)$ with polynomial $q_E$, the turning points are the roots
+of $q_E$ and its return time is, up to the fixed mechanical normalization,
+a period of $dx/y$ on $y^2=q_E(x)$.  Counting how the two values of $y$
+merge at turning points leads to the topology of a branched cover.
+
 For a compact connected oriented surface $S$, define its genus $g(S)$ by
 \[
 \chi(S)=2-2g(S).
@@ -427,7 +447,14 @@ logarithmic type of the singular fiber.
 
 \section{Divisors, Sheaf Cohomology, and Riemann--Roch}
 
-\begin{exercise}[Divisors, line bundles, and first Chern classes]
+\begin{exercise}[Magnetic wavefunctions, divisors, and first Chern classes]
+A lowest-Landau-level state of a charged particle on a compact surface is
+described locally by holomorphic wavefunctions related on overlaps by gauge
+factors.  Their zeros are observable vortex locations, while the total
+magnetic flux is unchanged by the local gauge descriptions.  Line bundles,
+divisors, and first Chern classes encode these three pieces of the same
+system.
+
 On a compact Riemann surface $C$, a \emph{divisor} is a finite formal sum
 \[
 D=\sum_{p\in C}n_p[p],
@@ -689,7 +716,13 @@ under which spectroscopy predicts this robust degeneracy.
 
 \section{Vector Bundles, Berry Curvature, and Topological Transport}
 
-\begin{exercise}[Connections, curvature, and Chern--Weil forms]
+\begin{exercise}[Transported mode spaces, connections, and Chern--Weil forms]
+Suppose a controlled linear system has an isolated $r$-fold family of
+normal modes over a parameter manifold $M$.  The mode space can vary with
+the controls and need not admit one global identification; a connection
+specifies infinitesimal transport, while curvature records its failure to
+be path independent.
+
 A smooth complex vector bundle of rank $r$ over a manifold $M$ is a smooth
 map $E\to M$ whose fibers are $r$-dimensional complex vector spaces and
 which is locally isomorphic, fiberwise linearly, to a product
@@ -840,7 +873,12 @@ measurements test these predictions.
 
 \section{Character Varieties, Moduli, and Wilson Loops}
 
-\begin{exercise}[Surface-group representations and character varieties]
+\begin{exercise}[Gauge holonomies and surface character varieties]
+A particle carrying an internal $G$-state can traverse different loops on
+a multiply connected sample.  A flat gauge field assigns a holonomy to
+each loop, composition of paths multiplies holonomies, and changing the
+internal reference frame conjugates all measured holonomies simultaneously.
+
 Let $\Sigma_g$ be a closed oriented surface of genus $g$, let $G$ be a
 complex reductive affine algebraic group, and use the presentation
 \[
@@ -1028,7 +1066,12 @@ assumptions separately from these predictions.
 
 \section{Jacobians, Spectral Curves, and Finite-Gap Waves}
 
-\begin{exercise}[Hyperelliptic curves and holomorphic differentials]
+\begin{exercise}[Finite-gap dispersion and hyperelliptic differentials]
+In an idealized one-dimensional periodic medium with finitely many stop
+bands, energy has two Bloch branches that merge at the band edges.  A
+two-sheeted algebraic dispersion relation packages those branches, while
+its holomorphic periods provide the phases of finite-gap waves.
+
 Let
 \[
 C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
@@ -1043,7 +1086,10 @@ infinity to show that the distinguished differentials
 \]
 are holomorphic.  Compare their vanishing orders at infinity and use
 $\dim H^0(C,K_C)=g$ to show that they exhaust the holomorphic
-differentials.
+differentials.  When the $e_r$ are real and ordered, prove locally at each
+$e_r$ that the two values of $y$ merge with square-root behavior and
+identify these merger points with the band edges of the opening
+two-branch dispersion model.
 
 Choose a symplectic marking
 $(a_1,\ldots,a_g,b_1,\ldots,b_g)$ of $H_1(C;\mathbb Z)$, define the
@@ -1391,7 +1437,12 @@ transmission-line experiment tests these predictions.
 
 \section{Riemannian Curvature and Relativistic Geometry}
 
-\begin{exercise}[Levi--Civita connections, geodesics, and the exponential map]
+\begin{exercise}[Free trajectories, Levi--Civita connections, and geodesics]
+A force-free probe on a curved surface follows a locally length-minimizing
+trajectory.  The metric measures speed and distance, while a connection is
+needed to compare the probe's velocity at neighboring points and formulate
+the statement that its velocity does not turn intrinsically.
+
 Let $(M,g)$ be a Riemannian manifold.  For a connection on $TM$, define its
 torsion by
 \[

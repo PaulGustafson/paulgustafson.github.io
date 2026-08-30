@@ -4,7 +4,14 @@
 
 
 
-\begin{exercise}[Vector spaces, duality, trace, and dimension]
+\begin{exercise}[Linear oscillations, vector spaces, duality, trace, and dimension]
+Consider the small displacements of a finite lossless mechanical system
+from a stable equilibrium.  Superposition says that displacement amplitudes
+may be added and rescaled, a linear detector assigns a scalar amplitude,
+and a bilinear coupling assigns a scalar to a pair of amplitudes.  The
+physical scalar field is $\mathbb R$; retain a general field in the
+following abstraction.
+
 Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
 $V$ with scalar multiplication satisfying
 \[
@@ -35,6 +42,15 @@ V\times W\longrightarrow V\otimes W
 The evaluation pairing induces a linear map
 $\operatorname{ev}_V:V^\vee\otimes V\to k$.
 
+Return to $k=\mathbb R$ in the mechanical model.  Let
+$M,K:V\to V^\vee$ be the linearized mass and
+stiffness laws, assume $M$ is invertible, and put
+\[
+A=M^{-1}K\in\operatorname{End}(V),
+\qquad
+\ddot q+Aq=0.
+\]
+
 A vector space $V$ is \emph{finite-dimensional} when there is a
 coevaluation map
 \[
@@ -63,6 +79,13 @@ The \emph{dimension} of $V$ is the scalar
 \]
 
 \begin{enumerate}[label=(\alph*)]
+\item Let $T:V\to W$ describe a linearized mechanical response.  Identify
+$\ker T$ with the undetected displacement amplitudes and $\im T$ with the
+reachable output amplitudes.  Show that every linear detector is an element
+of $V^\vee$ and that every bilinear coupling
+$b:V\times W\to k$ is equivalently a linear functional on $V\otimes W$.
+Show that the solution set of the displayed linearized equation is closed
+under superposition and identify $\ker K$ with its static zero modes.
 \item Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
 $\operatorname{ev}_V$.  Apply
 \[
@@ -730,7 +753,13 @@ and loss.
 
 \section{Fourier Analysis}
 
-\begin{exercise}[Manifolds, Lie groups, and invariant geometry]
+\begin{exercise}[Homogeneous wave media, manifolds, Lie groups, and invariant geometry]
+Consider a scalar wave propagating in a smooth homogeneous medium.  Its
+points form a manifold, its continuous rigid motions form a Lie group, and
+a metric determines both propagation distance and the wave operator
+$\partial_t^2-c^2\Delta_g$.  The following structures make this description
+independent of coordinates.
+
 A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
 space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
 whose transition maps are smooth.  A map of smooth manifolds is
@@ -790,6 +819,10 @@ $h_{F(p)}(dF_pv,dF_pw)=g_p(v,w)$.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that an isometry preserves the Riemannian density, gradient,
 divergence, and Laplace--Beltrami operator.
+\item If $F$ is an isometry of the medium and $u$ satisfies
+$\partial_t^2u=c^2\Delta_gu$, prove that
+$u_F(t,p)=u(t,F^{-1}(p))$ satisfies the same equation.  Deduce that the
+symmetry group transports wave fields without changing their dispersion.
 \item Prove that a left-invariant Riemannian metric on a Lie group has
 left-invariant Riemannian measure.
 \item For the Euclidean metric, recover Lebesgue measure and
@@ -1023,10 +1056,12 @@ condition with
 \section{Peter--Weyl Theory}
 
 
-\begin{exercise}[Finite symmetry sectors and Maschke's theorem]
+\begin{exercise}[Symmetric linear modes and Maschke's theorem]
 Let a finite symmetry group $G$ act unitarily on the finite-dimensional
-state space $H$ of a quantum system, and let a self-adjoint Hamiltonian
-$A$ satisfy $A\rho(g)=\rho(g)A$ for every $g\in G$.
+mode space $H$ of a stable lossless coupled oscillator, and let its positive
+self-adjoint dynamical operator $A$ satisfy
+$A\rho(g)=\rho(g)A$ for every $g\in G$.
+The eigenvalues of $A$ are the squared normal frequencies.
 For a group $G$, a representation on a vector space $V$ is a homomorphism
 $\rho:G\to\operatorname{GL}(V)$.  A subspace is invariant when it is
 preserved by every $\rho(g)$, and a nonzero representation is irreducible
@@ -1037,7 +1072,7 @@ Average an arbitrary projection over $G$ to construct an invariant
 complement to every invariant subspace. Deduce that every finite-dimensional
 representation is a direct sum of irreducible representations.  Apply this
 to $H$ and to each spectral subspace of $A$.  Prove that exact symmetry
-organizes every energy level into irreducible multiplets.  If $A_s$ is a
+organizes every normal-frequency level into irreducible multiplets.  If $A_s$ is a
 norm-continuous family of self-adjoint operators commuting with $G$ and a
 spectral cluster remains isolated, use its spectral projection to prove that
 the multiplicity of every irreducible type in the cluster is locally constant.
@@ -1492,6 +1527,10 @@ identify its symmetry-enforced dark directions and absent spectral lines.
 \section{Poincar\'e Symmetry and Relativistic Particles}
 
 \begin{exercise}[Minkowski momentum orbits and relativistic dispersion]
+A free relativistic particle is specified experimentally by the energy and
+momentum measured by inertial observers.  Requiring all such observers to
+describe the same mass produces the following orbit geometry.
+
 A \emph{time-oriented Minkowski space} is a real four-dimensional vector
 space $M$ with a symmetric nondegenerate form $g$ of signature $(1,3)$
 and a chosen component of the cone $\{v:g(v,v)>0\}$.  Let
@@ -1834,6 +1873,11 @@ spacelike decay, and time-of-flight delay are physical predictions.
 \section{Scattering Theory}
 
 \begin{exercise}[Outgoing Green kernels and the Lippmann--Schwinger equation]
+A monochromatic beam incident on a localized target is detected through
+the amplitude and angular distribution of its outgoing spherical wave.
+The simplest model is a spinless nonrelativistic particle in a short-range
+potential.
+
 Let $\mu>0$ be a reduced mass, let $k>0$, put
 \[
 E=\frac{\hbar^2k^2}{2\mu},
@@ -2226,7 +2270,12 @@ and detector acceptance alter the comparison with measured counts.
 \section{Harish--Chandra Theory}
 
 
-\begin{exercise}[The hyperbolic plane and rank-one decompositions]
+\begin{exercise}[Hyperbolic wave media and rank-one decompositions]
+A scalar wave on a homogeneous negatively curved sheet has an isotropic
+point-source response depending only on geodesic distance.  Fix curvature
+radius one and determine the symmetry and radial measure of that medium
+from the following model.
+
 Let
 \[
 G=SL_2(\R),
@@ -2276,6 +2325,8 @@ F(ka_rn_x)e^r\,dx\,dr\,dk,
 =2\pi\int_0^\infty f(a_rK)\sinh r\,dr
 \]
 for radial $f$.
+Deduce that a response invariant under the stabilizer of its source is a
+function of $r=d_{\mathbb H^2}(z,i)$ alone.
 \end{exercise}
 
 \begin{exercise}[Spherical convolution and the rank-one Gelfand pair]
@@ -2609,7 +2660,13 @@ shape, loss, finite frequency resolution, and discretization.
 \section{Automorphic Forms}
 
 
-\begin{exercise}[Lattice theta series]
+\begin{exercise}[Crystal diffraction and lattice theta series]
+In kinematic diffraction from an ideal monatomic crystal, take $L$ to be
+its reciprocal lattice.  Squared reciprocal-lattice lengths determine
+possible scattering shells, while their multiplicities determine shell
+degeneracies.  Package these directly into the following generating
+function.
+
 A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
 $\R^d/L$ is compact.  Its dual is
 \[

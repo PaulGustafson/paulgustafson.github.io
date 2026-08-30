@@ -2,7 +2,13 @@
 
 \section{Graded Characters}
 
-\begin{exercise}[Symmetric polynomials]
+\begin{exercise}[Bosonic and fermionic mode counts and symmetric polynomials]
+Consider $N$ one-particle modes with formal weights
+$x_1,\ldots,x_N$.  The fixed-$r$ partition function sums products of
+weights over weakly ordered mode occupations for bosons and strictly
+ordered occupations for fermions.  Relabeling the modes cannot change
+either count, so these partition functions are symmetric polynomials.
+
 For $N\geq1$, let
 \[
 \Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
@@ -31,7 +37,8 @@ $e_1,\ldots,e_N$.
 \qquad
 \sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
 \]
-and deduce
+and identify $h_r$ and $e_r$ with the fixed-$r$ bosonic and fermionic
+mode-counting polynomials, respectively.  Deduce
 \[
 \left(\sum_{r\geq0}h_rt^r\right)
 \left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
@@ -123,6 +130,11 @@ express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
 \section{Modular and Moonshine Characters}
 
 \begin{exercise}[Virasoro symmetry and chiral finite-size levels]
+A unidirectional gapless wave channel on a circle has harmonics with
+integer momenta and energies proportional to inverse circumference.
+Conformal symmetry organizes their interacting descendants through the
+following algebra.
+
 The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
 $C$, with
 \[
@@ -471,6 +483,12 @@ realization.
 \section{Transfer Matrices}
 
 \begin{exercise}[Hard-hexagon transfer matrices]
+Model hard particles adsorbed on a triangular-lattice cylinder: a site is
+empty or occupied, nearest neighbors cannot both be occupied, and each
+particle contributes an activity $z$.  Reading the sample one row at a time
+turns its equilibrium state count into repeated application of a finite
+operator.
+
 Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
 let $T_N(z)$ be an operator on the configuration space whose matrix element
 between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
@@ -787,7 +805,13 @@ the comparison.
 
 \section{Determinantal Ensembles}
 
-\begin{exercise}[Hermite Gaussian moments]
+\begin{exercise}[Gaussian spectral fluctuations and Hermite moments]
+Model a complicated lossless resonator by a self-adjoint dynamical operator
+subject to many weak perturbations and with no preferred mode direction.
+The invariant Gaussian model begins with one centered, normalized matrix
+coordinate $X$; polynomial detector responses to that coordinate should be
+separated into mutually uncorrelated Gaussian modes.
+
 Let $\mathbb P$ be the probability measure on $\R$ with density
 $(2\pi)^{-1/2}e^{-x^2/2}$, let $X(x)=x$, and write
 $\mathbb Ef(X)=\int_\R f(x)\,d\mathbb P(x)$ whenever the integral exists.
@@ -1161,7 +1185,13 @@ finite-size range over which the asymptotic is used.
 
 \section{Schur Measures}
 
-\begin{exercise}[Schur polynomials and identities]
+\begin{exercise}[Occupation profiles and Schur polynomial identities]
+To refine bosonic and fermionic mode counts, label an occupation profile by
+a partition $\lambda$.  Its mode-weight partition function should be
+symmetric and reduce to unrestricted occupation for a one-row profile and
+exclusion occupation for a one-column profile.  The following determinant
+produces that interpolation.
+
 An integer partition is a finite nonincreasing sequence of positive
 integers.  Its size is the sum of its parts, and its length is the number
 of nonzero parts.
@@ -1180,6 +1210,8 @@ s_\lambda(x)
 \]
 from the fundamental symmetric identities.  Prove
 $s_{(r)}=h_r$ and $s_{(1^r)}=e_r$.
+Identify these two cases with the fixed-$r$ bosonic and fermionic
+mode-counting polynomials from Graded Characters.
 \end{exercise}
 
 \begin{exercise}[RSK, last-passage values, and the finite Schur measure]
