@@ -1,6 +1,6 @@
 \part{Geometry}
 
-\section{Differential and Symplectic Geometry}
+\section{Differential Geometry, Vector Bundles, and Symplectic Geometry}
 
 \begin{exercise}[Differential forms and Cartan calculus]
 Let $M$ be a smooth manifold.  Its cotangent space at $p$ is
@@ -266,8 +266,13 @@ a flat connection globally.
 \begin{exercise}[Integral curvature and circle cocycles]
 A \emph{good cover} of a manifold is an open cover
 $\{U_i\}_{i\in I}$ for which every nonempty finite intersection is
-contractible.  Let $F\in\Omega^2(M;i\R)$ be closed and choose, on a good
-cover,
+contractible.  A \emph{smooth complex vector bundle} is a smooth vector
+bundle locally modeled on a finite-dimensional complex vector space by
+fiberwise complex-linear product maps; it is a \emph{complex line bundle}
+when its complex rank is one.  A \emph{Hermitian vector bundle} carries a
+smoothly varying positive-definite Hermitian form, and a connection on it
+is \emph{unitary} when it preserves that form.  Let
+$F\in\Omega^2(M;i\R)$ be closed and choose, on a good cover,
 \[
 dA_i=F|_{U_i}.
 \]
@@ -294,6 +299,101 @@ Hermitian line bundle, and show that the local operators $d+A_i$ define a
 unitary connection of curvature $F$.  Conversely, compare local unitary
 frames of a Hermitian line bundle with connection and recover the integral
 period condition from its transition functions.
+\end{exercise}
+
+\begin{exercise}[Connections, curvature, and Chern--Weil forms]
+Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
+direct sum, tensor product, dual, and pullback by the corresponding
+fiberwise operations.  Call a connection defined above \emph{complex} when
+$\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
+$E$-valued forms by the graded Leibniz rule and write
+\[
+F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
+\]
+for its curvature.
+
+Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
+trace and determinant developed earlier, define
+\[
+\operatorname{ch}(E,\nabla)
+=\operatorname{Tr}\exp\!\left(\frac{iF_\nabla}{2\pi}\right),
+\qquad
+c(E,\nabla)
+=\det\!\left(I+\frac{iF_\nabla}{2\pi}\right)
+=1+c_1(E,\nabla)+\cdots+c_r(E,\nabla).
+\]
+Use Bianchi and cyclicity of trace to prove that the homogeneous components
+of $\operatorname{ch}(E,\nabla)$ are closed.  For a path $\nabla_t$ of
+connections, derive
+\[
+\frac d{dt}\operatorname{Tr}
+\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)
+=d\,\operatorname{Tr}\!\left(
+\frac{i\dot\nabla_t}{2\pi}
+\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
+\]
+Use as theorem input the corresponding Chern--Weil transgression formula
+for the determinant invariant polynomials.  Deduce that the de Rham classes
+$\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
+natural under pullback, and satisfy
+\[
+c(E\oplus F)=c(E)c(F),
+\qquad
+\operatorname{ch}(E\oplus F)=\operatorname{ch}(E)+\operatorname{ch}(F),
+\qquad
+\operatorname{ch}(E\otimes F)=\operatorname{ch}(E)\operatorname{ch}(F).
+\]
+Prove also that
+\[
+\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E).
+\]
+Recover the first Chern form of a line bundle used above.
+\end{exercise}
+
+\begin{exercise}[Spectral projections and Berry bundles]
+Let $W$ be a finite-dimensional Hermitian vector space, let $B$ be a smooth
+manifold, and let $H:B\to\operatorname{End}(W)$ be a smooth family of
+self-adjoint operators.  Suppose a fixed contour $\Gamma$ encloses an
+isolated spectral cluster of constant multiplicity.  Define
+\[
+P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
+\qquad
+\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
+\]
+Prove that $P_b$ is a smooth family of orthogonal projections and that
+$\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its local
+product maps from the restrictions of nearby projections to a fixed fiber,
+without choosing a frame.  Define the Berry connection by
+\[
+\nabla^{\mathrm B}s=P\,ds
+\]
+for sections satisfying $Ps=s$, and prove
+\[
+F_{\mathrm B}=P(dP\wedge dP)P,
+\qquad
+c_1(\mathcal E)=
+\left[\frac{i}{2\pi}\operatorname{Tr}P(dP\wedge dP)\right].
+\]
+\end{exercise}
+
+\begin{exercise}[Two-level Berry degree and gap protection]
+For the distinguished two-band Hamiltonian on the Brillouin torus $B=T^2$,
+\[
+H(k)=d_1(k)\sigma_1+d_2(k)\sigma_2+d_3(k)\sigma_3,
+\qquad d(k)\ne0,
+\]
+let $\widehat d=d/|d|$ and let $\mathcal E_-$ be the negative-energy line
+bundle.  From $P_-=(I-\widehat d\cdot\sigma)/2$, derive
+\[
+\int_{T^2}c_1(\mathcal E_-)
+=\frac1{4\pi}\int_{T^2}
+\widehat d\cdot
+(\partial_{k_1}\widehat d\times\partial_{k_2}\widehat d)
+\,dk_1\,dk_2
+=\deg(\widehat d).
+\]
+Show that this integer cannot change under a smooth deformation that keeps
+the spectral gap open.
 \end{exercise}
 
 \begin{exercise}[Elliptic pendulum period]
@@ -462,7 +562,9 @@ complex vector space $V$, prove
 \]
 and recover its interpretation as the space of complex lines in $V$.
 
-For $n\in\mathbb Z$, define the twisting sheaf $\mathcal O(n)$ by the
+An \emph{algebraic line bundle} on a scheme $X$ is an
+$\mathcal O_X$-module locally isomorphic to $\mathcal O_X$.  For
+$n\in\mathbb Z$, define the twisting sheaf $\mathcal O(n)$ by the
 degree-zero parts $(A(n)_f)_0$ on the displayed charts.  For a homogeneous
 ideal $I$, define the projective subscheme $\operatorname{Proj}(A/I)$.
 Prove intrinsically for $n\geq0$ that
@@ -613,7 +715,7 @@ infinity, and deduce that $C_q$ has genus $g$.
 \end{exercise}
 
 \begin{exercise}[Pendulum periods and the Legendre curve]
-For the pendulum developed in Differential and Symplectic Geometry, recall
+For the pendulum developed above, recall
 \[
 T(\theta_0)=4\sqrt{\frac{\ell}{g}}K(k),
 \qquad
@@ -779,10 +881,13 @@ principle to prove
 \deg\operatorname{div}(f)=0.
 \]
 
-For a divisor $D=\sum_pn_p[p]$, define $\mathcal O(D)$ to be the sheaf of
-meromorphic functions $h$ satisfying
-$\operatorname{div}(h)+D\geq0$ on each open set.  Show that this sheaf is
-the sheaf of holomorphic sections of a holomorphic line bundle.
+A \emph{holomorphic line bundle} on $C$ is a complex line bundle with local
+product maps whose transition functions are nowhere-vanishing holomorphic
+functions $g_{ij}$ satisfying $g_{ij}g_{jk}=g_{ik}$.  For a divisor
+$D=\sum_pn_p[p]$, define $\mathcal O(D)$ to be the sheaf of meromorphic
+functions $h$ satisfying $\operatorname{div}(h)+D\geq0$ on each open set.
+Show that this sheaf is the sheaf of holomorphic sections of a holomorphic
+line bundle.
 Two divisors are \emph{linearly equivalent} when their difference is
 principal, namely the divisor of a nonzero meromorphic function.  Prove
 \[
@@ -791,10 +896,8 @@ principal, namely the divisor of a nonzero meromorphic function.  Prove
 D\text{ and }D'\text{ are linearly equivalent}.
 \]
 
-A holomorphic line bundle is specified by nowhere-vanishing holomorphic
-transition functions $g_{ij}$ satisfying $g_{ij}g_{jk}=g_{ik}$.  For a
-nonzero meromorphic section $s$, define $\operatorname{div}(s)$ from its
-local representatives.  Use as theorem input the meromorphic-section
+For a nonzero meromorphic section $s$, define $\operatorname{div}(s)$ from
+its local representatives.  Use as theorem input the meromorphic-section
 theorem: every holomorphic line bundle on a compact Riemann surface has a
 nonzero meromorphic section.  Prove that
 \[
@@ -1043,104 +1146,6 @@ that the integer zero-mode count is unchanged under smooth deformations of
 the unitary connection on the fixed line bundle.  State the
 spin-coupling, compact-surface, positivity, and noninteracting assumptions
 under which spectroscopy predicts this robust degeneracy.
-\end{exercise}
-
-\section{Vector Bundles, Berry Curvature, and Topological Transport}
-
-\begin{exercise}[Connections, curvature, and Chern--Weil forms]
-Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
-direct sum, tensor product, dual, and pullback by the corresponding
-fiberwise operations.  Call a connection from Differential and Symplectic
-Geometry \emph{complex} when
-$\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
-$E$-valued forms by the graded Leibniz rule and write
-\[
-F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
-\]
-for its curvature.
-
-Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
-trace and determinant developed earlier, define
-\[
-\operatorname{ch}(E,\nabla)
-=\operatorname{Tr}\exp\!\left(\frac{iF_\nabla}{2\pi}\right),
-\qquad
-c(E,\nabla)
-=\det\!\left(I+\frac{iF_\nabla}{2\pi}\right)
-=1+c_1(E,\nabla)+\cdots+c_r(E,\nabla).
-\]
-Use Bianchi and cyclicity of trace to prove that the homogeneous components
-of $\operatorname{ch}(E,\nabla)$ are closed.  For a path $\nabla_t$ of
-connections, derive
-\[
-\frac d{dt}\operatorname{Tr}
-\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)
-=d\,\operatorname{Tr}\!\left(
-\frac{i\dot\nabla_t}{2\pi}
-\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
-\]
-Use as theorem input the corresponding Chern--Weil transgression formula
-for the determinant invariant polynomials.  Deduce that the de Rham classes
-$\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
-natural under pullback, and satisfy
-\[
-c(E\oplus F)=c(E)c(F),
-\qquad
-\operatorname{ch}(E\oplus F)=\operatorname{ch}(E)+\operatorname{ch}(F),
-\qquad
-\operatorname{ch}(E\otimes F)=\operatorname{ch}(E)\operatorname{ch}(F).
-\]
-Prove also that
-\[
-\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E).
-\]
-Recover the first Chern form of a line bundle used above.
-\end{exercise}
-
-\begin{exercise}[Spectral projections and Berry bundles]
-Let $W$ be a finite-dimensional Hermitian vector space, let $B$ be a smooth
-manifold, and let $H:B\to\operatorname{End}(W)$ be a smooth family of
-self-adjoint operators.  Suppose a fixed contour $\Gamma$ encloses an
-isolated spectral cluster of constant multiplicity.  Define
-\[
-P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
-\qquad
-\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
-\]
-Prove that $P_b$ is a smooth family of orthogonal projections and that
-$\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its local
-product maps from the restrictions of nearby projections to a fixed fiber,
-without choosing a frame.  Define the Berry connection by
-\[
-\nabla^{\mathrm B}s=P\,ds
-\]
-for sections satisfying $Ps=s$, and prove
-\[
-F_{\mathrm B}=P(dP\wedge dP)P,
-\qquad
-c_1(\mathcal E)=
-\left[\frac{i}{2\pi}\operatorname{Tr}P(dP\wedge dP)\right].
-\]
-\end{exercise}
-
-\begin{exercise}[Two-level Berry degree and gap protection]
-For the distinguished two-band Hamiltonian on the Brillouin torus $B=T^2$,
-\[
-H(k)=d_1(k)\sigma_1+d_2(k)\sigma_2+d_3(k)\sigma_3,
-\qquad d(k)\ne0,
-\]
-let $\widehat d=d/|d|$ and let $\mathcal E_-$ be the negative-energy line
-bundle.  From $P_-=(I-\widehat d\cdot\sigma)/2$, derive
-\[
-\int_{T^2}c_1(\mathcal E_-)
-=\frac1{4\pi}\int_{T^2}
-\widehat d\cdot
-(\partial_{k_1}\widehat d\times\partial_{k_2}\widehat d)
-\,dk_1\,dk_2
-=\deg(\widehat d).
-\]
-Show that this integer cannot change under a smooth deformation that keeps
-the spectral gap open.
 \end{exercise}
 
 \begin{exercise}[Theta bundles and quantized Hall transport]
