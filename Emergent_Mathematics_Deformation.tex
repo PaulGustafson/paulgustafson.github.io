@@ -1082,7 +1082,13 @@ $\theta$, it is the Harper operator
 \]
 
 Derive the magnetic-translation relation from the Moyal plane-wave
-identity.  For rational flux $\alpha=p/q$, prove that the Harper equation
+identity.  Prove that the commutator phase $e^{2\pi i\alpha}$ is the phase
+accumulated around one lattice cell.  Show that nonintegral total flux on a
+periodic sample obstructs consistent torus boundary phases, while integral
+total flux makes their corner cocycle trivial.  Prove that nonzero integral
+flux still obstructs a single globally periodic vector potential.
+
+For rational flux $\alpha=p/q$, prove that the Harper equation
 has $q$-periodic coefficients and reduce it by the Floquet condition
 $\psi_{m+q}=e^{iqk}\psi_m$ to a $q$-dimensional spectral problem.
 At zero flux, use the Chebyshev identity
@@ -1102,11 +1108,6 @@ E_\pm(k,\theta)
 Deduce the flux-dependent band edges and the touching energy, and state
 how microwave, photonic, or electronic lattice spectroscopy tests the
 Chebyshev discriminant and the half-flux splitting.
-Prove that the commutator phase $e^{2\pi i\alpha}$ is the phase accumulated
-around one lattice cell.  Show that nonintegral total flux on a periodic
-sample obstructs consistent torus boundary phases, while integral total
-flux makes their corner cocycle trivial.  Prove that nonzero integral flux
-still obstructs a single globally periodic vector potential.
 \end{exercise}
 
 
@@ -2061,6 +2062,101 @@ the same output probabilities.  Express this equality as the $Q$-Racah
 recoupling identity.  Derive the phase accumulated in one $\kappa$-shift
 cycle and state the twist, unitarity, preparation, and detection assumptions
 under which it is an interference observable.
+\end{exercise}
+
+\begin{exercise}[Izergin determinant and domain-wall ice entropy]
+Use the additive trigonometric normalization of the six-vertex
+Yang--Baxter family.  For horizontal rapidities
+$x=(x_1,\ldots,x_N)$, vertical rapidities $y=(y_1,\ldots,y_N)$, and
+crossing parameter $\eta$, put
+\[
+a(x_i,y_j)=\sin(x_i-y_j+\eta),
+\qquad
+b(x_i,y_j)=\sin(x_i-y_j),
+\qquad
+c=\sin\eta.
+\]
+Impose domain-wall boundary arrows, with the top and bottom arrows pointing
+inward and the left and right arrows pointing outward, and let
+$Z_N^{\rm DW}(x;y)$ be the sum of products of these local weights over all
+allowed arrow configurations.
+
+Use the Yang--Baxter equation to prove that $Z_N^{\rm DW}$ is separately
+symmetric in the $x_i$ and in the $y_j$.  At $x_N=y_N$, show that the
+vertex at their intersection has weight $c$, that its row and column
+freeze, and that
+\[
+\left.Z_N^{\rm DW}(x;y)\right|_{x_N=y_N}
+=c\prod_{i=1}^{N-1}a(x_i,y_N)
+\prod_{j=1}^{N-1}a(x_N,y_j)
+Z_{N-1}^{\rm DW}(\widehat x_N;\widehat y_N).
+\]
+Here a hat means that the indicated rapidity is omitted.
+With $X_i=e^{2ix_i}$ and $Y_j=e^{2iy_j}$, prove that
+$X_i^{(N-1)/2}Z_N^{\rm DW}$ is a polynomial of degree $N-1$ in $X_i$
+and that the analogous statement holds for every $Y_j$.  Use as theorem
+input the Korepin interpolation lemma: separate symmetry, these degree
+bounds, the displayed freezing recursion, and $Z_1^{\rm DW}=c$ uniquely
+determine the domain-wall partition function.
+
+Verify that the determinant below has these properties and deduce the
+Izergin identity
+\[
+Z_N^{\rm DW}(x;y)
+=\frac{\displaystyle\prod_{i,j=1}^N
+a(x_i,y_j)b(x_i,y_j)}
+{\displaystyle\prod_{1\leq i<j\leq N}
+\sin(x_i-x_j)\sin(y_j-y_i)}
+\det\!\left[
+\frac{c}{a(x_i,y_j)b(x_i,y_j)}
+\right]_{i,j=1}^N.
+\]
+
+Take the homogeneous ice limit
+\[
+x_i-y_j=\eta=\frac\pi3,
+\qquad
+a=b=c=\frac{\sqrt3}{2},
+\]
+and divide every local weight by $\sqrt3/2$.  Let $A_N$ be the resulting
+unit-weight partition function.  When every $x_i=x$ and every $y_j=y$,
+put $z=x-y$, $a(z)=\sin(z+\eta)$, $b(z)=\sin z$, and write the unnormalized
+partition function as $Z_N^{\rm hom}(z;\eta)$.  Take the confluent limit of
+the Izergin determinant and prove
+\[
+Z_N^{\rm hom}(z;\eta)
+=\frac{[a(z)b(z)]^{N^2}}
+{\displaystyle\prod_{j=0}^{N-1}(j!)^2}
+\det\!\left[
+\frac{d^{i+j}}{dz^{i+j}}
+\frac{c}{a(z)b(z)}
+\right]_{i,j=0}^{N-1}.
+\]
+Use as theorem input the homogeneous determinant evaluation obtained from
+its Desnanot--Jacobi recurrence at $z=\eta=\pi/3$:
+\[
+\frac{A_N}{A_{N-1}}
+=\frac{(3N-2)!(N-1)!}{(2N-1)!(2N-2)!},
+\qquad N\geq2,qquad A_1=1,
+\]
+and deduce
+\[
+A_N=\prod_{j=0}^{N-1}\frac{(3j+1)!}{(N+j)!}.
+\]
+Compute $A_N$ for $1\leq N\leq5$ and use Stirling's formula to derive
+\[
+\lim_{N\to\infty}\frac1{N^2}\log A_N
+=\log\frac{3\sqrt3}{4}.
+\]
+Deduce the exact finite-size state count and the residual configurational
+entropy per vertex
+\[
+s_{\rm DW}=k_B\log\frac{3\sqrt3}{4}
+\]
+for a unit-weight domain-wall ice sample.  State the domain-wall
+preparation, equal-weight calibration, equilibration, and finite-size
+assumptions under which configuration counts or free-energy measurements
+test the determinant and product identities.
 \end{exercise}
 
 \section{Fusion Categories and Anyon Physics}
@@ -3087,12 +3183,13 @@ lines test the Koornwinder eigenvalue formula.
 \section{Integrable Special-Function Spectra}
 
 \begin{exercise}[Askey--Wilson spectrum]
-Fix $M\geq4$ and parameters $a,b,c,d\in(-1,1)$ for which the
+Model a finite programmable $q$-difference simulator by the
+Askey--Wilson construction below.  Fix $M\geq4$ and parameters
+$a,b,c,d\in(-1,1)$ for which the
 Askey--Wilson weight is positive and the first $M+1$ eigenvalues are
 distinct.  Let $\mathcal H_M$ be the span of the normalized Askey--Wilson
 polynomials $p_0,\ldots,p_M$ with their positive Askey--Wilson inner
-product.  Model a finite programmable $q$-difference
-simulator by the self-adjoint Hamiltonian
+product.  Use the self-adjoint Hamiltonian
 $\widehat H_M=\varepsilon\mathcal D_{AW}|_{\mathcal H_M}$, where
 $\varepsilon>0$ is a calibrated energy scale.  Prove that its spectral
 values are
@@ -3172,8 +3269,14 @@ engineered simulator.
 Set $q=e^{-\delta}$ and $t=e^{-g\delta}$; after the scalar
 and center-of-mass normalizations in the Calogero--Sutherland limit
 exercise, prove that
-the rescaled spectral gaps and transition coefficients converge to the
-Sutherland energies and Jack Pieri coefficients.  State how measured line
+\[
+\lim_{\delta\downarrow0}
+P_\lambda(x;e^{-\delta},e^{-g\delta})
+=P_\lambda^{(1/g)}(x)
+\]
+in the monic normalization.  Prove that the rescaled spectral gaps and
+normalized Macdonald Pieri coefficients converge to the Sutherland
+energies and Jack Pieri coefficients.  State how measured line
 locations and strengths test this degeneration.  Explain that recovery of
 the deformation parameter requires resolved partition labels and
 sufficiently many nondegenerate transitions.

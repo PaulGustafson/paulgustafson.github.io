@@ -1098,24 +1098,36 @@ condition with
 \section{Peter--Weyl Theory}
 
 
-\begin{exercise}[Symmetric linear modes and Maschke's theorem]
-Let a finite symmetry group $G$ act unitarily on the finite-dimensional
-mode space $H$ of a stable lossless coupled oscillator, and let its
-positive self-adjoint dynamical operator $A$ satisfy
-$A\rho(g)=\rho(g)A$ for every $g\in G$.  Its spectral values are the
-squared normal frequencies.
+\begin{exercise}[Rigid-rotor symmetry sectors and Maschke's theorem]
+Let $Q=SO(3)$ be the orientation space of a rigid molecule carrying a
+finite point-symmetry group $G\subset SO(3)$.  On $L^2(Q)$ let
+$\widehat H_{\rm rot}$ be a self-adjoint rotor Hamiltonian with compact
+resolvent, commuting with the right translations
+\[
+(R_g\psi)(q)=\psi(qg),
+\qquad g\in G.
+\]
+For a bounded interval $I$ containing an isolated finite spectral cluster,
+put
+\[
+H_I=E_{\widehat H_{\rm rot}}(I)L^2(Q),
+\qquad
+\rho_I(g)=R_g|_{H_I}.
+\]
 For a group $G$, a representation on a vector space $V$ is a homomorphism
 $\rho:G\to\operatorname{GL}(V)$.  A subspace is invariant when it is
 preserved by every $\rho(g)$, and a nonzero representation is irreducible
 when it has no proper nonzero invariant subspace.
 
 Let $G$ be finite and let the characteristic of $k$ not divide $|G|$.
-Average an arbitrary projection over $G$ to construct an invariant
+Prove that $H_I$ is invariant and that $\rho_I$ is a finite-dimensional
+unitary representation.  Average an arbitrary projection over $G$ to construct an invariant
 complement to every invariant subspace. Deduce that every finite-dimensional
 representation is a direct sum of irreducible representations.  Apply this
-to $H$ and to each spectral subspace of $A$.  Prove that exact symmetry
-organizes every normal-frequency level into irreducible multiplets.  If $A_s$ is a
-norm-continuous family of self-adjoint operators commuting with $G$ and a
+to $H_I$ and to each spectral subspace of $\widehat H_{\rm rot}$.  Prove
+that exact point symmetry organizes every rotational-energy level into
+irreducible multiplets.  If $\widehat H_{{\rm rot},s}$ is a
+norm-resolvent-continuous family of self-adjoint operators commuting with $G$ and a
 spectral cluster remains isolated, use its spectral projection to prove that
 the multiplicity of every irreducible type in the cluster is locally constant.
 Deduce that a change in these multiplicities requires a collision with another
