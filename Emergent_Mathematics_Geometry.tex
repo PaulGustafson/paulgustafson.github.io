@@ -675,8 +675,8 @@ Chebyshev discriminant and the half-flux splitting.
 
 \section{Schemes}
 
-\begin{exercise}[Affine spectra, localization, and structure sheaves]
-Let $A$ be a finitely generated commutative $\mathbb C$-algebra.  An ideal
+\begin{exercise}[Affine schemes, localization, and structure sheaves]
+Let $A$ be a commutative ring.  An ideal
 $\mathfrak p\subsetneq A$ is \emph{prime} when $ab\in\mathfrak p$ implies
 $a\in\mathfrak p$ or $b\in\mathfrak p$.  Define
 \[
@@ -708,6 +708,43 @@ on $\operatorname{Spec}A$.  Prove
 A\cong\Gamma(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A}).
 \]
 
+For a sheaf of rings $\mathcal F$ and $x\in X$, define its stalk by
+\[
+\mathcal F_x=\varinjlim_{x\in U}\mathcal F(U).
+\]
+A commutative ring is \emph{local} when it has a unique maximal ideal.  A
+\emph{locally ringed space} is a space $X$ with a sheaf of commutative
+rings $\mathcal O_X$ whose stalks are local rings.  Prove
+\[
+\mathcal O_{\operatorname{Spec}A,\mathfrak p}\cong A_{\mathfrak p}
+\]
+and that its unique maximal ideal is
+$\mathfrak pA_{\mathfrak p}$.  For a continuous map $f:X\to Y$, define
+$(f_*\mathcal O_X)(U)=\mathcal O_X(f^{-1}(U))$.  A \emph{morphism of
+sheaves of rings} is a family of ring homomorphisms on open sets commuting
+with restriction maps.  A \emph{morphism of
+locally ringed spaces}
+\[
+(f,f^\#):(X,\mathcal O_X)\longrightarrow(Y,\mathcal O_Y)
+\]
+consists of $f$ and a morphism of sheaves of rings
+$f^\#:\mathcal O_Y\to f_*\mathcal O_X$ whose induced homomorphism on each
+stalk is local, meaning that the inverse image of the maximal ideal is the
+maximal ideal.  An isomorphism of locally ringed spaces is such a morphism
+admitting an inverse.
+
+An \emph{affine scheme} is a locally ringed space isomorphic to
+$(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A})$ for a
+commutative ring $A$.  A \emph{scheme} is a locally ringed space admitting
+an open cover by affine schemes.  A \emph{morphism of schemes} is a
+morphism of their underlying locally ringed spaces.  A \emph{complex
+scheme} is a scheme equipped with a morphism to
+$\operatorname{Spec}\mathbb C$; its morphisms are required to commute with
+these structure morphisms.  It is \emph{of finite type} when it admits a
+finite affine open cover by spectra of finitely generated commutative
+$\mathbb C$-algebras.  Except in the general definitions above, schemes
+in this section are complex and of finite type.
+
 Use as theorem input the weak Nullstellensatz: every maximal ideal of
 $\mathbb C[x_1,\ldots,x_n]$ is the kernel of evaluation at a unique point
 of $\mathbb C^n$.  For
@@ -720,26 +757,25 @@ thickening.
 \end{exercise}
 
 \begin{exercise}[Morphisms, local rings, tangent spaces, and singularities]
-A homomorphism $\varphi:A\to B$ induces
+Let $A$ and $B$ be finitely generated commutative $\mathbb C$-algebras.  A
+$\mathbb C$-algebra homomorphism $\varphi:A\to B$ induces
 \[
 \varphi^*:\operatorname{Spec}B\longrightarrow\operatorname{Spec}A,
 \qquad
 \mathfrak q\longmapsto\varphi^{-1}(\mathfrak q).
 \]
 Prove continuity, construct the compatible maps on localized structure
-sheaves, and prove that composition of algebra homomorphisms becomes
-composition in the reverse direction.  Define a morphism of affine schemes
-to be a map obtained in this way and prove the affine anti-equivalence
+sheaves, verify the locality condition on stalks, and prove that composition
+of algebra homomorphisms becomes composition in the reverse direction.
+Prove the affine anti-equivalence
 \[
 \operatorname{Hom}_{\rm Sch}(\operatorname{Spec}B,\operatorname{Spec}A)
 \cong\operatorname{Hom}_{\mathbb C\text{-alg}}(A,B).
 \]
 
 For $p\in X=\operatorname{Spec}A$ corresponding to $\mathfrak p$, define
-the local ring, residue field, cotangent space, and tangent space by
+the residue field, cotangent space, and tangent space by
 \[
-\mathcal O_{X,p}=A_{\mathfrak p},
-\qquad
 \kappa(p)=A_{\mathfrak p}/\mathfrak pA_{\mathfrak p},
 \]
 \[
