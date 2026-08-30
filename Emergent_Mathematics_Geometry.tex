@@ -435,364 +435,141 @@ Deduce the experimentally testable increase of period with amplitude and
 the logarithmic divergence as $\theta_0\uparrow\pi$.
 \end{exercise}
 
-\section{Quantization}
+\section{Algebraic Curves}
 
-\begin{exercise}[Prequantum line bundles]
-A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
-$L\to M$ with a unitary connection $\nabla$ satisfying
+\begin{exercise}[Affine schemes and the Legendre family]
+For the pendulum developed in Symplectic Geometry, put
 \[
-F_\nabla=-\frac{i}{\hbar}\omega.
+m=\sin^2\frac{\theta_0}{2}.
 \]
-Prove that a prequantum line bundle exists if and only if the period
-condition
+Introduce an indeterminate $m$ and the finitely generated
+$\mathbb C[m]$-algebra
 \[
-\frac1{2\pi\hbar}\int_\Sigma f^*\omega\in\Z
-\]
-holds for every smooth map from a closed oriented surface
-$f:\Sigma\to M$.  Apply the circle-cocycle construction above to
-$F=-i\omega/\hbar$, identify its local connection forms with symplectic
-potentials, and prove that the changes
-\[
-A_i\longmapsto A_i+d\phi_i,
-\qquad
-f_{ij}\longmapsto f_{ij}+\phi_j-\phi_i
-\]
-produce an isomorphic prequantum line bundle with connection.  Show that
-two arbitrary prequantum line bundles with this curvature differ by a flat
-Hermitian line bundle, so curvature alone need not determine the
-prequantization up to isomorphism.
-\end{exercise}
-
-\begin{exercise}[Kostant--Souriau commutators]
-For $f\in C^\infty(M)$, define the Kostant--Souriau operator by
-\[
-\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+A=\mathbb C[m,x,y]\big/(y^2-x(x-1)(x-m)).
 \]
 
-Prove
-\[
-[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
-=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
-\]
-\end{exercise}
-
-\begin{exercise}[Contactification]
-Let $\pi:S(L)\to M$ be the unit-circle bundle of $L$, let
-$A\in\Omega^1(S(L);i\R)$ be its connection form normalized by
-$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.
-Prove
-\[
-d\alpha=-\frac1\hbar\pi^*\omega,
-\]
-that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
-sections of $L$ correspond to functions $F:S(L)\to\C$ satisfying
-$F(ue^{i\theta})=e^{-i\theta}F(u)$.
-\end{exercise}
-
-\begin{exercise}[Polarized quantum spaces]
-The vertical polarization on $T^*V$ is the tangent distribution to the
-fibers of $T^*V\to V$.  A complex polarization is an involutive Lagrangian
-subbundle $P\subset T_\C M$; its annihilator and canonical line are
-\[
-P^\circ=\{\alpha\in T_\C^*M:\alpha|_P=0\},
-\qquad K_P=\Lambda^{\rm top}P^\circ.
-\]
-A half-form bundle is a line bundle $\delta_P$ with
-$\delta_P^{\otimes2}\cong K_P$.  The corrected polarized sections of
-$L\otimes\delta_P$ are covariantly constant along $P$ and square-integrable
-for the half-form pairing.
-
-For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
-operators
-\[
-\psi(x)\longmapsto \ell(x)\psi(x),
-\qquad
-\psi(x)\longmapsto-i\hbar\,d\psi_x(v).
-\]
-For a compact
-K\"ahler manifold with $P=T^{0,1}M$, prove $P^\circ=T^{*1,0}M$ and
-$K_P=K_M$.  For a positive prequantum line bundle, identify the
-corrected quantum space with
-$H^0(M,L\otimes K_M^{1/2})$.
-\end{exercise}
-
-
-\begin{exercise}[Theta functions and Landau levels]
-Let
-$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
-charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
-assume $eB>0$.  Put
-\[
-N=\frac{eBA}{2\pi\hbar},
-\qquad
-\tau=i\frac{L_y}{L_x},
-\qquad
-z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
-\]
-Use the prequantization condition to prove that a magnetic line bundle
-$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$ and
-$r\in\mathbb Z/N\mathbb Z$, define the level-$N$ theta function
-\[
-\theta_{N,r}(z\mid\tau)
-=\sum_{n\in\mathbb Z}
-\exp\!\left(
-\pi iN\tau(n+r/N)^2+2\pi iN(n+r/N)z
-\right).
-\]
-Use the holomorphic-gauge automorphy laws
-\[
-f(z+1)=f(z),
-\qquad
-f(z+\tau)=e^{-\pi iN\tau-2\pi iNz}f(z)
-\]
-to prove the magnetic-translation decomposition
-\[
-H^0(Q,L)
-=\bigoplus_{r\in\Z/N\Z}
-\C\,\theta_{N,r}(z\mid\tau).
-\]
-Derive the automorphy and magnetic-translation eigenvalue laws directly
-from the defining series.  Relate the holomorphic-gauge sections to
-physical wavefunctions by their common unitary-gauge factor.
-
-For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy around a
-fundamental magnetic cell to prove
-\[
-UV=e^{2\pi i/N}VU.
-\]
-For the covariant Landau Hamiltonian, construct the raising and lowering
-operators and prove
-\[
-E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
-\qquad
-\dim E_{\widehat H}(\{E_n\})H=N.
-\]
-Deduce the cyclotron resonance spacing, the degeneracy density
-$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
-State how measurements of these three quantities separately test the
-energy, flux-integrality, and theta-function predictions.
-\end{exercise}
-
-
-\begin{exercise}[Poisson manifolds and star products]
-A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
-$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
-Equivalently, there is a bivector $\Pi\in\Gamma(\Lambda^2TM)$ satisfying
-\[
-\{f,g\}=\Pi(df,dg),
-\qquad [\Pi,\Pi]_{\rm Sch}=0.
-\]
-
-A \emph{differential star product} on a Poisson manifold is an associative
-$\C[[\hbar]]$-bilinear product on $C^\infty(M)[[\hbar]]$ of the form
-\[
-f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
-\]
-where the $C_r$ are bidifferential operators, $1$ is a unit, and
-\[
-C_1(f,g)-C_1(g,f)=i\{f,g\}.
-\]
-Let $(E,\omega)$ be a symplectic vector space and let
-$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and write
-$\Pi(k,\ell)=\ell(\Pi(k))$.  Let $D_\Pi$ be the constant bidifferential
-operator characterized on decomposable functions by
-\[
-D_\Pi(f\otimes g)(x,y)
-=d_yg\bigl(\Pi(d_xf)\bigr).
-\]
-On $C^\infty(E)[[\hbar]]$, define
-\[
-f\star g
-=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
-\]
-where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
-associativity from the commutation of the induced constant bidifferential
-operators on $E^3$, and prove
-\[
-f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
-\]
-Verify that this product is a differential star product in the preceding
-sense.
-For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive
-\[
-e_k\star e_\ell
-=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
-\]
-Prove associativity directly by checking the multiplier identity for the
-phase.  Differentiate in $k$ and $\ell$ to recover the canonical
-commutation relations.  Prove that every affine symplectic transformation
-of $E$ preserves $\star$.  For $E=V\oplus V^*$, prove that the restriction
-to Schwartz functions is the formal $\hbar$-expansion of the Weyl product
-defined by operator composition above.
-\end{exercise}
-
-\begin{exercise}[Magnetic lattice Hamiltonians]
-Let $U,V$ be unitary translations satisfying
-\[
-UV=e^{2\pi i\alpha}VU,
-\]
-where $\alpha$ is the magnetic flux through one lattice cell in units of
-the flux quantum.  The magnetic nearest-neighbor Hamiltonian is
-\[
-H_\alpha=U+U^*+V+V^*.
-\]
-In the position realization on $\ell^2(\Z)$, with transverse phase
-$\theta$, it is the Harper operator
-\[
-(H_{\alpha,\theta}\psi)_m
-=\psi_{m+1}+\psi_{m-1}
-+2\cos(2\pi\alpha m+\theta)\psi_m.
-\]
-
-Derive the magnetic-translation relation from the Moyal plane-wave
-identity.  Prove that the commutator phase $e^{2\pi i\alpha}$ is the phase
-accumulated around one lattice cell.  Show that nonintegral total flux on a
-periodic sample obstructs consistent torus boundary phases, while integral
-total flux makes their corner cocycle trivial.  Prove that nonzero integral
-flux still obstructs a single globally periodic vector potential.
-
-For rational flux $\alpha=p/q$, prove that the Harper equation
-has $q$-periodic coefficients and reduce it by the Floquet condition
-$\psi_{m+q}=e^{iqk}\psi_m$ to a $q$-dimensional spectral problem.
-At zero flux, use the Chebyshev identity
-\[
-T_q(\cos t)=\cos(qt)
-\]
-to derive the $q$-step discriminant
-\[
-\Delta_{0,q}(E,\theta)
-=2T_q\!\left(\frac{E-2\cos\theta}{2}\right).
-\]
-At half a flux quantum, compute the two bands
-\[
-E_\pm(k,\theta)
-=\pm2\sqrt{\cos^2k+\cos^2\theta}.
-\]
-Deduce the flux-dependent band edges and the touching energy, and state
-how microwave, photonic, or electronic lattice spectroscopy tests the
-Chebyshev discriminant and the half-flux splitting.
-\end{exercise}
-
-\section{Singularities}
-
-\begin{exercise}[Affine schemes, localization, and structure sheaves]
-Let $A$ be a commutative ring.  An ideal
-$\mathfrak p\subsetneq A$ is \emph{prime} when $ab\in\mathfrak p$ implies
+For a commutative ring $R$, an ideal
+$\mathfrak p\subsetneq R$ is \emph{prime} when $ab\in\mathfrak p$ implies
 $a\in\mathfrak p$ or $b\in\mathfrak p$.  Define
 \[
-\operatorname{Spec}A=\{\mathfrak p:\mathfrak p\text{ is prime}\},
+\operatorname{Spec}R=\{\mathfrak p:\mathfrak p\text{ is prime}\},
 \qquad
-V(I)=\{\mathfrak p:I\subseteq\mathfrak p\}.
+V(I)=\{\mathfrak p:I\subseteq\mathfrak p\},
+\qquad
+D(f)=\{\mathfrak p:f\notin\mathfrak p\}.
 \]
 Prove that the sets $V(I)$ are the closed sets of a topology and that the
-principal open sets
-\[
-D(f)=\{\mathfrak p:f\notin\mathfrak p\}
-\]
-form a family closed under finite intersections and covering every open
-set.
+principal open sets $D(f)$ are closed under finite intersections and form
+a basis for the topology.
 
-For $f\in A$, define the localization $A_f$ by the universal property that
-$f$ becomes invertible and every homomorphism from $A$ in which $f$ is
-invertible factors uniquely through $A_f$.  A \emph{presheaf} of rings on
+For $f\in R$, define the localization $R_f$ by the universal property that
+$f$ becomes invertible and every homomorphism from $R$ in which $f$ is
+invertible factors uniquely through $R_f$.  A \emph{presheaf} of rings on
 a space $X$ assigns a ring $\mathcal F(U)$ to each open set and compatible
 restriction maps.  It is a \emph{sheaf} when compatible local sections on
 an open cover glue uniquely.  Set
 \[
-\mathcal O_{\operatorname{Spec}A}(D(f))=A_f
+\mathcal O_{\operatorname{Spec}R}(D(f))=R_f
 \]
 with the localization restriction maps.  Prove the sheaf gluing condition
-on principal-open covers and extend this prescription uniquely to a sheaf
-on $\operatorname{Spec}A$.  Prove
+on principal-open covers, extend this prescription uniquely to a sheaf on
+$\operatorname{Spec}R$, and prove
 \[
-A\cong\Gamma(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A}).
+R\cong\Gamma(\operatorname{Spec}R,\mathcal O_{\operatorname{Spec}R}).
 \]
 
-For a sheaf of rings $\mathcal F$ and $x\in X$, define its stalk by
+For a sheaf of rings $\mathcal F$ and $p\in X$, define its stalk by
 \[
-\mathcal F_x=\varinjlim_{x\in U}\mathcal F(U).
+\mathcal F_p=\varinjlim_{p\in U}\mathcal F(U).
 \]
 A commutative ring is \emph{local} when it has a unique maximal ideal.  A
 \emph{locally ringed space} is a space $X$ with a sheaf of commutative
 rings $\mathcal O_X$ whose stalks are local rings.  Prove
 \[
-\mathcal O_{\operatorname{Spec}A,\mathfrak p}\cong A_{\mathfrak p}
+\mathcal O_{\operatorname{Spec}R,\mathfrak p}\cong R_{\mathfrak p},
+\qquad
+\mathfrak m_{\mathfrak p}=\mathfrak pR_{\mathfrak p}.
 \]
-and that its unique maximal ideal is
-$\mathfrak pA_{\mathfrak p}$.  For a continuous map $f:X\to Y$, define
-$(f_*\mathcal O_X)(U)=\mathcal O_X(f^{-1}(U))$.  A \emph{morphism of
-sheaves of rings} is a family of ring homomorphisms on open sets commuting
-with restriction maps.  A \emph{morphism of
-locally ringed spaces}
+For a continuous map $f:X\to Y$, set
+$(f_*\mathcal O_X)(U)=\mathcal O_X(f^{-1}(U))$.  A morphism of locally
+ringed spaces
 \[
 (f,f^\#):(X,\mathcal O_X)\longrightarrow(Y,\mathcal O_Y)
 \]
-consists of $f$ and a morphism of sheaves of rings
-$f^\#:\mathcal O_Y\to f_*\mathcal O_X$ whose induced homomorphism on each
-stalk is local, meaning that the inverse image of the maximal ideal is the
-maximal ideal.  An isomorphism of locally ringed spaces is such a morphism
-admitting an inverse.
+consists of $f$ and a morphism of sheaves
+$f^\#:\mathcal O_Y\to f_*\mathcal O_X$ whose induced homomorphisms on
+stalks are local.  Here a morphism of sheaves of rings is a family of ring
+homomorphisms on open sets commuting with restriction maps, and a
+homomorphism of local rings is \emph{local} when the inverse image of the
+maximal ideal is the maximal ideal.
 
 An \emph{affine scheme} is a locally ringed space isomorphic to
-$(\operatorname{Spec}A,\mathcal O_{\operatorname{Spec}A})$ for a
-commutative ring $A$.  A \emph{scheme} is a locally ringed space admitting
-an open cover by affine schemes.  A \emph{morphism of schemes} is a
-morphism of their underlying locally ringed spaces.  A \emph{complex
-scheme} is a scheme equipped with a morphism to
-$\operatorname{Spec}\mathbb C$; its morphisms are required to commute with
-these structure morphisms.  It is \emph{of finite type} when it admits a
-finite affine open cover by spectra of finitely generated commutative
-$\mathbb C$-algebras.  Except in the general definitions above, schemes
-in this section are complex and of finite type.
+$(\operatorname{Spec}R,\mathcal O_{\operatorname{Spec}R})$.  A
+\emph{scheme} is a locally ringed space admitting an open cover by affine
+schemes, and a \emph{scheme morphism} is a morphism of locally ringed
+spaces.  A \emph{complex scheme} is a scheme equipped with a morphism to
+$\operatorname{Spec}\mathbb C$, and its morphisms are required to commute
+with these structure morphisms.  It is \emph{of finite type} when it
+admits a finite affine open cover by spectra of finitely generated
+commutative $\mathbb C$-algebras.
 
+For a homomorphism $\varphi:R\to S$, prove that inverse image of prime
+ideals and localization induce a scheme morphism
+\[
+\varphi^*:\operatorname{Spec}S\longrightarrow\operatorname{Spec}R
+\]
+and establish the affine anti-equivalence
+\[
+\operatorname{Hom}_{\rm Sch}(\operatorname{Spec}S,\operatorname{Spec}R)
+\cong\operatorname{Hom}_{\rm Ring}(R,S).
+\]
+The inclusion $\mathbb C[m]\to A$ therefore defines the Legendre-family
+morphism
+\[
+\pi:\mathcal E_{\rm aff}=\operatorname{Spec}A
+\longrightarrow\mathbb A^1_m=\operatorname{Spec}\mathbb C[m].
+\]
+Prove that both schemes are complex and of finite type and that $\pi$
+commutes with their structure morphisms to $\operatorname{Spec}\mathbb C$.
+For $m_0\in\mathbb C$, define its algebraic fiber by
+\[
+\mathcal E_{m_0}^{\rm aff}
+=\operatorname{Spec}\!\left(
+A\otimes_{\mathbb C[m]}\mathbb C[m]/(m-m_0)\right)
+\]
 Use as theorem input the weak Nullstellensatz: every maximal ideal of
-$\mathbb C[x_1,\ldots,x_n]$ is the kernel of evaluation at a unique point
-of $\mathbb C^n$.  For
-$A=\mathbb C[x_1,\ldots,x_n]/I$, identify its closed points with the common
-zero set of $I$.  Show that replacing $I$ by its radical preserves the
-closed points but can change the structure sheaf.  In particular, compare
-$\operatorname{Spec}\mathbb C[\varepsilon]/(\varepsilon^2)$ with a reduced
-point and identify the nilpotent section that records its infinitesimal
-thickening.
+$\mathbb C[z_1,\ldots,z_n]$ is the kernel of evaluation at a unique point
+of $\mathbb C^n$.  Identify the closed points of the fiber with
+\[
+y^2=x(x-1)(x-m_0).
+\]
+Show that replacing an ideal by its radical preserves the closed points but
+can change the structure sheaf.  Compare
+$\operatorname{Spec}\mathbb C[t]/(t)$ with
+$\operatorname{Spec}\mathbb C[t]/(t^2)$, identify the nonzero nilpotent
+class in the latter ring, and compute its square.
 \end{exercise}
 
-\begin{exercise}[Morphisms, local rings, tangent spaces, and singularities]
-Let $A$ and $B$ be finitely generated commutative $\mathbb C$-algebras.  A
-$\mathbb C$-algebra homomorphism $\varphi:A\to B$ induces
-\[
-\varphi^*:\operatorname{Spec}B\longrightarrow\operatorname{Spec}A,
-\qquad
-\mathfrak q\longmapsto\varphi^{-1}(\mathfrak q).
-\]
-Prove continuity, construct the compatible maps on localized structure
-sheaves, verify the locality condition on stalks, and prove that composition
-of algebra homomorphisms becomes composition in the reverse direction.
-Prove the affine anti-equivalence
-\[
-\operatorname{Hom}_{\rm Sch}(\operatorname{Spec}B,\operatorname{Spec}A)
-\cong\operatorname{Hom}_{\mathbb C\text{-alg}}(A,B).
-\]
-
-For $p\in X=\operatorname{Spec}A$ corresponding to $\mathfrak p$, define
+\begin{exercise}[Local rings, tangent spaces, and singular fibers]
+For $p\in X=\operatorname{Spec}R$ corresponding to $\mathfrak p$, define
 the residue field, cotangent space, and tangent space by
 \[
-\kappa(p)=A_{\mathfrak p}/\mathfrak pA_{\mathfrak p},
-\]
-\[
-T_p^*X=\mathfrak pA_{\mathfrak p}/(\mathfrak pA_{\mathfrak p})^2,
+\kappa(p)=R_{\mathfrak p}/\mathfrak pR_{\mathfrak p},
+\qquad
+T_p^*X=\mathfrak pR_{\mathfrak p}/(\mathfrak pR_{\mathfrak p})^2,
 \qquad
 T_pX=\operatorname{Hom}_{\kappa(p)}(T_p^*X,\kappa(p)).
 \]
 Define the Krull dimension of a ring as the supremum of the lengths of
 strict chains of prime ideals and define the local dimension of $X$ at
-$p$ as $\dim A_{\mathfrak p}$.
+$p$ as $\dim R_{\mathfrak p}$.
 
-For an $A$-module $M$, define the module of K\"ahler differentials
-$\Omega^1_{A/\mathbb C}$ by a derivation
-$d:A\to\Omega^1_{A/\mathbb C}$ universal among $\mathbb C$-linear
-derivations from $A$ to $A$-modules.  If
+For a $\mathbb C$-algebra $R$, define the module of K\"ahler
+differentials $\Omega^1_{R/\mathbb C}$ by a derivation
+$d:R\to\Omega^1_{R/\mathbb C}$ universal among $\mathbb C$-linear
+derivations from $R$ to $R$-modules.  If
 \[
-A=\mathbb C[x_1,\ldots,x_n]/(f_1,\ldots,f_r),
+R=\mathbb C[x_1,\ldots,x_n]/(f_1,\ldots,f_r),
 \]
 derive the conormal sequence and prove at a closed point $p$ that
 \[
@@ -800,33 +577,48 @@ T_pX
 =\{v\in\mathbb C^n:df_j(p)(v)=0\text{ for }1\leq j\leq r\}.
 \]
 Use as theorem input the Jacobian criterion over $\mathbb C$: $p$ is
-smooth exactly when $\dim_{\mathbb C}T_pX=\dim\mathcal O_{X,p}$.
+smooth exactly when
+$\dim_{\mathbb C}T_pX=\dim\mathcal O_{X,p}$.
+
+Apply the criterion to the fibers $\mathcal E_{m}^{\rm aff}$ constructed
+above.  Prove that they are smooth for $m\notin\{0,1\}$ and that the
+fibers at $m=0$ and $m=1$ have singular points $(0,0)$ and $(1,0)$,
+respectively.  Compute the local dimension at every closed point of these
+fibers and compare it with the tangent-space dimension at the two singular
+points.  Define the tangent cone of a plane curve at a point by the
+lowest nonzero homogeneous part of a translated local equation and prove
+that both singular fibers have two distinct tangent directions over
+$\mathbb C$.
+
 Determine the smooth and singular points of
 \[
-y^2-x^3,
-\qquad
-y^2-x^2(x+1),
-\qquad
-xy,
+y^2-x^3,\qquad y^2-x^2(x+1),\qquad xy,
 \]
 and distinguish the cusp, node, and crossing by their local rings and
-tangent cones.
+tangent cones.  For the morphism
+\[
+\operatorname{Spec}\mathbb C[u,t]/(t^2-u)
+\longrightarrow\operatorname{Spec}\mathbb C[u],
+\]
+show that every fiber over $u\ne0$ consists of two reduced points, whereas
+the fiber over $u=0$ is $\operatorname{Spec}\mathbb C[t]/(t^2)$, and
+compute its tangent space and length-two local algebra.
 \end{exercise}
 
-\begin{exercise}[Projective spectra, twisting sheaves, and Hilbert polynomials]
-Let $A=\bigoplus_{n\geq0}A_n$ be a finitely generated graded
-$\mathbb C$-algebra generated by $A_1$, and let
-$A_+=\bigoplus_{n>0}A_n$.  Define
+\begin{exercise}[Projective curves and the Legendre compactification]
+Let $R=\bigoplus_{n\geq0}R_n$ be a finitely generated graded
+$\mathbb C$-algebra generated by $R_1$, and let
+$R_+=\bigoplus_{n>0}R_n$.  Define
 \[
-\operatorname{Proj}A
-=\{\mathfrak p\subset A:\mathfrak p\text{ is homogeneous prime and }
-A_+\not\subseteq\mathfrak p\}.
+\operatorname{Proj}R
+=\{\mathfrak p\subset R:\mathfrak p\text{ is homogeneous prime and }
+R_+\not\subseteq\mathfrak p\}.
 \]
 For homogeneous $f$ of positive degree, define
 \[
 D_+(f)=\{\mathfrak p:f\notin\mathfrak p\},
 \qquad
-\mathcal O_{\operatorname{Proj}A}(D_+(f))=(A_f)_0.
+\mathcal O_{\operatorname{Proj}R}(D_+(f))=(R_f)_0.
 \]
 Prove that these affine charts glue to a scheme.  For a finite-dimensional
 complex vector space $V$, prove
@@ -835,35 +627,36 @@ complex vector space $V$, prove
 \]
 and recover its interpretation as the space of complex lines in $V$.
 
-An \emph{algebraic line bundle} on a scheme $X$ is an
-$\mathcal O_X$-module locally isomorphic to $\mathcal O_X$.  For
-$n\in\mathbb Z$, define the twisting sheaf $\mathcal O(n)$ by the
-degree-zero parts $(A(n)_f)_0$ on the displayed charts.  For a homogeneous
-ideal $I$, define the projective subscheme $\operatorname{Proj}(A/I)$.
-Prove intrinsically for $n\geq0$ that
-\[
-\Gamma(\mathbb P(V),\mathcal O(n))
-\cong\operatorname{Sym}^nV^\vee,
-\]
-and that $\mathcal O(-1)$ is the tautological line bundle whose fiber over
-a line $\ell\subset V$ is $\ell$.
-Show that homogenization of an affine ideal gives its projective closure
-and identify the points added at infinity for a parabola and a hyperbola.
+For a homogeneous ideal $I\subset R$, define the projective subscheme
+$\operatorname{Proj}(R/I)$.  Show that homogenization of an affine ideal
+gives its projective closure and identify the points added at infinity for
+a parabola and a hyperbola.  Call a complex scheme \emph{projective} when
+it is isomorphic to a closed subscheme of some $\mathbb P(V)$.  Define a
+\emph{projective algebraic curve} to be a projective complex scheme of
+finite type whose irreducible components all have Krull dimension one.
+For a projective plane curve $C=V(F)$
+defined by a homogeneous polynomial, define $\deg C=\deg F$.
 
-Define the Hilbert function of $A$ by $H_A(n)=\dim_{\mathbb C}A_n$.
-Use as theorem input the Hilbert polynomial theorem: for $n$ sufficiently
-large, $H_A(n)$ is a polynomial whose degree is $\dim\operatorname{Proj}A$
-and whose leading coefficient is $\deg(\operatorname{Proj}A)/d!$ when
-$d=\dim\operatorname{Proj}A$.  For a degree-$e$ hypersurface in
-$\mathbb P(V)$, derive
+For $m\in\mathbb C\setminus\{0,1\}$, construct the projective closure
 \[
-\sum_{n\geq0}H_A(n)t^n
-=\frac{1-t^e}{(1-t)^{\dim V}}
+E_m:\quad Y^2Z=X(X-Z)(X-mZ)
+\subset\mathbb P^2.
 \]
-and recover its dimension and degree.
+Prove that $E_m$ is a projective algebraic curve of degree three.  Use the
+Jacobian criterion on its affine charts to prove that $E_m$ is nonsingular
+and that it has the unique point
+$O=[0:1:0]$ over the line at infinity.  Prove that the rational function
+$x=X/Z$ extends to a morphism
+\[
+\pi_m:E_m\longrightarrow\mathbb P^1,
+\qquad
+\pi_m([X:Y:Z])=[X:Z]\quad([X:Y:Z]\ne O),
+\qquad
+\pi_m(O)=[1:0].
+\]
 \end{exercise}
 
-\begin{exercise}[Intersection multiplicity, resultants, and B\'ezout's theorem]
+\begin{exercise}[Intersection multiplicity, resultants, and discriminants]
 Let $C=V(F)$ and $D=V(G)$ be projective plane curves with no common
 component.  At $p\in C\cap D$, let $F_p,G_p\in\mathcal O_{\mathbb P^2,p}$
 be local equations and define their local intersection
@@ -895,6 +688,13 @@ resultant with its derivative and prove that
 \[
 \operatorname{Disc}(t^3+at+b)=-4a^3-27b^2.
 \]
+Compute also
+\[
+\operatorname{Disc}\bigl(x(x-1)(x-m)\bigr)
+=m^2(1-m)^2
+\]
+and recover algebraically the two singular Legendre fibers found by the
+Jacobian criterion.
 
 Use as theorem input B\'ezout's theorem for plane curves:
 \[
@@ -905,7 +705,7 @@ and prove that tangency is detected by a repeated root and hence by the
 corresponding discriminant locus.
 \end{exercise}
 
-\begin{exercise}[Discriminant caustics and Airy--Pearcey diffraction]
+\begin{exercise}[Caustics and Airy--Pearcey diffraction]
 For a monochromatic scalar wave with wave number $k=2\pi/\lambda$, define
 the fold and cusp canonical fields as oscillatory integrals
 \[
@@ -952,8 +752,6 @@ fringe locations test the discriminant geometry and its wavelength
 scaling.
 \end{exercise}
 
-\section{Algebraic Curves}
-
 \begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
 For a compact connected oriented surface $S$, define its genus $g(S)$ by
 \[
@@ -988,7 +786,7 @@ infinity, and deduce that $C_q$ has genus $g$.
 \end{exercise}
 
 \begin{exercise}[Pendulum periods and the Legendre curve]
-For the pendulum developed above, recall
+For the pendulum developed in Symplectic Geometry, recall
 \[
 T(\theta_0)=4\sqrt{\frac{\ell}{g}}K(k),
 \qquad
@@ -996,23 +794,12 @@ k=\sin\frac{\theta_0}{2},
 \qquad
 m=k^2.
 \]
-For $m\in\mathbb C\setminus\{0,1\}$, consider the Legendre curve
+For $m\in\mathbb C\setminus\{0,1\}$, let
+$\pi_m:E_m\to\mathbb P^1$ be the projective Legendre curve and morphism
+constructed above.  Prove that it has degree two and is ramified exactly
+over $0,1,m,\infty$.  Use Riemann--Hurwitz to obtain
 \[
-E_m:\quad Y^2Z=X(X-Z)(X-mZ).
-\]
-Show that $E_m$ is nonsingular.  Put $O=[0:1:0]$ and show that the rational
-function $x=X/Z$ extends to a degree-two morphism
-\[
-\pi_m:E_m\longrightarrow\mathbb P^1,
-\qquad
-\pi_m([X:Y:Z])=[X:Z]\quad([X:Y:Z]\ne O),
-\qquad
-\pi_m(O)=[1:0],
-\]
-ramified exactly over $0,1,m,\infty$.  Prove directly
-from Riemann--Hurwitz that the Euler characteristic satisfies
-\[
-\chi(E_m)=2\chi(\mathbb P^1)-4=0,
+\chi(E_m)=2\chi(\mathbb P^1)-4=0
 \]
 and hence that $E_m$ has genus one.
 
@@ -1139,6 +926,27 @@ logarithmic type of the singular fiber.
 \section{Riemann--Roch Theory}
 
 \begin{exercise}[Divisors, line bundles, and first Chern classes]
+For a scheme $X$, an \emph{algebraic line bundle} is an
+$\mathcal O_X$-module locally isomorphic to $\mathcal O_X$.  For
+$X=\operatorname{Proj}R$ and $n\in\mathbb Z$, define the graded shift by
+$R(n)_d=R_{n+d}$ and define the twisting sheaf
+$\mathcal O_X(n)$ on the standard affine charts by
+\[
+\mathcal O_X(n)(D_+(f))=(R(n)_f)_0.
+\]
+For the projective space developed in Algebraic Curves, prove intrinsically
+for $n\geq0$ that
+\[
+\Gamma(\mathbb P(V),\mathcal O(n))
+\cong\operatorname{Sym}^nV^\vee,
+\]
+and that $\mathcal O(-1)$ is the tautological line bundle whose fiber over
+a line $\ell\subset V$ is $\ell$.  For a smooth projective plane curve
+$C$, define $\mathcal O_C(n)$ by restriction.
+Use as theorem input that an algebraic line bundle on a smooth complex
+projective curve determines a holomorphic line bundle and that this
+correspondence preserves tensor products and global sections.
+
 On a compact Riemann surface $C$, a \emph{divisor} is a finite formal sum
 \[
 D=\sum_{p\in C}n_p[p],
@@ -1177,6 +985,11 @@ nonzero meromorphic section.  Prove that
 \]
 is independent of $s$, that tensor products add degrees, and that
 $L\cong\mathcal O(\operatorname{div}(s))$.
+Use B\'ezout's theorem to prove
+\[
+\deg\mathcal O_C(1)=\deg C
+\]
+for every smooth projective plane curve $C$.
 
 For a Hermitian connection $\nabla$ on $L$, define
 \[
@@ -1472,6 +1285,231 @@ and finite-size assumptions under which Hall-voltage and charge-pump
 measurements test these predictions.
 \end{exercise}
 
+\section{Quantization}
+
+\begin{exercise}[Prequantum line bundles]
+A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line bundle
+$L\to M$ with a unitary connection $\nabla$ satisfying
+\[
+F_\nabla=-\frac{i}{\hbar}\omega.
+\]
+Prove that a prequantum line bundle exists if and only if the period
+condition
+\[
+\frac1{2\pi\hbar}\int_\Sigma f^*\omega\in\Z
+\]
+holds for every smooth map from a closed oriented surface
+$f:\Sigma\to M$.  Apply the circle-cocycle construction above to
+$F=-i\omega/\hbar$, identify its local connection forms with symplectic
+potentials, and prove that the changes
+\[
+A_i\longmapsto A_i+d\phi_i,
+\qquad
+f_{ij}\longmapsto f_{ij}+\phi_j-\phi_i
+\]
+produce an isomorphic prequantum line bundle with connection.  Show that
+two arbitrary prequantum line bundles with this curvature differ by a flat
+Hermitian line bundle, so curvature alone need not determine the
+prequantization up to isomorphism.
+\end{exercise}
+
+\begin{exercise}[Kostant--Souriau commutators]
+For $f\in C^\infty(M)$, define the Kostant--Souriau operator by
+\[
+\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+\]
+
+Prove
+\[
+[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
+=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
+\]
+\end{exercise}
+
+\begin{exercise}[Contactification]
+Let $\pi:S(L)\to M$ be the unit-circle bundle of $L$, let
+$A\in\Omega^1(S(L);i\R)$ be its connection form normalized by
+$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.
+Prove
+\[
+d\alpha=-\frac1\hbar\pi^*\omega,
+\]
+that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
+sections of $L$ correspond to functions $F:S(L)\to\C$ satisfying
+$F(ue^{i\theta})=e^{-i\theta}F(u)$.
+\end{exercise}
+
+\begin{exercise}[Polarized quantum spaces]
+The vertical polarization on $T^*V$ is the tangent distribution to the
+fibers of $T^*V\to V$.  A complex polarization is an involutive Lagrangian
+subbundle $P\subset T_\C M$; its annihilator and canonical line are
+\[
+P^\circ=\{\alpha\in T_\C^*M:\alpha|_P=0\},
+\qquad K_P=\Lambda^{\rm top}P^\circ.
+\]
+A half-form bundle is a line bundle $\delta_P$ with
+$\delta_P^{\otimes2}\cong K_P$.  The corrected polarized sections of
+$L\otimes\delta_P$ are covariantly constant along $P$ and square-integrable
+for the half-form pairing.
+
+For $T^*V$ with the vertical polarization, recover $L^2(V)$ and the
+operators
+\[
+\psi(x)\longmapsto \ell(x)\psi(x),
+\qquad
+\psi(x)\longmapsto-i\hbar\,d\psi_x(v).
+\]
+For a compact
+K\"ahler manifold with $P=T^{0,1}M$, prove $P^\circ=T^{*1,0}M$ and
+$K_P=K_M$.  For a positive prequantum line bundle, identify the
+corrected quantum space with
+$H^0(M,L\otimes K_M^{1/2})$.
+\end{exercise}
+
+
+\begin{exercise}[Theta functions and Landau levels]
+Let
+$Q=\R^2/(L_x\Z\oplus L_y\Z)$ have area $A=L_xL_y$, let a particle of
+charge $e$ experience the constant magnetic field $B\,dx\wedge dy$, and
+assume $eB>0$.  Put
+\[
+N=\frac{eBA}{2\pi\hbar},
+\qquad
+\tau=i\frac{L_y}{L_x},
+\qquad
+z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
+\]
+Use the prequantization condition to prove that a magnetic line bundle
+$L\to Q$ exists exactly when $N\in\Z$.  For $N>0$, use the level-$N$
+theta sections and automorphy laws developed in Riemann--Roch Theory to
+identify
+\[
+H^0(Q,L)
+=\bigoplus_{r\in\Z/N\Z}
+\C\,\theta_{N,r}(z\mid\tau).
+\]
+Compute their magnetic-translation eigenvalues and relate the
+holomorphic-gauge sections to physical wavefunctions by their common
+unitary-gauge factor.
+
+For magnetic translations by $L_x/N$ and $L_y/N$, use holonomy around a
+fundamental magnetic cell to prove
+\[
+UV=e^{2\pi i/N}VU.
+\]
+For the covariant Landau Hamiltonian, construct the raising and lowering
+operators and prove
+\[
+E_n=\hbar\frac{eB}{m}\left(n+\frac12\right),
+\qquad
+\dim E_{\widehat H}(\{E_n\})H=N.
+\]
+Deduce the cyclotron resonance spacing, the degeneracy density
+$eB/(2\pi\hbar)$, and the magnetic-translation interference phase.
+State how measurements of these three quantities separately test the
+energy, flux-integrality, and theta-function predictions.
+\end{exercise}
+
+
+\begin{exercise}[Poisson manifolds and star products]
+A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
+$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
+Equivalently, there is a bivector $\Pi\in\Gamma(\Lambda^2TM)$ satisfying
+\[
+\{f,g\}=\Pi(df,dg),
+\qquad [\Pi,\Pi]_{\rm Sch}=0.
+\]
+
+A \emph{differential star product} on a Poisson manifold is an associative
+$\C[[\hbar]]$-bilinear product on $C^\infty(M)[[\hbar]]$ of the form
+\[
+f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
+\]
+where the $C_r$ are bidifferential operators, $1$ is a unit, and
+\[
+C_1(f,g)-C_1(g,f)=i\{f,g\}.
+\]
+Let $(E,\omega)$ be a symplectic vector space and let
+$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and write
+$\Pi(k,\ell)=\ell(\Pi(k))$.  Let $D_\Pi$ be the constant bidifferential
+operator characterized on decomposable functions by
+\[
+D_\Pi(f\otimes g)(x,y)
+=d_yg\bigl(\Pi(d_xf)\bigr).
+\]
+On $C^\infty(E)[[\hbar]]$, define
+\[
+f\star g
+=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
+\]
+where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
+associativity from the commutation of the induced constant bidifferential
+operators on $E^3$, and prove
+\[
+f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
+\]
+Verify that this product is a differential star product in the preceding
+sense.
+For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive
+\[
+e_k\star e_\ell
+=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
+\]
+Prove associativity directly by checking the multiplier identity for the
+phase.  Differentiate in $k$ and $\ell$ to recover the canonical
+commutation relations.  Prove that every affine symplectic transformation
+of $E$ preserves $\star$.  For $E=V\oplus V^*$, prove that the restriction
+to Schwartz functions is the formal $\hbar$-expansion of the Weyl product
+defined by operator composition above.
+\end{exercise}
+
+\begin{exercise}[Magnetic lattice Hamiltonians]
+Let $U,V$ be unitary translations satisfying
+\[
+UV=e^{2\pi i\alpha}VU,
+\]
+where $\alpha$ is the magnetic flux through one lattice cell in units of
+the flux quantum.  The magnetic nearest-neighbor Hamiltonian is
+\[
+H_\alpha=U+U^*+V+V^*.
+\]
+In the position realization on $\ell^2(\Z)$, with transverse phase
+$\theta$, it is the Harper operator
+\[
+(H_{\alpha,\theta}\psi)_m
+=\psi_{m+1}+\psi_{m-1}
++2\cos(2\pi\alpha m+\theta)\psi_m.
+\]
+
+Derive the magnetic-translation relation from the Moyal plane-wave
+identity.  Prove that the commutator phase $e^{2\pi i\alpha}$ is the phase
+accumulated around one lattice cell.  Show that nonintegral total flux on a
+periodic sample obstructs consistent torus boundary phases, while integral
+total flux makes their corner cocycle trivial.  Prove that nonzero integral
+flux still obstructs a single globally periodic vector potential.
+
+For rational flux $\alpha=p/q$, prove that the Harper equation
+has $q$-periodic coefficients and reduce it by the Floquet condition
+$\psi_{m+q}=e^{iqk}\psi_m$ to a $q$-dimensional spectral problem.
+At zero flux, use the Chebyshev identity
+\[
+T_q(\cos t)=\cos(qt)
+\]
+to derive the $q$-step discriminant
+\[
+\Delta_{0,q}(E,\theta)
+=2T_q\!\left(\frac{E-2\cos\theta}{2}\right).
+\]
+At half a flux quantum, compute the two bands
+\[
+E_\pm(k,\theta)
+=\pm2\sqrt{\cos^2k+\cos^2\theta}.
+\]
+Deduce the flux-dependent band edges and the touching energy, and state
+how microwave, photonic, or electronic lattice spectroscopy tests the
+Chebyshev discriminant and the half-flux splitting.
+\end{exercise}
+
 \section{Character Varieties}
 
 \begin{exercise}[Surface-group representations and character varieties]
@@ -1491,16 +1529,17 @@ Define the representation variety by
 \]
 Show that changing the value of a representation by conjugation changes
 only the framing at the base point.  If an algebraic group $G$ acts on an
-affine algebraic set $X$, define its affine quotient by
+affine algebraic set $X$, define its affine quotient scheme by
 \[
-\mathbb C[X/\!/G]=\mathbb C[X]^G,
+X/\!/G=\operatorname{Spec}\mathbb C[X]^G,
 \]
 and define the $G$-character variety by
 \[
 \mathcal X(\Sigma_g,G)=\mathcal R(\Sigma_g,G)/\!/G.
 \]
-Use as theorem input that for reductive $G$ the closed points of this
-quotient correspond to closed conjugacy orbits.  For $G=SL_n(\mathbb C)$,
+Use as theorem input that for reductive $G$ the invariant algebra is
+finitely generated and the closed points of this quotient correspond to
+closed conjugacy orbits.  For $G=SL_n(\mathbb C)$,
 prove that every loop $\gamma$ defines a regular function
 \[
 W_\gamma([\rho])=\operatorname{tr}\rho(\gamma)
@@ -1552,7 +1591,8 @@ Conclude that the torus character variety is the affine cubic
 x^2+y^2+z^2-xyz-4=0\}.
 \]
 Show that its regular semisimple points are determined by their trace
-coordinates and identify the singular points of the cubic.
+coordinates and use the Jacobian criterion developed in Algebraic Curves
+to identify the singular points of the cubic.
 \end{exercise}
 
 \begin{exercise}[Goldman symplectic form and trace-function brackets]
@@ -1673,7 +1713,9 @@ C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
 \qquad e_r\ne e_s\quad(r\ne s),
 \]
 denote its nonsingular projective completion.  Use Riemann--Hurwitz to prove
-that $C$ has genus $g$.  Analyze the finite branch points and the point over
+that $C$ has genus $g$.  Use the projective construction and Jacobian
+criterion developed in Algebraic Curves to verify the asserted
+nonsingularity.  Analyze the finite branch points and the point over
 infinity to show that the distinguished differentials
 \[
 \eta_j=\frac{x^{j-1}dx}{y},
