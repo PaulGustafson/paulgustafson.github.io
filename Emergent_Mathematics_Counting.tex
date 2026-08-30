@@ -2,24 +2,29 @@
 
 \section{Graded Characters}
 
-\begin{exercise}[Bosonic and fermionic mode counts and symmetric polynomials]
-Consider $N$ one-particle modes with formal weights
-$x_1,\ldots,x_N$.  The fixed-$r$ partition function sums products of
-weights over weakly ordered mode occupations for bosons and strictly
-ordered occupations for fermions.  Relabeling the modes cannot change
-either count, so these partition functions are symmetric polynomials.
-
-For $N\geq1$, let
+\begin{exercise}[Bosonic and fermionic occupation weights and symmetric polynomials]
+Let $N\geq1$ labeled one-particle modes have formal weights
+$x_1,\ldots,x_N$.  A fermionic $r$-particle occupation state is a subset
+$\{i_1<\cdots<i_r\}$ of the modes, while a bosonic $r$-particle occupation
+state is a multiset $\{i_1\leq\cdots\leq i_r\}$.  Give either state the
+weight $x_{i_1}\cdots x_{i_r}$.  Define the fixed-particle-number
+partition functions by
+\[
+Z_F^{(r)}=
+\sum_{1\leq i_1<\cdots<i_r\leq N}x_{i_1}\cdots x_{i_r},
+\qquad
+Z_B^{(r)}=
+\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}x_{i_1}\cdots x_{i_r}.
+\]
+Relabeling the modes does not change either partition function, so put
 \[
 \Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
 \]
 Define
 \[
-e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
-x_{i_1}\cdots x_{i_r},
+e_r=Z_F^{(r)},
 \qquad
-h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
-x_{i_1}\cdots x_{i_r},
+h_r=Z_B^{(r)},
 \]
 \[
 p_r=\sum_{i=1}^Nx_i^r,
@@ -29,16 +34,21 @@ e_0=h_0=1.
 Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.
 
 \begin{enumerate}[label=(\alph*)]
-\item Prove that every element of $\Lambda_N$ is uniquely a polynomial in
-$e_1,\ldots,e_N$.
-\item Prove
+\item By deciding independently whether each fermionic mode is empty or
+occupied, and how many particles occupy each bosonic mode, prove
 \[
 \sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
 \qquad
 \sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
 \]
-and identify $h_r$ and $e_r$ with the fixed-$r$ bosonic and fermionic
-mode-counting polynomials, respectively.  Deduce
+as identities of formal power series.  For $x_i=e^{-\beta\epsilon_i}$,
+identify the coefficient of $t^r$ with the canonical partition function of
+$r$ noninteracting fermions or bosons in one-particle energies
+$\epsilon_i$.
+\item Prove that every relabeling-invariant polynomial in the mode weights
+is uniquely a polynomial in $e_1,\ldots,e_N$.
+\item Compare the two occupation generating functions and logarithmically
+differentiate the bosonic one to deduce
 \[
 \left(\sum_{r\geq0}h_rt^r\right)
 \left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
@@ -130,12 +140,8 @@ express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
 \section{Modular and Moonshine Characters}
 
 \begin{exercise}[Virasoro symmetry and chiral finite-size levels]
-A unidirectional gapless wave channel on a circle has harmonics with
-integer momenta and energies proportional to inverse circumference.
-Conformal symmetry organizes their interacting descendants through the
-following algebra.
-
-The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
+Model the mode symmetries of a chiral system on a circle by the Virasoro
+algebra.  It has generators $L_n$, $n\in\Z$, and a central generator
 $C$, with
 \[
 [L_m,L_n]=(m-n)L_{m+n}
@@ -483,12 +489,6 @@ realization.
 \section{Transfer Matrices}
 
 \begin{exercise}[Hard-hexagon transfer matrices]
-Model hard particles adsorbed on a triangular-lattice cylinder: a site is
-empty or occupied, nearest neighbors cannot both be occupied, and each
-particle contributes an activity $z$.  Reading the sample one row at a time
-turns its equilibrium state count into repeated application of a finite
-operator.
-
 Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
 let $T_N(z)$ be an operator on the configuration space whose matrix element
 between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
@@ -805,22 +805,19 @@ the comparison.
 
 \section{Determinantal Ensembles}
 
-\begin{exercise}[Gaussian spectral fluctuations and Hermite moments]
-Model a complicated lossless resonator by a self-adjoint dynamical operator
-subject to many weak perturbations and with no preferred mode direction.
-The invariant Gaussian model begins with one centered, normalized matrix
-coordinate $X$; polynomial detector responses to that coordinate should be
-separated into mutually uncorrelated Gaussian modes.
-
-Let $\mathbb P$ be the probability measure on $\R$ with density
-$(2\pi)^{-1/2}e^{-x^2/2}$, let $X(x)=x$, and write
+\begin{exercise}[Gaussian detector channels and Hermite response modes]
+Model repeated measurements of one centered, unit-variance fluctuation
+channel of a noisy resonator by the probability measure $\mathbb P$ on
+$\R$ with density $(2\pi)^{-1/2}e^{-x^2/2}$.  Let $X(x)=x$ be the calibrated
+detector output and write
 $\mathbb Ef(X)=\int_\R f(x)\,d\mathbb P(x)$ whenever the integral exists.
 
-For this $X$, prove
+Prove
 \[
 \mathbb E[e^{tX}]=e^{t^2/2}.
 \]
-Define the probabilists' Hermite polynomials by
+To separate mutually uncorrelated polynomial response channels, define the
+probabilists' Hermite polynomials by
 \[
 e^{xt-t^2/2}
 =\sum_{n\geq0}\operatorname{He}_n(x)\frac{t^n}{n!}
@@ -832,6 +829,9 @@ and prove
 \qquad
 \mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!}.
 \]
+Deduce that the measured channel outputs
+$\operatorname{He}_m(X)$ and $\operatorname{He}_n(X)$ have zero covariance
+for $m\ne n$, while the variance of the $n$th channel is $n!$.
 Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
 in Spectral Theory.
 \end{exercise}
@@ -1185,24 +1185,33 @@ finite-size range over which the asymptotic is used.
 
 \section{Schur Measures}
 
-\begin{exercise}[Occupation profiles and Schur polynomial identities]
-To refine bosonic and fermionic mode counts, label an occupation profile by
-a partition $\lambda$.  Its mode-weight partition function should be
-symmetric and reduce to unrestricted occupation for a one-row profile and
-exclusion occupation for a one-column profile.  The following determinant
-produces that interpolation.
-
-An integer partition is a finite nonincreasing sequence of positive
-integers.  Its size is the sum of its parts, and its length is the number
-of nonzero parts.
-
-For a partition $\lambda$ of length at most $N$, define
+\begin{exercise}[Tableau partition functions and Schur polynomials]
+For an integer partition $\lambda$ of length at most $N$, regard its Young
+diagram as a layered occupation pattern.  A state of this pattern with
+$N$ species is a filling $T$ by entries in $\{1,\ldots,N\}$ that is
+weakly increasing along rows and strictly increasing down columns; this is a \emph{semistandard
+Young tableau}.  If $m_i(T)$ is the number of particles of species $i$,
+give $T$ weight $\prod_i x_i^{m_i(T)}$ and define
 \[
-s_\lambda(x_1,\ldots,x_N)
-=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
+Z_\lambda(x_1,\ldots,x_N)
+=\sum_T\prod_i x_i^{m_i(T)}.
 \]
 
-Derive the alternant formula
+Encode $h_r$ by lattice paths directed east and south whose east steps at
+height $i$ have weight $x_i$.  For sources
+$A_i=(i-\lambda_i,N)$ and sinks $B_j=(j,1)$, expand
+$\det[h_{\lambda_i-i+j}]_{i,j=1}^N$ as a signed sum of path families and
+pair every intersecting family with the family obtained by exchanging the
+two tails after its first intersection.  Show that the remaining
+nonintersecting families correspond weight-preservingly to semistandard
+tableaux by reading each path's east-step heights from right to left, and
+deduce
+\[
+Z_\lambda(x_1,\ldots,x_N)
+=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
+\]
+Define the common polynomial to be the \emph{Schur polynomial}
+$s_\lambda$.  Derive the alternant formula
 \[
 s_\lambda(x)
 =\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
@@ -1210,13 +1219,11 @@ s_\lambda(x)
 \]
 from the fundamental symmetric identities.  Prove
 $s_{(r)}=h_r$ and $s_{(1^r)}=e_r$.
-Identify these two cases with the fixed-$r$ bosonic and fermionic
-mode-counting polynomials from Graded Characters.
 \end{exercise}
 
 \begin{exercise}[RSK, last-passage values, and the finite Schur measure]
-A semistandard Young tableau has weakly increasing rows and strictly
-increasing columns.  To insert an integer $x$, replace the first entry
+To insert an integer $x$ into a semistandard Young tableau, replace the
+first entry
 strictly larger than $x$ in the first row and insert the replaced entry in
 the next row; append when no such entry exists.  For
 $W=(W_{ij})\in M_{m,n}(\Z_{\geq0})$, form the lexicographically ordered
@@ -1243,10 +1250,6 @@ Show that the length of the first row of its shape is the maximal weight of
 an up-right path:
 \[
 \lambda_1=G(m,n).
-\]
-For variables $\alpha=(\alpha_1,\ldots,\alpha_m)$, prove the tableau formula
-\[
-s_\lambda(\alpha)=\sum_T\prod_i\alpha_i^{m_i(T)}.
 \]
 Use the contents of the two RSK tableaux and the geometric weight law to
 derive
