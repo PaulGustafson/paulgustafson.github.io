@@ -4,11 +4,9 @@
 
 
 
-\begin{exercise}[Finite oscillator networks, vector spaces, duality, trace, and dimension]
-Let $S$ be a finite nonempty set of masses.  A displacement is a function
-$q:S\to\mathbb R$; put $V=\mathbb R^S$ and define addition and scalar
-multiplication pointwise.  More generally, a \emph{vector space} over a
-field $k$ is an abelian group $V$ with scalar multiplication satisfying
+\begin{exercise}[Vector spaces, duality, trace, and dimension]
+Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
+$V$ with scalar multiplication satisfying
 \[
 a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
 (ab)v=a(bv),\quad 1v=v.
@@ -21,56 +19,30 @@ $T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
 \im T=\{T(v):v\in V\}.
 \]
 
-The \emph{dual space} is $V^\vee=\Hom_k(V,k)$, with evaluation
+The \emph{dual space} of $V$ is
+$V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
 \[
 \operatorname{ev}_V:V^\vee\times V\longrightarrow k,
 \qquad
 (\varphi,v)\longmapsto\varphi(v).
 \]
-For each $s\in S$, define the unit displacement and displacement detector
-by
-\[
-\delta_s(t)=
-\begin{cases}1,&t=s,\\0,&t\ne s,\end{cases}
-\qquad
-\epsilon_s(q)=q(s).
-\]
-Let $m_s>0$ be the mass at $s$, let $\mathcal E$ be a set of springs
-joining unordered pairs $\{s,t\}\subset S$, let $\kappa_{st}>0$ be their
-spring constants, and let $a_s\geq0$ be anchoring constants.  Define the
-mass and stiffness pairings by
-\[
-M(q,r)=\sum_{s\in S}m_sq(s)r(s),
-\]
-\[
-K(q,r)=\sum_{\{s,t\}\in\mathcal E}
-\kappa_{st}\bigl(q(s)-q(t)\bigr)\bigl(r(s)-r(t)\bigr)
-+\sum_{s\in S}a_sq(s)r(s).
-\]
-For a smooth displacement path, define its kinetic and potential energies
-by
-\[
-\mathcal T(q,\dot q)=\frac12M(\dot q,\dot q),
-\qquad
-\mathcal U(q)=\frac12K(q,q),
-\]
-and its action by
-$\int(\mathcal T(q,\dot q)-\mathcal U(q))\,dt$.
-
 The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
-$(v,w)\mapsto v\otimes w$ such that every bilinear map
+$(v,w)\mapsto v\otimes w$ with the following universal property: every
+bilinear map
 $b:V\times W\to X$ factors uniquely as
 \[
 V\times W\longrightarrow V\otimes W
 \xrightarrow{\,\widetilde b\,}X.
 \]
-The evaluation pairing therefore induces
-$\operatorname{ev}_V:V^\vee\otimes V\to k$.  A vector space $V$ is
-\emph{finite-dimensional} when there is a coevaluation map
+The evaluation pairing induces a linear map
+$\operatorname{ev}_V:V^\vee\otimes V\to k$.
+
+A vector space $V$ is \emph{finite-dimensional} when there is a
+coevaluation map
 \[
 \operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
 \]
-satisfying
+satisfying the snake identities
 \[
 (\id_V\otimes\operatorname{ev}_V)
 \circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
@@ -85,58 +57,27 @@ factors.  For $T\in\End(V)$, define
 \[
 \operatorname{tr}(T)
 =\operatorname{ev}_V\circ s_{V,V^\vee}
- \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V,
-\qquad
-\dim_k(V)=\operatorname{tr}(\id_V).
+ \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V.
+\]
+The \emph{dimension} of $V$ is the scalar
+\[
+\dim_k(V)=\operatorname{tr}(\id_V)\in k.
 \]
 
 \begin{enumerate}[label=(\alph*)]
-\item Prove directly that the displacement space $\mathbb R^S$ is a vector
-space, that each $\epsilon_s$ lies in $V^\vee$, and that the maps
-\[
-M^\flat(q)=M(q,-),
-\qquad
-K^\flat(q)=K(q,-)
-\]
-are linear from $V$ to $V^\vee$.  Derive the fixed-endpoint first
-variation of the action and obtain
-\[
-M^\flat(\ddot q)+K^\flat(q)=0.
-\]
-Prove that $M^\flat$ is invertible and rewrite this equation as
-\[
-A=(M^\flat)^{-1}K^\flat,
-\qquad
-\ddot q+Aq=0.
-\]
-Show that its solutions obey
-superposition, that $\ker K^\flat$ is the space of static zero modes, and
-that $\im K^\flat$ is the space of attainable restoring-force covectors.
-\item Use the universal property to factor $M$ and $K$ uniquely through
-$V\otimes V$.  Prove that
-\[
-\operatorname{coev}_V(1)=\sum_{s\in S}\delta_s\otimes\epsilon_s
-\]
-satisfies both snake identities.  Let
-$c,d:\mathbb R\to V\otimes V^\vee$ both satisfy the snake identities with
-$\operatorname{ev}_V$; apply
+\item Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
+$\operatorname{ev}_V$.  Apply
 \[
 \id_V\otimes\operatorname{ev}_V\otimes\id_{V^\vee}
 \]
-to $d\otimes c$ and prove $c=d$.
-\item Derive for every linear response $T\in\End(V)$ the identity
+to $d\otimes c:k\to V\otimes V^\vee\otimes V\otimes V^\vee$ and use the
+snake identity for $d$ to identify the result with $c$.  Use the snake
+identity for $c$ to identify the same result with $d$, and deduce $c=d$.
+\item Prove that $T\mapsto\operatorname{tr}(T)$ is linear and that
 \[
-\operatorname{tr}(T)=\sum_{s\in S}\epsilon_s(T\delta_s).
+\operatorname{tr}(ST)=\operatorname{tr}(TS)
+\qquad(S,T\in\End(V)).
 \]
-Identify the right side as the total return amplitude measured by applying
-a unit displacement and reading the response at the same mass.  Prove that
-\[
-\dim_{\mathbb R}(V)=|S|,
-\qquad
-\operatorname{tr}(ST)=\operatorname{tr}(TS),
-\]
-and show that the total return amplitude is unchanged when two response
-stages are performed in the opposite cyclic order.
 \end{enumerate}
 \end{exercise}
 
@@ -791,14 +732,7 @@ and loss.
 
 \section{Fourier Analysis}
 
-\begin{exercise}[Homogeneous wave media, manifolds, and invariant geometry]
-Let $M$ be the set of points of a smooth homogeneous medium and let
-$u:\mathbb R\times M\to\mathbb R$ be its scalar displacement field.  In
-terms of the Riemannian metric and Laplacian defined below, impose
-\[
-\partial_t^2u=c^2\Delta_gu,
-\]
-
+\begin{exercise}[Manifolds, Lie groups, and invariant geometry]
 A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
 space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
 whose transition maps are smooth.  A map of smooth manifolds is
@@ -858,13 +792,6 @@ $h_{F(p)}(dF_pv,dF_pw)=g_p(v,w)$.
 \begin{enumerate}[label=(\alph*)]
 \item Prove that an isometry preserves the Riemannian density, gradient,
 divergence, and Laplace--Beltrami operator.
-\item Let $F:M\to M$ be an isometry.  Prove directly that if $u$ satisfies
-the displayed wave equation, then
-\[
-u_F(t,p)=u(t,F^{-1}(p))
-\]
-satisfies it with the transported initial displacement and velocity.
-Conclude that the isometries of the medium act on its wave solutions.
 \item Prove that a left-invariant Riemannian metric on a Lie group has
 left-invariant Riemannian measure.
 \item For the Euclidean metric, recover Lebesgue measure and
@@ -1098,40 +1025,27 @@ condition with
 \section{Peter--Weyl Theory}
 
 
-\begin{exercise}[Rigid-rotor symmetry sectors and Maschke's theorem]
-Let $Q=SO(3)$ be the orientation space of a rigid molecule carrying a
-finite point-symmetry group $G\subset SO(3)$.  On $L^2(Q)$ let
-$\widehat H_{\rm rot}$ be a self-adjoint rotor Hamiltonian with compact
-resolvent, commuting with the right translations
-\[
-(R_g\psi)(q)=\psi(qg),
-\qquad g\in G.
-\]
-For a bounded interval $I$ containing an isolated finite spectral cluster,
-put
-\[
-H_I=E_{\widehat H_{\rm rot}}(I)L^2(Q),
-\qquad
-\rho_I(g)=R_g|_{H_I}.
-\]
+\begin{exercise}[Finite representations and Maschke's theorem]
 For a group $G$, a representation on a vector space $V$ is a homomorphism
 $\rho:G\to\operatorname{GL}(V)$.  A subspace is invariant when it is
 preserved by every $\rho(g)$, and a nonzero representation is irreducible
 when it has no proper nonzero invariant subspace.
 
-Let $G$ be finite and let the characteristic of $k$ not divide $|G|$.
-Prove that $H_I$ is invariant and that $\rho_I$ is a finite-dimensional
-unitary representation.  Average an arbitrary projection over $G$ to construct an invariant
+Let $G$ be finite, let the characteristic of $k$ not divide $|G|$, and let
+$V$ be a finite-dimensional representation.  Average an arbitrary
+projection over $G$ to construct an invariant
 complement to every invariant subspace. Deduce that every finite-dimensional
-representation is a direct sum of irreducible representations.  Apply this
-to $H_I$ and to each spectral subspace of $\widehat H_{\rm rot}$.  Prove
-that exact point symmetry organizes every rotational-energy level into
-irreducible multiplets.  If $\widehat H_{{\rm rot},s}$ is a
-norm-resolvent-continuous family of self-adjoint operators commuting with $G$ and a
-spectral cluster remains isolated, use its spectral projection to prove that
-the multiplicity of every irreducible type in the cluster is locally constant.
-Deduce that a change in these multiplicities requires a collision with another
-spectral cluster.
+representation is a direct sum of irreducible representations.
+
+Let $H$ be a finite-dimensional complex Hilbert space carrying a unitary
+representation of $G$, and let $A\in\End(H)$ be self-adjoint and commute
+with the action.  Prove that every spectral subspace of $A$ is invariant
+and decomposes into irreducible representations.  If $A_s$ is a
+norm-continuous family of such operators and a spectral cluster remains
+isolated, use its spectral projection to prove that the multiplicity of
+every irreducible type in the cluster is locally constant.  Deduce that a
+change in these multiplicities requires a collision with another spectral
+cluster.
 \end{exercise}
 
 \begin{exercise}[Schur's lemma]
@@ -1581,8 +1495,7 @@ identify its symmetry-enforced dark directions and absent spectral lines.
 \section{Poincar\'e Symmetry and Relativistic Particles}
 
 \begin{exercise}[Minkowski momentum orbits and relativistic dispersion]
-Model the interval and energy--momentum measurements of inertial observers
-by a \emph{time-oriented Minkowski space}: a real four-dimensional vector
+A \emph{time-oriented Minkowski space} is a real four-dimensional vector
 space $M$ with a symmetric nondegenerate form $g$ of signature $(1,3)$
 and a chosen component of the cone $\{v:g(v,v)>0\}$.  Let
 $SO^+(M,g)$ be the group preserving $g$, the orientation, and the time
@@ -2316,11 +2229,7 @@ and detector acceptance alter the comparison with measured counts.
 \section{Harish--Chandra Theory}
 
 
-\begin{exercise}[A hyperbolic wave sheet and rank-one decompositions]
-Model a homogeneous negatively curved wave sheet by the upper half-plane
-with curvature radius one.  Its isotropic source response and detector
-counts require its distance spheres and their area measure.
-
+\begin{exercise}[The hyperbolic plane and rank-one decompositions]
 Let
 \[
 G=SL_2(\R),
@@ -2370,13 +2279,6 @@ F(ka_rn_x)e^r\,dx\,dr\,dk,
 =2\pi\int_0^\infty f(a_rK)\sinh r\,dr
 \]
 for radial $f$.
-Deduce that a response invariant under the stabilizer of the source $i$
-depends only on $r=d_{\mathbb H^2}(z,i)$, and prove that a detector of
-constant areal density records
-\[
-2\pi(\cosh R-1)
-\]
-sites in a geodesic disk of radius $R$, up to the density factor.
 \end{exercise}
 
 \begin{exercise}[Spherical convolution and the rank-one Gelfand pair]
@@ -2710,9 +2612,8 @@ shape, loss, finite frequency resolution, and discretization.
 \section{Automorphic Forms}
 
 
-\begin{exercise}[Reciprocal-lattice shells and lattice theta series]
-Let $L\subset\mathbb R^d$ be the reciprocal lattice of an ideal monatomic
-crystal.  Mathematically, a \emph{Euclidean lattice} is a discrete subgroup for which
+\begin{exercise}[Lattice theta series]
+A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
 $\R^d/L$ is compact.  Its dual is
 \[
 L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
@@ -2724,8 +2625,6 @@ is
 \Theta_L(\tau)=\sum_{x\in L}q^{\|x\|^2/2}.
 \]
 Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
-Identify this coefficient with the number of reciprocal-lattice points on
-the corresponding elastic diffraction shell.
 
 Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
 \[
@@ -2733,9 +2632,7 @@ Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
 =\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^*}(\tau),
 \]
 using the branch positive on the positive imaginary axis.  Show that
-evenness gives $\Theta_L(\tau+1)=\Theta_L(\tau)$.  Interpret the first
-identity as momentum--winding duality for a compact free boson and as the
-reciprocal-lattice relation behind diffraction.  Explain why a general
+evenness gives $\Theta_L(\tau+1)=\Theta_L(\tau)$.  Explain why a general
 lattice theta series transforms with its dual rather than being a scalar
 modular form by itself.
 \end{exercise}

@@ -2,16 +2,7 @@
 
 \section{Affine and Projective Geometry, Singularities, and Caustics}
 
-\begin{exercise}[Stationary-ray families, affine spectra, and structure sheaves]
-Near a cusp diffraction pattern, take the phase
-\[
-S(t;a,b)=\frac{t^4}{4}+\frac{at^2}{2}+bt.
-\]
-Prove that its geometrical rays satisfy $t^3+at+b=0$ and define the
-polynomial functions on the full ray-and-control-parameter family by
-\[
-A_{\rm ray}=\mathbb C[t,a,b]/(t^3+at+b).
-\]
+\begin{exercise}[Affine spectra, localization, and structure sheaves]
 Let $A$ be a finitely generated commutative $\mathbb C$-algebra.  An ideal
 $\mathfrak p\subsetneq A$ is \emph{prime} when $ab\in\mathfrak p$ implies
 $a\in\mathfrak p$ or $b\in\mathfrak p$.  Define
@@ -52,15 +43,7 @@ zero set of $I$.  Show that replacing $I$ by its radical preserves the
 closed points but can change the structure sheaf.  In particular, compare
 $\operatorname{Spec}\mathbb C[\varepsilon]/(\varepsilon^2)$ with a reduced
 point and identify the nilpotent section that records its infinitesimal
-thickening.  For fixed controls $(a_0,b_0)$, form the fiber
-\[
-A_{a_0,b_0}=A_{\rm ray}/(a-a_0,b-b_0).
-\]
-Prove that $4a_0^3+27b_0^2\ne0$ gives three reduced ray points, whereas
-$A_{0,0}=\mathbb C[t]/(t^3)$ has one closed point carrying a threefold
-infinitesimal thickening.  Derive the collision locus
-$4a^3+27b^2=0$ by eliminating $t$ from
-$\partial_tS=\partial_t^2S=0$.
+thickening.
 \end{exercise}
 
 \begin{exercise}[Morphisms, local rings, tangent spaces, and singularities]
@@ -260,15 +243,8 @@ scaling.
 
 \section{Algebraic Curves, Periods, and Monodromy}
 
-\begin{exercise}[Oscillator turning points and the Riemann--Hurwitz formula]
-For a one-dimensional conservative motion normalized to
-\[
-\dot{x}^2=q(x),
-\]
-adjoin $y=\dot x$ and complexify the energy shell to $y^2=q(x)$.  The two
-velocity signs form two sheets over the $x$-line, joined at the turning
-points $q(x)=0$.  For a compact connected oriented surface $S$, define its
-genus $g(S)$ by
+\begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
+For a compact connected oriented surface $S$, define its genus $g(S)$ by
 \[
 \chi(S)=2-2g(S).
 \]
@@ -297,12 +273,7 @@ For a square-free polynomial $q\in\mathbb C[x]$ of degree $2g+1$ or
 $2g+2$, let $C_q$ be the nonsingular projective curve obtained from
 $y^2=q(x)$.  Show that the projection $x:C_q\to\mathbb P^1$ has degree
 two, determine its branch points including the point or points over
-infinity, and deduce that $C_q$ has genus $g$.  For a real interval between
-successive simple turning points on which $q>0$, show that one oscillation
-lifts to a closed cycle $\gamma$ on $C_q$ with period
-\[
-T_\gamma=\oint_\gamma\frac{dx}{y}.
-\]
+infinity, and deduce that $C_q$ has genus $g$.
 \end{exercise}
 
 \begin{exercise}[Pendulum periods and the Legendre curve]
@@ -456,12 +427,8 @@ logarithmic type of the singular fiber.
 
 \section{Divisors, Sheaf Cohomology, and Riemann--Roch}
 
-\begin{exercise}[Magnetic vortices, divisors, and first Chern classes]
-Let a charged particle move on a compact Riemann surface $C$ in a magnetic
-field represented by a Hermitian line bundle $L\to C$ with connection
-$\nabla$.  A lowest-Landau-level state is a nonzero holomorphic section
-$\psi$ of $L$, and its vortex locations are the zeros of $\psi$, counted
-with multiplicity.  A \emph{divisor} on $C$ is a finite formal sum
+\begin{exercise}[Divisors, line bundles, and first Chern classes]
+On a compact Riemann surface $C$, a \emph{divisor} is a finite formal sum
 \[
 D=\sum_{p\in C}n_p[p],
 \qquad n_p\in\mathbb Z,
@@ -509,14 +476,6 @@ Stokes' theorem around the zeros and poles of a meromorphic section to
 prove
 \[
 \int_C c_1(L)=\deg L.
-\]
-Apply this identity to the lowest-Landau-level section $\psi$.  Prove that its
-zero divisor is effective and that the total vortex count is the magnetic
-flux number
-\[
-\sum_{p\in C}\operatorname{ord}_p(\psi)
-=\deg L
-=\int_C\frac{i}{2\pi}F_\nabla.
 \]
 \end{exercise}
 
@@ -730,20 +689,7 @@ under which spectroscopy predicts this robust degeneracy.
 
 \section{Vector Bundles, Berry Curvature, and Topological Transport}
 
-\begin{exercise}[Spectral mode bundles, Berry curvature, and Chern--Weil forms]
-Let $W$ be a finite-dimensional Hermitian state space and let
-$H:B\to\operatorname{End}(W)$ be a smooth family of self-adjoint
-Hamiltonians controlled by parameters $b\in B$.  Suppose a fixed contour
-$\Gamma$ encloses an isolated spectral cluster of constant multiplicity
-$r$.  Define
-\[
-P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
-\qquad
-\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
-\]
-The fibers of $\mathcal E$ are the mode spaces transported by the control
-parameters.
-
+\begin{exercise}[Connections, curvature, and Chern--Weil forms]
 A smooth complex vector bundle of rank $r$ over a manifold $M$ is a smooth
 map $E\to M$ whose fibers are $r$-dimensional complex vector spaces and
 which is locally isomorphic, fiberwise linearly, to a product
@@ -758,13 +704,7 @@ complex-linear map
 Extend it to $E$-valued forms by the graded Leibniz rule and define its
 curvature by $F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)$.
 
-\begin{enumerate}[label=(\alph*)]
-\item Prove that $P_b$ is a smooth family of orthogonal projections and
-that $\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its
-local product maps from the restrictions of nearby projections to a fixed
-fiber, without choosing a frame.
-
-\item Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
+Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
 trace and determinant developed earlier, define
 \[
 \operatorname{ch}(E,\nabla)
@@ -795,22 +735,37 @@ c(E\oplus F)=c(E)c(F),
 \qquad
 \operatorname{ch}(E\otimes F)=\operatorname{ch}(E)\operatorname{ch}(F).
 \]
-Prove also
-$\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E)$ and recover
-the first Chern form of a line bundle used above.
+Prove also that
+\[
+\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E).
+\]
+Recover the first Chern form of a line bundle used above.
+\end{exercise}
 
-\item Define the Berry connection on the transported mode bundle by
+\begin{exercise}[Spectral projections and Berry bundles]
+Let $W$ be a finite-dimensional Hermitian vector space, let $B$ be a smooth
+manifold, and let $H:B\to\operatorname{End}(W)$ be a smooth family of
+self-adjoint operators.  Suppose a fixed contour $\Gamma$ encloses an
+isolated spectral cluster of constant multiplicity.  Define
+\[
+P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
+\qquad
+\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
+\]
+Prove that $P_b$ is a smooth family of orthogonal projections and that
+$\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its local
+product maps from the restrictions of nearby projections to a fixed fiber,
+without choosing a frame.  Define the Berry connection by
 \[
 \nabla^{\mathrm B}s=P\,ds
 \]
-for sections satisfying $Ps=s$.  Prove
+for sections satisfying $Ps=s$, and prove
 \[
 F_{\mathrm B}=P(dP\wedge dP)P,
 \qquad
 c_1(\mathcal E)=
 \left[\frac{i}{2\pi}\operatorname{Tr}P(dP\wedge dP)\right].
 \]
-\end{enumerate}
 \end{exercise}
 
 \begin{exercise}[Two-level Berry degree and gap protection]
@@ -886,16 +841,9 @@ measurements test these predictions.
 
 \section{Character Varieties, Moduli, and Wilson Loops}
 
-\begin{exercise}[Flat gauge holonomy and character varieties]
-Let a flat $G$-gauge field be a flat connection on a principal bundle over
-a closed oriented surface $\Sigma_g$, where $G$ is a complex reductive
-affine algebraic group.  Fix a base point and a point in its fiber.  Use as
-theorem input that flat parallel transport depends only on the based
-homotopy class of a loop and thereby defines the holonomy representation
-\[
-\rho:\pi_1(\Sigma_g)\longrightarrow G.
-\]
-Use the presentation
+\begin{exercise}[Surface-group representations and character varieties]
+Let $\Sigma_g$ be a closed oriented surface of genus $g$, let $G$ be a
+complex reductive affine algebraic group, and use the presentation
 \[
 \pi_1(\Sigma_g)
 =\left\langle a_1,b_1,\ldots,a_g,b_g\ \middle|\
@@ -908,8 +856,8 @@ Define the representation variety by
 =\left\{(A_1,B_1,\ldots,A_g,B_g)\in G^{2g}:
 \prod_{j=1}^g[A_j,B_j]=1\right\}.
 \]
-Show that changing the selected point in the fiber conjugates $\rho$, and
-that a gauge transformation has the same effect at the base point.  If an algebraic group $G$ acts on an
+Show that changing the value of a representation by conjugation changes
+only the framing at the base point.  If an algebraic group $G$ acts on an
 affine algebraic set $X$, define its affine quotient by
 \[
 \mathbb C[X/\!/G]=\mathbb C[X]^G,
@@ -918,15 +866,13 @@ and define the $G$-character variety by
 \[
 \mathcal X(\Sigma_g,G)=\mathcal R(\Sigma_g,G)/\!/G.
 \]
-Use as theorem input that every representation constructs a flat bundle
-with that holonomy and that for reductive $G$ the closed points of this
+Use as theorem input that for reductive $G$ the closed points of this
 quotient correspond to closed conjugacy orbits.  For $G=SL_n(\mathbb C)$,
-define the Wilson-loop response in the defining detector representation by
+prove that every loop $\gamma$ defines a regular function
 \[
 W_\gamma([\rho])=\operatorname{tr}\rho(\gamma)
 \]
-and prove that it is a regular function depending only on the free
-homotopy class of $\gamma$.  Show that these
+depending only on the free homotopy class of $\gamma$.  Show that these
 are invariant under conjugation.  More generally, for a finite-dimensional
 algebraic representation $V$ of $G$, define
 $W_\gamma^V([\rho])=\operatorname{Tr}_V\rho(\gamma)$ and prove
@@ -1083,16 +1029,13 @@ assumptions separately from these predictions.
 
 \section{Jacobians, Spectral Curves, and Finite-Gap Waves}
 
-\begin{exercise}[Finite-gap band edges and hyperelliptic differentials]
-Model a finite-gap one-dimensional wave operator by the two-sheeted
-spectral relation
+\begin{exercise}[Hyperelliptic curves and holomorphic differentials]
+Let
 \[
 C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
 \qquad e_r\ne e_s\quad(r\ne s),
 \]
-whose branch values $e_r$ are the band edges when they are real and
-ordered.  Let $C$ denote its nonsingular projective completion.  Use
-Riemann--Hurwitz to prove
+denote its nonsingular projective completion.  Use Riemann--Hurwitz to prove
 that $C$ has genus $g$.  Analyze the finite branch points and the point over
 infinity to show that the distinguished differentials
 \[
@@ -1101,8 +1044,7 @@ infinity to show that the distinguished differentials
 \]
 are holomorphic.  Compare their vanishing orders at infinity and use
 $\dim H^0(C,K_C)=g$ to show that they exhaust the holomorphic
-differentials.  When the $e_r$ are real and ordered, prove locally that
-the two values of $y$ merge at each $e_r$ with square-root behavior.
+differentials.
 
 Choose a symplectic marking
 $(a_1,\ldots,a_g,b_1,\ldots,b_g)$ of $H_1(C;\mathbb Z)$, define the
@@ -1126,10 +1068,6 @@ Use the bilinear identity to prove
 \qquad
 \operatorname{Im}\Omega>0.
 \]
-Let two adjacent real branch values coalesce.  Show from the local equation
-that the limiting spectral curve acquires a node and that a cycle joining
-those branch values contracts, corresponding in this model to the closing
-of that spectral gap.
 \end{exercise}
 
 \begin{exercise}[Jacobians, Abel--Jacobi maps, and Riemann theta functions]
@@ -1454,13 +1392,9 @@ transmission-line experiment tests these predictions.
 
 \section{Riemannian Curvature and Relativistic Geometry}
 
-\begin{exercise}[Free-particle trajectories and Levi--Civita geometry]
-Let $(M,g)$ be the configuration manifold of a free particle.  Its kinetic
-action along a fixed-endpoint path is
-\[
-E(\gamma)=\frac12\int g(\dot\gamma,\dot\gamma)\,dt.
-\]
-For a connection on $TM$, define its torsion by
+\begin{exercise}[Levi--Civita connections, geodesics, and the exponential map]
+Let $(M,g)$ be a Riemannian manifold.  For a connection on $TM$, define its
+torsion by
 \[
 T_\nabla(X,Y)=\nabla_XY-\nabla_YX-[X,Y].
 \]
@@ -1481,7 +1415,10 @@ connection.
 
 Define a geodesic to be a curve $\gamma$ satisfying
 $\nabla_{\dot\gamma}\dot\gamma=0$.  For a fixed-endpoint variation, derive
-the first-variation formula for the displayed kinetic action
+the first-variation formula for
+\[
+E(\gamma)=\frac12\int g(\dot\gamma,\dot\gamma)\,dt
+\]
 and prove that its critical curves are precisely the constant-speed
 geodesics.  Prove local existence and uniqueness from initial data
 $(p,v)\in TM$, define

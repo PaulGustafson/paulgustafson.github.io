@@ -2,29 +2,18 @@
 
 \section{Graded Characters}
 
-\begin{exercise}[Bosonic and fermionic occupation weights and symmetric polynomials]
-Let $N\geq1$ labeled one-particle modes have formal weights
-$x_1,\ldots,x_N$.  A fermionic $r$-particle occupation state is a subset
-$\{i_1<\cdots<i_r\}$ of the modes, while a bosonic $r$-particle occupation
-state is a multiset $\{i_1\leq\cdots\leq i_r\}$.  Give either state the
-weight $x_{i_1}\cdots x_{i_r}$.  Define the fixed-particle-number
-partition functions by
-\[
-Z_F^{(r)}=
-\sum_{1\leq i_1<\cdots<i_r\leq N}x_{i_1}\cdots x_{i_r},
-\qquad
-Z_B^{(r)}=
-\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}x_{i_1}\cdots x_{i_r}.
-\]
-Relabeling the modes does not change either partition function, so put
+\begin{exercise}[Symmetric polynomials]
+For $N\geq1$, let
 \[
 \Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
 \]
 Define
 \[
-e_r=Z_F^{(r)},
+e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
+x_{i_1}\cdots x_{i_r},
 \qquad
-h_r=Z_B^{(r)},
+h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
+x_{i_1}\cdots x_{i_r},
 \]
 \[
 p_r=\sum_{i=1}^Nx_i^r,
@@ -34,21 +23,15 @@ e_0=h_0=1.
 Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.
 
 \begin{enumerate}[label=(\alph*)]
-\item By deciding independently whether each fermionic mode is empty or
-occupied, and how many particles occupy each bosonic mode, prove
+\item Prove that every element of $\Lambda_N$ is uniquely a polynomial in
+$e_1,\ldots,e_N$.
+\item Prove
 \[
 \sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
 \qquad
 \sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
 \]
-as identities of formal power series.  For $x_i=e^{-\beta\epsilon_i}$,
-identify the coefficient of $t^r$ with the canonical partition function of
-$r$ noninteracting fermions or bosons in one-particle energies
-$\epsilon_i$.
-\item Prove that every relabeling-invariant polynomial in the mode weights
-is uniquely a polynomial in $e_1,\ldots,e_N$.
-\item Compare the two occupation generating functions and logarithmically
-differentiate the bosonic one to deduce
+and deduce
 \[
 \left(\sum_{r\geq0}h_rt^r\right)
 \left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
@@ -134,14 +117,27 @@ For
 C=k_B\beta_{\rm th}^2\frac{d^2\Psi}{d\beta_{\rm th}^2},
 \]
 prove $d\mathcal S=k_B\beta_{\rm th}\,dU$ as $\beta_{\rm th}$ varies and
-express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.
+express $d^2\Psi/d\beta_{\rm th}^2$ as the energy variance.  Derive
+\[
+U=\hbar\omega\sum_{j\geq1}
+\frac{j}{e^{\beta_{\rm th}j\hbar\omega}-1},
+\qquad
+C=k_B(\beta_{\rm th}\hbar\omega)^2
+\sum_{j\geq1}
+\frac{j^2e^{\beta_{\rm th}j\hbar\omega}}
+{(e^{\beta_{\rm th}j\hbar\omega}-1)^2}.
+\]
+State how resolved spectroscopy tests the integer-spaced levels and the
+partition degeneracies, while equilibrium calorimetry tests the displayed
+energy and heat-capacity curves.  Separate the independent-mode, harmonic,
+thermal-equilibrium, finite-resolution, and high-energy-cutoff assumptions
+from these predictions.
 \end{exercise}
 
 \section{Modular and Moonshine Characters}
 
 \begin{exercise}[Virasoro symmetry and chiral finite-size levels]
-Model the mode symmetries of a chiral system on a circle by the Virasoro
-algebra.  It has generators $L_n$, $n\in\Z$, and a central generator
+The Virasoro algebra has generators $L_n$, $n\in\Z$, and a central generator
 $C$, with
 \[
 [L_m,L_n]=(m-n)L_{m+n}
@@ -489,9 +485,7 @@ realization.
 \section{Transfer Matrices}
 
 \begin{exercise}[Hard-hexagon transfer matrices]
-Build the partition function of a hard-particle gas on a periodic
-triangular-lattice strip one row at a time.  Let $\mathcal R_N$ be its
-finite set of allowed width-$N$ configurations and
+Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
 let $T_N(z)$ be an operator on the configuration space whose matrix element
 between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
 height-$M$ periodic lattice define
@@ -807,19 +801,16 @@ the comparison.
 
 \section{Determinantal Ensembles}
 
-\begin{exercise}[Gaussian detector channels and Hermite response modes]
-Model repeated measurements of one centered, unit-variance fluctuation
-channel of a noisy resonator by the probability measure $\mathbb P$ on
-$\R$ with density $(2\pi)^{-1/2}e^{-x^2/2}$.  Let $X(x)=x$ be the calibrated
-detector output and write
+\begin{exercise}[Hermite Gaussian moments]
+Let $\mathbb P$ be the probability measure on $\R$ with density
+$(2\pi)^{-1/2}e^{-x^2/2}$, let $X(x)=x$, and write
 $\mathbb Ef(X)=\int_\R f(x)\,d\mathbb P(x)$ whenever the integral exists.
 
-Prove
+For this $X$, prove
 \[
 \mathbb E[e^{tX}]=e^{t^2/2}.
 \]
-To separate mutually uncorrelated polynomial response channels, define the
-probabilists' Hermite polynomials by
+Define the probabilists' Hermite polynomials by
 \[
 e^{xt-t^2/2}
 =\sum_{n\geq0}\operatorname{He}_n(x)\frac{t^n}{n!}
@@ -831,9 +822,6 @@ and prove
 \qquad
 \mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!}.
 \]
-Deduce that the measured channel outputs
-$\operatorname{He}_m(X)$ and $\operatorname{He}_n(X)$ have zero covariance
-for $m\ne n$, while the variance of the $n$th channel is $n!$.
 Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
 in Spectral Theory.
 \end{exercise}
@@ -1187,15 +1175,14 @@ finite-size range over which the asymptotic is used.
 
 \section{Schur Measures}
 
-\begin{exercise}[Tableau partition functions and Schur polynomials]
-For an integer partition $\lambda$ of length at most $N$, regard its Young
-diagram as a layered occupation pattern.  A state of this pattern with
-$N$ species is a filling $T$ by entries in $\{1,\ldots,N\}$ that is
-weakly increasing along rows and strictly increasing down columns; this is a \emph{semistandard
-Young tableau}.  If $m_i(T)$ is the number of particles of species $i$,
-give $T$ weight $\prod_i x_i^{m_i(T)}$ and define
+\begin{exercise}[Semistandard tableaux and Schur polynomials]
+For a partition $\lambda$ of length at most $N$, a
+\emph{semistandard Young tableau} of shape $\lambda$ is a filling $T$ of
+its Young diagram by entries in $\{1,\ldots,N\}$ that is
+weakly increasing along rows and strictly increasing down columns.  If
+$m_i(T)$ is the number of entries equal to $i$, define
 \[
-Z_\lambda(x_1,\ldots,x_N)
+s_\lambda(x_1,\ldots,x_N)
 =\sum_T\prod_i x_i^{m_i(T)}.
 \]
 
@@ -1209,11 +1196,10 @@ nonintersecting families correspond weight-preservingly to semistandard
 tableaux by reading each path's east-step heights from right to left, and
 deduce
 \[
-Z_\lambda(x_1,\ldots,x_N)
+s_\lambda(x_1,\ldots,x_N)
 =\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
 \]
-Define the common polynomial to be the \emph{Schur polynomial}
-$s_\lambda$.  Derive the alternant formula
+Call this the \emph{Schur polynomial}.  Derive the alternant formula
 \[
 s_\lambda(x)
 =\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
