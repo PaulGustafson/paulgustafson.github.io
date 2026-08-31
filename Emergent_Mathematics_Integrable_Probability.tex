@@ -21,8 +21,7 @@ and prove
 \qquad
 \mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!}.
 \]
-Relate $\operatorname{He}_n$ to the oscillator Hermite functions developed
-in Spectral Theory.
+Relate $\operatorname{He}_n$ to the oscillator Hermite functions.
 \end{exercise}
 
 \begin{exercise}[Dyson ensembles and unitary orbit Jacobians]
@@ -91,8 +90,7 @@ Prove absolute local uniform convergence of the defining product and
 \qquad(|z|<\|A\|^{-1}).
 \]
 Prove that the determinant is entire, identify its zeros, and show that its
-finite-rank specialization agrees with the exterior-power identity from the
-opening section.
+finite-rank specialization agrees with the exterior-power identity.
 \end{exercise}
 
 \begin{exercise}[Point processes and determinantal statistics]
@@ -174,7 +172,9 @@ e^{N\Phi_u(z)}a_u(z)\,dz,
 \]
 where $u$ ranges over a compact set, the phases and amplitudes are
 holomorphic on fixed neighborhoods of the contours, and the contour
-lengths grow at most polynomially in $N$.
+lengths grow at most polynomially in $N$.  Assume that the phases,
+amplitudes, contour parametrizations, and all derivatives used below are
+uniformly bounded on these neighborhoods.
 
 Suppose first that $\mathcal C_N(u)$ passes through finitely many
 nondegenerate critical points $z_j(u)$ along steepest directions.  Assume
@@ -200,8 +200,11 @@ local analytic variable $w$ has been exhibited for which
 \Phi_u(z)=c(u)+\frac{w^3}{3}-s(u)w,
 \qquad s(u_*)=0,
 \]
-while the transformed amplitude and its first two derivatives are
-uniformly bounded.  Deform the local contour to the Airy rays and prove,
+with the variable, its inverse, and their first three derivatives uniformly
+bounded.  Assume that the transformed amplitude and its first two
+derivatives are uniformly bounded, that the local contour deforms to the
+Airy rays without crossing a singularity, and that the complement satisfies
+a uniform real-part gap and contains no other contributing saddle.  Prove,
 uniformly
 for bounded $N^{2/3}s(u)$, that $I_N(u)$ is the corresponding linear
 combination of
@@ -217,8 +220,7 @@ the contour gap and amplitude bounds make both conclusions uniform.
 \end{exercise}
 
 \begin{exercise}[Hermite steepest descent]
-Write $\psi_j^{\rm H}$ for the normalized oscillator Hermite functions
-developed in Spectral Theory.
+Write $\psi_j^{\rm H}$ for the normalized oscillator Hermite functions.
 
 From the generating function derive
 \[
@@ -229,8 +231,8 @@ and the resulting contour integral for $\psi_j^{\rm H}$.  After the GUE
 scaling used below, show that the critical-point equation is quadratic,
 has two simple conjugate roots for $E\in(-2\sigma,2\sigma)$, and has a
 double root at $E=2\sigma$.  Exhibit the local Gaussian coordinates in the
-bulk and the cubic Airy coordinate at the edge.  Apply the preceding
-saddle estimates to establish uniform Plancherel--Rotach formulas on
+bulk and the cubic Airy coordinate at the edge.  Apply the simple- and
+coalescing-saddle estimates to establish uniform Plancherel--Rotach formulas on
 compact bulk windows and uniform exponentially weighted Airy formulas on
 edge half-lines, including the same estimates for the neighboring indices
 $j=N-1,N$ needed in the Christoffel--Darboux kernel.
@@ -447,7 +449,7 @@ Apply this identity to the interlacing-chain encoding of $s_\lambda$.
 \end{exercise}
 
 \begin{exercise}[Finite Schur kernels]
-For the preceding finite alphabets, set
+For finite alphabets, set
 \[
 \Phi(z)=\frac{\prod_j(1-\gamma_j/z)}
 {\prod_i(1-\alpha_i z)}.
@@ -510,7 +512,7 @@ L_n^{(\alpha)}(x)
 =\frac1{2\pi i}\oint
 \frac{\exp(-xz/(1-z))}{(1-z)^{\alpha+1}z^{n+1}}\,dz.
 \]
-For the Laguerre kernel obtained in the preceding exercise, write its
+For the Laguerre kernel, write its
 scaled phase explicitly and locate the double saddle at the upper spectral
 edge.  Exhibit the cubic coordinate and contours satisfying the gap
 hypotheses of the coalescing-saddle exercise.  Apply that exercise to

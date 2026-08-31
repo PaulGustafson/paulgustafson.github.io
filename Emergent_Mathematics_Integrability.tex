@@ -123,7 +123,7 @@ Let $0$ denote the empty row.  For $z>0$, prove
 \[
 (T_N(z)^2)_{ab}\geq T_N(z)_{a0}T_N(z)_{0b}>0.
 \]
-Use as theorem input the finite Perron--Frobenius statement that a strictly
+Use as theorem input~\cite{seneta} the finite Perron--Frobenius statement that a strictly
 positive matrix has a positive simple spectral radius and every other
 spectral value has strictly smaller modulus.  Apply it to show that
 $\lambda_N(z)$ is simple,
@@ -242,7 +242,7 @@ local factors $A$.  In the isotropic case derive
 e^{4L}=\frac{\cosh(3K)}{\cosh K}.
 \]
 Combine this transformation with planar duality and, under the
-single-transition hypothesis of the preceding exercise, obtain
+single-transition hypothesis, obtain
 \[
 K_c^{\rm tri}=\frac14\log3,
 \qquad
@@ -380,8 +380,7 @@ If $R_N$ acts on the same state by $e^{i\mathsf p a_x}$, prove
 \pmod{2\pi/a_x}.
 \]
 Prove that $v=a_x/a_t$ for the displayed isotropic transfer normalization.
-Use the three Ising character products derived in the preceding transfer
-exercise to prove that the coefficient of
+Use the three Ising character products to prove that the coefficient of
 $q^{h_a+r-c/24}\bar q^{\bar h_a+\bar r-\bar c/24}$ gives the predicted
 multiplicity at these energy and momentum values.  Express every excitation
 gap directly as
@@ -531,11 +530,10 @@ the ordinary binomial theorem and the undeformed coproduct.
 
 
 \begin{exercise}[Gaussian-binomial state counts]
-An \emph{integer partition} $\lambda$ is a finite nonincreasing sequence
-of positive integers; its size $|\lambda|$ is the sum of its parts, and its
-length $\ell(\lambda)$ is the number of nonzero parts.  Its Young diagram
+For an integer partition $\lambda$, write $|\lambda|$ for the sum of its
+parts and $\ell(\lambda)$ for the number of nonzero parts.  Its Young diagram
 has one left-justified row for each part.
-Apply the Gaussian binomial theorem from the preceding exercise.
+Apply the Gaussian binomial theorem.
 Prove that the coefficient of $u^m$ in
 $\genfrac{[}{]}{0pt}{}{n}{r}_u$ counts partitions
 of $m$ whose diagrams fit inside an $r\times(n-r)$ rectangle.  For $n$
@@ -613,7 +611,21 @@ is the Haar state.
 \end{exercise}
 
 \begin{exercise}[Quantum-group coefficient pairings]
-For a finite-dimensional type-$1$ $U_v(\mathfrak{sl}_2)$-module $V$,
+Call a finite-dimensional $U_v(\mathfrak{sl}_2)$-module $V$ \emph{type-$1$}
+when $K$ is diagonalizable and
+\[
+V=\bigoplus_{m\in\mathbb Z}V[m],
+\qquad K|_{V[m]}=v^m\id_{V[m]}.
+\]
+On the distinguished Hermitian space
+$V_1=\mathbb Ce_+\oplus\mathbb Ce_-$ define the fundamental type-$1$
+module by
+\[
+Ke_\pm=v^{\pm1}e_\pm,\qquad
+Ee_-=v^{-1/2}e_+,\quad Ee_+=0,\qquad
+Fe_+=v^{1/2}e_-,\quad Fe_-=0.
+\]
+For a finite-dimensional type-$1$ module $V$,
 $\xi\in V$, and $\varphi\in V^\vee$, define
 \[
 c_{\varphi,\xi}(x)=\varphi(x\xi)
@@ -652,7 +664,11 @@ Construct the irreducible type-$1$ unitary
 $U_v(\mathfrak{sl}_2)$-modules $V_n$ from their highest-weight lines and
 form their coefficient corepresentations of $\operatorname{Pol}(SU_v(2))$
 using the Hopf pairing.
-Use the explicit Haar state to derive quantum Schur orthogonality and prove
+Use as theorem input the compact-quantum-group Peter--Weyl
+theorem~\cite{woronowicz-cmqg}: irreducible coefficient spaces are
+orthogonal for the Haar state and their algebraic direct sum is
+$\operatorname{Pol}(SU_v(2))$.  Use the explicit Haar state to compute the
+orthogonality constants and deduce
 \[
 \operatorname{Pol}(SU_v(2))
 =\bigoplus_{n\geq0}C(V_n)
@@ -867,7 +883,7 @@ orthogonal direct sums and prove
 For a finite-dimensional Hilbert space $V$, let
 $j_V:\overline V\to V^\vee$ be the Riesz isomorphism
 $j_V(\overline v)=\langle v,-\rangle$.  From the coevaluation and symmetry
-defined in Spectral Theory, put
+put
 \[
 \overline R_V=(\id_V\otimes j_V^{-1})\operatorname{coev}_V
 :\C\longrightarrow V\otimes\overline V,
@@ -883,8 +899,7 @@ basis, that
 \qquad
 \dim_{\operatorname{Hilb}_{\mathrm{fd}}}(V)=\dim_{\C}(V),
 \]
-where the right-hand sides are the trace and dimension defined in Spectral
-Theory.
+where the right-hand sides are the ordinary trace and dimension.
 \end{exercise}
 
 \begin{exercise}[$SU_v(2)$ fusion and quantum dimensions]
@@ -1087,7 +1102,7 @@ The category is \emph{ribbon} when
 \]
 for every object $X$.
 
-For the universal $R$-matrix of the preceding exercise, set
+For the universal $R$-matrix, set
 \[
 u=m(S\otimes\id)(\mathcal R_{21}).
 \]
@@ -1115,8 +1130,7 @@ $V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
 d_{n+1}=(v+v^{-1})d_n-d_{n-1},
 \qquad d_0=1,\quad d_1=v+v^{-1},
 \]
-where $d_n=\dim_v(V_n)$.  Using the Chebyshev polynomial $U_n$ defined in
-Geometry, deduce
+where $d_n=\dim_v(V_n)$.  Using the Chebyshev polynomial $U_n$, deduce
 \[
 \dim_v(V_n)=U_n\!\left(\frac{v+v^{-1}}2\right)
 =\frac{v^{n+1}-v^{-(n+1)}}{v-v^{-1}}.
@@ -1197,8 +1211,8 @@ e_-=\frac{\sum_{w\in S_r}(-v^{-1})^{\ell(w)}T_w}
 {\sum_{w\in S_r}v^{-2\ell(w)}}
 \]
 are idempotents satisfying
-$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke action
-from the preceding exercise, identify their images with the quantum symmetric
+$T_ie_+=ve_+$ and $T_ie_-=-v^{-1}e_-$.  Under the fundamental Hecke action,
+identify their images with the quantum symmetric
 and exterior state spaces and interpret the Poincar\'e polynomial as their
 graded state count.
 \end{exercise}
@@ -1281,7 +1295,7 @@ the regular point.  Prove that
 =J\left[(v-v^{-1})\mathsf T_N'(1)\mathsf T_N(1)^{-1}
 -N(v+v^{-1})I\right]
 \]
-is the periodic version of the XXZ Hamiltonian in the preceding exercise,
+is the periodic XXZ Hamiltonian,
 with $\Delta=(v+v^{-1})/2$ and with the telescoping boundary term equal to
 zero.  On the sector with one reversed spin, apply the distinguished
 Fourier modes and derive
@@ -1356,7 +1370,8 @@ Here a hat means that the indicated rapidity is omitted.
 With $X_i=e^{2ix_i}$ and $Y_j=e^{2iy_j}$, prove that
 $X_i^{(N-1)/2}Z_N^{\rm DW}$ is a polynomial of degree $N-1$ in $X_i$
 and that the analogous statement holds for every $Y_j$.  Use as theorem
-input the Korepin interpolation lemma: separate symmetry, these degree
+input the Korepin interpolation lemma~\cite{korepin-qism}: separate symmetry,
+these degree
 bounds, the displayed freezing recursion, and $Z_1^{\rm DW}=c$ uniquely
 determine the domain-wall partition function.
 
@@ -1393,7 +1408,7 @@ Z_N^{\rm hom}(z;\eta)
 \frac{c}{a(z)b(z)}
 \right]_{i,j=0}^{N-1}.
 \]
-Use as theorem input the homogeneous determinant evaluation obtained from
+Use as theorem input~\cite{korepin-qism} the homogeneous determinant evaluation obtained from
 its Desnanot--Jacobi recurrence at $z=\eta=\pi/3$:
 \[
 \frac{A_N}{A_{N-1}}
@@ -1500,7 +1515,8 @@ morphisms $q\operatorname{Hom}(X,Y)p$.  Let $\mathcal C_k$ be the
 idempotent completion of $\mathsf{TL}_d/\mathcal N$, and let $V_a$ be the
 image of $f_a$.
 
-Use as theorem input the root-of-unity Markov-form theorem: the forms
+Use as theorem input the root-of-unity Markov-form
+theorem~\cite{turaev-quantum}: the forms
 \[
 \langle f,g\rangle=\operatorname{tr}_m(f^*g),
 \qquad f,g:m\to n,
@@ -1592,7 +1608,7 @@ of sine functions.
 
 \begin{exercise}[Levin--Wen string-net Hamiltonians]
 Let $\Gamma$ be a trivalent cellulation of a closed oriented surface and
-let $\mathcal C_k$ be the preceding unitary fusion category with simple
+let $\mathcal C_k$ be the unitary fusion category with simple
 objects $V_0,\ldots,V_k$, fusion
 multiplicities $N_{ab}^{\ \ c}$, standard categorical trace, and quantum
 dimensions $d_a$.  Write $a^\vee$ for the unique label satisfying
@@ -1666,7 +1682,7 @@ braiding and inverse braiding of $\mathcal C_k$ when the loop is resolved
 through the string net.  Define $W_a^{\beta,+}$ and $W_a^{\beta,-}$ for a
 cycle $\beta$ with intersection number one with $\alpha$.
 
-Use as theorem input the torus-sector theorem for the preceding string-net
+Use as theorem input~\cite{levin-wen} the torus-sector theorem for the string-net
 model: local recoupling identifies its ground space with one-dimensional
 sectors indexed by pairs $(x,y)$ with $0\leq x,y\leq k$.  Deduce
 \[
@@ -1720,7 +1736,7 @@ Identify
 =U_a\!\left(\cos\frac{(b+1)\pi}{k+2}\right)
 \]
 with the specialized $SU(2)$ Weyl character, where $U_a$ is the
-Chebyshev family developed earlier.
+Chebyshev family.
 In a two-path anyon interferometer with path intensities $I_1,I_2$, derive
 \[
 I_b(\phi)=I_1+I_2
@@ -1821,14 +1837,18 @@ $g\geq1$, let
 =\{(\theta_1,\ldots,\theta_N):\theta_i\ne\theta_j\text{ for }i\ne j\}.
 \]
 On $C_c^\infty(\operatorname{Conf}_N(S^1))^{S_N}$ define
+the nonnegative quadratic form
 \[
-\widehat H_g=\frac{\hbar^2}{2mR^2}
-\left[-\sum_{j=1}^N\partial_{\theta_j}^2
+q_g[\psi]=\frac{\hbar^2}{2mR^2}
+\int_{(S^1)^N}\left[\sum_{j=1}^N|\partial_{\theta_j}\psi|^2
 +\frac{g(g-1)}2\sum_{i<j}
-\frac1{\sin^2((\theta_i-\theta_j)/2)}\right]
+\frac{|\psi|^2}{\sin^2((\theta_i-\theta_j)/2)}\right]d\theta.
 \]
-and let the same symbol denote its Friedrichs realization in
-$L^2((S^1)^N)^{S_N}$.  Define
+Use as theorem input~\cite{reed-simon2} that $q_g$ is closable for
+$g\geq1$.  Define
+$\widehat H_g$ to be the unique self-adjoint operator associated with its
+closure in $L^2((S^1)^N)^{S_N}$; this is the Friedrichs realization of the
+displayed differential expression.  Define
 \[
 \Psi_0(\theta)=\prod_{i<j}|e^{i\theta_i}-e^{i\theta_j}|^g.
 \]
@@ -1873,8 +1893,7 @@ E_\lambda=\frac{\hbar^2}{2mR^2}
 +\sum_{j=1}^N
 \bigl(\lambda_j^2+g(N+1-2j)\lambda_j\bigr)\right].
 \]
-At $g=1$, prove that $P_\lambda^{(1)}=s_\lambda$ for the Schur polynomial
-defined earlier in this section.
+At $g=1$, prove that $P_\lambda^{(1)}=s_\lambda$.
 \end{exercise}
 
 \begin{exercise}[Jack transition spectrum]
@@ -2183,7 +2202,8 @@ q^{\lambda_2}t^{r-2},\ldots,q^{\lambda_r}).
 
 Verify the DAHA relations after applying $\mathcal F$ and prove that it
 extends to an automorphism.  Use as theorem input the polynomial
-intertwiner theorem: for generic $q,t$, this automorphism is implemented
+intertwiner theorem~\cite{cherednik-daha}: for generic $q,t$, this
+automorphism is implemented
 between the polynomial representation and its spectral realization by a
 nondegenerate transform whose kernel is normalized to equal $1$ at
 $(t^\rho,t^\rho)$.  Apply the intertwining relations to the commuting
@@ -2250,7 +2270,7 @@ for finite alphabets with $|a_i b_j|<1$.
 \begin{exercise}[Finite Macdonald measures]
 Let $0\leq q,t<1$, let $a=(a_1,\ldots,a_N)$ and
 $b=(b_1,\ldots,b_M)$ be nonnegative with $a_i b_j<1$, and let
-$P_\lambda,Q_\lambda$ be the preceding Macdonald functions.  Define
+$P_\lambda,Q_\lambda$ be the Macdonald functions.  Define
 \[
 \Pi(a;b)=\sum_\lambda
 P_\lambda(a;q,t)Q_\lambda(b;q,t),
@@ -2373,7 +2393,7 @@ Write $f(z^{\pm m})=f(z^m)f(z^{-m})$ and
 f(z_i^{\pm1}z_j^{\pm1})
 =\prod_{\epsilon,\delta=\pm1}f(z_i^\epsilon z_j^\delta).
 \]
-For $|q|,|t|,|a_s|<1$, define
+For $0<q,t<1$ and $a_1,a_2,a_3,a_4\in(-1,1)$, define
 \[
 \begin{aligned}
 \Delta_{BC_r}(z)={}&
@@ -2428,15 +2448,15 @@ a_1a_2a_3a_4q^{-1}t^{2r-i-1}(q^{\lambda_i}-1)
 \]
 with the scalar eigenvalue fixed by the displayed convention.
 
-Prove that $\mathcal D_K$ is
-symmetric for the $\Delta_{BC_r}$ inner product and that its triangular
-eigenfunctions are mutually orthogonal when the displayed eigenvalues are
-distinct.
+Use as theorem input Koornwinder's symmetry
+theorem~\cite{koornwinder-bc}: $\mathcal D_K$ is symmetric for the
+$\Delta_{BC_r}$ inner product.  Deduce that its triangular eigenfunctions
+are mutually orthogonal when the displayed eigenvalues are distinct.
 \end{exercise}
 
 \begin{exercise}[Koornwinder spectral values and \texorpdfstring{$BC_r$}{BCr} simulator frequencies]
-Assume $r\geq2$, $M\geq2$, the Koornwinder weight is positive, and the
-eigenvalues displayed in the preceding exercise are distinct on
+Assume $r\geq2$, $M\geq2$, $0<q,t<1$,
+$a_1,a_2,a_3,a_4\in(-1,1)$, and the displayed eigenvalues are distinct on
 \[
 \Lambda_M=\{\lambda:\ell(\lambda)\leq r,\ |\lambda|\leq M\}.
 \]
@@ -2738,7 +2758,7 @@ spectral Yang--Baxter equation for $R^{\rm vert}$ to
 \]
 and use the vertex--face relation in the two orders.  Prove that equality
 of the resulting coefficients is the face Yang--Baxter relation and hence
-the dynamical Yang--Baxter equation of the preceding exercise.  Conversely,
+the dynamical Yang--Baxter equation.  Conversely,
 use nondegeneracy to prove the ordinary Yang--Baxter equation on the image
 of the height-path map from the face relation.
 
@@ -2804,10 +2824,10 @@ $6j$ coefficients and recover the face Yang--Baxter relation for fused
 weights.
 
 Choose a numerator parameter so that the transformed series reduces to
-its zeroth term and recover the preceding ${}_{10}V_9$ summation.  Take
+its zeroth term and recover the ${}_{10}V_9$ summation.  Take
 $p\to0$ to obtain Bailey's terminating very-well-poised
 ${}_{10}\phi_9$ transformation, and then take the spectral degeneration
-to the $Q$-Racah quantum $6j$ coefficients developed earlier.  For a
+to the $Q$-Racah quantum $6j$ coefficients.  For a
 finite fused face strip, express the relative Boltzmann probabilities of
 two resolved intermediate heights as ratios of normalized fused face
 weights.  Separately, in a unitary recoupling specialization, express
@@ -2838,9 +2858,10 @@ recurrences of $\mathcal B$.
 \begin{exercise}[Elliptic beta integral]
 Evaluate the residue degeneration in which two parameters multiply to
 $pq$ and normalize the product side by the same degeneration.  Use as
-theorem input the elliptic-shift uniqueness lemma: a meromorphic function
+theorem input the elliptic-shift uniqueness
+lemma~\cite{spiridonov-beta}: a meromorphic function
 of the balanced parameters that satisfies the two independent
-$p$- and $q$-shift recurrences from the preceding exercise and has the
+$p$- and $q$-shift recurrences and has the
 specified residue normalization is uniquely determined.  Apply the lemma
 and analytic continuation to prove
 \[

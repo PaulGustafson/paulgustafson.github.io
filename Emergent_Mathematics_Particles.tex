@@ -187,11 +187,14 @@ Deduce that $\pi_\lambda$ is irreducible for $\lambda\ne0$.
 Let $U$ be a strongly continuous irreducible unitary representation of
 $\mathbb H(V\oplus V^*,\omega)$ with central character
 $U(0,s)=e^{i\lambda s}I$, where $\lambda\ne0$.  Integrate Schwartz
-functions on $V\oplus V^*$ against the canonical section of $U$.  Use
-Fourier inversion and a Gaussian approximate identity to show that this
-integrated representation contains the same nonzero finite-rank operators
-as the Schr\"odinger model.  Construct a nonzero intertwiner and use
-irreducibility to prove $U\simeq\pi_\lambda$.
+functions on $V\oplus V^*$ against the canonical section of $U$.  Verify in
+the Schr\"odinger model that Fourier inversion sends such an integrated
+operator with Schwartz symbol to an integral operator with Schwartz kernel.
+Use as theorem input the Stone--von Neumann theorem~\cite{folland-phase}:
+every such $U$ is
+unitarily equivalent to $\pi_\lambda$.  Deduce that the nonzero central
+character $\lambda$ determines the irreducible representation up to unitary
+equivalence.
 \end{exercise}
 
 \begin{exercise}[Trace and Hilbert--Schmidt classes]
@@ -377,7 +380,7 @@ a\star_\hbar b
 \]
 in the Schwartz-symbol topology.
 Compare the complete asymptotic expansion coefficient by coefficient with
-the intrinsic Moyal product developed in Quantization.  First prove
+the Moyal product.  First prove
 that every coefficient of that product preserves Schwartz functions, so
 for $E=V\oplus V^*$ it restricts to a formal product on
 $\mathcal S(V\oplus V^*)[[\hbar]]$.  For
@@ -445,7 +448,7 @@ Prove
 =\frac{i}{\hbar}
 [\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
 \]
-Use as theorem input the semiclassical operator estimate that the Moyal
+Use as theorem input~\cite{folland-phase} the semiclassical operator estimate that the Moyal
 commutator remainder obtained from symbols with the displayed derivative
 bounds has operator norm $O(\hbar)$, uniformly for $|t|\leq T$, after
 division by $i\hbar$.  Apply Duhamel's formula to prove, for every $T>0$,
@@ -481,8 +484,7 @@ extend to every nonlinear canonical transformation.
 \end{exercise}
 
 \begin{exercise}[Wigner--Laguerre identity]
-Use the generalized Laguerre polynomials and their orthogonality from
-Peter--Weyl Theory.  For
+Use the generalized Laguerre polynomials and their orthogonality.  For
 \[
 H_{\rm cl}(q,p)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2},
 \qquad
@@ -610,13 +612,7 @@ induces an exact sequence
 \longrightarrow1.
 \]
 
-For a complex vector space $V$ and $n\geq0$, define
-\[
-\operatorname{Sym}^nV
-=V^{\otimes n}/\langle\xi-\sigma\xi:
-\xi\in V^{\otimes n},\ \sigma\in S_n\rangle.
-\]
-Use as theorem input the finite-dimensional Lorentz-representation
+Use as theorem input~\cite{fulton-harris} the finite-dimensional Lorentz-representation
 classification: every irreducible finite-dimensional complex
 representation of $SL(S)$, regarded as the spin cover of the real Lorentz
 group, is uniquely of the form
@@ -667,7 +663,8 @@ translation spectral measure is supported on $\mathcal O$.
 
 Call a unitary Poincar\'e representation \emph{positive-energy} when its
 translation spectral measure is supported in the closed future cone.
-Use as theorem input the Mackey--Wigner imprimitivity theorem: every
+Use as theorem input the Mackey--Wigner imprimitivity
+theorem~\cite{mackey-induced,wigner-poincare}: every
 irreducible positive-energy unitary representation whose translation
 spectrum is supported on one orbit is obtained by this construction, and
 two such representations are equivalent exactly when their orbit and
@@ -685,7 +682,7 @@ Using the Minkowski volume form, define the Pauli--Lubanski covector by
 \[
 W=*\,(P\wedge J).
 \]
-With the sign convention of the preceding Minkowski form, prove
+With this sign convention for the Minkowski form, prove
 \[
 P^2=m^2c^2I,
 \qquad
@@ -768,8 +765,8 @@ For integers $\ell\geq|s|$ and $-\ell\leq m\leq\ell$, define
 \overline{D^\ell_{m,-s}
 \bigl(R_z(\phi)R_y(\theta)\bigr)},
 \]
-using the Wigner coefficients and Condon--Shortley convention developed
-above.  Verify the frame-equivariance law, prove
+using the Wigner coefficients in the Condon--Shortley convention.  Verify
+the frame-equivariance law, prove
 \[
 \int_{S^2}{}_sY_{\ell m}\,
 \overline{{}_sY_{\ell' m'}}\,d\Omega
@@ -812,7 +809,7 @@ G_{\rm ret}(t,x)
 =\Theta(t)\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3}
 \frac{\sin(E_pt)}{E_p}e^{ip\cdot x}.
 \]
-Using the radial Fourier--Bessel transform developed earlier, prove
+Using the radial Fourier--Bessel transform, prove
 \[
 (\Box+m^2)G_{\rm ret}=\delta_0
 \]
@@ -890,7 +887,7 @@ $\omega'$, define the scattering angle by
 $\cos\theta=\omega'\cdot\omega$.
 
 For $\phi\in C_c^\infty(\R^3)$, let $\delta_0$ be the Dirac distribution
-at the origin defined in the Poincar\'e Group section, and interpret an
+at the origin, and interpret an
 identity of distributions after pairing both sides with every such $\phi$.
 Prove in the sense of distributions that
 \[

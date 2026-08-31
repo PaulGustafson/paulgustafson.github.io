@@ -43,7 +43,7 @@ the logarithmic divergence as $\theta_0\uparrow\pi$.
 \end{exercise}
 
 \begin{exercise}[Affine schemes and the Legendre family]
-For the pendulum developed in the opening exercise, put
+For the pendulum, put
 \[
 m=\sin^2\frac{\theta_0}{2}.
 \]
@@ -142,7 +142,7 @@ For $m_0\in\mathbb C$, define its algebraic fiber by
 =\operatorname{Spec}\!\left(
 A\otimes_{\mathbb C[m]}\mathbb C[m]/(m-m_0)\right)
 \]
-Use as theorem input the weak Nullstellensatz: every maximal ideal of
+Use as theorem input the weak Nullstellensatz~\cite{hartshorne}: every maximal ideal of
 $\mathbb C[z_1,\ldots,z_n]$ is the kernel of evaluation at a unique point
 of $\mathbb C^n$.  Identify the closed points of the fiber with
 \[
@@ -181,7 +181,8 @@ derive the conormal sequence and prove at a closed point $p$ that
 T_pX
 =\{v\in\mathbb C^n:df_j(p)(v)=0\text{ for }1\leq j\leq r\}.
 \]
-Use as theorem input the Jacobian criterion over $\mathbb C$: $p$ is
+Use as theorem input the Jacobian criterion over
+$\mathbb C$~\cite{hartshorne}: $p$ is
 smooth exactly when
 $\dim_{\mathbb C}T_pX=\dim\mathcal O_{X,p}$.
 
@@ -301,7 +302,8 @@ Compute also
 and recover algebraically the two singular Legendre fibers found by the
 Jacobian criterion.
 
-Use as theorem input B\'ezout's theorem for plane curves:
+Use as theorem input B\'ezout's theorem for plane
+curves~\cite{hartshorne}:
 \[
 \sum_{p\in C\cap D}I_p(C,D)=\deg C\deg D.
 \]
@@ -331,7 +333,7 @@ $a=0$ and that the cusp caustic is the discriminant curve
 \]
 of the stationary cubic $t^3+at+b$.
 
-Using the Airy function developed in Spectral Theory, prove
+Using the Airy function, prove
 \[
 \mathcal A_{\rm fold}(a;k)
 =2\pi k^{-1/3}\operatorname{Ai}(-k^{2/3}a).
@@ -391,7 +393,7 @@ infinity, and deduce that $C_q$ has genus $g$.
 \end{exercise}
 
 \begin{exercise}[Pendulum periods and the Legendre curve]
-For the pendulum developed in the opening exercise, recall
+For the pendulum, recall
 \[
 T(\theta_0)=4\sqrt{\frac{\ell}{g}}K(k),
 \qquad
@@ -472,7 +474,7 @@ Show that this is independent of the path modulo periods, is holomorphic,
 and has nowhere-vanishing differential.  Show that it is therefore a
 finite covering.  Identify its induced map on first homology with
 $\operatorname{per}_{\eta_m}:H_1(E_m;\mathbb Z)\to\Lambda_{\eta_m}$ and
-use the preceding period-pairing calculation to prove that the covering
+use the period-pairing calculation to prove that the covering
 has one sheet.  Conclude that it is a biholomorphism
 \[
 E_m\cong\mathbb C/\Lambda_{\eta_m}.
@@ -496,8 +498,8 @@ differentials on $E_m$ to prove the Picard--Fuchs equation
 \[
 m(1-m)\Pi''(m)+(1-2m)\Pi'(m)-\frac14\Pi(m)=0.
 \]
-Identify this with the Gauss hypergeometric equation already developed in
-Symmetry.  Prove that the projective cubic has discriminant
+Identify this with the Gauss hypergeometric equation.  Prove that the
+projective cubic has discriminant
 \[
 \Delta(m)=16m^2(1-m)^2
 \]
@@ -514,7 +516,7 @@ K(\sqrt m)
 +O\bigl((1-m)|\log(1-m)|\bigr)
 \qquad(m\uparrow1).
 \]
-For the pendulum of length $\ell$ developed in the opening section, where
+For the pendulum of length $\ell$, where
 $m=\sin^2(\theta_0/2)$, deduce
 \[
 T(\theta_0)
@@ -539,7 +541,7 @@ $\mathcal O_X(n)$ on the standard affine charts by
 \[
 \mathcal O_X(n)(D_+(f))=(R(n)_f)_0.
 \]
-For the projective space developed in Algebraic Curves, prove intrinsically
+For projective space, prove intrinsically
 for $n\geq0$ that
 \[
 \Gamma(\mathbb P(V),\mathcal O(n))
@@ -548,7 +550,7 @@ for $n\geq0$ that
 and that $\mathcal O(-1)$ is the tautological line bundle whose fiber over
 a line $\ell\subset V$ is $\ell$.  For a smooth projective plane curve
 $C$, define $\mathcal O_C(n)$ by restriction.
-Use as theorem input that an algebraic line bundle on a smooth complex
+Use as theorem input~\cite{hartshorne,forster} that an algebraic line bundle on a smooth complex
 projective curve determines a holomorphic line bundle and that this
 correspondence preserves tensor products and global sections.
 
@@ -583,7 +585,7 @@ D\text{ and }D'\text{ are linearly equivalent}.
 
 For a nonzero meromorphic section $s$, define $\operatorname{div}(s)$ from
 its local representatives.  Use as theorem input the meromorphic-section
-theorem: every holomorphic line bundle on a compact Riemann surface has a
+theorem~\cite{forster}: every holomorphic line bundle on a compact Riemann surface has a
 nonzero meromorphic section.  Prove that
 \[
 \deg L:=\deg\operatorname{div}(s)
@@ -631,7 +633,7 @@ Show directly from the sheaf gluing axiom that
 \check H^0(\mathfrak U,\mathcal F)=\mathcal F(C).
 \]
 
-Use as theorem input that a finite cover whose nonempty intersections are
+Use as theorem input~\cite{forster} that a finite cover whose nonempty intersections are
 Stein computes the cohomology $H^q(C,\mathcal F)$ of a coherent analytic
 sheaf, that coherent sheaves on $C$ have finite-dimensional cohomology and
 vanish in degrees $q>1$, and that a short exact sequence of coherent sheaves
@@ -658,9 +660,9 @@ for every holomorphic line bundle on $C$.
 \begin{exercise}[Serre duality and the Riemann--Roch theorem]
 Define the canonical line bundle $K_C$ to be the holomorphic cotangent
 bundle of a compact connected Riemann surface $C$.  Let $g$ be its
-topological genus and use as theorem input the analytic genus identity
+topological genus and use as theorem input~\cite{forster} the analytic genus identity
 $\dim H^0(C,K_C)=g$.
-Use as theorem input Serre duality in the form of a natural perfect pairing
+Use as theorem input Serre duality~\cite{forster} in the form of a natural perfect pairing
 \[
 H^1(C,L)\otimes H^0(C,K_C\otimes L^{-1})
 \longrightarrow\mathbb C,
@@ -682,8 +684,8 @@ h^0(L)=\deg L+1-g
 \qquad\text{when }\deg L>2g-2,
 \]
 and that a negative-degree line bundle has no nonzero holomorphic sections.
-Specialize to $g=1$ and identify the general theorem with the theta-section
-count developed below.
+Specialize to $g=1$ and prove that a line bundle of degree $N>0$ has
+$h^0(L)=N$.
 \end{exercise}
 
 \begin{exercise}[Polarized quantum spaces]
@@ -696,7 +698,7 @@ P^\circ=\{\alpha\in T_{\mathbb C}^*M:\alpha|_P=0\},
 K_P=\Lambda^{\rm top}P^\circ.
 \]
 A \emph{half-form bundle} is a line bundle $\delta_P$ with
-$\delta_P^{\otimes2}\cong K_P$.  Use as theorem input the induced partial
+$\delta_P^{\otimes2}\cong K_P$.  Use as theorem input~\cite{woodhouse} the induced partial
 connection on $\delta_P$ along $P$ and the half-form pairing.  Define the
 corrected polarized quantum space to be the square-integrable sections of
 $L\otimes\delta_P$ annihilated by the tensor-product partial connection
@@ -745,7 +747,7 @@ Let $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ and put
 =\vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
 (z\mid\tau).
 \]
-Use the theta product and automorphy laws developed earlier to prove that
+Use the theta product and automorphy laws to prove that
 $\vartheta_1$ has one simple zero modulo the period lattice, at the
 origin.
 
@@ -957,7 +959,7 @@ finite-dimensional and $\operatorname{im}T$ is closed.  Define
 \operatorname{ind}_{\rm an}(T)
 =\dim\ker T-\dim\operatorname{coker}T.
 \]
-Use as theorem input Atkinson's theorem: $T$ is Fredholm exactly when
+Use as theorem input Atkinson's theorem~\cite{conway-functional}: $T$ is Fredholm exactly when
 there is a bounded $S:H_1\to H_0$ for which
 \[
 ST-I_{H_0}\in\mathcal K(H_0),
@@ -1014,15 +1016,15 @@ Call $D$ \emph{elliptic} when $\sigma_m(D)(x,\xi)$ is invertible for every
 $\xi\ne0$.
 
 Choose Hermitian and Riemannian metrics and a compatible connection on
-$E$.  Using the spectral calculus developed earlier for the nonnegative
+$E$.  Using the spectral calculus for the nonnegative
 connection Laplacian $\Delta_E=\nabla^*\nabla$, define $H^s(M;E)$ as the
 completion of smooth sections for the norm
 \[
 \lVert u\rVert_{H^s}
 =\lVert(I+\Delta_E)^{s/2}u\rVert_{L^2}.
 \]
-Use as theorem input that different choices give equivalent norms.  Use as
-theorem input the coordinate-invariant elliptic regularity, symbol
+Use as theorem input~\cite{hormander3} that different choices give equivalent norms.  Use as
+theorem input~\cite{hormander3} the coordinate-invariant elliptic regularity, symbol
 quantization, and parametrix theorem: for every real $s$, an elliptic $D$
 extends to
 \[
@@ -1043,7 +1045,7 @@ that
 \[
 \bar\partial_L:\Omega^{0,0}(C;L)\longrightarrow\Omega^{0,1}(C;L)
 \]
-is elliptic.  Use as theorem input the Dolbeault identification of its
+is elliptic.  Use as theorem input~\cite{forster,hormander3} the Dolbeault identification of its
 kernel and cokernel with $H^0(C,L)$ and $H^1(C,L)$.  Recover from
 Riemann--Roch the analytic-index formula
 \[
@@ -1081,14 +1083,15 @@ $E$ and $F$ \emph{stably isomorphic} when
 E\oplus\underline{\mathbb C}^{\,r}
 \cong F\oplus\underline{\mathbb C}^{\,s}
 \]
-for some $r,s$.  Use as theorem input the clutching theorem: for compact
+for some $r,s$.  Use as theorem input the clutching
+theorem~\cite{atiyah-k-theory}: for compact
 Hausdorff $X$, stable bundles on $\Sigma X$ are classified by stable
 homotopy classes of clutching maps.
 
 Take $X=S^1$, $V=\mathbb C$, and let $g(z)$ be multiplication by $z$.
 Identify $\Sigma S^1$ with $S^2$, identify $E_g$ with the Hopf line bundle
 after choosing the orientation compatible with the clutching convention,
-and use the circle-cocycle calculation from Quantization to prove
+and use the circle-cocycle calculation to prove
 \[
 \int_{S^2}c_1(E_g)=1.
 \]
@@ -1097,7 +1100,7 @@ and use the circle-cocycle calculation from Quantization to prove
 \begin{exercise}[Connections, curvature, and Chern--Weil forms]
 Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
 direct sum, tensor product, dual, and pullback by the corresponding
-fiberwise operations.  Call a connection defined above \emph{complex} when
+fiberwise operations.  Call a connection \emph{complex} when
 $\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
 $E$-valued forms by the graded Leibniz rule and write
 \[
@@ -1105,8 +1108,8 @@ F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
 \]
 for its curvature.
 
-Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
-trace and determinant developed earlier, define
+Prove the Bianchi identity $\nabla F_\nabla=0$.  Using trace and determinant,
+define
 \[
 \operatorname{ch}(E,\nabla)
 =\operatorname{Tr}\exp\!\left(\frac{iF_\nabla}{2\pi}\right),
@@ -1125,7 +1128,7 @@ connections, derive
 \frac{i\dot\nabla_t}{2\pi}
 \exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
 \]
-Use as theorem input the corresponding Chern--Weil transgression formula
+Use as theorem input~\cite{bott-tu} the corresponding Chern--Weil transgression formula
 for the determinant invariant polynomials.  Deduce that the de Rham classes
 $\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
 natural under pullback, and satisfy
@@ -1170,7 +1173,7 @@ c_1(\mathcal E)=
 \end{exercise}
 
 \begin{exercise}[Two-level Berry degree and gap protection]
-For the Pauli endomorphisms developed in Quantization and the
+For the Pauli endomorphisms and the
 distinguished two-band Hamiltonian on the Brillouin torus $B=T^2$,
 \[
 H(k)=d_1(k)\sigma_1+d_2(k)\sigma_2+d_3(k)\sigma_3,
@@ -1253,7 +1256,7 @@ Let $BU(r)$ be the classifying space characterized by the natural
 correspondence between rank-$r$ complex bundles on a compact space and
 homotopy classes of maps to $BU(r)$.  Let $BU$ and $U$ denote the stable
 classifying and unitary spaces, and write $[X,Y]$ for unbased homotopy
-classes.  Use as theorem input the stable
+classes.  Use as theorem input~\cite{atiyah-k-theory} the stable
 classification
 \[
 K^0(X)\cong[X,\mathbb Z\times BU],
@@ -1295,7 +1298,7 @@ K^1(S^{2r+1})\cong\mathbb Z.
 Define a \emph{CW complex} inductively by attaching disks along their
 boundary spheres, and call an inclusion $A\hookrightarrow X$ a
 \emph{cofibration} when it has the homotopy-extension property.  Use as
-theorem input the six-term exact sequence in reduced \(K\)-theory for a
+theorem input~\cite{atiyah-k-theory} the six-term exact sequence in reduced \(K\)-theory for a
 cofibration and the standard cell attachment
 $S^1\vee S^1\to T^2\to S^2$ to compute
 \[
@@ -1303,10 +1306,11 @@ K^0(T^2)\cong\mathbb Z^2,
 \qquad
 K^1(T^2)\cong\mathbb Z^2.
 \]
-When $X$ is a compact smooth manifold, use as theorem input that the
+When $X$ is a compact smooth manifold, use as theorem
+input~\cite{bott-tu} that the
 Chern--Weil classes $c_j(E)$ are the real images of integral cohomology
 classes.  Use their rational polynomial relation with the Chern character
-and the Chern--Weil identities developed above to prove that
+and the Chern--Weil identities to prove that
 \[
 \operatorname{ch}([E]-[F])
 =\operatorname{ch}(E)-\operatorname{ch}(F)
@@ -1315,7 +1319,7 @@ defines a natural ring homomorphism
 \[
 \operatorname{ch}:K^0(X)\longrightarrow H^{\rm even}(X;\mathbb Q).
 \]
-Use as theorem input that these classes define the same natural
+Use as theorem input~\cite{atiyah-k-theory} that these classes define the same natural
 transformation for finite CW complexes and that it becomes an isomorphism
 after tensoring with $\mathbb Q$.
 
@@ -1359,10 +1363,11 @@ Toeplitz operator
 \[
 T_u=P_+M_u\big|_{H^2(S^1;W)}.
 \]
-Use as theorem input that $T_u$ is Fredholm and that homotopies of $u$
+Use as theorem input~\cite{atiyah-k-theory} that $T_u$ is Fredholm and that homotopies of $u$
 produce norm-continuous Fredholm paths.  For
 $W=\mathbb C\oplus W'$ compute the index when
-$u(z)=z^n\oplus I_{W'}$ from the unilateral shift.  Use as theorem input
+$u(z)=z^n\oplus I_{W'}$ from the unilateral shift.  Use as theorem
+input~\cite{atiyah-k-theory}
 that $SU(r)$ is simply connected for $r\geq2$ and use the determinant
 fibration
 \[
@@ -1385,7 +1390,7 @@ operator, define its suspended operator on periodic paths by
 \[
 \mathcal D_A=\frac d{dt}+A_t.
 \]
-Use as theorem input the suspension theorem
+Use as theorem input the suspension theorem~\cite{atiyah-k-theory}
 \[
 \operatorname{ind}_{\rm an}(\mathcal D_A)
 =\operatorname{sf}(A_t)
@@ -1408,7 +1413,7 @@ where $D(E)$ and $S(E)$ are its unit disk and sphere bundles for any
 Hermitian metric.  Define a \emph{Thom class}
 $u_E\in K_c^0(E)$ to be a class whose restriction to each fiber is the
 Bott generator in $K_c^0(\mathbb C^{\operatorname{rank}E})$.  Use Bott
-periodicity as theorem input for the
+periodicity as theorem input~\cite{atiyah-k-theory} for the
 \(K\)-theoretic Thom isomorphism
 \[
 K^j(X)\longrightarrow K_c^j(E),
@@ -1428,7 +1433,7 @@ class is represented by two bundles together with an isomorphism outside
 a compact set.  Verify compatibility of this description with direct sum,
 homotopy, and stabilization.
 
-Use as theorem input the Whitney embedding and tubular-neighborhood
+Use as theorem input~\cite{bott-tu} the Whitney embedding and tubular-neighborhood
 theorems and choose an embedding $M\hookrightarrow\mathbb R^N$.  Show that
 the Euclidean orthogonal splitting induces an embedding
 \[
@@ -1443,12 +1448,12 @@ periodicity to define
 K_c^0(T^*M)\longrightarrow
 K_c^0(\mathbb R^{2N})\cong\mathbb Z.
 \]
-Use as theorem input isotopy invariance and stabilization of embeddings to
+Use as theorem input~\cite{atiyah-k-theory} isotopy invariance and stabilization of embeddings to
 prove that this map is independent of all choices.
 \end{exercise}
 
 \begin{exercise}[Atiyah--Singer index theorem]
-Use as theorem input the splitting principle: after a pullback injective
+Use as theorem input the splitting principle~\cite{bott-tu}: after a pullback injective
 on rational cohomology, a complex vector bundle $E$ splits as a sum of
 line bundles.  If their first Chern classes are $x_j$, call the $x_j$ the
 \emph{formal Chern roots} of $E$, so
@@ -1489,7 +1494,8 @@ Define
 /\{(1,1),(-1,-1)\}.
 \]
 A \emph{spin$^c$ structure} is a lift of the oriented frame bundle through
-$\operatorname{Spin}^c(n)\to SO(n)$.  Use as theorem input that a
+$\operatorname{Spin}^c(n)\to SO(n)$.  Use as theorem
+input~\cite{lawson-michelsohn} that a
 Hermitian complex manifold has a canonical spin$^c$ structure with
 spinor bundle $\Lambda^{0,*}T^*M$.  Define its chiral Dolbeault--Dirac
 operator
@@ -1501,13 +1507,14 @@ operator
 \]
 and compute its principal symbol.
 
-Use as theorem input the Atiyah--Singer index theorem:
+Use as theorem input the Atiyah--Singer index
+theorem~\cite{atiyah-singer-index}:
 \[
 \operatorname{ind}_{\rm an}(D)
 =\operatorname{ind}_{\rm top}[\sigma(D)]
 \]
 for every elliptic differential operator on a closed manifold.  Use as
-theorem input its cohomological consequences
+theorem input~\cite{atiyah-singer-index} its cohomological consequences
 \[
 \operatorname{ind}_{\rm an}(\mathcal D_{\bar\partial,E}^+)
 =\int_M\operatorname{ch}(E)\operatorname{Td}(T^{1,0}M)
@@ -1626,7 +1633,7 @@ spectroscopy tests the Jacobi-polynomial and index predictions.
 
 \begin{exercise}[Family index and quantized Hall transport]
 Let $B$ be compact and let $T_b:H_0\to H_1$ be a norm-continuous family
-of Fredholm operators.  Use as theorem input that there is a
+of Fredholm operators.  Use as theorem input~\cite{atiyah-singer-families} that there is a
 finite-dimensional subspace $V\subset H_1$ for which
 \[
 H_0\oplus V\longrightarrow H_1,
@@ -1667,7 +1674,8 @@ Show that the Sobolev completions of
 $\bar\partial_{L_N\otimes F_\chi}$ form a Fredholm family and that
 Riemann--Roch identifies its family index with $[\mathcal H_N]$.
 
-Use as theorem input the families Atiyah--Singer formula: for a
+Use as theorem input the families Atiyah--Singer
+formula~\cite{atiyah-singer-families}: for a
 holomorphic submersion $p:X\to B$ with compact fibers and a holomorphic
 bundle $\mathcal L\to X$,
 \[
@@ -1691,7 +1699,7 @@ Extract its degree-zero and degree-two parts to prove
 \qquad
 \int_{\widehat E_\tau}c_1(\mathcal D_N)=1.
 \]
-Use as theorem input the gapped noninteracting Kubo--Chern formula and the
+Use as theorem input~\cite{tknn} the gapped noninteracting Kubo--Chern formula and the
 adiabatic theorem.  Deduce for one completely filled Landau level
 \[
 \sigma_{xy}=\frac{e^2}{h},
@@ -1701,7 +1709,7 @@ Q_{\rm pump}=e
 for a unit winding of a boundary twist.  Express the Berry connection of
 $\mathcal D_N$ through the normalized theta sections and identify the same
 integer from their automorphy.  Identify the pumped charge with the
-spectral-flow and \(K^1\)-pairing integer developed above.  State
+spectral-flow and \(K^1\)-pairing integer.  State
 separately the spectral-gap,
 adiabatic, noninteracting, filled-level, mobility, contact, temperature,
 and finite-size assumptions under which Hall-voltage and charge-pump
@@ -1735,7 +1743,7 @@ and define the $G$-character variety by
 \[
 \mathcal X(\Sigma_g,G)=\mathcal R(\Sigma_g,G)/\!/G.
 \]
-Use as theorem input that for reductive $G$ the invariant algebra is
+Use as theorem input~\cite{mumford-git} that for reductive $G$ the invariant algebra is
 finitely generated and the closed points of this quotient correspond to
 closed conjugacy orbits.  For $G=SL_n(\mathbb C)$,
 prove that every loop $\gamma$ defines a regular function
@@ -1788,16 +1796,18 @@ Conclude that the torus character variety is the affine cubic
 =\{(x,y,z)\in\mathbb C^3:
 x^2+y^2+z^2-xyz-4=0\}.
 \]
-Show that its regular semisimple points are determined by their trace
-coordinates and use the Jacobian criterion developed in Algebraic Curves
-to identify the singular points of the cubic.
+Call a commuting pair $(A,B)$ \emph{regular semisimple} when it is
+simultaneously diagonalizable and its common centralizer in
+$SL_2(\mathbb C)$ is a maximal torus.  Show that regular semisimple
+conjugacy classes are determined by their trace coordinates and use the
+Jacobian criterion to identify the singular points of the cubic.
 \end{exercise}
 
 \begin{exercise}[Goldman symplectic form and trace-function brackets]
 Let $\rho:\pi_1(\Sigma_g)\to SL_2(\mathbb C)$ be irreducible, and let
 $\operatorname{Ad}\rho$ denote the local system with fiber
 $\mathfrak{sl}_2(\mathbb C)$ and monodromy given by the adjoint action.
-Use as theorem input the deformation-theoretic identification
+Use as theorem input~\cite{goldman} the deformation-theoretic identification
 \[
 T_{[\rho]}\mathcal X(\Sigma_g,SL_2)
 \cong H^1(\Sigma_g;\operatorname{Ad}\rho).
@@ -1809,11 +1819,11 @@ $\alpha$ and $\beta$, define
 =\int_{\Sigma_g}\operatorname{Tr}(\alpha\wedge\beta).
 \]
 Prove that this is independent of representatives, and use Poincar\'e
-duality with local coefficients as theorem input to show that it is
+duality with local coefficients as theorem input~\cite{goldman} to show that it is
 nondegenerate on the irreducible smooth locus.
 
 For immersed oriented loops in transverse position, use as theorem input
-Goldman's trace-bracket formula
+Goldman's trace-bracket formula~\cite{goldman}
 \[
 \{W_\alpha,W_\beta\}
 =\sum_{p\in\alpha\cap\beta}\epsilon_p
@@ -1849,8 +1859,8 @@ For $A\in SL_2(\mathbb C)$, derive intrinsically from Cayley--Hamilton that
 \operatorname{tr}(A^n)
 =2T_n\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]
-For the Chebyshev polynomials of the second kind developed in Hamiltonian
-Symmetry, prove that the spin-$j$ character satisfies
+For the Chebyshev polynomials of the second kind, prove that the spin-$j$
+character satisfies
 \[
 \chi_j(A)=U_{2j}\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]
@@ -1908,7 +1918,7 @@ C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
 \]
 denote its nonsingular projective completion.  Use Riemann--Hurwitz to prove
 that $C$ has genus $g$.  Use the projective construction and Jacobian
-criterion developed in Algebraic Curves to verify the asserted
+criterion to verify the asserted
 nonsingularity.  Analyze the finite branch points and the point over
 infinity to show that the distinguished differentials
 \[
@@ -1980,13 +1990,13 @@ Fix $p_0\in C$ and define the Abel--Jacobi map by
 \in\operatorname{Jac}(C).
 \]
 Prove that it is well defined and extend it additively to divisors.  Use as
-theorem input the Abel--Jacobi theorem: a degree-zero divisor is principal
+theorem input the Abel--Jacobi theorem~\cite{forster}: a degree-zero divisor is principal
 exactly when its Abel--Jacobi image vanishes, and every point of the
 Jacobian is represented by a degree-zero divisor.  Deduce
 \[
 \operatorname{Pic}^0(C)\cong\operatorname{Jac}(C).
 \]
-Use as theorem input Riemann's vanishing theorem to identify a translate of
+Use as theorem input Riemann's vanishing theorem~\cite{fay-theta} to identify a translate of
 the zero locus of $\vartheta$ with the Abel--Jacobi images of effective
 divisors of degree $g-1$.  Recover the genus-one Abel and theta-divisor
 statements above when $g=1$.
@@ -2066,8 +2076,7 @@ exactly when $|\Delta(E)|\leq2$.
 
 \begin{exercise}[Lam\'e theta functions and the spectral curve]
 Let $K=K(k)$, $K'=K(\sqrt{1-k^2})$, and
-$\tau=iK'/K$.  Using the theta functions with characteristics defined in
-Theta Sections and Genus-One Riemann--Roch, put
+$\tau=iK'/K$.  Using the theta functions with characteristics, put
 \[
 H(u)=
 \vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
@@ -2151,7 +2160,8 @@ Use the theta automorphy laws to prove that the apparent monodromy of the
 quotient cancels that of the exponential, so $\psi$ is a function on
 $\Sigma\setminus\{\infty\}$ with poles prescribed by $D$.
 
-Use as theorem input the finite-gap reconstruction theorem: there is a
+Use as theorem input the finite-gap reconstruction
+theorem~\cite{belokolos}: there is a
 constant $c$ determined by the expansion at infinity such that
 \[
 u(x)=c-2\frac{d^2}{dx^2}
@@ -2248,7 +2258,8 @@ Prove the Fourier expansion
 \sum_{n\geq1}\frac{nq^n}{1-q^{2n}}
 \cos\frac{n\pi z}{K(k)}.
 \]
-Use as theorem input the finite-gap KdV evolution theorem, which replaces
+Use as theorem input the finite-gap KdV evolution
+theorem~\cite{belokolos}, which replaces
 $Ux+Z$ in the reconstructed potential by $Ux+Vt+Z$ for the normalized
 second-kind KdV period vector $V$.  Show that the genus-one case gives the
 cnoidal wave above and that $k\uparrow1$ gives the solitary wave
@@ -2356,7 +2367,8 @@ and prove the energy identity
 =\|d\alpha\|_{L^2}^2+\|d^*\alpha\|_{L^2}^2
 \]
 on a closed manifold.  Call a form $\alpha$ \emph{harmonic} when
-$\Delta_{\mathrm H}\alpha=0$, and use as theorem input the Hodge theorem
+$\Delta_{\mathrm H}\alpha=0$, and use as theorem input the Hodge
+theorem~\cite{jost-geometry}
 identifying harmonic forms with de Rham cohomology.
 
 For a closed oriented Riemannian surface $S$, use rotation by $\pi/2$ to
@@ -2365,7 +2377,8 @@ that its first Chern form is
 \[
 c_1(TS)=\frac{K_g}{2\pi}\,dA_g.
 \]
-Use as theorem input the Poincar\'e--Hopf identification
+Use as theorem input the Poincar\'e--Hopf
+identification~\cite{jost-geometry}
 $\int_Sc_1(TS)=\chi(S)$ to prove Gauss--Bonnet:
 \[
 \int_S K_g\,dA_g=2\pi\chi(S).
@@ -2401,7 +2414,7 @@ G+\Lambda g=\frac{8\pi G_{\mathrm N}}{c^4}T,
 \]
 and deduce that it requires $\nabla^aT_{ab}=0$.
 In the static weak-field, slow-motion regime, put
-$g_{tt}=-(1+2\Phi/c^2)c^2$ and use as theorem input the linearized
+$g_{tt}=-(1+2\Phi/c^2)c^2$ and use as theorem input~\cite{wald-gr} the linearized
 curvature formula.  Show that the time-time equation reduces to
 \[
 \nabla^2\Phi=4\pi G_{\mathrm N}\rho
@@ -2420,7 +2433,7 @@ and on $(r_s,\infty)\times\mathbb R\times S^2$ consider
 \[
 g=-f(r)c^2dt^2+f(r)^{-1}dr^2+r^2g_{S^2}.
 \]
-Use as theorem input Birkhoff's theorem: every spherically symmetric vacuum
+Use as theorem input Birkhoff's theorem~\cite{wald-gr}: every spherically symmetric vacuum
 solution with $\Lambda=0$ is locally isometric to a member of this family.
 Compute its Ricci tensor and verify the vacuum Einstein equation.  Compute
 the invariant
@@ -2495,7 +2508,8 @@ Define the tortoise coordinate by
 \[
 r_*=r+r_s\log\!\left(\frac r{r_s}-1\right).
 \]
-For integer spin $s\in\{0,1,2\}$ and $\ell\geq s$, use as theorem input
+For integer spin $s\in\{0,1,2\}$ and $\ell\geq s$, use as theorem
+input~\cite{regge-wheeler,chandrasekhar}
 the scalar, electromagnetic, and axial gravitational separation theorem:
 after expansion in modes with time dependence $e^{-i\omega t}$ and the
 corresponding spherical harmonics,

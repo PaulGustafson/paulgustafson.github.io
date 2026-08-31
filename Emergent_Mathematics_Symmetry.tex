@@ -150,7 +150,12 @@ highest exterior power to prove
 \qquad
 T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
 \]
-\item For $T\in\End(V)$, extend scalars to $k[z]$ and prove
+\item The coevaluation, trace, and exterior-power constructions extend
+under scalar extension to the finite free $k[z]$-module
+$V[z]=V\otimes_k k[z]$; in particular,
+$\Lambda^n_{k[z]}V[z]$ is free of rank one.  Define the determinant of a
+$k[z]$-linear endomorphism through its action on this top exterior power.
+For $T\in\End(V)$ prove
 \[
 \det(I+zT)=\sum_{m=0}^n
 \operatorname{tr}(\Lambda^mT)z^m.
@@ -227,11 +232,12 @@ $H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
 \begin{exercise}[\texorpdfstring{$L^p$}{Lp} geometry]
 For a measure space $(X,\mathcal F,\mu)$ and $1\leq p<\infty$, define
 \[
-L^p(X,\mu)=
+\begin{aligned}
+L^p(X,\mu)&=
 \left\{f:X\to\C\text{ measurable}:
-\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.},
-\qquad
-\|f\|_p=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
+\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.},\\
+\|f\|_p&=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
+\end{aligned}
 \]
 Let $L^\infty(X,\mu)$ consist of essentially bounded measurable functions
 modulo equality almost everywhere, with
@@ -307,9 +313,12 @@ with its weak-$*$ topology.  The \emph{Gelfand transform} is
 \qquad \Gamma(a)(\chi)=\chi(a).
 \]
 
-Prove that every character of a commutative $C^*$-algebra is continuous
-and that the Gelfand transform is an isometric $*$-isomorphism
-$A\cong C_0(\widehat A)$.
+Use as theorem input the commutative Gelfand theorem~\cite{conway-functional}:
+every character is
+continuous, $\widehat A$ is locally compact Hausdorff, and the Gelfand
+transform is an isometric $*$-isomorphism
+$A\cong C_0(\widehat A)$.  Deduce that $A$ is unital exactly when
+$\widehat A$ is compact.
 \end{exercise}
 
 \begin{exercise}[Continuous functional calculus]
@@ -334,20 +343,26 @@ For a locally compact Hausdorff space $X$, a linear functional
 $\varphi:C_c(X)\to\C$ is \emph{positive} when $\varphi(f)\geq0$ for every
 real-valued $f\geq0$.
 
-Let $X$ be locally compact Hausdorff.  Prove that every positive linear
-functional $\varphi:C_c(X)\to\C$ that is bounded on functions supported in
-each compact set has a unique regular Borel measure $\mu_\varphi$ satisfying
+Let $X$ be locally compact Hausdorff.  Use as theorem input the positive
+Riesz--Markov theorem~\cite{folland-real}: every positive linear functional
+$\varphi:C_c(X)\to\C$ that is bounded on functions supported in each compact
+set has a unique regular Borel measure $\mu_\varphi$ satisfying
 \[
 \varphi(f)=\int_Xf\,d\mu_\varphi.
 \]
 \end{exercise}
 
 \begin{exercise}[Complex Riesz--Markov representation]
-Prove that the real and imaginary parts of a bounded functional on
-$C_0(X)$ are differences of positive functionals.  Apply the positive
-Riesz--Markov theorem to prove that every $\varphi\in C_0(X)^*$ has a
-unique finite complex regular measure $\mu_\varphi$, and prove
-$\|\varphi\|=|\mu_\varphi|(X)$.
+Use as theorem input the complex Riesz--Markov
+theorem~\cite{folland-real}: every
+$\varphi\in C_0(X)^*$ has a unique finite complex regular measure
+$\mu_\varphi$ such that
+\[
+\varphi(f)=\int_Xf\,d\mu_\varphi,
+\qquad \|\varphi\|=|\mu_\varphi|(X).
+\]
+Deduce the positive theorem for functionals bounded in the
+$C_0(X)$ norm and characterize positive functionals by positive measures.
 \end{exercise}
 
 \begin{exercise}[Spectral distributions of states]
@@ -390,8 +405,8 @@ $B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
 Let $X$ be locally compact Hausdorff.  A representation
 $\pi:C_0(X)\to B(H)$ is \emph{nondegenerate} when
 $\overline{\pi(C_0(X))H}=H$.  Prove that every nondegenerate
-$*$-representation determines scalar measures by applying the preceding
-exercise to $f\mapsto\langle x,\pi(f)y\rangle$.  Use polarization and
+$*$-representation determines scalar measures by applying complex
+Riesz--Markov to $f\mapsto\langle x,\pi(f)y\rangle$.  Use polarization and
 multiplicativity to assemble them into a unique regular projection-valued
 measure $E_\pi$ satisfying
 \[
@@ -401,8 +416,8 @@ measure $E_\pi$ satisfying
 \end{exercise}
 
 \begin{exercise}[Bounded normal spectral theorem]
-For a normal operator $T\in B(H)$, apply the preceding representation
-theorem to the continuous functional calculus
+For a normal operator $T\in B(H)$, apply the $C_0(X)$ representation theorem
+to the continuous functional calculus
 $C(\spec(T))\to B(H)$ and prove that there is a unique projection-valued
 measure $E_T$ on $\spec(T)$ satisfying
 \[
@@ -684,14 +699,30 @@ E_n=Mg\ell_g a_n,
 \qquad
 \psi_n(z)=C_n\operatorname{Ai}\!\left(\frac z{\ell_g}-a_n\right).
 \]
-Use the spectral projections of $\widehat H$ to prove that a periodic
-perturbation $B\cos(\Omega t)$ can produce a transition from the $n$th to
-the $k$th level only through the block
-$E_{\widehat H}(\{E_k\})BE_{\widehat H}(\{E_n\})$, at the resonant
-frequency
+Let a weak drive $\epsilon B\cos(\Omega t)$ act for an observation time
+$T_{\rm obs}$.  In first-order time-dependent perturbation theory, use the
+spectral projections of $\widehat H$ to derive, for $k\ne n$,
+\[
+c_{k\leftarrow n}^{(1)}(T_{\rm obs})
+=-\frac{i\epsilon B_{kn}}{2\hbar}
+\left[
+\frac{e^{i(\omega_{kn}+\Omega)T_{\rm obs}}-1}
+     {i(\omega_{kn}+\Omega)}
++\frac{e^{i(\omega_{kn}-\Omega)T_{\rm obs}}-1}
+     {i(\omega_{kn}-\Omega)}
+\right],
+\]
+where $\omega_{kn}=(E_k-E_n)/\hbar$ and
+$B_{kn}=\langle\psi_k,B\psi_n\rangle$.  Prove that this amplitude depends
+only on
+$E_{\widehat H}(\{E_k\})BE_{\widehat H}(\{E_n\})$ and that its squared
+modulus has peaks of width $O(T_{\rm obs}^{-1})$ centered at
 \[
 \Omega_{kn}=\frac{Mg\ell_g}{\hbar}|a_k-a_n|.
 \]
+It vanishes to this order when the displayed spectral block is zero.
+Separate this first-order, single-photon prediction from strong-drive and
+multiphoton effects.
 Deduce the classical turning heights $z_n=\ell_g a_n$.  Model an absorber
 with lower face at height $h$, width $w$, and loss strength $\Gamma>0$ by
 the potential $-i\Gamma\mathbf1_{[h,h+w]}$.  In first-order decay theory,
@@ -969,7 +1000,7 @@ H(q,p)=\frac{\lVert p\rVert^2}{2m}+V(\lVert q\rVert).
 Let a compact Lie group $G$ act on $(M,\omega)$ with equivariant moment
 map $\mu:M\to\mathfrak g^*$.  Suppose $0$ is a regular value, meaning
 $d\mu_x$ is surjective for every $x\in\mu^{-1}(0)$, and suppose $G$ acts
-freely on $\mu^{-1}(0)$.  Use as theorem input that
+freely on $\mu^{-1}(0)$.  Use as theorem input~\cite{marsden-ratiu} that
 \[
 M/\!\!/G=\mu^{-1}(0)/G
 \]
@@ -1173,7 +1204,7 @@ c_{ijk}=f_{ij}+f_{jk}+f_{ki}
 is constant on every nonempty triple intersection.
 
 Use the following good-cover form of the integral de Rham theorem as
-theorem input:
+theorem input~\cite{bott-tu}:
 \[
 \frac{1}{2\pi i}\int_\Sigma h^*F\in\Z
 \quad\text{for every smooth }h:\Sigma\to M
@@ -1220,8 +1251,8 @@ For $f\in C^\infty(M)$, define
 \[
 \mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
 \]
-Use the curvature identity for $\nabla$ and the Hamiltonian-field
-convention developed above to prove
+Use the curvature identity for $\nabla$ and the convention for Hamiltonian
+vector fields to prove
 \[
 [\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
 =i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
@@ -1336,6 +1367,8 @@ $\sigma_1,\sigma_2,\sigma_3$ be normalized by
 \qquad
 \operatorname{Tr}(\sigma_a\sigma_b)=2\delta_{ab}.
 \]
+\begin{enumerate}[label=(\alph*)]
+\item
 Let $SU(2)$ act by conjugation on the real vector space of traceless
 Hermitian endomorphisms of $\C^2$.  Use
 $x\mapsto x_1\sigma_1+x_2\sigma_2+x_3\sigma_3$ to identify this Euclidean
@@ -1345,19 +1378,21 @@ SU(2)\longrightarrow SO(3)
 \]
 is surjective with kernel $\{\pm\id\}$.
 
-Let $\mathcal O_L$ be the coadjoint sphere of radius $L>0$ with the
-Kirillov form developed above, and regard it as an $SU(2)$ orbit through
+\item Let $\mathcal O_L$ be the coadjoint sphere of radius $L>0$ with its
+Kirillov form, and regard it as an $SU(2)$ orbit through
 the spin covering.  Put
 \[
 N=\frac{2L}{\hbar}.
 \]
 Prove that $\mathcal O_L$ is prequantizable exactly when
-$N\in\mathbb Z_{>0}$.  Use as theorem input that $\mathcal O_L$ has an
+$N\in\mathbb Z_{>0}$.  Use as theorem input~\cite{woodhouse} that
+$\mathcal O_L$ has an
 $SU(2)$-invariant complex structure $J$, an endomorphism of its tangent
 bundle satisfying $J^2=-\id$.  Let $T^{0,1}\mathcal O_L$ be the
 $-i$-eigenspace of the complex-linear extension of $J$.  Call a section
 $s$ of the prequantum line bundle \emph{polarized} when
-$\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Use as theorem input
+$\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Use as theorem
+input~\cite{woodhouse}
 that the polarized sections form the $SU(2)$ representation
 \[
 V_N=\operatorname{Sym}^N(\C^2).
@@ -1367,7 +1402,7 @@ $\mathcal O_L$.
 The action on $V_N$ is induced from the tensor-power action on
 $(\C^2)^{\otimes N}$.
 
-For
+\item For
 \[
 u_\theta=
 \begin{pmatrix}e^{i\theta/2}&0\\0&e^{-i\theta/2}\end{pmatrix},
@@ -1389,7 +1424,7 @@ U_0(t)=1,
 \qquad U_{n+1}(t)=2tU_n(t)-U_{n-1}(t).
 \]
 
-Normalize the infinitesimal generators by
+\item Normalize the infinitesimal generators by
 $[J_a,J_b]=i\hbar\varepsilon_{abc}J_c$.  Prove that
 $J_3$ has values $m\hbar$ and that a $2\pi$ rotation acts by $(-1)^{2j}$,
 whereas a $4\pi$ rotation acts trivially.  For the Zeeman Hamiltonian
@@ -1402,6 +1437,7 @@ Deduce the $2j+1$ resolved Stern--Gerlach outcomes, the Zeeman spacing
 $|\gamma|B\hbar$, and the $4\pi$ restoration measured by spin
 interferometry, stating the field-gradient, weak-coupling,
 beam-resolution, and coherence assumptions separately.
+\end{enumerate}
 \end{exercise}
 
 \section{Fourier Analysis}
@@ -1811,7 +1847,7 @@ copy of $\pi$ in $L^2(G)$.
 
 \begin{exercise}[Irreducible representations of $SU(2)$]
 For $j\in\{0,\frac12,1,\ldots\}$, write $V_j=V_{2j}$ for the
-orbit-quantization representation developed above.  Using raising and
+orbit-quantization representation.  Using raising and
 lowering operators, prove that every finite-dimensional irreducible smooth
 complex representation is isomorphic to exactly one $V_j$, that it has
 dimension $2j+1$, and that it has
@@ -1832,8 +1868,7 @@ $V_{1/2}\otimes V_{1/2}$.
 \end{exercise}
 
 \begin{exercise}[Gauss hypergeometric functions]
-Using the rising factorial defined in Spectral Theory, for
-$c\notin\Z_{\leq0}$ the \emph{Gauss hypergeometric function} is
+For $c\notin\Z_{\leq0}$ the \emph{Gauss hypergeometric function} is
 \[
 {}_2F_1\!\left(\begin{matrix}a,b\\c\end{matrix};z\right)
 =\sum_{m=0}^\infty
@@ -2213,8 +2248,8 @@ For $\lambda\in\R$, define
 \]
 Interpret the integrand as a complex power of the hyperbolic Poisson kernel.
 Prove that $\varphi_\lambda$ is real-valued, even in $\lambda$, normalized
-at $r=0$, and satisfies the spherical product formula from the preceding
-exercise.  Differentiate under the integral to prove
+at $r=0$, and satisfies the spherical product formula.  Differentiate under
+the integral to prove
 \[
 \Delta_{\mathbb H^2}\varphi_\lambda
 =-(\lambda^2+\tfrac14)\varphi_\lambda,
@@ -2408,7 +2443,7 @@ K_t(d)=\frac1{2\pi^2}\int_0^\infty
 P_{-1/2+i\lambda}(\cosh d)
 |c(\lambda)|^{-2}\,d\lambda.
 \]
-Use as theorem input finite propagation speed for the wave equation and
+Use as theorem input~\cite{taylor-pde1} finite propagation speed for the wave equation and
 the one-dimensional stationary-phase estimate for a nondegenerate critical
 point, including its uniform form for compact parameter sets.  Apply them
 to show
@@ -2563,6 +2598,8 @@ G_{2m}(\tau)
 E_{2m}(\tau)=\frac{G_{2m}(\tau)}{2\zeta(2m)}.
 \]
 
+\begin{enumerate}[label=(\alph*)]
+\item
 Put $\theta_L(t)=\Theta_L(it)$.  For $\operatorname{Re}s>d/2$, prove
 \[
 \pi^{-s}\Gamma(s)Z_L(s)
@@ -2590,7 +2627,7 @@ $Z_L(0)=-1$, and
 \operatorname*{res}_{s=d/2}Z_L(s)
 =\frac{\pi^{d/2}}{\vol(L)\Gamma(d/2)}.
 \]
-For $L=\Z$, use $Z_\Z(s)=2\zeta(2s)$ to derive the functional equation of
+\item For $L=\Z$, use $Z_\Z(s)=2\zeta(2s)$ to derive the functional equation of
 $\zeta$.  Use Fourier series and Parseval to prove
 \[
 \zeta(2)=\frac{\pi^2}{6},
@@ -2603,6 +2640,7 @@ and then deduce
 \qquad
 \zeta(-3)=\frac1{120}.
 \]
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}[Holomorphic Eisenstein series]
@@ -2663,7 +2701,7 @@ directly from the series that
 Write these
 $S$- and $T$-laws as a vector-valued transformation law of weight
 $\tfrac12$ for $(\vartheta_2,\vartheta_3,\vartheta_4)^T$ and prove that it
-is not an instance of the preceding scalar integral-weight definition.
+is not an instance of a scalar integral-weight transformation law.
 \end{exercise}
 
 \begin{exercise}[Jacobi triple product and eta transformations]
@@ -2689,8 +2727,8 @@ imaginary axis to derive
 \eta(-1/\tau)=(-i\tau)^{1/2}\eta(\tau).
 \]
 Prove that these laws give $\eta$ weight $\tfrac12$ with a nontrivial
-scalar multiplier, rather than the integral-weight trivial-multiplier law
-defined above.
+scalar multiplier, rather than an integral-weight law with trivial
+multiplier.
 Explain how the two sides encode charge sectors and independent oscillator
 modes, respectively.
 \end{exercise}
@@ -2752,11 +2790,11 @@ lattice is $L^*_{\rm physical}=2\pi L^*$.
 
 Call a vector of squared length $2$ in an integral Euclidean lattice a
 \emph{root}.  Take the rootless case of the Niemeier classification as theorem
-input: there is a unique isometry class of even unimodular Euclidean lattices
+input~\cite{conway-sloane}: there is a unique isometry class of even unimodular Euclidean lattices
 of rank $24$ having no roots.  Call its members \emph{Leech lattices}, and fix
 one representative $\Lambda$.
 Use Poisson duality to prove that $\Theta_\Lambda$ is a modular form of weight
-$12$.  Use the absence of roots and the preceding description of $M_{12}$ to
+$12$.  Use the absence of roots and the description of $M_{12}$ to
 derive
 \[
 \Theta_\Lambda=E_4^3-720\Delta
@@ -2811,6 +2849,8 @@ e^{-\pi^2tn^2/a^2},
 e^{-t(|k|^2+\pi^2n^2/a^2)}
 =\frac{\Theta_a(t)-1}{8\pi t}.
 \]
+\begin{enumerate}[label=(\alph*)]
+\item
 Apply the Jacobi theta transformation to prove
 \[
 \Theta_a(t)=\frac{a}{\sqrt{\pi t}}
@@ -2827,7 +2867,7 @@ and hence
 Identify the first term as the infinite-volume contribution, the second
 as plate-local, and the remaining image sum as the interaction term.
 
-For $\mu>0$ and $\operatorname{Re}s$ sufficiently large, define the
+\item For $\mu>0$ and $\operatorname{Re}s$ sufficiently large, define the
 regulated vacuum energy density by
 \[
 \frac{\mathcal E_D(s)}A
@@ -2854,7 +2894,7 @@ Evaluate at $s=0$ and prove
 \[
 \frac{\mathcal E_D}A=-\frac{\pi^2\hbar c}{1440a^3}.
 \]
-For the ideal electromagnetic field, account for the two polarizations and
+\item For the ideal electromagnetic field, account for the two polarizations and
 deduce
 \[
 \frac{\mathcal E_{\rm EM}}A=-\frac{\pi^2\hbar c}{720a^3},
@@ -2865,16 +2905,15 @@ P=-\frac{\partial(\mathcal E_{\rm EM}/A)}{\partial a}
 State how a force measurement tests the $a^{-4}$ law and its coefficient,
 separating the ideal prediction from finite conductivity, temperature,
 roughness, alignment, and edge corrections.
+\end{enumerate}
 \end{exercise}
 
 \section{Graded Characters}
 
 
 \begin{exercise}[Bosonic and fermionic trace generating functions]
-For a finite-dimensional complex vector space $V$, use the symmetric
-powers defined in Quantization.  An endomorphism $T$ induces
-$\operatorname{Sym}^mT$.  Using the exterior powers and trace defined in
-Spectral Theory, define
+For a finite-dimensional complex vector space $V$, an endomorphism $T$
+induces $\operatorname{Sym}^mT$ and $\Lambda^mT$.  Define
 \[
 Z_B(T;z)=\sum_{m\geq0}\operatorname{tr}(\operatorname{Sym}^mT)z^m,
 \qquad
@@ -2885,9 +2924,11 @@ An \emph{integer partition} of $n\geq0$ is a finite nonincreasing sequence
 of positive integers with sum $n$, with the empty sequence allowed for
 $n=0$.  Let $p(n)$ be the number of integer partitions of $n$, so $p(0)=1$.
 
+\begin{enumerate}[label=(\alph*)]
+\item
 Let $V$ be a finite-dimensional complex vector space and $T\in\End(V)$.
-Using the intrinsic determinant defined by the action on the highest
-exterior power, prove
+Using the determinant defined by the action on the highest exterior power,
+prove
 \[
 Z_B(T;z)=\frac1{\det(I-zT)},
 \qquad
@@ -2909,7 +2950,7 @@ multiplicity, prove, with the empty products interpreted as $1$,
 \lambda_{i_1}\cdots\lambda_{i_m}.
 \]
 
-Let the one-particle Hamiltonian have one-dimensional spectral subspaces at
+\item Let the one-particle Hamiltonian have one-dimensional spectral subspaces at
 energies $j\hbar\omega$, $j\geq1$.  Apply the identities to the finite
 spectral truncation and then pass coefficientwise to the limit to derive
 \[
@@ -2928,7 +2969,7 @@ the multiplicity map separating powers of two and prove
 Interpret the coefficient of $q^n$ as the exact degeneracy at excitation
 energy $n\hbar\omega$ for the corresponding bosonic or fermionic system.
 
-For the bosonic system put $q=e^{-\beta_{\rm th}\hbar\omega}$, where
+\item For the bosonic system put $q=e^{-\beta_{\rm th}\hbar\omega}$, where
 $\beta_{\rm th}=(k_BT)^{-1}$, and define
 \[
 Z(\beta_{\rm th})
@@ -2957,11 +2998,12 @@ C=k_B(\beta_{\rm th}\hbar\omega)^2
 \frac{j^2e^{\beta_{\rm th}j\hbar\omega}}
 {(e^{\beta_{\rm th}j\hbar\omega}-1)^2}.
 \]
-State how resolved spectroscopy tests the integer-spaced levels and the
+\item State how resolved spectroscopy tests the integer-spaced levels and the
 partition degeneracies, while equilibrium calorimetry tests the displayed
 energy and heat-capacity curves.  Separate the independent-mode, harmonic,
 thermal-equilibrium, finite-resolution, and high-energy-cutoff assumptions
 from these predictions.
+\end{enumerate}
 \end{exercise}
 
 \section{Modular Characters}
@@ -3062,8 +3104,7 @@ displayed positive leading coefficients and put
 \chi_{1/16}&=\frac1{\sqrt2}\sqrt{\frac{\vartheta_2}{\eta}}.
 \end{aligned}
 \]
-Use the theta and eta transformations developed in Automorphic Forms to
-derive
+Use the theta and eta transformation laws to derive
 \[
 S=\frac12
 \begin{pmatrix}
@@ -3124,13 +3165,16 @@ major-arc contribution
 \end{exercise}
 
 \begin{exercise}[Partition minor arcs]
-On the coefficient circle through the positive saddle, use
+Let $r_n$ be the positive saddle radius and use a Farey dissection of the
+circle $|q|=r_n$ whose principal major arc contains $q=r_n$.  Use as theorem
+input the Hardy--Ramanujan minor-arc estimate~\cite{hardy-ramanujan}: for
+some $\delta>0$, the
+coefficient integral over the complement of the principal major arc is
 \[
-|1-re^{i\theta}|^2=(1-r)^2+4r\sin^2(\theta/2)
+O\!\left(\exp\!\left[
+\left(\pi\sqrt{\frac23}-\delta\right)\sqrt n\right]\right).
 \]
-together with the modular transformation at each rational cusp met by the
-circle dissection to bound the complementary arcs by an exponentially smaller
-quantity.  Deduce
+Combine this estimate with the major-arc calculation to deduce
 \[
 p(n)\sim\frac1{4n\sqrt3}
 \exp\!\left(\pi\sqrt{\frac{2n}{3}}\right).
@@ -3232,7 +3276,8 @@ Let $\mathbb M$ denote the Monster sporadic simple group.
 
 Take the Frenkel--Lepowsky--Meurman construction and
 \href{https://doi.org/10.1007/BF01232032}{Borcherds's monstrous moonshine
-theorem} as theorem input.  If $\theta$ lifts $\lambda\mapsto-\lambda$ to the
+theorem} as theorem input~\cite{borcherds-moonshine}.  If $\theta$ lifts
+$\lambda\mapsto-\lambda$ to the
 Leech-lattice vertex operator algebra and $V_\Lambda^{T,+}$ is the
 $+1$ eigenspace in its $\theta$-twisted module, the orbifold
 \[
