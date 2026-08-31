@@ -735,7 +735,7 @@ separate the predicted Airy scales from absorber roughness, finite width,
 and loss.
 \end{exercise}
 
-\section{Symplectic Geometry}
+\section{Hamiltonian Symmetry}
 
 \begin{exercise}[Differential forms and Cartan calculus]
 A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
@@ -829,6 +829,55 @@ on positive-degree forms.  Deduce that every closed form of positive degree
 on $U$ is exact, with a primitive vanishing at the origin.
 \end{exercise}
 
+\begin{exercise}[Integration of forms and Stokes' theorem]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+compactly supported top form is defined using orientation-preserving charts
+and a partition of unity.
+
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
+\[
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
+\]
+recovering the observed flux--emf law.
+\end{exercise}
+
+\begin{exercise}[de Rham cohomology]
+A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
+\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
+\emph{de Rham cohomology} of $M$ is
+\[
+H_{\mathrm{dR}}^k(M)
+=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
+{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
+\]
+Pullback induces maps on de Rham cohomology, and the wedge product makes
+$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
+
+Use the local Poincar\'e lemma and Stokes' theorem
+to prove that an exact $k$-form has zero integral over
+every closed oriented $k$-manifold mapped smoothly into $M$. Prove
+$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
+
+On $\R^2\setminus\{0\}$, show that
+\[
+\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
+\]
+is closed and has integral $2\pi$ around the unit circle, hence is not exact.
+Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
+closed electromagnetic field strength has local potentials, while it has a
+global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
 \begin{exercise}[Cotangent phase space]
 For the projection $\pi:T^*Q\to Q$, define the tautological one-form by
 \[
@@ -889,6 +938,153 @@ that the infinitesimal generator of a linear Hamiltonian flow has trace
 zero and that the flow has determinant one.
 \end{exercise}
 
+\begin{exercise}[Moment maps and Noether charges]
+A \emph{Lie group} is a topological group with a smooth manifold structure
+for which multiplication and inversion are smooth.  Its Lie algebra
+$\mathfrak g$ is $T_eG$ with the bracket induced by left-invariant vector
+fields.  For a smooth left action of $G$ on $M$ and $\xi\in\mathfrak g$,
+define the fundamental vector field
+\[
+\xi_M(x)=d(g\mapsto gx)_e(\xi).
+\]
+Define
+\[
+\Ad_g=d(h\mapsto ghg^{-1})_e,
+\qquad
+(\Ad_g^*\ell)(\xi)=\ell(\Ad_{g^{-1}}\xi).
+\]
+
+An action of $G$ on $(M,\omega)$ is \emph{Hamiltonian} when it preserves
+$\omega$ and has an equivariant map $\mu:M\to\mathfrak g^*$ satisfying
+\[
+\iota_{\xi_M}\omega=-d\mu^\xi,
+\qquad
+\mu^\xi(x)=\langle\mu(x),\xi\rangle,
+\qquad
+\mu(gx)=\Ad_g^*\mu(x).
+\]
+The map $\mu$ is the \emph{moment map}.
+
+Prove
+\[
+X_{\mu^\xi}=\xi_M,
+\qquad
+\{\mu^\xi,\mu^\eta\}=\mu^{[\xi,\eta]}.
+\]
+If a Hamiltonian $H$ is $G$-invariant, prove Noether's conservation law
+\[
+\frac d{dt}\mu^\xi(\Phi_t(x))=0
+\]
+for its Hamiltonian flow $\Phi_t$.
+
+Let $G$ act on a manifold $Q$ and lift the action to $T^*Q$.  Prove that
+the lifted action preserves the tautological form and is Hamiltonian with
+\[
+\langle\mu(\alpha_q),\xi\rangle
+=\alpha_q(\xi_Q(q)).
+\]
+For the distinguished Euclidean configuration space $Q=\R^3$, identify
+the moment maps for translations and rotations with linear momentum $p$
+and angular momentum $q\times p$.  Deduce conservation of $p$ for a
+translation-invariant Hamiltonian and conservation of $q\times p$ for
+\[
+H(q,p)=\frac{\lVert p\rVert^2}{2m}+V(\lVert q\rVert).
+\]
+\end{exercise}
+
+\begin{exercise}[Symplectic reduction]
+Let a compact Lie group $G$ act on $(M,\omega)$ with equivariant moment
+map $\mu:M\to\mathfrak g^*$.  Suppose $0$ is a regular value, meaning
+$d\mu_x$ is surjective for every $x\in\mu^{-1}(0)$, and suppose $G$ acts
+freely on $\mu^{-1}(0)$.  Use as theorem input that
+\[
+M/\!\!/G=\mu^{-1}(0)/G
+\]
+is a smooth manifold and the quotient map
+$\pi:\mu^{-1}(0)\to M/\!\!/G$ is a submersion.
+
+For the inclusion $i:\mu^{-1}(0)\hookrightarrow M$, prove that
+$i^*\omega$ is invariant and vanishes on the tangent directions to the
+$G$-orbits.  Prove that there is a unique symplectic form $\omega_{\rm red}$
+such that
+\[
+\pi^*\omega_{\rm red}=i^*\omega,
+\qquad
+\dim(M/\!\!/G)=\dim M-2\dim G.
+\]
+If $H$ is $G$-invariant, prove that its restriction descends to
+$H_{\rm red}$ and that the Hamiltonian flow of $H$ on $\mu^{-1}(0)$
+projects to the Hamiltonian flow of $H_{\rm red}$.  Write the reduced
+equations governing motion at the imposed value of the conserved Noether
+charges.
+\end{exercise}
+
+\begin{exercise}[Coadjoint orbits and the Kirillov form]
+For $\ell\in\mathfrak g^*$, define
+\[
+\mathcal O_\ell=\Ad^*(G)\ell,
+\qquad
+G_\ell=\{g\in G:\Ad_g^*\ell=\ell\},
+\]
+and
+\[
+\mathfrak g_\ell
+=\{X\in\mathfrak g:\ell([X,Y])=0
+\text{ for every }Y\in\mathfrak g\}.
+\]
+For $X\in\mathfrak g$, set
+\[
+(\ad_X^*\ell)(Y)=-\ell([X,Y]).
+\]
+
+On $T_\ell\mathcal O_\ell$, define
+\[
+\omega_\ell(\ad_X^*\ell,\ad_Y^*\ell)=\ell([X,Y]).
+\]
+For $\eta=\Ad_g^*\ell$, transport $\omega_\ell$ by the coadjoint
+action to define $\omega_\eta$.
+
+Prove
+\[
+T_\ell\mathcal O_\ell
+=\{\ad_X^*\ell:X\in\mathfrak g\}
+\cong\mathfrak g/\mathfrak g_\ell.
+\]
+Prove that the Kirillov form is well-defined, alternating, nondegenerate,
+and $G$-invariant.  Prove the cyclic identity
+\[
+\ell([X,[Y,Z]])+\ell([Y,[Z,X]])+\ell([Z,[X,Y]])=0
+\]
+and prove directly that it is the cyclic identity satisfied by the
+transported field $\omega$ on $\mathcal O_\ell$.
+Prove that
+\[
+\mu_{\mathcal O}:\mathcal O_\ell\longrightarrow\mathfrak g^*,
+\qquad
+\mu_{\mathcal O}(\eta)=-\eta,
+\]
+is an equivariant moment map with the sign conventions above.
+
+For the distinguished group
+\[
+SO(3)=\{R\in\operatorname{End}(\R^3):R^*R=\id,\ \det R=1\},
+\]
+use the Euclidean inner product and
+orientation to identify $\mathfrak{so}(3)$ and its dual with $\R^3$, with
+bracket $[X,Y]=X\times Y$.  Prove that $\mathcal O_\ell$ is the sphere of
+radius $L=\lVert\ell\rVert$, that
+\[
+\omega_\ell(X\times\ell,Y\times\ell)
+=\ell\mathbin{\cdot}(X\times Y),
+\]
+and that the Kirillov form is $L^{-1}$ times the oriented Euclidean area
+form on
+this sphere.  Deduce
+\[
+\int_{\mathcal O_\ell}\omega=4\pi L.
+\]
+\end{exercise}
+
 \begin{exercise}[Contact manifolds and symplectization]
 Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
 a \emph{contact form} when
@@ -933,55 +1129,6 @@ satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
 $\alpha$ by a positive function gives a symplectomorphic symplectization.
 \end{exercise}
 
-\begin{exercise}[Integration of forms and Stokes' theorem]
-An \emph{orientation} of an $n$-manifold is a continuous choice of component
-of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
-compactly supported top form is defined using orientation-preserving charts
-and a partition of unity.
-
-Prove that the integral is independent of charts and partition of unity.
-For an oriented manifold with boundary, prove
-\[
-\int_Md\omega=\int_{\partial M}\omega.
-\]
-Deduce the fundamental theorem of calculus, Green's theorem, the divergence
-theorem, and the classical curl theorem. For time-dependent magnetic
-two-form $B$ and electric one-form $E$, prove the equivalence of
-\[
-\int_{\partial S}E=-\frac d{dt}\int_SB
-\qquad\text{and}\qquad
-dE=-\partial_tB,
-\]
-recovering the observed flux--emf law.
-\end{exercise}
-
-\begin{exercise}[de Rham cohomology]
-A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
-\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
-\emph{de Rham cohomology} of $M$ is
-\[
-H_{\mathrm{dR}}^k(M)
-=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
-{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
-\]
-Pullback induces maps on de Rham cohomology, and the wedge product makes
-$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
-
-Use the local Poincar\'e lemma and Stokes' theorem
-to prove that an exact $k$-form has zero integral over
-every closed oriented $k$-manifold mapped smoothly into $M$. Prove
-$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
-
-On $\R^2\setminus\{0\}$, show that
-\[
-\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
-\]
-is closed and has integral $2\pi$ around the unit circle, hence is not exact.
-Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
-closed electromagnetic field strength has local potentials, while it has a
-global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
-\end{exercise}
-
 
 \begin{exercise}[Connections, curvature, and holonomy]
 A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
@@ -1008,10 +1155,7 @@ simply connected coordinate domain.
 \end{exercise}
 
 \begin{exercise}[Principal connections and gauge covariance]
-A \emph{Lie group} is a topological group with a smooth manifold structure
-for which multiplication and inversion are smooth.  Its Lie algebra
-$\mathfrak g$ is $T_eG$ with the bracket induced by left-invariant vector
-fields.  For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
+A \emph{principal $G$-bundle} is a smooth map
 $P\to M$ with a free right $G$-action, transitive on each fiber, and local
 $G$-equivariant trivializations.  For a homomorphism
 $\rho:G\to\operatorname{GL}(W)$, its associated vector bundle is
@@ -1109,6 +1253,18 @@ convention developed above to prove
 [\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
 =i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
 \]
+For a Hamiltonian $G$-action with moment map $\mu$, define
+\[
+d\pi_{\rm pre}(\xi)
+=\frac1{i\hbar}\mathcal Q_{\rm pre}(\mu^\xi).
+\]
+Prove
+\[
+[d\pi_{\rm pre}(\xi),d\pi_{\rm pre}(\eta)]
+=d\pi_{\rm pre}([\xi,\eta]),
+\]
+and call $d\pi_{\rm pre}$ the prequantum Lie-algebra representation on
+sections of $L$.
 \end{exercise}
 
 \begin{exercise}[Contactification]
@@ -1185,139 +1341,94 @@ transformation of $E$ preserves $\star$.  Call this intrinsic formal
 algebra the \emph{Moyal algebra} of the symplectic vector space.
 \end{exercise}
 
-\begin{exercise}[Connections, curvature, and Chern--Weil forms]
-Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
-direct sum, tensor product, dual, and pullback by the corresponding
-fiberwise operations.  Call a connection defined above \emph{complex} when
-$\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
-$E$-valued forms by the graded Leibniz rule and write
+\begin{exercise}[Coadjoint-orbit spin quantization]
+A \emph{unitary representation} of a topological group $G$ on a Hilbert
+space $H$ is a strongly continuous homomorphism $G\to U(H)$.  Define
 \[
-F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
+SU(2)=\{U\in\operatorname{End}(\C^2):U^*U=\id,\ \det U=1\}.
 \]
-for its curvature.
+For a complex vector space $V$, set $\operatorname{Sym}^0(V)=\C$ and, for
+$N\geq1$, define its $N$th \emph{symmetric power} by
+\[
+\operatorname{Sym}^N(V)
+=V^{\otimes N}/
+\langle w-\sigma w:w\in V^{\otimes N},\ \sigma\in S_N\rangle.
+\]
+Here $S_N$ is the permutation group acting by permuting the tensor factors.
+On the distinguished Hermitian space $\C^2$, let the Pauli endomorphisms
+$\sigma_1,\sigma_2,\sigma_3$ be normalized by
+\[
+\sigma_a\sigma_b
+=\delta_{ab}I+i\sum_{c=1}^3\varepsilon_{abc}\sigma_c,
+\qquad
+\operatorname{Tr}(\sigma_a\sigma_b)=2\delta_{ab}.
+\]
+Let $SU(2)$ act by conjugation on the real vector space of traceless
+Hermitian endomorphisms of $\C^2$.  Use
+$x\mapsto x_1\sigma_1+x_2\sigma_2+x_3\sigma_3$ to identify this Euclidean
+space with $\R^3$ and prove that the resulting homomorphism
+\[
+SU(2)\longrightarrow SO(3)
+\]
+is surjective with kernel $\{\pm\id\}$.
 
-Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
-trace and determinant developed earlier, define
+Let $\mathcal O_L$ be the coadjoint sphere of radius $L>0$ with the
+Kirillov form developed above, and regard it as an $SU(2)$ orbit through
+the spin covering.  Put
 \[
-\operatorname{ch}(E,\nabla)
-=\operatorname{Tr}\exp\!\left(\frac{iF_\nabla}{2\pi}\right),
-\qquad
-c(E,\nabla)
-=\det\!\left(I+\frac{iF_\nabla}{2\pi}\right)
-=1+c_1(E,\nabla)+\cdots+c_r(E,\nabla).
+N=\frac{2L}{\hbar}.
 \]
-Use Bianchi and cyclicity of trace to prove that the homogeneous components
-of $\operatorname{ch}(E,\nabla)$ are closed.  For a path $\nabla_t$ of
-connections, derive
+Prove that $\mathcal O_L$ is prequantizable exactly when
+$N\in\mathbb Z_{>0}$.  Use as theorem input that $\mathcal O_L$ has an
+$SU(2)$-invariant complex structure $J$, an endomorphism of its tangent
+bundle satisfying $J^2=-\id$.  Let $T^{0,1}\mathcal O_L$ be the
+$-i$-eigenspace of the complex-linear extension of $J$.  Call a section
+$s$ of the prequantum line bundle \emph{polarized} when
+$\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Use as theorem input
+that the polarized sections form the $SU(2)$ representation
 \[
-\frac d{dt}\operatorname{Tr}
-\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)
-=d\,\operatorname{Tr}\!\left(
-\frac{i\dot\nabla_t}{2\pi}
-\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
+V_N=\operatorname{Sym}^N(\C^2).
 \]
-Use as theorem input the corresponding Chern--Weil transgression formula
-for the determinant invariant polynomials.  Deduce that the de Rham classes
-$\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
-natural under pullback, and satisfy
-\[
-c(E\oplus F)=c(E)c(F),
-\qquad
-\operatorname{ch}(E\oplus F)=\operatorname{ch}(E)+\operatorname{ch}(F),
-\qquad
-\operatorname{ch}(E\otimes F)=\operatorname{ch}(E)\operatorname{ch}(F).
-\]
-Prove also that
-\[
-\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E).
-\]
-Recover the first Chern form of a line bundle used above.
-\end{exercise}
+Call this polarized-section space the \emph{geometric quantization} of
+$\mathcal O_L$.
+The action on $V_N$ is induced from the tensor-power action on
+$(\C^2)^{\otimes N}$.
 
-\begin{exercise}[Spectral projections and Berry bundles]
-Let $W$ be a finite-dimensional Hermitian vector space, let $B$ be a smooth
-manifold, and let $H:B\to\operatorname{End}(W)$ be a smooth family of
-self-adjoint operators.  Suppose a fixed contour $\Gamma$ encloses an
-isolated spectral cluster of constant multiplicity.  Define
+For
 \[
-P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
-\qquad
-\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
+u_\theta=
+\begin{pmatrix}e^{i\theta/2}&0\\0&e^{-i\theta/2}\end{pmatrix},
+\qquad j=\frac N2,
 \]
-Prove that $P_b$ is a smooth family of orthogonal projections and that
-$\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its local
-product maps from the restrictions of nearby projections to a fixed fiber,
-without choosing a frame.  Define the Berry connection by
+prove that the weights of $V_N$ are $m=-j,-j+1,\ldots,j$ and derive the
+character identity
 \[
-\nabla^{\mathrm B}s=P\,ds
+\chi_j(u_\theta)
+=\sum_{m=-j}^{j}e^{im\theta}
+=\frac{\sin((2j+1)\theta/2)}{\sin(\theta/2)}
+=U_{2j}(\cos(\theta/2)).
 \]
-for sections satisfying $Ps=s$, and prove
+Define the Chebyshev polynomials of the second kind by this identity and
+derive
 \[
-F_{\mathrm B}=P(dP\wedge dP)P,
-\qquad
-c_1(\mathcal E)=
-\left[\frac{i}{2\pi}\operatorname{Tr}P(dP\wedge dP)\right].
+U_0(t)=1,
+\qquad U_1(t)=2t,
+\qquad U_{n+1}(t)=2tU_n(t)-U_{n-1}(t).
 \]
-\end{exercise}
 
-\begin{exercise}[Two-level Berry degree and gap protection]
-For the distinguished two-band Hamiltonian on the Brillouin torus $B=T^2$,
+Normalize the infinitesimal generators by
+$[J_a,J_b]=i\hbar\varepsilon_{abc}J_c$.  Prove that
+$J_3$ has values $m\hbar$ and that a $2\pi$ rotation acts by $(-1)^{2j}$,
+whereas a $4\pi$ rotation acts trivially.  For the Zeeman Hamiltonian
+$\widehat H_B=-\gamma B J_3$, derive
 \[
-H(k)=d_1(k)\sigma_1+d_2(k)\sigma_2+d_3(k)\sigma_3,
-\qquad d(k)\ne0,
+E_m=-\gamma Bm\hbar,
+\qquad m=-j,-j+1,\ldots,j.
 \]
-let $\widehat d=d/|d|$ and let $\mathcal E_-$ be the negative-energy line
-bundle.  From $P_-=(I-\widehat d\cdot\sigma)/2$, derive
-\[
-\int_{T^2}c_1(\mathcal E_-)
-=\frac1{4\pi}\int_{T^2}
-\widehat d\cdot
-(\partial_{k_1}\widehat d\times\partial_{k_2}\widehat d)
-\,dk_1\,dk_2
-=\deg(\widehat d).
-\]
-Show that this integer cannot change under a smooth deformation that keeps
-the spectral gap open.
-\end{exercise}
-
-\begin{exercise}[Elliptic pendulum period]
-On $T^*S^1$ consider
-\[
-H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
-\]
-For an oscillation of amplitude $0<\theta_0<\pi$, set
-$k=\sin(\theta_0/2)$ and define
-\[
-K(k)=\int_0^{\pi/2}\frac{d\phi}
-{\sqrt{1-k^2\sin^2\phi}}.
-\]
-Use energy conservation to prove
-\[
-T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
-\]
-Apply the generalized binomial theorem with $a=\frac12$.  For
-\[
-I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
-\]
-use integration by parts to prove
-\[
-I_0=\frac{\pi}{2},
-\qquad
-I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
-\]
-and obtain
-\[
-K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
-\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
-\qquad |k|<1.
-\]
-Deduce
-\[
-T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
-\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
-\]
-Deduce the experimentally testable increase of period with amplitude and
-the logarithmic divergence as $\theta_0\uparrow\pi$.
+Deduce the $2j+1$ resolved Stern--Gerlach outcomes, the Zeeman spacing
+$|\gamma|B\hbar$, and the $4\pi$ restoration measured by spin
+interferometry, stating the field-gradient, weak-coupling,
+beam-resolution, and coherence assumptions separately.
 \end{exercise}
 
 \section{Fourier Analysis}
@@ -1372,8 +1483,6 @@ The \emph{left regular representation} on $L^2(G)$ is
 \[
 (\lambda_s\xi)(t)=\xi(s^{-1}t).
 \]
-A unitary representation of a topological group $G$ on a Hilbert space $H$
-is a strongly continuous homomorphism $G\to U(H)$.
 
 Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$. Construct
 normalized Haar measure on a compact Lie group from a left-invariant metric.
@@ -1727,31 +1836,12 @@ and prove that convolution by $f$ acts by the scalar $c_\pi$ on every
 copy of $\pi$ in $L^2(G)$.
 \end{exercise}
 
-\begin{exercise}[Rotations, spin, and the map \texorpdfstring{$SU(2)\to SO(3)$}{SU(2) to SO(3)}]
-Define
-\[
-\begin{aligned}
-SO(3)&=\{R\in\End(\R^3):R^*R=\id,\ \det R=1\},\\
-SU(2)&=\{U\in\End(\C^2):U^*U=\id,\ \det U=1\}.
-\end{aligned}
-\]
-An \emph{angular-momentum representation} is a finite-dimensional smooth
-unitary representation of $SU(2)$; with Planck constant $\hbar$, its
-infinitesimal generators
-$J_1,J_2,J_3$ are normalized by
-$[J_i,J_j]=i\hbar\varepsilon_{ijk}J_k$.
-
-Let $SU(2)$ act by conjugation on the real space of traceless Hermitian
-$2\times2$ operators. Prove that the resulting homomorphism
-$SU(2)\to SO(3)$ is surjective with kernel $\{\pm\id\}$. Deduce the effect of
-a $2\pi$ rotation in integer- and half-integer-spin representations and the
-$4\pi$ restoration observed by neutron interferometry.
-\end{exercise}
-
 \begin{exercise}[Irreducible representations of $SU(2)$]
-Using raising and lowering operators, prove that every finite-dimensional
-irreducible smooth complex representation is indexed by
-$j\in\{0,\frac12,1,\ldots\}$, has dimension $2j+1$, and has
+For $j\in\{0,\frac12,1,\ldots\}$, write $V_j=V_{2j}$ for the
+orbit-quantization representation developed above.  Using raising and
+lowering operators, prove that every finite-dimensional irreducible smooth
+complex representation is isomorphic to exactly one $V_j$, that it has
+dimension $2j+1$, and that it has
 $J_3$-eigenvalues $m\hbar$ for $m=-j,-j+1,\ldots,j$. Compute the spectrum of
 $J^2=J_1^2+J_2^2+J_3^2$. For $j=\frac12$, relate the two $J_3$ outcomes to
 the two Stern--Gerlach beams.

@@ -2,8 +2,48 @@
 
 \section{Algebraic Curves}
 
+\begin{exercise}[Elliptic pendulum period]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Apply the generalized binomial theorem with $a=\frac12$.  For
+\[
+I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
+\]
+use integration by parts to prove
+\[
+I_0=\frac{\pi}{2},
+\qquad
+I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
+\]
+and obtain
+\[
+K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
+\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
+\qquad |k|<1.
+\]
+Deduce
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
 \begin{exercise}[Affine schemes and the Legendre family]
-For the pendulum developed in Symplectic Geometry, put
+For the pendulum developed in the opening exercise, put
 \[
 m=\sin^2\frac{\theta_0}{2}.
 \]
@@ -351,7 +391,7 @@ infinity, and deduce that $C_q$ has genus $g$.
 \end{exercise}
 
 \begin{exercise}[Pendulum periods and the Legendre curve]
-For the pendulum developed in Symplectic Geometry, recall
+For the pendulum developed in the opening exercise, recall
 \[
 T(\theta_0)=4\sqrt{\frac{\ell}{g}}K(k),
 \qquad
@@ -880,7 +920,7 @@ H_+
 \bar\partial_\nabla^*\bar\partial_\nabla.
 \]
 Prove that its zero modes are the holomorphic sections of $L$ and use
-Chern--Weil theory and genus-one Riemann--Roch to prove
+the first-Chern calculation above and genus-one Riemann--Roch to prove
 \[
 \dim\ker H_+=N.
 \]
@@ -1048,10 +1088,106 @@ homotopy classes of clutching maps.
 Take $X=S^1$, $V=\mathbb C$, and let $g(z)$ be multiplication by $z$.
 Identify $\Sigma S^1$ with $S^2$, identify $E_g$ with the Hopf line bundle
 after choosing the orientation compatible with the clutching convention,
-and use the circle-cocycle calculation from Symplectic Geometry to prove
+and use the circle-cocycle calculation from Hamiltonian Symmetry to prove
 \[
 \int_{S^2}c_1(E_g)=1.
 \]
+\end{exercise}
+
+\begin{exercise}[Connections, curvature, and Chern--Weil forms]
+Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
+direct sum, tensor product, dual, and pullback by the corresponding
+fiberwise operations.  Call a connection defined above \emph{complex} when
+$\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
+$E$-valued forms by the graded Leibniz rule and write
+\[
+F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
+\]
+for its curvature.
+
+Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
+trace and determinant developed earlier, define
+\[
+\operatorname{ch}(E,\nabla)
+=\operatorname{Tr}\exp\!\left(\frac{iF_\nabla}{2\pi}\right),
+\qquad
+c(E,\nabla)
+=\det\!\left(I+\frac{iF_\nabla}{2\pi}\right)
+=1+c_1(E,\nabla)+\cdots+c_r(E,\nabla).
+\]
+Use Bianchi and cyclicity of trace to prove that the homogeneous components
+of $\operatorname{ch}(E,\nabla)$ are closed.  For a path $\nabla_t$ of
+connections, derive
+\[
+\frac d{dt}\operatorname{Tr}
+\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)
+=d\,\operatorname{Tr}\!\left(
+\frac{i\dot\nabla_t}{2\pi}
+\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
+\]
+Use as theorem input the corresponding Chern--Weil transgression formula
+for the determinant invariant polynomials.  Deduce that the de Rham classes
+$\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
+natural under pullback, and satisfy
+\[
+c(E\oplus F)=c(E)c(F),
+\qquad
+\operatorname{ch}(E\oplus F)=\operatorname{ch}(E)+\operatorname{ch}(F),
+\qquad
+\operatorname{ch}(E\otimes F)=\operatorname{ch}(E)\operatorname{ch}(F).
+\]
+Prove also that
+\[
+\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E).
+\]
+Recover the first Chern form of a line bundle used above.
+\end{exercise}
+
+\begin{exercise}[Spectral projections and Berry bundles]
+Let $W$ be a finite-dimensional Hermitian vector space, let $B$ be a smooth
+manifold, and let $H:B\to\operatorname{End}(W)$ be a smooth family of
+self-adjoint operators.  Suppose a fixed contour $\Gamma$ encloses an
+isolated spectral cluster of constant multiplicity.  Define
+\[
+P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
+\qquad
+\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
+\]
+Prove that $P_b$ is a smooth family of orthogonal projections and that
+$\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its local
+product maps from the restrictions of nearby projections to a fixed fiber,
+without choosing a frame.  Define the Berry connection by
+\[
+\nabla^{\mathrm B}s=P\,ds
+\]
+for sections satisfying $Ps=s$, and prove
+\[
+F_{\mathrm B}=P(dP\wedge dP)P,
+\qquad
+c_1(\mathcal E)=
+\left[\frac{i}{2\pi}\operatorname{Tr}P(dP\wedge dP)\right].
+\]
+\end{exercise}
+
+\begin{exercise}[Two-level Berry degree and gap protection]
+For the Pauli endomorphisms developed in Hamiltonian Symmetry and the
+distinguished two-band Hamiltonian on the Brillouin torus $B=T^2$,
+\[
+H(k)=d_1(k)\sigma_1+d_2(k)\sigma_2+d_3(k)\sigma_3,
+\qquad d(k)\ne0,
+\]
+let $\widehat d=d/|d|$ and let $\mathcal E_-$ be the negative-energy line
+bundle.  From $P_-=(I-\widehat d\cdot\sigma)/2$, derive
+\[
+\int_{T^2}c_1(\mathcal E_-)
+=\frac1{4\pi}\int_{T^2}
+\widehat d\cdot
+(\partial_{k_1}\widehat d\times\partial_{k_2}\widehat d)
+\,dk_1\,dk_2
+=\deg(\widehat d).
+\]
+Show that this integer cannot change under a smooth deformation that keeps
+the spectral gap open.
 \end{exercise}
 
 \begin{exercise}[Topological \(K\)-theory and Bott periodicity]
@@ -1170,7 +1306,7 @@ K^1(T^2)\cong\mathbb Z^2.
 When $X$ is a compact smooth manifold, use as theorem input that the
 Chern--Weil classes $c_j(E)$ are the real images of integral cohomology
 classes.  Use their rational polynomial relation with the Chern character
-and the Chern--Weil identities from Symplectic Geometry to prove that
+and the Chern--Weil identities developed above to prove that
 \[
 \operatorname{ch}([E]-[F])
 =\operatorname{ch}(E)-\operatorname{ch}(F)
@@ -1713,12 +1849,8 @@ For $A\in SL_2(\mathbb C)$, derive intrinsically from Cayley--Hamilton that
 \operatorname{tr}(A^n)
 =2T_n\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]
-Define the Chebyshev polynomials of the second kind by
-\[
-U_0(t)=1,\qquad U_1(t)=2t,\qquad
-U_{n+1}(t)=2tU_n(t)-U_{n-1}(t).
-\]
-Prove that the spin-$j$ character satisfies
+For the Chebyshev polynomials of the second kind developed in Hamiltonian
+Symmetry, prove that the spin-$j$ character satisfies
 \[
 \chi_j(A)=U_{2j}\!\left(\frac{\operatorname{tr}A}{2}\right).
 \]

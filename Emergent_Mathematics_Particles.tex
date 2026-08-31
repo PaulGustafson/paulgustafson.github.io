@@ -2,66 +2,6 @@
 
 \section{Heisenberg Group}
 
-\begin{exercise}[Coadjoint orbits and the Kirillov form]
-For a Lie group $G$ with Lie algebra $\mathfrak g$, define
-\[
-\Ad_g=d(h\mapsto ghg^{-1})_e,
-\qquad
-(\Ad_g^*\ell)(X)=\ell(\Ad_{g^{-1}}X).
-\]
-For $\ell\in\mathfrak g^*$, define
-\[
-\mathcal O_\ell=\Ad^*(G)\ell,
-\qquad
-G_\ell=\{g\in G:\Ad_g^*\ell=\ell\},
-\]
-and
-\[
-\mathfrak g_\ell
-=\{X\in\mathfrak g:\ell([X,Y])=0
-\text{ for every }Y\in\mathfrak g\}.
-\]
-For $X\in\mathfrak g$, set
-\[
-(\ad_X^*\ell)(Y)=-\ell([X,Y]).
-\]
-
-On $T_\ell\mathcal O_\ell$, define
-\[
-\omega_\ell(\ad_X^*\ell,\ad_Y^*\ell)=\ell([X,Y]).
-\]
-For $\eta=\Ad_g^*\ell$, transport $\omega_\ell$ by the coadjoint
-action to define $\omega_\eta$.
-
-Prove
-\[
-T_\ell\mathcal O_\ell
-=\{\ad_X^*\ell:X\in\mathfrak g\}
-\cong\mathfrak g/\mathfrak g_\ell.
-\]
-Prove that the Kirillov form is well-defined, alternating, nondegenerate,
-and $G$-invariant.  Prove the cyclic identity
-\[
-\ell([X,[Y,Z]])+\ell([Y,[Z,X]])+\ell([Z,[X,Y]])=0
-\]
-and prove directly that it is the cyclic identity satisfied by the
-transported field $\omega$ on $\mathcal O_\ell$.
-
-For $G=SO(3)$, use the Euclidean inner product and
-orientation to identify $\mathfrak{so}(3)$ and its dual with $\R^3$, with
-bracket $[X,Y]=X\times Y$.  Prove that $\mathcal O_\ell$ is the sphere of
-radius $L=\lVert\ell\rVert$, that
-\[
-\omega_\ell(X\times\ell,Y\times\ell)
-=\ell\mathbin{\cdot}(X\times Y),
-\]
-and that the Kirillov form is $L^{-1}$ times the Riemannian area form on
-this sphere.  Deduce
-\[
-\int_{\mathcal O_\ell}\omega=4\pi L.
-\]
-\end{exercise}
-
 
 \begin{exercise}[Weyl multipliers]
 A \emph{normalized multiplier} on a locally compact group $G$ is a
@@ -437,7 +377,7 @@ a\star_\hbar b
 \]
 in the Schwartz-symbol topology.
 Compare the complete asymptotic expansion coefficient by coefficient with
-the intrinsic Moyal product developed in Symplectic Geometry.  First prove
+the intrinsic Moyal product developed in Hamiltonian Symmetry.  First prove
 that every coefficient of that product preserves Schwartz functions, so
 for $E=V\oplus V^*$ it restricts to a formal product on
 $\mathcal S(V\oplus V^*)[[\hbar]]$.  For
