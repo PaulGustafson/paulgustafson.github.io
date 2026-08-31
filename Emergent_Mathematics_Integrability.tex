@@ -2,6 +2,86 @@
 
 \section{Transfer Matrices}
 
+\begin{exercise}[Harper transfer matrices]
+Let $E=V\oplus V^*$ be the symplectic phase space used for the Moyal
+product in Symplectic Geometry.  Choose $k,\ell\in E^*$ with
+\[
+-\hbar\Pi(k,\ell)=2\pi\alpha
+\]
+and let $U$ and $V$ be the Weyl quantizations of $e_k$ and $e_\ell$.
+Use the Moyal plane-wave identity to derive
+\[
+UV=e^{2\pi i\alpha}VU.
+\]
+Interpret $\alpha$ as the magnetic flux through one lattice cell in units
+of the flux quantum, and define the magnetic nearest-neighbor Hamiltonian
+\[
+H_\alpha=U+U^*+V+V^*.
+\]
+In the position realization on $\ell^2(\mathbb Z)$ with transverse phase
+$\theta$, take
+\[
+(U\psi)_m=\psi_{m+1},
+\qquad
+(V\psi)_m=e^{i(2\pi\alpha m+\theta)}\psi_m
+\]
+and derive the Harper operator
+\[
+(H_{\alpha,\theta}\psi)_m
+=\psi_{m+1}+\psi_{m-1}
++2\cos(2\pi\alpha m+\theta)\psi_m.
+\]
+Prove that the commutator phase is the holonomy around one lattice cell.
+On an $N_x\times N_y$ periodic sample, show that
+$N_xN_y\alpha\notin\mathbb Z$ obstructs consistent torus boundary phases,
+whereas integral total flux makes their corner cocycle trivial.  Prove
+that nonzero integral total flux still obstructs a single globally
+periodic vector potential.
+
+Rewrite $H_{\alpha,\theta}\psi=E\psi$ as
+\[
+\binom{\psi_{m+1}}{\psi_m}
+=A_m(E,\theta)\binom{\psi_m}{\psi_{m-1}},
+\qquad
+A_m(E,\theta)=
+\begin{pmatrix}
+E-2\cos(2\pi\alpha m+\theta)&-1\\
+1&0
+\end{pmatrix}.
+\]
+For coprime integers $p,q$ with $q>0$, put $\alpha=p/q$ and define the
+$q$-step monodromy and discriminant by
+\[
+M_{p/q}(E,\theta)
+=A_{q-1}(E,\theta)\cdots A_0(E,\theta),
+\qquad
+\Delta_{p/q}(E,\theta)=\operatorname{Tr}M_{p/q}(E,\theta).
+\]
+Prove that $\det M_{p/q}=1$ and that the Bloch condition
+$\psi_{m+q}=e^{iq\kappa}\psi_m$ is equivalent to
+\[
+\Delta_{p/q}(E,\theta)=2\cos(q\kappa).
+\]
+For any chosen transfer period $q$ at zero flux, use
+\[
+T_q(\cos t)=\cos(qt)
+\]
+to derive
+\[
+\Delta_{0,q}(E,\theta)
+=2T_q\!\left(\frac{E-2\cos\theta}{2}\right).
+\]
+At half a flux quantum, compute the two bands
+\[
+E_\pm(\kappa,\theta)
+=\pm2\sqrt{\cos^2\kappa+\cos^2\theta}.
+\]
+Deduce the flux-dependent band edges and touching energy.  State the
+nearest-neighbor, uniform-flux, periodicity, coherence, and finite-size
+assumptions under which microwave, photonic, or electronic lattice
+spectroscopy tests the Chebyshev discriminant and half-flux splitting.
+\end{exercise}
+
 \begin{exercise}[Hard-hexagon transfer matrices]
 Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
 let $T_N(z)$ be an operator on the configuration space whose matrix element
