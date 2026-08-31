@@ -923,7 +923,7 @@ State how a period-versus-amplitude measurement tests the location and
 logarithmic type of the singular fiber.
 \end{exercise}
 
-\section{Riemann--Roch Theory}
+\section{Riemann--Roch}
 
 \begin{exercise}[Divisors, line bundles, and first Chern classes]
 For a scheme $X$, an \emph{algebraic line bundle} is an
@@ -1234,7 +1234,616 @@ spin-coupling, compact-surface, positivity, and noninteracting assumptions
 under which spectroscopy predicts this robust degeneracy.
 \end{exercise}
 
-\begin{exercise}[Theta bundles and quantized Hall transport]
+\section{Index Theory}
+
+\begin{exercise}[Fredholm operators and the Calkin algebra]
+Let $H_0$ and $H_1$ be complex Hilbert spaces.  Write
+$\mathcal B(H_0,H_1)$ for the bounded operators and define
+$\mathcal K(H_0,H_1)$ to be the operator-norm closure of the finite-rank
+operators.  Call its elements \emph{compact operators}.  Prove that
+composition on either side by a bounded operator preserves compactness and
+that $\mathcal K(H)=\mathcal K(H,H)$ is a closed two-sided ideal in
+$\mathcal B(H)=\mathcal B(H,H)$.  Define the \emph{Calkin algebra} by
+\[
+\mathcal Q(H)=\mathcal B(H)/\mathcal K(H).
+\]
+
+A bounded operator $T:H_0\to H_1$ is \emph{Fredholm} when
+$\ker T$ and $\operatorname{coker}T=H_1/\operatorname{im}T$ are
+finite-dimensional and $\operatorname{im}T$ is closed.  Define
+\[
+\operatorname{ind}_{\rm an}(T)
+=\dim\ker T-\dim\operatorname{coker}T.
+\]
+Use as theorem input Atkinson's theorem: $T$ is Fredholm exactly when
+there is a bounded $S:H_1\to H_0$ for which
+\[
+ST-I_{H_0}\in\mathcal K(H_0),
+\qquad
+TS-I_{H_1}\in\mathcal K(H_1).
+\]
+For $H_0=H_1$, identify this condition with invertibility of the image of
+$T$ in the Calkin algebra.
+
+Prove that compact perturbations preserve the Fredholm property and the
+index, that
+\[
+\operatorname{ind}_{\rm an}(T^*)=-\operatorname{ind}_{\rm an}(T),
+\qquad
+\operatorname{ind}_{\rm an}(T_2T_1)
+=\operatorname{ind}_{\rm an}(T_2)+\operatorname{ind}_{\rm an}(T_1),
+\]
+and that the index is constant along a norm-continuous path of Fredholm
+operators.  On $\ell^2(\mathbb N)$, let $S$ be the unilateral shift
+$Se_n=e_{n+1}$.  Construct a parametrix modulo finite-rank operators and
+compute
+\[
+\operatorname{ind}_{\rm an}(S)=-1,
+\qquad
+\operatorname{ind}_{\rm an}(S^*)=1.
+\]
+\end{exercise}
+
+\begin{exercise}[Elliptic operators and analytic index]
+Let $E,F\to M$ be smooth complex vector bundles over a closed smooth
+manifold.  For $f\in C^\infty(M)$ let $M_f$ denote multiplication by $f$.
+A linear map
+\[
+D:\Gamma^\infty(E)\longrightarrow\Gamma^\infty(F)
+\]
+is a \emph{differential operator of order at most $m$} when every
+$(m+1)$-fold iterated commutator with multiplication operators vanishes.
+For an operator of order $m$, $x\in M$, $\xi\in T_x^*M$, and
+$v\in E_x$, choose $f$ with $df_x=\xi$ and a section $s$ with $s(x)=v$,
+and define
+\[
+\sigma_m(D)(x,\xi)v
+=\frac1{m!}\operatorname{ad}_{M_f}^{\,m}(D)s(x),
+\qquad
+\operatorname{ad}_{M_f}(D)=[D,M_f].
+\]
+Prove that this is independent of $f$ and $s$, depends homogeneously of
+degree $m$ on $\xi$, and defines the \emph{principal symbol}
+\[
+\sigma_m(D):\pi^*E\longrightarrow\pi^*F
+\quad\text{over }T^*M.
+\]
+Call $D$ \emph{elliptic} when $\sigma_m(D)(x,\xi)$ is invertible for every
+$\xi\ne0$.
+
+Choose Hermitian and Riemannian metrics and a compatible connection on
+$E$.  Using the spectral calculus developed earlier for the nonnegative
+connection Laplacian $\Delta_E=\nabla^*\nabla$, define $H^s(M;E)$ as the
+completion of smooth sections for the norm
+\[
+\lVert u\rVert_{H^s}
+=\lVert(I+\Delta_E)^{s/2}u\rVert_{L^2}.
+\]
+Use as theorem input that different choices give equivalent norms.  Use as
+theorem input the coordinate-invariant elliptic regularity, symbol
+quantization, and parametrix theorem: for every real $s$, an elliptic $D$
+extends to
+\[
+D_s:H^s(M;E)\longrightarrow H^{s-m}(M;F)
+\]
+and admits a bounded parametrix whose two remainders are compact.  Deduce
+from Atkinson's theorem that $D_s$ is Fredholm, that its index is
+independent of $s$, and use symbol quantization to prove that it depends
+only on the homotopy class of the elliptic principal symbol.  Define this
+integer to be
+$\operatorname{ind}_{\rm an}(D)$ and prove
+\[
+\operatorname{ind}_{\rm an}(D^*)=-\operatorname{ind}_{\rm an}(D).
+\]
+
+For a holomorphic line bundle $L$ on a compact Riemann surface $C$, show
+that
+\[
+\bar\partial_L:\Omega^{0,0}(C;L)\longrightarrow\Omega^{0,1}(C;L)
+\]
+is elliptic.  Use as theorem input the Dolbeault identification of its
+kernel and cokernel with $H^0(C,L)$ and $H^1(C,L)$.  Recover from
+Riemann--Roch the analytic-index formula
+\[
+\operatorname{ind}_{\rm an}(\bar\partial_L)
+=\deg L+1-g(C).
+\]
+\end{exercise}
+
+\begin{exercise}[Homotopy, suspension, and clutching]
+A \emph{based space} is a space $X$ with a distinguished point $x_0$.
+Define based maps, based homotopies, and the set $[X,Y]_*$ of based
+homotopy classes.  Define the reduced suspension and based loop space by
+\[
+\Sigma X
+=X\times[0,1]\big/
+\bigl(X\times\{0,1\}\cup\{x_0\}\times[0,1]\bigr),
+\]
+\[
+\Omega Y=\{\gamma:[0,1]\to Y:
+\gamma(0)=\gamma(1)=y_0\}.
+\]
+Construct the suspension--loop adjunction
+\[
+[\Sigma X,Y]_*\cong[X,\Omega Y]_*.
+\]
+
+Let $V$ be a finite-dimensional complex vector space and let
+$g:X\to\operatorname{Aut}(V)$ be a based map.  Glue the trivial bundles on
+the two reduced cones on $X$ by $g$ along their common copy of $X$ and
+denote the resulting bundle on $\Sigma X$ by $E_g$.  Prove that based
+homotopic clutching maps give isomorphic bundles and that direct sum of
+clutching maps corresponds to direct sum of bundles.  Call bundles
+$E$ and $F$ \emph{stably isomorphic} when
+\[
+E\oplus\underline{\mathbb C}^{\,r}
+\cong F\oplus\underline{\mathbb C}^{\,s}
+\]
+for some $r,s$.  Use as theorem input the clutching theorem: for compact
+Hausdorff $X$, stable bundles on $\Sigma X$ are classified by stable
+homotopy classes of clutching maps.
+
+Take $X=S^1$, $V=\mathbb C$, and let $g(z)$ be multiplication by $z$.
+Identify $\Sigma S^1$ with $S^2$, identify $E_g$ with the Hopf line bundle
+after choosing the orientation compatible with the clutching convention,
+and use the circle-cocycle calculation from Symplectic Geometry to prove
+\[
+\int_{S^2}c_1(E_g)=1.
+\]
+\end{exercise}
+
+\begin{exercise}[Topological \(K\)-theory and Bott periodicity]
+For a compact Hausdorff space $X$, let $\operatorname{Vect}_{\mathbb C}(X)$
+be the commutative monoid of isomorphism classes of finite-rank complex
+vector bundles under direct sum.  Define $K^0(X)$ as its Grothendieck
+group: elements are formal differences $[E]-[F]$, with
+\[
+[E]-[F]=[E']-[F']
+\]
+when there is a bundle $G$ for which
+\[
+E\oplus F'\oplus G\cong E'\oplus F\oplus G.
+\]
+Use tensor product to make $K^0(X)$ a ring.  For based spaces define the
+smash product
+\[
+X\wedge Y=X\times Y/(X\vee Y),
+\qquad
+X\vee Y=X\times\{y_0\}\cup\{x_0\}\times Y,
+\]
+and define the exterior product in $K^0(X\times Y)$ by
+\[
+a\boxtimes b
+=\operatorname{pr}_X^*a\cdot\operatorname{pr}_Y^*b.
+\]
+Define
+\[
+\widetilde K^0(X)
+=\ker\!\left(K^0(X)\longrightarrow K^0(\{x_0\})\right).
+\]
+For a closed based subspace $A\subset Z$, define
+\[
+K^0(Z,A)=\widetilde K^0(Z/A).
+\]
+For $a=[E]-[E']\in\widetilde K^0(X)$, stabilize and choose an
+isomorphism $E_{x_0}\cong E'_{x_0}$, and do the same for a representative
+of $b\in\widetilde K^0(Y)$.  Show that $a\boxtimes b$, together with the
+induced stable trivialization on $X\vee Y$, determines a relative class
+in
+\[
+K^0(X\times Y,X\vee Y)
+\cong\widetilde K^0(X\wedge Y),
+\]
+independent of the stabilizations and isomorphisms.  Deduce the bilinear
+reduced exterior product
+\[
+\widetilde K^0(X)\otimes\widetilde K^0(Y)
+\longrightarrow\widetilde K^0(X\wedge Y).
+\]
+Define
+\[
+\widetilde K^{-n}(X)=\widetilde K^0(\Sigma^nX)
+\quad(n\geq0),
+\qquad
+K^{-n}(X)=\widetilde K^{-n}(X_+),
+\qquad
+K^1(X)=K^{-1}(X).
+\]
+Here $X_+=X\sqcup\{*\}$ for an unbased compact space $X$.
+
+Let $BU(r)$ be the classifying space characterized by the natural
+correspondence between rank-$r$ complex bundles on a compact space and
+homotopy classes of maps to $BU(r)$.  Let $BU$ and $U$ denote the stable
+classifying and unitary spaces, and write $[X,Y]$ for unbased homotopy
+classes.  Use as theorem input the stable
+classification
+\[
+K^0(X)\cong[X,\mathbb Z\times BU],
+\qquad
+K^1(X)\cong[X,U],
+\]
+and complex Bott periodicity
+\[
+\Omega(\mathbb Z\times BU)\simeq U,
+\qquad
+\Omega U\simeq\mathbb Z\times BU.
+\]
+Let
+\[
+\beta=[E_g]-[\underline{\mathbb C}]
+\in\widetilde K^0(S^2)
+\]
+be the Bott class from the Hopf bundle above.  Prove that exterior product
+with $\beta$ gives
+\[
+\widetilde K^0(\Sigma^nX)
+\cong
+\widetilde K^0(\Sigma^nX\wedge S^2)
+\cong\widetilde K^0(\Sigma^{n+2}X)
+\qquad(n\geq0).
+\]
+Use this isomorphism to extend reduced and unreduced (K)-theory
+two-periodically to all degrees.
+Deduce
+\[
+\widetilde K^0(S^{2r})\cong\mathbb Z,
+\quad
+\widetilde K^0(S^{2r+1})=0,
+\quad
+K^1(S^{2r})=0,
+\quad
+K^1(S^{2r+1})\cong\mathbb Z.
+\]
+Define a \emph{CW complex} inductively by attaching disks along their
+boundary spheres, and call an inclusion $A\hookrightarrow X$ a
+\emph{cofibration} when it has the homotopy-extension property.  Use as
+theorem input the six-term exact sequence in reduced \(K\)-theory for a
+cofibration and the standard cell attachment
+$S^1\vee S^1\to T^2\to S^2$ to compute
+\[
+K^0(T^2)\cong\mathbb Z^2,
+\qquad
+K^1(T^2)\cong\mathbb Z^2.
+\]
+When $X$ is a compact smooth manifold, use as theorem input that the
+Chern--Weil classes $c_j(E)$ are the real images of integral cohomology
+classes.  Use their rational polynomial relation with the Chern character
+and the Chern--Weil identities from Symplectic Geometry to prove that
+\[
+\operatorname{ch}([E]-[F])
+=\operatorname{ch}(E)-\operatorname{ch}(F)
+\]
+defines a natural ring homomorphism
+\[
+\operatorname{ch}:K^0(X)\longrightarrow H^{\rm even}(X;\mathbb Q).
+\]
+Use as theorem input that these classes define the same natural
+transformation for finite CW complexes and that it becomes an isomorphism
+after tensoring with $\mathbb Q$.
+
+For a continuous finite-rank spectral projection $P(x)$ of a gapped
+Hamiltonian over a compact parameter space $X$, form its image bundle and
+class in $K^0(X)$.  Prove that this class is unchanged by a gap-preserving
+homotopy and identify, for $X=T^2$, its rank and first-Chern components
+with the two integers in the displayed computation.
+\end{exercise}
+
+\begin{exercise}[Spectral flow and Toeplitz index]
+Let $A_t$, $0\leq t\leq1$, be a norm-continuous path of bounded
+self-adjoint Fredholm operators with invertible endpoints.  Choose a
+partition $0=t_0<\cdots<t_N=1$ and numbers $\varepsilon_j>0$ so that the
+finite-rank spectral projections
+\[
+\mathbf1_{[-\varepsilon_j,\varepsilon_j]}(A_t)
+\]
+vary continuously for $t\in[t_{j-1},t_j]$.  Define the
+\emph{spectral flow} by
+\[
+\operatorname{sf}(A_t)
+=\sum_{j=1}^N
+\left(
+\operatorname{rank}\mathbf1_{[0,\varepsilon_j)}(A_{t_j})
+-\operatorname{rank}\mathbf1_{[0,\varepsilon_j)}(A_{t_{j-1}})
+\right).
+\]
+Prove independence of the choices, additivity under concatenation, and
+invariance under endpoint-fixed homotopies through such paths.
+
+Let $W$ be a finite-dimensional Hermitian vector space, let
+$u:S^1\to U(W)$ be smooth, and define
+\[
+\operatorname{wind}(\det u)
+=\frac1{2\pi i}\int_{S^1}(\det u)^{-1}d(\det u).
+\]
+Let $H^2(S^1;W)\subset L^2(S^1;W)$ be the closed span of the nonnegative
+Fourier modes, let $P_+$ be its orthogonal projection, and define the
+Toeplitz operator
+\[
+T_u=P_+M_u\big|_{H^2(S^1;W)}.
+\]
+Use as theorem input that $T_u$ is Fredholm and that homotopies of $u$
+produce norm-continuous Fredholm paths.  For
+$W=\mathbb C\oplus W'$ compute the index when
+$u(z)=z^n\oplus I_{W'}$ from the unilateral shift.  Use as theorem input
+that $SU(r)$ is simply connected for $r\geq2$ and use the determinant
+fibration
+\[
+SU(r)\longrightarrow U(r)\xrightarrow{\det}U(1)
+\]
+to prove that determinant induces $\pi_1(U(r))\cong\mathbb Z$.  Combine
+this with index homotopy invariance and stabilization to prove
+\[
+\operatorname{ind}_{\rm an}(T_u)
+=-\operatorname{wind}(\det u).
+\]
+Define the odd \(K\)-theory pairing on the circle by
+\[
+\langle[u],[S^1]\rangle
+=\operatorname{wind}(\det u)
+=-\operatorname{ind}_{\rm an}(T_u).
+\]
+For a loop $A_t$ of self-adjoint Fredholm operators based at an invertible
+operator, define its suspended operator on periodic paths by
+\[
+\mathcal D_A=\frac d{dt}+A_t.
+\]
+Use as theorem input the suspension theorem
+\[
+\operatorname{ind}_{\rm an}(\mathcal D_A)
+=\operatorname{sf}(A_t)
+\]
+and identify both integers with the corresponding $K^1$ pairing.
+\end{exercise}
+
+\begin{exercise}[Thom classes and the topological index]
+For a locally compact space $Y$, define compactly supported \(K\)-theory by
+\[
+K_c^j(Y)=\widetilde K^j(Y^+),
+\qquad j\in\mathbb Z/2,
+\]
+where $Y^+$ is the one-point compactification.
+For a complex vector bundle $E\to X$, define its Thom space by
+\[
+\operatorname{Th}(E)=D(E)/S(E),
+\]
+where $D(E)$ and $S(E)$ are its unit disk and sphere bundles for any
+Hermitian metric.  Define a \emph{Thom class}
+$u_E\in K_c^0(E)$ to be a class whose restriction to each fiber is the
+Bott generator in $K_c^0(\mathbb C^{\operatorname{rank}E})$.  Use Bott
+periodicity as theorem input for the
+\(K\)-theoretic Thom isomorphism
+\[
+K^j(X)\longrightarrow K_c^j(E),
+\qquad
+a\longmapsto\pi^*a\cdot u_E.
+\]
+
+For an elliptic operator $D:\Gamma(E_0)\to\Gamma(E_1)$ on a closed
+manifold $M$, its principal symbol is an isomorphism away from the zero
+section.  Define its \emph{symbol class}
+\[
+[\sigma(D)]\in K_c^0(T^*M)
+\]
+as the stable-homotopy class of the triple
+$(\pi^*E_0,\pi^*E_1,\sigma(D))$, where in general a compactly supported
+class is represented by two bundles together with an isomorphism outside
+a compact set.  Verify compatibility of this description with direct sum,
+homotopy, and stabilization.
+
+Use as theorem input the Whitney embedding and tubular-neighborhood
+theorems and choose an embedding $M\hookrightarrow\mathbb R^N$.  Show that
+the Euclidean orthogonal splitting induces an embedding
+\[
+T^*M\hookrightarrow T^*\mathbb R^N\cong\mathbb R^{2N}
+\]
+whose normal bundle is the pullback of $\nu\oplus\nu$, where $\nu$ is the
+normal bundle of $M$, and give $\nu\oplus\nu$ the complex structure
+$J(v,w)=(-w,v)$.  Use its Thom class, extension by zero, and Bott
+periodicity to define
+\[
+\operatorname{ind}_{\rm top}:
+K_c^0(T^*M)\longrightarrow
+K_c^0(\mathbb R^{2N})\cong\mathbb Z.
+\]
+Use as theorem input isotopy invariance and stabilization of embeddings to
+prove that this map is independent of all choices.
+\end{exercise}
+
+\begin{exercise}[Atiyah--Singer index theorem]
+Use as theorem input the splitting principle: after a pullback injective
+on rational cohomology, a complex vector bundle $E$ splits as a sum of
+line bundles.  If their first Chern classes are $x_j$, call the $x_j$ the
+\emph{formal Chern roots} of $E$, so
+$c(E)=\prod_j(1+x_j)$.  Define
+\[
+\operatorname{Td}(E)
+=\prod_j\frac{x_j}{1-e^{-x_j}},
+\]
+and for an oriented real bundle $V$ whose complexification has formal
+roots $\{\pm x_j\}$ define
+\[
+\widehat A(V)
+=\prod_j\frac{x_j/2}{\sinh(x_j/2)}.
+\]
+Use the splitting principle to interpret these symmetric power series as
+characteristic classes.  Use the \(K\)-theoretic Chern character
+constructed above and prove the multiplicativity of the two displayed
+classes under direct sum.
+
+A \emph{spin structure} on an oriented Riemannian $n$-manifold is a lift
+of its oriented orthonormal frame bundle through
+$\operatorname{Spin}(n)\to SO(n)$.  Let
+$S=S^+\oplus S^-$ be the associated complex spinor bundle in even
+dimension, characterized as a module over the complex Clifford bundle
+generated by $v$ with $v^2=-\lVert v\rVert^2$.  For a Hermitian bundle
+$E$ with connection, define the twisted chiral Dirac operator
+\[
+\mathcal D_E^+:
+\Gamma(S^+\otimes E)\longrightarrow\Gamma(S^-\otimes E)
+\]
+by composing the tensor-product connection with Clifford multiplication.
+Compute its principal symbol and prove ellipticity.
+
+Define
+\[
+\operatorname{Spin}^c(n)
+=\bigl(\operatorname{Spin}(n)\times U(1)\bigr)
+/\{(1,1),(-1,-1)\}.
+\]
+A \emph{spin$^c$ structure} is a lift of the oriented frame bundle through
+$\operatorname{Spin}^c(n)\to SO(n)$.  Use as theorem input that a
+Hermitian complex manifold has a canonical spin$^c$ structure with
+spinor bundle $\Lambda^{0,*}T^*M$.  Define its chiral Dolbeault--Dirac
+operator
+\[
+\mathcal D_{\bar\partial,E}^+
+=\sqrt2(\bar\partial_E+\bar\partial_E^*):
+\Omega^{0,\mathrm{even}}(M;E)
+\longrightarrow\Omega^{0,\mathrm{odd}}(M;E)
+\]
+and compute its principal symbol.
+
+Use as theorem input the Atiyah--Singer index theorem:
+\[
+\operatorname{ind}_{\rm an}(D)
+=\operatorname{ind}_{\rm top}[\sigma(D)]
+\]
+for every elliptic differential operator on a closed manifold.  Use as
+theorem input its cohomological consequences
+\[
+\operatorname{ind}_{\rm an}(\mathcal D_{\bar\partial,E}^+)
+=\int_M\operatorname{ch}(E)\operatorname{Td}(T^{1,0}M)
+\]
+for a compact complex manifold and
+\[
+\operatorname{ind}_{\rm an}(\mathcal D_E^+)
+=\int_M\widehat A(TM)\operatorname{ch}(E)
+\]
+for a closed spin manifold.
+
+For a compact Riemann surface $C$, use
+$T^{1,0}C\cong K_C^\vee$ and the Riemann--Roch computation of
+$\deg K_C$, and identify the chiral Dolbeault--Dirac index with that of
+$\bar\partial_L:\Omega^{0,0}(C;L)\to\Omega^{0,1}(C;L)$ to derive
+\[
+\operatorname{ind}_{\rm an}(\bar\partial_L)
+=\int_C\left(c_1(L)+\frac12c_1(T^{1,0}C)\right)
+=\deg L+1-g.
+\]
+For a closed spin surface and a line bundle $L$ of degree $N$, derive
+\[
+\operatorname{ind}_{\rm an}(\mathcal D_L^+)=N
+\]
+and identify this integer as the difference of the two chiral zero-mode
+counts.
+\end{exercise}
+
+\begin{exercise}[Monopole harmonics and spherical Landau levels]
+Let $S_R^2$ be the round sphere of radius $R$, let $N\in\mathbb Z$, and
+let $L_N\to S_R^2$ be a Hermitian line bundle with unitary connection of
+constant curvature
+\[
+F_\nabla=-\frac{iN}{2R^2}\,dA,
+\qquad
+\frac{i}{2\pi}\int_{S_R^2}F_\nabla=N.
+\]
+For a particle of charge $e$, impose the convention
+$F_\nabla=-ieB\,dA/\hbar$ and deduce the magnetic-flux quantization
+\[
+\Phi_B=\int_{S_R^2}B\,dA=\frac{Nh}{e}.
+\]
+On the northern and southern polar charts use the connection forms
+\[
+A_{\rm N}=-\frac{iN}{2}(1-\cos\theta)\,d\phi,
+\qquad
+A_{\rm S}=\frac{iN}{2}(1+\cos\theta)\,d\phi,
+\]
+and determine their transition function on the overlap.
+
+For $\alpha,\beta>-1$, define the Jacobi polynomial
+$P_n^{(\alpha,\beta)}(x)$ as the degree-$n$ polynomial solution of
+\[
+(1-x^2)y''
++[\beta-\alpha-(\alpha+\beta+2)x]y'
++n(n+\alpha+\beta+1)y=0
+\]
+normalized by $P_n^{(\alpha,\beta)}(1)=\binom{n+\alpha}{n}$.
+Prove its orthogonality for distinct degrees with respect to
+$(1-x)^\alpha(1+x)^\beta\,dx$ on $[-1,1]$.
+
+Put $q=|N|/2$.  Separate the covariant Laplacian in the two monopole
+gauges, extract the endpoint powers imposed by regularity and the
+transition function, and reduce the polar equation to the Jacobi equation.
+Call the normalized global eigensections obtained in this way the
+\emph{monopole harmonics}.  Identify sections of $L_N$ with functions
+$F:SU(2)\to\mathbb C$ satisfying
+\[
+F(gh)=\chi_N(h)^{-1}F(g)
+\]
+under the identification $S^2\cong SU(2)/U(1)$, where
+\[
+h_\theta=
+\begin{pmatrix}e^{i\theta}&0\\0&e^{-i\theta}\end{pmatrix},
+\qquad
+\chi_N(h_\theta)=e^{iN\theta}.
+\]
+Use Peter--Weyl theory to prove their orthogonality and completeness and
+to show that
+\[
+\ell=q+n,\qquad n=0,1,2,\ldots,
+\qquad
+\dim\mathcal H_\ell=2\ell+1=|N|+2n+1.
+\]
+For the scalar magnetic Hamiltonian
+\[
+H_N=\frac{\hbar^2}{2m}\nabla^*\nabla,
+\]
+derive
+\[
+E_n
+=\frac{\hbar^2}{2mR^2}
+\left((q+n)(q+n+1)-q^2\right),
+\qquad
+E_{n+1}-E_n
+=\frac{\hbar^2}{mR^2}(n+q+1).
+\]
+
+For $N\geq0$, equip $S^2\cong\mathbb P^1$ with its complex structure,
+identify $L_N$ with $\mathcal O(N)$, and define the spin$^c$
+Dolbeault--Pauli Hamiltonian
+\[
+H_+=\frac{\hbar^2}{m}\bar\partial_\nabla^*
+\bar\partial_\nabla.
+\]
+Use Riemann--Roch and the Dolbeault index theorem to prove
+\[
+\dim\ker H_+=N+1,
+\]
+identify these zero modes with the lowest monopole-harmonic multiplet, and
+predict the complete level degeneracies and spacings above.  State the
+uniform-field, round-sphere, fixed-charge, spin$^c$ coupling, noninteracting,
+and spectral-resolution assumptions under which spherical Landau-level
+spectroscopy tests the Jacobi-polynomial and index predictions.
+\end{exercise}
+
+\begin{exercise}[Family index and quantized Hall transport]
+Let $B$ be compact and let $T_b:H_0\to H_1$ be a norm-continuous family
+of Fredholm operators.  Use as theorem input that there is a
+finite-dimensional subspace $V\subset H_1$ for which
+\[
+H_0\oplus V\longrightarrow H_1,
+\qquad
+(u,v)\longmapsto T_bu+v
+\]
+is surjective for every $b\in B$.  Prove that its kernels form a vector
+bundle $\mathcal K_T\to B$ and define the \emph{family index} by
+\[
+\operatorname{Ind}(T)=[\mathcal K_T]-[B\times V]\in K^0(B).
+\]
+Prove independence of $V$, homotopy invariance, and additivity under
+direct sum.  Show that the construction is local on $B$ and therefore
+extends to continuous Fredholm morphisms between Hilbert bundles.
+
 Let $E_\tau$ carry a degree-$N>0$ magnetic line bundle $L_N$, and let
 \[
 \widehat E_\tau=\operatorname{Hom}(H_1(E_\tau;\mathbb Z),U(1))
@@ -1256,9 +1865,23 @@ and filled-level line by
 \]
 Use the theta automorphy laws to realize the fibers by level-$N$ theta
 functions and Riemann--Roch to prove that $\mathcal H_N$ has rank $N$.
+Show that the Sobolev completions of
+$\bar\partial_{L_N\otimes F_\chi}$ form a Fredholm family and that
+Riemann--Roch identifies its family index with $[\mathcal H_N]$.
 
-Use as theorem input the family index formula specialized to the elliptic
-curve, whose tangent bundle is trivial:
+Use as theorem input the families Atiyah--Singer formula: for a
+holomorphic submersion $p:X\to B$ with compact fibers and a holomorphic
+bundle $\mathcal L\to X$,
+\[
+\operatorname{ch}\operatorname{Ind}(\bar\partial_{\mathcal L})
+=\int_{X/B}
+\operatorname{ch}(\mathcal L)\operatorname{Td}(T^{1,0}(X/B)),
+\]
+where the right side is integration along the compact complex fibers.
+Apply it to
+$X=E_\tau\times\widehat E_\tau$, $B=\widehat E_\tau$, and
+$\mathcal L=\operatorname{pr}_1^*L_N\otimes\mathcal P$.  Use the
+triviality of the elliptic-curve tangent bundle to prove
 \[
 \operatorname{ch}(\mathcal H_N)
 =\int_{E_\tau}
@@ -1279,7 +1902,9 @@ Q_{\rm pump}=e
 \]
 for a unit winding of a boundary twist.  Express the Berry connection of
 $\mathcal D_N$ through the normalized theta sections and identify the same
-integer from their automorphy.  State separately the spectral-gap,
+integer from their automorphy.  Identify the pumped charge with the
+spectral-flow and \(K^1\)-pairing integer developed above.  State
+separately the spectral-gap,
 adiabatic, noninteracting, filled-level, mobility, contact, temperature,
 and finite-size assumptions under which Hall-voltage and charge-pump
 measurements test these predictions.
@@ -1381,7 +2006,7 @@ z=\frac{x}{L_x}+\tau\frac{y}{L_y}.
 \]
 Use the prequantization condition to prove that a magnetic line bundle
 $L\to Q$ exists exactly when $N\in\Z$.  For $N>0$, use the level-$N$
-theta sections and automorphy laws developed in Riemann--Roch Theory to
+theta sections and automorphy laws developed in Riemann--Roch to
 identify
 \[
 H^0(Q,L)
