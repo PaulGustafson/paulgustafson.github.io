@@ -617,7 +617,12 @@ functions and deduce that $(h_n)_{n\geq0}$ is complete in $L^2(\R)$.
 \end{exercise}
 
 \begin{exercise}[Oscillator spectroscopy]
-On Schwartz functions let
+The \emph{Schwartz space} $\mathcal S(\R)$ consists of the smooth functions
+$\psi$ satisfying
+\[
+\sup_{x\in\R}(1+|x|)^m|\psi^{(r)}(x)|<\infty
+\]
+for all $m,r\geq0$.  On $\mathcal S(\R)$ let
 \[
 (Q\psi)(x)=x\psi(x),
 \qquad
@@ -730,9 +735,9 @@ separate the predicted Airy scales from absorber roughness, finite width,
 and loss.
 \end{exercise}
 
-\section{Fourier Analysis}
+\section{Symplectic Geometry}
 
-\begin{exercise}[Manifolds, Lie groups, and invariant geometry]
+\begin{exercise}[Differential forms and Cartan calculus]
 A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
 space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
 whose transition maps are smooth.  A map of smooth manifolds is
@@ -750,22 +755,574 @@ dF_p:T_pM\longrightarrow T_{F(p)}N,
 \qquad
 dF_p(v)(f)=v(f\circ F).
 \]
-
 Define
 \[
-TM=\coprod_{p\in M}T_pM,
+TM=\coprod_{p\in M}T_pM.
 \]
-A smooth vector bundle is a smooth map $\pi:E\to M$ locally isomorphic to
-$U\times W\to U$ for a finite-dimensional real vector space $W$, by
-fiberwise linear maps.  A section is a smooth map
-$s:M\to E$ satisfying $\pi s=\id_M$.  The bundle $TM$ has the bundle
-structure induced by the differentials of chart maps.
+A \emph{smooth vector bundle} is a smooth map $\pi:E\to M$ locally
+isomorphic to $U\times W\to U$ for a finite-dimensional real vector space
+$W$, by fiberwise linear maps.  A section is a smooth map $s:M\to E$
+satisfying $\pi s=\id_M$; write $\Gamma(E)$ for the space of sections.
+The bundle $TM$ has the bundle structure induced by the differentials of
+chart maps, and a \emph{vector field} is a section of $TM$.
 
+The cotangent space at $p$ is
+$T_p^*M=(T_pM)^*$, and
+$T^*M=\coprod_{p\in M}T_p^*M$ has the dual vector-bundle structure.
+
+A \emph{differential $k$-form} on $M$ is a smooth section of
+$\Lambda^kT^*M$; write $\Omega^k(M)$ for the space of differential
+$k$-forms.  The exterior
+products on the cotangent spaces define
+\[
+\wedge:\Omega^r(M)\times\Omega^s(M)\longrightarrow\Omega^{r+s}(M).
+\]
+For a smooth map $F:M\to N$, define
+\[
+(F^*\alpha)_p(v_1,\ldots,v_k)
+=\alpha_{F(p)}(dF_pv_1,\ldots,dF_pv_k).
+\]
+For a vector field $X$, define contraction by
+\[
+(\iota_X\alpha)_p(v_2,\ldots,v_k)
+=\alpha_p(X_p,v_2,\ldots,v_k).
+\]
+The \emph{exterior derivative} is the family
+$d:\Omega^k(M)\to\Omega^{k+1}(M)$ satisfying $df(X)=Xf$, the graded
+Leibniz rule, $d^2=0$, and $F^*d=dF^*$.
+A \emph{local flow} of $X$ is a smooth local family $\Phi_t$ satisfying
+$\Phi_0=\id$, $\Phi_{t+s}=\Phi_t\Phi_s$ whenever both sides are defined,
+and $\left.\frac d{dt}\right|_{t=0}\Phi_t(p)=X_p$.  Define
+\[
+\mathcal L_X\alpha
+=\left.\frac d{dt}\right|_{t=0}\Phi_t^*\alpha.
+\]
+
+Verify that the differentials of chart maps give $TM$ and $T^*M$ the
+stated smooth vector-bundle structures and that
+$d(G\circ F)=dG\circ dF$.  Construct $d$ locally and prove its uniqueness.
+For contraction
+$\iota_X$, prove Cartan's identity
+\[
+\mathcal L_X=d\iota_X+\iota_Xd.
+\]
+For $A\in\Omega^1(M)$, put $F=dA$.  Prove that replacing $A$ by
+$A+d\chi$, with $\chi\in C^\infty(M)$, leaves $F$ unchanged.  Use
+Cartan's identity to derive
+\[
+\mathcal L_XA=\iota_XF+d(\iota_XA).
+\]
+\end{exercise}
+
+\begin{exercise}[Local Poincar\'e lemma]
+Let $U$ be a star-shaped open neighborhood of $0$ in a finite-dimensional
+real vector space.  For $\alpha\in\Omega^k(U)$ with $k>0$, define
+\[
+(K\alpha)_x(v_1,\ldots,v_{k-1})
+=\int_0^1t^{k-1}\alpha_{tx}(x,v_1,\ldots,v_{k-1})\,dt.
+\]
+Use Cartan's identity for the radial flow to prove
+\[
+dK+Kd=\id
+\]
+on positive-degree forms.  Deduce that every closed form of positive degree
+on $U$ is exact, with a primitive vanishing at the origin.
+\end{exercise}
+
+\begin{exercise}[Cotangent phase space]
+For the projection $\pi:T^*Q\to Q$, define the tautological one-form by
+\[
+\theta_\alpha(v)=\alpha(d\pi(v)),
+\qquad \alpha\in T^*Q,\quad v\in T_\alpha(T^*Q).
+\]
+The canonical two-form on $T^*Q$ is $\omega=d\theta$.
+
+For a finite-dimensional real vector space $V$, construct the canonical
+identifications
+\[
+TV\cong V\times V,
+\qquad
+T^*V\cong V\times V^*.
+\]
+Prove that a phase $S\in C^\infty(Q)$ determines the momentum
+$p=dS_q\in T_q^*Q$.  For a diffeomorphism
+$F:Q\to Q$, construct its cotangent lift and prove that it preserves
+$\theta$ and $d\theta$.  Under $T^*V\cong V\times V^*$, prove
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
+\end{exercise}
+
+\begin{exercise}[Symplectic manifolds and Hamiltonian fields]
+A \emph{symplectic form} on a smooth manifold $M$ is a closed
+nondegenerate two-form $\omega$.  A \emph{symplectic vector space} is a
+finite-dimensional real vector space equipped with a nondegenerate
+alternating bilinear form; it carries the corresponding constant
+symplectic form.  For
+$f\in C^\infty(M)$, define
+\[
+\iota_{X_f}\omega=-df,
+\qquad
+\{f,g\}=-\omega(X_f,X_g).
+\]
+The local flow of $X_f$ is the \emph{Hamiltonian flow} of $f$.
+A diffeomorphism $F:(M,\omega_M)\to(N,\omega_N)$ is a
+\emph{canonical transformation} when $F^*\omega_N=\omega_M$.
+
+Prove that the canonical two-form $d\theta$ on $T^*Q$ is nondegenerate and
+hence symplectic.
+Prove that the Poisson bracket is antisymmetric,
+satisfies the Leibniz rule and Jacobi identity, and is preserved by
+canonical transformations.  For the Hamiltonian flow $\Phi_t$ of $H$,
+prove
+\[
+\frac{d}{dt}f(\Phi_t(x))=\{f,H\}(\Phi_t(x)).
+\]
+\end{exercise}
+
+\begin{exercise}[Liouville's theorem]
+\label{ex:liouville-theorem}
+On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
+preserves $\omega$, the volume form $\omega^n/n!$, and every density
+depending only on the Hamiltonian.  On a symplectic vector space, prove
+that the infinitesimal generator of a linear Hamiltonian flow has trace
+zero and that the flow has determinant one.
+\end{exercise}
+
+\begin{exercise}[Contact manifolds and symplectization]
+Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
+a \emph{contact form} when
+\[
+\alpha\wedge(d\alpha)^n
+\]
+is nowhere zero.  Its kernel $\xi=\ker\alpha$ is the associated cooriented
+\emph{contact structure}; contact forms defining the same cooriented
+contact structure differ by multiplication by a positive smooth function.  The
+\emph{Reeb vector field} $R_\alpha$ is defined by
+\[
+\alpha(R_\alpha)=1,
+\qquad
+\iota_{R_\alpha}d\alpha=0.
+\]
+An immersed $n$-manifold $\iota:L\to Y$ is \emph{Legendrian} when
+$\iota^*\alpha=0$.
+
+Let $(M,\omega=d\lambda)$ be an exact symplectic manifold.  On
+$M\times\R$, with coordinate function $u$ on the second factor, prove that
+\[
+\alpha=du-\lambda
+\]
+is a contact form and that $R_\alpha$ is the infinitesimal generator of
+translation in the $\R$ factor.  For a manifold $X$, identify
+$J^1X=T^*X\times\R$ with this contactification and prove that
+\[
+j^1f:X\longrightarrow J^1X,
+\qquad
+j^1f(x)=(df_x,f(x)),
+\]
+is Legendrian for every $f\in C^\infty(X)$.  Prove that every section of
+$J^1X\to X$ with Legendrian image is of this form.
+
+For a contact manifold $(Y,\alpha)$ and the positive coordinate $r$ on
+$\R_{>0}$, prove that
+\[
+\Omega=d(r\alpha)
+\]
+is symplectic on $\R_{>0}\times Y$.  Determine the vector field $Z$
+satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
+$\alpha$ by a positive function gives a symplectomorphic symplectization.
+\end{exercise}
+
+\begin{exercise}[Integration of forms and Stokes' theorem]
+An \emph{orientation} of an $n$-manifold is a continuous choice of component
+of the nonzero elements in $\Lambda^nT_p^*M$. The integral $\int_M\omega$ of a
+compactly supported top form is defined using orientation-preserving charts
+and a partition of unity.
+
+Prove that the integral is independent of charts and partition of unity.
+For an oriented manifold with boundary, prove
+\[
+\int_Md\omega=\int_{\partial M}\omega.
+\]
+Deduce the fundamental theorem of calculus, Green's theorem, the divergence
+theorem, and the classical curl theorem. For time-dependent magnetic
+two-form $B$ and electric one-form $E$, prove the equivalence of
+\[
+\int_{\partial S}E=-\frac d{dt}\int_SB
+\qquad\text{and}\qquad
+dE=-\partial_tB,
+\]
+recovering the observed flux--emf law.
+\end{exercise}
+
+\begin{exercise}[de Rham cohomology]
+A differential form $\omega$ is \emph{closed} if $d\omega=0$ and
+\emph{exact} if $\omega=d\eta$ for some form $\eta$. Since $d^2=0$, the
+\emph{de Rham cohomology} of $M$ is
+\[
+H_{\mathrm{dR}}^k(M)
+=\frac{\ker(d:\Omega^k(M)\to\Omega^{k+1}(M))}
+{\im(d:\Omega^{k-1}(M)\to\Omega^k(M))}.
+\]
+Pullback induces maps on de Rham cohomology, and the wedge product makes
+$H_{\mathrm{dR}}^*(M)$ a graded-commutative algebra.
+
+Use the local Poincar\'e lemma and Stokes' theorem
+to prove that an exact $k$-form has zero integral over
+every closed oriented $k$-manifold mapped smoothly into $M$. Prove
+$H_{\mathrm{dR}}^1(S^1)\cong\R$, with the isomorphism given by integration.
+
+On $\R^2\setminus\{0\}$, show that
+\[
+\alpha=\frac{-y\,dx+x\,dy}{x^2+y^2}
+\]
+is closed and has integral $2\pi$ around the unit circle, hence is not exact.
+Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
+closed electromagnetic field strength has local potentials, while it has a
+global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
+
+\begin{exercise}[Connections, curvature, and holonomy]
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers.
+
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
+
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
+\end{exercise}
+
+\begin{exercise}[Principal connections and gauge covariance]
 A \emph{Lie group} is a topological group with a smooth manifold structure
-for which multiplication and inversion are smooth.  For $g\in G$, write
-$L_g(h)=gh$.  A Riemannian metric on $G$ is \emph{left-invariant} when
-$L_g$ is an isometry for every $g$.
+for which multiplication and inversion are smooth.  Its Lie algebra
+$\mathfrak g$ is $T_eG$ with the bracket induced by left-invariant vector
+fields.  For a Lie group $G$, a \emph{principal $G$-bundle} is a smooth map
+$P\to M$ with a free right $G$-action, transitive on each fiber, and local
+$G$-equivariant trivializations.  For a homomorphism
+$\rho:G\to\operatorname{GL}(W)$, its associated vector bundle is
+$P\times_GW=(P\times W)/((pg,w)\sim(p,\rho(g)w))$.
+A \emph{principal connection} is an
+equivariant $\mathfrak g$-valued one-form $A$ on $P$ reproducing fundamental
+vertical fields. It induces connections on every associated bundle, and its
+\emph{curvature} is
+$F_A=dA+\frac12[A\wedge A]$. A \emph{gauge transformation} is a
+$G$-equivariant bundle automorphism covering $\id_M$.
 
+Prove $d_AF_A=0$.  For a gauge transformation $\Phi$, prove
+$F_{\Phi^*A}=\Phi^*F_A$ and that holonomy changes by conjugacy.  Prove that
+a flat connection has trivial holonomy on contractible loops and is
+gauge-equivalent to a product connection on a connected base exactly when
+its holonomy homomorphism is trivial.  For $G=U(1)$, compute the holonomy
+around a
+generator of the fundamental group and exhibit the obstruction to removing
+a flat connection globally.
+\end{exercise}
+
+
+
+\begin{exercise}[Integral curvature and circle cocycles]
+A \emph{good cover} of a manifold is an open cover
+$\{U_i\}_{i\in I}$ for which every nonempty finite intersection is
+contractible.  A \emph{smooth complex vector bundle} is a smooth vector
+bundle locally modeled on a finite-dimensional complex vector space by
+fiberwise complex-linear product maps; it is a \emph{complex line bundle}
+when its complex rank is one.  A \emph{Hermitian vector bundle} carries a
+smoothly varying positive-definite Hermitian form, and a connection on it
+is \emph{unitary} when it preserves that form.  Let
+$F\in\Omega^2(M;i\R)$ be closed and choose, on a good cover,
+\[
+dA_i=F|_{U_i}.
+\]
+On $U_i\cap U_j$, choose $f_{ij}:U_i\cap U_j\to i\R$ with
+$A_j-A_i=df_{ij}$ and $f_{ji}=-f_{ij}$.  Prove that
+\[
+c_{ijk}=f_{ij}+f_{jk}+f_{ki}
+\]
+is constant on every nonempty triple intersection.
+
+Use the following good-cover form of the integral de Rham theorem as
+theorem input:
+\[
+\frac{1}{2\pi i}\int_\Sigma h^*F\in\Z
+\quad\text{for every smooth }h:\Sigma\to M
+\]
+from a closed oriented surface if and only if the $f_{ij}$ may be chosen
+so that $c_{ijk}\in2\pi i\Z$.  Under this condition put
+\[
+g_{ij}=e^{f_{ij}}.
+\]
+Prove the cocycle identities for the $g_{ij}$, construct the associated
+Hermitian line bundle, and show that the local operators $d+A_i$ define a
+unitary connection of curvature $F$.  Conversely, compare local unitary
+frames of a Hermitian line bundle with connection and recover the integral
+period condition from its transition functions.
+\end{exercise}
+
+\begin{exercise}[Prequantum line bundles]
+A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line
+bundle $L\to M$ with a unitary connection $\nabla$ satisfying
+\[
+F_\nabla=-\frac{i}{\hbar}\omega.
+\]
+Prove that a prequantum line bundle exists if and only if
+\[
+\frac1{2\pi\hbar}\int_\Sigma f^*\omega\in\mathbb Z
+\]
+for every smooth map $f:\Sigma\to M$ from a closed oriented surface.
+Apply the circle-cocycle construction above to $F=-i\omega/\hbar$,
+identify its local connection forms with symplectic potentials, and prove
+that
+\[
+A_i\longmapsto A_i+d\phi_i,
+\qquad
+f_{ij}\longmapsto f_{ij}+\phi_j-\phi_i
+\]
+produces an isomorphic prequantum line bundle with connection.  Show that
+two prequantum line bundles with the same curvature differ by a flat
+Hermitian line bundle, so curvature alone need not determine the
+prequantization up to isomorphism.
+\end{exercise}
+
+\begin{exercise}[Kostant--Souriau operators]
+For $f\in C^\infty(M)$, define
+\[
+\mathcal Q_{\rm pre}(f)=-i\hbar\nabla_{X_f}+f.
+\]
+Use the curvature identity for $\nabla$ and the Hamiltonian-field
+convention developed above to prove
+\[
+[\mathcal Q_{\rm pre}(f),\mathcal Q_{\rm pre}(g)]
+=i\hbar\mathcal Q_{\rm pre}(\{f,g\}).
+\]
+\end{exercise}
+
+\begin{exercise}[Contactification]
+Let $\pi:S(L)\to M$ be the unit-circle bundle of a prequantum line bundle,
+let $A\in\Omega^1(S(L);i\mathbb R)$ be its connection form normalized by
+$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.  Prove
+\[
+d\alpha=-\frac1\hbar\pi^*\omega,
+\]
+that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
+sections of $L$ correspond to functions $F:S(L)\to\mathbb C$ satisfying
+\[
+F(ue^{i\theta})=e^{-i\theta}F(u).
+\]
+\end{exercise}
+
+\begin{exercise}[Deformation quantization]
+A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
+$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
+Equivalently, it has a bivector
+$\Pi\in\Gamma(\Lambda^2TM)$.  Define the Schouten bracket to be the
+unique graded Lie bracket of degree $-1$ on multivector fields extending
+the vector-field bracket
+and satisfying
+\[
+[A,B\wedge C]_{\rm Sch}
+=[A,B]_{\rm Sch}\wedge C
++(-1)^{(p-1)q}B\wedge[A,C]_{\rm Sch}
+\]
+when $A$ has degree $p$ and $B$ has degree $q$.  Prove that the bivector
+defines a Poisson bracket exactly when
+\[
+\{f,g\}=\Pi(df,dg),
+\qquad [\Pi,\Pi]_{\rm Sch}=0.
+\]
+
+A \emph{differential star product} on a Poisson manifold is an associative
+$\mathbb C[[\hbar]]$-bilinear product on
+$C^\infty(M)[[\hbar]]$ of the form
+\[
+f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
+\]
+where the $C_r$ are bidifferential operators, $1$ is a unit, and
+\[
+C_1(f,g)-C_1(g,f)=i\{f,g\}.
+\]
+Let $(E,\omega)$ be a symplectic vector space, let
+$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and write
+$\Pi(k,\ell)=\ell(\Pi(k))$.  Let $D_\Pi$ be the constant bidifferential
+operator characterized on decomposable functions by
+\[
+D_\Pi(f\otimes g)(x,y)=d_yg\bigl(\Pi(d_xf)\bigr).
+\]
+Define the Moyal product on $C^\infty(E)[[\hbar]]$ by
+\[
+f\star g
+=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
+\]
+where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
+associativity from the commutation of the induced constant
+bidifferential operators on $E^3$, and prove
+\[
+f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
+\]
+
+For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive the Weyl relation
+\[
+e_k\star e_\ell
+=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
+\]
+Check its multiplier identity directly, differentiate it to recover the
+canonical commutation relations, and prove that every affine symplectic
+transformation of $E$ preserves $\star$.  Call this intrinsic formal
+algebra the \emph{Moyal algebra} of the symplectic vector space.
+\end{exercise}
+
+\begin{exercise}[Connections, curvature, and Chern--Weil forms]
+Let $E\to M$ be a smooth complex vector bundle of rank $r$.  Define its
+direct sum, tensor product, dual, and pullback by the corresponding
+fiberwise operations.  Call a connection defined above \emph{complex} when
+$\nabla_X(is)=i\nabla_Xs$.  For a complex connection, extend $\nabla$ to
+$E$-valued forms by the graded Leibniz rule and write
+\[
+F_\nabla=\nabla^2\in\Omega^2(M;\operatorname{End}E)
+\]
+for its curvature.
+
+Prove the Bianchi identity $\nabla F_\nabla=0$.  Using the intrinsic
+trace and determinant developed earlier, define
+\[
+\operatorname{ch}(E,\nabla)
+=\operatorname{Tr}\exp\!\left(\frac{iF_\nabla}{2\pi}\right),
+\qquad
+c(E,\nabla)
+=\det\!\left(I+\frac{iF_\nabla}{2\pi}\right)
+=1+c_1(E,\nabla)+\cdots+c_r(E,\nabla).
+\]
+Use Bianchi and cyclicity of trace to prove that the homogeneous components
+of $\operatorname{ch}(E,\nabla)$ are closed.  For a path $\nabla_t$ of
+connections, derive
+\[
+\frac d{dt}\operatorname{Tr}
+\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)
+=d\,\operatorname{Tr}\!\left(
+\frac{i\dot\nabla_t}{2\pi}
+\exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
+\]
+Use as theorem input the corresponding Chern--Weil transgression formula
+for the determinant invariant polynomials.  Deduce that the de Rham classes
+$\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
+natural under pullback, and satisfy
+\[
+c(E\oplus F)=c(E)c(F),
+\qquad
+\operatorname{ch}(E\oplus F)=\operatorname{ch}(E)+\operatorname{ch}(F),
+\qquad
+\operatorname{ch}(E\otimes F)=\operatorname{ch}(E)\operatorname{ch}(F).
+\]
+Prove also that
+\[
+\operatorname{ch}_q(E^\vee)=(-1)^q\operatorname{ch}_q(E).
+\]
+Recover the first Chern form of a line bundle used above.
+\end{exercise}
+
+\begin{exercise}[Spectral projections and Berry bundles]
+Let $W$ be a finite-dimensional Hermitian vector space, let $B$ be a smooth
+manifold, and let $H:B\to\operatorname{End}(W)$ be a smooth family of
+self-adjoint operators.  Suppose a fixed contour $\Gamma$ encloses an
+isolated spectral cluster of constant multiplicity.  Define
+\[
+P_b=\frac{1}{2\pi i}\oint_\Gamma(z-H(b))^{-1}\,dz,
+\qquad
+\mathcal E=\coprod_{b\in B}\operatorname{im}P_b.
+\]
+Prove that $P_b$ is a smooth family of orthogonal projections and that
+$\mathcal E\to B$ is a smooth Hermitian vector bundle.  Construct its local
+product maps from the restrictions of nearby projections to a fixed fiber,
+without choosing a frame.  Define the Berry connection by
+\[
+\nabla^{\mathrm B}s=P\,ds
+\]
+for sections satisfying $Ps=s$, and prove
+\[
+F_{\mathrm B}=P(dP\wedge dP)P,
+\qquad
+c_1(\mathcal E)=
+\left[\frac{i}{2\pi}\operatorname{Tr}P(dP\wedge dP)\right].
+\]
+\end{exercise}
+
+\begin{exercise}[Two-level Berry degree and gap protection]
+For the distinguished two-band Hamiltonian on the Brillouin torus $B=T^2$,
+\[
+H(k)=d_1(k)\sigma_1+d_2(k)\sigma_2+d_3(k)\sigma_3,
+\qquad d(k)\ne0,
+\]
+let $\widehat d=d/|d|$ and let $\mathcal E_-$ be the negative-energy line
+bundle.  From $P_-=(I-\widehat d\cdot\sigma)/2$, derive
+\[
+\int_{T^2}c_1(\mathcal E_-)
+=\frac1{4\pi}\int_{T^2}
+\widehat d\cdot
+(\partial_{k_1}\widehat d\times\partial_{k_2}\widehat d)
+\,dk_1\,dk_2
+=\deg(\widehat d).
+\]
+Show that this integer cannot change under a smooth deformation that keeps
+the spectral gap open.
+\end{exercise}
+
+\begin{exercise}[Elliptic pendulum period]
+On $T^*S^1$ consider
+\[
+H(\theta,p)=\frac{p^2}{2m\ell^2}+mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, set
+$k=\sin(\theta_0/2)$ and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use energy conservation to prove
+\[
+T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
+\]
+Apply the generalized binomial theorem with $a=\frac12$.  For
+\[
+I_m=\int_0^{\pi/2}\sin^{2m}\phi\,d\phi,
+\]
+use integration by parts to prove
+\[
+I_0=\frac{\pi}{2},
+\qquad
+I_m=\frac{2m-1}{2m}I_{m-1}\quad(m\geq1),
+\]
+and obtain
+\[
+K(k)=\frac{\pi}{2}\sum_{m=0}^{\infty}
+\left(\frac{(1/2)_m}{m!}\right)^2k^{2m},
+\qquad |k|<1.
+\]
+Deduce
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
+\]
+Deduce the experimentally testable increase of period with amplitude and
+the logarithmic divergence as $\theta_0\uparrow\pi$.
+\end{exercise}
+
+\section{Fourier Analysis}
+
+\begin{exercise}[Invariant Riemannian geometry]
 A \emph{Riemannian metric} on an $n$-manifold $M$ is a smooth family of
 positive-definite inner products $g_p$ on $T_pM$.  Its Riemannian density
 is characterized by
@@ -788,6 +1345,8 @@ $\Delta_g=\operatorname{div}_g\operatorname{grad}_g$.
 
 An isometry $F:(M,g)\to(N,h)$ is a diffeomorphism satisfying
 $h_{F(p)}(dF_pv,dF_pw)=g_p(v,w)$.
+For a Lie group $G$ and $g\in G$, write $L_g(h)=gh$.  A Riemannian metric
+on $G$ is \emph{left-invariant} when $L_g$ is an isometry for every $g$.
 
 \begin{enumerate}[label=(\alph*)]
 \item Prove that an isometry preserves the Riemannian density, gradient,

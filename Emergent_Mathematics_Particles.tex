@@ -72,9 +72,7 @@ $\sigma:G\times G\to\T$ satisfying
 \qquad
 \sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
 \]
-A \emph{symplectic vector space} is a finite-dimensional real vector
-space $E$ equipped with a nondegenerate alternating bilinear form
-$\omega$.  Let $(E,\omega)$ be such a space.
+Let $(E,\omega)$ be a symplectic vector space.
 For $\lambda\in\R$, define
 \[
 \sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
@@ -438,6 +436,20 @@ a\star_\hbar b
 =\{a,b\}+O(\hbar^2)
 \]
 in the Schwartz-symbol topology.
+Compare the complete asymptotic expansion coefficient by coefficient with
+the intrinsic Moyal product developed in Symplectic Geometry.  First prove
+that every coefficient of that product preserves Schwartz functions, so
+for $E=V\oplus V^*$ it restricts to a formal product on
+$\mathcal S(V\oplus V^*)[[\hbar]]$.  For
+$k\in(V\oplus V^*)^*$ put $e_k(z)=e^{ik(z)}$.  Extend Weyl quantization to
+these oscillatory symbols and prove that $\operatorname{Op}_\hbar^W(e_k)$
+is unitary and that
+\[
+\operatorname{Op}_\hbar^W(e_k)\operatorname{Op}_\hbar^W(e_\ell)
+=e^{-i\hbar\Pi(k,\ell)/2}
+\operatorname{Op}_\hbar^W(e_{k+\ell}).
+\]
+Thus obtain an operator realization of the Moyal plane-wave identity.
 \end{exercise}
 
 \begin{exercise}[Groenewold--van Hove obstruction]
