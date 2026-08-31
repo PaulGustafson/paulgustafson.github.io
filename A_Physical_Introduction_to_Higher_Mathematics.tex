@@ -46,6 +46,11 @@
 \author{Paul Gustafson}
 \date{}
 
+\newif\ifincludeSymmetryCore
+\newif\ifincludeSymmetryAdvanced
+\newif\ifincludeIntegrabilitySymmetry
+\newif\ifincludeEllipticIntegrability
+
 \begin{document}
 \maketitle
 \begingroup
@@ -55,10 +60,20 @@
 \endgroup
 \clearpage
 
+\includeSymmetryCoretrue
 \input{Emergent_Mathematics_Symmetry}
-\input{Emergent_Mathematics_Geometry}
+\includeSymmetryCorefalse
 \input{Emergent_Mathematics_Particles}
+\includeSymmetryAdvancedtrue
+\input{Emergent_Mathematics_Symmetry}
+\includeSymmetryAdvancedfalse
+\includeIntegrabilitySymmetrytrue
 \input{Emergent_Mathematics_Integrability}
+\includeIntegrabilitySymmetryfalse
+\input{Emergent_Mathematics_Geometry}
+\includeEllipticIntegrabilitytrue
+\input{Emergent_Mathematics_Integrability}
+\includeEllipticIntegrabilityfalse
 
 \begin{thebibliography}{99}
 
