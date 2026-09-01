@@ -49,6 +49,7 @@
 \newif\ifincludeSymmetryCore
 \newif\ifincludeSymmetryQuantization
 \newif\ifincludeSymmetryAdvanced
+\newif\ifincludeTransferMatrices
 \newif\ifincludeIntegrabilitySymmetry
 \newif\ifincludeEllipticIntegrability
 
@@ -68,6 +69,10 @@
 \input{Emergent_Mathematics_Symmetry}
 \includeSymmetryQuantizationfalse
 \input{Emergent_Mathematics_Particles}
+\input{Emergent_Mathematics_Integrable_Probability}
+\includeTransferMatricestrue
+\input{Emergent_Mathematics_Integrability}
+\includeTransferMatricesfalse
 \includeSymmetryAdvancedtrue
 \input{Emergent_Mathematics_Symmetry}
 \includeSymmetryAdvancedfalse

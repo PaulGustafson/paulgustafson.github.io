@@ -1,5 +1,58 @@
 \section{Determinantal Kernels}
 
+\begin{exercise}[Scattering projections and fermionic correlations]
+Let
+\[
+H_R=-\frac{\hbar^2}{2\mu}\Delta+V
+\]
+be the Dirichlet realization of a real Schr\"odinger operator on the ball
+$B_R\subset\R^3$.  Fix a Fermi energy $E_F$ outside its spectrum and let
+\[
+P_R=\mathbf1_{(-\infty,E_F]}(H_R)
+\]
+have rank $N$.  Suppose its integral kernel $K_R$ is continuous.  Prove
+intrinsically from $P_R^2=P_R=P_R^*$ that
+\[
+\int_{B_R}K_R(x,z)K_R(z,y)\,dz=K_R(x,y),
+\qquad
+\int_{B_R}K_R(x,x)\,dx=N,
+\]
+and that every matrix $[K_R(x_i,x_j)]$ is positive semidefinite.
+
+The position density of the state filling this spectral subspace with
+$N$ identical spinless fermions is
+\[
+p_R(x_1,\ldots,x_N)
+=\frac1{N!}\det[K_R(x_i,x_j)]_{i,j=1}^N.
+\]
+Use the projection identity and determinant expansion to prove that
+$p_R$ is a probability density and that, for $1\leq k\leq N$,
+\[
+\frac{N!}{(N-k)!}
+\int_{B_R^{N-k}}p_R(x_1,\ldots,x_N)
+\,dx_{k+1}\cdots dx_N
+=\det[K_R(x_i,x_j)]_{i,j=1}^k.
+\]
+
+Assume now that $V$ is radial and supported in a fixed ball.  In angular
+momentum channel $\ell$, use the exterior asymptotic
+\[
+u_\ell(r;k)
+\sim\sin\!\left(kr-\frac{\ell\pi}{2}+\delta_\ell(k)\right)
+\]
+and the Dirichlet condition at $r=R$ to derive
+\[
+kR-\frac{\ell\pi}{2}+\delta_\ell(k)=n\pi+o(1)
+\qquad(R\to\infty).
+\]
+Where $\delta_\ell$ is differentiable and no level crosses the chosen
+energy window, deduce that the shift of the radial density of states from
+its free value is $\delta_\ell'(k)/\pi$.  Include the multiplicity
+$2\ell+1$ and state the finite-volume, elastic, threshold, angular-momentum
+cutoff, and detector-resolution assumptions under which fermion counts
+below $E_F$ test the phase-shift prediction.
+\end{exercise}
+
 \begin{exercise}[Hermite Gaussian moments]
 Let $\mathbb P$ be the probability measure on $\R$ with density
 $(2\pi)^{-1/2}e^{-x^2/2}$, let $X(x)=x$, and write
