@@ -3128,47 +3128,38 @@ with $0\leq x,y\leq k$.
 \end{exercise}
 
 \begin{exercise}[Factorization homology and modular surface state spaces]
-Let $\operatorname{Disk}_2^{\rm or}$ be the symmetric monoidal
-$\infty$-category
-whose objects are finite disjoint unions of oriented open disks, whose
-morphism spaces are spaces of orientation-preserving embeddings, and whose
-monoidal product is disjoint union.  Let $\mathcal V$ be a symmetric
-monoidal $\infty$-category admitting the required colimits, with tensor
-product preserving them separately in each variable.  Define an oriented
-two-disk algebra in $\mathcal V$ to be a symmetric monoidal functor
-$A\colon\operatorname{Disk}_2^{\rm or}\to\mathcal V$.  For an oriented
-surface $\Sigma$, define its factorization homology by
+Put $\mathcal A=Z(\mathcal C_k)$.  Use as theorem
+input~\cite{ayala-francis,ai-factorization} that its ribbon structure
+determines an isotopy-invariant symmetric monoidal assignment
 \[
-\int_\Sigma A
-=\operatorname*{colim}_{(D\hookrightarrow\Sigma)
-\in\operatorname{Disk}_2^{\rm or}/\Sigma}A(D).
+\Sigma\longmapsto\int_\Sigma\mathcal A,
 \]
-Derive disk normalization and the disjoint-union identity
+called factorization homology and characterized by disk normalization,
+disjoint union, and collar excision.  The first two properties are
 \[
-\int_{\mathbb R^2}A\simeq A(\mathbb R^2),
+\int_{\mathbb R^2}\mathcal A\simeq\mathcal A,
 \qquad
-\int_{\Sigma\sqcup\Sigma'}A
-\simeq\left(\int_\Sigma A\right)\otimes
-\left(\int_{\Sigma'}A\right).
+\int_{\Sigma\sqcup\Sigma'}\mathcal A
+\simeq\left(\int_\Sigma\mathcal A\right)\boxtimes
+\left(\int_{\Sigma'}\mathcal A\right).
 \]
-Use as theorem input the excision theorem~\cite{ayala-francis}: for a
-collar gluing
-$\Sigma=\Sigma_-\cup_{N\times\mathbb R}\Sigma_+$,
+For a collar gluing
+$\Sigma=\Sigma_-\cup_{N\times\mathbb R}\Sigma_+$, excision is the
+equivalence
 \[
-\int_\Sigma A\simeq
-\left(\int_{\Sigma_-}A\right)
-\underset{\int_{N\times\mathbb R}A}{\otimes}
-\left(\int_{\Sigma_+}A\right).
+\int_\Sigma\mathcal A\simeq
+\left(\int_{\Sigma_-}\mathcal A\right)
+\underset{\int_{N\times\mathbb R}\mathcal A}{\boxtimes}
+\left(\int_{\Sigma_+}\mathcal A\right),
 \]
-
-Put $\mathcal A=Z(\mathcal C_k)$.  Use as theorem input that the ribbon
-structure of $\mathcal A$ supplies the oriented two-disk-algebra data
-and that, on a closed oriented surface, its factorization homology has a
+where the collar embeddings give the two surface values their right and
+left module structures over
+$\int_{N\times\mathbb R}\mathcal A$.  On a closed oriented surface, use
+as theorem input that this assignment has a
 distinguished finite-dimensional Hilbert space
 $\mathcal H_{\mathcal A}(\Sigma)$ canonically isomorphic to the
-Reshetikhin--Turaev surface state space~\cite{ai-factorization}.  Apply
-excision to a pair-of-pants decomposition and use Verlinde
-diagonalization to prove
+Reshetikhin--Turaev surface state space.  Apply collar excision to a
+pair-of-pants decomposition and use Verlinde diagonalization to prove
 \[
 \dim\mathcal H_{Z(\mathcal C_k)}(\Sigma_g)
 =\left(\sum_{x=0}^k S_{0x}^{\,2-2g}\right)^2.
