@@ -64,6 +64,10 @@ These rules apply to the manuscript entry point
 
 - Treat each `\section` as a complete mathematical arc rather than as a
   container for prerequisite material.
+- Keep section titles short and nonconjunctive. Each title should name one
+  principal mathematical subject; do not join subjects or applications with
+  "and," commas, ampersands, or multi-clause constructions. Put the detailed
+  scope and physical culmination in exercise titles and exercise bodies.
 - Use only `\part` and `\section` headings. Do not add `\subsection`,
   `\subsubsection`, or other intermediate titled divisions.
 - Every section must culminate in a substantial exercise that derives or uses
