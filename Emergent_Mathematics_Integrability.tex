@@ -1465,6 +1465,328 @@ assumptions under which configuration counts or free-energy measurements
 test the determinant and product identities.
 \end{exercise}
 
+\begin{exercise}[Elliptic gamma functions and the deformation hierarchy]
+For $|p|,|q|<1$ and $z\in\mathbb C^\times$, define
+\[
+(z;p)_\infty=\prod_{j=0}^\infty(1-zp^j),
+\qquad
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
+\]
+and use the abbreviations
+\[
+\theta(z_1,\ldots,z_s;p)=\prod_{j=1}^s\theta(z_j;p),
+\]
+\[
+(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
+\]
+\[
+(a_1,\ldots,a_s;q,p)_m
+=\prod_{i=1}^s(a_i;q,p)_m,
+\]
+and
+\[
+\Gamma(z;p,q)=\prod_{j,k\geq0}
+\frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
+\]
+
+Prove
+\[
+\theta(pz;p)=-z^{-1}\theta(z;p),
+\qquad
+\theta(z;0)=1-z,
+\]
+and that the zeros of $\theta(\,\cdot\,;p)$ are the points $p^n$,
+$n\in\mathbb Z$, with multiplicity one when $p\ne0$.
+Prove
+\[
+\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q),
+\]
+\[
+\Gamma(pz;p,q)=\theta(z;q)\Gamma(z;p,q),
+\qquad
+\Gamma(z;p,q)\Gamma(pq/z;p,q)=1.
+\]
+Prove
+\[
+(a;q,0)_m=(a;q)_m,
+\qquad
+\Gamma(z;0,q)=\frac1{(z;q)_\infty}.
+\]
+\end{exercise}
+
+\begin{exercise}[The Frenkel--Turaev sum]
+For $a^2q^{n+1}=bcde$, define
+\[
+\begin{aligned}
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\sum_{m=0}^n{}&
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}\\
+&\times
+\frac{(a,b,c,d,e,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove the multiplicative theta addition formula
+\[
+\begin{aligned}
+&\theta(xz,x/z,yw,y/w;p)-\theta(xw,x/w,yz,y/z;p)\\
+&\hspace{4em}=\frac{y}{z}\theta(xy,x/y,zw,z/w;p)
+\end{aligned}
+\]
+by comparing quasi-periodicity and zeros.
+\item Use it to telescope the
+difference between the $n$th and $(n-1)$st terminating sums and prove
+\[
+{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
+=\frac{(aq,aq/(bc),aq/(bd),aq/(cd);q,p)_n}
+{(aq/b,aq/c,aq/d,aq/(bcd);q,p)_n}.
+\]
+\item Take $p\to0$ and identify the terminating very-well-poised basic
+hypergeometric summation.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Elliptic face weights and vertex--face intertwiners]
+Fix logarithms of $p,q$ with $|p|,|q|<1$ and put
+\[
+[x]_{p,q}
+=q^{(1-x)/2}\frac{\theta(q^x;p)}{\theta(q;p)}.
+\]
+For integer heights $i,j,k,l$ satisfying
+\[
+|i-j|=|j-k|=|k-l|=|l-i|=1,
+\]
+define $W(i,j,k,l\mid x)$ by
+\[
+\begin{aligned}
+W(l\!\pm\!1,l\!\pm\!2,l\!\pm\!1,l\mid x)
+&=[x+1]_{p,q},\\
+W(l\!\mp\!1,l,l\!\pm\!1,l\mid x)
+&=\frac{[l+1\pm1]_{p,q}[x]_{p,q}}{[l+1]_{p,q}},\\
+W(l\!\pm\!1,l,l\!\pm\!1,l\mid x)
+&=\frac{[l+1\mp x]_{p,q}}{[l+1]_{p,q}},
+\end{aligned}
+\]
+whenever the denominators are nonzero, and set all other weights equal to
+zero.  On $V=\C e_+\oplus\C e_-$ let $he_\pm=\pm e_\pm$ and define
+$R(x,\lambda)\in\End(V\otimes V)$ at $\lambda=l+1$ by
+\[
+\left\langle e_{j-k}\otimes e_{k-l},
+R(x,l+1)(e_{i-l}\otimes e_{j-i})\right\rangle
+=W(i,j,k,l\mid x),
+\]
+using the orthonormal distinguished weight lines and extending
+meromorphically in $\lambda$.
+
+Let $R^{\rm vert}(u)\in\End(V\otimes V)$ be a spectral exchange operator.
+For each admissible oriented height edge $|a-b|=1$, let
+$\psi(a,b\mid u)\in V$ be meromorphic in $u$.  The pair
+$(R^{\rm vert},\psi)$ satisfies the vertex--face relation for $W$ when
+\[
+\begin{aligned}
+&R^{\rm vert}(u-v)
+\bigl(\psi(a,b\mid u)\otimes\psi(b,c\mid v)\bigr)\\
+&\quad=\sum_{\substack{b'\\|a-b'|=|b'-c|=1}}
+W(a,b,c,b'\mid u-v)
+\psi(a,b'\mid v)\otimes\psi(b',c\mid u).
+\end{aligned}
+\]
+The intertwiners are nondegenerate when the maps from admissible
+height-path spaces induced by their tensor products are injective for
+generic spectral parameters.
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove $[-x]_{p,q}=-[x]_{p,q}$ and rewrite the theta addition identity as
+the corresponding four-term identity for the brackets $[x]_{p,q}$.
+\item Verify that $R(x,\lambda)$ has weight zero and prove the dynamical
+Yang--Baxter equation
+\[
+\begin{aligned}
+&R_{12}(x,\lambda+h^{(3)})
+R_{13}(x+y,\lambda)
+R_{23}(y,\lambda+h^{(1)})\\
+&\qquad={}
+R_{23}(y,\lambda)
+R_{13}(x+y,\lambda+h^{(2)})
+R_{12}(x,\lambda)
+\end{aligned}
+\]
+by reducing every nontrivial weight component to that bracket identity.
+Translate the two sides into the two sums over the admissible internal
+height of a three-face patch.  Show directly that the shifts by
+$h^{(1)},h^{(2)},h^{(3)}$ are the changes of the adjacent face height and
+that $\lambda$, unlike $x$ and $y$, is therefore the dynamical parameter.
+
+\item For periodic admissible height paths, form the row-to-row transfer maps by
+multiplying the displayed face weights and summing over the intermediate
+path.  Use the face Yang--Baxter relation to prove commutation of transfer
+maps with distinct spectral parameters.  For fixed boundary heights of a
+three-face patch with two admissible internal heights, compute their
+normalized probabilities from the two products of $W$ and prove that a
+star--triangle move preserves the boundary partition function.  State the
+real parameter and gauge conditions under which the normalized weights are
+positive statistical-mechanical probabilities.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Vertex--face transfer correspondence]
+Assume nondegenerate vertex--face intertwiners.  Apply the ordinary
+spectral Yang--Baxter equation for $R^{\rm vert}$ to
+\[
+\psi(a,b\mid u)\otimes
+\psi(b,c\mid v)\otimes
+\psi(c,d\mid w)
+\]
+and use the vertex--face relation in the two orders.  Prove that equality
+of the resulting coefficients is the face Yang--Baxter relation and hence
+the dynamical Yang--Baxter equation.  Conversely,
+use nondegeneracy to prove the ordinary Yang--Baxter equation on the image
+of the height-path map from the face relation.
+
+For inhomogeneities $z_1,\ldots,z_N$, tensor the edge intertwiners around a
+periodic row to obtain the map $\Phi_u$ from periodic height paths to the
+corresponding vertex sector.  Prove the row-transfer intertwining identity
+\[
+\mathsf T_N^{\rm vert}(u)\Phi_u
+=\Phi_u\mathsf T_N^{\rm face}(u)
+\]
+with the boundary twist dictated by the net height change.  Deduce equality
+of the matched transfer spectra and periodic-strip partition functions.
+In the trigonometric degeneration $p\to0$, identify the vertex transfer
+operator with the six-vertex family and the face transfer operator with
+the trigonometric solid-on-solid model.  State the boundary-sector,
+normalization, injectivity, and face-gauge conditions required when their
+finite-size spectra are compared.
+\end{exercise}
+
+\begin{exercise}[Terminating elliptic \texorpdfstring{$6j$}{6j}-symbols]
+For $bcdefg=a^3q^{n+2}$, define
+\[
+\begin{aligned}
+&{}_{12}V_{11}
+ (a;b,c,d,e,f,g,q^{-n};q,p)\\
+&\quad=\sum_{m=0}^n
+\frac{\theta(aq^{2m};p)}{\theta(a;p)}
+\frac{(a,b,c,d,e,f,g,q^{-n};q,p)_m}
+{(q,aq/b,aq/c,aq/d,aq/e,aq/f,aq/g,
+aq^{n+1};q,p)_m}q^m.
+\end{aligned}
+\]
+
+Let
+\[
+\lambda=\frac{a^2q}{bcd},
+\qquad
+g=\frac{\lambda aq^{n+1}}{ef},
+\]
+and assume no displayed denominator vanishes.  Expand the series on the
+right, interchange the resulting finite sums, and apply the
+Frenkel--Turaev ${}_{10}V_9$ summation to prove
+\[
+\begin{aligned}
+&{}_{12}V_{11}
+ (a;b,c,d,e,f,g,q^{-n};q,p)\\
+&\quad=
+\frac{(aq,aq/(ef),\lambda q/e,\lambda q/f;q,p)_n}
+{(aq/e,aq/f,\lambda q/(ef),\lambda q;q,p)_n}\\
+&\qquad\quad\times
+{}_{12}V_{11}\!\left(
+\lambda;\frac{\lambda b}{a},\frac{\lambda c}{a},
+\frac{\lambda d}{a},e,f,g,q^{-n};q,p\right).
+\end{aligned}
+\]
+Fuse $n$ consecutive elementary face weights by summing over admissible
+internal height paths.  Factor the endpoint theta products and show that
+the remaining path sum has the displayed ${}_{12}V_{11}$ term ratio.
+Identify the two sides of the transformation with the two fusion orders
+and hence with the two recouplings of the four external height paths.
+Deduce the tetrahedral change of channel for the resulting elliptic
+$6j$ coefficients and recover the face Yang--Baxter relation for fused
+weights.
+
+Choose a numerator parameter so that the transformed series reduces to
+its zeroth term and recover the ${}_{10}V_9$ summation.  Take
+$p\to0$ to obtain Bailey's terminating very-well-poised
+${}_{10}\phi_9$ transformation, and then take the spectral degeneration
+to the $Q$-Racah quantum $6j$ coefficients.  For a
+finite fused face strip, express the relative Boltzmann probabilities of
+two resolved intermediate heights as ratios of normalized fused face
+weights.  Separately, in a unitary recoupling specialization, express
+channel probabilities as squared normalized elliptic $6j$ coefficients.
+State the positivity, face-gauge, boundary-height, unitarity, and
+spectral-resolution assumptions required for the two interpretations.
+\end{exercise}
+
+\begin{exercise}[Elliptic beta kernels]
+Write
+\[
+\Gamma(tz^{\pm1};p,q)=\Gamma(tz;p,q)\Gamma(t/z;p,q),
+\qquad
+\kappa_{p,q}=\frac{(p;p)_\infty(q;q)_\infty}{2}.
+\]
+For $|t_j|<1$ with $\prod_{j=1}^6t_j=pq$, define
+\[
+\mathcal B(t_1,\ldots,t_6)
+=\kappa_{p,q}\int_{\T}
+\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}\,\frac{dz}{2\pi iz}.
+\]
+
+Use the elliptic-gamma difference equations to derive the parameter-shift
+recurrences of $\mathcal B$.
+\end{exercise}
+
+\begin{exercise}[Elliptic beta integral]
+Evaluate the residue degeneration in which two parameters multiply to
+$pq$ and normalize the product side by the same degeneration.  Use as
+theorem input the elliptic-shift uniqueness
+lemma~\cite{spiridonov-beta}: a meromorphic function
+of the balanced parameters that satisfies the two independent
+$p$- and $q$-shift recurrences and has the
+specified residue normalization is uniquely determined.  Apply the lemma
+and analytic continuation to prove
+\[
+\mathcal B(t_1,\ldots,t_6)
+=\prod_{1\leq i<j\leq6}\Gamma(t_it_j;p,q).
+\]
+Take $p\to0$ and identify the resulting basic hypergeometric beta
+integral.
+\end{exercise}
+
+\begin{exercise}[Elliptic integral operators and the star--triangle relation]
+For $|t|<1$ define
+\[
+(\mathcal M_t f)(w)
+=\frac{\kappa_{p,q}}{\Gamma(t^2;p,q)}
+\int_{\T}
+\frac{\Gamma(tw^{\pm1}z^{\pm1};p,q)}
+{\Gamma(z^{\pm2};p,q)}f(z)\,\frac{dz}{2\pi iz},
+\]
+and
+\[
+\mathcal D_s(y,w)
+=\Gamma\!\left((pq)^{1/2}s^{-1}y^{\pm1}w^{\pm1};p,q\right).
+\]
+
+Apply the elliptic beta integral to the internal integration variable and
+prove the operator identity
+\[
+\mathcal M_s\mathcal D_{st}(y,\cdot)\mathcal M_t
+=\mathcal D_t(y,\cdot)\mathcal M_{st}\mathcal D_s(y,\cdot)
+\]
+whenever the contours separate reciprocal pole sequences and the
+parameters satisfy the corresponding modulus bounds.  Interpret the
+kernels as edge weights and $\mathcal D$ as a site weight of a continuous
+spin model.  Prove that the two local triangular partition functions are
+equal and that the row transfer operators obtained by the two
+factorizations commute.  For a finite periodic strip, deduce equality of
+the transfer spectra and partition functions under a star--triangle move;
+state the positivity regime and contour assumptions under which these are
+statistical-mechanical observables.
+\end{exercise}
+
 \section{Fusion Categories}
 
 \begin{exercise}[Temperley--Lieb categories and Jones--Wenzl projectors]
@@ -2571,19 +2893,10 @@ sufficiently many nondegenerate transitions.
 \end{exercise}
 
 \begin{exercise}[Elliptic Ruijsenaars spectral tori]
-Let $0<p<1$, choose $\tau\in i\mathbb R_{>0}$ with
-$p=e^{2\pi i\tau}$, and define
-\[
-\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
-\qquad z\in\mathbb C^\times.
-\]
+Let $0<p<1$ and choose $\tau\in i\mathbb R_{>0}$ with
+$p=e^{2\pi i\tau}$.
 \begin{enumerate}[label=(\alph*)]
-\item Prove
-\[
-\theta(pz;p)=-z^{-1}\theta(z;p)
-\]
-and that the zeros of $\theta(\,cdot\,;p)$ are the points $p^n$,
-$n\in\mathbb Z$, with multiplicity one.  Prove that multiplication by
+\item Prove that multiplication by
 $p$ acts freely and properly discontinuously on $\mathbb C^\times$ and
 that the exponential map induces a biholomorphism
 \[
@@ -2699,317 +3012,4 @@ theta-function deformation and its nodal degeneration.
 \end{enumerate}
 \end{exercise}
 
-\fi
-\ifincludeEllipticIntegrability
-\section{Elliptic Integrability}
-
-\begin{exercise}[Elliptic gamma functions and the deformation hierarchy]
-For $|p|,|q|<1$, define
-\[
-\theta(z_1,\ldots,z_s;p)=\prod_{j=1}^s\theta(z_j;p),
-\]
-\[
-(a;q,p)_m=\prod_{j=0}^{m-1}\theta(aq^j;p),
-\]
-\[
-(a_1,\ldots,a_s;q,p)_m
-=\prod_{i=1}^s(a_i;q,p)_m,
-\]
-and
-\[
-\Gamma(z;p,q)=\prod_{j,k\geq0}
-\frac{1-p^{j+1}q^{k+1}/z}{1-p^jq^kz}.
-\]
-
-Prove
-\[
-\Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q),
-\]
-\[
-\Gamma(pz;p,q)=\theta(z;q)\Gamma(z;p,q),
-\qquad
-\Gamma(z;p,q)\Gamma(pq/z;p,q)=1.
-\]
-Prove
-\[
-\theta(z;0)=1-z,
-\qquad
-(a;q,0)_m=(a;q)_m,
-\qquad
-\Gamma(z;0,q)=\frac1{(z;q)_\infty}.
-\]
-\end{exercise}
-
-\begin{exercise}[The Frenkel--Turaev sum]
-For $a^2q^{n+1}=bcde$, define
-\[
-\begin{aligned}
-{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
-=\sum_{m=0}^n{}&
-\frac{\theta(aq^{2m};p)}{\theta(a;p)}\\
-&\times
-\frac{(a,b,c,d,e,q^{-n};q,p)_m}
-{(q,aq/b,aq/c,aq/d,aq/e,aq^{n+1};q,p)_m}q^m.
-\end{aligned}
-\]
-
-\begin{enumerate}[label=(\alph*)]
-\item Prove the multiplicative theta addition formula
-\[
-\begin{aligned}
-&\theta(xz,x/z,yw,y/w;p)-\theta(xw,x/w,yz,y/z;p)\\
-&\hspace{4em}=\frac{y}{z}\theta(xy,x/y,zw,z/w;p)
-\end{aligned}
-\]
-by comparing quasi-periodicity and zeros.
-\item Use it to telescope the
-difference between the $n$th and $(n-1)$st terminating sums and prove
-\[
-{}_{10}V_9(a;b,c,d,e,q^{-n};q,p)
-=\frac{(aq,aq/(bc),aq/(bd),aq/(cd);q,p)_n}
-{(aq/b,aq/c,aq/d,aq/(bcd);q,p)_n}.
-\]
-\item Take $p\to0$ and identify the terminating very-well-poised basic
-hypergeometric summation.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Elliptic face weights and vertex--face intertwiners]
-Fix logarithms of $p,q$ with $|p|,|q|<1$ and put
-\[
-[x]_{p,q}
-=q^{(1-x)/2}\frac{\theta(q^x;p)}{\theta(q;p)}.
-\]
-For integer heights $i,j,k,l$ satisfying
-\[
-|i-j|=|j-k|=|k-l|=|l-i|=1,
-\]
-define $W(i,j,k,l\mid x)$ by
-\[
-\begin{aligned}
-W(l\!\pm\!1,l\!\pm\!2,l\!\pm\!1,l\mid x)
-&=[x+1]_{p,q},\\
-W(l\!\mp\!1,l,l\!\pm\!1,l\mid x)
-&=\frac{[l+1\pm1]_{p,q}[x]_{p,q}}{[l+1]_{p,q}},\\
-W(l\!\pm\!1,l,l\!\pm\!1,l\mid x)
-&=\frac{[l+1\mp x]_{p,q}}{[l+1]_{p,q}},
-\end{aligned}
-\]
-whenever the denominators are nonzero, and set all other weights equal to
-zero.  On $V=\C e_+\oplus\C e_-$ let $he_\pm=\pm e_\pm$ and define
-$R(x,\lambda)\in\End(V\otimes V)$ at $\lambda=l+1$ by
-\[
-\left\langle e_{j-k}\otimes e_{k-l},
-R(x,l+1)(e_{i-l}\otimes e_{j-i})\right\rangle
-=W(i,j,k,l\mid x),
-\]
-using the orthonormal distinguished weight lines and extending
-meromorphically in $\lambda$.
-
-Let $R^{\rm vert}(u)\in\End(V\otimes V)$ be a spectral exchange operator.
-For each admissible oriented height edge $|a-b|=1$, let
-$\psi(a,b\mid u)\in V$ be meromorphic in $u$.  The pair
-$(R^{\rm vert},\psi)$ satisfies the vertex--face relation for $W$ when
-\[
-\begin{aligned}
-&R^{\rm vert}(u-v)
-\bigl(\psi(a,b\mid u)\otimes\psi(b,c\mid v)\bigr)\\
-&\quad=\sum_{\substack{b'\\|a-b'|=|b'-c|=1}}
-W(a,b,c,b'\mid u-v)
-\psi(a,b'\mid v)\otimes\psi(b',c\mid u).
-\end{aligned}
-\]
-The intertwiners are nondegenerate when the maps from admissible
-height-path spaces induced by their tensor products are injective for
-generic spectral parameters.
-
-\begin{enumerate}[label=(\alph*)]
-\item Prove $[-x]_{p,q}=-[x]_{p,q}$ and rewrite the theta addition identity as
-the corresponding four-term identity for the brackets $[x]_{p,q}$.
-\item Verify that $R(x,\lambda)$ has weight zero and prove the dynamical
-Yang--Baxter equation
-\[
-\begin{aligned}
-&R_{12}(x,\lambda+h^{(3)})
-R_{13}(x+y,\lambda)
-R_{23}(y,\lambda+h^{(1)})\\
-&\qquad={}
-R_{23}(y,\lambda)
-R_{13}(x+y,\lambda+h^{(2)})
-R_{12}(x,\lambda)
-\end{aligned}
-\]
-by reducing every nontrivial weight component to that bracket identity.
-Translate the two sides into the two sums over the admissible internal
-height of a three-face patch.  Show directly that the shifts by
-$h^{(1)},h^{(2)},h^{(3)}$ are the changes of the adjacent face height and
-that $\lambda$, unlike $x$ and $y$, is therefore the dynamical parameter.
-
-\item For periodic admissible height paths, form the row-to-row transfer maps by
-multiplying the displayed face weights and summing over the intermediate
-path.  Use the face Yang--Baxter relation to prove commutation of transfer
-maps with distinct spectral parameters.  For fixed boundary heights of a
-three-face patch with two admissible internal heights, compute their
-normalized probabilities from the two products of $W$ and prove that a
-star--triangle move preserves the boundary partition function.  State the
-real parameter and gauge conditions under which the normalized weights are
-positive statistical-mechanical probabilities.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Vertex--face transfer correspondence]
-Assume nondegenerate vertex--face intertwiners.  Apply the ordinary
-spectral Yang--Baxter equation for $R^{\rm vert}$ to
-\[
-\psi(a,b\mid u)\otimes
-\psi(b,c\mid v)\otimes
-\psi(c,d\mid w)
-\]
-and use the vertex--face relation in the two orders.  Prove that equality
-of the resulting coefficients is the face Yang--Baxter relation and hence
-the dynamical Yang--Baxter equation.  Conversely,
-use nondegeneracy to prove the ordinary Yang--Baxter equation on the image
-of the height-path map from the face relation.
-
-For inhomogeneities $z_1,\ldots,z_N$, tensor the edge intertwiners around a
-periodic row to obtain the map $\Phi_u$ from periodic height paths to the
-corresponding vertex sector.  Prove the row-transfer intertwining identity
-\[
-\mathsf T_N^{\rm vert}(u)\Phi_u
-=\Phi_u\mathsf T_N^{\rm face}(u)
-\]
-with the boundary twist dictated by the net height change.  Deduce equality
-of the matched transfer spectra and periodic-strip partition functions.
-In the trigonometric degeneration $p\to0$, identify the vertex transfer
-operator with the six-vertex family and the face transfer operator with
-the trigonometric solid-on-solid model.  State the boundary-sector,
-normalization, injectivity, and face-gauge conditions required when their
-finite-size spectra are compared.
-\end{exercise}
-
-\begin{exercise}[Terminating elliptic \texorpdfstring{$6j$}{6j}-symbols]
-For $bcdefg=a^3q^{n+2}$, define
-\[
-\begin{aligned}
-&{}_{12}V_{11}
- (a;b,c,d,e,f,g,q^{-n};q,p)\\
-&\quad=\sum_{m=0}^n
-\frac{\theta(aq^{2m};p)}{\theta(a;p)}
-\frac{(a,b,c,d,e,f,g,q^{-n};q,p)_m}
-{(q,aq/b,aq/c,aq/d,aq/e,aq/f,aq/g,
-aq^{n+1};q,p)_m}q^m.
-\end{aligned}
-\]
-
-Let
-\[
-\lambda=\frac{a^2q}{bcd},
-\qquad
-g=\frac{\lambda aq^{n+1}}{ef},
-\]
-and assume no displayed denominator vanishes.  Expand the series on the
-right, interchange the resulting finite sums, and apply the
-Frenkel--Turaev ${}_{10}V_9$ summation to prove
-\[
-\begin{aligned}
-&{}_{12}V_{11}
- (a;b,c,d,e,f,g,q^{-n};q,p)\\
-&\quad=
-\frac{(aq,aq/(ef),\lambda q/e,\lambda q/f;q,p)_n}
-{(aq/e,aq/f,\lambda q/(ef),\lambda q;q,p)_n}\\
-&\qquad\quad\times
-{}_{12}V_{11}\!\left(
-\lambda;\frac{\lambda b}{a},\frac{\lambda c}{a},
-\frac{\lambda d}{a},e,f,g,q^{-n};q,p\right).
-\end{aligned}
-\]
-Fuse $n$ consecutive elementary face weights by summing over admissible
-internal height paths.  Factor the endpoint theta products and show that
-the remaining path sum has the displayed ${}_{12}V_{11}$ term ratio.
-Identify the two sides of the transformation with the two fusion orders
-and hence with the two recouplings of the four external height paths.
-Deduce the tetrahedral change of channel for the resulting elliptic
-$6j$ coefficients and recover the face Yang--Baxter relation for fused
-weights.
-
-Choose a numerator parameter so that the transformed series reduces to
-its zeroth term and recover the ${}_{10}V_9$ summation.  Take
-$p\to0$ to obtain Bailey's terminating very-well-poised
-${}_{10}\phi_9$ transformation, and then take the spectral degeneration
-to the $Q$-Racah quantum $6j$ coefficients.  For a
-finite fused face strip, express the relative Boltzmann probabilities of
-two resolved intermediate heights as ratios of normalized fused face
-weights.  Separately, in a unitary recoupling specialization, express
-channel probabilities as squared normalized elliptic $6j$ coefficients.
-State the positivity, face-gauge, boundary-height, unitarity, and
-spectral-resolution assumptions required for the two interpretations.
-\end{exercise}
-
-\begin{exercise}[Elliptic beta kernels]
-Write
-\[
-\Gamma(tz^{\pm1};p,q)=\Gamma(tz;p,q)\Gamma(t/z;p,q),
-\qquad
-\kappa_{p,q}=\frac{(p;p)_\infty(q;q)_\infty}{2}.
-\]
-For $|t_j|<1$ with $\prod_{j=1}^6t_j=pq$, define
-\[
-\mathcal B(t_1,\ldots,t_6)
-=\kappa_{p,q}\int_{\T}
-\frac{\prod_{j=1}^6\Gamma(t_jz^{\pm1};p,q)}
-{\Gamma(z^{\pm2};p,q)}\,\frac{dz}{2\pi iz}.
-\]
-
-Use the elliptic-gamma difference equations to derive the parameter-shift
-recurrences of $\mathcal B$.
-\end{exercise}
-
-\begin{exercise}[Elliptic beta integral]
-Evaluate the residue degeneration in which two parameters multiply to
-$pq$ and normalize the product side by the same degeneration.  Use as
-theorem input the elliptic-shift uniqueness
-lemma~\cite{spiridonov-beta}: a meromorphic function
-of the balanced parameters that satisfies the two independent
-$p$- and $q$-shift recurrences and has the
-specified residue normalization is uniquely determined.  Apply the lemma
-and analytic continuation to prove
-\[
-\mathcal B(t_1,\ldots,t_6)
-=\prod_{1\leq i<j\leq6}\Gamma(t_it_j;p,q).
-\]
-Take $p\to0$ and identify the resulting basic hypergeometric beta
-integral.
-\end{exercise}
-
-\begin{exercise}[Elliptic integral operators and the star--triangle relation]
-For $|t|<1$ define
-\[
-(\mathcal M_t f)(w)
-=\frac{\kappa_{p,q}}{\Gamma(t^2;p,q)}
-\int_{\T}
-\frac{\Gamma(tw^{\pm1}z^{\pm1};p,q)}
-{\Gamma(z^{\pm2};p,q)}f(z)\,\frac{dz}{2\pi iz},
-\]
-and
-\[
-\mathcal D_s(y,w)
-=\Gamma\!\left((pq)^{1/2}s^{-1}y^{\pm1}w^{\pm1};p,q\right).
-\]
-
-Apply the elliptic beta integral to the internal integration variable and
-prove the operator identity
-\[
-\mathcal M_s\mathcal D_{st}(y,\cdot)\mathcal M_t
-=\mathcal D_t(y,\cdot)\mathcal M_{st}\mathcal D_s(y,\cdot)
-\]
-whenever the contours separate reciprocal pole sequences and the
-parameters satisfy the corresponding modulus bounds.  Interpret the
-kernels as edge weights and $\mathcal D$ as a site weight of a continuous
-spin model.  Prove that the two local triangular partition functions are
-equal and that the row transfer operators obtained by the two
-factorizations commute.  For a finite periodic strip, deduce equality of
-the transfer spectra and partition functions under a star--triangle move;
-state the positivity regime and contour assumptions under which these are
-statistical-mechanical observables.
-\end{exercise}
 \fi
