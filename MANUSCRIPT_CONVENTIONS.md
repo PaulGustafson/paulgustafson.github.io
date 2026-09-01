@@ -1,6 +1,6 @@
 # Manuscript conventions
 
-These rules govern `A_Physical_Introduction_to_Higher_Mathematics.tex`.
+These rules govern `Emergent_Mathematics.tex`.
 
 1. Apart from front matter and sectioning commands, every manuscript passage
    belongs to a `definition` or `exercise` environment.
