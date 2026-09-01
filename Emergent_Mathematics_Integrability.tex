@@ -365,6 +365,52 @@ anisotropy corrections, and irrelevant-operator corrections required for
 the comparison.
 \end{exercise}
 
+\begin{exercise}[Renormalization, Ising scaling fields, and critical exponents]
+For a transfer operator on a circle of circumference $L$, normalize by its
+Perron eigenvalue and define
+\[
+H_L=-\frac1{a_t}\log(T_L/\Lambda_0(L)).
+\]
+At the critical Ising point, use the character sectors above to identify
+the primary scaling dimensions
+\[
+x_{\mathbf1}=0,
+\qquad x_\sigma=\frac18,
+\qquad x_\varepsilon=1.
+\]
+Define a scale transformation by $L\mapsto L/b$ followed by the energy
+rescaling that keeps the critical velocity fixed.  A coupling $g_i$ to a
+scaling field of dimension $x_i$ has linearized renormalization law
+\[
+g_i\longmapsto b^{y_i}g_i,
+\qquad y_i=2-x_i.
+\]
+Prove that the thermal perturbation has $y_t=1$ and the magnetic
+perturbation has $y_h=15/8$.
+
+Use as theorem input the scaling hypothesis for the singular free-energy
+density,
+\[
+f_{\rm sing}(t,h)=b^{-2}
+f_{\rm sing}(b^{y_t}t,b^{y_h}h),
+\]
+and derive
+\[
+\nu=1,
+\qquad \eta=\frac14,
+\qquad \beta=\frac18,
+\qquad \gamma=\frac74,
+\qquad \delta=15,
+\qquad \alpha=0.
+\]
+Show that a perturbation with $x_i>2$ gives corrections to finite-size
+levels that decay as a power of $L$, whereas $x_i<2$ opens a scale set by
+$|g_i|^{-1/y_i}$.  State the locality, single-fixed-point, scaling-window,
+field-calibration, thermodynamic-limit, and finite-size assumptions under
+which magnetization, susceptibility, correlation-length, and heat-capacity
+measurements test these exponent relations.
+\end{exercise}
+
 \begin{exercise}[Izergin determinant and domain-wall ice entropy]
 Let $V=\C e_+\oplus\C e_-$ be the two-state edge space.  For an additive
 spectral parameter $u$, put
@@ -891,6 +937,7 @@ orthogonality constants and deduce
 algebraically and as a Hilbert direct sum in the Haar GNS space.
 \end{exercise}
 
+
 \begin{exercise}[$C^*$-tensor categories and corepresentations]
 A finite-dimensional unitary corepresentation of a compact quantum group
 $\mathbb G$ on $H_U$ is a unitary $U\in B(H_U)\otimes C(\mathbb G)$ with
@@ -1116,6 +1163,7 @@ basis that
 \end{enumerate}
 \end{exercise}
 
+
 \begin{exercise}[$SU_v(2)$ fusion and quantum dimensions]
 Let $V_n$ be the irreducible type-$1$ $U_v(\mathfrak{sl}_2)$-module of
 highest weight $n$.  Construct its conjugate equations and prove
@@ -1138,6 +1186,56 @@ products and conjugates and form a rigid $C^*$-tensor category.  Prove
 &&\dim_v(V_n)&>n+1\quad(0<v<1,\ n\geq1).
 \end{aligned}
 \]
+\end{exercise}
+
+\begin{exercise}[Tannaka--Krein reconstruction of compact quantum symmetry]
+Let $\mathcal C$ be a rigid $C^*$-tensor category with a chosen small
+skeleton and let
+$F:\mathcal C\to\operatorname{Hilb}_{\mathrm{fd}}$ be a faithful unitary
+tensor functor.  Form the coend
+\[
+\operatorname{Pol}(\mathcal C,F)
+=\left(\bigoplus_{U\in\mathcal C}F(U)^\vee\otimes F(U)\right)\big/\sim,
+\]
+where
+\[
+(\varphi\circ F(T))\otimes v
+\sim\varphi\otimes F(T)v
+\qquad(T:U\to V).
+\]
+Let
+$q_U:F(U)^\vee\otimes F(U)\to\operatorname{Pol}(\mathcal C,F)$ be the
+resulting coefficient map and write
+$[\varphi\otimes v]_U=q_U(\varphi\otimes v)$.  Use the
+tensor structure of $F$ to define multiplication by
+\[
+[\varphi\otimes v]_U[\psi\otimes w]_V
+=[(\varphi\otimes\psi)\otimes(v\otimes w)]_{U\otimes V}.
+\]
+Define the counit by evaluation and define the coproduct intrinsically by
+inserting the coevaluation of $F(U)$ between $\varphi$ and $v$:
+\[
+\Delta q_U
+=(q_U\otimes q_U)
+(\id_{F(U)^\vee}\otimes\operatorname{coev}_{F(U)}
+\otimes\id_{F(U)}).
+\]
+Prove that these maps are well defined and give a bialgebra.  Use the
+chosen conjugates and the Hilbert-space adjoint to construct the antipode
+and involution and verify the Hopf $*$-identities.
+
+Use as theorem input the compact Tannaka--Krein reconstruction
+theorem~\cite{woronowicz-cmqg}: the universal $C^*$-completion determines a
+compact quantum group $\mathbb G_F$, and $F$ induces a unitary tensor
+equivalence
+\[
+\mathcal C\simeq\operatorname{Rep}(\mathbb G_F).
+\]
+Apply the construction to the forgetful functor on
+$\operatorname{Rep}(SU_v(2))$, identify its coefficient Hopf $*$-algebra
+with $\operatorname{Pol}(SU_v(2))$, and prove that a unitary monoidal
+natural isomorphism between two fiber functors induces an isomorphism of
+the reconstructed compact quantum groups.
 \end{exercise}
 
 \begin{exercise}[Basic hypergeometric series and summations]
@@ -1575,6 +1673,70 @@ simulator, and determine the scalar gauge and real spectral-parameter
 regime under which the same six weights are nonnegative Boltzmann weights.
 \end{exercise}
 
+\begin{exercise}[Coordinate Bethe ansatz and the Baxter equation]
+In the sector of the periodic XXZ chain with $M$ reversed spins, label a
+configuration by
+\[
+1\leq x_1<\cdots<x_M\leq N.
+\]
+For momenta $k_1,\ldots,k_M$, put
+\[
+\psi(x_1,\ldots,x_M)
+=\sum_{\pi\in S_M}A_\pi
+\exp\!\left(i\sum_{a=1}^Mk_{\pi(a)}x_a\right).
+\]
+Apply the XXZ Hamiltonian first when no two reversed spins are adjacent and
+then at a collision.  Prove
+\[
+E=4J\sum_{a=1}^M(\cos k_a-\Delta)
+\]
+and derive the two-body exchange factor
+\[
+S(k,k')=-
+\frac{1+e^{i(k+k')}-2\Delta e^{ik}}
+{1+e^{i(k+k')}-2\Delta e^{ik'}}.
+\]
+Use factorization of all coefficient ratios and periodicity to obtain the
+Bethe equations
+\[
+e^{ik_aN}=\prod_{b\ne a}S(k_a,k_b),
+\qquad 1\leq a\leq M.
+\]
+
+Put $v=e^{-\eta}$, so $\Delta=\cosh\eta$, and reparametrize the momenta by
+rapidities $u_j$ through
+\[
+e^{ik_j}=\frac{\sinh(u_j+\eta/2)}{\sinh(u_j-\eta/2)}.
+\]
+Define
+\[
+Q(u)=\prod_{j=1}^M\sinh(u-u_j),
+\quad
+a(u)=\sinh(u+\eta/2)^N,
+\quad
+d(u)=\sinh(u-\eta/2)^N.
+\]
+Use the algebraic relations of the six-vertex monodromy operator as
+theorem input~\cite{korepin-qism} to prove that a transfer eigenvalue
+$\Lambda(u)$ satisfies Baxter's equation
+\[
+\Lambda(u)Q(u)=a(u)Q(u-\eta)+d(u)Q(u+\eta).
+\]
+Prove that cancellation of the apparent poles at the zeros of $Q$ gives
+\[
+\left(\frac{\sinh(u_j+\eta/2)}
+{\sinh(u_j-\eta/2)}\right)^N
+=\prod_{\ell\ne j}
+\frac{\sinh(u_j-u_\ell+\eta)}
+{\sinh(u_j-u_\ell-\eta)},
+\]
+and identify these equations with the momentum form above.  Solve the
+$M=1$ sector and one chosen $M=2$ finite chain, and state the periodicity,
+anisotropy, completeness, root-selection, finite-size, and spectral
+resolution assumptions under which many-body line measurements test the
+Bethe roots and Baxter polynomial.
+\end{exercise}
+
 \begin{exercise}[$q$KZ transport]
 Let $v$ be the quantum-group parameter and let $\kappa\ne0$ be an
 independent shift parameter.  Let $D\in\operatorname{End}(V)$ be
@@ -1604,6 +1766,44 @@ under which it is an interference observable.
 \end{exercise}
 
 \section{Double Affine Hecke Algebras}
+
+\begin{exercise}[Root systems, affine Weyl groups, and alcoves]
+Let $E$ be a finite-dimensional real Euclidean space.  A finite
+\emph{root system} is a finite spanning set $R\subset E\setminus\{0\}$
+such that, with
+\[
+\alpha^\vee=\frac{2\alpha}{\langle\alpha,\alpha\rangle},
+\qquad
+s_\alpha(x)=x-\langle x,\alpha^\vee\rangle\alpha,
+\]
+one has $s_\alpha(R)=R$ and
+$\langle\beta,\alpha^\vee\rangle\in\Z$ for all $\alpha,\beta\in R$.
+Define the Weyl group $W$, root lattice $Q$, coroot lattice $Q^\vee$,
+weight lattice $P$, a positive system, simple roots, and the dominant
+chamber.  Prove that $W$ is
+generated by the simple reflections and acts simply transitively on the
+chambers.
+
+For type $A_{r-1}$ take
+\[
+E=\{x\in\R^r:\textstyle\sum_i x_i=0\},
+\qquad R=\{e_i-e_j:i\ne j\},
+\]
+and prove $W\cong S_r$.  For the nonreduced system $BC_r$, identify the
+reflection hyperplanes associated with
+\[
+\pm e_i,qquad\pm2e_i,qquad\pm e_i\pm e_j
+\]
+and prove that its Weyl group is the signed permutation group.
+
+Define the affine reflections in
+$\langle x,\alpha^\vee\rangle=m$, $m\in\Z$, the affine Weyl group
+$W_{\rm aff}=Q^\vee\rtimes W$, and its fundamental alcove.  Show in type
+$A_{r-1}$ that the affine braid group is generated by wall crossings of
+the alcoves and that imposing quadratic Hecke relations yields the affine
+Hecke algebra.  Identify the finite and affine Weyl symmetries that occur
+in the type-$A$ and $BC_r$ polynomial models below.
+\end{exercise}
 
 \begin{exercise}[Double-affine braid groups and Hecke quotients]
 For $r\geq2$, the \emph{double-affine braid group} $\widetilde B_r$ of
@@ -2155,12 +2355,17 @@ and
 \[
 (\pi f)(x_1,\ldots,x_r)=f(x_2,\ldots,x_r,qx_1).
 \]
+Define the Cherednik operators by
+\[
+Y_i=T_i\cdots T_{r-1}\pi
+T_1^{-1}\cdots T_{i-1}^{-1}.
+\]
 For generic independent parameters $q,t$, call the operator algebra
 generated by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ the type-$A$
 polynomial operator model.
 
 Prove that the displayed operators preserve $\mathcal P_r$ and satisfy
-the braid and Hecke relations.  Prove
+the braid and Hecke relations, and prove that the $Y_i$ commute.  Prove
 \[
 \pi X_i\pi^{-1}=X_{i+1}\quad(1\leq i<r),
 \qquad
@@ -2177,6 +2382,57 @@ Conclude that the polynomial operator model is a realization of
 $\mathsf H_{q,t}(GL_r)$.
 \end{exercise}
 
+\begin{exercise}[Nonsymmetric Macdonald polynomials and Cherednik intertwiners]
+For a composition $\alpha\in\Z^r$, let $\alpha^+$ be its dominant
+rearrangement.  Order compositions first by dominance of $\alpha^+$ and,
+within a Weyl orbit, by the Bruhat order of the shortest permutation
+carrying $\alpha^+$ to $\alpha$.  Write $x^\alpha$ for the corresponding
+Laurent monomial.
+
+Use the triangular action of the commuting Cherednik operators $Y_i$ to
+define $\xi_i(\alpha)$ as the coefficient of $x^\alpha$ in $Y_ix^\alpha$.
+For generic $q,t$, prove that the joint tuples
+$\xi(\alpha)=(\xi_1(\alpha),\ldots,\xi_r(\alpha))$ are distinct.  Construct
+the unique nonsymmetric Macdonald polynomial
+\[
+E_\alpha=x^\alpha+
+\sum_{\beta\prec\alpha}c_{\alpha\beta}x^\beta,
+\qquad
+Y_iE_\alpha=\xi_i(\alpha)E_\alpha.
+\]
+
+On a joint eigenspace on which the denominator is invertible, define the
+Cherednik intertwiner
+\[
+\Phi_i
+=T_i+\frac{t^{-1/2}-t^{1/2}}{1-Y_i/Y_{i+1}}.
+\]
+Use the affine-Hecke relations to prove
+\[
+\Phi_iY_i=Y_{i+1}\Phi_i,
+\qquad
+\Phi_iY_{i+1}=Y_i\Phi_i,
+\qquad
+\Phi_iY_j=Y_j\Phi_i\quad(j\ne i,i+1),
+\]
+and deduce that a nonzero $\Phi_iE_\alpha$ is proportional to
+$E_{s_i\alpha}$.  Include the affine intertwiner obtained from $\pi$ and
+show that intertwiners generate every $E_\alpha$ from a dominant seed.
+
+Define the finite-Hecke symmetrizer $\mathsf e$ to be the normalized
+idempotent satisfying
+\[
+T_i\mathsf e=t^{1/2}\mathsf e=\mathsf eT_i
+\qquad(1\leq i<r).
+\]
+Prove that
+$\mathsf eE_\alpha$ depends only on $\alpha^+$ and, after monic
+normalization, equals the symmetric Macdonald polynomial $P_{\alpha^+}$.
+Deduce that the symmetric spectral theory is the Weyl-invariant part of a
+joint nonsymmetric $Y$-spectrum, and state how symmetry-resolved frequency
+measurements distinguish a full Weyl orbit before symmetrization.
+\end{exercise}
+
 \begin{exercise}[Macdonald operators and polynomials]
 Let
 \[
@@ -2188,14 +2444,9 @@ The first type-$A$ \emph{Macdonald operator} is
 D_{q,t}=\sum_{i=1}^r
  \left(\prod_{j\ne i}\frac{tx_i-x_j}{x_i-x_j}\right)T_{q,x_i}.
 \]
-Define
-\[
-Y_i=T_i\cdots T_{r-1}\pi
-T_1^{-1}\cdots T_{i-1}^{-1}.
-\]
 Use the displayed polynomial representation and the affine braid relations
-to prove that the $Y_i$ commute.  Prove that their symmetric Laurent
-polynomials preserve $\mathcal P_r^{S_r}$ and identify
+to prove that symmetric Laurent polynomials in the $Y_i$ preserve
+$\mathcal P_r^{S_r}$ and identify
 $t^{-(r-1)/2}(Y_1+\cdots+Y_r)$ with $D_{q,t}$.
 \end{exercise}
 

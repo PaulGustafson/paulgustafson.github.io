@@ -361,6 +361,64 @@ Hamiltonian levels.
 \end{exercise}
 
 
+\begin{exercise}[Pfaffian kernels and the orthogonal and symplectic edge laws]
+For a skew-symmetric $2n\times2n$ matrix $A$, define
+\[
+\operatorname{Pf}(A)
+=\frac1{2^nn!}\sum_{\sigma\in S_{2n}}
+\operatorname{sgn}(\sigma)
+\prod_{j=1}^nA_{\sigma(2j-1),\sigma(2j)}.
+\]
+Prove $\operatorname{Pf}(A)^2=\det A$.
+Let $J=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$ and
+let $K(x,y)$ be a $2\times2$ matrix kernel satisfying
+$K(y,x)=-K(x,y)^{\mathsf T}$.  A simple point process is
+\emph{Pfaffian with kernel $K$} when
+\[
+\rho_k(x_1,\ldots,x_k)
+=\operatorname{Pf}[K(x_i,x_j)]_{i,j=1}^k.
+\]
+Define the Fredholm Pfaffian by its correlation expansion and prove, first
+for finite-rank kernels and then by trace-norm approximation,
+\[
+\operatorname{Pf}(J-K)^2=\det(I+JK),
+\qquad
+\mathbb P(N_D=0)=\operatorname{Pf}(J-K_D).
+\]
+
+Normalize the Gaussian orthogonal, unitary, and symplectic ensembles so
+that their limiting spectral support is $[-2\sigma,2\sigma]$.  Use as
+theorem input the Pfaffian correlation formulas and soft-edge limits for
+the orthogonal and symplectic ensembles~\cite{tracy-widom-orthogonal}:
+their scaled matrix kernels are built from
+$\operatorname{Ai}$, $\operatorname{Ai}'$, and integrals of
+$\operatorname{Ai}$ and converge in trace norm to kernels
+$K_1^{\rm Ai}$ and $K_4^{\rm Ai}$.  Define
+\[
+F_1(s)=\operatorname{Pf}(J-K_{1,s}^{\rm Ai}),
+\qquad
+F_4(s)=\operatorname{Pf}(J-K_{4,s}^{\rm Ai}).
+\]
+If $q$ is the real pole-free solution
+\[
+q''=sq+2q^3,
+\qquad q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty),
+\]
+use as theorem input the Tracy--Widom identities
+\[
+F_1(s)^2
+=F_2(s)\exp\!\left(-\int_s^\infty q(x)\,dx\right),
+\]
+\[
+F_4(s/\sqrt2)^2
+=F_2(s)\cosh^2\!\left(\frac12\int_s^\infty q(x)\,dx\right)
+\]
+and prove that the three symmetry classes have distinct edge laws despite
+the same semicircle edge.  State the antiunitary-symmetry, Kramers-pairing,
+centering, scale-calibration, and finite-size assumptions under which
+extreme-level measurements distinguish $F_1$, $F_2$, and $F_4$.
+\end{exercise}
+
 \begin{exercise}[Partitions and symmetric polynomials]
 An \emph{integer partition} is a finite nonincreasing sequence
 $\lambda=(\lambda_1,\ldots,\lambda_\ell)$ of positive integers, with the
@@ -600,4 +658,50 @@ transverse $n^{2/3}$ scale.  State the independent-weight, boundary,
 centering, scale-calibration, and finite-size assumptions required when
 the Tracy--Widom prediction is compared with interface-height or directed
 transport data.
+\end{exercise}
+
+\begin{exercise}[Extended Airy kernels, the Airy process, and KPZ scaling]
+For times $s,t\in\R$, define the extended Airy kernel by
+\[
+K_{\rm Ai}^{\rm ext}(s,x;t,y)=
+\begin{cases}
+\displaystyle\int_0^\infty
+e^{-\lambda(s-t)}\operatorname{Ai}(x+\lambda)
+\operatorname{Ai}(y+\lambda)\,d\lambda,&s\geq t,\\[7pt]
+\displaystyle-\int_{-\infty}^0
+e^{-\lambda(s-t)}\operatorname{Ai}(x+\lambda)
+\operatorname{Ai}(y+\lambda)\,d\lambda,&s<t.
+\end{cases}
+\]
+For $t_1<\cdots<t_m$ and thresholds $a_1,\ldots,a_m$, let $\chi$ act on
+$\bigoplus_{j=1}^mL^2(\R)$ by multiplication by
+$\mathbf1_{(a_j,\infty)}$ in the $j$th summand.  Define the Airy process
+$\mathcal A_2$ by
+\[
+\mathbb P\bigl(\mathcal A_2(t_j)\leq a_j, 1\leq j\leq m\bigr)
+=\det(I-\chi K_{\rm Ai}^{\rm ext}\chi).
+\]
+Prove from the semigroup identity for the Airy operator that these
+finite-dimensional distributions are consistent, and recover
+$\mathbb P(\mathcal A_2(t)\leq a)=F_2(a)$.
+
+For exponential last-passage percolation, put
+\[
+a_N(u)=\lfloor2^{2/3}uN^{2/3}\rfloor.
+\]
+Use as theorem input the multipoint edge theorem~\cite{corwin-kpz} to
+obtain, in finite-dimensional distributions,
+\[
+\frac{G_{\exp}(N+a_N(u),N-a_N(u))-4N}
+{2^{4/3}N^{1/3}}
+\Longrightarrow\mathcal A_2(u)-u^2.
+\]
+Deduce the KPZ correlation-length exponent $2/3$, fluctuation exponent
+$1/3$, the Tracy--Widom one-point law, and the nontrivial spatial
+correlation function of the centered process.  Express the corresponding
+droplet-growth prediction with nonuniversal velocity, fluctuation, and
+transverse-length calibration constants.  State the curved-geometry,
+short-range-noise, growth-time, spatial-window, and finite-resolution
+assumptions under which interface measurements test the $1{:}2{:}3$
+scaling and Airy-process correlations.
 \end{exercise}

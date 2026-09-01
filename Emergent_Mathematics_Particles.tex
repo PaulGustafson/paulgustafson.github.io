@@ -1172,6 +1172,109 @@ infer a radius, scattering length, resonance energy, or width from measured
 angular distributions.
 \end{exercise}
 
+\begin{exercise}[Jost functions, Levinson's theorem, and bound-state counting]
+Let $V$ be a real radial potential supported in $[0,R]$ and suppose
+$rV(r)$ is integrable.  For angular momentum $\ell$, let
+$\varphi_\ell(k,r)$ be the regular solution of the radial equation,
+normalized by $\varphi_\ell(k,r)\sim r^{\ell+1}$ at the origin, and let
+$f_\ell(k,r)$ be the outgoing solution normalized by
+\[
+f_\ell(k,r)\sim e^{i(kr-\ell\pi/2)}
+\qquad(r>R).
+\]
+Define the Jost function by the $r$-independent Wronskian
+\[
+F_\ell(k)=W(f_\ell(k,-),\varphi_\ell(k,-)).
+\]
+Prove from constancy of the Wronskian and reality of $V$ that, for $k>0$,
+\[
+S_\ell(k)=\frac{F_\ell(-k)}{F_\ell(k)},
+\qquad
+F_\ell(-k)=\overline{F_\ell(k)}.
+\]
+Prove that zeros $k=i\kappa$, $\kappa>0$, are exactly the
+square-integrable bound states of energy
+$-\hbar^2\kappa^2/(2\mu)$.
+
+Choose the continuous phase shift with $\delta_\ell(k)\to0$ as
+$k\to\infty$.  Use as theorem input the Jost-function argument-principle
+form of Levinson's theorem~\cite{newton-scattering} and prove
+\[
+\delta_\ell(0)-\delta_\ell(\infty)=n_\ell\pi
+\]
+when there is no zero-energy resonance, where $n_\ell$ is the number of
+bound states in the $\ell$th channel.  In the $s$-wave channel derive from
+a small semicircle around $k=0$ the threshold formula
+\[
+\delta_0(0)-\delta_0(\infty)=\left(n_0+\frac12\right)\pi
+\]
+when there is a zero-energy resonance.
+
+For the square well above and away from its threshold values, prove
+\[
+n_0=\left\lfloor\frac{\gamma a}{\pi}+\frac12\right\rfloor
+\]
+and verify that each divergence of the scattering length increases the
+continuous value of $\delta_0(0)$ by $\pi$.  State the finite-range,
+elasticity, zero-energy extrapolation, and phase-unwrapping assumptions
+under which scattering data determine an integer bound-state count.
+\end{exercise}
+
+\begin{exercise}[Marchenko reconstruction and the one-soliton potential]
+For the Schr\"odinger operator $L=-d^2/dx^2+V$ with a real potential on
+the line satisfying
+$\int_\R(1+|x|)|V(x)|\,dx<\infty$, let $R(k)$ be its right reflection
+coefficient and let $i\kappa_j$, $\kappa_j>0$, be its bound-state poles
+with positive norming constants $c_j$.  Define
+\[
+\mathcal F(s)=\frac1{2\pi}\int_\R R(k)e^{iks}\,dk
++\sum_jc_je^{-\kappa_js}.
+\]
+The Marchenko kernel is the solution of
+\[
+K(x,y)+\mathcal F(x+y)
++\int_x^\infty K(x,z)\mathcal F(z+y)\,dz=0,
+\qquad y\geq x,
+\]
+and the reconstructed potential is
+\[
+V(x)=-2\frac d{dx}K(x,x).
+\]
+Use as theorem input the Marchenko existence and uniqueness
+theorem~\cite{deift-trubowitz}: the scattering data satisfying the standard
+reality, positivity, and decay conditions determine $V$ uniquely through
+these formulas.
+
+In the reflectionless one-bound-state case put
+\[
+R(k)=0,
+\qquad
+\mathcal F(s)=2\kappa e^{2\kappa x_0}e^{-\kappa s}.
+\]
+Solve the integral equation and prove
+\[
+K(x,y)=
+-\frac{2\kappa e^{2\kappa x_0}e^{-\kappa(x+y)}}
+{1+e^{-2\kappa(x-x_0)}},
+\qquad
+V(x)=-2\kappa^2\operatorname{sech}^2(\kappa(x-x_0)).
+\]
+Compute its transmission coefficient
+\[
+T(k)=\frac{k+i\kappa}{k-i\kappa}
+\]
+and recover the bound-state pole from transmission data.  Let the norming
+constant evolve by $c(t)=c(0)e^{8\kappa^3t}$ and show that
+$u(x,t)=-V(x,t)$ is the KdV soliton
+\[
+u(x,t)=2\kappa^2
+\operatorname{sech}^2\!\bigl(\kappa(x-x_0-4\kappa^2t)\bigr).
+\]
+State the one-dimensional, reflectionless, full-line, coherent-scattering,
+and weakly dispersive assumptions under which the measured pole and pulse
+speed test the inverse-scattering reconstruction.
+\end{exercise}
+
 \begin{exercise}[Coulomb radial functions and phase shifts]
 For the repulsive Coulomb potential $V(r)=\kappa/r$, with $\kappa>0$, put
 \[

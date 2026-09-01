@@ -483,6 +483,61 @@ A=\int_\R\lambda\,dE_A(\lambda),\qquad
 \]
 \end{exercise}
 
+\begin{exercise}[Resolvents, compact resolvent, and the min--max principle]
+For a closed operator $A$, define its resolvent set by
+\[
+\rho(A)=\{z\in\C:A-zI:\mathcal D(A)\to H
+\text{ is bijective with bounded inverse}\}
+\]
+and put $R_A(z)=(A-zI)^{-1}$.  For a self-adjoint $A$, use the spectral
+measure to prove
+\[
+R_A(z)=\int_\R\frac1{\lambda-z}\,dE_A(\lambda),
+\qquad
+\|R_A(z)\|\leq\frac1{|\operatorname{Im}z|}
+\quad(z\notin\R),
+\]
+and derive the resolvent identity
+\[
+R_A(z)-R_A(w)=(z-w)R_A(z)R_A(w).
+\]
+If a positively oriented contour $\Gamma$ in $\rho(A)$ encloses an isolated
+compact part $\Sigma$ of the spectrum, prove
+\[
+E_A(\Sigma)=-\frac1{2\pi i}\int_\Gamma R_A(z)\,dz.
+\]
+
+Call $A$ an operator with \emph{compact resolvent} when $R_A(z)$ is compact
+for one $z\in\rho(A)$.  Prove from the resolvent identity that it is then
+compact for every $z\in\rho(A)$.  If $H$ is infinite-dimensional and
+$A$ is self-adjoint, bounded below,
+and has compact resolvent, prove that its spectrum consists of eigenvalues
+of finite multiplicity
+\[
+\lambda_1\leq\lambda_2\leq\cdots,
+\qquad \lambda_n\longrightarrow+\infty,
+\]
+listed with multiplicity.  For a nonzero subspace $L\subset\mathcal D(A)$
+put
+\[
+\mathcal R_A(L)=
+\sup_{x\in L\setminus\{0\}}
+\frac{\langle x,Ax\rangle}{\langle x,x\rangle}.
+\]
+Use the spectral projections, without choosing eigenvectors, to prove the
+min--max identity
+\[
+\lambda_n=\inf_{\dim L=n}\mathcal R_A(L).
+\]
+For a bounded self-adjoint perturbation $B$, apply the same identity to
+prove
+\[
+|\lambda_n(A+B)-\lambda_n(A)|\leq\|B\|.
+\]
+State how a calibrated operator-norm bound on an uncontrolled perturbation
+gives an error bar for every predicted discrete spectral line.
+\end{exercise}
+
 \begin{exercise}[Stone's theorem]
 Use the measurable functional calculus of $E_A$ to prove that $e^{-itA}$
 is a strongly continuous unitary group with generator $-iA$.  Conversely,
@@ -822,6 +877,59 @@ is closed and has integral $2\pi$ around the unit circle, hence is not exact.
 Compute $H_{\mathrm{dR}}^1(\R^2\setminus\{0\})=\R\cdot[\alpha]$. Deduce that a
 closed electromagnetic field strength has local potentials, while it has a
 global potential $F=dA$ exactly when $[F]=0$ in de Rham cohomology.
+\end{exercise}
+
+\begin{exercise}[Singular homology, de Rham comparison, and integral periods]
+For a space $X$, a \emph{singular $k$-simplex} is a continuous map
+$\sigma:\Delta^k\to X$.  Let $C_k(X;\Z)$ be the free abelian group on
+these simplices and define
+\[
+\partial\sigma
+=\sum_{j=0}^k(-1)^j\sigma|_{[v_0,\ldots,\widehat v_j,\ldots,v_k]}.
+\]
+Prove $\partial^2=0$ and define
+\[
+H_k(X;\Z)=\ker\partial/\operatorname{im}\partial.
+\]
+For a continuous map $f:X\to Y$, define $f_\#$ by composition with
+singular simplices and prove that it is a chain map.  Construct the prism
+operator for a homotopy and deduce that homotopic maps induce the same map
+on homology.  For $A\subset X$, define the relative chain complex
+$C_*(X,A)=C_*(X)/C_*(A)$ and derive the long exact sequence of a pair.
+
+For an abelian group $A$, define singular cochains by
+$C^k(X;A)=\operatorname{Hom}(C_k(X;\Z),A)$ with coboundary
+$\delta\varphi=\varphi\partial$, and define $H^k(X;A)$.  For cochains
+with values in a commutative ring, define the cup product by evaluating
+the two factors on the front and back faces of a simplex.  Prove the
+graded Leibniz identity for $\delta$ and deduce the graded cohomology ring.
+
+For a smooth manifold $M$, use the smooth-approximation theorem to replace
+singular simplices by smooth singular simplices without changing homology,
+and set
+\[
+I(\omega)(\sigma)=\int_{\Delta^k}\sigma^*\omega.
+\]
+Use Stokes' theorem to prove $I(d\omega)=\delta I(\omega)$ and hence obtain
+the natural de Rham map
+\[
+I:H^k_{\mathrm{dR}}(M)\longrightarrow H^k(M;\R).
+\]
+Use as theorem input the de Rham theorem~\cite{bott-tu}: this map is an
+isomorphism of graded rings.  Deduce that a closed form is exact exactly
+when all its periods over smooth singular cycles vanish.
+
+Use the coefficient homomorphism $\Z\to\R$ to define an \emph{integral de
+Rham class} as a class in the image of
+$H^k(M;\Z)\to H^k(M;\R)$.  Use the integral-period form of the de Rham
+theorem to prove that $[\omega]$ is integral exactly when
+\[
+\int_c\omega\in\Z
+\qquad\text{for every }[c]\in H_k(M;\Z).
+\]
+For a closed oriented $k$-manifold $N$ and a smooth map $f:N\to M$,
+identify the period over $f_*[N]$ with $\int_Nf^*\omega$ and prove its
+invariance under oriented bordism of the map.
 \end{exercise}
 
 \begin{exercise}[Cotangent phase space]
@@ -1435,6 +1543,51 @@ For $v\in V$, prove
 \]
 \end{exercise}
 
+\begin{exercise}[Fourier uncertainty and Gaussian wave packets]
+Let $V$ be a real Euclidean space, let $v\in V$ be a unit vector, and put
+\[
+(Q_vf)(q)=\langle v,q\rangle f(q),
+\qquad
+P_vf=-i\hbar d_vf
+\]
+on $\mathcal S(V)$.  Prove
+\[
+[Q_v,P_v]=i\hbar I,
+\qquad
+\mathcal F_\hbar P_v\mathcal F_\hbar^{-1}=Q_v.
+\]
+For a normalized $f\in\mathcal S(V)$ define
+\[
+(\Delta_fQ_v)^2=\|(Q_v-\langle Q_v\rangle_f)f\|^2,
+\qquad
+(\Delta_fP_v)^2=\|(P_v-\langle P_v\rangle_f)f\|^2.
+\]
+Apply Cauchy--Schwarz to the two centered vectors and use the imaginary
+part of their inner product to prove
+\[
+\Delta_fQ_v\,\Delta_fP_v\geq\frac\hbar2.
+\]
+For $V=\R$, determine the equality condition and prove that every equality
+state is, up to normalization and a constant phase,
+\[
+f(x)=
+\exp\!\left[-\frac{(x-x_0)^2}{4\sigma^2}
++\frac{i p_0x}{\hbar}\right],
+\qquad
+\Delta Q=\sigma,
+\qquad
+\Delta P=\frac\hbar{2\sigma}.
+\]
+Evolve this packet with the free Schr\"odinger Hamiltonian and prove
+\[
+(\Delta Q(t))^2
+=\sigma^2+\frac{\hbar^2t^2}{4m^2\sigma^2}.
+\]
+State the preparation, free-propagation, spatial-resolution, and
+momentum-calibration assumptions under which width measurements test both
+the uncertainty product and the spreading law.
+\end{exercise}
+
 \begin{exercise}[Free-particle dispersion]
 Substitute the plane wave
 $\psi(q,t)=e^{i(k(q)-\omega t)}$, with $k\in V^*$, into the free
@@ -1735,6 +1888,46 @@ dimension $2j+1$, and that it has
 $J_3$-eigenvalues $m\hbar$ for $m=-j,-j+1,\ldots,j$. Compute the spectrum of
 $J^2=J_1^2+J_2^2+J_3^2$. For $j=\frac12$, relate the two $J_3$ outcomes to
 the two Stern--Gerlach beams.
+\end{exercise}
+
+\begin{exercise}[Weyl integration, character formulas, and orbital Fourier transforms]
+Let
+\[
+t_\phi=
+\begin{pmatrix}e^{i\phi}&0\\0&e^{-i\phi}\end{pmatrix},
+\qquad 0\leq\phi\leq\pi,
+\]
+and let $T\subset SU(2)$ be the resulting maximal torus.  Prove that every
+element of $SU(2)$ is conjugate to exactly one $t_\phi$ in this interval.
+Identify $SU(2)$ with the unit sphere in the quaternions, disintegrate its
+normalized Haar measure over conjugacy classes, and prove the rank-one Weyl
+integration formula
+\[
+\int_{SU(2)}F(g)\,dg
+=\frac2\pi\int_0^\pi F(t_\phi)\sin^2\phi\,d\phi
+\]
+for every continuous class function $F$.
+
+For the representations $V_j$ above, compute
+\[
+\chi_j(t_\phi)
+=\frac{\sin((2j+1)\phi)}{\sin\phi}
+=U_{2j}(\cos\phi)
+\]
+and use the Weyl formula to prove the character orthogonality relations
+directly.  For normalized area measure $d\mu$ on $S^2$, prove
+\[
+\int_{S^2}e^{iar_3}\,d\mu(r)=\frac{\sin a}{a}
+\]
+and deduce the rank-one Kirillov formula
+\[
+\chi_j(t_{\theta/2})
+=(2j+1)\frac{\theta/2}{\sin(\theta/2)}
+\int_{S^2}e^{i(j+1/2)\theta r_3}\,d\mu(r).
+\]
+Identify the shift $j\mapsto j+\tfrac12$ and the Weyl denominator as the
+two corrections relating the orbital Fourier transform to the exact
+quantum character.
 \end{exercise}
 
 \begin{exercise}[Clebsch--Gordan decomposition]
@@ -2686,6 +2879,94 @@ that $\operatorname{Area}(PSL_2(\Z)\backslash\mathbb H)=\pi/3$.
 \end{exercise}
 
 
+\begin{exercise}[Maass forms, Eisenstein series, and automorphic Plancherel theory]
+Let $\Gamma=PSL_2(\Z)$ act on the upper half-plane and give
+$\Gamma\backslash\mathbb H$ the invariant measure $d\mu=y^{-2}dx\,dy$.
+Put
+\[
+\Delta_{\mathbb H}=-y^2(\partial_x^2+\partial_y^2).
+\]
+A \emph{Maass cusp form} with spectral parameter $r$ is a smooth
+$\Gamma$-invariant square-integrable function $u$ satisfying
+\[
+\Delta_{\mathbb H}u=(\tfrac14+r^2)u,
+\qquad
+\int_0^1u(x+iy)\,dx=0.
+\]
+For $z>0$ define the modified Bessel function by
+\[
+K_\nu(z)=\frac12\int_0^\infty
+t^{\nu-1}\exp\!\left[-\frac z2(t+t^{-1})\right]dt.
+\]
+Derive its differential equation, use invariance under $x\mapsto x+1$ to
+separate the distinguished Fourier characters, and prove that every Maass
+cusp form has an expansion
+\[
+u(x+iy)=\sum_{n\ne0}a_n\sqrt y\,
+K_{ir}(2\pi|n|y)e^{2\pi inx}.
+\]
+
+For $\operatorname{Re}s>1$, define
+\[
+E(z,s)=\frac12
+\sum_{\substack{(c,d)\in\Z^2\\(c,d)=1}}
+\frac{y^s}{|cz+d|^{2s}}.
+\]
+Prove absolute convergence, $\Gamma$-invariance, and
+\[
+\Delta_{\mathbb H}E(z,s)=s(1-s)E(z,s).
+\]
+Use Poisson summation to derive its Fourier expansion and identify the
+nonconstant terms as multiples of
+$\sqrt yK_{s-1/2}(2\pi|n|y)e^{2\pi inx}$.
+
+Use as theorem input the automorphic spectral theorem~\cite{iwaniec-spectral}:
+$E(z,\tfrac12+ir)$ supplies the continuous spectrum and the constant
+function together with the Maass cusp forms supplies the discrete spectrum
+of $L^2(\Gamma\backslash\mathbb H)$.  Write the resulting Plancherel and
+inversion formulas with the Eisenstein measure $dr/(4\pi)$.  Deduce that
+the cusp profiles of discrete resonant modes have exponentially decaying
+$K$-Bessel harmonics and state the cusp truncation, boundary, loss, and
+mode-resolution assumptions required to test them in a hyperbolic
+resonator.
+\end{exercise}
+
+\begin{exercise}[Selberg trace formula and hyperbolic length spectroscopy]
+For a primitive hyperbolic conjugacy class $[\gamma]$ in $\Gamma$, define
+its closed-geodesic length $\ell_\gamma>0$ by
+\[
+|\operatorname{Tr}\gamma|=2\cosh(\ell_\gamma/2).
+\]
+Let $h$ be even, holomorphic in a strip, and rapidly decreasing there, and
+put
+\[
+g(u)=\frac1{2\pi}\int_\R h(r)e^{-iru}\,dr.
+\]
+Use as theorem input the Selberg trace formula for the modular
+surface~\cite{iwaniec-spectral}: after subtracting the continuous
+Eisenstein contribution, its regularized spectral trace is the sum of the
+identity, elliptic, parabolic, and hyperbolic terms, with hyperbolic term
+\[
+\sum_{[\gamma]_{\rm prim}}
+\sum_{m\geq1}
+\frac{\ell_\gamma}{2\sinh(m\ell_\gamma/2)}
+g(m\ell_\gamma).
+\]
+Recover the Weyl area term from the identity contribution.  Choose a
+family of functions $g$ concentrated near a positive length $L$ and prove
+that the oscillatory remainder in the smoothed spectral density detects
+the primitive lengths and their repetitions.  Conversely, choose $h$
+concentrated near a spectral parameter and determine the resolution with
+which a finite length window can recover it.
+
+For an idealized wave or circuit realization of a compactly truncated
+modular surface, express the measured resonance parameters as
+$\lambda_j=\tfrac14+r_j^2$ and state separately the curvature calibration,
+cusp truncation, boundary correction, unfolding, finite spectral window,
+and loss assumptions under which the length peaks inferred from resonance
+data may be compared with the closed-geodesic lengths.
+\end{exercise}
+
 \begin{exercise}[Lattice theta series]
 A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
 $\R^d/L$ is compact.  Its dual is
@@ -2810,6 +3091,49 @@ E_4(\tau)=1+240\sum_{n\geq1}\sigma_3(n)q^n,
 \qquad
 E_6(\tau)=1-504\sum_{n\geq1}\sigma_5(n)q^n.
 \]
+\end{exercise}
+
+\begin{exercise}[Hecke operators, eigenforms, and Euler products]
+For $f(\tau)=\sum_{m\geq0}a_mq^m$ of modular weight $k$, define
+\[
+(T_nf)(\tau)
+=n^{k-1}\sum_{\substack{ad=n\\d>0}}d^{-k}
+\sum_{b\bmod d}f\!\left(\frac{a\tau+b}{d}\right).
+\]
+Prove that $T_n$ preserves modular forms and cusp forms and derive
+\[
+[q^m]T_nf
+=\sum_{d\mid(m,n)}d^{k-1}a_{mn/d^2}.
+\]
+Use this formula to prove
+\[
+T_mT_n=\sum_{d\mid(m,n)}d^{k-1}T_{mn/d^2}
+\]
+and hence that the Hecke operators commute.  Define the Petersson inner
+product on cusp forms and prove that every $T_n$ is self-adjoint.
+
+If $f$ is a normalized simultaneous eigenform, prove that its eigenvalue
+under $T_n$ is $a_n$, that
+\[
+a_ma_n=\sum_{d\mid(m,n)}d^{k-1}a_{mn/d^2},
+\qquad
+a_{p^{r+1}}=a_pa_{p^r}-p^{k-1}a_{p^{r-1}},
+\]
+and that
+\[
+L(f,s)=\sum_{n\geq1}\frac{a_n}{n^s}
+=\prod_p\left(1-a_pp^{-s}+p^{k-1-2s}\right)^{-1}
+\]
+in its half-plane of absolute convergence.  Apply this to
+$\Delta=\sum_{n\geq1}\tau(n)q^n$ and compute $\tau(mn)$ for coprime
+$m,n$ and the recurrence for $\tau(p^r)$.
+
+For an arithmetic hyperbolic resonator on which a finite family of Hecke
+correspondences is implemented as commuting calibrated operators, prove
+that joint Laplace--Hecke measurements resolve common spectral subspaces
+and predict the displayed multiplicative relations among their response
+coefficients.  State the arithmetic-quotient, correspondence
+implementation, normalization, and finite-resolution assumptions.
 \end{exercise}
 
 \begin{exercise}[Theta and eta functions]

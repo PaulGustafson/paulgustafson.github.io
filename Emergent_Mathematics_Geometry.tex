@@ -321,6 +321,35 @@ and prove that tangency is detected by a repeated root and hence by the
 corresponding discriminant locus.
 \end{exercise}
 
+\begin{exercise}[Analytification of projective curves and algebraic--holomorphic comparison]
+Let $C$ be a smooth projective complex algebraic curve.  On an affine
+chart $U=\operatorname{Spec}A$ presented inside $\mathbb A^n$, give the
+closed points $U(\C)$ the subspace topology from $\C^n$ and give them the
+sheaf of functions locally representable by convergent power series.
+Use the Jacobian criterion and the holomorphic implicit-function theorem
+to prove that these charts glue to a Riemann surface $C^{\rm an}$.
+Prove that projectivity makes $C^{\rm an}$ compact and that a morphism of
+smooth projective complex curves induces a holomorphic map of their
+analytifications.
+
+For a rational function on $C$, prove that its restriction to closed
+points is meromorphic on $C^{\rm an}$ and gives an embedding
+\[
+K(C)\longrightarrow\mathcal M(C^{\rm an}).
+\]
+Use as theorem input the dimension-one algebraic--analytic comparison and
+GAGA theorems~\cite{serre-gaga}: this map is an isomorphism, analytification
+gives an equivalence between algebraic and holomorphic line bundles, and
+the induced maps on their spaces of sections and cohomology are
+isomorphisms.  Deduce that algebraic divisors, meromorphic sections, and
+degrees agree with their analytic counterparts.
+
+Apply the construction to the projective Legendre curve $E_m$.  Verify on
+its affine charts that the algebraic differential $dx/y$ analytifies to a
+holomorphic one-form and that the algebraic morphism
+$E_m\to\mathbb P^1$ becomes the holomorphic branched cover used below.
+\end{exercise}
+
 \begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
 For a compact connected oriented surface $S$, define its genus $g(S)$ by
 \[
@@ -381,6 +410,51 @@ With $m=k^2$, prove that its orientation may be chosen so that
 \[
 \oint_{\gamma_m}\eta_m=4K(k).
 \]
+\end{exercise}
+
+\begin{exercise}[Surface homology and the intersection pairing]
+A \emph{CW complex} is built inductively by attaching closed disks along
+maps from their boundary spheres to the preceding skeleton.  Use as
+theorem input the cellular-homology theorem: its chain groups are the
+relative groups of consecutive skeleta, its differential is determined by
+the attaching maps, and its homology agrees naturally with singular
+homology.  Let $C$ be a closed connected oriented surface of genus $g$.  Use the
+polygon with edge word
+\[
+a_1b_1a_1^{-1}b_1^{-1}\cdots
+a_gb_ga_g^{-1}b_g^{-1}
+\]
+to give $C$ a CW decomposition with one vertex, $2g$ one-cells, and one
+two-cell.  Apply the cellular-homology theorem to the singular homology
+defined earlier and prove
+\[
+H_0(C;\Z)\cong\Z,
+\qquad
+H_1(C;\Z)\cong\Z^{2g},
+\qquad
+H_2(C;\Z)\cong\Z.
+\]
+Represent the one-cell classes by oriented simple closed curves
+$\alpha_i,\beta_i$ and prove that their oriented intersection numbers are
+\[
+\alpha_i\cdot\alpha_j=0,
+\qquad
+\beta_i\cdot\beta_j=0,
+\qquad
+\alpha_i\cdot\beta_j=\delta_{ij}.
+\]
+Use as theorem input Poincar\'e duality for the surface to prove that this
+alternating pairing is unimodular.
+
+Apply the de Rham theorem and the universal coefficient theorem to identify
+\[
+H^1_{\mathrm{dR}}(C)
+\cong\operatorname{Hom}(H_1(C;\Z),\R)
+\]
+after extension of scalars, with the isomorphism given by periods.  For a
+complex-valued closed one-form, prove that its periods on the
+$\alpha_i,\beta_i$ determine its de Rham class.  Specialize to $g=1$ and
+obtain the two generators used in the period-lattice construction.
 \end{exercise}
 
 \begin{exercise}[Riemann bilinear identity and period lattices]
@@ -1040,6 +1114,49 @@ with domain $H^2_\rho$, and deduce
 Show that its branch points occur at the periodic and antiperiodic energies
 $\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
 exactly when $|\Delta(E)|\leq2$.
+\end{exercise}
+
+\begin{exercise}[Lax pairs, isospectral KdV flow, and Jacobian linearization]
+Let $u(x,t)$ be a smooth real periodic function and define
+\[
+L(t)=-\partial_x^2-u(x,t),
+\qquad
+P(t)=-4\partial_x^3-6u(x,t)\partial_x-3u_x(x,t)
+\]
+on smooth periodic functions.  Compute the commutator and prove that
+\[
+\dot L=[P,L]
+\]
+is equivalent to
+\[
+u_t+6uu_x+u_{xxx}=0.
+\]
+Prove that $P$ is skew-adjoint on the periodic domain.  If $U(t)$ solves
+$\dot U=PU$, $U(0)=I$, prove
+\[
+L(t)=U(t)L(0)U(t)^{-1}
+\]
+and deduce preservation of the periodic and antiperiodic spectra.
+
+For the equation $L(t)\psi=E\psi$ on the line, evolve solutions by
+$\psi_t=P\psi$.  Prove that the fundamental solution over one spatial
+period changes by conjugation and hence that the Floquet discriminant,
+Bloch multipliers, and Bloch spectral curve are independent of $t$.
+Use as theorem input the finite-gap linearization
+theorem~\cite{belokolos}: for a smooth finite-gap curve $\Sigma$, the
+moving pole divisor of the Baker--Akhiezer function has Abel--Jacobi image
+\[
+\mathcal A(D(t))=\mathcal A(D(0))+Vt
+\quad\text{in }\operatorname{Jac}(\Sigma),
+\]
+where $V$ is the normalized second-kind KdV period vector.  Deduce that
+the nonlinear KdV evolution is translation on the Jacobian while its
+spectral curve remains fixed.
+
+For the one-gap case, identify this translation with the phase motion of
+the cnoidal wave developed below.  Show that the limit in which its real
+period diverges gives the reflectionless one-soliton reconstructed by the
+Marchenko equation, including its speed $4\kappa^2$.
 \end{exercise}
 
 \begin{exercise}[Hyperelliptic curves and holomorphic differentials]
@@ -1762,7 +1879,7 @@ with $\beta$ gives
 \cong\widetilde K^0(\Sigma^{n+2}X)
 \qquad(n\geq0).
 \]
-Use this isomorphism to extend reduced and unreduced (K)-theory
+Use this isomorphism to extend reduced and unreduced $K$-theory
 two-periodically to all degrees.
 Deduce
 \[
@@ -1774,8 +1891,7 @@ K^1(S^{2r})=0,
 \quad
 K^1(S^{2r+1})\cong\mathbb Z.
 \]
-Define a \emph{CW complex} inductively by attaching disks along their
-boundary spheres, and call an inclusion $A\hookrightarrow X$ a
+For a CW complex, call an inclusion $A\hookrightarrow X$ a
 \emph{cofibration} when it has the homotopy-extension property.  Use as
 theorem input~\cite{atiyah-k-theory} the six-term exact sequence in reduced \(K\)-theory for a
 cofibration and the standard cell attachment
@@ -1807,6 +1923,78 @@ Hamiltonian over a compact parameter space $X$, form its image bundle and
 class in $K^0(X)$.  Prove that this class is unchanged by a gap-preserving
 homotopy and identify, for $X=T^2$, its rank and first-Chern components
 with the two integers in the displayed computation.
+\end{exercise}
+
+\begin{exercise}[Real \texorpdfstring{$K$}{K}-theory, Clifford periodicity, and the tenfold way]
+Let $Cl_n$ be the real $*$-algebra generated by skew-adjoint elements
+$e_1,\ldots,e_n$ satisfying
+\[
+e_ie_j+e_je_i=-2\delta_{ij}.
+\]
+Use graded tensor products to prove the basic Clifford recursions and use
+as theorem input the Atiyah--Bott--Shapiro construction and real Bott
+periodicity~\cite{atiyah-k-theory}:
+\[
+KO^{-n-8}(X)\cong KO^{-n}(X),
+\]
+with coefficient groups
+\[
+\begin{array}{c|cccccccc}
+n\bmod8&0&1&2&3&4&5&6&7\\ \hline
+KO^{-n}(\mathrm{pt})&
+\Z&\Z/2&\Z/2&0&\Z&0&0&0.
+\end{array}
+\]
+Identify the two $\Z/2$ classes with the obstructions to extending the
+corresponding irreducible Clifford-module structures by one generator.
+
+A finite-range translation-invariant free-fermion Hamiltonian is
+\emph{stably equivalent} to another when one may adjoin spectrally flat
+filled and empty bands and join the flattened Hamiltonians through a
+symmetry-preserving gapped path.  Use as theorem input the free-fermion
+tenfold-way theorem~\cite{kitaev-periodic}: in real symmetry class
+$s\in\Z/8$, the strong stable
+classes in spatial dimension $d$ form $KO^{d-s}(\mathrm{pt})$, while the
+two complex classes are governed by complex $K$-theory with period two.
+Call the absence of antiunitary symmetry class A.  A
+Bogoliubov--de Gennes Hamiltonian has an antiunitary particle--hole
+operator $C$ satisfying
+\[
+CH(k)C^{-1}=-H(-k),
+\]
+and is in class D when $C^2=I$ and there is no additional symmetry.  Class
+AII has an antiunitary time-reversal operator $\Theta$ satisfying
+$\Theta^2=-I$ and no particle--hole symmetry.
+Recover the integer class-A invariant in two dimensions, the
+$\Z/2$ class-D invariant in one dimension, and the $\Z/2$ class-AII
+invariant in two and three dimensions.
+
+For a one-dimensional class-D Bogoliubov--de Gennes Hamiltonian, use one
+continuous oriented Majorana trivialization to write its form at the
+particle--hole invariant momenta as real invertible skew-symmetric
+operators $A(0)$ and $A(\pi)$.  Prove that the product below is independent
+of reversal of the common orientation and that
+\[
+\nu=\operatorname{sgn}
+\bigl(\operatorname{Pf}A(0)\operatorname{Pf}A(\pi)\bigr)\in\{\pm1\}
+\]
+is invariant under stabilization and gapped class-D homotopy and can
+change only when the bulk gap closes.  Let $\tau_y,\tau_z$ be the
+distinguished Pauli endomorphisms of the particle--hole space.  For the
+Kitaev-chain symbol
+\[
+H(k)=(-\mu-2t\cos k)\tau_z+2\Delta\sin k\,\tau_y
+\]
+derive
+\[
+\nu=\operatorname{sgn}(\mu^2-4t^2).
+\]
+At $\Delta=t>0$, solve the open-chain zero-mode recursion and prove that a
+Majorana end mode has amplitude proportional to
+$(-\mu/(2t))^{j-1}$ exactly when $|\mu|<2t$.  State the quadratic,
+translation-invariant-bulk, particle--hole, open-boundary, gap,
+localization-length, and parity-resolution assumptions under which the
+Pfaffian invariant predicts a zero-bias end mode.
 \end{exercise}
 
 \begin{exercise}[Spectral flow and Toeplitz index]
@@ -2573,6 +2761,71 @@ finite-volume, temperature, and symmetry-resolved spectroscopy assumptions
 under which a programmable quantum system tests these protected counts.
 \end{exercise}
 
+\begin{exercise}[Elliptic cohomology, the Witten genus, and topological modular forms]
+A \emph{generalized cohomology theory} is a homotopy-invariant
+contravariant functor on pairs with suspension isomorphisms and long exact
+sequences, represented by a spectrum.  Regard complex $K$-theory and the
+ordinary cohomology spectrum as the examples developed above.  Write
+$K(\Z,4)$ for an Eilenberg--Mac Lane space representing integral
+degree-four cohomology.  For a based map $f:X\to Y$, define its homotopy
+fiber to be the space of pairs $(x,\gamma)$ in which $\gamma$ is a path
+from $f(x)$ to the base point of $Y$.  Let $B\operatorname{String}$ be the
+homotopy fiber of the universal class
+\[
+\lambda:B\operatorname{Spin}\longrightarrow K(\Z,4),
+\]
+and define $M\operatorname{String}$ from the pulled-back universal stable
+bundle by the Thom-spectrum construction above.  A \emph{string structure}
+on a spin manifold $M$ is a lift of the stable tangent classifying map to
+$B\operatorname{String}$; its obstruction is
+\[
+\lambda(TM)=\frac{p_1(TM)}2\in H^4(M;\Z).
+\]
+
+Let $M$ be a closed string manifold of dimension $4m$, and write the
+formal roots of $TM\otimes\C$ as $\{\pm2\pi ix_j\}$.  Define its Witten
+genus by
+\[
+\varphi_W(M;\tau)
+=\int_M\prod_j
+x_j\frac{\vartheta_1'(0\mid\tau)}
+{\vartheta_1(x_j\mid\tau)}.
+\]
+Use the theta transformation laws and the vanishing of $\lambda$ to prove
+that the integrand's anomalous exponential factor cancels and that
+$\varphi_W(M;\tau)$ is a modular form of weight $2m$.  Expand the theta
+product and prove that its constant term is $\widehat A[M]$, that the genus
+is multiplicative, and that it vanishes on string boundaries.
+
+Let $\mathrm{tmf}$ denote the connective spectrum of topological modular
+forms.  Use as theorem input the sigma orientation and its rational
+coefficient theorem~\cite{hopkins-tmf}: there is a ring map of spectra
+\[
+M\operatorname{String}\longrightarrow\mathrm{tmf}
+\]
+whose modular-form realization is the Witten genus, and
+\[
+\pi_{2k}\mathrm{tmf}\otimes\Q
+\cong M_k\otimes\Q
+\]
+for $k\geq0$ in the even connective grading.  Explain why the tmf class refines the
+rational modular form by retaining integral and torsion information that
+the $q$-series alone cannot detect.
+
+For a $24$-dimensional string manifold, deduce
+\[
+\varphi_W(M)=aE_4^3+b\Delta
+\]
+for rational $a,b$ subject to the tmf integrality refinement, and express
+the first Fourier coefficients in terms of $a$ and $b$.  Interpret the
+Witten genus as the supersymmetric index of a two-dimensional sigma model
+and state the string-condition, anomaly-cancellation, supersymmetry,
+compactness, modular-normalization, and finite-energy assumptions under
+which its signed excitation counts may be compared with a physical
+partition function.  Distinguish this index from an unsigned state
+degeneracy and from the two-variable K3 elliptic genus above.
+\end{exercise}
+
 \begin{exercise}[Bordism characters and invertible topological phases]
 Let $G$ be a finite internal symmetry group and let
 $H=SO$ or $\operatorname{Spin}$.  An \emph{$H$-bordism over $BG$}
@@ -2991,6 +3244,87 @@ is unitary, satisfies the braid relations, preserves $\mathcal N$, and
 descends to a unitary braiding on $\mathcal C_k$.
 \end{exercise}
 
+\begin{exercise}[Fusion rings and Frobenius--Perron dimensions]
+Let $\mathcal C$ be a fusion category with simple objects
+$X_0=\mathbf1,X_1,\ldots,X_r$.  Define its Grothendieck ring to be the free
+abelian group on the classes $[X_a]$ with multiplication
+\[
+[X_a][X_b]=\sum_cN_{ab}^{\ \ c}[X_c].
+\]
+For an object $X$, let $N_X$ be left multiplication by $[X]$ on
+$K_0(\mathcal C)\otimes\R$.  Use as theorem input the
+Frobenius--Perron dimension theorem~\cite{etingof-fusion}: there is a unique
+ring homomorphism
+\[
+\operatorname{FPdim}:K_0(\mathcal C)\longrightarrow\R
+\]
+that is positive on every nonzero object, and prove
+\[
+\operatorname{FPdim}(X_a)=\rho(N_{X_a}).
+\]
+Define
+\[
+\operatorname{FPdim}(\mathcal C)
+=\sum_a\operatorname{FPdim}(X_a)^2.
+\]
+
+For a unitary fusion category, use positivity of the standard categorical
+trace and uniqueness of the positive dimension character to prove
+\[
+\dim_{\mathcal C}(X)=\operatorname{FPdim}(X).
+\]
+Apply this to $\mathcal C_k$: diagonalize the fusion matrices by the sine
+$S$-matrix and recover
+\[
+\operatorname{FPdim}(V_a)
+=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))},
+\qquad
+\operatorname{FPdim}(\mathcal C_k)
+=\frac{k+2}{2\sin^2(\pi/(k+2))}.
+\]
+Prove that a tensor equivalence preserves the fusion ring and all these
+dimensions.
+\end{exercise}
+
+\begin{exercise}[Root-of-unity quantum groups and fusion semisimplification]
+Let $\zeta=e^{\pi i/(k+2)}$ and let
+$\mathsf{Tilt}_\zeta$ be the tensor category of finite-dimensional type-$1$
+tilting modules for the divided-power form of
+$U_\zeta(\mathfrak{sl}_2)$.  A morphism is \emph{negligible} when every
+quantum trace obtained by closing it vanishes.  Prove that negligible
+morphisms form a tensor ideal and that the quantum dimension of the tilting
+module of highest weight $k+1$ is
+\[
+[k+2]_\zeta=0.
+\]
+
+Use as theorem input the root-of-unity semisimplification
+theorem~\cite{turaev-quantum}: the idempotent completion of the negligible
+quotient of $\mathsf{Tilt}_\zeta$ is a unitary braided fusion category and
+there is a braided unitary equivalence, writing $(-)^\natural$ for this
+completion,
+\[
+(\mathsf{Tilt}_\zeta/\mathcal N)^\natural
+\simeq\mathcal C_k
+\]
+sending the fundamental quantum-group module to $V_1$ and the simple
+highest-weight modules $0,\ldots,k$ to $V_0,\ldots,V_k$.
+Deduce the truncated fusion rule, the sine quantum dimensions, and the
+vanishing of every summand generated by the weight-$k+1$ object.
+
+Compare this equivalence with the affine $SU(2)_k$ character system:
+prove that its modular $S$-matrix diagonalizes the same fusion operators
+and that
+\[
+\frac{S_{a0}}{S_{00}}
+=\dim_{\mathcal C_k}(V_a).
+\]
+Conclude that WZW characters, root-of-unity quantum-group modules, and
+Temperley--Lieb diagrams give three realizations of the same fusion
+algebra, with the negligible quotient supplying the required passage from
+the nonsemisimple quantum-group category to the unitary fusion category.
+\end{exercise}
+
 \begin{exercise}[Morita equivalence, Drinfeld centers, and the cobordism hypothesis]
 Let $\mathcal C$ and $\mathcal D$ be unitary fusion categories.  A
 \emph{$\mathcal C$--$\mathcal D$ bimodule category} is a finite
@@ -3079,6 +3413,11 @@ isomorphism classes of simple objects, by
 \operatorname{Dim}(\mathcal C)
 =\sum_{[X]\in\operatorname{Irr}(\mathcal C)}d_X^2.
 \]
+Use the equality of categorical and Frobenius--Perron dimensions proved
+above to show
+\[
+\operatorname{Dim}(\mathcal C)=\operatorname{FPdim}(\mathcal C).
+\]
 Use as theorem input
 \[
 \operatorname{Dim}Z(\mathcal C)=\operatorname{Dim}(\mathcal C)^2,
@@ -3089,13 +3428,9 @@ Use as theorem input
 and prove that a unitary fusion category is tensor-invertible in
 $\mathsf{Fus}$ only when it is Morita equivalent to
 $\mathsf{Hilb}_{\rm fd}$, the unitary fusion category of
-finite-dimensional Hilbert spaces.  For $\mathcal C_k$, derive
-\[
-\operatorname{Dim}(\mathcal C_k)
-=\sum_{a=0}^kd_a^2
-=\frac{k+2}{2\sin^2(\pi/(k+2))}>1
-\qquad(k\geq1),
-\]
+finite-dimensional Hilbert spaces.  For $\mathcal C_k$, use the preceding
+Frobenius--Perron computation to prove
+$\operatorname{Dim}(\mathcal C_k)>1$ for $k\geq1$,
 and conclude that its associated state-sum phase is non-invertible.
 State explicitly that this classifies the fully extended topological
 low-energy theories and does not by itself prove a classification of all
@@ -3161,6 +3496,66 @@ Use as theorem input the canonical braided equivalence
 \]
 and deduce that the simple bulk charges are indexed by pairs $(x,y)$
 with $0\leq x,y\leq k$.
+\end{exercise}
+
+\begin{exercise}[Chern--Simons theory, quantum invariants, and chiral transport]
+Let $M$ be a closed oriented three-manifold and let $A$ be a connection on
+the trivial principal $SU(2)$-bundle, regarded as an
+$\mathfrak{su}(2)$-valued one-form.  Normalize the invariant trace by
+\[
+\frac1{8\pi^2}\int_W\operatorname{Tr}(F_B\wedge F_B)\in\Z
+\]
+for every $SU(2)$-connection $B$ on a closed oriented four-manifold $W$, and
+define, for $k\in\Z_{>0}$,
+\[
+S_k(A)=\frac{k}{4\pi}\int_M
+\operatorname{Tr}\!\left(
+A\wedge dA+\frac23A\wedge A\wedge A\right)
+\quad\bmod 2\pi\Z.
+\]
+Compute its change under a gauge transformation and prove that
+$e^{iS_k(A)}$ is gauge invariant exactly because $k$ is integral.  For a
+framed oriented link with components labelled by
+$V_{a_1},\ldots,V_{a_n}\in\mathcal C_k$, define the Wilson-loop observable
+formally by the product of the corresponding holonomy traces.
+
+Use as theorem input the Chern--Simons/Reshetikhin--Turaev
+correspondence~\cite{turaev-quantum}: the quantum expectation of framed
+Wilson links is the $SU(2)_k$ Reshetikhin--Turaev invariant, and canonical
+quantization on a surface $\Sigma$ gives its modular-functor Hilbert space.
+Deduce
+\[
+\dim\mathcal H_k(\Sigma_g)
+=\sum_{a=0}^kS_{0a}^{\,2-2g},
+\]
+the torus dimension $k+1$, the Hopf-link amplitude
+$S_{ab}/S_{00}$, and the framed-unknot quantum dimension
+$S_{a0}/S_{00}$.
+
+Prove that the torus mapping-class generators act projectively by the
+matrices $S$ and
+\[
+T_{ab}=\delta_{ab}
+e^{-2\pi ic_-/24}\theta_a,
+\qquad
+c_-=\frac{3k}{k+2}\pmod8.
+\]
+Use the Gauss-sum identity
+\[
+\frac1{\sqrt{\operatorname{Dim}(\mathcal C_k)}}
+\sum_{a=0}^kd_a^2\theta_a=e^{2\pi ic_-/8}
+\]
+to recover the chiral central charge modulo eight.  Derive the low-temperature
+thermal Hall prediction
+\[
+\frac{\kappa_{xy}}T
+=\frac{\pi^2k_B^2}{3h}\,c_-.
+\]
+Contrast this chiral theory with the doubled center
+$Z(\mathcal C_k)$, whose opposite chiralities cancel.  State the bulk-gap,
+edge-equilibration, framing, contact, temperature, finite-size, and
+interferometric-calibration assumptions under which thermal transport,
+ground-state degeneracy, and linked-anyon amplitudes test these formulas.
 \end{exercise}
 
 \begin{exercise}[Factorization homology and modular surface state spaces]
