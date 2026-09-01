@@ -842,9 +842,7 @@ radiation are tested.
 \end{exercise}
 
 \begin{exercise}[Bessel mass-shell kernels and relativistic signal propagation]
-For a smooth manifold $M$ and $x\in M$, define the Dirac distribution
-$\delta_x$ on $C_c^\infty(M)$ by
-$\langle\delta_x,f\rangle=f(x)$.  Use units $c=\hbar=1$, put
+Use units $c=\hbar=1$, put
 $E_p=\sqrt{|p|^2+m^2}$, and let $\Theta$ be the Heaviside function.
 Define the retarded Klein--Gordon kernel by
 \[
@@ -852,9 +850,10 @@ G_{\rm ret}(t,x)
 =\Theta(t)\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3}
 \frac{\sin(E_pt)}{E_p}e^{ip\cdot x}.
 \]
-Using the radial Fourier--Bessel transform, prove
+Using the Fourier transform of tempered distributions and the radial
+Fourier--Bessel transform, prove
 \[
-(\Box+m^2)G_{\rm ret}=\delta_0
+(\Box+m^2)G_{\rm ret}=\delta_{(0,0)}
 \]
 and, for $r=|x|$ and $\tau=\sqrt{t^2-r^2}$,
 \[
@@ -929,10 +928,7 @@ and call $f$ its \emph{scattering amplitude}.  For outgoing direction
 $\omega'$, define the scattering angle by
 $\cos\theta=\omega'\cdot\omega$.
 
-For $\phi\in C_c^\infty(\R^3)$, let $\delta_0$ be the Dirac distribution
-at the origin, and interpret an
-identity of distributions after pairing both sides with every such $\phi$.
-Prove in the sense of distributions that
+Prove in $\mathcal D'(\R^3)$ that
 \[
 G_k^+(x)=\frac{e^{ik|x|}}{4\pi|x|},
 \qquad

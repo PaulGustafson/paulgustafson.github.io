@@ -483,6 +483,52 @@ A=\int_\R\lambda\,dE_A(\lambda),\qquad
 \]
 \end{exercise}
 
+\begin{exercise}[Closed quadratic forms and Friedrichs realizations]
+Let $H$ be a Hilbert space.  A densely defined Hermitian form is a map
+$q:\mathcal Q(q)\times\mathcal Q(q)\to\C$ on a dense linear subspace,
+linear in the second variable, conjugate-linear in the first, and satisfying
+$q(x,y)=\overline{q(y,x)}$.  It is \emph{bounded below by $c\in\R$} when
+\[
+q(x,x)\geq c\lVert x\rVert^2
+\qquad(x\in\mathcal Q(q)).
+\]
+For such a form put
+\[
+\lVert x\rVert_q^2=q(x,x)+(1-c)\lVert x\rVert^2.
+\]
+Call $q$ \emph{closed} when $\mathcal Q(q)$ is complete in this norm, and
+\emph{closable} when every sequence $x_n\in\mathcal Q(q)$ satisfying
+$x_n\to0$ in $H$ and $\lVert x_n-x_m\rVert_q\to0$ also satisfies
+$\lVert x_n\rVert_q\to0$.
+
+Use as theorem input the representation theorem for closed semibounded
+forms~\cite{reed-simon2}: there is a unique self-adjoint operator $A_q$
+bounded below by $c$ such that
+\[
+\mathcal Q(q)=\mathcal D((A_q-cI)^{1/2}),
+\qquad
+q(x,y)=\langle (A_q-cI)^{1/2}x,(A_q-cI)^{1/2}y\rangle
++c\langle x,y\rangle,
+\]
+and $x\in\mathcal D(A_q)$ exactly when there is $z\in H$ satisfying
+$q(y,x)=\langle y,z\rangle$ for every $y\in\mathcal Q(q)$, in which case
+$A_qx=z$.  Prove uniqueness from the latter characterization.
+
+Let $A_0$ be a densely defined symmetric operator bounded below by $c$, and
+put $q_0(x,y)=\langle x,A_0y\rangle$ on $\mathcal D(A_0)$.  Use as theorem
+input that $q_0$ is closable.  Define the \emph{Friedrichs realization} of
+$A_0$ to be the operator associated to its closed form $\overline q_0$.
+Prove that it extends $A_0$, is self-adjoint, and preserves the lower bound.
+For $-d^2/dx^2$ on $C_c^\infty(0,\ell)$, define
+$H_0^1(0,\ell)$ as the completion of $C_c^\infty(0,\ell)$ in the norm
+\[
+\lVert f\rVert_{H^1}^2=\int_0^\ell(|f|^2+|f'|^2)\,dx.
+\]
+Integrate by parts to identify this as the closed form domain and derive the Dirichlet spectral values
+$\pi^2n^2/\ell^2$.  State how changing the interval length changes these
+spectral lines.
+\end{exercise}
+
 \begin{exercise}[Resolvents, compact resolvent, and the min--max principle]
 For a closed operator $A$, define its resolvent set by
 \[
@@ -533,6 +579,20 @@ For a bounded self-adjoint perturbation $B$, apply the same identity to
 prove
 \[
 |\lambda_n(A+B)-\lambda_n(A)|\leq\|B\|.
+\]
+For a closed semibounded form $q$ whose associated operator has compact
+resolvent, extend the argument to prove the form-domain identity
+\[
+\lambda_n(A_q)=
+\inf_{\substack{L\subset\mathcal Q(q)\\\dim L=n}}
+\sup_{x\in L\setminus\{0\}}
+\frac{q(x,x)}{\langle x,x\rangle}.
+\]
+For two such forms $q_1,q_2$ with a common form domain, deduce
+\[
+q_1(x,x)\leq q_2(x,x)\quad\text{for every }x
+\quad\Longrightarrow\quad
+\lambda_n(A_{q_1})\leq\lambda_n(A_{q_2}).
 \]
 State how a calibrated operator-norm bound on an uncontrolled perturbation
 gives an error bar for every predicted discrete spectral line.
@@ -1517,7 +1577,7 @@ f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
 \]
 \end{exercise}
 
-\begin{exercise}[Euclidean Fourier inversion]
+\begin{exercise}[Euclidean Fourier inversion and tempered distributions]
 The \emph{Schwartz space} $\mathcal S(V)$ consists of the smooth functions
 $f$ satisfying
 \[
@@ -1541,6 +1601,45 @@ For $v\in V$, prove
 \mathcal F_\hbar(-i\hbar d_v)\mathcal F_\hbar^{-1}\widehat f(p)
 =p(v)\widehat f(p).
 \]
+
+A \emph{distribution} on $V$ is a linear functional $T$ on
+$C_c^\infty(V)$ such that, for every compact $K\subset V$, there are
+$C_K>0$ and $m\geq0$ satisfying
+\[
+|\langle T,\phi\rangle|
+\leq C_K\max_{0\leq r\leq m}\sup_{q\in K}\lVert d^r\phi(q)\rVert
+\]
+whenever $\phi$ is supported in $K$.  A \emph{tempered distribution} is a
+linear functional $T$ on $\mathcal S(V)$ for which there are $C>0$ and
+$m\geq0$ satisfying
+\[
+|\langle T,\phi\rangle|
+\leq C\max_{0\leq r\leq m}
+\sup_{q\in V}(1+\lVert q\rVert)^m\lVert d^r\phi(q)\rVert.
+\]
+Write $\mathcal D'(V)$ and $\mathcal S'(V)$ for these spaces.  For
+$v\in V$ and $q\in V$, define
+\[
+\langle d_vT,\phi\rangle=-\langle T,d_v\phi\rangle,
+\qquad
+\langle\delta_q,\phi\rangle=\phi(q),
+\]
+and define the Fourier transform
+$\mathcal F:\mathcal S'(V)\to\mathcal S'(V^*)$ by
+\[
+\langle\mathcal FT,\phi\rangle
+=\langle T,\mathcal F\phi\rangle,
+\]
+where the Fourier transform on the test function uses the dual pairing
+between $V^*$ and $V$ with the same normalization.
+Prove that locally integrable functions define distributions, that
+distributional derivatives extend ordinary derivatives, and that
+\[
+\mathcal F(d_vT)=i\,p(v)\mathcal FT,
+\qquad
+\mathcal F\delta_0=(2\pi)^{-n/2}.
+\]
+Prove that Fourier inversion extends to $\mathcal S'(V)$.
 \end{exercise}
 
 \begin{exercise}[Fourier uncertainty and Gaussian wave packets]
@@ -1664,10 +1763,12 @@ functions.
 A \emph{lattice} in $\R^n$ is a subgroup
 $\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
 covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
-$F=A[0,1)^n$. Its \emph{reciprocal lattice} is the annihilator
+$F=A[0,1)^n$.  Its \emph{integral dual} and \emph{reciprocal lattice} are
 \[
-\Gamma^*=\{\xi\in\R^n:\xi\cdot\gamma\in2\pi\mathbb Z
-\text{ for every }\gamma\in\Gamma\}.
+\Gamma^\vee=\{y\in\R^n:y\cdot\gamma\in\mathbb Z
+\text{ for every }\gamma\in\Gamma\},
+\qquad
+\Gamma^{\rm rec}=2\pi\Gamma^\vee.
 \]
 
 For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
@@ -1679,7 +1780,7 @@ Prove that $P_\Gamma f$ converges with all derivatives and compute its
 Fourier coefficients. With the Fourier-transform normalization above, prove
 \[
 P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
- \sum_{\xi\in\Gamma^*}\mathcal Ff(\xi)e^{i\xi\cdot x}.
+ \sum_{\xi\in\Gamma^{\rm rec}}\mathcal Ff(\xi)e^{i\xi\cdot x}.
 \]
 Set $x=0$ to obtain the Poisson summation formula. Derive the Jacobi theta
 transformation by applying it to a Gaussian.
@@ -1700,7 +1801,7 @@ transfer $q$ factors as
 =S_B(q)\sum_{\gamma\in\Gamma_N}e^{-iq\cdot\gamma}.
 \]
 Use geometric sums and Poisson summation to show that the normalized
-intensity concentrates at $q\in\Gamma^*$ as the crystal grows. For elastic
+intensity concentrates at $q\in\Gamma^{\rm rec}$ as the crystal grows. For elastic
 scattering with incident and outgoing wavevectors of magnitude
 $2\pi/\lambda$, derive the Laue condition and, for planes spaced by $d$, the
 Bragg relation
@@ -2893,7 +2994,8 @@ $\Gamma$-invariant square-integrable function $u$ satisfying
 \qquad
 \int_0^1u(x+iy)\,dx=0.
 \]
-For $z>0$ define the modified Bessel function by
+For $z>0$, symmetrize the integral representation of the modified Bessel
+function in $u$ and substitute $t=e^u$ to obtain
 \[
 K_\nu(z)=\frac12\int_0^\infty
 t^{\nu-1}\exp\!\left[-\frac z2(t+t^{-1})\right]dt.
@@ -2968,12 +3070,7 @@ data may be compared with the closed-geodesic lengths.
 \end{exercise}
 
 \begin{exercise}[Lattice theta series]
-A \emph{Euclidean lattice} $L\subset\R^d$ is a discrete subgroup for which
-$\R^d/L$ is compact.  Its dual is
-\[
-L^*=\{y\in\R^d:\langle x,y\rangle\in\Z
-\text{ for every }x\in L\}.
-\]
+Let $L\subset\R^d$ be a lattice with integral dual $L^\vee$.
 For $\tau$ in the upper half-plane and $q=e^{2\pi i\tau}$, its theta series
 is
 \[
@@ -2984,7 +3081,7 @@ Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
 Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
 \[
 \Theta_L(-1/\tau)
-=\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^*}(\tau),
+=\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^\vee}(\tau),
 \]
 using the branch positive on the positive imaginary axis.  Show that
 evenness gives $\Theta_L(\tau+1)=\Theta_L(\tau)$.  Explain why a general
@@ -3036,7 +3133,7 @@ continuation
 \pi^{-s}\Gamma(s)Z_L(s)
 ={}&\int_1^\infty(\theta_L(t)-1)t^{s-1}\,dt\\
 &+\frac1{\vol(L)}\int_1^\infty
-(\theta_{L^*}(t)-1)t^{d/2-s-1}\,dt
+(\theta_{L^\vee}(t)-1)t^{d/2-s-1}\,dt
 +\frac1{\vol(L)(s-d/2)}-\frac1s.
 \end{aligned}
 \]
@@ -3044,7 +3141,7 @@ Deduce
 \[
 \pi^{-s}\Gamma(s)Z_L(s)
 =\frac1{\vol(L)}
-\pi^{-(d/2-s)}\Gamma(d/2-s)Z_{L^*}(d/2-s),
+\pi^{-(d/2-s)}\Gamma(d/2-s)Z_{L^\vee}(d/2-s),
 \]
 $Z_L(0)=-1$, and
 \[
@@ -3250,10 +3347,10 @@ so $J$ is the normalized Hauptmodul for $PSL_2(\Z)$.
 
 \begin{exercise}[Leech theta series and its first diffraction shell]
 \label{ex:leech-theta-series}
-For a Euclidean lattice $L$, call $L$ integral when $L\subseteq L^*$,
-unimodular when $L=L^*$, and even when $\|x\|^2\in2\Z$ for every $x\in L$.
+For a Euclidean lattice $L$, call $L$ integral when $L\subseteq L^\vee$,
+unimodular when $L=L^\vee$, and even when $\|x\|^2\in2\Z$ for every $x\in L$.
 If the same lattice is used as a crystal lattice, its physical reciprocal
-lattice is $L^*_{\rm physical}=2\pi L^*$.
+lattice is $L^{\rm rec}=2\pi L^\vee$.
 
 Call a vector of squared length $2$ in an integral Euclidean lattice a
 \emph{root}.  Take the rootless case of the Niemeier classification as theorem

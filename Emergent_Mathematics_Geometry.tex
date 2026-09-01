@@ -848,7 +848,16 @@ change the theta-section count.
 \end{exercise}
 
 \begin{exercise}[Abel's theorem and theta divisors]
-Let $E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ and put
+For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
+\[
+\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
+=\sum_{n\in\Z}
+\exp\!\left(
+\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
+\right).
+\]
+Derive its two automorphy laws by shifting the summation index.  Let
+$E_\tau=\mathbb C/(\mathbb Z+\tau\mathbb Z)$ and put
 \[
 \vartheta_1(z\mid\tau)
 =\vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
@@ -901,14 +910,6 @@ determines the corresponding line bundle.
 \end{exercise}
 
 \begin{exercise}[Theta sections and genus-one Riemann--Roch]
-For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
-\[
-\vartheta\!\begin{bmatrix}a\\b\end{bmatrix}(z\mid\tau)
-=\sum_{n\in\Z}
-\exp\!\left(
-\pi i(n+a)^2\tau+2\pi i(n+a)(z+b)
-\right).
-\]
 On $E_\tau=\C/(\Z+\tau\Z)$, define the standard degree-$N$ theta line
 bundle $L_N$ by representing its holomorphic sections as functions on
 $\C$ satisfying
@@ -943,24 +944,6 @@ automorphy laws to show that all coefficients are determined by $N$
 initial values.  Deduce
 \[
 \dim H^0(E_\tau,L)=N.
-\]
-
-Prove that a nonzero holomorphic section of a degree-zero line bundle has
-no zeros and therefore trivializes the bundle.  Deduce
-\[
-\dim H^0(E_\tau,L)=
-\begin{cases}
-1,&L\cong\mathcal O,\\
-0,&L\not\cong\mathcal O
-\end{cases}
-\quad(\deg L=0).
-\]
-Show that a negative-degree line bundle has no nonzero holomorphic
-sections.  Since the nowhere-vanishing form $dz$ trivializes the canonical
-line bundle, combine these cases to prove the genus-one Riemann--Roch
-identity
-\[
-\dim H^0(E_\tau,L)-\dim H^0(E_\tau,L^{-1})=\deg L.
 \]
 Relate translation of theta-function zeros to
 $\operatorname{Pic}^N(E_\tau)$.
@@ -1116,7 +1099,7 @@ $\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
 exactly when $|\Delta(E)|\leq2$.
 \end{exercise}
 
-\begin{exercise}[Lax pairs, isospectral KdV flow, and Jacobian linearization]
+\begin{exercise}[Lax pairs and isospectral KdV flow]
 Let $u(x,t)$ be a smooth real periodic function and define
 \[
 L(t)=-\partial_x^2-u(x,t),
@@ -1142,21 +1125,6 @@ For the equation $L(t)\psi=E\psi$ on the line, evolve solutions by
 $\psi_t=P\psi$.  Prove that the fundamental solution over one spatial
 period changes by conjugation and hence that the Floquet discriminant,
 Bloch multipliers, and Bloch spectral curve are independent of $t$.
-Use as theorem input the finite-gap linearization
-theorem~\cite{belokolos}: for a smooth finite-gap curve $\Sigma$, the
-moving pole divisor of the Baker--Akhiezer function has Abel--Jacobi image
-\[
-\mathcal A(D(t))=\mathcal A(D(0))+Vt
-\quad\text{in }\operatorname{Jac}(\Sigma),
-\]
-where $V$ is the normalized second-kind KdV period vector.  Deduce that
-the nonlinear KdV evolution is translation on the Jacobian while its
-spectral curve remains fixed.
-
-For the one-gap case, identify this translation with the phase motion of
-the cnoidal wave developed below.  Show that the limit in which its real
-period diverges gives the reflectionless one-soliton reconstructed by the
-Marchenko equation, including its speed $4\kappa^2$.
 \end{exercise}
 
 \begin{exercise}[Hyperelliptic curves and holomorphic differentials]
@@ -1420,6 +1388,26 @@ the spectrum is
 [E_0,E_1]\cup[E_2,E_3]\cup\cdots\cup
 [E_{2g-2},E_{2g-1}]\cup[E_{2g},\infty).
 \]
+Let $d\Omega_3$ be the unique second-kind differential with zero
+$a$-periods, no pole away from $\infty$, and principal part
+$d(4E^{3/2})$ there in the branch compatible with $d\Omega_1$, and put
+\[
+V_j=\frac1{2\pi i}\int_{b_j}d\Omega_3.
+\]
+Use as theorem input the finite-gap linearization
+theorem~\cite{belokolos}: the time-dependent Baker--Akhiezer function is
+obtained by adjoining the exponential of $t\int^p d\Omega_3$, its moving
+pole divisor satisfies
+\[
+\mathcal A(D(t))=\mathcal A(D(0))+Vt,
+\]
+and the reconstructed KdV potential is
+\[
+u(x,t)=c-2\frac{d^2}{dx^2}
+\log\vartheta(Ux+Vt+Z\mid\Omega).
+\]
+Deduce that KdV flow is translation on the Jacobian and preserves the
+spectral curve.
 Specialize to $g=1$ and recover, up to translation and an additive energy
 constant, the Lam\'e potential and Hermite theta solutions above.
 \end{exercise}
@@ -1500,10 +1488,7 @@ Prove the Fourier expansion
 \sum_{n\geq1}\frac{nq^n}{1-q^{2n}}
 \cos\frac{n\pi z}{K(k)}.
 \]
-Use as theorem input the finite-gap KdV evolution
-theorem~\cite{belokolos}, which replaces
-$Ux+Z$ in the reconstructed potential by $Ux+Vt+Z$ for the normalized
-second-kind KdV period vector $V$.  Show that the genus-one case gives the
+Specialize the finite-gap reconstruction to genus one and show that it gives the
 cnoidal wave above and that $k\uparrow1$ gives the solitary wave
 \[
 u(x,t)=a+2\kappa^2
@@ -1667,6 +1652,21 @@ Construct the suspension--loop adjunction
 \[
 [\Sigma X,Y]_*\cong[X,\Omega Y]_*.
 \]
+For $n\geq1$, define
+\[
+\pi_n(Y)=[S^n,Y]_*,
+\qquad S^n=\Sigma S^{n-1}.
+\]
+Use the pinch map $S^n\to S^n\vee S^n$ to define multiplication and loop
+reversal to define inverses.  Prove that $\pi_n(Y)$ is a group, abelian for
+$n\geq2$, and that a based map induces a homomorphism functorially.  Use the
+suspension--loop adjunction to prove
+\[
+\pi_n(Y)\cong\pi_{n-1}(\Omega Y)
+\qquad(n\geq2),
+\]
+and define the suspension homomorphism
+$\pi_n(Y)\to\pi_{n+1}(\Sigma Y)$.
 
 Let $V$ be a finite-dimensional complex vector space and let
 $g:X\to\operatorname{Aut}(V)$ be a based map.  Glue the trivial bundles on
@@ -1952,22 +1952,43 @@ A finite-range translation-invariant free-fermion Hamiltonian is
 \emph{stably equivalent} to another when one may adjoin spectrally flat
 filled and empty bands and join the flattened Hamiltonians through a
 symmetry-preserving gapped path.  Use as theorem input the free-fermion
-tenfold-way theorem~\cite{kitaev-periodic}: in real symmetry class
-$s\in\Z/8$, the strong stable
-classes in spatial dimension $d$ form $KO^{d-s}(\mathrm{pt})$, while the
-two complex classes are governed by complex $K$-theory with period two.
-Call the absence of antiunitary symmetry class A.  A
-Bogoliubov--de Gennes Hamiltonian has an antiunitary particle--hole
-operator $C$ satisfying
+tenfold-way theorem~\cite{kitaev-periodic}.  An antiunitary time-reversal
+operator $T$, an antiunitary particle--hole operator $C$, and a unitary
+chiral operator $S$ satisfy
 \[
+TH(k)T^{-1}=H(-k),
+\qquad
 CH(k)C^{-1}=-H(-k),
+\qquad
+SH(k)S^{-1}=-H(k).
 \]
-and is in class D when $C^2=I$ and there is no additional symmetry.  Class
-AII has an antiunitary time-reversal operator $\Theta$ satisfying
-$\Theta^2=-I$ and no particle--hole symmetry.
-Recover the integer class-A invariant in two dimensions, the
-$\Z/2$ class-D invariant in one dimension, and the $\Z/2$ class-AII
-invariant in two and three dimensions.
+Record absence of a symmetry by $0$ and its square, when present, by $+1$
+or $-1$.  The ten symmetry classes and their periodic labels are
+\[
+\begin{array}{c|ccc|c|c}
+\text{class}&T^2&C^2&S&s&\text{theory}\\ \hline
+A&0&0&0&0&K\\
+AIII&0&0&1&1&K\\ \hline
+AI&+1&0&0&0&KO\\
+BDI&+1&+1&1&1&KO\\
+D&0&+1&0&2&KO\\
+DIII&-1&+1&1&3&KO\\
+AII&-1&0&0&4&KO\\
+CII&-1&-1&1&5&KO\\
+C&0&-1&0&6&KO\\
+CI&+1&-1&1&7&KO
+\end{array}
+\]
+where $s$ is read modulo two in the complex rows and modulo eight in the
+real rows.  When both $T$ and $C$ occur, prove that their product supplies
+the displayed chiral symmetry after a phase normalization.  Prove from the
+tenfold-way theorem that the strong stable classes in spatial dimension
+$d$ are $K^{d-s}(\mathrm{pt})$ in the complex rows and
+$KO^{d-s}(\mathrm{pt})$ in the real rows.  Use complex and real Bott
+periodicity to compute the classification group for every class in
+dimensions $0,1,2,3$.  In particular recover the integer class-A invariant
+in two dimensions, the $\Z/2$ class-D invariant in one dimension, and the
+$\Z/2$ class-AII invariant in two and three dimensions.
 
 For a one-dimensional class-D Bogoliubov--de Gennes Hamiltonian, use one
 continuous oriented Majorana trivialization to write its form at the
@@ -1991,7 +2012,13 @@ derive
 \]
 At $\Delta=t>0$, solve the open-chain zero-mode recursion and prove that a
 Majorana end mode has amplitude proportional to
-$(-\mu/(2t))^{j-1}$ exactly when $|\mu|<2t$.  State the quadratic,
+$(-\mu/(2t))^{j-1}$ exactly when $|\mu|<2t$.  Derive its localization
+length in lattice spacings,
+\[
+\xi^{-1}=\log\frac{2t}{|\mu|},
+\]
+and predict the bulk transition at $|\mu|=2t$ and the end-mode decay on the
+topological side.  State the quadratic,
 translation-invariant-bulk, particle--hole, open-boundary, gap,
 localization-length, and parity-resolution assumptions under which the
 Pfaffian invariant predicts a zero-bias end mode.
@@ -2423,6 +2450,16 @@ the corresponding structures and construct the forgetful homomorphisms
 \end{exercise}
 
 \begin{exercise}[Pontryagin--Thom collapse and Thom spectra]
+For based spaces $E_k$, a sequence of based structure maps
+$\Sigma E_k\to E_{k+1}$ is a \emph{spectrum}; its stable homotopy groups
+are
+\[
+\pi_n(E)=\varinjlim_k\pi_{n+k}(E_k),
+\]
+with transition maps induced by suspension and the structure maps.  A
+sequence with structure maps $\Sigma^2E_k\to E_{k+1}$ is indexed in even
+degrees and has stable groups $\varinjlim_k\pi_{n+2k}(E_k)$.
+
 For $G=SO,\operatorname{Spin}$, let $BG(k)$ be the classifying space for
 rank-$k$ real vector bundles with $G$-structure and let
 $\gamma_k^G\to BG(k)$ be the universal bundle.  Put
@@ -2440,6 +2477,9 @@ MU(k)=\operatorname{Th}(\gamma_k^U),
 \]
 Call the resulting sequences of Thom spaces the spectra $MSO$,
 $M\operatorname{Spin}$, and $MU$.
+Construct their structure maps from stabilization by a trivial real line
+or complex line and verify the displayed formulas for their stable
+homotopy groups.
 
 Choose an embedding $M^n\hookrightarrow\mathbb R^{n+k}$ of a closed
 $G$-manifold, give its normal bundle the stable $G$-structure complementary
@@ -2761,12 +2801,74 @@ finite-volume, temperature, and symmetry-resolved spectroscopy assumptions
 under which a programmable quantum system tests these protected counts.
 \end{exercise}
 
-\begin{exercise}[Elliptic cohomology, the Witten genus, and topological modular forms]
-A \emph{generalized cohomology theory} is a homotopy-invariant
-contravariant functor on pairs with suspension isomorphisms and long exact
-sequences, represented by a spectrum.  Regard complex $K$-theory and the
-ordinary cohomology spectrum as the examples developed above.  Write
-$K(\Z,4)$ for an Eilenberg--Mac Lane space representing integral
+\begin{exercise}[Complex orientations and elliptic formal groups]
+A \emph{multiplicative generalized cohomology theory} is a
+homotopy-invariant contravariant functor on pairs with products, suspension
+isomorphisms, and long exact sequences.  A \emph{ring spectrum} is a
+spectrum $E$ with a unit and multiplication
+$E\wedge E\to E$ that are associative and unital up to coherent homotopy;
+it represents such a theory.
+Ordinary integral cohomology and complex $K$-theory are examples.  Let
+$\mathcal L\to\mathbb{CP}^{\infty}$ be the
+tautological line bundle.  A \emph{complex orientation} of $E$ is a class
+\[
+x_E\in\widetilde E^2(\mathbb{CP}^{\infty})
+\]
+whose restriction to $\mathbb{CP}^1$ is the suspended unit.  For a complex
+line bundle $L\to X$ classified by $f_L:X\to\mathbb{CP}^{\infty}$, put
+$c_1^E(L)=f_L^*x_E$.
+
+Use as theorem input the projective-bundle theorem for a complex-oriented
+theory,
+\[
+E^*(\mathbb{CP}^{\infty})\cong E^*[[x_E]].
+\]
+The tensor product of line bundles induces a map
+$m:\mathbb{CP}^{\infty}\times\mathbb{CP}^{\infty}\longrightarrow
+\mathbb{CP}^{\infty}$.  Define $F_E(x,y)$ by
+\[
+m^*x_E=F_E(x_E\otimes1,1\otimes x_E).
+\]
+Use the unit, symmetry, and associativity of tensor product to prove
+\[
+F_E(x,0)=x,
+\qquad F_E(x,y)=F_E(y,x),
+\qquad F_E(F_E(x,y),z)=F_E(x,F_E(y,z)),
+\]
+so $F_E$ is a one-dimensional commutative formal group law.  Derive
+\[
+F_{H\mathbb Z}(x,y)=x+y.
+\]
+For periodic complex $K$-theory with Bott element
+$\beta\in K^{-2}(\mathrm{pt})$, take
+$x_K=\beta^{-1}(1-[\mathcal L^{-1}])$ and derive
+\[
+F_K(x,y)=x+y-\beta xy.
+\]
+
+Use as theorem input Quillen's complex-cobordism theorem~\cite{quillen-formal}:
+$MU$ is the universal complex-oriented ring spectrum and its coefficient
+ring carries the universal one-dimensional commutative formal group law.
+Prove that a chosen complex orientation of a ring spectrum $E$ induces a
+map $MU\to E$ and specializes the universal formal group law to $F_E$.
+
+Let $C$ be a smooth elliptic curve over a commutative ring $R$ with identity
+section.  Complete its group law at the identity and, after choosing a local
+parameter, obtain a formal group law $F_C$.  Call $E$ \emph{even-periodic}
+when its odd coefficient groups vanish and it has an invertible class of
+degree two inducing two-periodicity.  Call an even-periodic complex-oriented
+theory $E$ an \emph{elliptic cohomology theory associated
+to $C$} when $E^0\cong R$ and its formal group is identified with the
+formal completion of $C$.  Prove that changing the local parameter gives an
+isomorphic formal group law and hence does not change the coordinate-free
+formal group.  Use as theorem input~\cite{hopkins-tmf} that topological modular
+forms assemble these local elliptic cohomology theories over the moduli of
+elliptic curves, retaining the descent and torsion information absent from a
+single modular-form expansion.
+\end{exercise}
+
+\begin{exercise}[String bordism, the Witten genus, and topological modular forms]
+Write $K(\Z,4)$ for an Eilenberg--Mac Lane space representing integral
 degree-four cohomology.  For a based map $f:X\to Y$, define its homotopy
 fiber to be the space of pairs $(x,\gamma)$ in which $\gamma$ is a path
 from $f(x)$ to the base point of $Y$.  Let $B\operatorname{String}$ be the
@@ -3273,12 +3375,11 @@ trace and uniqueness of the positive dimension character to prove
 \[
 \dim_{\mathcal C}(X)=\operatorname{FPdim}(X).
 \]
-Apply this to $\mathcal C_k$: diagonalize the fusion matrices by the sine
-$S$-matrix and recover
+Apply this to $\mathcal C_k$: prove that $(d_a)_{a=0}^k$ is the unique
+positive common dimension character of the
+fusion matrices and hence that $\operatorname{FPdim}(V_a)=d_a$.  Use sine
+orthogonality to compute
 \[
-\operatorname{FPdim}(V_a)
-=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))},
-\qquad
 \operatorname{FPdim}(\mathcal C_k)
 =\frac{k+2}{2\sin^2(\pi/(k+2))}.
 \]
@@ -3309,8 +3410,9 @@ completion,
 \]
 sending the fundamental quantum-group module to $V_1$ and the simple
 highest-weight modules $0,\ldots,k$ to $V_0,\ldots,V_k$.
-Deduce the truncated fusion rule, the sine quantum dimensions, and the
-vanishing of every summand generated by the weight-$k+1$ object.
+Prove that this equivalence transports the truncated fusion rule and
+categorical dimensions, and verify directly that
+every summand generated by the weight-$k+1$ object becomes negligible.
 
 Compare this equivalence with the affine $SU(2)_k$ character system:
 prove that its modular $S$-matrix diagonalizes the same fusion operators
@@ -3365,7 +3467,16 @@ unitary natural isomorphism satisfying
 \]
 with associators understood; its morphisms intertwine the
 half-braidings.  Construct the tensor product and braiding in
-$Z(\mathcal C)$.  Use as theorem input~\cite{etingof-fusion,turaev-quantum}
+$Z(\mathcal C)$.  In a unitary ribbon fusion category, call an object $X$
+\emph{transparent} when
+\[
+c_{Y,X}c_{X,Y}=\id_{X\otimes Y}
+\qquad\text{for every object }Y.
+\]
+The full fusion subcategory of transparent objects is the \emph{M\"uger
+center}; call the ribbon fusion category \emph{modular} when this center is
+equivalent to $\mathsf{Hilb}_{\rm fd}$.  Use as theorem
+input~\cite{etingof-fusion,turaev-quantum}
 that $Z(\mathcal C)$ is a unitary modular tensor category and that
 \[
 \mathcal C\simeq_{\rm Morita}\mathcal D
@@ -3438,19 +3549,33 @@ microscopic gapped Hamiltonians.
 \end{exercise}
 
 \begin{exercise}[Categorical Fourier transform, modular data, and Verlinde diagonalization]
-For $0\leq a,b\leq k$, define
+Put
 \[
-S_{ab}
-=\sqrt{\frac{2}{k+2}}
-\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right),
+\mathcal D=\left(\sum_{a=0}^kd_a^2\right)^{1/2},
 \qquad
 \theta_a
 =\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
+\]
+Use as theorem input that these phases, together with the braiding on
+$\mathcal C_k$, define its unitary ribbon structure.  For simple objects
+define the normalized Hopf-link matrix intrinsically by
+\[
+S_{ab}=\frac1{\mathcal D}
+\operatorname{tr}_{V_a\otimes V_b}
+\!\left(c_{V_b,V_a}c_{V_a,V_b}\right).
+\]
+Evaluate the closed Temperley--Lieb diagram to derive
+\[
+S_{ab}=\sqrt{\frac{2}{k+2}}
+\sin\!\left(\frac{(a+1)(b+1)\pi}{k+2}\right).
 \]
 Let $N_{ab}^{\ \ c}$ be the multiplicity of $V_c$ in
 $V_a\otimes V_b$.
 
 Use sine orthogonality to prove that $S$ is real, symmetric, and unitary.
+Use as theorem input the equivalence between invertibility of the
+Hopf-link matrix and triviality of the M\"uger center, and conclude that
+$\mathcal C_k$ is modular.
 For each $a$, let $(N_a)_{bc}=N_{ab}^{\ \ c}$.  Use the truncated
 Chebyshev recursion to prove
 \[
@@ -3485,10 +3610,7 @@ f(a)=\sum_{x=0}^k S_{ax}S_{0x}\widehat f(x),
 Deduce that the number of fusion channels from
 $a_1,\ldots,a_n$ to $c$ is
 $(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
-of sine functions.  Use as theorem input the quantum-trace evaluation of
-the Hopf link to identify the displayed matrix $S$ with the categorical
-$S$-matrix and conclude from its unitarity that the braiding is
-nondegenerate.  Let $\mathcal C_k^{\rm rev}$ have the inverse braiding.
+of sine functions.  Let $\mathcal C_k^{\rm rev}$ have the inverse braiding.
 Use as theorem input the canonical braided equivalence
 \[
 \mathcal C_k\boxtimes\mathcal C_k^{\rm rev}

@@ -1186,6 +1186,16 @@ products and conjugates and form a rigid $C^*$-tensor category.  Prove
 &&\dim_v(V_n)&>n+1\quad(0<v<1,\ n\geq1).
 \end{aligned}
 \]
+Use $V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to derive
+\[
+d_{n+1}=(v+v^{-1})d_n-d_{n-1},
+\qquad d_0=1,\quad d_1=v+v^{-1},
+\]
+where $d_n=\dim_v(V_n)$.  In terms of the Chebyshev polynomial $U_n$, prove
+\[
+\dim_v(V_n)=U_n\!\left(\frac{v+v^{-1}}2\right)
+=\frac{v^{n+1}-v^{-(n+1)}}{v-v^{-1}}.
+\]
 \end{exercise}
 
 \begin{exercise}[Tannaka--Krein reconstruction of compact quantum symmetry]
@@ -1483,20 +1493,6 @@ x^2+y^2+z^2-xyz-4=0.
 Use the commutator computed above to prove that $K_v(T^2)$ is
 noncommutative for generic $v$ and that its specialization at $v=-1$
 maps to the torus Wilson-trace algebra.
-\end{exercise}
-
-\begin{exercise}[Chebyshev quantum dimensions]
-For the irreducible $SU_v(2)$ objects $V_n$, use
-$V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
-\[
-d_{n+1}=(v+v^{-1})d_n-d_{n-1},
-\qquad d_0=1,\quad d_1=v+v^{-1},
-\]
-where $d_n=\dim_v(V_n)$.  Using the Chebyshev polynomial $U_n$, deduce
-\[
-\dim_v(V_n)=U_n\!\left(\frac{v+v^{-1}}2\right)
-=\frac{v^{n+1}-v^{-(n+1)}}{v-v^{-1}}.
-\]
 \end{exercise}
 
 \begin{exercise}[Quantum recoupling coefficients]
@@ -2105,7 +2101,7 @@ State the positivity, face-gauge, boundary-height, unitarity, and
 spectral-resolution assumptions required for the two interpretations.
 \end{exercise}
 
-\begin{exercise}[Elliptic beta kernels]
+\begin{exercise}[Elliptic beta kernels and integral evaluation]
 Write
 \[
 \Gamma(tz^{\pm1};p,q)=\Gamma(tz;p,q)\Gamma(t/z;p,q),
@@ -2122,9 +2118,6 @@ For $|t_j|<1$ with $\prod_{j=1}^6t_j=pq$, define
 
 Use the elliptic-gamma difference equations to derive the parameter-shift
 recurrences of $\mathcal B$.
-\end{exercise}
-
-\begin{exercise}[Elliptic beta integral]
 Evaluate the residue degeneration in which two parameters multiply to
 $pq$ and normalize the product side by the same degeneration.  Use as
 theorem input the elliptic-shift uniqueness
@@ -2226,8 +2219,7 @@ For the finite Hecke generator $T_1$, define
 e=\frac{T_1+k_1^{-1}}{k_1+k_1^{-1}}.
 \]
 
-Fix nonzero $k_0,k_1,u_0,u_1$ and choose $q^{1/2}$.  On
-$\mathcal L=\C[z^{\pm1}]$ put
+On $\mathcal L=\C[z^{\pm1}]$ put
 \[
 (s_1f)(z)=f(z^{-1}),\qquad
 (s_0f)(z)=f(qz^{-1}),
