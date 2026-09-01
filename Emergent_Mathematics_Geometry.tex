@@ -443,7 +443,7 @@ $\alpha_i,\beta_i$ and prove that their oriented intersection numbers are
 \qquad
 \alpha_i\cdot\beta_j=\delta_{ij}.
 \]
-Use as theorem input Poincar\'e duality for the surface to prove that this
+Use as theorem input Poincar\'e duality for the surface~\cite{bott-tu} to prove that this
 alternating pairing is unimodular.
 
 Apply the de Rham theorem and the universal coefficient theorem to identify
@@ -629,7 +629,7 @@ T(\theta_0)
 \left|\log\cos^2\frac{\theta_0}{2}\right|
 \right).
 \]
-Deduce the increase of period with amplitude, the leading nonlinear
+Predict the increase of period with amplitude, the leading nonlinear
 frequency shift, and the logarithmic divergence at the separatrix.  State
 the point-mass, rigid-length, planar-motion, negligible-damping,
 amplitude-calibration, and timing-resolution assumptions under which a
@@ -1369,8 +1369,11 @@ the local trivialization used in the theta formula.
 Deduce from the Riemann--Roch dimension count that $\psi$ is the unique
 normalized Baker--Akhiezer function with these divisor, monodromy, and
 asymptotic data.
+\end{exercise}
 
-Use as theorem input the finite-gap reconstruction
+\begin{exercise}[Finite-gap reconstruction and KdV linearization]
+For admissible spectral data $(\Sigma,D,Z)$ and its normalized
+Baker--Akhiezer function $\psi$, use as theorem input the finite-gap reconstruction
 theorem~\cite{belokolos}: there is a
 constant $c$ determined by the expansion at infinity such that
 \[
@@ -1382,12 +1385,15 @@ is real and smooth for admissible $(D,Z)$, and
 \left(-\frac{d^2}{dx^2}+u(x)\right)\psi(x,p)
 =E(p)\psi(x,p).
 \]
-Show from the two points over a regular $E$ and their Bloch multipliers that
-the spectrum is
+Use as part of the same theorem the real finite-gap Floquet
+characterization: the multiplier has unit modulus precisely over
 \[
 [E_0,E_1]\cup[E_2,E_3]\cup\cdots\cup
 [E_{2g-2},E_{2g-1}]\cup[E_{2g},\infty).
 \]
+Deduce from the two points over a regular $E$ and their reciprocal Bloch
+multipliers that this set is the spectrum and that its complementary
+intervals are the open gaps.
 Let $d\Omega_3$ be the unique second-kind differential with zero
 $a$-periods, no pole away from $\infty$, and principal part
 $d(4E^{3/2})$ there in the branch compatible with $d\Omega_1$, and put
@@ -1409,7 +1415,7 @@ u(x,t)=c-2\frac{d^2}{dx^2}
 Deduce that KdV flow is translation on the Jacobian and preserves the
 spectral curve.
 Specialize to $g=1$ and recover, up to translation and an additive energy
-constant, the Lam\'e potential and Hermite theta solutions above.
+constant, the Lam\'e potential and its Hermite theta solutions.
 \end{exercise}
 
 \begin{exercise}[Lam\'e band edges and attenuation prediction]
@@ -1789,7 +1795,7 @@ Show that this integer cannot change under a smooth deformation that keeps
 the spectral gap open.
 \end{exercise}
 
-\begin{exercise}[Topological \(K\)-theory and Bott periodicity]
+\begin{exercise}[Grothendieck \(K\)-theory and exterior products]
 For a compact Hausdorff space $X$, let $\operatorname{Vect}_{\mathbb C}(X)$
 be the commutative monoid of isomorphism classes of finite-rank complex
 vector bundles under direct sum.  Define $K^0(X)$ as its Grothendieck
@@ -1837,6 +1843,9 @@ reduced exterior product
 \widetilde K^0(X)\otimes\widetilde K^0(Y)
 \longrightarrow\widetilde K^0(X\wedge Y).
 \]
+\end{exercise}
+
+\begin{exercise}[Bott periodicity and topological \(K\)-groups]
 Define
 \[
 \widetilde K^{-n}(X)=\widetilde K^0(\Sigma^nX)
@@ -1870,8 +1879,9 @@ Let
 \beta=[E_g]-[\underline{\mathbb C}]
 \in\widetilde K^0(S^2)
 \]
-be the Bott class from the Hopf bundle above.  Prove that exterior product
-with $\beta$ gives
+be the Bott class of the Hopf bundle.  Use as part of Bott periodicity that
+the displayed loop-space equivalence is represented in reduced
+$K$-theory by exterior product with $\beta$, and deduce
 \[
 \widetilde K^0(\Sigma^nX)
 \cong
@@ -1901,6 +1911,9 @@ K^0(T^2)\cong\mathbb Z^2,
 \qquad
 K^1(T^2)\cong\mathbb Z^2.
 \]
+\end{exercise}
+
+\begin{exercise}[Chern characters and gapped band topology]
 When $X$ is a compact smooth manifold, use as theorem
 input~\cite{bott-tu} that the
 Chern--Weil classes $c_j(E)$ are the real images of integral cohomology
@@ -1925,15 +1938,32 @@ homotopy and identify, for $X=T^2$, its rank and first-Chern components
 with the two integers in the displayed computation.
 \end{exercise}
 
-\begin{exercise}[Real \texorpdfstring{$K$}{K}-theory, Clifford periodicity, and the tenfold way]
+\begin{exercise}[Real \texorpdfstring{$K$}{K}-theory and Clifford periodicity]
+For a compact Hausdorff space $X$, define $KO^0(X)$ as the Grothendieck
+group of finite-rank real vector bundles.  For a based compact space put
+\[
+\widetilde{KO}^0(X)
+=\ker\!\left(KO^0(X)\longrightarrow KO^0(\{x_0\})\right),
+\qquad
+\widetilde{KO}^{-n}(X)=\widetilde{KO}^0(\Sigma^nX),
+\]
+and for an unbased compact space put
+\[
+KO^{-n}(X)=\widetilde{KO}^{-n}(X_+)
+\qquad(n\geq0).
+\]
 Let $Cl_n$ be the real $*$-algebra generated by skew-adjoint elements
 $e_1,\ldots,e_n$ satisfying
 \[
 e_ie_j+e_je_i=-2\delta_{ij}.
 \]
-Use graded tensor products to prove the basic Clifford recursions and use
-as theorem input the Atiyah--Bott--Shapiro construction and real Bott
-periodicity~\cite{atiyah-k-theory}:
+Use the universal property to prove
+\[
+Cl_{m+n}\cong Cl_m\widehat\otimes Cl_n.
+\]
+Use as theorem input the real Clifford Morita periodicity
+$Cl_{n+8}\simeq_{\mathrm{Morita}}Cl_n$, the Atiyah--Bott--Shapiro
+construction, and real Bott periodicity~\cite{atiyah-k-theory}:
 \[
 KO^{-n-8}(X)\cong KO^{-n}(X),
 \]
@@ -1947,7 +1977,9 @@ KO^{-n}(\mathrm{pt})&
 \]
 Identify the two $\Z/2$ classes with the obstructions to extending the
 corresponding irreducible Clifford-module structures by one generator.
+\end{exercise}
 
+\begin{exercise}[The tenfold way and Majorana localization]
 A finite-range translation-invariant free-fermion Hamiltonian is
 \emph{stably equivalent} to another when one may adjoin spectrally flat
 filled and empty bands and join the flattened Hamiltonians through a
@@ -1982,8 +2014,9 @@ CI&+1&-1&1&7&KO
 where $s$ is read modulo two in the complex rows and modulo eight in the
 real rows.  When both $T$ and $C$ occur, prove that their product supplies
 the displayed chiral symmetry after a phase normalization.  Prove from the
-tenfold-way theorem that the strong stable classes in spatial dimension
-$d$ are $K^{d-s}(\mathrm{pt})$ in the complex rows and
+tenfold-way theorem that, after fixing the Hamiltonian on the boundary of
+a Brillouin cell so that its strong momentum-space quotient is $S^d$, the
+strong stable classes are $K^{d-s}(\mathrm{pt})$ in the complex rows and
 $KO^{d-s}(\mathrm{pt})$ in the real rows.  Use complex and real Bott
 periodicity to compute the classification group for every class in
 dimensions $0,1,2,3$.  In particular recover the integer class-A invariant
@@ -2563,7 +2596,7 @@ $\Omega_*^{SO}\to\mathbb Z$.  In dimension four derive
 \operatorname{sign}(M)=\frac13\int_Mp_1(TM).
 \]
 For $h=c_1(\mathcal O(1))$ on $\mathbb{CP}^2$, use as theorem input the
-Euler sequence
+Euler sequence~\cite{hartshorne}
 \[
 0\longrightarrow\mathcal O
 \longrightarrow\mathcal O(1)^{\oplus3}
@@ -2694,7 +2727,7 @@ Separate the positive and negative spectral values to prove
 \[
 \eta_{A_a}(s)=\zeta(s,a)-\zeta(s,1-a).
 \]
-Use as theorem input the analytic continuation identity
+Use as theorem input the analytic continuation identity~\cite{aps1}
 \[
 \zeta(0,a)=\frac12-a
 \]
@@ -2819,7 +2852,7 @@ line bundle $L\to X$ classified by $f_L:X\to\mathbb{CP}^{\infty}$, put
 $c_1^E(L)=f_L^*x_E$.
 
 Use as theorem input the projective-bundle theorem for a complex-oriented
-theory,
+theory~\cite{atiyah-k-theory},
 \[
 E^*(\mathbb{CP}^{\infty})\cong E^*[[x_E]].
 \]
@@ -3011,7 +3044,7 @@ coherence, and phase-resolution assumptions.
 \end{exercise}
 
 \begin{exercise}[Spin bordism and the Majorana chain]
-For a closed spin surface $(\Sigma,\sigma)$, use as theorem input that
+For a closed spin surface $(\Sigma,\sigma)$, use as theorem input~\cite{lawson-michelsohn} that
 $\sigma$ determines a quadratic refinement
 \[
 q_\sigma:H_1(\Sigma;\mathbb Z_2)\longrightarrow\mathbb Z_2,
@@ -3024,7 +3057,7 @@ intrinsically by the Gauss sum
 (-1)^{\operatorname{Arf}(\sigma)}
 =2^{-g}\sum_{x\in H_1(\Sigma;\mathbb Z_2)}(-1)^{q_\sigma(x)},
 \]
-where $g$ is the genus.  Use as theorem input
+where $g$ is the genus.  Use as theorem input~\cite{freed-hopkins}
 \[
 \Omega_2^{\operatorname{Spin}}\cong\mathbb Z_2
 \]
@@ -3079,9 +3112,10 @@ construct parity-even bilinear couplings between the two Majoranas at
 each end that remove the edge degeneracy without closing the bulk gap.
 Relate this $\mathbb Z_2$ stacking law to $Z_{\rm Arf}$.
 
-Use as theorem input the locality estimate that a uniformly gapped
-parity-preserving local deformation splits the two edge levels by
-$O(e^{-N/\xi})$ for some correlation length $\xi$.  Predict an
+Assume a uniformly gapped parity-preserving local deformation remains in
+the nontrivial phase and admits parity-odd edge operators whose commutators
+with the Hamiltonian are $O(e^{-N/\xi})$ for some localization length
+$\xi$.  Deduce an $O(e^{-N/\xi})$ splitting and predict an
 exponentially split pair of parity-resolved subgap levels and, for a
 parity-conserving weak link with phase difference $\phi$, use the
 low-energy coupling
@@ -3427,7 +3461,7 @@ algebra, with the negligible quotient supplying the required passage from
 the nonsemisimple quantum-group category to the unitary fusion category.
 \end{exercise}
 
-\begin{exercise}[Morita equivalence, Drinfeld centers, and the cobordism hypothesis]
+\begin{exercise}[Morita equivalence and Drinfeld centers]
 Let $\mathcal C$ and $\mathcal D$ be unitary fusion categories.  A
 \emph{$\mathcal C$--$\mathcal D$ bimodule category} is a finite
 semisimple $C^*$-category $\mathcal M$ with commuting unitary left
@@ -3443,7 +3477,11 @@ $\mathcal D$--$\mathcal E$ bimodule $\mathcal N$, define their
 \operatorname{Fun}_{\mathcal D\text{-bal}}
 (\mathcal M\times\mathcal N,\mathcal A)
 \]
-for every $\mathcal C$--$\mathcal E$ module category $\mathcal A$.
+for every $\mathcal C$--$\mathcal E$ module category $\mathcal A$, where
+the right side consists of bilinear module functors equipped with coherent
+$\mathcal D$-balancing isomorphisms.  Use as theorem input that relative
+tensor products of finite semisimple module categories exist and are
+associative up to their canonical equivalence~\cite{etingof-fusion}.
 Call $\mathcal C$ and $\mathcal D$ \emph{Morita equivalent} when there
 is a $\mathcal C$--$\mathcal D$ bimodule $\mathcal M$ with a
 $\mathcal D$--$\mathcal C$ bimodule $\mathcal M^\vee$ and equivalences
@@ -3485,7 +3523,9 @@ Z(\mathcal C)\simeq Z(\mathcal D)
 \]
 by a braided unitary equivalence.  Deduce that the center is an invariant
 of the bulk rather than of a chosen boundary presentation.
+\end{exercise}
 
+\begin{exercise}[Fully dualizable fusion categories and topological phases]
 Define the symmetric monoidal Morita $3$-category
 $\mathsf{Fus}$ to have unitary fusion categories as objects, finite
 semisimple bimodule categories as $1$-morphisms, module functors as
@@ -3511,7 +3551,7 @@ $3$-groupoid of such theories with the $3$-groupoid of fully dualizable
 objects of $\mathsf{Fus}$.  Use the canonical spherical structure of a
 unitary fusion category as theorem input to obtain its oriented
 Turaev--Viro theory, and use as theorem input that its bulk line
-operators form $Z(\mathcal C)$.
+operators form $Z(\mathcal C)$~\cite{turaev-quantum,ai-factorization}.
 
 Let $\operatorname{Pic}(\mathsf{Fus})$ be the sub-$3$-groupoid of
 tensor-invertible objects and invertible morphisms.  Prove that the
@@ -3524,12 +3564,11 @@ isomorphism classes of simple objects, by
 \operatorname{Dim}(\mathcal C)
 =\sum_{[X]\in\operatorname{Irr}(\mathcal C)}d_X^2.
 \]
-Use the equality of categorical and Frobenius--Perron dimensions proved
-above to show
+Use the equality of categorical and Frobenius--Perron dimensions to show
 \[
 \operatorname{Dim}(\mathcal C)=\operatorname{FPdim}(\mathcal C).
 \]
-Use as theorem input
+Use as theorem input~\cite{etingof-fusion}
 \[
 \operatorname{Dim}Z(\mathcal C)=\operatorname{Dim}(\mathcal C)^2,
 \qquad
@@ -3539,8 +3578,8 @@ Use as theorem input
 and prove that a unitary fusion category is tensor-invertible in
 $\mathsf{Fus}$ only when it is Morita equivalent to
 $\mathsf{Hilb}_{\rm fd}$, the unitary fusion category of
-finite-dimensional Hilbert spaces.  For $\mathcal C_k$, use the preceding
-Frobenius--Perron computation to prove
+finite-dimensional Hilbert spaces.  For $\mathcal C_k$, use the distinct
+simple objects $V_0,V_1$ and positivity of their categorical dimensions to prove
 $\operatorname{Dim}(\mathcal C_k)>1$ for $k\geq1$,
 and conclude that its associated state-sum phase is non-invertible.
 State explicitly that this classifies the fully extended topological
@@ -3556,7 +3595,7 @@ Put
 \theta_a
 =\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
 \]
-Use as theorem input that these phases, together with the braiding on
+Use as theorem input~\cite{turaev-quantum} that these phases, together with the braiding on
 $\mathcal C_k$, define its unitary ribbon structure.  For simple objects
 define the normalized Hopf-link matrix intrinsically by
 \[
@@ -3573,7 +3612,7 @@ Let $N_{ab}^{\ \ c}$ be the multiplicity of $V_c$ in
 $V_a\otimes V_b$.
 
 Use sine orthogonality to prove that $S$ is real, symmetric, and unitary.
-Use as theorem input the equivalence between invertibility of the
+Use as theorem input~\cite{turaev-quantum} the equivalence between invertibility of the
 Hopf-link matrix and triviality of the M\"uger center, and conclude that
 $\mathcal C_k$ is modular.
 For each $a$, let $(N_a)_{bc}=N_{ab}^{\ \ c}$.  Use the truncated
@@ -3611,7 +3650,7 @@ Deduce that the number of fusion channels from
 $a_1,\ldots,a_n$ to $c$ is
 $(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
 of sine functions.  Let $\mathcal C_k^{\rm rev}$ have the inverse braiding.
-Use as theorem input the canonical braided equivalence
+Use as theorem input~\cite{etingof-fusion} the canonical braided equivalence
 \[
 \mathcal C_k\boxtimes\mathcal C_k^{\rm rev}
 \simeq Z(\mathcal C_k)
