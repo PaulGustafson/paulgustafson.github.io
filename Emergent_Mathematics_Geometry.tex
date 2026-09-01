@@ -2533,3 +2533,289 @@ charge-normalization, unbroken-supersymmetry, continuum-scaling,
 finite-volume, temperature, and symmetry-resolved spectroscopy assumptions
 under which a programmable quantum system tests these protected counts.
 \end{exercise}
+
+\begin{exercise}[Bordism characters and invertible topological phases]
+Let $G$ be a finite internal symmetry group and let
+$H=SO$ or $\operatorname{Spin}$.  An \emph{$H$-bordism over $BG$}
+from $(M_0,A_0)$ to $(M_1,A_1)$ is an $H$-bordism $W$ together with a
+map $A:W\to BG$ whose restrictions are $A_0$ and $A_1$.  Let
+$\Omega_d^H(BG)$ be the resulting bordism group of closed
+$d$-manifolds equipped with maps to $BG$.  Prove that disjoint union
+defines its addition and that forgetting the map to $BG$ gives a
+homomorphism
+\[
+\Omega_d^H(BG)\longrightarrow\Omega_d^H.
+\]
+
+Define a \emph{$U(1)$-valued bordism character} to be a homomorphism
+\[
+Z:\Omega_d^H(BG)\longrightarrow U(1).
+\]
+Write its value on $(M,A)$ as $Z(M,A)$.  Prove
+\[
+Z(\varnothing)=1,
+\qquad
+Z((-M),A)=\overline{Z(M,A)},
+\qquad
+Z(M\sqcup N,A\sqcup B)=Z(M,A)Z(N,B).
+\]
+Define stacking by pointwise multiplication of characters and prove that
+complex conjugation supplies the stacking inverse.  Call a gapped
+$G$-symmetric phase \emph{invertible} when, after adjoining decoupled
+product degrees of freedom, it has a stacking inverse, and call two such
+phases equivalent when a uniformly gapped $G$-symmetric path joins their
+Hamiltonians.  Use as theorem input~\cite{freed-hopkins} that, under the
+reflection-positivity and low-energy topological-field-theory hypotheses,
+deformation classes of invertible phases are computed from the associated
+Thom spectrum and their closed-manifold partition functions give bordism
+characters.  Distinguish this full stable-homotopy classification from the
+information retained by partition functions on closed manifolds.
+
+A \emph{normalized $U(1)$-valued $2$-cocycle} on $G$ is a function
+$\omega:G\times G\to U(1)$ satisfying
+\[
+\omega(e,g)=\omega(g,e)=1,
+\qquad
+\omega(g,h)\omega(gh,k)=\omega(h,k)\omega(g,hk).
+\]
+For $\beta:G\to U(1)$ with $\beta(e)=1$, define
+\[
+(\delta\beta)(g,h)=\frac{\beta(g)\beta(h)}{\beta(gh)},
+\]
+and define $H^2(G,U(1))$ to be normalized cocycles modulo multiplication
+by such coboundaries.  Prove that operators satisfying
+\[
+U_gU_h=\omega(g,h)U_{gh},
+\qquad U_e=1,
+\]
+associate precisely because $\omega$ is a cocycle and that rephasing
+$U_g$ changes $\omega$ by a coboundary.  Use as theorem
+input~\cite{chen-gu-wen,pollmann-turner} that one-dimensional bosonic
+gapped phases with a unique bulk ground state, unbroken onsite symmetry
+$G$, and finite correlation length are classified, under symmetric
+gapped-path equivalence, by $H^2(G,U(1))$, with boundary degrees of
+freedom carrying the corresponding projective representation.
+
+For commuting $g,h\in G$, define the twisted torus response
+\[
+Z_\omega(T^2;g,h)=\frac{\omega(g,h)}{\omega(h,g)}.
+\]
+Prove that it depends only on the cohomology class of $\omega$.  For
+$G=\mathbb Z_2\times\mathbb Z_2$, written additively as pairs
+$(r,s)$, prove that
+\[
+\omega\bigl((r,s),(r',s')\bigr)=(-1)^{sr'}
+\]
+is a normalized cocycle and that the two generating holonomies give
+\[
+Z_\omega(T^2;(1,0),(0,1))=-1.
+\]
+Interpret the phase $\pi$ as the quantized interference response of the
+nontrivial bosonic symmetry-protected phase, stating separately the
+onsite-symmetry, gap, unique-bulk-ground-state, flat-background-field,
+coherence, and phase-resolution assumptions.
+\end{exercise}
+
+\begin{exercise}[Spin bordism and the Majorana chain]
+For a closed spin surface $(\Sigma,\sigma)$, use as theorem input that
+$\sigma$ determines a quadratic refinement
+\[
+q_\sigma:H_1(\Sigma;\mathbb Z_2)\longrightarrow\mathbb Z_2,
+\qquad
+q_\sigma(x+y)=q_\sigma(x)+q_\sigma(y)+x\cdot y,
+\]
+of the mod-$2$ intersection pairing.  Define its Arf invariant
+intrinsically by the Gauss sum
+\[
+(-1)^{\operatorname{Arf}(\sigma)}
+=2^{-g}\sum_{x\in H_1(\Sigma;\mathbb Z_2)}(-1)^{q_\sigma(x)},
+\]
+where $g$ is the genus.  Use as theorem input
+\[
+\Omega_2^{\operatorname{Spin}}\cong\mathbb Z_2
+\]
+with $\operatorname{Arf}$ as generator of the character group.  Prove
+that
+\[
+Z_{\rm Arf}(\Sigma,\sigma)=(-1)^{\operatorname{Arf}(\sigma)}
+\]
+is multiplicative under disjoint union, is unchanged by spin bordism,
+and squares to the trivial response under stacking.
+
+For fermionic annihilation operators $c_1,\ldots,c_N$ satisfying
+\[
+\{c_j,c_k\}=0,
+\qquad
+\{c_j,c_k^*\}=\delta_{jk},
+\]
+define the Majorana operators
+\[
+\gamma_{j,A}=c_j+c_j^*,
+\qquad
+\gamma_{j,B}=-i(c_j-c_j^*).
+\]
+Derive
+\[
+\gamma_{j,\alpha}^*=\gamma_{j,\alpha},
+\qquad
+\{\gamma_{j,\alpha},\gamma_{k,\beta}\}
+=2\delta_{jk}\delta_{\alpha\beta}.
+\]
+On an open chain define the distinguished Kitaev Hamiltonian
+from~\cite{kitaev-majorana}
+\[
+H_{\rm top}=-J\sum_{j=1}^{N-1}
+i\gamma_{j,B}\gamma_{j+1,A},
+\qquad J>0.
+\]
+Prove that its $N-1$ bond operators commute, square to the identity, and
+leave $\gamma_{1,A}$ and $\gamma_{N,B}$ unpaired.  Deduce the spectral
+values
+\[
+E_m=-J(N-1)+2Jm,
+\qquad 0\leq m\leq N-1,
+\]
+with multiplicity $2\binom{N-1}{m}$, a bulk gap $2J$, and two ground
+states of opposite total fermion parity.  Compare with
+\[
+H_{\rm triv}=-J\sum_{j=1}^{N}i\gamma_{j,A}\gamma_{j,B},
+\]
+which has a unique ground state.  Stack two copies of $H_{\rm top}$ and
+construct parity-even bilinear couplings between the two Majoranas at
+each end that remove the edge degeneracy without closing the bulk gap.
+Relate this $\mathbb Z_2$ stacking law to $Z_{\rm Arf}$.
+
+Use as theorem input the locality estimate that a uniformly gapped
+parity-preserving local deformation splits the two edge levels by
+$O(e^{-N/\xi})$ for some correlation length $\xi$.  Predict an
+exponentially split pair of parity-resolved subgap levels and, for a
+parity-conserving weak link with phase difference $\phi$, use the
+low-energy coupling
+\[
+H_{\rm link}(\phi)=it\cos(\phi/2)\gamma_L\gamma_R
+\]
+to derive the two branches
+\[
+E_\pm(\phi)=\pm t\cos(\phi/2).
+\]
+Show that a $2\pi$ advance carries a fixed-parity state to the opposite
+energy branch, so that each fixed-parity branch has $4\pi$ spectral flow.
+State separately
+the quadratic-model, open-boundary, bulk-gap, fermion-parity,
+quasiparticle-poisoning, coherence-length, temperature, and
+spectral-resolution assumptions under which tunneling spectroscopy and
+Josephson measurements test these predictions.
+\end{exercise}
+
+\begin{exercise}[Projective characters and the cluster chain]
+Let $N\geq4$ be even and put
+\[
+K_j=Z_{j-1}X_jZ_{j+1},
+\qquad
+H_{\rm cl}=-J\sum_{j=2}^{N-1}K_j,
+\qquad J>0,
+\]
+on an open chain of $N$ qubits, where $X_j$ and $Z_j$ are the Pauli
+operators on the $j$th tensor factor.  Define the onsite
+$G=\mathbb Z_2\times\mathbb Z_2$ symmetry operators
+\[
+S_{\rm e}=\prod_{j\ {\rm even}}X_j,
+\qquad
+S_{\rm o}=\prod_{j\ {\rm odd}}X_j.
+\]
+Prove that the $K_j$ are independent commuting involutions and that both
+symmetries commute with every $K_j$.  Derive the complete spectrum
+\[
+E_m=-J(N-2)+2Jm,
+\qquad 0\leq m\leq N-2,
+\]
+with multiplicity $4\binom{N-2}{m}$, including a four-dimensional
+ground space and gap $2J$.
+
+On the ground space prove
+\[
+S_{\rm e}=Z_1\,(Z_{N-1}X_N),
+\qquad
+S_{\rm o}=(X_1Z_2)\,Z_N.
+\]
+Show that the two left factors anticommute, as do the two right factors,
+although $S_{\rm e}$ and $S_{\rm o}$ commute.  With
+\[
+U_{(r,s)}=Z^rX^s,
+\]
+derive
+\[
+U_{(r,s)}U_{(r',s')}
+=(-1)^{sr'}U_{(r+r',s+s')}
+\]
+and prove that each edge realizes the nontrivial projective class whose
+twisted torus response is $-1$.  Show that a symmetry-preserving operator
+supported at one edge acts as a scalar on its irreducible projective
+doublet.  Deduce that the projective multipliers at the two ends cancel
+in the linear global symmetry action and identify this cancellation as
+anomaly inflow from the bulk response.
+
+For the irreducible edge representation, define its projective character
+by
+\[
+\psi_\omega(r,s)=\operatorname{Tr}U_{(r,s)}.
+\]
+Compute
+\[
+\psi_\omega(0,0)=2,
+\qquad
+\psi_\omega(r,s)=0\quad\text{for }(r,s)\ne(0,0),
+\]
+and verify the projective-character orthogonality normalization
+\[
+\frac14\sum_{r,s\in\mathbb Z_2}
+\left|\psi_\omega(r,s)\right|^2=1.
+\]
+Define the four group characters
+\[
+\chi_{p,q}(r,s)=(-1)^{pr+qs},
+\qquad (p,q),(r,s)\in\mathbb Z_2^2.
+\]
+Prove their orthogonality and completeness identities
+\[
+\frac14\sum_{r,s\in\mathbb Z_2}
+\chi_{p,q}(r,s)\overline{\chi_{p',q'}(r,s)}
+=\delta_{p,p'}\delta_{q,q'},
+\]
+\[
+\frac14\sum_{p,q\in\mathbb Z_2}
+\chi_{p,q}(r,s)\overline{\chi_{p,q}(r',s')}
+=\delta_{r,r'}\delta_{s,s'}.
+\]
+Use the character projectors
+\[
+P_{p,q}=\frac14\sum_{r,s\in\mathbb Z_2}
+\chi_{p,q}(r,s)S_{\rm e}^{\,r}S_{\rm o}^{\,s}
+\]
+to prove that every energy $E_m$ occurs with multiplicity
+$\binom{N-2}{m}$ in each symmetry sector.  If an operator $O$ transforms
+by $\chi_{u,v}$, derive the selection rule
+\[
+P_{p,q}OP_{p',q'}=0
+\quad\text{unless}\quad
+(p,q)=(p'+u,q'+v).
+\]
+
+For $2\leq r\leq s\leq N-1$ with $r\equiv s\pmod2$, prove the exact
+string-correlation identity
+\[
+\left\langle
+Z_{r-1}\left(\prod_{k=0}^{(s-r)/2}X_{r+2k}\right)Z_{s+1}
+\right\rangle=1
+\]
+in every ground state.  Predict four symmetry-resolved ground levels,
+the gap $2J$, the character selection rule, unit string correlation, and
+the edge-pulse commutator phase $\pi$.  State separately the
+commuting-stabilizer, open-boundary, onsite-symmetry, coupling-calibration,
+state-preparation, temperature, coherence, symmetry-resolved-readout, and
+finite-size assumptions under which qubit-array spectroscopy, string
+measurements, and edge interferometry test these predictions; for small
+symmetry-preserving perturbations, distinguish exact quantization of the
+thermodynamic projective class from finite-size edge splitting and
+nonuniversal deformation of the string correlator.
+\end{exercise}
