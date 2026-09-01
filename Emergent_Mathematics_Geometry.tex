@@ -3124,8 +3124,90 @@ Use as theorem input the canonical braided equivalence
 \simeq Z(\mathcal C_k)
 \]
 and deduce that the simple bulk charges are indexed by pairs $(x,y)$
-with $0\leq x,y\leq k$.  Conclude that the Turaev--Viro state space of
-the torus has dimension $(k+1)^2$.
+with $0\leq x,y\leq k$.
+\end{exercise}
+
+\begin{exercise}[Factorization homology and modular surface state spaces]
+Let $\operatorname{Disk}_2^{\rm or}$ be the symmetric monoidal
+$\infty$-category
+whose objects are finite disjoint unions of oriented open disks, whose
+morphism spaces are spaces of orientation-preserving embeddings, and whose
+monoidal product is disjoint union.  Let $\mathcal V$ be a symmetric
+monoidal $\infty$-category admitting the required colimits, with tensor
+product preserving them separately in each variable.  Define an oriented
+two-disk algebra in $\mathcal V$ to be a symmetric monoidal functor
+$A\colon\operatorname{Disk}_2^{\rm or}\to\mathcal V$.  For an oriented
+surface $\Sigma$, define its factorization homology by
+\[
+\int_\Sigma A
+=\operatorname*{colim}_{(D\hookrightarrow\Sigma)
+\in\operatorname{Disk}_2^{\rm or}/\Sigma}A(D).
+\]
+Derive disk normalization and the disjoint-union identity
+\[
+\int_{\mathbb R^2}A\simeq A(\mathbb R^2),
+\qquad
+\int_{\Sigma\sqcup\Sigma'}A
+\simeq\left(\int_\Sigma A\right)\otimes
+\left(\int_{\Sigma'}A\right).
+\]
+Use as theorem input the excision theorem~\cite{ayala-francis}: for a
+collar gluing
+$\Sigma=\Sigma_-\cup_{N\times\mathbb R}\Sigma_+$,
+\[
+\int_\Sigma A\simeq
+\left(\int_{\Sigma_-}A\right)
+\underset{\int_{N\times\mathbb R}A}{\otimes}
+\left(\int_{\Sigma_+}A\right).
+\]
+
+Put $\mathcal A=Z(\mathcal C_k)$.  Use as theorem input that the ribbon
+structure of $\mathcal A$ supplies the oriented two-disk-algebra data
+and that, on a closed oriented surface, its factorization homology has a
+distinguished finite-dimensional Hilbert space
+$\mathcal H_{\mathcal A}(\Sigma)$ canonically isomorphic to the
+Reshetikhin--Turaev surface state space~\cite{ai-factorization}.  Apply
+excision to a pair-of-pants decomposition and use Verlinde
+diagonalization to prove
+\[
+\dim\mathcal H_{Z(\mathcal C_k)}(\Sigma_g)
+=\left(\sum_{x=0}^k S_{0x}^{\,2-2g}\right)^2.
+\]
+Insert the sine formula for $S_{0x}$, recover dimension $1$ on the sphere
+and $(k+1)^2$ on the torus, and determine the growth with $g$ for a
+fixed chosen $k$.
+
+Choose oriented meridian and longitude classes on the torus and use the
+intrinsic orthogonal decomposition into simple bulk-charge sectors
+$(x,y)$ to prove that the anomaly-free doubled mapping-class operators
+have kernels
+\[
+(U_{\mathsf S})_{(x,y),(x',y')}
+=S_{xx'}\overline{S_{yy'}},
+\qquad
+(U_{\mathsf T})_{(x,y),(x',y')}
+=\delta_{xx'}\delta_{yy'}\theta_x\overline{\theta_y}.
+\]
+Deduce the transition probability
+$|S_{xx'}|^2|S_{yy'}|^2$ under an adiabatic modular $\mathsf S$ operation
+and the Dehn-twist Berry phase
+$\arg\theta_x-\arg\theta_y$ in sector $(x,y)$.  State the gap,
+adiabaticity, ground-space preparation, mapping-class calibration,
+finite-size, and phase-resolution assumptions under which these numbers
+are measurable.
+
+For a stratified collar labelled by a $\mathcal C$--$\mathcal D$
+bimodule category $\mathcal M$, use stratified excision as theorem
+input~\cite{ai-factorization} to show that gluing interfaces composes
+their labels by relative tensor product.  Prove that a Morita-invertible
+$\mathcal M$ gives a transparent wall by applying
+\[
+\mathcal M\boxtimes_{\mathcal D}\mathcal M^{\rm op}
+\simeq\mathcal C,
+\qquad
+\mathcal M^{\rm op}\boxtimes_{\mathcal C}\mathcal M
+\simeq\mathcal D.
+\]
 \end{exercise}
 
 \begin{exercise}[Levin--Wen string-net Hamiltonians]
@@ -3180,7 +3262,13 @@ Deduce that $\widehat H_\Gamma$ is positive and frustration-free and that
 its ground space is the simultaneous $+1$ space of all $Q_v$ and $B_p$.
 Prove that recoupling across an edge gives a unitary identification of the
 ground spaces before and after the corresponding local change of
-cellulation.
+cellulation.  Use as theorem input~\cite{levin-wen,ai-factorization} that
+these identifications assemble to a canonical unitary isomorphism
+\[
+\ker\widehat H_\Gamma
+\cong\mathcal H_{Z(\mathcal C_k)}(\Sigma)
+\]
+compatible with collar gluing and the mapping-class action.
 
 For $k=1$, identify the labels with $\Z/2\Z$, let $Z_e$ act on a label
 $a_e$ by $(-1)^{a_e}$, and let $X_e$ reverse that label.  Show that
@@ -3190,7 +3278,8 @@ Q_v=\frac12\left(I+\prod_{e\ni v}Z_e\right),
 B_p=\frac12\left(I+\prod_{e\subset\partial p}X_e\right).
 \]
 On a torus, count the two independent relations among the vertex and face
-constraints and prove that the ground-state degeneracy is $4$.  Identify
+constraints, prove that the ground-state degeneracy is $4$, and verify
+agreement with the factorization-homology genus formula.  Identify
 the two pairs of noncontractible string operators and their mutual sign,
 and state the boundary conditions and gap-preserving perturbation regime
 under which the fourfold low-energy multiplicity is a measurable
@@ -3204,11 +3293,9 @@ braiding and inverse braiding of $\mathcal C_k$ when the loop is resolved
 through the string net.  Define $W_a^{\beta,+}$ and $W_a^{\beta,-}$ for a
 cycle $\beta$ with intersection number one with $\alpha$.
 
-Use as theorem input~\cite{levin-wen} the Levin--Wen--Turaev--Viro
-identification: local recoupling identifies the string-net ground space
-with the Turaev--Viro state space of the torus.  Use the central
-equivalence to identify its one-dimensional sectors with pairs $(x,y)$
-such that $0\leq x,y\leq k$, and recover
+Decompose the string-net ground space into its one-dimensional simple
+bulk-charge sectors indexed by pairs $(x,y)$ with
+$0\leq x,y\leq k$, and recover
 \[
 \dim\ker\widehat H_\Gamma=(k+1)^2.
 \]
