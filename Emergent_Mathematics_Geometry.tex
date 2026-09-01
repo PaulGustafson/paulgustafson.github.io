@@ -926,6 +926,434 @@ noninteracting, and spectral-resolution assumptions under which these
 measurements test the theta-function and Riemann--Roch predictions.
 \end{exercise}
 
+\section{Finite-Gap Spectral Curves}
+
+\begin{exercise}[Floquet operators and Bloch spectral curves]
+Let
+\[
+L=-\frac{d^2}{du^2}+V(u)
+\]
+with real smooth potential of period $P$.  For $E\in\mathbb C$, let
+$\mathcal S_E$ be the two-dimensional solution space of
+$L\psi=E\psi$, and define the monodromy automorphism
+\[
+M(E):\mathcal S_E\longrightarrow\mathcal S_E,
+\qquad
+\psi(u)\longmapsto\psi(u+P).
+\]
+Use constancy of the Wronskian to prove $\det M(E)=1$.  Define
+\[
+\Delta(E)=\operatorname{tr}M(E)
+\]
+and call $\rho$ a Bloch multiplier when $M(E)\psi=\rho\psi$ for a nonzero
+solution.  Prove
+\[
+\rho+\rho^{-1}=\Delta(E)
+\]
+Let $H^2([0,P])$ be the space of $L^2$ functions whose first two
+distributional derivatives belong to $L^2$, and use the one-dimensional
+Sobolev trace theorem~\cite{hormander3} to evaluate a function and its
+first derivative at the endpoints.  For $\rho\in\mathbb C^\times$,
+define the twisted Sobolev domain
+\[
+H^2_\rho
+=\{\psi\in H^2([0,P]):
+\psi(P)=\rho\psi(0),
+\psi'(P)=\rho\psi'(0)\}.
+\]
+Regard
+\[
+\mathcal L_{\rho,E}:H^2_\rho\longrightarrow L^2([0,P]),
+\qquad
+\mathcal L_{\rho,E}\psi=(L-E)\psi,
+\]
+as a bounded operator.  For a bounded operator $T:H_0\to H_1$, define
+its cokernel by
+\[
+\operatorname{coker}T=H_1/\operatorname{im}T.
+\]
+Use variation of parameters to prove that the image of
+$\mathcal L_{\rho,E}$ is closed and that its kernel and cokernel are
+finite-dimensional.  Prove
+\[
+\ker\mathcal L_{\rho,E}
+\cong\ker(M(E)-\rho I)
+\]
+and that $\mathcal L_{\rho,E}$ is invertible exactly when
+$M(E)-\rho I$ is invertible.  Deduce that the noninvertibility locus of
+the family $\mathcal L_{\rho,E}$ is the Bloch spectral curve
+\[
+\mathcal B_L:\quad \rho^2-\Delta(E)\rho+1=0.
+\]
+For $E\in\mathbb R$ and $|\rho|=1$, use Green's identity to prove that
+$\mathcal L_{\rho,E}$ is self-adjoint as an operator on $L^2([0,P])$
+with domain $H^2_\rho$, and deduce
+\[
+\dim\ker\mathcal L_{\rho,E}
+-\dim\operatorname{coker}\mathcal L_{\rho,E}=0.
+\]
+Show that its branch points occur at the periodic and antiperiodic energies
+$\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
+exactly when $|\Delta(E)|\leq2$.
+\end{exercise}
+
+\begin{exercise}[Hyperelliptic curves and holomorphic differentials]
+Let
+\[
+C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
+\qquad e_r\ne e_s\quad(r\ne s),
+\]
+denote its nonsingular projective completion.  Use Riemann--Hurwitz to prove
+that $C$ has genus $g$.  Use the projective construction and Jacobian
+criterion to verify the asserted
+nonsingularity.  Analyze the finite branch points and the point over
+infinity to show that the distinguished differentials
+\[
+\eta_j=\frac{x^{j-1}dx}{y},
+\qquad 1\leq j\leq g,
+\]
+are holomorphic.  Compare their vanishing orders at infinity and use
+$\dim H^0(C,K_C)=g$ to show that they exhaust the holomorphic
+differentials.
+
+Choose a symplectic marking
+$(a_1,\ldots,a_g,b_1,\ldots,b_g)$ of $H_1(C;\mathbb Z)$, define the
+period maps
+\[
+\mathsf A(\eta)=\left(\int_{a_1}\eta,\ldots,
+\int_{a_g}\eta\right),
+\qquad
+\mathsf B(\eta)=\left(\int_{b_1}\eta,\ldots,
+\int_{b_g}\eta\right),
+\]
+and prove from the Riemann bilinear identity that $\mathsf A$ is an
+isomorphism.  Let $\omega_j$ be the uniquely normalized differentials
+satisfying $\int_{a_i}\omega_j=\delta_{ij}$ and define
+\[
+\Omega_{ij}=\int_{b_i}\omega_j.
+\]
+Use the bilinear identity to prove
+\[
+\Omega^{\mathsf T}=\Omega,
+\qquad
+\operatorname{Im}\Omega>0.
+\]
+\end{exercise}
+
+\begin{exercise}[Jacobians, Abel--Jacobi maps, and Riemann theta functions]
+For a compact Riemann surface $C$, define its Jacobian intrinsically by
+\[
+\operatorname{Jac}(C)
+=H^0(C,K_C)^\vee
+\big/
+\left\{\eta\mapsto\int_\gamma\eta:
+\gamma\in H_1(C;\mathbb Z)\right\}.
+\]
+Using the symplectic marking and normalized periods above, identify it with
+\[
+\mathbb C^g/(\mathbb Z^g+\Omega\mathbb Z^g).
+\]
+Define the Riemann theta function by the normally convergent series
+\[
+\vartheta(z\mid\Omega)
+=\sum_{n\in\mathbb Z^g}
+\exp\!\left(\pi i\,n^{\mathsf T}\Omega n
++2\pi i\,n^{\mathsf T}z\right).
+\]
+Prove its holomorphy and automorphy laws
+\[
+\vartheta(z+m\mid\Omega)=\vartheta(z\mid\Omega),
+\]
+\[
+\vartheta(z+\Omega n\mid\Omega)
+=e^{-\pi i n^{\mathsf T}\Omega n-2\pi i n^{\mathsf T}z}
+\vartheta(z\mid\Omega).
+\]
+
+Fix $p_0\in C$ and define the Abel--Jacobi map by
+\[
+\mathcal A_{p_0}(p)
+=\left[\eta\longmapsto\int_{p_0}^p\eta\right]
+\in\operatorname{Jac}(C).
+\]
+Prove that it is well defined and extend it additively to divisors.  Use as
+theorem input the Abel--Jacobi theorem~\cite{forster}: a degree-zero divisor is principal
+exactly when its Abel--Jacobi image vanishes, and every point of the
+Jacobian is represented by a degree-zero divisor.  Deduce
+\[
+\operatorname{Pic}^0(C)\cong\operatorname{Jac}(C).
+\]
+Use as theorem input Riemann's vanishing theorem~\cite{fay-theta} to identify a translate of
+the zero locus of $\vartheta$ with the Abel--Jacobi images of effective
+divisors of degree $g-1$.  Recover the genus-one Abel and theta-divisor
+statements above when $g=1$.
+\end{exercise}
+
+\begin{exercise}[Jacobi elliptic functions and elliptic uniformization]
+For $0<k<1$, define $\operatorname{sn}(u;k)$ near $u=0$ by
+\[
+u=\int_0^{\operatorname{sn}(u;k)}
+\frac{dt}{\sqrt{(1-t^2)(1-k^2t^2)}}
+\]
+and extend it by analytic continuation.  Define
+$\operatorname{cn}(u;k)$ and $\operatorname{dn}(u;k)$ by
+\[
+\operatorname{cn}^2=1-\operatorname{sn}^2,
+\qquad
+\operatorname{dn}^2=1-k^2\operatorname{sn}^2,
+\qquad
+\operatorname{cn}(0;k)=\operatorname{dn}(0;k)=1.
+\]
+Derive
+\[
+\operatorname{sn}'=\operatorname{cn}\operatorname{dn},
+\qquad
+\operatorname{cn}'=-\operatorname{sn}\operatorname{dn},
+\qquad
+\operatorname{dn}'=-k^2\operatorname{sn}\operatorname{cn}.
+\]
+
+Put $m=k^2$ and define
+\[
+x(u)=m\operatorname{sn}^2(u;k),
+\qquad
+y(u)=m\operatorname{sn}(u;k)\operatorname{cn}(u;k)
+\operatorname{dn}(u;k).
+\]
+Prove
+\[
+y(u)^2=x(u)(x(u)-1)(x(u)-m),
+\qquad
+\frac{dx}{y}=2\,du.
+\]
+Identify the period lattice of $(x(u),y(u))$ and recover the
+uniformization of the Legendre curve constructed earlier.
+\end{exercise}
+
+\begin{exercise}[Lam\'e theta functions and the spectral curve]
+Let $K=K(k)$, $K'=K(\sqrt{1-k^2})$, and
+$\tau=iK'/K$.  Using the theta functions with characteristics, put
+\[
+H(u)=
+\vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
+\left(\frac{u}{2K}\,\middle|\,\tau\right),
+\qquad
+\Theta(u)=
+\vartheta\!\begin{bmatrix}0\\[1pt]\frac12\end{bmatrix}
+\left(\frac{u}{2K}\,\middle|\,\tau\right),
+\qquad
+Z(u)=\frac d{du}\log\Theta(u).
+\]
+For the Lam\'e operator
+\[
+L_k=-\frac{d^2}{du^2}+2k^2\operatorname{sn}^2(u;k),
+\]
+use the theta addition identities to verify the Hermite solutions
+\[
+\psi_\pm(u,a)
+=\frac{H(u\pm a)}{\Theta(u)}
+\exp\bigl(\mp uZ(a)\bigr),
+\]
+\[
+L_k\psi_\pm(\,\cdot\,,a)=E(a)\psi_\pm(\,\cdot\,,a),
+\qquad
+E(a)=1+k^2-k^2\operatorname{sn}^2(a;k).
+\]
+From the theta automorphy laws, derive their Bloch multipliers over the
+potential period $2K$:
+\[
+\rho_\pm(a)=-\exp\bigl(\mp2KZ(a)\bigr).
+\]
+
+Define
+\[
+\mu(a)=\frac{i}{2}\frac{dE(a)}{da}.
+\]
+Use the Jacobi differential identities to prove
+\[
+\mu(a)^2
+=(E(a)-k^2)(E(a)-1)(E(a)-1-k^2).
+\]
+Thus the parameter $a$ uniformizes the Lam\'e spectral curve
+\[
+\Sigma_k:\quad
+\mu^2=(E-k^2)(E-1)(E-1-k^2).
+\]
+\end{exercise}
+
+\begin{exercise}[Baker--Akhiezer functions and finite-gap reconstruction]
+Let
+\[
+\Sigma:\quad
+\mu^2=\prod_{j=0}^{2g}(E-E_j),
+\qquad
+E_0<E_1<\cdots<E_{2g},
+\]
+be a nonsingular real hyperelliptic curve with marked point $\infty$, and
+let $D$ be an effective divisor of degree $g$.  Let $d\Omega_1$ be the
+unique meromorphic differential with zero $a$-periods, no pole away from
+$\infty$, and principal part
+$d\sqrt E$ at $\infty$.  Put
+\[
+\Omega_1(p)=\int^p d\Omega_1,
+\qquad
+U_j=\frac1{2\pi i}\int_{b_j}d\Omega_1,
+\]
+take the Abel map $\mathcal A$ to be based at $\infty$, and let
+$Z\in\operatorname{Jac}(\Sigma)$ be the theta translate determined by
+$D$ through Riemann's vanishing theorem.
+
+For $x\in\mathbb R$, let $F_x$ be the flat holomorphic line bundle whose
+holonomy around a closed curve $\gamma$ is
+\[
+\operatorname{hol}_{F_x}(\gamma)
+=\exp\left(-x\int_\gamma d\Omega_1\right).
+\]
+Call $(D,Z)$ \emph{admissible} when, for every $x\in\mathbb R$,
+\[
+H^0\bigl(\Sigma,K_\Sigma(-D)\otimes F_x^{-1}\bigr)=0,
+\qquad
+\vartheta(Ux+Z\mid\Omega)\ne0,
+\]
+and
+$\frac{d^2}{dx^2}\log\vartheta(Ux+Z\mid\Omega)$ is real.  Since
+$\deg F_x=0$, use Riemann--Roch to prove
+\[
+\dim H^0\bigl(\Sigma,\mathcal O(D)\otimes F_x\bigr)=1.
+\]
+
+For admissible $(D,Z)$, define
+\[
+\psi(x,p)=
+\frac{\vartheta(\mathcal A(p)+Ux+Z\mid\Omega)\vartheta(Z\mid\Omega)}
+{\vartheta(\mathcal A(p)+Z\mid\Omega)
+ \vartheta(Ux+Z\mid\Omega)}
+e^{x\Omega_1(p)}.
+\]
+Use the theta automorphy laws to prove that the apparent monodromy of the
+quotient cancels that of the exponential, so $\psi$ is a function on
+$\Sigma\setminus\{\infty\}$ with poles prescribed by $D$.  Prove that
+$\psi(x,p)e^{-x\Omega_1(p)}$ is the unique section of
+$\mathcal O(D)\otimes F_x$ normalized to have value $1$ at $\infty$ in
+the local trivialization used in the theta formula.
+Deduce from the Riemann--Roch dimension count that $\psi$ is the unique
+normalized Baker--Akhiezer function with these divisor, monodromy, and
+asymptotic data.
+
+Use as theorem input the finite-gap reconstruction
+theorem~\cite{belokolos}: there is a
+constant $c$ determined by the expansion at infinity such that
+\[
+u(x)=c-2\frac{d^2}{dx^2}
+\log\vartheta(Ux+Z\mid\Omega)
+\]
+is real and smooth for admissible $(D,Z)$, and
+\[
+\left(-\frac{d^2}{dx^2}+u(x)\right)\psi(x,p)
+=E(p)\psi(x,p).
+\]
+Show from the two points over a regular $E$ and their Bloch multipliers that
+the spectrum is
+\[
+[E_0,E_1]\cup[E_2,E_3]\cup\cdots\cup
+[E_{2g-2},E_{2g-1}]\cup[E_{2g},\infty).
+\]
+Specialize to $g=1$ and recover, up to translation and an additive energy
+constant, the Lam\'e potential and Hermite theta solutions above.
+\end{exercise}
+
+\begin{exercise}[Lam\'e band edges and attenuation prediction]
+Use the half-period values of the Jacobi functions to recover the three
+band-edge solutions
+\[
+L_k\operatorname{dn}=k^2\operatorname{dn},
+\qquad
+L_k\operatorname{cn}=\operatorname{cn},
+\qquad
+L_k\operatorname{sn}=(1+k^2)\operatorname{sn}.
+\]
+Determine which are periodic and antiperiodic over $2K$.  Use the
+theta-function Bloch multipliers to prove
+\[
+\operatorname{spec}(L_k)
+=[k^2,1]\cup[1+k^2,\infty)
+\]
+and identify $(1,1+k^2)$ as the unique open gap.
+
+For an energy in the gap, choose $a$ with $E=E(a)$ and prove that a Bloch
+wave changes in magnitude by $e^{-2K\kappa(E)}$ per cell, where
+\[
+\kappa(E)=\frac1{2K}\left|\log|\rho_\pm(a)|\right|
+=|\operatorname{Re}Z(a)|.
+\]
+Predict the three band-edge energies and show that, up to interface factors,
+the transmitted amplitude through $M$ cells is suppressed by
+$e^{-2KM\kappa(E)}$ and the transmitted intensity by
+$e^{-4KM\kappa(E)}$.  Show that the gap closes as $k\to0$, and state the
+periodic-medium, coherence, finite-sample, and energy-resolution assumptions
+under which a transmission experiment tests the spectral curve.
+\end{exercise}
+
+\begin{exercise}[Cnoidal KdV waves and finite-gap transport]
+For the normalized Korteweg--de Vries equation
+\[
+u_t+6uu_x+u_{xxx}=0,
+\]
+put $\xi=x-vt$ and
+\[
+u(x,t)=a+2k^2\kappa^2
+\operatorname{cn}^2(\kappa\xi;k),
+\qquad 0<k<1.
+\]
+Derive
+\[
+\frac{d^2}{dz^2}\operatorname{cn}^2(z;k)
+=2(1-k^2)+4(2k^2-1)\operatorname{cn}^2(z;k)
+-6k^2\operatorname{cn}^4(z;k)
+\]
+and prove that the displayed wave solves KdV exactly when
+\[
+v=6a+4\kappa^2(2k^2-1).
+\]
+Deduce its amplitude, wavelength, and speed:
+\[
+A=2k^2\kappa^2,
+\qquad
+\lambda=\frac{2K(k)}{\kappa},
+\qquad
+v=6a+4\kappa^2(2k^2-1).
+\]
+Define the complete elliptic integral of the second kind and the elliptic
+nome by
+\[
+E(k)=\int_0^{\pi/2}\sqrt{1-k^2\sin^2\theta}\,d\theta,
+\qquad
+q=e^{-\pi K'(k)/K(k)}.
+\]
+Prove the Fourier expansion
+\[
+\operatorname{cn}^2(z;k)
+=\frac{E(k)-(1-k^2)K(k)}{k^2K(k)}
++\frac{2\pi^2}{k^2K(k)^2}
+\sum_{n\geq1}\frac{nq^n}{1-q^{2n}}
+\cos\frac{n\pi z}{K(k)}.
+\]
+Use as theorem input the finite-gap KdV evolution
+theorem~\cite{belokolos}, which replaces
+$Ux+Z$ in the reconstructed potential by $Ux+Vt+Z$ for the normalized
+second-kind KdV period vector $V$.  Show that the genus-one case gives the
+cnoidal wave above and that $k\uparrow1$ gives the solitary wave
+\[
+u(x,t)=a+2\kappa^2
+\operatorname{sech}^2\!\bigl(\kappa(x-(6a+4\kappa^2)t)\bigr).
+\]
+Predict the wavelength, phase speed, and harmonic-amplitude ratios of a
+weakly dispersive one-dimensional wave train from $K$, $E$, and the nome.
+State the KdV scaling, weak-nonlinearity, long-wavelength, negligible-loss,
+one-dimensional, and finite-window assumptions under which a wave-tank or
+transmission-line experiment tests these predictions.
+\end{exercise}
+
 \section{Index Theory}
 
 \begin{exercise}[Fredholm operators and the Calkin algebra]
@@ -940,9 +1368,8 @@ $\mathcal B(H)=\mathcal B(H,H)$.  Define the \emph{Calkin algebra} by
 \mathcal Q(H)=\mathcal B(H)/\mathcal K(H).
 \]
 
-A bounded operator $T:H_0\to H_1$ is \emph{Fredholm} when
-$\ker T$ and $\operatorname{coker}T=H_1/\operatorname{im}T$ are
-finite-dimensional and $\operatorname{im}T$ is closed.  Define
+A bounded operator $T:H_0\to H_1$ is \emph{Fredholm} when its kernel and
+cokernel are finite-dimensional and its image is closed.  Define
 \[
 \operatorname{ind}_{\rm an}(T)
 =\dim\ker T-\dim\operatorname{coker}T.
@@ -973,6 +1400,20 @@ compute
 \operatorname{ind}_{\rm an}(S)=-1,
 \qquad
 \operatorname{ind}_{\rm an}(S^*)=1.
+\]
+
+For the twisted periodic Schr\"odinger operators
+\[
+\mathcal L_{\rho,E}:H^2_\rho\longrightarrow L^2([0,P])
+\]
+with $|\rho|=1$ and $E\in\mathbb R$, use the closed-range and
+kernel--cokernel calculations to prove
+\[
+\operatorname{ind}_{\rm an}(\mathcal L_{\rho,E})=0,
+\qquad
+\ker\mathcal L_{\rho,E}\ne0
+\Longleftrightarrow
+\rho^2-\Delta(E)\rho+1=0.
 \]
 \end{exercise}
 
@@ -1702,370 +2143,4 @@ separately the spectral-gap,
 adiabatic, noninteracting, filled-level, mobility, contact, temperature,
 and finite-size assumptions under which Hall-voltage and charge-pump
 measurements test these predictions.
-\end{exercise}
-
-\section{Finite-Gap Spectral Curves}
-
-\begin{exercise}[Hyperelliptic curves and holomorphic differentials]
-Let
-\[
-C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
-\qquad e_r\ne e_s\quad(r\ne s),
-\]
-denote its nonsingular projective completion.  Use Riemann--Hurwitz to prove
-that $C$ has genus $g$.  Use the projective construction and Jacobian
-criterion to verify the asserted
-nonsingularity.  Analyze the finite branch points and the point over
-infinity to show that the distinguished differentials
-\[
-\eta_j=\frac{x^{j-1}dx}{y},
-\qquad 1\leq j\leq g,
-\]
-are holomorphic.  Compare their vanishing orders at infinity and use
-$\dim H^0(C,K_C)=g$ to show that they exhaust the holomorphic
-differentials.
-
-Choose a symplectic marking
-$(a_1,\ldots,a_g,b_1,\ldots,b_g)$ of $H_1(C;\mathbb Z)$, define the
-period maps
-\[
-\mathsf A(\eta)=\left(\int_{a_1}\eta,\ldots,
-\int_{a_g}\eta\right),
-\qquad
-\mathsf B(\eta)=\left(\int_{b_1}\eta,\ldots,
-\int_{b_g}\eta\right),
-\]
-and prove from the Riemann bilinear identity that $\mathsf A$ is an
-isomorphism.  Let $\omega_j$ be the uniquely normalized differentials
-satisfying $\int_{a_i}\omega_j=\delta_{ij}$ and define
-\[
-\Omega_{ij}=\int_{b_i}\omega_j.
-\]
-Use the bilinear identity to prove
-\[
-\Omega^{\mathsf T}=\Omega,
-\qquad
-\operatorname{Im}\Omega>0.
-\]
-\end{exercise}
-
-\begin{exercise}[Jacobians, Abel--Jacobi maps, and Riemann theta functions]
-For a compact Riemann surface $C$, define its Jacobian intrinsically by
-\[
-\operatorname{Jac}(C)
-=H^0(C,K_C)^\vee
-\big/
-\left\{\eta\mapsto\int_\gamma\eta:
-\gamma\in H_1(C;\mathbb Z)\right\}.
-\]
-Using the symplectic marking and normalized periods above, identify it with
-\[
-\mathbb C^g/(\mathbb Z^g+\Omega\mathbb Z^g).
-\]
-Define the Riemann theta function by the normally convergent series
-\[
-\vartheta(z\mid\Omega)
-=\sum_{n\in\mathbb Z^g}
-\exp\!\left(\pi i\,n^{\mathsf T}\Omega n
-+2\pi i\,n^{\mathsf T}z\right).
-\]
-Prove its holomorphy and automorphy laws
-\[
-\vartheta(z+m\mid\Omega)=\vartheta(z\mid\Omega),
-\]
-\[
-\vartheta(z+\Omega n\mid\Omega)
-=e^{-\pi i n^{\mathsf T}\Omega n-2\pi i n^{\mathsf T}z}
-\vartheta(z\mid\Omega).
-\]
-
-Fix $p_0\in C$ and define the Abel--Jacobi map by
-\[
-\mathcal A_{p_0}(p)
-=\left[\eta\longmapsto\int_{p_0}^p\eta\right]
-\in\operatorname{Jac}(C).
-\]
-Prove that it is well defined and extend it additively to divisors.  Use as
-theorem input the Abel--Jacobi theorem~\cite{forster}: a degree-zero divisor is principal
-exactly when its Abel--Jacobi image vanishes, and every point of the
-Jacobian is represented by a degree-zero divisor.  Deduce
-\[
-\operatorname{Pic}^0(C)\cong\operatorname{Jac}(C).
-\]
-Use as theorem input Riemann's vanishing theorem~\cite{fay-theta} to identify a translate of
-the zero locus of $\vartheta$ with the Abel--Jacobi images of effective
-divisors of degree $g-1$.  Recover the genus-one Abel and theta-divisor
-statements above when $g=1$.
-\end{exercise}
-
-\begin{exercise}[Jacobi elliptic functions and elliptic uniformization]
-For $0<k<1$, define $\operatorname{sn}(u;k)$ near $u=0$ by
-\[
-u=\int_0^{\operatorname{sn}(u;k)}
-\frac{dt}{\sqrt{(1-t^2)(1-k^2t^2)}}
-\]
-and extend it by analytic continuation.  Define
-$\operatorname{cn}(u;k)$ and $\operatorname{dn}(u;k)$ by
-\[
-\operatorname{cn}^2=1-\operatorname{sn}^2,
-\qquad
-\operatorname{dn}^2=1-k^2\operatorname{sn}^2,
-\qquad
-\operatorname{cn}(0;k)=\operatorname{dn}(0;k)=1.
-\]
-Derive
-\[
-\operatorname{sn}'=\operatorname{cn}\operatorname{dn},
-\qquad
-\operatorname{cn}'=-\operatorname{sn}\operatorname{dn},
-\qquad
-\operatorname{dn}'=-k^2\operatorname{sn}\operatorname{cn}.
-\]
-
-Put $m=k^2$ and define
-\[
-x(u)=m\operatorname{sn}^2(u;k),
-\qquad
-y(u)=m\operatorname{sn}(u;k)\operatorname{cn}(u;k)
-\operatorname{dn}(u;k).
-\]
-Prove
-\[
-y(u)^2=x(u)(x(u)-1)(x(u)-m),
-\qquad
-\frac{dx}{y}=2\,du.
-\]
-Identify the period lattice of $(x(u),y(u))$ and recover the
-uniformization of the Legendre curve constructed earlier.
-\end{exercise}
-
-\begin{exercise}[Floquet monodromy and Bloch curves]
-Let
-\[
-L=-\frac{d^2}{du^2}+V(u)
-\]
-with real smooth potential of period $P$.  Let $\mathcal S_E$ be the
-two-dimensional solution space of $L\psi=E\psi$, and define the monodromy
-automorphism
-\[
-M(E):\mathcal S_E\longrightarrow\mathcal S_E,
-\qquad
-\psi(u)\longmapsto\psi(u+P).
-\]
-Use constancy of the Wronskian to prove $\det M(E)=1$.  Define
-\[
-\Delta(E)=\operatorname{tr}M(E)
-\]
-and call $\rho$ a Bloch multiplier when $M(E)\psi=\rho\psi$ for a nonzero
-solution.  Prove
-\[
-\rho+\rho^{-1}=\Delta(E)
-\]
-and define the Bloch curve by
-\[
-\mathcal B_L:\quad \rho^2-\Delta(E)\rho+1=0.
-\]
-Show that its branch points occur at the periodic and antiperiodic energies
-$\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
-exactly when $|\Delta(E)|\leq2$.
-\end{exercise}
-
-\begin{exercise}[Lam\'e theta functions and the spectral curve]
-Let $K=K(k)$, $K'=K(\sqrt{1-k^2})$, and
-$\tau=iK'/K$.  Using the theta functions with characteristics, put
-\[
-H(u)=
-\vartheta\!\begin{bmatrix}\frac12\\[1pt]\frac12\end{bmatrix}
-\left(\frac{u}{2K}\,\middle|\,\tau\right),
-\qquad
-\Theta(u)=
-\vartheta\!\begin{bmatrix}0\\[1pt]\frac12\end{bmatrix}
-\left(\frac{u}{2K}\,\middle|\,\tau\right),
-\qquad
-Z(u)=\frac d{du}\log\Theta(u).
-\]
-For the Lam\'e operator
-\[
-L_k=-\frac{d^2}{du^2}+2k^2\operatorname{sn}^2(u;k),
-\]
-use the theta addition identities to verify the Hermite solutions
-\[
-\psi_\pm(u,a)
-=\frac{H(u\pm a)}{\Theta(u)}
-\exp\bigl(\mp uZ(a)\bigr),
-\]
-\[
-L_k\psi_\pm(\,\cdot\,,a)=E(a)\psi_\pm(\,\cdot\,,a),
-\qquad
-E(a)=1+k^2-k^2\operatorname{sn}^2(a;k).
-\]
-From the theta automorphy laws, derive their Bloch multipliers over the
-potential period $2K$:
-\[
-\rho_\pm(a)=-\exp\bigl(\mp2KZ(a)\bigr).
-\]
-
-Define
-\[
-\mu(a)=\frac{i}{2}\frac{dE(a)}{da}.
-\]
-Use the Jacobi differential identities to prove
-\[
-\mu(a)^2
-=(E(a)-k^2)(E(a)-1)(E(a)-1-k^2).
-\]
-Thus the parameter $a$ uniformizes the Lam\'e spectral curve
-\[
-\Sigma_k:\quad
-\mu^2=(E-k^2)(E-1)(E-1-k^2).
-\]
-\end{exercise}
-
-\begin{exercise}[Baker--Akhiezer functions and finite-gap reconstruction]
-Let
-\[
-\Sigma:\quad
-\mu^2=\prod_{j=0}^{2g}(E-E_j),
-\qquad
-E_0<E_1<\cdots<E_{2g},
-\]
-be a nonsingular real hyperelliptic curve with marked point $\infty$, and
-let $D$ be an effective divisor of degree $g$.  Call $D$ \emph{nonspecial}
-when $H^0(\Sigma,K_\Sigma(-D))=0$, and assume this condition.  Let
-$d\Omega_1$ be the unique meromorphic differential with zero $a$-periods,
-no pole away from $\infty$, and principal part
-$d\sqrt E$ at $\infty$.  Put
-\[
-\Omega_1(p)=\int^p d\Omega_1,
-\qquad
-U_j=\frac1{2\pi i}\int_{b_j}d\Omega_1,
-\]
-and let $Z\in\operatorname{Jac}(\Sigma)$ be the theta translate determined
-by $D$ through Riemann's vanishing theorem.  Call $Z$ \emph{admissible}
-when $\vartheta(Ux+Z\mid\Omega)$ is nonzero and
-$\frac{d^2}{dx^2}\log\vartheta(Ux+Z\mid\Omega)$ is real for every
-$x\in\mathbb R$.  Define
-\[
-\psi(x,p)=
-\frac{\vartheta(\mathcal A(p)+Ux+Z\mid\Omega)\vartheta(Z\mid\Omega)}
-{\vartheta(\mathcal A(p)+Z\mid\Omega)
- \vartheta(Ux+Z\mid\Omega)}
-e^{x\Omega_1(p)}.
-\]
-Use the theta automorphy laws to prove that the apparent monodromy of the
-quotient cancels that of the exponential, so $\psi$ is a function on
-$\Sigma\setminus\{\infty\}$ with poles prescribed by $D$.
-
-Use as theorem input the finite-gap reconstruction
-theorem~\cite{belokolos}: there is a
-constant $c$ determined by the expansion at infinity such that
-\[
-u(x)=c-2\frac{d^2}{dx^2}
-\log\vartheta(Ux+Z\mid\Omega)
-\]
-is real and smooth for admissible $Z$, and
-\[
-\left(-\frac{d^2}{dx^2}+u(x)\right)\psi(x,p)
-=E(p)\psi(x,p).
-\]
-Show from the two points over a regular $E$ and their Bloch multipliers that
-the spectrum is
-\[
-[E_0,E_1]\cup[E_2,E_3]\cup\cdots\cup
-[E_{2g-2},E_{2g-1}]\cup[E_{2g},\infty).
-\]
-Specialize to $g=1$ and recover, up to translation and an additive energy
-constant, the Lam\'e potential and Hermite theta solutions above.
-\end{exercise}
-
-\begin{exercise}[Lam\'e band edges and attenuation prediction]
-Use the half-period values of the Jacobi functions to recover the three
-band-edge solutions
-\[
-L_k\operatorname{dn}=k^2\operatorname{dn},
-\qquad
-L_k\operatorname{cn}=\operatorname{cn},
-\qquad
-L_k\operatorname{sn}=(1+k^2)\operatorname{sn}.
-\]
-Determine which are periodic and antiperiodic over $2K$.  Use the
-theta-function Bloch multipliers to prove
-\[
-\operatorname{spec}(L_k)
-=[k^2,1]\cup[1+k^2,\infty)
-\]
-and identify $(1,1+k^2)$ as the unique open gap.
-
-For an energy in the gap, choose $a$ with $E=E(a)$ and prove that a Bloch
-wave changes in magnitude by $e^{-2K\kappa(E)}$ per cell, where
-\[
-\kappa(E)=\frac1{2K}\left|\log|\rho_\pm(a)|\right|
-=|\operatorname{Re}Z(a)|.
-\]
-Predict the three band-edge energies and show that, up to interface factors,
-the transmitted amplitude through $M$ cells is suppressed by
-$e^{-2KM\kappa(E)}$ and the transmitted intensity by
-$e^{-4KM\kappa(E)}$.  Show that the gap closes as $k\to0$, and state the
-periodic-medium, coherence, finite-sample, and energy-resolution assumptions
-under which a transmission experiment tests the spectral curve.
-\end{exercise}
-
-\begin{exercise}[Cnoidal KdV waves and finite-gap transport]
-For the normalized Korteweg--de Vries equation
-\[
-u_t+6uu_x+u_{xxx}=0,
-\]
-put $\xi=x-vt$ and
-\[
-u(x,t)=a+2k^2\kappa^2
-\operatorname{cn}^2(\kappa\xi;k),
-\qquad 0<k<1.
-\]
-Derive
-\[
-\frac{d^2}{dz^2}\operatorname{cn}^2(z;k)
-=2(1-k^2)+4(2k^2-1)\operatorname{cn}^2(z;k)
--6k^2\operatorname{cn}^4(z;k)
-\]
-and prove that the displayed wave solves KdV exactly when
-\[
-v=6a+4\kappa^2(2k^2-1).
-\]
-Deduce its amplitude, wavelength, and speed:
-\[
-A=2k^2\kappa^2,
-\qquad
-\lambda=\frac{2K(k)}{\kappa},
-\qquad
-v=6a+4\kappa^2(2k^2-1).
-\]
-Define the complete elliptic integral of the second kind and the elliptic
-nome by
-\[
-E(k)=\int_0^{\pi/2}\sqrt{1-k^2\sin^2\theta}\,d\theta,
-\qquad
-q=e^{-\pi K'(k)/K(k)}.
-\]
-Prove the Fourier expansion
-\[
-\operatorname{cn}^2(z;k)
-=\frac{E(k)-(1-k^2)K(k)}{k^2K(k)}
-+\frac{2\pi^2}{k^2K(k)^2}
-\sum_{n\geq1}\frac{nq^n}{1-q^{2n}}
-\cos\frac{n\pi z}{K(k)}.
-\]
-Use as theorem input the finite-gap KdV evolution
-theorem~\cite{belokolos}, which replaces
-$Ux+Z$ in the reconstructed potential by $Ux+Vt+Z$ for the normalized
-second-kind KdV period vector $V$.  Show that the genus-one case gives the
-cnoidal wave above and that $k\uparrow1$ gives the solitary wave
-\[
-u(x,t)=a+2\kappa^2
-\operatorname{sech}^2\!\bigl(\kappa(x-(6a+4\kappa^2)t)\bigr).
-\]
-Predict the wavelength, phase speed, and harmonic-amplitude ratios of a
-weakly dispersive one-dimensional wave train from $K$, $E$, and the nome.
-State the KdV scaling, weak-nonlinearity, long-wavelength, negligible-loss,
-one-dimensional, and finite-window assumptions under which a wave-tank or
-transmission-line experiment tests these predictions.
 \end{exercise}
