@@ -742,7 +742,7 @@ and loss.
 
 \fi
 \ifincludeSymmetryQuantization
-\section{Geometric Quantization}
+\section{Coadjoint Orbits}
 
 \begin{exercise}[Differential forms and Cartan calculus]
 The cotangent space at $p$ is
@@ -1061,51 +1061,6 @@ this sphere.  Deduce
 \]
 \end{exercise}
 
-\begin{exercise}[Contact manifolds and symplectization]
-Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
-a \emph{contact form} when
-\[
-\alpha\wedge(d\alpha)^n
-\]
-is nowhere zero.  Its kernel $\xi=\ker\alpha$ is the associated cooriented
-\emph{contact structure}; contact forms defining the same cooriented
-contact structure differ by multiplication by a positive smooth function.  The
-\emph{Reeb vector field} $R_\alpha$ is defined by
-\[
-\alpha(R_\alpha)=1,
-\qquad
-\iota_{R_\alpha}d\alpha=0.
-\]
-An immersed $n$-manifold $\iota:L\to Y$ is \emph{Legendrian} when
-$\iota^*\alpha=0$.
-
-Let $(M,\omega=d\lambda)$ be an exact symplectic manifold.  On
-$M\times\R$, with coordinate function $u$ on the second factor, prove that
-\[
-\alpha=du-\lambda
-\]
-is a contact form and that $R_\alpha$ is the infinitesimal generator of
-translation in the $\R$ factor.  For a manifold $X$, identify
-$J^1X=T^*X\times\R$ with this contactification and prove that
-\[
-j^1f:X\longrightarrow J^1X,
-\qquad
-j^1f(x)=(df_x,f(x)),
-\]
-is Legendrian for every $f\in C^\infty(X)$.  Prove that every section of
-$J^1X\to X$ with Legendrian image is of this form.
-
-For a contact manifold $(Y,\alpha)$ and the positive coordinate $r$ on
-$\R_{>0}$, prove that
-\[
-\Omega=d(r\alpha)
-\]
-is symplectic on $\R_{>0}\times Y$.  Determine the vector field $Z$
-satisfying $\iota_Z\Omega=r\alpha$ and prove that multiplication of
-$\alpha$ by a positive function gives a symplectomorphic symplectization.
-\end{exercise}
-
-
 \begin{exercise}[Connections, curvature, and holonomy]
 A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
 $\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
@@ -1193,7 +1148,7 @@ frames of a Hermitian line bundle with connection and recover the integral
 period condition from its transition functions.
 \end{exercise}
 
-\begin{exercise}[Prequantum line bundles]
+\begin{exercise}[Prequantum line bundles on coadjoint orbits]
 A \emph{prequantum line bundle} over $(M,\omega)$ is a Hermitian line
 bundle $L\to M$ with a unitary connection $\nabla$ satisfying
 \[
@@ -1215,7 +1170,9 @@ f_{ij}\longmapsto f_{ij}+\phi_j-\phi_i
 produces an isomorphic prequantum line bundle with connection.  Show that
 two prequantum line bundles with the same curvature differ by a flat
 Hermitian line bundle, so curvature alone need not determine the
-prequantization up to isomorphism.
+prequantization up to isomorphism.  For the $SO(3)$ coadjoint orbit of
+radius $L$, prove from the Kirillov period that prequantization exists
+exactly when $2L/\hbar$ is an integer.
 \end{exercise}
 
 \begin{exercise}[Kostant--Souriau operators]
@@ -1243,7 +1200,15 @@ and call $d\pi_{\rm pre}$ the prequantum Lie-algebra representation on
 sections of $L$.
 \end{exercise}
 
-\begin{exercise}[Contactification]
+\begin{exercise}[Prequantum circle bundles]
+Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
+a \emph{contact form} when $\alpha\wedge(d\alpha)^n$ is nowhere zero.  Its
+\emph{Reeb vector field} $R_\alpha$ is defined by
+\[
+\alpha(R_\alpha)=1,
+\qquad
+\iota_{R_\alpha}d\alpha=0.
+\]
 Let $\pi:S(L)\to M$ be the unit-circle bundle of a prequantum line bundle,
 let $A\in\Omega^1(S(L);i\mathbb R)$ be its connection form normalized by
 $A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.  Prove
@@ -1255,66 +1220,6 @@ sections of $L$ correspond to functions $F:S(L)\to\mathbb C$ satisfying
 \[
 F(ue^{i\theta})=e^{-i\theta}F(u).
 \]
-\end{exercise}
-
-\begin{exercise}[Deformation quantization]
-A \emph{Poisson manifold} is a smooth manifold $M$ with a bracket on
-$C^\infty(M)$ that is a Lie bracket and a derivation in each argument.
-Equivalently, it has a bivector
-$\Pi\in\Gamma(\Lambda^2TM)$.  Define the Schouten bracket to be the
-unique graded Lie bracket of degree $-1$ on multivector fields extending
-the vector-field bracket
-and satisfying
-\[
-[A,B\wedge C]_{\rm Sch}
-=[A,B]_{\rm Sch}\wedge C
-+(-1)^{(p-1)q}B\wedge[A,C]_{\rm Sch}
-\]
-when $A$ has degree $p$ and $B$ has degree $q$.  Prove that the bivector
-defines a Poisson bracket exactly when
-\[
-\{f,g\}=\Pi(df,dg),
-\qquad [\Pi,\Pi]_{\rm Sch}=0.
-\]
-
-A \emph{differential star product} on a Poisson manifold is an associative
-$\mathbb C[[\hbar]]$-bilinear product on
-$C^\infty(M)[[\hbar]]$ of the form
-\[
-f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
-\]
-where the $C_r$ are bidifferential operators, $1$ is a unit, and
-\[
-C_1(f,g)-C_1(g,f)=i\{f,g\}.
-\]
-Let $(E,\omega)$ be a symplectic vector space, let
-$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and write
-$\Pi(k,\ell)=\ell(\Pi(k))$.  Let $D_\Pi$ be the constant bidifferential
-operator characterized on decomposable functions by
-\[
-D_\Pi(f\otimes g)(x,y)=d_yg\bigl(\Pi(d_xf)\bigr).
-\]
-Define the Moyal product on $C^\infty(E)[[\hbar]]$ by
-\[
-f\star g
-=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
-\]
-where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
-associativity from the commutation of the induced constant
-bidifferential operators on $E^3$, and prove
-\[
-f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
-\]
-
-For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive the Weyl relation
-\[
-e_k\star e_\ell
-=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
-\]
-Check its multiplier identity directly, differentiate it to recover the
-canonical commutation relations, and prove that every affine symplectic
-transformation of $E$ preserves $\star$.  Call this intrinsic formal
-algebra the \emph{Moyal algebra} of the symplectic vector space.
 \end{exercise}
 
 \begin{exercise}[Coadjoint-orbit quantization, coherent-state harmonic analysis, and spin spectroscopy]
@@ -1343,8 +1248,7 @@ the spin covering.  Put
 \[
 N=\frac{2L}{\hbar}.
 \]
-Prove that $\mathcal O_L$ is prequantizable exactly when
-$N\in\mathbb Z_{>0}$.  Use as theorem input~\cite{woodhouse} that
+Assume $N\in\mathbb Z_{>0}$ and use as theorem input~\cite{woodhouse} that
 $\mathcal O_L$ has an
 $SU(2)$-invariant complex structure $J$, an endomorphism of its tangent
 bundle satisfying $J^2=-\id$.  Let $T^{0,1}\mathcal O_L$ be the

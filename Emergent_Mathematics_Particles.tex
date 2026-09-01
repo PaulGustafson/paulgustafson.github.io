@@ -1,4 +1,4 @@
-\section{Heisenberg Harmonic Analysis}
+\section{Heisenberg Groups}
 
 
 \begin{exercise}[Weyl multipliers]
@@ -68,61 +68,13 @@ $\mathfrak h(E,\omega)=E\oplus\R Z$ with
 \[
 [(z,sZ),(z',s'Z)]=\omega(z,z')Z.
 \]
-For $E=V\oplus V^*$ and $\lambda\ne0$, the \emph{Schr\"odinger
-representation} on $L^2(V)$ is
-\[
-\bigl(\pi_\lambda(q,p,s)\xi\bigr)(x)
-=e^{i\lambda(s+p(x-q/2))}\xi(x-q).
-\]
 Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
-$\{0\}\times\R$ and that
-\[
-\pi_\lambda(0,s)=e^{i\lambda s}I.
-\]
-Prove that projective representations of $E$ with multiplier
-$e^{i\lambda\omega/2}$ correspond to representations of
+$\{0\}\times\R$.  Prove that projective representations of $E$ with
+multiplier $e^{i\lambda\omega/2}$ correspond to representations of
 $\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
 \end{exercise}
 
-\begin{exercise}[Canonical commutation and Weyl relations]
-For $\hbar>0$, $\ell\in V^*$, and $v\in V$, define on $\mathcal S(V)$
-\[
-Q_\ell\psi(x)=\ell(x)\psi(x),
-\qquad
-P_v\psi(x)=-i\hbar\,d\psi_x(v).
-\]
-
-Prove
-\[
-[Q_\ell,P_v]=i\hbar\ell(v)I.
-\]
-For
-\[
-(T_q\psi)(x)=\psi(x-q),
-\qquad
-(M_p^\hbar\psi)(x)=e^{ip(x)/\hbar}\psi(x),
-\]
-prove
-\[
-M_p^\hbar T_q=e^{ip(q)/\hbar}T_qM_p^\hbar.
-\]
-For
-\[
-W_\hbar(q,p)=e^{-ip(q)/(2\hbar)}M_p^\hbar T_q,
-\]
-prove
-\[
-W_\hbar(z)W_\hbar(z')
-=e^{i\omega(z,z')/(2\hbar)}W_\hbar(z+z')
-\]
-and identify $W_\hbar(z)$ with
-$\pi_{1/\hbar}(z,0)$ under the canonical set-theoretic section
-$z\mapsto(z,0)$.  Prove that this section is not a homomorphism and that
-its failure to preserve multiplication is exactly the displayed multiplier.
-\end{exercise}
-
-
-\begin{exercise}[Schr\"odinger model]
+\begin{exercise}[Heisenberg coadjoint orbits and Schr\"odinger polarization]
 For a connected simply connected nilpotent group $G$ and
 $\ell\in\mathfrak g^*$, a \emph{polarization} is a Lie subalgebra
 $\mathfrak p\subseteq\mathfrak g$ satisfying
@@ -170,7 +122,94 @@ induced action to obtain
 \bigl(\pi_\lambda(q,p,s)\psi\bigr)(x)
 =e^{i\lambda(s+p(x-q/2))}\psi(x-q).
 \]
+Prove that this representation has central character $e^{i\lambda s}$.
 For $\lambda=0$, recover every character of $E$ from a point orbit.
+\end{exercise}
+
+\begin{exercise}[Moyal algebra of a Heisenberg orbit]
+Let $(E,\omega)$ be a symplectic vector space, let
+$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and define
+\[
+\{f,g\}=dg\bigl(\Pi(df)\bigr),
+\qquad
+\Pi(k,\ell)=\ell(\Pi(k)).
+\]
+For $\lambda\ne0$, use the orbit map
+$E\to\mathcal O_\lambda$ to identify $\omega$ with the pullback of
+$\lambda^{-1}$ times the Kirillov form.
+
+A \emph{differential formal deformation} of $C^\infty(E)$ is an
+associative $\mathbb C[[\hbar]]$-bilinear product on
+$C^\infty(E)[[\hbar]]$ of the form
+\[
+f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
+\]
+where the $C_r$ are bidifferential operators, $1$ is a unit, and
+\[
+C_1(f,g)-C_1(g,f)=i\{f,g\}.
+\]
+Let $D_\Pi$ be the constant bidifferential operator characterized on
+decomposable functions by
+\[
+D_\Pi(f\otimes g)(x,y)=d_yg\bigl(\Pi(d_xf)\bigr).
+\]
+Define
+\[
+f\star g
+=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
+\]
+where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
+associativity from the commutation of the induced constant
+bidifferential operators on $E^3$, and prove
+\[
+f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
+\]
+
+For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive
+\[
+e_k\star e_\ell
+=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
+\]
+Check the multiplier identity directly and prove that every affine
+symplectic transformation of $E$ preserves $\star$.  Call this intrinsic
+formal algebra the \emph{Moyal algebra} of the Heisenberg orbit.
+\end{exercise}
+
+\begin{exercise}[Canonical commutation and Weyl relations]
+For $\hbar>0$, $\ell\in V^*$, and $v\in V$, define on $\mathcal S(V)$
+\[
+Q_\ell\psi(x)=\ell(x)\psi(x),
+\qquad
+P_v\psi(x)=-i\hbar\,d\psi_x(v).
+\]
+For
+\[
+(T_q\psi)(x)=\psi(x-q),
+\qquad
+(M_p^\hbar\psi)(x)=e^{ip(x)/\hbar}\psi(x),
+\]
+prove that the corresponding one-parameter groups have infinitesimal
+generators $-iP_v/\hbar$ and $iQ_\ell/\hbar$, respectively, and prove
+\[
+M_p^\hbar T_q=e^{ip(q)/\hbar}T_qM_p^\hbar.
+\]
+For
+\[
+W_\hbar(q,p)=e^{-ip(q)/(2\hbar)}M_p^\hbar T_q,
+\]
+prove
+\[
+W_\hbar(z)W_\hbar(z')
+=e^{i\omega(z,z')/(2\hbar)}W_\hbar(z+z')
+\]
+and identify $W_\hbar(z)$ with
+$\pi_{1/\hbar}(z,0)$ under the canonical set-theoretic section
+$z\mapsto(z,0)$.  Prove that this section is not a homomorphism and that
+its failure to preserve multiplication is exactly the displayed multiplier.
+Differentiate the Weyl relations on $\mathcal S(V)$ to prove
+\[
+[Q_\ell,P_v]=i\hbar\ell(v)I.
+\]
 \end{exercise}
 
 
@@ -338,11 +377,6 @@ W_\hbar(\psi,\varphi)(q,p)
 \]
 Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
 
-Let $\Pi:(V\oplus V^*)^*\to V\oplus V^*$ be the inverse of
-$z\mapsto\omega(z,-)$ and define the canonical Poisson bracket by
-\[
-\{a,b\}=db\bigl(\Pi(da)\bigr).
-\]
 For $\ell\in V^*$ and $v\in V$, prove
 \[
 \operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr)=Q_\ell,
@@ -377,9 +411,9 @@ a\star_\hbar b
 =\{a,b\}+O(\hbar^2)
 \]
 in the Schwartz-symbol topology.
-Compare the complete asymptotic expansion coefficient by coefficient with
-the Moyal product.  First prove
-that every coefficient of that product preserves Schwartz functions, so
+Prove that the complete asymptotic expansion agrees coefficient by
+coefficient with the Moyal product.  First prove that every coefficient
+of that product preserves Schwartz functions, so
 for $E=V\oplus V^*$ it restricts to a formal product on
 $\mathcal S(V\oplus V^*)[[\hbar]]$.  For
 $k\in(V\oplus V^*)^*$ put $e_k(z)=e^{ik(z)}$.  Extend Weyl quantization to
@@ -390,7 +424,7 @@ is unitary and that
 =e^{-i\hbar\Pi(k,\ell)/2}
 \operatorname{Op}_\hbar^W(e_{k+\ell}).
 \]
-Thus obtain an operator realization of the Moyal plane-wave identity.
+Deduce the operator realization of the Moyal plane-wave identity.
 \end{exercise}
 
 \begin{exercise}[Groenewold--van Hove obstruction]
