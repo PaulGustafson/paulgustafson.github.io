@@ -1061,29 +1061,6 @@ this sphere.  Deduce
 \]
 \end{exercise}
 
-\begin{exercise}[Connections, curvature, and holonomy]
-A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
-$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
-functions in the first variable and satisfying
-$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
-covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
-\emph{parallel transport} between endpoint fibers.
-
-The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
-two-form
-\[
-R^\nabla(X,Y)s
-=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
-\]
-The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
-obtained by parallel transport around loops based at $p$.
-
-Prove existence, uniqueness, composition, and inverse properties of parallel
-transport. Prove that curvature is tensorial and gives the leading failure
-of transport around an infinitesimal parallelogram to return a vector to
-itself. Deduce that a flat connection has path-independent transport on every
-simply connected coordinate domain.
-\end{exercise}
 
 \begin{exercise}[Principal connections and gauge covariance]
 A \emph{principal $G$-bundle} is a smooth map
@@ -1516,6 +1493,101 @@ left-invariant Riemannian measure.
 $\Delta=\sum_j\partial_j^2$.
 \end{enumerate}
 \end{exercise}
+
+\begin{exercise}[Connections, curvature, and holonomy]
+A \emph{connection} on a vector bundle $E\to M$ is an $\R$-bilinear map
+$\nabla:\Gamma(TM)\times\Gamma(E)\to\Gamma(E)$, linear over smooth
+functions in the first variable and satisfying
+$\nabla_X(fs)=X(f)s+f\nabla_Xs$. Along a curve $\gamma$ it induces a
+covariant derivative $D/dt$; its solutions $Ds/dt=0$ define
+\emph{parallel transport} between endpoint fibers.
+
+The \emph{curvature} of $\nabla$ is the $\operatorname{End}(E)$-valued
+two-form
+\[
+R^\nabla(X,Y)s
+=\nabla_X\nabla_Ys-\nabla_Y\nabla_Xs-\nabla_{[X,Y]}s.
+\]
+The \emph{holonomy group} at $p$ consists of the automorphisms of $E_p$
+obtained by parallel transport around loops based at $p$.
+
+Prove existence, uniqueness, composition, and inverse properties of parallel
+transport. Prove that curvature is tensorial and gives the leading failure
+of transport around an infinitesimal parallelogram to return a vector to
+itself. Deduce that a flat connection has path-independent transport on every
+simply connected coordinate domain.
+\end{exercise}
+
+\begin{exercise}[Levi--Civita connections, geodesics, and the exponential map]
+Let $(M,g)$ be a Riemannian manifold.  For a connection on $TM$, define its
+torsion by
+\[
+T_\nabla(X,Y)=\nabla_XY-\nabla_YX-[X,Y].
+\]
+Call the connection metric-compatible when
+\[
+Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ).
+\]
+Show that torsion-freeness and metric compatibility force the Koszul
+formula
+\[
+\begin{split}
+2g(\nabla_XY,Z)={}&Xg(Y,Z)+Yg(Z,X)-Zg(X,Y)\\
+&-g(X,[Y,Z])+g(Y,[Z,X])+g(Z,[X,Y]),
+\end{split}
+\]
+and use it to prove existence and uniqueness of the Levi--Civita
+connection.
+
+Define a geodesic to be a curve $\gamma$ satisfying
+$\nabla_{\dot\gamma}\dot\gamma=0$.  For a fixed-endpoint variation, derive
+the first-variation formula for
+\[
+E(\gamma)=\frac12\int g(\dot\gamma,\dot\gamma)\,dt
+\]
+and prove that its critical curves are precisely the constant-speed
+geodesics.  Prove local existence and uniqueness from initial data
+$(p,v)\in TM$, define
+\[
+\exp_p(v)=\gamma_v(1),
+\]
+and show that $d(\exp_p)_0$ is the identity on $T_pM$.  Deduce that short
+geodesics uniquely minimize length by proving the Gauss lemma for radial
+geodesics in a normal neighborhood.
+\end{exercise}
+
+\begin{exercise}[Curvature, Jacobi fields, and geodesic deviation]
+For the Levi--Civita connection, let $R$ be the curvature endomorphism
+defined above.  Derive its skew symmetries and the first Bianchi identity.  Define
+\[
+\operatorname{Ric}(X,Y)
+=\operatorname{Tr}\bigl(Z\mapsto R(Z,X)Y\bigr),
+\qquad
+\mathcal R=\operatorname{Tr}_g\operatorname{Ric},
+\]
+and, for a two-plane spanned by $v,w$, define its sectional curvature by
+\[
+K(v,w)=
+\frac{g(R(v,w)w,v)}{g(v,v)g(w,w)-g(v,w)^2}.
+\]
+
+For a variation through geodesics, let $J$ be its variation field and prove
+the Jacobi equation
+\[
+\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
+\]
+On a manifold of constant sectional curvature $K$, solve this equation for
+a perpendicular field with $J(0)=0$ and $DJ/dt(0)=w$ to obtain the factors
+\[
+\frac{\sin(\sqrt Kt)}{\sqrt K},
+\qquad t,
+\qquad
+\frac{\sinh(\sqrt{-K}t)}{\sqrt{-K}}
+\]
+for $K>0$, $K=0$, and $K<0$.  Relate their zeros or growth to conjugate
+points and the focusing or spreading of neighboring rays.
+\end{exercise}
+
 
 \begin{exercise}[Haar measure, convolution, and regular representations]
 Every locally compact group below is equipped with a chosen nonzero left
@@ -2262,6 +2334,68 @@ F(ka_rn_x)e^r\,dx\,dr\,dk,
 =2\pi\int_0^\infty f(a_rK)\sinh r\,dr
 \]
 for radial $f$.
+\end{exercise}
+
+\begin{exercise}[Hyperbolic Gauss--Bonnet and Weyl asymptotics]
+For $R>0$, let $\mathbb H_R^2$ be the upper half-plane with the metric
+\[
+ds_R^2=R^2\frac{dx^2+dy^2}{y^2},
+\]
+of constant curvature $-R^{-2}$.  Let $\Gamma$ be a torsion-free
+cocompact subgroup of
+$PSL_2(\mathbb R)=SL_2(\mathbb R)/\{\pm I\}$ and let
+$S=\Gamma\backslash\mathbb H_R^2$ be a closed oriented surface of genus
+$g$.
+
+For a geodesic triangle $D$ with interior angles
+$\alpha,\beta,\gamma$, use the Levi--Civita connection one-form, Stokes'
+theorem, and the exterior turns at the vertices to prove
+\[
+\operatorname{Area}(D)
+=R^2(\pi-\alpha-\beta-\gamma).
+\]
+Choose a geodesic triangulation of $S$, sum this identity over its faces,
+and use
+\[
+3F=2E,
+\qquad
+V-E+F=\chi(S)=2-2g
+\]
+to derive
+\[
+\int_S K\,dA=2\pi\chi(S),
+\qquad
+\operatorname{Area}(S)=4\pi(g-1)R^2.
+\]
+
+Let
+\[
+0=\lambda_0<\lambda_1\leq\lambda_2\leq\cdots
+\]
+be the spectral values of the positive Laplacian $-\Delta_S$, repeated
+with multiplicity, and put
+\[
+N_S(\Lambda)=\#\{j:\lambda_j\leq\Lambda\}.
+\]
+Use as theorem input the two-dimensional Weyl law~\cite{hormander3}
+\[
+N_S(\Lambda)
+=\frac{\operatorname{Area}(S)}{4\pi}\Lambda+o(\Lambda)
+\]
+to prove
+\[
+N_S(\Lambda)=(g-1)R^2\Lambda+o(\Lambda).
+\]
+For a membrane or wave circuit with propagation speed $c_s$ and modal
+frequencies $\omega_j=c_s\sqrt{\lambda_j}$, derive
+\[
+\#\{j:\omega_j\leq\Omega\}
+=(g-1)\frac{R^2\Omega^2}{c_s^2}+o(\Omega^2).
+\]
+State the compact-quotient, constant-curvature, boundary-free,
+high-frequency, propagation-speed calibration, loss, and mode-resolution
+assumptions under which the measured mode count tests both the topological
+area normalization and Weyl asymptotics.
 \end{exercise}
 
 \begin{exercise}[Spherical convolution and the rank-one Gelfand pair]
