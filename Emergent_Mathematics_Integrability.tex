@@ -1,5 +1,5 @@
 \ifincludeIntegrabilitySymmetry
-\section{Transfer Matrices}
+\section{Transfer Matrices and Lattice Spectra}
 
 \begin{exercise}[Harper transfer matrices]
 Let $E=V\oplus V^*$ be the symplectic phase space used for the Moyal
@@ -395,7 +395,7 @@ anisotropy corrections, and irrelevant-operator corrections required for
 the comparison.
 \end{exercise}
 
-\section{Quantum Groups}
+\section{Quantum-Group Harmonic Analysis and XXZ Spectra}
 
 
 
@@ -1026,7 +1026,7 @@ and nondegeneracy assumptions under which the measured line positions and
 strengths determine $v$.
 \end{exercise}
 
-\section{Braided Symmetry}
+\section{Braided Harmonic Analysis and Integrable Lattices}
 
 \begin{exercise}[Universal $R$-matrices and braided tensor categories]
 A \emph{universal $R$-matrix} for a Hopf algebra $H$ is an invertible
@@ -1434,7 +1434,7 @@ assumptions under which configuration counts or free-energy measurements
 test the determinant and product identities.
 \end{exercise}
 
-\section{Fusion Categories}
+\section{Fusion Harmonic Analysis and Topological Order}
 
 \begin{exercise}[Temperley--Lieb categories and Jones--Wenzl projectors]
 For $d\in\C$, the \emph{Temperley--Lieb category} $\mathsf{TL}_d$ has
@@ -1572,7 +1572,7 @@ is unitary, satisfies the braid relations, preserves $\mathcal N$, and
 descends to a unitary braiding on $\mathcal C_k$.
 \end{exercise}
 
-\begin{exercise}[$SU(2)_k$ modular data and Verlinde diagonalization]
+\begin{exercise}[Categorical Fourier transform, modular data, and Verlinde diagonalization]
 For $0\leq a,b\leq k$, define
 \[
 S_{ab}
@@ -1598,6 +1598,24 @@ and hence
 N_{ab}^{\ \ c}
 =\sum_{x=0}^k
 \frac{S_{ax}S_{bx}\overline{S_{cx}}}{S_{0x}}.
+\]
+For functions $f,g$ on the simple-object labels, define fusion convolution
+and the categorical Fourier transform by
+\[
+(f*_{\mathrm{fus}}g)(c)
+=\sum_{a,b=0}^k f(a)g(b)N_{ab}^{\ \ c},
+\qquad
+\widehat f(x)=\sum_{a=0}^k f(a)\frac{S_{ax}}{S_{0x}}.
+\]
+Prove the convolution, inversion, and Plancherel identities
+\[
+\widehat{f*_{\mathrm{fus}}g}(x)=\widehat f(x)\widehat g(x),
+\qquad
+f(a)=\sum_{x=0}^k S_{ax}S_{0x}\widehat f(x),
+\]
+\[
+\sum_{a=0}^k|f(a)|^2
+=\sum_{x=0}^k|S_{0x}|^2|\widehat f(x)|^2.
 \]
 Deduce that the number of fusion channels from
 $a_1,\ldots,a_n$ to $c$ is
@@ -1753,7 +1771,7 @@ topological-gap, charge-preparation, and readout assumptions separately
 from the predicted fringes and integer state counts.
 \end{exercise}
 
-\section{Symmetric Functions}
+\section{Double Affine Hecke Algebras and q-Difference Spectroscopy}
 
 \begin{exercise}[Symmetric polynomials]
 For $N\geq1$, let
@@ -1792,40 +1810,6 @@ and deduce
 rh_r=\sum_{j=1}^rp_jh_{r-j}.
 \]
 \end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Semistandard tableaux and Schur polynomials]
-For a partition $\lambda$ of length at most $N$, a
-\emph{semistandard Young tableau} of shape $\lambda$ is a filling $T$ of
-its Young diagram by entries in $\{1,\ldots,N\}$ that is
-weakly increasing along rows and strictly increasing down columns.  If
-$m_i(T)$ is the number of entries equal to $i$, define
-\[
-s_\lambda(x_1,\ldots,x_N)
-=\sum_T\prod_i x_i^{m_i(T)}.
-\]
-
-Encode $h_r$ by lattice paths directed east and south whose east steps at
-height $i$ have weight $x_i$.  For sources
-$A_i=(i-\lambda_i,N)$ and sinks $B_j=(j,1)$, expand
-$\det[h_{\lambda_i-i+j}]_{i,j=1}^N$ as a signed sum of path families and
-pair every intersecting family with the family obtained by exchanging the
-two tails after its first intersection.  Show that the remaining
-nonintersecting families correspond weight-preservingly to semistandard
-tableaux by reading each path's east-step heights from right to left, and
-deduce
-\[
-s_\lambda(x_1,\ldots,x_N)
-=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
-\]
-Call this the \emph{Schur polynomial}.  Derive the alternant formula
-\[
-s_\lambda(x)
-=\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
-{\det[x_i^{N-j}]_{i,j=1}^N}
-\]
-from the fundamental symmetric identities.  Prove
-$s_{(r)}=h_r$ and $s_{(1^r)}=e_r$.
 \end{exercise}
 
 \begin{exercise}[The Sutherland model and Jack polynomials]
@@ -1892,7 +1876,6 @@ E_\lambda=\frac{\hbar^2}{2mR^2}
 +\sum_{j=1}^N
 \bigl(\lambda_j^2+g(N+1-2j)\lambda_j\bigr)\right].
 \]
-At $g=1$, prove that $P_\lambda^{(1)}=s_\lambda$.
 \end{exercise}
 
 \begin{exercise}[Jack transition spectrum]
@@ -1912,10 +1895,6 @@ coefficients.  State how spectroscopy of particles confined to a ring
 determines $g$ from the line shifts and tests the Jack selection rule from
 the missing lines.
 \end{exercise}
-
-\input{Emergent_Mathematics_Integrable_Probability}
-
-\section{Double Affine Hecke Algebras}
 
 \begin{exercise}[Double-affine braid groups]
 For $r\geq2$, the \emph{double-affine braid group} $\widetilde B_r$ of
@@ -2288,7 +2267,8 @@ Cauchy identity.  For distinct $a_i$, prove
 \prod_{k=1}^M\frac{1-a_i b_k}{1-t a_i b_k},
 \]
 and extend the identity to coincident parameters by continuity.  Verify
-the Schur specialization $q=t$ and the $q$-Whittaker specialization $t=0$.
+the specialization $q=t$ directly and the $q$-Whittaker specialization
+$t=0$.
 For samples from the finite measure, identify the displayed expectation as
 a directly estimable statistic and state the positivity, truncation, and
 sampling assumptions required for comparison with the formula.
@@ -2488,8 +2468,6 @@ energy-calibration, and nondegeneracy assumptions under which the observed
 lines test the Koornwinder eigenvalue formula.
 \end{exercise}
 
-\section{q-Difference Spectroscopy}
-
 \begin{exercise}[Askey--Wilson spectrum]
 Fix $M\geq4$ and parameters
 $a,b,c,d\in(-1,1)$ for which the
@@ -2588,6 +2566,8 @@ locations and strengths test this degeneration.  Explain that recovery of
 the deformation parameter requires resolved partition labels and
 sufficiently many nondegenerate transitions.
 \end{exercise}
+
+\input{Emergent_Mathematics_Integrable_Probability}
 
 \fi
 \ifincludeEllipticIntegrability

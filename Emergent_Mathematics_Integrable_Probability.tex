@@ -1,4 +1,4 @@
-\section{Determinantal Ensembles}
+\section{Determinantal Harmonic Analysis and Random-Matrix Statistics}
 
 \begin{exercise}[Hermite Gaussian moments]
 Let $\mathbb P$ be the probability measure on $\R$ with density
@@ -374,7 +374,47 @@ or resonance levels test this right-tail prediction, including the
 finite-size range over which the asymptotic is used.
 \end{exercise}
 
-\section{Schur Measures}
+\section{Schur Harmonic Analysis and Growth Fluctuations}
+
+\begin{exercise}[Semistandard tableaux and Schur polynomials]
+For a partition $\lambda$ of length at most $N$, a
+\emph{semistandard Young tableau} of shape $\lambda$ is a filling $T$ of
+its Young diagram by entries in $\{1,\ldots,N\}$ that is
+weakly increasing along rows and strictly increasing down columns.  If
+$m_i(T)$ is the number of entries equal to $i$, define
+\[
+s_\lambda(x_1,\ldots,x_N)
+=\sum_T\prod_i x_i^{m_i(T)}.
+\]
+
+Define the complete symmetric polynomials by
+\[
+h_r(x_1,\ldots,x_N)
+=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\qquad h_0=1,
+\]
+and put $h_r=0$ for $r<0$.  Encode $h_r$ by lattice paths directed east
+and south whose east steps at height $i$ have weight $x_i$.  For sources
+$A_i=(i-\lambda_i,N)$ and sinks $B_j=(j,1)$, expand
+$\det[h_{\lambda_i-i+j}]_{i,j=1}^N$ as a signed sum of path families and
+pair every intersecting family with the family obtained by exchanging the
+two tails after its first intersection.  Show that the remaining
+nonintersecting families correspond weight-preservingly to semistandard
+tableaux by reading each path's east-step heights from right to left, and
+deduce
+\[
+s_\lambda(x_1,\ldots,x_N)
+=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
+\]
+Call this the \emph{Schur polynomial}.  Derive the alternant formula
+\[
+s_\lambda(x)
+=\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
+{\det[x_i^{N-j}]_{i,j=1}^N}
+\]
+and prove $s_{(r)}=h_r$.
+\end{exercise}
 
 
 \begin{exercise}[RSK, last-passage values, and the finite Schur measure]

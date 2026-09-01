@@ -740,37 +740,11 @@ separate the predicted Airy scales from absorber roughness, finite width,
 and loss.
 \end{exercise}
 
-\section{Hamiltonian and Geometric Quantization}
+\fi
+\ifincludeSymmetryQuantization
+\section{Hamiltonian, Orbit, and Geometric Quantization}
 
 \begin{exercise}[Differential forms and Cartan calculus]
-A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
-space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
-whose transition maps are smooth.  A map of smooth manifolds is
-\emph{smooth} when its chart representatives are smooth; it is a
-\emph{diffeomorphism} when it has a smooth inverse.
-
-The \emph{tangent space} $T_pM$ is the vector space of derivations
-$v:C^\infty(M)\to\R$ at $p$, satisfying
-\[
-v(fg)=f(p)v(g)+g(p)v(f).
-\]
-The differential of a smooth map $F:M\to N$ is
-\[
-dF_p:T_pM\longrightarrow T_{F(p)}N,
-\qquad
-dF_p(v)(f)=v(f\circ F).
-\]
-Define
-\[
-TM=\coprod_{p\in M}T_pM.
-\]
-A \emph{smooth vector bundle} is a smooth map $\pi:E\to M$ locally
-isomorphic to $U\times W\to U$ for a finite-dimensional real vector space
-$W$, by fiberwise linear maps.  A section is a smooth map $s:M\to E$
-satisfying $\pi s=\id_M$; write $\Gamma(E)$ for the space of sections.
-The bundle $TM$ has the bundle structure induced by the differentials of
-chart maps, and a \emph{vector field} is a section of $TM$.
-
 The cotangent space at $p$ is
 $T_p^*M=(T_pM)^*$, and
 $T^*M=\coprod_{p\in M}T_p^*M$ has the dual vector-bundle structure.
@@ -944,11 +918,8 @@ zero and that the flow has determinant one.
 \end{exercise}
 
 \begin{exercise}[Moment maps and Noether charges]
-A \emph{Lie group} is a topological group with a smooth manifold structure
-for which multiplication and inversion are smooth.  Its Lie algebra
-$\mathfrak g$ is $T_eG$ with the bracket induced by left-invariant vector
-fields.  For a smooth left action of $G$ on $M$ and $\xi\in\mathfrak g$,
-define the fundamental vector field
+For a smooth left action of a Lie group $G$ on $M$ and
+$\xi\in\mathfrak g$, define the fundamental vector field
 \[
 \xi_M(x)=d(g\mapsto gx)_e(\xi).
 \]
@@ -1346,20 +1317,7 @@ transformation of $E$ preserves $\star$.  Call this intrinsic formal
 algebra the \emph{Moyal algebra} of the symplectic vector space.
 \end{exercise}
 
-\begin{exercise}[Coadjoint-orbit spin quantization]
-A \emph{unitary representation} of a topological group $G$ on a Hilbert
-space $H$ is a strongly continuous homomorphism $G\to U(H)$.  Define
-\[
-SU(2)=\{U\in\operatorname{End}(\C^2):U^*U=\id,\ \det U=1\}.
-\]
-For a complex vector space $V$, set $\operatorname{Sym}^0(V)=\C$ and, for
-$N\geq1$, define its $N$th \emph{symmetric power} by
-\[
-\operatorname{Sym}^N(V)
-=V^{\otimes N}/
-\langle w-\sigma w:w\in V^{\otimes N},\ \sigma\in S_N\rangle.
-\]
-Here $S_N$ is the permutation group acting by permuting the tensor factors.
+\begin{exercise}[Coadjoint-orbit quantization, coherent-state harmonic analysis, and spin spectroscopy]
 On the distinguished Hermitian space $\C^2$, let the Pauli endomorphisms
 $\sigma_1,\sigma_2,\sigma_3$ be normalized by
 \[
@@ -1396,21 +1354,20 @@ $\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Use as theorem
 input~\cite{woodhouse}
 that the polarized sections form the $SU(2)$ representation
 \[
-V_N=\operatorname{Sym}^N(\C^2).
+V_j=\operatorname{Sym}^N(\C^2),
+\qquad j=\frac N2.
 \]
 Call this polarized-section space the \emph{geometric quantization} of
 $\mathcal O_L$.
-The action on $V_N$ is induced from the tensor-power action on
+The action on $V_j$ is induced from the tensor-power action on
 $(\C^2)^{\otimes N}$.
 
 \item For
 \[
 u_\theta=
 \begin{pmatrix}e^{i\theta/2}&0\\0&e^{-i\theta/2}\end{pmatrix},
-\qquad j=\frac N2,
 \]
-prove that the weights of $V_N$ are $m=-j,-j+1,\ldots,j$ and derive the
-character identity
+derive the character identity
 \[
 \chi_j(u_\theta)
 =\sum_{m=-j}^{j}e^{im\theta}
@@ -1423,6 +1380,30 @@ derive
 U_0(t)=1,
 \qquad U_1(t)=2t,
 \qquad U_{n+1}(t)=2tU_n(t)-U_{n-1}(t).
+\]
+
+\item Write $\rho_j$ for the action on $V_j$.  Let $P_j$ be the orthogonal
+projection onto its highest-weight line, let $d\mu$ be the invariant probability measure on
+$\mathcal O_L\cong SU(2)/U(1)$, and define
+\[
+Q_{gU(1)}=\rho_j(g)P_j\rho_j(g)^*.
+\]
+Prove that $Q$ is well defined on the orbit and use Schur's lemma to derive
+the coherent-state resolution and transform identities
+\[
+(2j+1)\int_{\mathcal O_L}Q_x\,d\mu(x)=I,
+\qquad
+\psi=(2j+1)\int_{\mathcal O_L}Q_x\psi\,d\mu(x),
+\]
+\[
+(2j+1)\int_{\mathcal O_L}\|Q_x\psi\|^2\,d\mu(x)
+=\|\psi\|^2.
+\]
+If $n_x,n_y$ are the corresponding unit orbit directions, prove that the
+reproducing kernel is
+\[
+\operatorname{Tr}(Q_xQ_y)
+=\left(\frac{1+n_x\cdot n_y}{2}\right)^{2j}.
 \]
 
 \item Normalize the infinitesimal generators by
@@ -1441,9 +1422,39 @@ beam-resolution, and coherence assumptions separately.
 \end{enumerate}
 \end{exercise}
 
+\fi
+\ifincludeSymmetryCore
 \section{Fourier Analysis and Diffraction}
 
 \begin{exercise}[Invariant Riemannian geometry]
+A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
+space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
+whose transition maps are smooth.  A map of smooth manifolds is
+\emph{smooth} when its chart representatives are smooth; it is a
+\emph{diffeomorphism} when it has a smooth inverse.
+
+The \emph{tangent space} $T_pM$ is the vector space of derivations
+$v:C^\infty(M)\to\R$ at $p$ satisfying
+\[
+v(fg)=f(p)v(g)+g(p)v(f).
+\]
+For a smooth map $F:M\to N$, define
+\[
+dF_p:T_pM\longrightarrow T_{F(p)}N,
+\qquad dF_p(v)(f)=v(f\circ F).
+\]
+Put $TM=\coprod_{p\in M}T_pM$.  A \emph{smooth vector bundle} is a smooth
+map $\pi:E\to M$ locally isomorphic by fiberwise linear maps to
+$U\times W\to U$ for a finite-dimensional real vector space $W$.  A
+section is a smooth map $s:M\to E$ satisfying $\pi s=\id_M$.  The
+differentials of chart maps give $TM$ its smooth vector-bundle structure;
+write $\Gamma(E)$ for the space of sections, and call a section of $TM$ a
+\emph{vector field}.
+
+A \emph{Lie group} is a topological group with a smooth manifold structure
+for which multiplication and inversion are smooth.  Its Lie algebra
+$\mathfrak g=T_eG$ has the bracket induced by left-invariant vector fields.
+
 A \emph{Riemannian metric} on an $n$-manifold $M$ is a smooth family of
 positive-definite inner products $g_p$ on $T_pM$.  Its Riemannian density
 is characterized by
@@ -1708,6 +1719,9 @@ For a group $G$, a representation on a vector space $V$ is a homomorphism
 $\rho:G\to\operatorname{GL}(V)$.  A subspace is invariant when it is
 preserved by every $\rho(g)$, and a nonzero representation is irreducible
 when it has no proper nonzero invariant subspace.
+A \emph{unitary representation} on a Hilbert space $H$ is a homomorphism
+to $U(H)$; for a topological group it is required to be strongly
+continuous.
 
 Let $G$ be finite, let the characteristic of $k$ not divide $|G|$, and let
 $V$ be a finite-dimensional representation.  Average an arbitrary
@@ -1847,8 +1861,23 @@ copy of $\pi$ in $L^2(G)$.
 \end{exercise}
 
 \begin{exercise}[Irreducible representations of $SU(2)$]
-For $j\in\{0,\frac12,1,\ldots\}$, write $V_j=V_{2j}$ for the
-orbit-quantization representation.  Using raising and
+Define
+\[
+SU(2)=\{U\in\operatorname{End}(\C^2):U^*U=\id,\ \det U=1\}.
+\]
+For a complex vector space $V$, set $\operatorname{Sym}^0(V)=\C$ and, for
+$N\geq1$, define
+\[
+\operatorname{Sym}^N(V)
+=V^{\otimes N}/
+\langle w-\sigma w:w\in V^{\otimes N},\ \sigma\in S_N\rangle,
+\]
+where $S_N$ permutes the tensor factors.  For
+$j\in\{0,\frac12,1,\ldots\}$, put
+\[
+V_j=\operatorname{Sym}^{2j}(\C^2)
+\]
+with the induced $SU(2)$ action.  Using raising and
 lowering operators, prove that every finite-dimensional irreducible smooth
 complex representation is isomorphic to exactly one $V_j$, that it has
 dimension $2j+1$, and that it has
@@ -2911,7 +2940,7 @@ roughness, alignment, and edge corrections.
 \end{enumerate}
 \end{exercise}
 
-\section{Graded and Modular Characters}
+\section{Graded Characters and Modular Harmonic Analysis}
 
 
 \begin{exercise}[Bosonic and fermionic trace generating functions]
