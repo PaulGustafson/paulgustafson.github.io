@@ -2144,3 +2144,392 @@ adiabatic, noninteracting, filled-level, mobility, contact, temperature,
 and finite-size assumptions under which Hall-voltage and charge-pump
 measurements test these predictions.
 \end{exercise}
+
+\section{Cobordism}
+
+\begin{exercise}[Oriented, spin, and complex bordism rings]
+For an oriented manifold $M$, write $-M$ for the same manifold with the
+opposite orientation.  An \emph{oriented bordism} from a closed oriented
+$n$-manifold $M_0$ to a closed oriented $n$-manifold $M_1$ is a compact
+oriented $(n+1)$-manifold $W$ with an orientation-preserving identification
+\[
+\partial W\cong(-M_0)\sqcup M_1,
+\]
+product neighborhoods of its boundary components, and the boundary
+orientation determined by the outward-normal-first convention.  Call
+$M_0$ and $M_1$ \emph{oriented bordant} when such a $W$ exists.
+
+Prove that oriented bordism is an equivalence relation.  Let
+$\Omega_n^{SO}$ be the set of its equivalence classes.  Prove that
+disjoint union makes $\Omega_n^{SO}$ an abelian group with zero the empty
+manifold and inverse $[M]\mapsto[-M]$.  Use the product orientation to
+make
+\[
+\Omega_*^{SO}=\bigoplus_{n\geq0}\Omega_n^{SO}
+\]
+a graded-commutative ring with unit the positively oriented point.  Prove
+\[
+\Omega_0^{SO}\cong\mathbb Z,
+\qquad
+\Omega_1^{SO}=0,
+\qquad
+\Omega_2^{SO}=0
+\]
+by signed point count and disks, and by using as theorem input the
+classification of closed oriented surfaces and constructing oriented
+handlebodies.
+
+For a spin manifold with boundary, use the outward unit normal to induce
+a spin structure on its boundary.  Define \emph{spin bordism} by requiring
+the boundary identification to preserve these structures, and construct
+the graded ring $\Omega_*^{\operatorname{Spin}}$.  A \emph{stable complex
+structure} on $M$ is a complex-vector-bundle structure on
+$TM\oplus\underline{\mathbb R}^{\,r}$ for some $r$, considered modulo
+addition of trivial complex line bundles and homotopy.  Define stable
+complex bordism and its ring $\Omega_*^U$.  Prove that products inherit
+the corresponding structures and construct the forgetful homomorphisms
+\[
+\Omega_*^{\operatorname{Spin}}\longrightarrow\Omega_*^{SO},
+\qquad
+\Omega_*^U\longrightarrow\Omega_*^{SO}.
+\]
+\end{exercise}
+
+\begin{exercise}[Pontryagin--Thom collapse and Thom spectra]
+For $G=SO,\operatorname{Spin}$, let $BG(k)$ be the classifying space for
+rank-$k$ real vector bundles with $G$-structure and let
+$\gamma_k^G\to BG(k)$ be the universal bundle.  Put
+\[
+MG(k)=\operatorname{Th}(\gamma_k^G),
+\qquad
+\pi_n(MG)=\varinjlim_k\pi_{n+k}(MG(k)),
+\]
+where stabilization of the universal bundles induces the structure maps.
+For complex rank-$k$ bundles, put
+\[
+MU(k)=\operatorname{Th}(\gamma_k^U),
+\qquad
+\pi_n(MU)=\varinjlim_k\pi_{n+2k}(MU(k)).
+\]
+Call the resulting sequences of Thom spaces the spectra $MSO$,
+$M\operatorname{Spin}$, and $MU$.
+
+Choose an embedding $M^n\hookrightarrow\mathbb R^{n+k}$ of a closed
+$G$-manifold, give its normal bundle the stable $G$-structure complementary
+to that on $TM$, and let its classifying map pull back $\gamma_k^G$ to
+the normal bundle.  Collapse the complement of a tubular neighborhood to
+construct
+\[
+S^{n+k}\longrightarrow\operatorname{Th}(\nu_M)
+\longrightarrow MG(k).
+\]
+Prove that isotopy, stabilization, and a $G$-bordism do not change the
+resulting stable homotopy class.  Use as theorem input the transversality
+and regular-value construction in the Pontryagin--Thom
+theorem~\cite{thom-cobordism} to prove that collapse induces ring
+isomorphisms
+\[
+\Omega_n^{SO}\cong\pi_n(MSO),
+\qquad
+\Omega_n^{\operatorname{Spin}}\cong\pi_n(M\operatorname{Spin}),
+\qquad
+\Omega_n^U\cong\pi_n(MU).
+\]
+
+A \emph{stable framing} of $M$ is a trivialization of its stable normal
+bundle.  Let $\Omega_n^{\mathrm{fr}}$ be framed bordism and define the
+$n$th stable stem by
+\[
+\pi_n^S=\varinjlim_k[S^{n+k},S^k]_*.
+\]
+Show that a framing turns the collapse map into a map
+$S^{n+k}\to S^k$ and recover
+\[
+\Omega_n^{\mathrm{fr}}\cong\pi_n^S.
+\]
+\end{exercise}
+
+\begin{exercise}[Pontryagin numbers and the signature genus]
+For a real vector bundle $V$, define its Pontryagin classes by
+\[
+p_j(V)=(-1)^j c_{2j}(V\otimes_{\mathbb R}\mathbb C)
+\in H_{\mathrm{dR}}^{4j}(M).
+\]
+For a closed oriented $4k$-manifold and a partition
+$I=(i_1,\ldots,i_r)$ of $k$, define the Pontryagin number
+\[
+p_I[M]
+=\int_Mp_{i_1}(TM)\wedge\cdots\wedge p_{i_r}(TM).
+\]
+If $M=\partial W$ as an oriented manifold, use
+\[
+TW|_M\cong TM\oplus\underline{\mathbb R}
+\]
+and choose a connection that is a product near the boundary.  Use Stokes'
+theorem for its Chern--Weil representatives to prove
+$p_I[M]=0$.  Deduce that every Pontryagin number defines a homomorphism
+$\Omega_{4k}^{SO}\to\mathbb Q$.  Use as theorem input Thom's rational
+bordism theorem~\cite{thom-cobordism}: two oriented manifolds determine
+the same class in $\Omega_*^{SO}\otimes\mathbb Q$ exactly when all their
+Pontryagin numbers agree.
+
+For a closed oriented $4k$-manifold, use as theorem input Poincar\'e
+duality~\cite{bott-tu} to prove that
+\[
+([\alpha],[\beta])\longmapsto\int_M\alpha\wedge\beta
+\]
+is a nondegenerate symmetric form on
+$H_{\mathrm{dR}}^{2k}(M)$, and define $\operatorname{sign}(M)$ to be its
+signature.  If the formal Pontryagin roots satisfy
+$p(TM)=\prod_j(1+x_j^2)$, define
+\[
+L(TM)=\prod_j\frac{x_j}{\tanh x_j}.
+\]
+Use as theorem input the Hirzebruch signature
+theorem~\cite{hirzebruch-topological}
+\[
+\operatorname{sign}(M)=\int_ML(TM)
+\]
+and deduce that the signature is a ring homomorphism
+$\Omega_*^{SO}\to\mathbb Z$.  In dimension four derive
+\[
+\operatorname{sign}(M)=\frac13\int_Mp_1(TM).
+\]
+For $h=c_1(\mathcal O(1))$ on $\mathbb{CP}^2$, use as theorem input the
+Euler sequence
+\[
+0\longrightarrow\mathcal O
+\longrightarrow\mathcal O(1)^{\oplus3}
+\longrightarrow T\mathbb{CP}^2\longrightarrow0
+\]
+and prove
+\[
+c(T\mathbb{CP}^2)=(1+h)^3,
+\qquad
+\int_{\mathbb{CP}^2}p_1=3,
+\qquad
+\operatorname{sign}(\mathbb{CP}^2)=1,
+\]
+and conclude that $[\mathbb{CP}^2]$ has infinite order in
+$\Omega_4^{SO}$.
+\end{exercise}
+
+\begin{exercise}[Dirac and Dolbeault bordism genera]
+For a commutative ring $R$, a \emph{genus} is a ring homomorphism
+from a bordism ring to $R$.  Given a formal power series
+$Q(x)\in R[[x]]$ with $Q(0)=1$, use the splitting principle to construct
+the multiplicative characteristic class $\prod_jQ(x_j)$ from the
+appropriate formal roots.  Prove that its top-degree characteristic number
+is additive under disjoint union and multiplicative under products, and
+determine the condition under which stabilization leaves it unchanged.
+
+For a closed spin $4k$-manifold, define
+\[
+\widehat A[M]=\int_M\widehat A(TM).
+\]
+Use the Atiyah--Singer theorem and the product formula for spinor bundles
+to prove
+\[
+\widehat A[M]=\operatorname{ind}_{\rm an}(\mathcal D_M^+)
+\in\mathbb Z
+\]
+and that $\widehat A$ is a genus
+$\Omega_*^{\operatorname{Spin}}\to\mathbb Z$.  Prove its bordism
+invariance directly from the stable tangent bundle of a boundary and
+Stokes' theorem.
+
+For a closed stable complex manifold $X$, define
+\[
+\operatorname{Td}[X]=\int_X\operatorname{Td}(TX).
+\]
+Use as theorem input the canonical spin$^c$ Dirac operator associated to
+a stable complex structure~\cite{lawson-michelsohn}, and apply the index
+theorem to prove that $\operatorname{Td}[X]$ is integral and defines a
+genus $\Omega_*^U\to\mathbb Z$.  When $X$ is a compact complex manifold,
+identify it with
+\[
+\operatorname{Td}[X]
+=\sum_q(-1)^q\dim H^q(X,\mathcal O_X).
+\]
+From the degree-zero and degree-two terms of the Todd class, prove
+\[
+\operatorname{Td}[\mathrm{pt}]=1,
+\qquad
+\operatorname{Td}[C]=1-g
+\]
+for a compact Riemann surface $C$ of genus $g$.
+\end{exercise}
+
+\begin{exercise}[Atiyah--Patodi--Singer index and spectral eta functions]
+Let $W$ be a compact even-dimensional spin Riemannian manifold whose
+metric is a product near its boundary $M$.  Let $E\to W$ be a Hermitian
+bundle with unitary connection of product type there.  Write
+$\mathcal D_{W,E}^+$ for the chiral Dirac operator and $A_{M,E}$ for its
+self-adjoint tangential boundary operator.  For
+$\operatorname{Re}s$ sufficiently large, define the eta function
+\[
+\eta_{A_{M,E}}(s)
+=\sum_{\lambda\ne0}
+\operatorname{sign}(\lambda)|\lambda|^{-s},
+\]
+where the spectral values are repeated with multiplicity.  Use as theorem
+input~\cite{aps1} that this function has a meromorphic continuation regular
+at $s=0$.
+
+Let $P_{\geq0}(A_{M,E})$ be the spectral projection onto the nonnegative
+spectrum and impose the Atiyah--Patodi--Singer boundary condition
+\[
+P_{\geq0}(A_{M,E})(\psi|_M)=0.
+\]
+Use as theorem input the Atiyah--Patodi--Singer index
+theorem~\cite{aps1}
+\[
+\operatorname{ind}_{\rm APS}(\mathcal D_{W,E}^+)
+=\int_W\widehat A(TW)\operatorname{ch}(E)
+-\frac{\eta_{A_{M,E}}(0)+h_{M,E}}2,
+\qquad
+h_{M,E}=\dim\ker A_{M,E}.
+\]
+Define the reduced eta invariant by
+\[
+\overline\eta(A)=\frac{\eta_A(0)+\dim\ker A}{2}
+\quad\text{in }\mathbb R/\mathbb Z.
+\]
+Deduce
+\[
+\overline\eta(A_{M,E})
+=\int_W\widehat A(TW)\operatorname{ch}(E)
+\pmod{\mathbb Z}.
+\]
+Prove
+\[
+\overline\eta(-A)=-\overline\eta(A)\pmod{\mathbb Z}
+\]
+from spectral symmetry under orientation reversal.  When two product-type
+bordisms are glued along oppositely oriented copies of the same boundary,
+use additivity of the characteristic integrals to show that their reduced
+eta corrections cancel modulo $\mathbb Z$.  Recover the closed
+Atiyah--Singer formula when the boundary is empty.
+\end{exercise}
+
+\begin{exercise}[Hurwitz zeta functions and flux spectral asymmetry]
+For $0<a<1$, let
+\[
+A_a=-i\frac d{d\theta}+a
+\]
+act on periodic functions on $\mathbb R/2\pi\mathbb Z$.  Prove that its
+spectral values are $n+a$, $n\in\mathbb Z$.  Define the Hurwitz zeta
+function for $\operatorname{Re}s>1$ by
+\[
+\zeta(s,a)=\sum_{n\geq0}(n+a)^{-s}.
+\]
+Separate the positive and negative spectral values to prove
+\[
+\eta_{A_a}(s)=\zeta(s,a)-\zeta(s,1-a).
+\]
+Use as theorem input the analytic continuation identity
+\[
+\zeta(0,a)=\frac12-a
+\]
+to derive
+\[
+\eta_{A_a}(0)=1-2a,
+\qquad
+\overline\eta(A_a)=\frac12-a\pmod{\mathbb Z}.
+\]
+
+For a single chiral massless charged Dirac channel on a coherent ring of
+circumference $\ell$ threaded by flux $\Phi$, put
+\[
+a=\frac{\Phi}{\Phi_0}\pmod{\mathbb Z},
+\qquad
+\Phi_0=\frac he,
+\qquad
+E_n=\frac{2\pi\hbar v}{\ell}(n+a).
+\]
+Define the eta-regularized vacuum charge by
+\[
+Q_{\rm vac}=-\frac e2\eta_{A_a}(0).
+\]
+Predict
+\[
+\frac{Q_{\rm vac}}e=a-\frac12\pmod{\mathbb Z}
+\]
+and prove that insertion of one flux quantum produces unit spectral flow.
+State the single-channel, linear-dispersion, coherent-ring, charge
+regularization, flux-calibration, temperature, and level-resolution
+assumptions under which charge sensing and flux-resolved spectroscopy test
+the prediction.
+\end{exercise}
+
+\begin{exercise}[Jacobi theta functions and the K3 elliptic genus]
+For a closed complex manifold $X$ of complex dimension $d$ with formal
+Chern roots $x_1,\ldots,x_d$, define its two-variable elliptic genus by
+\[
+\operatorname{Ell}_X(\tau,z)
+=\int_X\prod_{j=1}^d
+x_j\,
+\frac{\vartheta_1\!\left(\frac{x_j}{2\pi i}-z\,\middle|\,\tau\right)}
+{\vartheta_1\!\left(\frac{x_j}{2\pi i}\,\middle|\,\tau\right)},
+\qquad
+\operatorname{Im}\tau>0.
+\]
+Use as theorem input~\cite{witten-elliptic} that this characteristic
+series defines a stable complex bordism genus with values in holomorphic
+functions of $(\tau,z)$.
+
+Define
+\[
+\begin{aligned}
+\vartheta_2(z\mid\tau)
+&=\vartheta\!\begin{bmatrix}\frac12\\0\end{bmatrix}(z\mid\tau),&
+\vartheta_3(z\mid\tau)
+&=\vartheta\!\begin{bmatrix}0\\0\end{bmatrix}(z\mid\tau),&
+\vartheta_4(z\mid\tau)
+&=\vartheta\!\begin{bmatrix}0\\\frac12\end{bmatrix}(z\mid\tau).
+\end{aligned}
+\]
+A \emph{K3 surface} is a compact connected complex surface $X$ with
+$K_X\cong\mathcal O_X$ and $H^1(X,\mathcal O_X)=0$.  Use Serre duality
+and the Dolbeault index formula to prove
+\[
+\operatorname{Td}[X]=2,
+\qquad
+\int_Xc_2(TX)=24.
+\]
+Use the Chern-root formula, the theta addition identities, and the K3
+conditions $c_1=0$, $c_2[X]=24$ to derive the K3 identity
+from~\cite{eguchi-k3}
+\[
+\operatorname{Ell}_{K3}(\tau,z)
+=8\left[
+\left(\frac{\vartheta_2(z\mid\tau)}{\vartheta_2(0\mid\tau)}\right)^2
++\left(\frac{\vartheta_3(z\mid\tau)}{\vartheta_3(0\mid\tau)}\right)^2
++\left(\frac{\vartheta_4(z\mid\tau)}{\vartheta_4(0\mid\tau)}\right)^2
+\right].
+\]
+Put $q=e^{2\pi i\tau}$ and $y=e^{2\pi iz}$.  Derive
+\[
+\operatorname{Ell}_{K3}(\tau,z)
+=2y+20+2y^{-1}+O(q),
+\qquad
+\operatorname{Ell}_{K3}(\tau,0)=24.
+\]
+
+For an $\mathcal N=(4,4)$ supersymmetric sigma model with K3 target,
+use as theorem input~\cite{witten-elliptic,eguchi-k3} the Ramond-sector
+identity
+\[
+\operatorname{Ell}_{K3}(\tau,z)
+=\operatorname{Tr}_{\mathcal H_{RR}}
+\left((-1)^{F_L+F_R}y^{J_0}
+q^{L_0-c/24}\bar q^{\bar L_0-\bar c/24}\right)
+\]
+and prove that right-moving supersymmetry cancels every non-ground-state
+pair, making the trace independent of $\bar q$.  Predict $24$ protected
+Ramond ground states with charge-resolved multiplicities $2,20,2$ at
+charges $1,0,-1$.  State the exact-supersymmetry, Ramond-boundary,
+charge-normalization, unbroken-supersymmetry, continuum-scaling,
+finite-volume, temperature, and symmetry-resolved spectroscopy assumptions
+under which a programmable quantum system tests these protected counts.
+\end{exercise}
