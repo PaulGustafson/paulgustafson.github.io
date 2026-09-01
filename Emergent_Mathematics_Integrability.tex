@@ -73,83 +73,6 @@ size, boundary, and scale-calibration assumptions under which polymer
 free-energy measurements test this prediction.
 \end{exercise}
 
-\begin{exercise}[Hard-hexagon transfer matrices]
-Let $\mathcal R_N$ be a finite set of allowed width-$N$ configurations and
-let $T_N(z)$ be an operator on the configuration space whose matrix element
-between $a,b\in\mathcal R_N$ is the weight of adjoining $b$ to $a$.  For a
-height-$M$ periodic lattice define
-\[
-Z_{N,M}(z)=\Tr(T_N(z)^M).
-\]
-When $T_N(z)$ has nonnegative entries, write $\lambda_N(z)$ for its
-spectral radius.
-
-Let
-\[
-\mathcal R_N
-=\{a\in\{0,1\}^{\Z/N\Z}:a_i a_{i+1}=0\text{ for every }i\}.
-\]
-Two rows $a,b\in\mathcal R_N$ are compatible when
-\[
-a_i b_i=0,
-\qquad a_i b_{i+1}=0
-\quad(i\in\Z/N\Z).
-\]
-For $z\geq0$, with $|a|=\sum_i a_i$, define
-\[
-T_N(z)_{ab}
-=\mathbf1_{\{a,b\text{ compatible}\}}
-z^{(|a|+|b|)/2}.
-\]
-
-Identify the horizontal, vertical, and diagonal nearest-neighbor edges
-encoded by the two compatibility conditions.  Prove
-\[
-\Tr(T_N(z)^M)
-=\sum_I z^{|I|},
-\]
-where the sum is over independent vertex sets of the specified triangular
-$N\times M$ torus.  Prove that every coefficient is an exact state count.
-Let $0$ denote the empty row.  For $z>0$, prove
-\[
-(T_N(z)^2)_{ab}\geq T_N(z)_{a0}T_N(z)_{0b}>0.
-\]
-Use as theorem input~\cite{seneta} the finite Perron--Frobenius statement that a strictly
-positive matrix has a positive simple spectral radius and every other
-spectral value has strictly smaller modulus.  Apply it to show that
-$\lambda_N(z)$ is simple,
-that every other spectral value has smaller modulus, and that
-\[
-\lim_{M\to\infty}\frac1{NM}\log Z_{N,M}(z)
-=\frac1N\log\lambda_N(z).
-\]
-Put $\eta=\log z=\beta_{\rm th}\mu$ and
-\[
-\Psi_{N,M}(\eta)=\log Z_{N,M}(e^\eta).
-\]
-Give the independent sets the probability
-$\mathbb P_\eta(I)=e^{\eta|I|}/Z_{N,M}(e^\eta)$ and write
-$\mathbb E_\eta$ for expectation with respect to this measure.  For a
-square-integrable random variable $Y$, write
-$\operatorname{Var}_\eta(Y)=\mathbb E_\eta|Y-\mathbb E_\eta Y|^2$.
-Set $A=\partial_\eta\Psi_{N,M}$ and prove
-\[
-A=\mathbb E_\eta|I|,
-\qquad
-\partial_\eta A=\operatorname{Var}_\eta(|I|),
-\]
-and derive the mean occupied fraction and isothermal finite-size
-susceptibility
-\[
-\rho_{N,M}=\frac{A}{NM},
-\qquad
-\chi_{N,M}=\frac{\partial\rho_{N,M}}{\partial\mu}
-=\frac{\beta_{\rm th}}{NM}\operatorname{Var}_\eta(|I|).
-\]
-State the lattice
-geometry, boundary conditions, and finite $N,M$ limitations required when
-these quantities are compared with adsorption or exclusion-process data.
-\end{exercise}
 
 \begin{exercise}[Transfer spectra and correlation lengths]
 Let $X$ be a finite configuration space and let
@@ -158,15 +81,18 @@ $T:\C^X\to\C^X$ be a self-adjoint transfer operator satisfying
 \langle\delta_y,T\delta_x\rangle>0
 \qquad(x,y\in X).
 \]
-Write its distinct spectral values as
+Use as theorem input~\cite{seneta} the finite Perron--Frobenius statement
+that a strictly positive matrix has a positive simple spectral radius and
+that every other spectral value has strictly smaller modulus.  Apply it to
+$T$, denote its spectral radius by $\lambda_0$, and choose its normalized
+positive eigenvector $u_0$.  Write the remaining distinct spectral values
+as $\lambda_1,\lambda_2,\ldots$, ordered so that
 \[
 \lambda_0>|\lambda_1|\geq|\lambda_2|\geq\cdots,
 \qquad
-T=\sum_j\lambda_jP_j,
+T=\sum_j\lambda_jP_j.
 \]
-using the Perron--Frobenius theorem above to prove that $\lambda_0$ is
-simple and to choose its normalized positive eigenvector $u_0$.  For
-configuration observables $A$ and $B$, acting by
+For configuration observables $A$ and $B$, acting by
 multiplication, define their separation-$n$ cylinder correlation by
 \[
 \langle A_0B_n\rangle_M
@@ -1167,14 +1093,11 @@ orthogonal direct sums and prove
 \dim_{\mathcal C}(V\oplus W)
 =\dim_{\mathcal C}(V)+\dim_{\mathcal C}(W).
 \]
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Finite Hilbert-space trace]
-For a finite-dimensional Hilbert space $V$, let
+\item For $\mathcal C=\operatorname{Hilb}_{\mathrm{fd}}$ and a
+finite-dimensional Hilbert space $V$, let
 $j_V:\overline V\to V^\vee$ be the Riesz isomorphism
 $j_V(\overline v)=\langle v,-\rangle$.  From the coevaluation and symmetry
-put
+define
 \[
 \overline R_V=(\id_V\otimes j_V^{-1})\operatorname{coev}_V
 :\C\longrightarrow V\otimes\overline V,
@@ -1182,15 +1105,15 @@ put
 R_V=s_{V,\overline V}\overline R_V
 :\C\longrightarrow\overline V\otimes V.
 \]
-Prove the conjugate equations and standardness.  Prove, without choosing a
-basis, that
+Prove the conjugate equations and standardness.  Prove without choosing a
+basis that
 \[
 \operatorname{tr}_{\operatorname{Hilb}_{\mathrm{fd}}}(T)
 =\operatorname{tr}(T),
 \qquad
-\dim_{\operatorname{Hilb}_{\mathrm{fd}}}(V)=\dim_{\C}(V),
+\dim_{\operatorname{Hilb}_{\mathrm{fd}}}(V)=\dim_{\C}(V).
 \]
-where the right-hand sides are the ordinary trace and dimension.
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}[$SU_v(2)$ fusion and quantum dimensions]

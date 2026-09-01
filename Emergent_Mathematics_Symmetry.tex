@@ -504,38 +504,6 @@ to prove that $A-iI$ and $A+iI$ are surjective.  Deduce that $A$ is
 self-adjoint, prove $U_t=e^{-itA}$, and prove uniqueness of $A$.
 \end{exercise}
 
-\begin{exercise}[Spring and string frequencies]
-Let $V$ be a finite-dimensional real vector space with positive-definite
-mass form $m$ and nonnegative stiffness form $k$.  Use $m$ to define the
-self-adjoint operator $A$ by $k(x,y)=m(x,Ay)$.  Prove that solutions of
-$\ddot x+Ax=0$ decompose intrinsically through the spectral projections of
-$A$ and that the observed angular frequencies are $\sqrt{\lambda}$ for
-$\lambda\in\spec(A)\setminus\{0\}$.
-
-For a stretched string of length $L$, wave speed $c$, and fixed endpoints,
-let $D$ be the self-adjoint operator on $L^2((0,L);\C)$ given by
-\[
-D\phi=-c^2\phi'',
-\]
-on the domain of functions $\phi$ for which $\phi$ and $\phi'$ are
-absolutely continuous on $[0,L]$, $\phi''\in L^2((0,L))$, and
-$\phi(0)=\phi(L)=0$.  For the wave equation
-\[
-\partial_t^2u+Du=0,
-\]
-prove that a nonzero time-harmonic solution
-$u(t,x)=\operatorname{Re}(e^{i\omega t}\phi(x))$, with $\omega>0$,
-exists exactly when, for some $n\geq1$,
-\[
-\omega=\omega_n=\frac{n\pi c}{L},
-\qquad
-\phi\in(\C\phi_n)\setminus\{0\},
-\qquad
-\phi_n(x)=\sqrt{\frac2L}\sin\!\left(\frac{n\pi x}{L}\right),
-\]
-Deduce the harmonic resonance ratios and the nodal locations measured by
-driving the string at each $\omega_n$.
-\end{exercise}
 
 \begin{exercise}[Spectral lines and time evolution]
 \label{ex:spectral-lines}
@@ -1108,45 +1076,6 @@ generator of the fundamental group and exhibit the obstruction to removing
 a flat connection globally.
 \end{exercise}
 
-\begin{exercise}[Flat connections and symplectic reduction]
-Let $\Sigma$ be a closed oriented surface and let $\mathcal A$ be the
-affine space of connections on the product principal $SU(2)$-bundle over
-$\Sigma$.  Its tangent space at every connection is
-$\Omega^1(\Sigma;\mathfrak{su}(2))$.  Let
-$\mathcal G=C^\infty(\Sigma,SU(2))$ be the gauge group, use the invariant
-pairing
-\[
-\langle X,Y\rangle=-\operatorname{Tr}(XY),
-\]
-and define
-\[
-\Omega_A(a,b)=\int_\Sigma\langle a\wedge b\rangle.
-\]
-
-Prove that $\Omega$ is closed, gauge invariant, and nondegenerate.
-For $\xi\in\Omega^0(\Sigma;\mathfrak{su}(2))$, identify the infinitesimal
-gauge action at $A$ with $d_A\xi$.  Using
-\[
-\left.\frac d{dt}\right|_{t=0}F_{A+ta}=d_Aa
-\]
-and integration by parts, prove that curvature is the moment map:
-\[
-\iota_{d_A\xi}\Omega
-=-d\!\left(\int_\Sigma\langle F_A,\xi\rangle\right).
-\]
-Use as theorem input the smooth-locus gauge-reduction
-theorem~\cite{goldman}: on the irreducible locus, the quotient
-\[
-\mathcal M_{\mathrm{flat}}(\Sigma,SU(2))
-=\{A\in\mathcal A:F_A=0\}/\mathcal G
-\]
-is a finite-dimensional symplectic space with the form induced by
-$\Omega$.  Use flat parallel transport to identify it with
-\[
-\operatorname{Hom}(\pi_1(\Sigma),SU(2))/SU(2),
-\]
-where $SU(2)$ acts by conjugation.
-\end{exercise}
 
 \begin{exercise}[Integral curvature and circle cocycles]
 A \emph{good cover} of a manifold is an open cover
@@ -1238,27 +1167,6 @@ and call $d\pi_{\rm pre}$ the prequantum Lie-algebra representation on
 sections of $L$.
 \end{exercise}
 
-\begin{exercise}[Prequantum circle bundles]
-Let $Y$ be a smooth manifold of dimension $2n+1$.  A one-form $\alpha$ is
-a \emph{contact form} when $\alpha\wedge(d\alpha)^n$ is nowhere zero.  Its
-\emph{Reeb vector field} $R_\alpha$ is defined by
-\[
-\alpha(R_\alpha)=1,
-\qquad
-\iota_{R_\alpha}d\alpha=0.
-\]
-Let $\pi:S(L)\to M$ be the unit-circle bundle of a prequantum line bundle,
-let $A\in\Omega^1(S(L);i\mathbb R)$ be its connection form normalized by
-$A(\xi)=i$ on the circle generator $\xi$, and put $\alpha=-iA$.  Prove
-\[
-d\alpha=-\frac1\hbar\pi^*\omega,
-\]
-that $\alpha$ is a contact form with Reeb vector field $\xi$, and that
-sections of $L$ correspond to functions $F:S(L)\to\mathbb C$ satisfying
-\[
-F(ue^{i\theta})=e^{-i\theta}F(u).
-\]
-\end{exercise}
 
 \begin{exercise}[Coadjoint-orbit quantization, coherent-state harmonic analysis, and spin spectroscopy]
 On the distinguished Hermitian space $\C^2$, let the Pauli endomorphisms
@@ -3035,6 +2943,15 @@ derive
 \Theta_\Lambda=E_4^3-720\Delta
 =1+196560q^2+O(q^3).
 \]
+For the flat torus $T_\Lambda=\R^{24}/\Lambda$, let $K_t$ be its heat
+kernel.  Prove
+\[
+\int_{T_\Lambda}K_t(x,x)\,dx
+=\sum_{\xi\in\Lambda^*}e^{-4\pi^2t\|\xi\|^2}
+=\Theta_\Lambda(4\pi it),
+\]
+and deduce that its first nonconstant heat-trace term is
+$196560e^{-16\pi^2t}$.
 For the idealized $24$-dimensional crystal with lattice $\Lambda$ and a
 one-point motif, deduce that the first nonzero reciprocal-lattice shell has
 radius $4\pi$ in the physical reciprocal convention and consists of
@@ -3043,27 +2960,6 @@ without changing the shell radius.
 \end{exercise}
 
 
-\begin{exercise}[Theta diffraction]
-Let $T_L=\R^d/L$ carry its flat metric, and normalize $L^*$ by
-$\langle x,\xi\rangle\in\Z$.  Let $K_t(x,y)$ be the heat kernel of the
-flat Laplacian and prove
-\[
-\int_{T_L}K_t(x,x)\,dx
-=\sum_{\xi\in L^*}e^{-4\pi^2t\|\xi\|^2}
-=\Theta_{L^*}(4\pi it).
-\]
-Apply Poisson duality to derive the short-time image sum and its leading
-term $\vol(T_L)(4\pi t)^{-d/2}$.  For a periodic array with motif $B$,
-prove that the elastic intensity at reciprocal vector $2\pi\xi$ is
-proportional to
-\[
-|S_B(2\pi\xi)|^2.
-\]
-Prove that the heat-trace exponents and diffraction-peak radii determine
-the same reciprocal squared lengths $\|\xi\|^2$.  Deduce the predicted
-peak locations, systematic absences, and thermal decay rates from the
-theta coefficients of $L^*$.
-\end{exercise}
 
 \begin{exercise}[Theta heat kernels, spectral zeta functions, and Casimir pressure]
 For a massless scalar field between parallel Dirichlet plates of area $A$
