@@ -3543,4 +3543,82 @@ or accompanied by a compensating opposite-chirality sector, and distinguish
 the derived spectral prediction from evidence for a particular physical
 realization.
 \end{exercise}
+
+\begin{exercise}[Affine \texorpdfstring{$SU(2)$}{SU(2)} characters and WZW spectra]
+Fix an integer $k\geq1$.  For integers $K\geq2$ and $m\in\mathbb Z$, put
+\[
+\Theta_{m,K}(\tau,z)
+=\sum_{n\in\mathbb Z}
+q^{(2Kn+m)^2/(4K)}e^{2\pi i(2Kn+m)z},
+\qquad q=e^{2\pi i\tau},
+\]
+so that $\Theta_{m+2K,K}=\Theta_{m,K}$.  For $0\leq j\leq k$, define
+\[
+\chi_j^{(k)}(\tau)
+=\lim_{z\to0}
+\frac{\Theta_{j+1,k+2}(\tau,z)-
+      \Theta_{-j-1,k+2}(\tau,z)}
+     {\Theta_{1,2}(\tau,z)-\Theta_{-1,2}(\tau,z)}.
+\]
+Use as theorem input the Weyl--Kac character formula and the
+Kac--Peterson modular transformation~\cite{kac-infinite}: these are the
+specialized integrable affine $\widehat{\mathfrak{sl}}_2$ characters at
+level $k$, with
+\[
+c=\frac{3k}{k+2},
+\qquad
+h_j=\frac{j(j+2)}{4(k+2)},
+\qquad
+\chi_j^{(k)}(\tau)
+=q^{h_j-c/24}\bigl(j+1+O(q)\bigr),
+\]
+and
+\[
+\chi_j^{(k)}(-1/\tau)
+=\sum_{\ell=0}^kS_{j\ell}\chi_\ell^{(k)}(\tau),
+\qquad
+S_{j\ell}
+=\sqrt{\frac2{k+2}}
+\sin\!\left(\frac{(j+1)(\ell+1)\pi}{k+2}\right).
+\]
+Prove the sine orthogonality identity $S^*S=I$.  For $a\in\mathbb C^\times$
+with $a\neq\pm1$ and $n\geq0$, define the \emph{quantum integer}
+\[
+[n]_a=\frac{a^n-a^{-n}}{a-a^{-1}}.
+\]
+Put $\zeta=e^{\pi i/(k+2)}$ and prove
+\[
+\frac{S_{j0}}{S_{00}}=[j+1]_\zeta,
+\qquad
+[2]_\zeta[j+1]_\zeta
+=[j]_\zeta+[j+2]_\zeta,
+\qquad
+[k+2]_\zeta=0.
+\]
+
+For the diagonal $SU(2)_k$ Wess--Zumino--Witten model on a circle of
+circumference $L$ and propagation speed $u$, take
+\[
+Z_k(\tau,\overline\tau)
+=\sum_{j=0}^k|\chi_j^{(k)}(\tau)|^2,
+\qquad
+H=\frac{2\pi\hbar u}{L}
+\left(L_0+\overline L_0-\frac c{12}\right).
+\]
+Derive the primary excitation gaps and their ground-grade multiplicities,
+\[
+\Delta E_j
+=\frac{\pi\hbar u}{L}\frac{j(j+2)}{k+2},
+\qquad
+g_j=(j+1)^2,
+\qquad 0\leq j\leq k.
+\]
+Show that the modular $S$-transform exchanges the thermal and spatial
+cycles of the torus partition function.  State the assumptions of exact
+affine $SU(2)_k$ symmetry, the diagonal modular invariant, linear
+left- and right-moving dispersion, periodic boundary conditions,
+sector-resolved preparation, and the low-energy finite-size regime under
+which spectroscopy tests the theta-quotient characters, the displayed
+gaps, and the root-of-unity quantum integers.
+\end{exercise}
 \fi
