@@ -1,46 +1,7 @@
 \section{Algebraic Curves}
 
-\begin{exercise}[Pendulum periods on the Legendre curve]
-On $T^*S^1$ consider
-\[
-H(\theta,p)=\frac{p^2}{2M\ell^2}+Mg\ell(1-\cos\theta).
-\]
-For an oscillation of amplitude $0<\theta_0<\pi$, set
-$k=\sin(\theta_0/2)$ and $m=k^2$.  Consider the complex plane curve
-\[
-C_m:\quad y^2=x(x-1)(x-m).
-\]
-Use energy conservation and the real period of $dx/y$ to prove
-\[
-T(\theta_0)=4\sqrt{\frac{\ell}{g}}\,K(k).
-\]
-Apply the generalized binomial theorem with $a=\frac12$.  For
-\[
-I_n=\int_0^{\pi/2}\sin^{2n}\phi\,d\phi,
-\]
-use integration by parts to prove
-\[
-I_0=\frac{\pi}{2},
-\qquad
-I_n=\frac{2n-1}{2n}I_{n-1}\quad(n\geq1),
-\]
-and obtain
-\[
-K(k)=\frac{\pi}{2}\sum_{n=0}^{\infty}
-\left(\frac{(1/2)_n}{n!}\right)^2k^{2n},
-\qquad |k|<1.
-\]
-Deduce
-\[
-T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
-\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right).
-\]
-Deduce the experimentally testable increase of period with amplitude and
-the logarithmic divergence as $\theta_0\uparrow\pi$.
-\end{exercise}
-
 \begin{exercise}[Affine schemes and the Legendre family]
-Replace $m$ by an indeterminate and form the finitely generated
+Let $m$ be an indeterminate and form the finitely generated
 $\mathbb C[m]$-algebra
 \[
 A=\mathbb C[m,x,y]\big/(y^2-x(x-1)(x-m)).
@@ -360,53 +321,6 @@ and prove that tangency is detected by a repeated root and hence by the
 corresponding discriminant locus.
 \end{exercise}
 
-\begin{exercise}[Caustics and Airy--Pearcey diffraction]
-For a monochromatic scalar wave with wave number $k=2\pi/\lambda$, define
-the fold and cusp canonical fields as oscillatory integrals
-\[
-\mathcal A_{\rm fold}(a;k)
-=\int_{\mathbb R}^{\rm osc}
-e^{ik(t^3/3-at)}\,dt,
-\]
-\[
-\mathcal A_{\rm cusp}(a,b;k)
-=\int_{\mathbb R}^{\rm osc}
-e^{ik(t^4/4+at^2/2+bt)}\,dt.
-\]
-For a phase function, call the image of its degenerate stationary points
-in parameter space its \emph{caustic}.  Prove that the fold caustic is
-$a=0$ and that the cusp caustic is the discriminant curve
-\[
-4a^3+27b^2=0
-\]
-of the stationary cubic $t^3+at+b$.
-
-Using the Airy function, prove
-\[
-\mathcal A_{\rm fold}(a;k)
-=2\pi k^{-1/3}\operatorname{Ai}(-k^{2/3}a).
-\]
-Define the Pearcey function by
-\[
-\operatorname{Pe}(A,B)
-=\int_{\mathbb R}^{\rm osc}
-e^{i(t^4/4+At^2/2+Bt)}\,dt
-\]
-and derive
-\[
-\mathcal A_{\rm cusp}(a,b;k)
-=k^{-1/4}\operatorname{Pe}(k^{1/2}a,k^{3/4}b).
-\]
-Deduce that fold dark fringes occur at
-$a=a_nk^{-2/3}$, where $\operatorname{Ai}(-a_n)=0$, and that the two
-cusp control scales are $k^{-1/2}$ and $k^{-3/4}$.  Predict the normalized
-intensities $|\operatorname{Ai}|^2$ and $|\operatorname{Pe}|^2$ near fold
-and cusp caustics.  State the scalar-wave, short-wavelength, canonical-form,
-finite-aperture, and detector-resolution assumptions under which measured
-fringe locations test the discriminant geometry and its wavelength
-scaling.
-\end{exercise}
-
 \begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
 For a compact connected oriented surface $S$, define its genus $g(S)$ by
 \[
@@ -457,15 +371,15 @@ On the affine chart $Z=1$, put
 y^2=x(x-1)(x-m).
 \]
 Check at each ramification point and at infinity that $\eta_m$ extends to a
-nowhere-vanishing holomorphic one-form on $E_m$.  For $0<m<1$, let
-$\gamma_m$ be the closed real oval over $[0,m]$.  With $m=k^2$, prove
-that its orientation may be chosen so that
+nowhere-vanishing holomorphic one-form on $E_m$.  For $0<k<1$, define
 \[
-\oint_{\gamma_m}\eta_m
-=4K(k),
-\qquad
-T(\theta_0)=\sqrt{\frac{\ell}{g}}
-\oint_{\gamma_m}\eta_m.
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+For $0<m<1$, let $\gamma_m$ be the closed real oval over $[0,m]$.
+With $m=k^2$, prove that its orientation may be chosen so that
+\[
+\oint_{\gamma_m}\eta_m=4K(k).
 \]
 \end{exercise}
 
@@ -524,6 +438,53 @@ Under this identification, show that translation on the complex torus
 defines an intrinsic group law on $E_m$ with identity $p_0$.
 \end{exercise}
 
+\begin{exercise}[Caustics and Airy--Pearcey diffraction]
+For a monochromatic scalar wave with wave number $k=2\pi/\lambda$, define
+the fold and cusp canonical fields as oscillatory integrals
+\[
+\mathcal A_{\rm fold}(a;k)
+=\int_{\mathbb R}^{\rm osc}
+e^{ik(t^3/3-at)}\,dt,
+\]
+\[
+\mathcal A_{\rm cusp}(a,b;k)
+=\int_{\mathbb R}^{\rm osc}
+e^{ik(t^4/4+at^2/2+bt)}\,dt.
+\]
+For a phase function, call the image of its degenerate stationary points
+in parameter space its \emph{caustic}.  Prove that the fold caustic is
+$a=0$ and that the cusp caustic is the discriminant curve
+\[
+4a^3+27b^2=0
+\]
+of the stationary cubic $t^3+at+b$.
+
+Using the Airy function, prove
+\[
+\mathcal A_{\rm fold}(a;k)
+=2\pi k^{-1/3}\operatorname{Ai}(-k^{2/3}a).
+\]
+Define the Pearcey function by
+\[
+\operatorname{Pe}(A,B)
+=\int_{\mathbb R}^{\rm osc}
+e^{i(t^4/4+At^2/2+Bt)}\,dt
+\]
+and derive
+\[
+\mathcal A_{\rm cusp}(a,b;k)
+=k^{-1/4}\operatorname{Pe}(k^{1/2}a,k^{3/4}b).
+\]
+Deduce that fold dark fringes occur at
+$a=a_nk^{-2/3}$, where $\operatorname{Ai}(-a_n)=0$, and that the two
+cusp control scales are $k^{-1/2}$ and $k^{-3/4}$.  Predict the normalized
+intensities $|\operatorname{Ai}|^2$ and $|\operatorname{Pe}|^2$ near fold
+and cusp caustics.  State the scalar-wave, short-wavelength, canonical-form,
+finite-aperture, and detector-resolution assumptions under which measured
+fringe locations test the discriminant geometry and its wavelength
+scaling.
+\end{exercise}
+
 \begin{exercise}[Picard--Fuchs equations, monodromy, and pendulum periods]
 Let $U=\mathbb C\setminus\{0,1\}$.  Along a path in $U$, transport a closed
 cycle continuously through the family $E_m$ and call the resulting
@@ -539,8 +500,17 @@ differentials on $E_m$ to prove the Picard--Fuchs equation
 \[
 m(1-m)\Pi''(m)+(1-2m)\Pi'(m)-\frac14\Pi(m)=0.
 \]
-Identify this with the Gauss hypergeometric equation.  Prove that the
-projective cubic has discriminant
+Identify this with the Gauss hypergeometric equation.  For the real oval,
+use $\lim_{m\downarrow0}\Pi(m)=2\pi$ and the recurrence at $m=0$ to derive
+\[
+\Pi(m)=4K(\sqrt m)
+=2\pi\sum_{n=0}^{\infty}
+\left(\frac{(1/2)_n}{n!}\right)^2m^n
+=2\pi\,{}_2F_1\!\left(\frac12,\frac12;1;m\right),
+\qquad |m|<1.
+\]
+
+Prove that the projective cubic has discriminant
 \[
 \Delta(m)=16m^2(1-m)^2
 \]
@@ -549,16 +519,34 @@ $m=0,1,\infty$.
 
 Show that local monodromy at $m=1$ fixes one analytic solution and sends a
 logarithmic companion to itself plus a multiple of the analytic solution.
-For the real oval, use $\Pi(m)=4K(\sqrt m)$ and the hypergeometric connection
-formula to obtain
+Use the hypergeometric connection formula to obtain
 \[
 K(\sqrt m)
 =\log\frac4{\sqrt{1-m}}
 +O\bigl((1-m)|\log(1-m)|\bigr)
 \qquad(m\uparrow1).
 \]
-For the pendulum of length $\ell$, where
-$m=\sin^2(\theta_0/2)$, deduce
+
+On $T^*S^1$ consider the pendulum Hamiltonian
+\[
+H(\theta,p)=\frac{p^2}{2M\ell^2}+Mg\ell(1-\cos\theta).
+\]
+For an oscillation of amplitude $0<\theta_0<\pi$, put
+$m=\sin^2(\theta_0/2)$.  Use energy conservation and the real period above
+to prove
+\[
+T(\theta_0)
+=\sqrt{\frac{\ell}{g}}\,\Pi(m)
+=4\sqrt{\frac{\ell}{g}}\,
+K\!\left(\sin\frac{\theta_0}{2}\right).
+\]
+Use the hypergeometric series to derive
+\[
+T(\theta_0)=2\pi\sqrt{\frac{\ell}{g}}
+\left(1+\frac{\theta_0^2}{16}+O(\theta_0^4)\right)
+\qquad(\theta_0\to0),
+\]
+and use the connection formula to derive
 \[
 T(\theta_0)
 =4\sqrt{\frac{\ell}{g}}\log\frac4{\cos(\theta_0/2)}
@@ -567,8 +555,12 @@ T(\theta_0)
 \left|\log\cos^2\frac{\theta_0}{2}\right|
 \right).
 \]
-State how a period-versus-amplitude measurement tests the location and
-logarithmic type of the singular fiber.
+Deduce the increase of period with amplitude, the leading nonlinear
+frequency shift, and the logarithmic divergence at the separatrix.  State
+the point-mass, rigid-length, planar-motion, negligible-damping,
+amplitude-calibration, and timing-resolution assumptions under which a
+period-versus-amplitude measurement tests the hypergeometric period and
+the location and logarithmic type of the singular fiber.
 \end{exercise}
 
 \section{Riemann--Roch}
