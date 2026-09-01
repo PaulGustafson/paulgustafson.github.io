@@ -1153,6 +1153,59 @@ defines a ribbon twist on the category of finite-dimensional $H$-modules.
 Derive invariance of the quantum trace under framed ribbon isotopy.
 \end{exercise}
 
+\begin{exercise}[Kauffman bracket skein algebra]
+Let $\Sigma$ be an oriented surface and let $\mathcal L(\Sigma)$ be the
+set of framed-isotopy classes of unoriented links in
+$\Sigma\times[0,1]$, including the empty link.  For
+$v\in\mathbb C^\times$, define $K_v(\Sigma)$ as the complex span of
+$\mathcal L(\Sigma)$ modulo the following local relations.  If
+$L_\times,L_0,L_\infty$ agree outside a disk and differ inside it by a
+crossing and its two smoothings, impose
+\[
+[L_\times]=v[L_0]+v^{-1}[L_\infty].
+\]
+If $\bigcirc$ is a contractible component disjoint from $L$, impose
+\[
+[L\sqcup\bigcirc]=-(v^2+v^{-2})[L].
+\]
+Define multiplication by stacking links in the interval direction.
+
+Prove that the relations are preserved by framed Reidemeister moves and
+that stacking makes $K_v(\Sigma)$ an associative algebra with the empty
+link as identity.  For two simple closed curves meeting once, resolve
+their crossing to express both multiplication orders in terms of the two
+smoothings and compute their commutator.
+
+At $v=-1$, let $\rho:\pi_1(\Sigma)\to SL_2(\mathbb C)$ and assign to an
+unoriented loop $\gamma$ the function
+\[
+[\gamma]\longmapsto-W_\gamma(\rho)
+=-\operatorname{tr}\rho(\gamma),
+\]
+extending multiplicatively over disjoint components.  Use
+Cayley--Hamilton to prove
+\[
+W_\alpha W_\beta
+=W_{\alpha\beta}+W_{\alpha\beta^{-1}}
+\]
+and show that the assignment respects both skein relations.  Deduce that
+the classical specialization is commutative and maps to the algebra of
+Wilson-trace functions on flat $SL_2$ connections.
+
+For $\Sigma=T^2$, put
+\[
+x=W_{1,0},\qquad y=W_{0,1},\qquad z=W_{1,1}.
+\]
+Use successive skein resolutions and the Euclidean algorithm to express
+every $W_{p,q}$ as a polynomial in $x,y,z$, reduced modulo
+\[
+x^2+y^2+z^2-xyz-4=0.
+\]
+Use the commutator computed above to prove that $K_v(T^2)$ is
+noncommutative for generic $v$ and that its specialization at $v=-1$
+maps to the torus Wilson-trace algebra.
+\end{exercise}
+
 \begin{exercise}[Chebyshev quantum dimensions]
 For the irreducible $SU_v(2)$ objects $V_n$, use
 $V_1\otimes V_n\cong V_{n+1}\oplus V_{n-1}$ to prove
