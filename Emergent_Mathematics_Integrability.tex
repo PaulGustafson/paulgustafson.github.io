@@ -2305,34 +2305,6 @@ a directly estimable statistic and state the positivity, truncation, and
 sampling assumptions required for comparison with the formula.
 \end{exercise}
 
-\begin{exercise}[Theta functions and the elliptic Ruijsenaars operator]
-For $|p|<1$, define
-\[
-\theta(z;p)=(z;p)_\infty(p/z;p)_\infty.
-\]
-
-For type $A_{r-1}$, define
-\[
-D_{p,q,t}^{\mathrm{ell}}
-=\sum_{i=1}^r
-\left(
-\prod_{j\neq i}
-\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
-\right)T_{q,x_i}.
-\]
-
-Prove directly from $\theta(z;0)=1-z$ that
-\[
-D_{p,q,t}^{\mathrm{ell}}
-\longrightarrow D_{q,t}
-\qquad(p\to0).
-\]
-Set $q=e^{-\varepsilon}$ and $t=e^{-g\varepsilon}$ and derive the
-Heckman--Opdam differential operator from the second-order term as
-$\varepsilon\to0$.  Take the rational scaling limit of its hyperbolic
-coefficients and obtain the rational Calogero--Moser operator.
-\end{exercise}
-
 \begin{exercise}[The Calogero--Sutherland limit]
 Write $x_i=e^{z_i}$, set $q=e^{-\epsilon}$ and $t=e^{-g\epsilon}$, and expand
 $D_{q,t}$ through order $\epsilon^2$.  After subtracting its scalar value
@@ -2598,6 +2570,135 @@ the deformation parameter requires resolved partition labels and
 sufficiently many nondegenerate transitions.
 \end{exercise}
 
+\begin{exercise}[Elliptic Ruijsenaars spectral tori]
+Let $0<p<1$, choose $\tau\in i\mathbb R_{>0}$ with
+$p=e^{2\pi i\tau}$, and define
+\[
+\theta(z;p)=(z;p)_\infty(p/z;p)_\infty,
+\qquad z\in\mathbb C^\times.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove
+\[
+\theta(pz;p)=-z^{-1}\theta(z;p)
+\]
+and that the zeros of $\theta(\,cdot\,;p)$ are the points $p^n$,
+$n\in\mathbb Z$, with multiplicity one.  Prove that multiplication by
+$p$ acts freely and properly discontinuously on $\mathbb C^\times$ and
+that the exponential map induces a biholomorphism
+\[
+E_p:=\mathbb C^\times/p^\mathbb Z
+\cong
+\mathbb C/(\mathbb Z+\tau\mathbb Z).
+\]
+Call this compact complex torus the \emph{multiplicative elliptic torus}.
+For fixed $t\in\mathbb C^\times$, compute
+\[
+\frac{\theta(tpz;p)}{\theta(pz;p)}
+=t^{-1}\frac{\theta(tz;p)}{\theta(z;p)}
+\]
+and interpret this automorphy as a meromorphic section on $E_p$.
+
+\item Define the Jacobi theta constants by
+\[
+\vartheta_2(\tau)
+=\sum_{n\in\mathbb Z}e^{\pi i\tau(n+1/2)^2},
+\qquad
+\vartheta_3(\tau)
+=\sum_{n\in\mathbb Z}e^{\pi i\tau n^2},
+\]
+and put
+\[
+m(\tau)=\frac{\vartheta_2(\tau)^4}{\vartheta_3(\tau)^4}.
+\]
+Use as theorem input the analytic Legendre uniformization
+theorem~\cite{forster,fay-theta}: the torus $E_p$ is biholomorphic to the
+smooth compactification of
+\[
+C_m:\quad y^2=x(x-1)(x-m(\tau)),
+\]
+and its invariant differential corresponds to a nonzero scalar multiple
+of $dx/y$.  Prove from the theta series that
+\[
+m(\tau)=16p^{1/2}+O(p)
+\qquad(p\downarrow0),
+\]
+so the elliptic torus degenerates toward the double-root cubic
+$y^2=x^2(x-1)$.
+
+Write $m=m(\tau)$, put $k=\sqrt m$ and $k'=\sqrt{1-k^2}$, and define
+\[
+K(k)=\int_0^{\pi/2}\frac{d\phi}
+{\sqrt{1-k^2\sin^2\phi}}.
+\]
+Use the same uniformization theorem to prove that
+\[
+m=k^2,
+\qquad
+\tau=i\frac{K(k')}{K(k)},
+\qquad
+p=e^{-2\pi K(k')/K(k)}.
+\]
+With the positive branch of $y$ over $0<x<m$, use
+$x=m\sin^2\phi$ to derive the real period identity
+\[
+2\int_0^m\frac{dx}{\sqrt{x(x-1)(x-m)}}=4K(k).
+\]
+
+\item For type $A_{r-1}$ and $0<q,t<1$, define
+\[
+D_{p,q,t}^{\mathrm{ell}}
+=\sum_{i=1}^r
+\left(
+\prod_{j\neq i}
+\frac{\theta(t x_i/x_j;p)}{\theta(x_i/x_j;p)}
+\right)T_{q,x_i}.
+\]
+Determine the automorphy of each coefficient under multiplication of a
+ratio $x_i/x_j$ by $p$.  Prove directly from $\theta(z;0)=1-z$ that
+\[
+D_{p,q,t}^{\mathrm{ell}}
+\longrightarrow D_{q,t}
+\qquad(p\to0)
+\]
+locally uniformly away from the polar divisors.  After taking this
+trigonometric degeneration, set $q=e^{-\varepsilon}$ and
+$t=e^{-g\varepsilon}$, derive the Heckman--Opdam differential operator
+from the second-order term as $\varepsilon\to0$, and take its rational
+scaling limit to obtain the rational Calogero--Moser operator.
+
+\item Fix a finite multiplicative grid
+\[
+\mathcal G_M
+=\{(q^{n_1}x_1^0,\ldots,q^{n_r}x_r^0):
+-M\leq n_i\leq M\}
+\]
+whose ratios avoid every displayed polar divisor for $0\leq p\leq p_0$.
+Let $C_p^{(M)}$ be the compression of $D_{p,q,t}^{\mathrm{ell}}$ to
+functions on $\mathcal G_M$, discarding a shifted value when it leaves the
+grid, and define the self-adjoint programmable Hamiltonian
+\[
+\widehat H_p^{(M)}
+=\frac{\epsilon}{2}
+\left(C_p^{(M)}+(C_p^{(M)})^*\right),
+\qquad \epsilon>0.
+\]
+Prove entrywise and operator-norm convergence
+\[
+\widehat H_p^{(M)}\longrightarrow\widehat H_0^{(M)}
+\qquad(p\downarrow0),
+\]
+and hence convergence of every ordered spectral value and transition
+frequency.  At a parameter where a selected nondegenerate gap has
+nonzero derivative with respect to $p$, prove that its measured value
+locally determines $p$ and therefore the Legendre modulus $m(\tau)$.
+State the finite-grid, boundary-compression, coupling-calibration,
+pole-avoidance, state-preparation, and spectral-resolution assumptions
+under which the measured hopping amplitudes and resonance gaps test the
+theta-function deformation and its nodal degeneration.
+\end{enumerate}
+\end{exercise}
+
 \fi
 \ifincludeEllipticIntegrability
 \section{Elliptic Integrability}
@@ -2622,8 +2723,6 @@ and
 
 Prove
 \[
-\theta(pz;p)=-z^{-1}\theta(z;p),
-\qquad
 \Gamma(qz;p,q)=\theta(z;p)\Gamma(z;p,q),
 \]
 \[
