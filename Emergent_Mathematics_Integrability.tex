@@ -151,6 +151,60 @@ geometry, boundary conditions, and finite $N,M$ limitations required when
 these quantities are compared with adsorption or exclusion-process data.
 \end{exercise}
 
+\begin{exercise}[Transfer spectra and correlation lengths]
+Let $X$ be a finite configuration space and let
+$T:\C^X\to\C^X$ be a self-adjoint transfer operator satisfying
+\[
+\langle\delta_y,T\delta_x\rangle>0
+\qquad(x,y\in X).
+\]
+Write its distinct spectral values as
+\[
+\lambda_0>|\lambda_1|\geq|\lambda_2|\geq\cdots,
+\qquad
+T=\sum_j\lambda_jP_j,
+\]
+using the Perron--Frobenius theorem above to prove that $\lambda_0$ is
+simple and to choose its normalized positive eigenvector $u_0$.  For
+configuration observables $A$ and $B$, acting by
+multiplication, define their separation-$n$ cylinder correlation by
+\[
+\langle A_0B_n\rangle_M
+=\frac{\Tr(A T^n B T^{M-n})}{\Tr(T^M)},
+\qquad 0\leq n\leq M.
+\]
+For fixed $n$, take $M\to\infty$ and prove
+\[
+\langle A_0B_n\rangle
+=\lambda_0^{-n}\langle u_0,A T^nB u_0\rangle,
+\qquad
+\langle A\rangle=\langle u_0,Au_0\rangle.
+\]
+Deduce the connected-correlation expansion
+\[
+C_{AB}(n)
+=\sum_{j\geq1}
+\left(\frac{\lambda_j}{\lambda_0}\right)^n
+\langle u_0,AP_jBu_0\rangle.
+\]
+If the $j=1$ coefficient is nonzero, prove that the exponential
+correlation length in lattice units is
+\[
+\xi^{-1}=\log\left|\frac{\lambda_0}{\lambda_1}\right|.
+\]
+For a self-adjoint observable $A$ whose connected correlation is dominated
+by $C_{AA}(n)=c r^{|n|}$, $|r|<1$, compute the static structure factor
+\[
+S_A(k)=\sum_{n\in\mathbb Z}C_{AA}(n)e^{-ikn}
+=c\frac{1-r^2}{1-2r\cos k+r^2}.
+\]
+Locate its peak for $r>0$ and $r<0$, determine its width for
+$|r|\uparrow1$, and state the translation-invariance, equilibrium,
+diagonalizability, observable-overlap, finite-size, and detector-resolution
+assumptions under which scattering measurements determine $\xi$ and the
+subleading transfer eigenvalue.
+\end{exercise}
+
 \begin{exercise}[The planar Ising model and Kramers--Wannier duality]
 Let $G=(V,E)$ be a finite connected graph with a fixed planar embedding.
 For couplings $K_e>0$, define
@@ -385,6 +439,121 @@ correction.  State how finite-size transfer eigenvalues determine $c$, the
 primary weights, and $v$, including the symmetry-sector resolution,
 anisotropy corrections, and irrelevant-operator corrections required for
 the comparison.
+\end{exercise}
+
+\begin{exercise}[Izergin determinant and domain-wall ice entropy]
+Let $V=\C e_+\oplus\C e_-$ be the two-state edge space.  For an additive
+spectral parameter $u$, put
+\[
+R(u)=
+\begin{pmatrix}
+\sin(u+\eta)&0&0&0\\
+0&\sin u&\sin\eta&0\\
+0&\sin\eta&\sin u&0\\
+0&0&0&\sin(u+\eta)
+\end{pmatrix}
+\]
+relative to the ordered weight lines
+$e_+\otimes e_+$, $e_+\otimes e_-$, $e_-\otimes e_+$, and
+$e_-\otimes e_-$.  Interpret its six nonzero
+matrix coefficients as the six arrow configurations satisfying the ice
+rule.  Verify from the sine addition formula that
+\[
+R_{12}(u-v)R_{13}(u-w)R_{23}(v-w)
+=R_{23}(v-w)R_{13}(u-w)R_{12}(u-v).
+\]
+For horizontal rapidities $x=(x_1,\ldots,x_N)$, vertical rapidities
+$y=(y_1,\ldots,y_N)$, and crossing parameter $\eta$, write
+\[
+a(x_i,y_j)=\sin(x_i-y_j+\eta),
+\qquad
+b(x_i,y_j)=\sin(x_i-y_j),
+\qquad
+c=\sin\eta.
+\]
+Impose domain-wall boundary arrows, with the top and bottom arrows pointing
+inward and the left and right arrows pointing outward, and let
+$Z_N^{\rm DW}(x;y)$ be the sum of products of these local weights over all
+allowed arrow configurations.
+
+Use the Yang--Baxter equation to prove that $Z_N^{\rm DW}$ is separately
+symmetric in the $x_i$ and in the $y_j$.  At $x_N=y_N$, show that the
+vertex at their intersection has weight $c$, that its row and column
+freeze, and that
+\[
+\left.Z_N^{\rm DW}(x;y)\right|_{x_N=y_N}
+=c\prod_{i=1}^{N-1}a(x_i,y_N)
+\prod_{j=1}^{N-1}a(x_N,y_j)
+Z_{N-1}^{\rm DW}(\widehat x_N;\widehat y_N).
+\]
+Here a hat means that the indicated rapidity is omitted.
+With $X_i=e^{2ix_i}$ and $Y_j=e^{2iy_j}$, prove that
+$X_i^{(N-1)/2}Z_N^{\rm DW}$ is a polynomial of degree $N-1$ in $X_i$
+and that the analogous statement holds for every $Y_j$.  Use as theorem
+input the Korepin interpolation lemma~\cite{korepin-qism}: separate symmetry,
+these degree
+bounds, the displayed freezing recursion, and $Z_1^{\rm DW}=c$ uniquely
+determine the domain-wall partition function.
+
+Verify that the determinant below has these properties and deduce the
+Izergin identity
+\[
+Z_N^{\rm DW}(x;y)
+=\frac{\displaystyle\prod_{i,j=1}^N
+a(x_i,y_j)b(x_i,y_j)}
+{\displaystyle\prod_{1\leq i<j\leq N}
+\sin(x_i-x_j)\sin(y_j-y_i)}
+\det\!\left[
+\frac{c}{a(x_i,y_j)b(x_i,y_j)}
+\right]_{i,j=1}^N.
+\]
+
+Take the homogeneous ice limit
+\[
+x_i-y_j=\eta=\frac\pi3,
+\qquad
+a=b=c=\frac{\sqrt3}{2},
+\]
+and divide every local weight by $\sqrt3/2$.  Let $A_N$ be the resulting
+unit-weight partition function.  When every $x_i=x$ and every $y_j=y$,
+put $z=x-y$, $a(z)=\sin(z+\eta)$, $b(z)=\sin z$, and write the unnormalized
+partition function as $Z_N^{\rm hom}(z;\eta)$.  Take the confluent limit of
+the Izergin determinant and prove
+\[
+Z_N^{\rm hom}(z;\eta)
+=\frac{[a(z)b(z)]^{N^2}}
+{\displaystyle\prod_{j=0}^{N-1}(j!)^2}
+\det\!\left[
+\frac{d^{i+j}}{dz^{i+j}}
+\frac{c}{a(z)b(z)}
+\right]_{i,j=0}^{N-1}.
+\]
+Use as theorem input~\cite{korepin-qism} the homogeneous determinant
+evaluation obtained from its Desnanot--Jacobi recurrence at
+$z=\eta=\pi/3$:
+\[
+\frac{A_N}{A_{N-1}}
+=\frac{(3N-2)!(N-1)!}{(2N-1)!(2N-2)!},
+\qquad N\geq2,\qquad A_1=1,
+\]
+and deduce
+\[
+A_N=\prod_{j=0}^{N-1}\frac{(3j+1)!}{(N+j)!}.
+\]
+Compute $A_N$ for $1\leq N\leq5$ and use Stirling's formula to derive
+\[
+\lim_{N\to\infty}\frac1{N^2}\log A_N
+=\log\frac{3\sqrt3}{4}.
+\]
+Deduce the exact finite-size state count and the residual configurational
+entropy per vertex
+\[
+s_{\rm DW}=k_B\log\frac{3\sqrt3}{4}
+\]
+for a unit-weight domain-wall ice sample.  State the domain-wall
+preparation, equal-weight calibration, equilibration, and finite-size
+assumptions under which configuration counts or free-energy measurements
+test the determinant and product identities.
 \end{exercise}
 
 \begin{exercise}[Harper monodromy and \texorpdfstring{$SL_2(\mathbb R)$}{SL2(R)} band geometry]
@@ -1150,8 +1319,6 @@ and nondegeneracy assumptions under which the measured line positions and
 strengths determine $v$.
 \end{exercise}
 
-\section{Braided Symmetry}
-
 \begin{exercise}[Universal $R$-matrices and braided tensor categories]
 A \emph{universal $R$-matrix} for a Hopf algebra $H$ is an invertible
 element $\mathcal R$ in a completion of $H\otimes H$ on which the
@@ -1515,6 +1682,54 @@ cycle and state the twist, unitarity, preparation, and detection assumptions
 under which it is an interference observable.
 \end{exercise}
 
+\section{Double Affine Hecke Algebras}
+
+\begin{exercise}[Double-affine braid groups and Hecke quotients]
+For $r\geq2$, the \emph{double-affine braid group} $\widetilde B_r$ of
+type $GL_r$ is generated by $T_i$ for $1\leq i<r$, commuting invertible
+elements $X_j$, commuting invertible elements $Y_j$, and a central
+invertible element $\mathsf q$, subject to the braid relations and
+\[
+T_iX_iT_i=X_{i+1},\qquad
+T_iX_j=X_jT_i\quad(j\neq i,i+1),
+\]
+\[
+T_i^{-1}Y_iT_i^{-1}=Y_{i+1},\qquad
+T_iY_j=Y_jT_i\quad(j\neq i,i+1),
+\]
+\[
+Y_1X_1\cdots X_r
+=\mathsf q\,X_1\cdots X_rY_1,
+\qquad
+X_1^{-1}Y_2=Y_2X_1^{-1}T_1^{-2}.
+\]
+
+Let $T^2=\R^2/\Z^2$.  Interpret $T_i$ as an adjacent braid and $X_j,Y_j$
+as motions of the $j$th point around the two cycles of $T^2$.  Derive the
+displayed relations from these motions and identify $\widetilde B_r$ with
+the central extension of
+\[
+\pi_1\bigl(\operatorname{Conf}_r(T^2)/S_r\bigr)
+\]
+whose total cycle commutator is $\mathsf q$.  Identify the subgroup
+generated by $T_i,X_j$ with the extended affine braid group of
+$\mathbb Z^r\rtimes S_r$, and prove that imposing
+\[
+(T_i-v)(T_i+v^{-1})=0
+\]
+on this subgroup gives the extended affine Hecke algebra.  Prove that
+deleting either the $X$-family or the $Y$-family leaves an affine braid
+group.  For nonzero $q,t$, define the \emph{double affine Hecke algebra}
+of type $GL_r$ by
+\[
+\mathsf H_{q,t}(GL_r)
+=\C(q,t)[\widetilde B_r]\big/
+\left(\mathsf q-q,\ (T_i-t^{1/2})(T_i+t^{-1/2})\right).
+\]
+Identify its two extended affine Hecke subalgebras and its finite Hecke
+subalgebra.
+\end{exercise}
+
 \begin{exercise}[Elliptic gamma functions and the deformation hierarchy]
 For $|p|,|q|<1$ and $z\in\mathbb C^\times$, define
 \[
@@ -1837,153 +2052,7 @@ state the positivity regime and contour assumptions under which these are
 statistical-mechanical observables.
 \end{exercise}
 
-\begin{exercise}[Izergin determinant and domain-wall ice entropy]
-Take the trigonometric degeneration $p\to0$ of the elliptic
-vertex--face relation and identify its vertex transfer operator with the
-additive six-vertex Yang--Baxter family.  For horizontal rapidities
-$x=(x_1,\ldots,x_N)$, vertical rapidities $y=(y_1,\ldots,y_N)$, and
-crossing parameter $\eta$, put
-\[
-a(x_i,y_j)=\sin(x_i-y_j+\eta),
-\qquad
-b(x_i,y_j)=\sin(x_i-y_j),
-\qquad
-c=\sin\eta.
-\]
-Impose domain-wall boundary arrows, with the top and bottom arrows pointing
-inward and the left and right arrows pointing outward, and let
-$Z_N^{\rm DW}(x;y)$ be the sum of products of these local weights over all
-allowed arrow configurations.
-
-Use the Yang--Baxter equation to prove that $Z_N^{\rm DW}$ is separately
-symmetric in the $x_i$ and in the $y_j$.  At $x_N=y_N$, show that the
-vertex at their intersection has weight $c$, that its row and column
-freeze, and that
-\[
-\left.Z_N^{\rm DW}(x;y)\right|_{x_N=y_N}
-=c\prod_{i=1}^{N-1}a(x_i,y_N)
-\prod_{j=1}^{N-1}a(x_N,y_j)
-Z_{N-1}^{\rm DW}(\widehat x_N;\widehat y_N).
-\]
-Here a hat means that the indicated rapidity is omitted.
-With $X_i=e^{2ix_i}$ and $Y_j=e^{2iy_j}$, prove that
-$X_i^{(N-1)/2}Z_N^{\rm DW}$ is a polynomial of degree $N-1$ in $X_i$
-and that the analogous statement holds for every $Y_j$.  Use as theorem
-input the Korepin interpolation lemma~\cite{korepin-qism}: separate symmetry,
-these degree
-bounds, the displayed freezing recursion, and $Z_1^{\rm DW}=c$ uniquely
-determine the domain-wall partition function.
-
-Verify that the determinant below has these properties and deduce the
-Izergin identity
-\[
-Z_N^{\rm DW}(x;y)
-=\frac{\displaystyle\prod_{i,j=1}^N
-a(x_i,y_j)b(x_i,y_j)}
-{\displaystyle\prod_{1\leq i<j\leq N}
-\sin(x_i-x_j)\sin(y_j-y_i)}
-\det\!\left[
-\frac{c}{a(x_i,y_j)b(x_i,y_j)}
-\right]_{i,j=1}^N.
-\]
-
-Take the homogeneous ice limit
-\[
-x_i-y_j=\eta=\frac\pi3,
-\qquad
-a=b=c=\frac{\sqrt3}{2},
-\]
-and divide every local weight by $\sqrt3/2$.  Let $A_N$ be the resulting
-unit-weight partition function.  When every $x_i=x$ and every $y_j=y$,
-put $z=x-y$, $a(z)=\sin(z+\eta)$, $b(z)=\sin z$, and write the unnormalized
-partition function as $Z_N^{\rm hom}(z;\eta)$.  Take the confluent limit of
-the Izergin determinant and prove
-\[
-Z_N^{\rm hom}(z;\eta)
-=\frac{[a(z)b(z)]^{N^2}}
-{\displaystyle\prod_{j=0}^{N-1}(j!)^2}
-\det\!\left[
-\frac{d^{i+j}}{dz^{i+j}}
-\frac{c}{a(z)b(z)}
-\right]_{i,j=0}^{N-1}.
-\]
-Use as theorem input~\cite{korepin-qism} the homogeneous determinant evaluation obtained from
-its Desnanot--Jacobi recurrence at $z=\eta=\pi/3$:
-\[
-\frac{A_N}{A_{N-1}}
-=\frac{(3N-2)!(N-1)!}{(2N-1)!(2N-2)!},
-\qquad N\geq2,\qquad A_1=1,
-\]
-and deduce
-\[
-A_N=\prod_{j=0}^{N-1}\frac{(3j+1)!}{(N+j)!}.
-\]
-Compute $A_N$ for $1\leq N\leq5$ and use Stirling's formula to derive
-\[
-\lim_{N\to\infty}\frac1{N^2}\log A_N
-=\log\frac{3\sqrt3}{4}.
-\]
-Deduce the exact finite-size state count and the residual configurational
-entropy per vertex
-\[
-s_{\rm DW}=k_B\log\frac{3\sqrt3}{4}
-\]
-for a unit-weight domain-wall ice sample.  State the domain-wall
-preparation, equal-weight calibration, equilibration, and finite-size
-assumptions under which configuration counts or free-energy measurements
-test the determinant and product identities.
-\end{exercise}
-
-\section{Double Affine Hecke Algebras}
-
-\begin{exercise}[Double-affine braid groups]
-For $r\geq2$, the \emph{double-affine braid group} $\widetilde B_r$ of
-type $GL_r$ is generated by $T_i$ for $1\leq i<r$, commuting invertible
-elements $X_j$, commuting invertible elements $Y_j$, and a central
-invertible element $\mathsf q$, subject to the braid relations and
-\[
-T_iX_iT_i=X_{i+1},\qquad
-T_iX_j=X_jT_i\quad(j\neq i,i+1),
-\]
-\[
-T_i^{-1}Y_iT_i^{-1}=Y_{i+1},\qquad
-T_iY_j=Y_jT_i\quad(j\neq i,i+1),
-\]
-\[
-Y_1X_1\cdots X_r
-=\mathsf q\,X_1\cdots X_rY_1,
-\qquad
-X_1^{-1}Y_2=Y_2X_1^{-1}T_1^{-2}.
-\]
-
-Let $T^2=\R^2/\Z^2$.  Interpret $T_i$ as an adjacent braid and $X_j,Y_j$
-as motions of the $j$th point around the two cycles of $T^2$.  Derive the
-displayed relations from these motions and identify $\widetilde B_r$ with
-the central extension of
-\[
-\pi_1\bigl(\operatorname{Conf}_r(T^2)/S_r\bigr)
-\]
-whose total cycle commutator is $\mathsf q$.  Identify the subgroup
-generated by $T_i,X_j$ with the extended affine braid group of
-$\mathbb Z^r\rtimes S_r$, and prove that imposing
-\[
-(T_i-v)(T_i+v^{-1})=0
-\]
-on this subgroup gives the extended affine Hecke algebra.  Prove that
-deleting either the $X$-family or the $Y$-family leaves an affine braid
-group.
-\end{exercise}
-
 \begin{exercise}[Rank-one DAHA and the Askey--Wilson operator]
-For nonzero parameters $q,t$, the \emph{double affine Hecke algebra}
-$\mathsf H_{q,t}(GL_r)$ is the quotient of
-$\C(q,t)[\widetilde B_r]$ by
-\[
-\mathsf q=q,
-\qquad
-(T_i-t^{1/2})(T_i+t^{-1/2})=0.
-\]
-
 For nonzero $k_0,k_1,u_0,u_1$ and a choice of $q^{1/2}$, the rank-one DAHA
 $\mathsf H_q(C_1^\vee,C_1)$ is generated by
 $T_0^{\pm1},T_1^{\pm1},(T_0^\vee)^{\pm1},(T_1^\vee)^{\pm1}$ subject to

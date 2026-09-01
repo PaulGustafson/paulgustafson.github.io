@@ -2290,6 +2290,12 @@ G=SL_2(\R),
 \qquad
 K=SO(2),
 \]
+write
+\[
+k_\theta=
+\begin{pmatrix}\cos\theta&-\sin\theta\\
+\sin\theta&\cos\theta\end{pmatrix},
+\]
 and let $G$ act on the upper half-plane by fractional linear
 transformations.  Define
 \[
@@ -2578,6 +2584,167 @@ f(r)=\frac1{2\pi^2}\int_0^\infty
 \]
 \end{exercise}
 
+\begin{exercise}[Principal and complementary series]
+Put $M=\{\pm I\}$ and $P=MAN$, where $A=\{a_r:r\in\R\}$ and
+$N=\{n_x:x\in\R\}$.  For $\epsilon\in\{0,1\}$ and
+$\lambda\in\R$, let $\mathcal H_{\lambda,\epsilon}$ be the measurable
+functions $F:G\to\C$ satisfying
+\[
+F\bigl(g(-I)^j a_rn_x\bigr)
+=(-1)^{\epsilon j}e^{-(1/2+i\lambda)r}F(g),
+\qquad
+\int_K|F(k)|^2\,dk<\infty,
+\]
+with functions identified almost everywhere on $K$.  Define
+\[
+(\pi_{\lambda,\epsilon}(g_0)F)(g)=F(g_0^{-1}g).
+\]
+Use the Iwasawa integration formula to prove that this is a unitary
+representation.  In the compact picture, prove
+\[
+\mathcal H_{\lambda,\epsilon}
+\cong\{f\in L^2(K):f(k_{\theta+\pi})=(-1)^\epsilon f(k_\theta)\}
+\]
+and that its distinguished complete orthogonal family of $K$-characters is
+\[
+e^{i\ell\theta},
+\qquad \ell\equiv\epsilon\pmod2.
+\]
+For $\epsilon=0$, identify the constant $K$-type and prove that its
+normalized matrix coefficient on $a_r$ is the spherical function
+\[
+\langle 1,\pi_{\lambda,0}(a_r)1\rangle
+=\varphi_\lambda(r)
+=P_{-1/2+i\lambda}(\cosh r).
+\]
+Show that the Casimir operator, normalized to agree with the
+Laplace--Beltrami operator on $K$-fixed vectors, acts by
+$-(\lambda^2+1/4)$.
+
+For $0<\sigma<1/2$, replace $i\lambda$ in the covariance law by
+$\sigma$.  Put $w=S$ and, in its initial convergence region, define the
+standard intertwining operator by
+\[
+(A_\sigma F)(g)=\int_\R F(gwn_x)\,dx.
+\]
+Use as theorem input the Knapp--Stein theorem~\cite{knapp-representation}:
+$A_\sigma$ has a meromorphic continuation to the induced representations,
+and the form $\langle F,A_\sigma F'\rangle_{L^2(K)}$ is positive and
+invariant on the even compact picture for $0<\sigma<1/2$.
+Deduce the complementary-series representations, compute their Casimir
+value $\sigma^2-1/4$, and explain why their $K$-fixed matrix coefficients
+are the analytic continuations
+$P_{-1/2+\sigma}(\cosh r)$ of the conical functions.  Show that the
+parameter $-\sigma$ gives an equivalent representation through
+$A_\sigma$.
+\end{exercise}
+
+\begin{exercise}[Holomorphic discrete series]
+Use the Cayley transform to conjugate $G$ to
+\[
+SU(1,1)=\left\{
+h=\begin{pmatrix}\alpha&\beta\\\overline\beta&\overline\alpha\end{pmatrix}:
+|\alpha|^2-|\beta|^2=1\right\},
+\]
+acting on the unit disk by
+\[
+h\cdot z=\frac{\alpha z+\beta}
+{\overline\beta z+\overline\alpha},
+\qquad
+j(h,z)=\overline\beta z+\overline\alpha.
+\]
+Prove the cocycle identity for $j$.  For an integer $n\geq2$, let
+\[
+\mathcal A_n^2(\mathbb D)
+=\left\{f\text{ holomorphic on }\mathbb D:
+\frac{n-1}{\pi}\int_{\mathbb D}|f(z)|^2
+(1-|z|^2)^{n-2}\,dx\,dy<\infty\right\}
+\]
+and define
+\[
+(D_n^+(h)f)(z)
+=j(h^{-1},z)^{-n}f(h^{-1}\cdot z).
+\]
+Derive
+\[
+1-|h\cdot z|^2=\frac{1-|z|^2}{|j(h,z)|^2},
+\qquad
+dA(h\cdot z)=|j(h,z)|^{-4}dA(z),
+\]
+and prove that $D_n^+$ is unitary.  Show that the monomials form a
+complete orthogonal system and compute
+\[
+\|z^m\|_n^2=\frac{m!(n-1)!}{(m+n-1)!}.
+\]
+Determine their $K$-characters and obtain the one-sided weights
+$n,n+2,n+4,\ldots$ for the displayed $k_\theta$ and left-action
+conventions.
+Construct $D_n^-$ on the antiholomorphic weighted Bergman space and obtain
+the opposite weights.
+
+For the normalized monomial $v_m$ and the radial element $a_r$, expand the
+automorphy factor by the binomial series and use the beta integral to show
+that
+\[
+\langle v_m,D_n^+(a_r)v_m\rangle
+=(\cosh(r/2))^{-n}
+{}_2F_1\!\left(-m,n+m;1;\tanh^2(r/2)\right).
+\]
+Verify the formula at $m=0$ and identify the terminating hypergeometric
+factor as a Jacobi polynomial.  Use as theorem input the irreducibility of
+these two representations~\cite{knapp-representation} and call them the
+holomorphic and antiholomorphic discrete series.
+\end{exercise}
+
+\begin{exercise}[The unitary dual and group Plancherel decomposition]
+An irreducible unitary representation of $G$ is an irreducible continuous
+homomorphism from $G$ to the unitary operators on a Hilbert space, and two
+such representations are equivalent when they are conjugate by a unitary
+map.  Use as theorem input the classification of the unitary dual of
+$SL_2(\R)$~\cite{knapp-representation}: it consists of the principal
+series $\pi_{\lambda,\epsilon}$, the even complementary series, the
+holomorphic and antiholomorphic discrete series $D_n^\pm$, their limit
+representations, and the trivial representation, with the equivalences
+and reducible endpoint parameters removed.  Record the central character,
+$K$-types, and Casimir value of every family, and identify exactly which
+families have a nonzero $K$-fixed vector.
+Here the \emph{central character} is the scalar by which $-I$ acts, whose
+existence follows from Schur's lemma.
+
+For $f\in C_c^\infty(G)$ define
+\[
+\widehat f(\pi)=\int_G f(g)\pi(g^{-1})\,dg.
+\]
+For a square-integrable irreducible representation $\pi$, define its
+\emph{formal degree} $d_\pi$ by the coefficient orthogonality identity
+\[
+\int_G\langle x,\pi(g)y\rangle
+\overline{\langle x',\pi(g)y'\rangle}\,dg
+=d_\pi^{-1}\langle x,x'\rangle\langle y',y\rangle.
+\]
+Use as theorem input the group Plancherel theorem in the normalization
+$\int_Kdk=1$: $L^2(G)$ decomposes into Hilbert--Schmidt operator spaces
+over the two principal series and the discrete series, while the
+complementary series, limit representations, and trivial representation
+have Plancherel measure zero.  Show that the two continuous densities are,
+up to the common Haar-normalization constant,
+\[
+\lambda\tanh(\pi\lambda)\,d\lambda,
+\qquad
+\lambda\coth(\pi\lambda)\,d\lambda,
+\]
+for even and odd parity, and that the formal degree of $D_n^\pm$ is
+proportional to $n-1$.  Write the resulting Plancherel norm and inversion
+formula for $f(e)$.
+
+If a source transforms by the $K$-character $e^{i\ell_{\rm in}\theta}$
+and a detector by $e^{i\ell_{\rm out}\theta}$, prove that only
+representations containing both $K$-types contribute to the resolved
+matrix-coefficient response.  Deduce the parity selection rule for the
+principal continuum and the one-sided selection rules for the two
+discrete-series towers.
+\end{exercise}
+
 \begin{exercise}[Associated Legendre functions and hyperbolic-disk modes]
 In geodesic polar coordinates, derive the full Laplace--Beltrami operator
 \[
@@ -2724,7 +2891,46 @@ circuit resonance law, measured quantities, and errors caused by boundary
 shape, loss, finite frequency resolution, and discretization.
 \end{exercise}
 
-\section{Automorphic Forms}
+\section{\texorpdfstring{$SL_2(\mathbb Z)$}{SL2(Z)}}
+
+
+\begin{exercise}[The modular group and its fundamental domain]
+Let $SL_2(\Z)$ act on the upper half-plane by
+\[
+\gamma\tau=\frac{a\tau+b}{c\tau+d},
+\qquad
+\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix},
+\]
+and put
+\[
+S=\begin{pmatrix}0&-1\\1&0\end{pmatrix},
+\qquad
+T=\begin{pmatrix}1&1\\0&1\end{pmatrix}.
+\]
+Use the Euclidean algorithm on the first column of a matrix in
+$SL_2(\Z)$ to prove that $S$ and $T$ generate the group.  Determine the
+kernel of the action and prove
+\[
+PSL_2(\Z)=SL_2(\Z)/\{\pm I\}
+\cong\langle s,t\mid s^2=(st)^3=1\rangle.
+\]
+
+Let
+\[
+\mathcal F=\{\tau\in\mathbb H:|\operatorname{Re}\tau|\leq\tfrac12,
+\ |\tau|\geq1\}.
+\]
+Show that every orbit meets $\mathcal F$ by first maximizing
+$\operatorname{Im}(\gamma\tau)$ and then translating by a power of $T$.
+Prove that two interior points of $\mathcal F$ are never equivalent,
+identify the side pairings, and determine the stabilizers of
+$i$ and $\rho=e^{2\pi i/3}$.  Prove that the only cusp orbit is represented
+by infinity and compute from the hyperbolic area form
+\[
+dA=\frac{dx\,dy}{y^2}
+\]
+that $\operatorname{Area}(PSL_2(\Z)\backslash\mathbb H)=\pi/3$.
+\end{exercise}
 
 
 \begin{exercise}[Lattice theta series]
@@ -2754,14 +2960,7 @@ modular form by itself.
 
 
 \begin{exercise}[Modular forms, zeta functions, and Eisenstein series]
-The modular group $SL_2(\Z)$ acts on the upper half-plane by
-\[
-\gamma\tau=\frac{a\tau+b}{c\tau+d},
-\qquad
-\gamma=\begin{pmatrix}a&b\\c&d\end{pmatrix},
-\]
-and is generated by $S:\tau\mapsto-1/\tau$ and
-$T:\tau\mapsto\tau+1$.  A \emph{modular form of integral weight $k$} for
+A \emph{modular form of integral weight $k$} for
 $SL_2(\Z)$ is a holomorphic function $f$ on the upper half-plane satisfying
 \[
 f(\gamma\tau)=(c\tau+d)^k f(\tau)
@@ -3098,9 +3297,6 @@ separating the ideal prediction from finite conductivity, temperature,
 roughness, alignment, and edge corrections.
 \end{enumerate}
 \end{exercise}
-
-\section{Modular Characters}
-
 
 \begin{exercise}[Bosonic and fermionic trace generating functions]
 For a finite-dimensional complex vector space $V$, an endomorphism $T$
