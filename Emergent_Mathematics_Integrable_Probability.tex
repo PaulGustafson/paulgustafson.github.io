@@ -127,9 +127,9 @@ state the symmetry-sector separation required in spectral data.
 \end{exercise}
 
 \begin{exercise}[Fredholm determinants and trace identities]
-Let $A$ be a positive compact operator on a Hilbert space.  It is
-\emph{trace class} when its nonzero spectral values, repeated with
-multiplicity, satisfy $\sum_j\lambda_j(A)<\infty$.  Define
+Let $A$ be a positive trace-class operator on a Hilbert space, and let
+$\lambda_j(A)$ be its nonzero spectral values repeated with multiplicity.
+Define
 \[
 \det(I+zA)=\prod_j(1+z\lambda_j(A)),
 \qquad
@@ -427,6 +427,52 @@ or resonance levels test this right-tail prediction, including the
 finite-size range over which the asymptotic is used.
 \end{exercise}
 
+\begin{exercise}[Partitions and symmetric polynomials]
+An \emph{integer partition} is a finite nonincreasing sequence
+$\lambda=(\lambda_1,\ldots,\lambda_\ell)$ of positive integers, with the
+empty sequence allowed.  Put
+\[
+|\lambda|=\sum_i\lambda_i,
+\qquad
+\ell(\lambda)=\ell,
+\]
+and define its Young diagram to have $\lambda_i$ left-justified boxes in
+row $i$.
+
+For $N\geq1$, let
+\[
+\Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
+\]
+Define
+\[
+e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\qquad
+h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
+x_{i_1}\cdots x_{i_r},
+\]
+\[
+p_r=\sum_{i=1}^Nx_i^r,
+\qquad
+e_0=h_0=1.
+\]
+Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.  Prove that every
+element of $\Lambda_N$ is uniquely a polynomial in
+$e_1,\ldots,e_N$.  Prove
+\[
+\sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
+\qquad
+\sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
+\]
+and deduce
+\[
+\left(\sum_{r\geq0}h_rt^r\right)
+\left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
+\qquad
+rh_r=\sum_{j=1}^rp_jh_{r-j}.
+\]
+\end{exercise}
+
 \begin{exercise}[Semistandard tableaux and Schur polynomials]
 For a partition $\lambda$ of length at most $N$, a
 \emph{semistandard Young tableau} of shape $\lambda$ is a filling $T$ of
@@ -438,14 +484,7 @@ s_\lambda(x_1,\ldots,x_N)
 =\sum_T\prod_i x_i^{m_i(T)}.
 \]
 
-Define the complete symmetric polynomials by
-\[
-h_r(x_1,\ldots,x_N)
-=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
-x_{i_1}\cdots x_{i_r},
-\qquad h_0=1,
-\]
-and put $h_r=0$ for $r<0$.  Encode $h_r$ by lattice paths directed east
+Encode $h_r$ by lattice paths directed east
 and south whose east steps at height $i$ have weight $x_i$.  For sources
 $A_i=(i-\lambda_i,N)$ and sinks $B_j=(j,1)$, expand
 $\det[h_{\lambda_i-i+j}]_{i,j=1}^N$ as a signed sum of path families and

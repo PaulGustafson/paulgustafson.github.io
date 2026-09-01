@@ -1356,11 +1356,16 @@ transmission-line experiment tests these predictions.
 
 \begin{exercise}[Fredholm operators and the Calkin algebra]
 Let $H_0$ and $H_1$ be complex Hilbert spaces.  Write
-$\mathcal B(H_0,H_1)$ for the bounded operators and define
-$\mathcal K(H_0,H_1)$ to be the operator-norm closure of the finite-rank
-operators.  Call its elements \emph{compact operators}.  Prove that
-composition on either side by a bounded operator preserves compactness and
-that $\mathcal K(H)=\mathcal K(H,H)$ is a closed two-sided ideal in
+$\mathcal B(H_0,H_1)$ for the bounded operators and
+$\mathcal K(H_0,H_1)$ for the compact operators.  Prove directly from
+the compactness of the closed-unit-ball image that composition on either
+side by a bounded operator preserves compactness and that
+$\mathcal K(H_0,H_1)$ is operator-norm closed.  For
+$T\in\mathcal K(H_0,H_1)$, apply the compact spectral theorem to $T^*T$
+and use its spectral projections to construct finite-rank operators
+converging to $T$ in norm.  Deduce that $\mathcal K(H_0,H_1)$ is exactly
+the operator-norm closure of the finite-rank operators and that
+$\mathcal K(H)=\mathcal K(H,H)$ is a closed two-sided ideal in
 $\mathcal B(H)=\mathcal B(H,H)$.  Define the \emph{Calkin algebra} by
 \[
 \mathcal Q(H)=\mathcal B(H)/\mathcal K(H).
@@ -1991,17 +1996,6 @@ A_{\rm N}=-\frac{iN}{2}(1-\cos\theta)\,d\phi,
 A_{\rm S}=\frac{iN}{2}(1+\cos\theta)\,d\phi,
 \]
 and determine their transition function on the overlap.
-
-For $\alpha,\beta>-1$, define the Jacobi polynomial
-$P_n^{(\alpha,\beta)}(x)$ as the degree-$n$ polynomial solution of
-\[
-(1-x^2)y''
-+[\beta-\alpha-(\alpha+\beta+2)x]y'
-+n(n+\alpha+\beta+1)y=0
-\]
-normalized by $P_n^{(\alpha,\beta)}(1)=\binom{n+\alpha}{n}$.
-Prove its orthogonality for distinct degrees with respect to
-$(1-x)^\alpha(1+x)^\beta\,dx$ on $[-1,1]$.
 
 Put $q=|N|/2$.  Separate the covariant Laplacian in the two monopole
 gauges, extract the endpoint powers imposed by regularity and the
@@ -2928,10 +2922,7 @@ d_a=[a+1]_\zeta
 
 \begin{exercise}[Unitary fusion structure]
 A nonzero object is simple when its endomorphism algebra is the scalar
-multiples of its identity.  A $C^*$-tensor category is rigid when every
-object has a conjugate.
-
-A $C^*$-category is semisimple when every object
+multiples of its identity.  A $C^*$-category is semisimple when every object
 is a finite orthogonal direct sum of simple objects.  A unitary fusion
 category is a rigid semisimple $C^*$-tensor category with finite-dimensional
 morphism spaces and finitely many simple objects up to unitary isomorphism.

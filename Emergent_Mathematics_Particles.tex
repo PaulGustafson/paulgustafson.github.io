@@ -257,10 +257,20 @@ S_2(H)=\{A\in B(H):A^*A\in S_1(H)\},
 \|A\|_2^2=\Tr(A^*A).
 \]
 
-Prove that $S_1(H)$, $\Tr$, and $S_2(H)$ are well-defined.  Prove that
-$\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space and
-that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$ isometrically
-with $B(H)$.
+Prove that $S_1(H)$, $\Tr$, and $S_2(H)$ are well-defined and that every
+trace-class operator is compact.  For a positive compact operator $A$,
+use its spectral projections to prove
+\[
+A\in S_1(H)
+\quad\Longleftrightarrow\quad
+\sum_j\lambda_j(A)<\infty,
+\qquad
+\Tr(A)=\sum_j\lambda_j(A),
+\]
+where the nonzero spectral values are repeated with multiplicity.  Prove
+that $\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space
+and that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$
+isometrically with $B(H)$.
 \end{exercise}
 
 
@@ -832,9 +842,10 @@ radiation are tested.
 \end{exercise}
 
 \begin{exercise}[Bessel mass-shell kernels and relativistic signal propagation]
-Use units $c=\hbar=1$, put $E_p=\sqrt{|p|^2+m^2}$, and let $\Theta$ be the
-Heaviside function.  For a test function $f$ on spacetime, define the
-Dirac distribution at the origin by $\langle\delta_0,f\rangle=f(0)$.
+For a smooth manifold $M$ and $x\in M$, define the Dirac distribution
+$\delta_x$ on $C_c^\infty(M)$ by
+$\langle\delta_x,f\rangle=f(x)$.  Use units $c=\hbar=1$, put
+$E_p=\sqrt{|p|^2+m^2}$, and let $\Theta$ be the Heaviside function.
 Define the retarded Klein--Gordon kernel by
 \[
 G_{\rm ret}(t,x)

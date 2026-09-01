@@ -560,9 +560,6 @@ the ordinary binomial theorem and the undeformed coproduct.
 
 
 \begin{exercise}[Gaussian-binomial state counts]
-For an integer partition $\lambda$, write $|\lambda|$ for the sum of its
-parts and $\ell(\lambda)$ for the number of nonzero parts.  Its Young diagram
-has one left-justified row for each part.
 Apply the Gaussian binomial theorem.
 Prove that the coefficient of $u^m$ in
 $\genfrac{[}{]}{0pt}{}{n}{r}_u$ counts partitions
@@ -856,6 +853,8 @@ satisfying
 (R_V^*\otimes\id_{\overline V})
 (\id_{\overline V}\otimes\overline R_V)=\id_{\overline V}.
 \]
+Call a $C^*$-tensor category \emph{rigid} when every object has a
+conjugate.
 Its dual maps are
 \[
 \operatorname{ev}_V=R_V^*,
@@ -1843,45 +1842,6 @@ test the determinant and product identities.
 
 \section{Double Affine Hecke Algebras}
 
-\begin{exercise}[Symmetric polynomials]
-For $N\geq1$, let
-\[
-\Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
-\]
-Define
-\[
-e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
-x_{i_1}\cdots x_{i_r},
-\qquad
-h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
-x_{i_1}\cdots x_{i_r},
-\]
-\[
-p_r=\sum_{i=1}^Nx_i^r,
-\qquad
-e_0=h_0=1.
-\]
-Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.
-
-\begin{enumerate}[label=(\alph*)]
-\item Prove that every element of $\Lambda_N$ is uniquely a polynomial in
-$e_1,\ldots,e_N$.
-\item Prove
-\[
-\sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
-\qquad
-\sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
-\]
-and deduce
-\[
-\left(\sum_{r\geq0}h_rt^r\right)
-\left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
-\qquad
-rh_r=\sum_{j=1}^rp_jh_{r-j}.
-\]
-\end{enumerate}
-\end{exercise}
-
 \begin{exercise}[The Sutherland model and Jack polynomials]
 For $N$ identical particles of mass $m$ on a ring of radius $R$ and
 $g\geq1$, let
@@ -2629,15 +2589,7 @@ For fixed $t\in\mathbb C^\times$, compute
 \]
 and interpret this automorphy as a meromorphic section on $E_p$.
 
-\item Define the Jacobi theta constants by
-\[
-\vartheta_2(\tau)
-=\sum_{n\in\mathbb Z}e^{\pi i\tau(n+1/2)^2},
-\qquad
-\vartheta_3(\tau)
-=\sum_{n\in\mathbb Z}e^{\pi i\tau n^2},
-\]
-and put
+\item Put
 \[
 m(\tau)=\frac{\vartheta_2(\tau)^4}{\vartheta_3(\tau)^4}.
 \]
