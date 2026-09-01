@@ -1409,7 +1409,29 @@ transmission-line experiment tests these predictions.
 
 \section{Index Theory}
 
-\begin{exercise}[Fredholm operators and the Calkin algebra]
+\begin{exercise}[Fredholm operators and Bloch families]
+For the twisted periodic Schr\"odinger operators
+\[
+\mathcal L_{\rho,E}:H^2_\rho\longrightarrow L^2([0,P])
+\]
+with $|\rho|=1$ and $E\in\mathbb R$, the preceding closed-range and
+kernel--cokernel calculations show that the image is closed and the kernel
+and cokernel are finite-dimensional.  A bounded operator
+$T:H_0\to H_1$ is \emph{Fredholm} when it has these three properties.
+Define
+\[
+\operatorname{ind}_{\rm an}(T)
+=\dim\ker T-\dim\operatorname{coker}T.
+\]
+Use its self-adjoint realization on $L^2([0,P])$ to prove
+\[
+\operatorname{ind}_{\rm an}(\mathcal L_{\rho,E})=0,
+\qquad
+\ker\mathcal L_{\rho,E}\ne0
+\Longleftrightarrow
+\rho^2-\Delta(E)\rho+1=0.
+\]
+
 Let $H_0$ and $H_1$ be complex Hilbert spaces.  Write
 $\mathcal B(H_0,H_1)$ for the bounded operators and
 $\mathcal K(H_0,H_1)$ for the compact operators.  Prove directly from
@@ -1426,24 +1448,16 @@ $\mathcal B(H)=\mathcal B(H,H)$.  Define the \emph{Calkin algebra} by
 \mathcal Q(H)=\mathcal B(H)/\mathcal K(H).
 \]
 
-A bounded operator $T:H_0\to H_1$ is \emph{Fredholm} when its kernel and
-cokernel are finite-dimensional and its image is closed.  Define
-\[
-\operatorname{ind}_{\rm an}(T)
-=\dim\ker T-\dim\operatorname{coker}T.
-\]
-Use as theorem input Atkinson's theorem~\cite{conway-functional}: $T$ is Fredholm exactly when
-there is a bounded $S:H_1\to H_0$ for which
+Use as theorem input Atkinson's theorem~\cite{conway-functional}: $T$ is
+Fredholm exactly when there is a bounded $S:H_1\to H_0$ for which
 \[
 ST-I_{H_0}\in\mathcal K(H_0),
 \qquad
 TS-I_{H_1}\in\mathcal K(H_1).
 \]
 For $H_0=H_1$, identify this condition with invertibility of the image of
-$T$ in the Calkin algebra.
-
-Prove that compact perturbations preserve the Fredholm property and the
-index, that
+$T$ in the Calkin algebra.  Prove that compact perturbations preserve the
+Fredholm property and the index, that
 \[
 \operatorname{ind}_{\rm an}(T^*)=-\operatorname{ind}_{\rm an}(T),
 \qquad
@@ -1458,20 +1472,6 @@ compute
 \operatorname{ind}_{\rm an}(S)=-1,
 \qquad
 \operatorname{ind}_{\rm an}(S^*)=1.
-\]
-
-For the twisted periodic Schr\"odinger operators
-\[
-\mathcal L_{\rho,E}:H^2_\rho\longrightarrow L^2([0,P])
-\]
-with $|\rho|=1$ and $E\in\mathbb R$, use the closed-range and
-kernel--cokernel calculations to prove
-\[
-\operatorname{ind}_{\rm an}(\mathcal L_{\rho,E})=0,
-\qquad
-\ker\mathcal L_{\rho,E}\ne0
-\Longleftrightarrow
-\rho^2-\Delta(E)\rho+1=0.
 \]
 \end{exercise}
 

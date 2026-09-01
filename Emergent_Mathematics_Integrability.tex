@@ -397,8 +397,6 @@ scaling products
 \chi_{1/16}(q)&=q^{1/24}\prod_{m\geq1}(1+q^m).
 \end{aligned}
 \]
-Use the Jacobi triple product to recover the theta--eta formulas in the
-Ising character exercise.
 \end{enumerate}
 \end{exercise}
 
@@ -2020,7 +2018,7 @@ Take $p\to0$ and identify the resulting basic hypergeometric beta
 integral.
 \end{exercise}
 
-\begin{exercise}[Elliptic integral operators and the star--triangle relation]
+\begin{exercise}[Elliptic star--triangle operators and the Askey--Wilson degeneration]
 For $|t|<1$ define
 \[
 (\mathcal M_t f)(w)
@@ -2035,6 +2033,8 @@ and
 =\Gamma\!\left((pq)^{1/2}s^{-1}y^{\pm1}w^{\pm1};p,q\right).
 \]
 
+\begin{enumerate}[label=(\alph*)]
+\item
 Apply the elliptic beta integral to the internal integration variable and
 prove the operator identity
 \[
@@ -2050,6 +2050,38 @@ factorizations commute.  For a finite periodic strip, deduce equality of
 the transfer spectra and partition functions under a star--triangle move;
 state the positivity regime and contour assumptions under which these are
 statistical-mechanical observables.
+
+\item Put
+\[
+(t_1,t_2,t_3,t_4,t_5,t_6)
+=\left(a,b,c,d,s,\frac{pq}{abcds}\right).
+\]
+Assume initially that the parameters have moduli for which the unit circle
+separates the reciprocal pole sequences.  In the elliptic beta integral,
+first take $p\to0$ and then $s\to0$.  Use
+\[
+\Gamma(z;0,q)=\frac1{(z;q)_\infty},
+\qquad
+\lim_{p\to0}\Gamma(px;p,q)=(q/x;q)_\infty
+\]
+to derive the Askey--Wilson integral
+\[
+\frac{(q;q)_\infty}{2}
+\int_{\T}w_{AW}(z)\,\frac{dz}{2\pi iz}
+=\frac{(abcd;q)_\infty}
+{(ab,ac,ad,bc,bd,cd;q)_\infty},
+\]
+where
+\[
+w_{AW}(z)=
+\frac{(z^2,z^{-2};q)_\infty}
+{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
+\]
+Justify both limits by uniform convergence away from the pole sequences
+and then extend the identity meromorphically in $a,b,c,d$.  Identify
+$w_{AW}$ as the trigonometric internal-spin measure left by the elliptic
+star--triangle normalization.
+\end{enumerate}
 \end{exercise}
 
 \begin{exercise}[Rank-one DAHA and the Askey--Wilson operator]
@@ -2125,6 +2157,15 @@ e\mathcal L=\mathcal L^{z\mapsto z^{-1}}
 \]
 and prove that the spherical action contains multiplication by
 $z+z^{-1}$ and $\mathcal D_{AW}$.
+\item For $a,b,c,d\in(-1,1)$, use the $q$-shift ratio of the limiting
+weight $w_{AW}$ to prove that $\mathcal D_{AW}$ is symmetric for
+\[
+\langle f,g\rangle_{AW}
+=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
+\frac{dz}{2\pi iz}.
+\]
+Conclude that the $p\to0$ degeneration of the elliptic internal-spin
+measure is the spectral measure for the spherical rank-one DAHA operator.
 \end{enumerate}
 \end{exercise}
 
@@ -2140,26 +2181,13 @@ ab,ac,ad\end{matrix};q,q
 \right).
 \end{aligned}
 \]
-Its weight on the unit circle is
-\[
-w_{AW}(z)=
-\frac{(z^2,z^{-2};q)_\infty}
-{(az,a/z,bz,b/z,cz,c/z,dz,d/z;q)_\infty}.
-\]
-
 Prove
 \[
 \mathcal D_{AW}p_n
 =(q^{-n}-1)(1-abcdq^{n-1})p_n.
 \]
-For $a,b,c,d\in(-1,1)$, prove that $\mathcal D_{AW}$ is symmetric for
-\[
-\langle f,g\rangle_{AW}
-=\int_{|z|=1}f(z)\overline{g(z)}w_{AW}(z)
-\frac{dz}{2\pi iz},
-\]
-and deduce the orthogonality and three-term recurrence of the
-Askey--Wilson polynomials.
+For $a,b,c,d\in(-1,1)$, deduce from symmetry of $\mathcal D_{AW}$ the
+orthogonality and three-term recurrence of the Askey--Wilson polynomials.
 \end{exercise}
 
 \begin{exercise}[Wilson polynomials and degeneration]

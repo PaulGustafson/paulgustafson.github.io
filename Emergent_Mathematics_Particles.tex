@@ -1299,6 +1299,73 @@ how screening, finite charge radius, recoil calibration, multiple scattering,
 and detector acceptance alter the comparison with measured counts.
 \end{exercise}
 
+\begin{exercise}[Levi--Civita geometry and geodesic deviation]
+Let $(M,g)$ be a Riemannian manifold.  For a connection on $TM$, define
+its torsion by
+\[
+T_\nabla(X,Y)=\nabla_XY-\nabla_YX-[X,Y].
+\]
+Call the connection metric-compatible when
+\[
+Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ).
+\]
+Show that torsion-freeness and metric compatibility force the Koszul
+formula
+\[
+\begin{split}
+2g(\nabla_XY,Z)={}&Xg(Y,Z)+Yg(Z,X)-Zg(X,Y)\\
+&-g(X,[Y,Z])+g(Y,[Z,X])+g(Z,[X,Y]),
+\end{split}
+\]
+and use it to prove existence and uniqueness of the Levi--Civita
+connection.
+
+Define a geodesic to be a curve $\gamma$ satisfying
+$\nabla_{\dot\gamma}\dot\gamma=0$.  For a fixed-endpoint variation, derive
+the first-variation formula for
+\[
+E(\gamma)=\frac12\int g(\dot\gamma,\dot\gamma)\,dt
+\]
+and prove that its critical curves are precisely the constant-speed
+geodesics.  Prove local existence and uniqueness from initial data
+$(p,v)\in TM$, define
+\[
+\exp_p(v)=\gamma_v(1),
+\]
+and show that $d(\exp_p)_0$ is the identity on $T_pM$.  Deduce that short
+geodesics uniquely minimize length by proving the Gauss lemma for radial
+geodesics in a normal neighborhood.
+
+Let $R$ be the curvature endomorphism of the Levi--Civita connection.
+Derive its skew symmetries and the first Bianchi identity.  Define
+\[
+\operatorname{Ric}(X,Y)
+=\operatorname{Tr}\bigl(Z\mapsto R(Z,X)Y\bigr),
+\qquad
+\mathcal R=\operatorname{Tr}_g\operatorname{Ric},
+\]
+and, for a two-plane spanned by $v,w$, define its sectional curvature by
+\[
+K(v,w)=
+\frac{g(R(v,w)w,v)}{g(v,v)g(w,w)-g(v,w)^2}.
+\]
+For a variation through geodesics, let $J$ be its variation field and prove
+the Jacobi equation
+\[
+\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
+\]
+On a manifold of constant sectional curvature $K$, solve this equation for
+a perpendicular field with $J(0)=0$ and $DJ/dt(0)=w$ to obtain the factors
+\[
+\frac{\sin(\sqrt Kt)}{\sqrt K},
+\qquad t,
+\qquad
+\frac{\sinh(\sqrt{-K}t)}{\sqrt{-K}}
+\]
+for $K>0$, $K=0$, and $K<0$.  Relate their zeros or growth to conjugate
+points and the focusing or spreading of neighboring rays.
+\end{exercise}
+
 \begin{exercise}[Schwarzschild geometry and gravitational redshift]
 A \emph{Lorentzian metric} on a four-manifold is a smooth
 nondegenerate symmetric form of signature $(-,+,+,+)$.  Call a tangent
