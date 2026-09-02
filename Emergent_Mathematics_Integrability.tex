@@ -54,22 +54,16 @@ ordered phase.  Obtain
 \]
 \end{exercise}
 
-\begin{exercise}[Ising characters]
-Use the convention $q=e^{2\pi\ii\tau}$ from $SL_2(\Z)$.  With the theta
-constants and eta function already constructed there, define
-\[
- \chi_0=\frac12\left(\sqrt{\frac{\vartheta_3}{\eta}}
- +\sqrt{\frac{\vartheta_4}{\eta}}\right),\quad
- \chi_{1/2}=\frac12\left(\sqrt{\frac{\vartheta_3}{\eta}}
- -\sqrt{\frac{\vartheta_4}{\eta}}\right),\quad
- \chi_{1/16}=\frac1{\sqrt2}\sqrt{\frac{\vartheta_2}{\eta}}.
-\]
-Fix the branches by positive $q$-expansions.  Derive these functions from the
-scaling limit of the four transfer-matrix spin structures, compute their
-coefficients, and prove their $S,T$ transformation matrices.  Read off
-$c=1/2$ and primary weights $0,1/2,1/16$, and construct the modular-invariant
-torus partition function $\abs{\chi_0}^2+\abs{\chi_{1/2}}^2+
-\abs{\chi_{1/16}}^2$.
+\begin{exercise}[Virasoro characters of the Ising transfer matrix]
+Use the convention $q=e^{2\pi\ii\tau}$ from $SL_2(\Z)$.  Take the scaling
+limit of the four transfer-matrix spin structures and factor their fermionic
+mode products by the Jacobi triple product.  Identify the resulting three
+functions with the $c=1/2$ Virasoro characters
+$\chi_0,\chi_{1/2},\chi_{1/16}$.  Match the lattice
+vacuum, energy, and spin sectors to the weights $0,1/2,1/16$, derive their
+coefficient multiplicities, and use their $S,T$ matrices to construct the
+modular-invariant torus partition function
+$\abs{\chi_0}^2+\abs{\chi_{1/2}}^2+\abs{\chi_{1/16}}^2$.
 \end{exercise}
 
 \begin{exercise}[Ising criticality]
@@ -84,6 +78,150 @@ $-\pi v_s/(12L)$ and excitation gaps
 $(2\pi v_s/L)(h+\bar h+n+\bar n)$.  State separately the square-lattice,
 nearest-neighbor, zero-field assumptions; the measured temperature,
 magnetization, and gaps; and the nonuniversal calibrations $J$ and $v_s$.
+\end{exercise}
+
+\section{Affine Kac--Moody Algebras}
+
+\begin{exercise}[Central extensions of loop algebras]
+Let $\mathfrak g$ be a complex simple Lie algebra and normalize its invariant
+form $(\ ,\ )$ so that long roots have squared length two.  Define the
+polynomial loop algebra $L\mathfrak g=\mathfrak g\otimes\C[z,z^{-1}]$ and
+\[
+ \widehat{\mathfrak g}=L\mathfrak g\oplus\C K\oplus\C d
+\]
+by
+\[
+ [x\otimes z^m,y\otimes z^n]
+ =[x,y]\otimes z^{m+n}+m\delta_{m+n,0}(x,y)K,
+ \qquad [d,x\otimes z^n]=n x\otimes z^n.
+\]
+Obtain the central term from the residue cocycle
+$\operatorname{Res}_{z=0}(\partial_zx(z),y(z))\dd z$ and prove the Jacobi
+identity.  For the simply connected compact real form construct the
+corresponding $U(1)$-central extension of its smooth loop group at an integer
+level $k$ by exponentiating the cocycle.  If $\vartheta$ is the left
+Maurer--Cartan form, define the Cartan three-form as the scalar multiple of
+$(\vartheta,[\vartheta,\vartheta])$ that integrates to one on every long-root
+$SU(2)$ subgroup, and prove independence of the filling disk from its integral
+cohomology class.
+\end{exercise}
+
+\begin{exercise}[Integrable highest-weight decomposition]
+Extend a Cartan algebra of $\mathfrak g$ by $K$ and $d$.  Define the null
+root by $\delta(d)=1$ and by zero on the other Cartan summands.  With highest
+root $\theta$, set
+$\alpha_0=\delta-\theta$ and $\alpha_0^\vee=K-\theta^\vee$, and define the
+affine Weyl group, level, and dominant affine weights.  Apply the
+rank-one $\mathfrak{sl}_2$ strings for every affine simple root to prove that
+an irreducible highest-weight module is integrable at level $k\in\N$ exactly
+when its finite highest weight $\lambda$ satisfies
+\[
+ \langle\lambda,\theta^\vee\rangle\leq k.
+\]
+Call a unitary loop-group representation positive-energy when the rotation
+energy $-d$ has spectrum bounded below with finite-dimensional eigenspaces.
+Prove that every such representation decomposes orthogonally into these
+modules.  For
+$\widehat{\mathfrak{sl}}_2$ identify the level-$k$ summands
+$L_0,L_1,\ldots,L_k$.
+\end{exercise}
+
+\begin{exercise}[Sugawara Virasoro decomposition]
+Let $\mathcal C_{\mathfrak g}\in\mathfrak g\otimes\mathfrak g$ be the inverse
+tensor to the invariant form and define the dual Coxeter number $h^\vee$ by
+the scalar $2h^\vee$ through which the associated Casimir acts on
+$\mathfrak g$.  Write $J_{x,n}$ for the action of $x\otimes z^n$ and set
+$:J_{x,p}J_{y,q}:=J_{x,p}J_{y,q}$ for $p<0$ and
+$J_{y,q}J_{x,p}$ for $p\geq0$.  Contract the two current factors with
+$\mathcal C_{\mathfrak g}$ and define the Sugawara operators, written
+symbolically as
+\[
+ L_n=\frac1{2(k+h^\vee)}
+ \sum_{m\in\Z}\sum_a:J^a_{n-m}J_{a,m}: .
+\]
+Prove from the affine commutators that these operators satisfy the Virasoro
+relations and
+\[
+ c=\frac{k\dim\mathfrak g}{k+h^\vee},\qquad
+ h_\lambda=\frac{(\lambda,\lambda+2\rho)}{2(k+h^\vee)}.
+\]
+For $\widehat{\mathfrak{sl}}_2$ derive
+$c=3k/(k+2)$ and $h_\ell=\ell(\ell+2)/(4(k+2))$.
+\end{exercise}
+
+\begin{exercise}[Weyl--Kac characters]
+Put $y=e^{2\pi\ii z}$ and, without changing the modular nome convention,
+extend the level theta series by
+\[
+ \Theta_{m,K}(z,\tau)=\sum_{n\in\Z}
+ q^{K(n+m/(2K))^2}y^{K(n+m/(2K))}.
+\]
+Define
+$\chi_\ell^{(k)}(z,\tau)=
+\operatorname{Tr}_{L_\ell}(q^{L_0-c/24}y^{H/2})$, where $H$ is the
+$\mathfrak{sl}_2$ coroot operator.  Construct the affine BGG resolution by
+reflections in the walls of the
+fundamental alcove and take its Euler character to prove the Weyl--Kac
+formula.  For $\widehat{\mathfrak{sl}}_2$ obtain
+\[
+ \chi_\ell^{(k)}(z,\tau)=
+ \frac{\Theta_{\ell+1,k+2}(z,\tau)-
+       \Theta_{-\ell-1,k+2}(z,\tau)}
+      {\Theta_{1,2}(z,\tau)-\Theta_{-1,2}(z,\tau)},
+ \qquad 0\leq\ell\leq k.
+\]
+Use Poisson summation to prove that their continuous values at $z=0$
+transform by
+\[
+ S_{\ell m}=\sqrt{\frac2{k+2}}
+ \sin\!\frac{(\ell+1)(m+1)\pi}{k+2},\qquad
+ T_{\ell\ell}=e^{2\pi\ii(h_\ell-c/24)}.
+\]
+Derive orthogonality and completeness of this finite sine transform.
+\end{exercise}
+
+\begin{exercise}[Knizhnik--Zamolodchikov conformal blocks]
+For finite-dimensional $\mathfrak g$-modules $V_1,\ldots,V_n$, let
+$\Omega_{ij}$ be the invariant Casimir contraction on the $i$th and $j$th
+factors.  On the configuration space of distinct points define
+\[
+ \nabla_{KZ}=\dd-\frac1{k+h^\vee}
+ \sum_{i<j}\Omega_{ij}\dd\log(z_i-z_j).
+\]
+Prove the infinitesimal braid relations for the $\Omega_{ij}$ and hence
+flatness.  For $k\geq2$ and four fundamental $\mathfrak{sl}_2$ modules,
+decompose the
+invariant tensors through the two intermediate-spin channels, place three
+points at $0,1,\infty$, and reduce the horizontal-section equation to the
+Gauss hypergeometric equation.  Derive its Euler integral
+from the Gamma integral, use it to obtain the connection matrix between the
+$0$ and $1$ channels, and compute
+the two braid eigenvalues.  Record the resulting braid representation by its
+eigenvalue ratio and channel-connection matrix.
+\end{exercise}
+
+\begin{exercise}[Wess--Zumino--Witten finite-size spectroscopy]
+Define the diagonal $SU(2)_k$ Wess--Zumino--Witten state space as
+$\bigoplus_{\ell=0}^kL_\ell\otimes\overline{L_\ell}$.  For a periodic
+critical system whose scaling limit has this state space, use the Sugawara
+Hamiltonian and the affine characters to derive
+\[
+ E_0(L)=e_\infty L-\frac{\pi v}{6L}\frac{3k}{k+2}+o(L^{-1}),
+\]
+\[
+ E_{\ell,N,\bar N}(L)-E_0(L)
+ =\frac{2\pi v}{L}
+ \left(2h_\ell+N+\bar N\right)+o(L^{-1}),
+\]
+where $e_\infty$ is the bulk ground-energy density and
+$N,\bar N\in\Z_{\geq0}$ are
+descendant levels, with every degeneracy given by the corresponding character
+coefficients.  For an antiferromagnetic spin-$1/2$ Heisenberg chain of
+$N_s$ sites, set the lattice spacing to one, take $k=1$, $L=N_s$, and
+$v=\pi J/2$ to predict the leading primary gap $\pi^2J/(2N_s)$ and
+ground-energy correction $-\pi^2J/(12N_s)$.  Separate the WZW scaling
+hypothesis, periodic boundary condition, velocity calibration, and
+logarithmic finite-size corrections from the measured gaps and degeneracies.
 \end{exercise}
 
 \section{Quantum Groups}
@@ -119,6 +257,10 @@ define
 Verify directly on highest-weight modules that
 $\mathcal R\Delta(a)=\Delta^{\rm op}(a)\mathcal R$ and the two hexagon
 identities; deduce braid-group actions and the quantum Yang--Baxter equation.
+On the two fundamental channels, where the sum terminates and has a regular
+root-of-unity value, specialize at $v=e^{\pi\ii/(k+2)}$.  Prove that the
+ratio of its two braid eigenvalues and its recoupling matrix agree with the
+framing-independent Knizhnik--Zamolodchikov braid data.
 \end{exercise}
 
 \begin{exercise}[Quantum Peter--Weyl decomposition]

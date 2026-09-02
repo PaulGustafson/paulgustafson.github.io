@@ -16,9 +16,11 @@ headings are deliberately omitted from the rendered table of contents.
 | Potential Scattering | $SO(3)$ | Partial waves | Coulomb functions | Rutherford scattering |
 | Schwarzschild Spacetime | Exterior isometries | Regge--Wheeler modes | Confluent Heun functions | Ringdown |
 | $SL_2(\mathbb R)$ | Hyperbolic isometries | Unitary dual | Legendre functions | Hyperbolic-drum spectra |
-| $SL_2(\mathbb Z)$ | Modular group | Automorphic spectrum | Modular forms | Conformal spectra |
+| $SL_2(\mathbb Z)$ | Modular group | Automorphic spectrum | Eisenstein series and modular forms | Cusp-scattering resonances |
+| Virasoro Algebra | Central extension of circle vector fields | Positive-energy highest weights | Virasoro and minimal-model characters | Conformal finite-size spectra |
 | Unitary Ensembles | Unitary conjugation | Weyl integration | Hermite/sine/Airy kernels | Quantum-chaotic spectra |
 | Ising Model | $\mathbb Z_2$ | Transfer spectrum | Ising characters | Criticality |
+| Affine Kac--Moody Algebras | Centrally extended loop groups | Integrable highest weights | Weyl--Kac characters and KZ blocks | WZW finite-size spectra |
 | Quantum Groups | $U_v(\mathfrak{sl}_2)$ | Quantum Peter--Weyl | Basic hypergeometric functions | XXZ spectroscopy |
 | Double Affine Hecke Algebras | Torus braid groups | Polynomial representation | Macdonald polynomials | Ruijsenaars spectrum |
 | Algebraic Curves | Elliptic translations | Branched covers | Elliptic integrals | Pendulum periods |
