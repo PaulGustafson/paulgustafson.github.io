@@ -287,19 +287,27 @@ intersection of smooth branches.
 
 For a two-dimensional vector space $W$ and binary forms
 $F\in\operatorname{Sym}^mW^\vee$ and
-$G\in\operatorname{Sym}^nW^\vee$, define their resultant through the
-determinant on the highest exterior powers of
+$G\in\operatorname{Sym}^nW^\vee$, define their resultant as the
+determinant-line element induced by
 \[
 \operatorname{Sym}^{n-1}W^\vee\oplus
 \operatorname{Sym}^{m-1}W^\vee
 \longrightarrow
 \operatorname{Sym}^{m+n-1}W^\vee,
 \qquad
-(A,B)\longmapsto AF+BG.
+(A,B)\longmapsto AF+BG;
 \]
+it lies in the highest exterior power of the target tensored with the dual
+of the highest exterior power of the source, so its vanishing is intrinsic
+although a scalar representative depends on compatible volume elements.
 Prove that it vanishes exactly when $F$ and $G$ have a common projective
-zero.  Define the discriminant of a one-variable polynomial by the
-resultant with its derivative and prove that
+zero.  For $f(t)=a_nt^n+\cdots+a_0$, normalize the scalar resultant by the
+monomial volume elements and define
+\[
+\operatorname{Disc}(f)=(-1)^{n(n-1)/2}a_n^{-1}
+\operatorname{Res}(f,f').
+\]
+Prove that
 \[
 \operatorname{Disc}(t^3+at+b)=-4a^3-27b^2.
 \]
@@ -1133,10 +1141,15 @@ Let
 C:\quad y^2=\prod_{r=1}^{2g+1}(x-e_r),
 \qquad e_r\ne e_s\quad(r\ne s),
 \]
-denote its nonsingular projective completion.  Use Riemann--Hurwitz to prove
-that $C$ has genus $g$.  Use the projective construction and Jacobian
-criterion to verify the asserted
-nonsingularity.  Analyze the finite branch points and the point over
+denote the normalization of its projective plane closure.  Use
+Riemann--Hurwitz to prove that $C$ has genus $g$.  Near infinity use
+\[
+X=x^{-1},\qquad Y=yx^{-(g+1)},\qquad
+Y^2=X\prod_{r=1}^{2g+1}(1-e_rX)
+\]
+and the Jacobian criterion, together with the affine chart, to verify that
+the normalization is smooth and has one point over infinity.  Analyze the
+finite branch points and the point over
 infinity to show that the distinguished differentials
 \[
 \eta_j=\frac{x^{j-1}dx}{y},
@@ -1156,7 +1169,14 @@ period maps
 \mathsf B(\eta)=\left(\int_{b_1}\eta,\ldots,
 \int_{b_g}\eta\right),
 \]
-and prove from the Riemann bilinear identity that $\mathsf A$ is an
+and use as theorem input the genus-$g$ Riemann bilinear identities
+\[
+\int_C\alpha\wedge\beta
+=\sum_{j=1}^g\left(
+\int_{a_j}\alpha\int_{b_j}\beta-
+\int_{b_j}\alpha\int_{a_j}\beta\right)
+\]
+for closed complex one-forms.  Prove that $\mathsf A$ is an
 isomorphism.  Let $\omega_j$ be the uniquely normalized differentials
 satisfying $\int_{a_i}\omega_j=\delta_{ij}$ and define
 \[
@@ -1225,7 +1245,9 @@ For $0<k<1$, define $\operatorname{sn}(u;k)$ near $u=0$ by
 u=\int_0^{\operatorname{sn}(u;k)}
 \frac{dt}{\sqrt{(1-t^2)(1-k^2t^2)}}
 \]
-and extend it by analytic continuation.  Define
+and use Abel uniformization of the smooth elliptic curve
+$y^2=(1-x^2)(1-k^2x^2)$ to extend this local inverse uniquely to a
+single-valued meromorphic doubly periodic function.  Define
 $\operatorname{cn}(u;k)$ and $\operatorname{dn}(u;k)$ by
 \[
 \operatorname{cn}^2=1-\operatorname{sn}^2,
@@ -1323,7 +1345,7 @@ be a nonsingular real hyperelliptic curve with marked point $\infty$, and
 let $D$ be an effective divisor of degree $g$.  Let $d\Omega_1$ be the
 unique meromorphic differential with zero $a$-periods, no pole away from
 $\infty$, and principal part
-$d\sqrt E$ at $\infty$.  Put
+$d(i\sqrt E)$ at $\infty$.  Put
 \[
 \Omega_1(p)=\int^p d\Omega_1,
 \qquad
@@ -1377,12 +1399,12 @@ Baker--Akhiezer function $\psi$, use as theorem input the finite-gap reconstruct
 theorem~\cite{belokolos}: there is a
 constant $c$ determined by the expansion at infinity such that
 \[
-u(x)=c-2\frac{d^2}{dx^2}
+u(x)=c+2\frac{d^2}{dx^2}
 \log\vartheta(Ux+Z\mid\Omega)
 \]
 is real and smooth for admissible $(D,Z)$, and
 \[
-\left(-\frac{d^2}{dx^2}+u(x)\right)\psi(x,p)
+\left(-\frac{d^2}{dx^2}-u(x)\right)\psi(x,p)
 =E(p)\psi(x,p).
 \]
 Use as part of the same theorem the real finite-gap Floquet
@@ -1396,7 +1418,7 @@ multipliers that this set is the spectrum and that its complementary
 intervals are the open gaps.
 Let $d\Omega_3$ be the unique second-kind differential with zero
 $a$-periods, no pole away from $\infty$, and principal part
-$d(4E^{3/2})$ there in the branch compatible with $d\Omega_1$, and put
+$d(4iE^{3/2})$ there in the branch compatible with $d\Omega_1$, and put
 \[
 V_j=\frac1{2\pi i}\int_{b_j}d\Omega_3.
 \]
@@ -1409,11 +1431,13 @@ pole divisor satisfies
 \]
 and the reconstructed KdV potential is
 \[
-u(x,t)=c-2\frac{d^2}{dx^2}
+u(x,t)=c+2\frac{d^2}{dx^2}
 \log\vartheta(Ux+Vt+Z\mid\Omega).
 \]
 Deduce that KdV flow is translation on the Jacobian and preserves the
-spectral curve.
+spectral curve.  Use the theta transformation law under a change of
+symplectic marking to prove that $\Omega,U,V,Z$ change while the normalized
+Baker--Akhiezer function and reconstructed potential do not.
 Specialize to $g=1$ and recover, up to translation and an additive energy
 constant, the Lam\'e potential and its Hermite theta solutions.
 \end{exercise}
@@ -1484,24 +1508,46 @@ nome by
 \[
 E(k)=\int_0^{\pi/2}\sqrt{1-k^2\sin^2\theta}\,d\theta,
 \qquad
-q=e^{-\pi K'(k)/K(k)}.
+q_J=e^{-\pi K'(k)/K(k)}.
 \]
+If $\tau=iK'(k)/K(k)$, record that the modular nome is
+$q_{\rm mod}=e^{2\pi i\tau}=q_J^2$.
 Prove the Fourier expansion
 \[
 \operatorname{cn}^2(z;k)
 =\frac{E(k)-(1-k^2)K(k)}{k^2K(k)}
 +\frac{2\pi^2}{k^2K(k)^2}
-\sum_{n\geq1}\frac{nq^n}{1-q^{2n}}
+\sum_{n\geq1}\frac{nq_J^n}{1-q_J^{2n}}
 \cos\frac{n\pi z}{K(k)}.
 \]
-Specialize the finite-gap reconstruction to genus one and show that it gives the
-cnoidal wave above and that $k\uparrow1$ gives the solitary wave
+Specialize the finite-gap reconstruction to genus one, put $V=-u$ in the
+Floquet operator at the beginning of the section, and show that it gives
+the cnoidal wave above and that $k\uparrow1$ gives the solitary wave
 \[
 u(x,t)=a+2\kappa^2
 \operatorname{sech}^2\!\bigl(\kappa(x-(6a+4\kappa^2)t)\bigr).
 \]
 Predict the wavelength, phase speed, and harmonic-amplitude ratios of a
 weakly dispersive one-dimensional wave train from $K$, $E$, and the nome.
+For the dimensional equation
+\[
+\eta_t+c_0\eta_x+\alpha\eta\eta_x+\beta\eta_{xxx}=0,
+\qquad \alpha\beta\ne0,
+\]
+choose a length $L$ and prove that
+\[
+X=\frac{x-c_0t}{L},\qquad T=\frac{\beta t}{L^3},\qquad
+u=\frac{\alpha L^2}{6\beta}\eta
+\]
+gives the normalized KdV equation.  Deduce the dimensional predictions
+\[
+A_{\rm phys}=\frac{12\beta k^2\kappa^2}{\alpha L^2},
+\qquad
+\lambda_{\rm phys}=\frac{2LK(k)}{\kappa},
+\qquad
+c_{\rm phys}=c_0+\frac{\beta}{L^2}
+\bigl(6a+4\kappa^2(2k^2-1)\bigr).
+\]
 State the KdV scaling, weak-nonlinearity, long-wavelength, negligible-loss,
 one-dimensional, and finite-window assumptions under which a wave-tank or
 transmission-line experiment tests these predictions.
@@ -1957,6 +2003,10 @@ $e_1,\ldots,e_n$ satisfying
 \[
 e_ie_j+e_je_i=-2\delta_{ij}.
 \]
+Use this negative Riemannian Clifford convention throughout the geometric
+sections.  Under complexification it is related to the Lorentzian gamma
+convention $\gamma(v)\gamma(w)+\gamma(w)\gamma(v)=2g(v,w)$ by the Wick
+rotation $c(v)=i\gamma(v)$ on a positive-definite subspace.
 Use the universal property to prove
 \[
 Cl_{m+n}\cong Cl_m\widehat\otimes Cl_n.
@@ -2023,16 +2073,23 @@ dimensions $0,1,2,3$.  In particular recover the integer class-A invariant
 in two dimensions, the $\Z/2$ class-D invariant in one dimension, and the
 $\Z/2$ class-AII invariant in two and three dimensions.
 
-For a one-dimensional class-D Bogoliubov--de Gennes Hamiltonian, use one
-continuous oriented Majorana trivialization to write its form at the
-particle--hole invariant momenta as real invertible skew-symmetric
-operators $A(0)$ and $A(\pi)$.  Prove that the product below is independent
-of reversal of the common orientation and that
+For a one-dimensional class-D Bogoliubov--de Gennes Hamiltonian, let
+$A(0)$ and $A(\pi)$ be its real invertible skew forms on the
+particle--hole fixed fibers.  Define the Pfaffian intrinsically by
+\[
+\frac1{n!}A(k)^{\wedge n}=\operatorname{Pf}(A(k))
+\quad\text{in }\det(V_k)^*,
+\qquad \dim_\R V_k=2n.
+\]
+Use the Real bundle over a half Brillouin circle to transport the two
+determinant lines and compare the two nonzero Pfaffians.  Prove that the
+resulting relative sign, written in any common oriented trivialization as
 \[
 \nu=\operatorname{sgn}
 \bigl(\operatorname{Pf}A(0)\operatorname{Pf}A(\pi)\bigr)\in\{\pm1\}
 \]
-is invariant under stabilization and gapped class-D homotopy and can
+is independent of that trivialization, invariant under stabilization and
+gapped class-D homotopy, and can
 change only when the bulk gap closes.  Let $\tau_y,\tau_z$ be the
 distinguished Pauli endomorphisms of the particle--hole space.  For the
 Kitaev-chain symbol
@@ -2090,8 +2147,10 @@ Toeplitz operator
 \[
 T_u=P_+M_u\big|_{H^2(S^1;W)}.
 \]
-Use as theorem input~\cite{atiyah-k-theory} that $T_u$ is Fredholm and that homotopies of $u$
-produce norm-continuous Fredholm paths.  For
+Approximate $u$ and $u^{-1}$ uniformly by trigonometric polynomials, prove
+that $[P_+,M_u]$ is compact, and deduce from
+$T_uT_{u^{-1}}=I+\text{compact}$ that $T_u$ is Fredholm; prove that
+homotopies of $u$ produce norm-continuous Fredholm paths.  For
 $W=\mathbb C\oplus W'$ compute the index when
 $u(z)=z^n\oplus I_{W'}$ from the unilateral shift.  Use as theorem
 input~\cite{atiyah-k-theory}
@@ -2117,7 +2176,7 @@ operator, define its suspended operator on periodic paths by
 \[
 \mathcal D_A=\frac d{dt}+A_t.
 \]
-Use as theorem input the suspension theorem~\cite{atiyah-k-theory}
+Use as theorem input the spectral-flow suspension theorem~\cite{aps3}
 \[
 \operatorname{ind}_{\rm an}(\mathcal D_A)
 =\operatorname{sf}(A_t)
@@ -2225,7 +2284,7 @@ $\operatorname{Spin}^c(n)\to SO(n)$.  Use as theorem
 input~\cite{lawson-michelsohn} that a
 Hermitian complex manifold has a canonical spin$^c$ structure with
 spinor bundle $\Lambda^{0,*}T^*M$.  Define its chiral Dolbeault--Dirac
-operator
+operator for a holomorphic Hermitian bundle $E$ with its Chern connection
 \[
 \mathcal D_{\bar\partial,E}^+
 =\sqrt2(\bar\partial_E+\bar\partial_E^*):
@@ -2284,19 +2343,7 @@ $F_\nabla=-ieB\,dA/\hbar$ and deduce the magnetic-flux quantization
 \[
 \Phi_B=\int_{S_R^2}B\,dA=\frac{Nh}{e}.
 \]
-On the northern and southern polar charts use the connection forms
-\[
-A_{\rm N}=-\frac{iN}{2}(1-\cos\theta)\,d\phi,
-\qquad
-A_{\rm S}=\frac{iN}{2}(1+\cos\theta)\,d\phi,
-\]
-and determine their transition function on the overlap.
-
-Put $q=|N|/2$.  Separate the covariant Laplacian in the two monopole
-gauges, extract the endpoint powers imposed by regularity and the
-transition function, and reduce the polar equation to the Jacobi equation.
-Call the normalized global eigensections obtained in this way the
-\emph{monopole harmonics}.  Identify sections of $L_N$ with functions
+Put $q=|N|/2$.  Identify sections of $L_N$ intrinsically with functions
 $F:SU(2)\to\mathbb C$ satisfying
 \[
 F(gh)=\chi_N(h)^{-1}F(g)
@@ -2308,13 +2355,17 @@ h_\theta=
 \qquad
 \chi_N(h_\theta)=e^{iN\theta}.
 \]
-Use Peter--Weyl theory to prove their orthogonality and completeness and
-to show that
+Use Peter--Weyl theory to recover the monopole-harmonic decomposition and
+show that
 \[
 \ell=q+n,\qquad n=0,1,2,\ldots,
 \qquad
 \dim\mathcal H_\ell=2\ell+1=|N|+2n+1.
 \]
+In the distinguished polar chart for $SU(2)/U(1)$, derive the Jacobi
+polynomial expression for these eigensections from the Wigner matrix
+coefficients; use it to determine their nodal profiles without redefining
+the global sections.
 For the scalar magnetic Hamiltonian
 \[
 H_N=\frac{\hbar^2}{2m}\nabla^*\nabla,
@@ -2415,8 +2466,16 @@ Extract its degree-zero and degree-two parts to prove
 \qquad
 \int_{\widehat E_\tau}c_1(\mathcal D_N)=1.
 \]
-Use as theorem input~\cite{tknn} the gapped noninteracting Kubo--Chern formula and the
-adiabatic theorem.  Deduce for one completely filled Landau level
+For the Fermi projection $P(\phi_1,\phi_2)$ over the boundary-twist torus,
+use as theorem input~\cite{tknn} the gapped noninteracting Kubo--Chern
+formula and the adiabatic theorem,
+\[
+\sigma_{xy}=\frac{e^2}{h}\,\frac{i}{2\pi}
+\int_{\widehat E_\tau}\operatorname{Tr}
+\bigl(P\,dP\wedge dP\bigr)
+=\frac{e^2}{h}\int_{\widehat E_\tau}c_1(\mathcal D_N).
+\]
+Deduce for one completely filled Landau level
 \[
 \sigma_{xy}=\frac{e^2}{h},
 \qquad
@@ -2727,11 +2786,15 @@ Separate the positive and negative spectral values to prove
 \[
 \eta_{A_a}(s)=\zeta(s,a)-\zeta(s,1-a).
 \]
-Use as theorem input the analytic continuation identity~\cite{aps1}
+Apply Euler--Maclaurin to the first $N$ terms and the tail to obtain, first
+for $\operatorname{Re}s>1$ and then by continuation near $s=0$,
 \[
-\zeta(0,a)=\frac12-a
+\zeta(s,a)=\sum_{n=0}^{N-1}(n+a)^{-s}
++\frac{(N+a)^{1-s}}{s-1}+\frac12(N+a)^{-s}
++sR_N(s,a),
 \]
-to derive
+where $R_N$ is holomorphic near $s=0$.  Set $s=0$ to prove
+$\zeta(0,a)=\frac12-a$ and derive
 \[
 \eta_{A_a}(0)=1-2a,
 \qquad
@@ -2797,9 +2860,9 @@ and the Dolbeault index formula to prove
 \qquad
 \int_Xc_2(TX)=24.
 \]
-Use the Chern-root formula, the theta addition identities, and the K3
-conditions $c_1=0$, $c_2[X]=24$ to derive the K3 identity
-from~\cite{eguchi-k3}
+Use the Chern-root formula, the K3 conditions $c_1=0$, $c_2[X]=24$, and
+the required theta addition identities as theorem input~\cite{eguchi-k3}
+to derive the K3 identity
 \[
 \operatorname{Ell}_{K3}(\tau,z)
 =8\left[
@@ -2816,7 +2879,11 @@ Put $q=e^{2\pi i\tau}$ and $y=e^{2\pi iz}$.  Derive
 \operatorname{Ell}_{K3}(\tau,0)=24.
 \]
 
-For an $\mathcal N=(4,4)$ supersymmetric sigma model with K3 target,
+An $\mathcal N=(4,4)$ supersymmetric sigma model has commuting left- and
+right-moving small $\mathcal N=4$ superconformal algebras, each with four
+supercurrents and an $SU(2)$ current algebra; $L_0,\bar L_0$ are their
+energy operators, $J_0$ is a chosen left $SU(2)$ Cartan charge, and
+$F_L,F_R$ are the fermion parities.  For such a model with K3 target,
 use as theorem input~\cite{witten-elliptic,eguchi-k3} the Ramond-sector
 identity
 \[
@@ -2852,7 +2919,7 @@ line bundle $L\to X$ classified by $f_L:X\to\mathbb{CP}^{\infty}$, put
 $c_1^E(L)=f_L^*x_E$.
 
 Use as theorem input the projective-bundle theorem for a complex-oriented
-theory~\cite{atiyah-k-theory},
+theory~\cite{quillen-formal},
 \[
 E^*(\mathbb{CP}^{\infty})\cong E^*[[x_E]].
 \]
@@ -2874,7 +2941,7 @@ F_{H\mathbb Z}(x,y)=x+y.
 \]
 For periodic complex $K$-theory with Bott element
 $\beta\in K^{-2}(\mathrm{pt})$, take
-$x_K=\beta^{-1}(1-[\mathcal L^{-1}])$ and derive
+$x_K=\beta^{-1}(1-[\mathcal L])$ and derive
 \[
 F_K(x,y)=x+y-\beta xy.
 \]
@@ -2894,7 +2961,7 @@ theory $E$ an \emph{elliptic cohomology theory associated
 to $C$} when $E^0\cong R$ and its formal group is identified with the
 formal completion of $C$.  Prove that changing the local parameter gives an
 isomorphic formal group law and hence does not change the coordinate-free
-formal group.  Use as theorem input~\cite{hopkins-tmf} that topological modular
+formal group.  Use as theorem input~\cite{hopkins-icm} that topological modular
 forms assemble these local elliptic cohomology theories over the moduli of
 elliptic curves, retaining the descent and torsion information absent from a
 single modular-form expansion.
@@ -2934,7 +3001,7 @@ is multiplicative, and that it vanishes on string boundaries.
 
 Let $\mathrm{tmf}$ denote the connective spectrum of topological modular
 forms.  Use as theorem input the sigma orientation and its rational
-coefficient theorem~\cite{hopkins-tmf}: there is a ring map of spectra
+coefficient theorem~\cite{hopkins-icm,hopkins-tmf}: there is a ring map of spectra
 \[
 M\operatorname{String}\longrightarrow\mathrm{tmf}
 \]
@@ -3044,7 +3111,7 @@ coherence, and phase-resolution assumptions.
 \end{exercise}
 
 \begin{exercise}[Spin bordism and the Majorana chain]
-For a closed spin surface $(\Sigma,\sigma)$, use as theorem input~\cite{lawson-michelsohn} that
+For a closed spin surface $(\Sigma,\sigma)$, use as theorem input~\cite{johnson-spin} that
 $\sigma$ determines a quadratic refinement
 \[
 q_\sigma:H_1(\Sigma;\mathbb Z_2)\longrightarrow\mathbb Z_2,
@@ -3358,8 +3425,9 @@ d_a=[a+1]_\zeta
 A nonzero object is simple when its endomorphism algebra is the scalar
 multiples of its identity.  A $C^*$-category is semisimple when every object
 is a finite orthogonal direct sum of simple objects.  A unitary fusion
-category is a rigid semisimple $C^*$-tensor category with finite-dimensional
-morphism spaces and finitely many simple objects up to unitary isomorphism.
+category is a rigid semisimple $C^*$-tensor category with simple tensor
+unit, finite-dimensional morphism spaces, and finitely many simple objects
+up to unitary isomorphism.
 
 Use left composition on the positive quotient spaces and diagram reflection
 to equip $\mathcal C_k$ with $C^*$-norms.  Use the cup and cap diagrams to
@@ -3422,10 +3490,13 @@ dimensions.
 \end{exercise}
 
 \begin{exercise}[Root-of-unity quantum groups and fusion semisimplification]
-Let $\zeta=e^{\pi i/(k+2)}$ and let
-$\mathsf{Tilt}_\zeta$ be the tensor category of finite-dimensional type-$1$
-tilting modules for the divided-power form of
-$U_\zeta(\mathfrak{sl}_2)$.  A morphism is \emph{negligible} when every
+Let $\zeta=e^{\pi i/(k+2)}$.  The divided-power form of
+$U_\zeta(\mathfrak{sl}_2)$ is the specialization of the integral quantum
+group generated by $K^{\pm1}$ and the divided powers $E^{(n)},F^{(n)}$.
+Call a finite-dimensional type-$1$ module \emph{tilting} when it admits
+both a filtration by Weyl modules and a filtration by dual Weyl modules,
+and let $\mathsf{Tilt}_\zeta$ be their tensor category.  A morphism is
+\emph{negligible} when every
 quantum trace obtained by closing it vanishes.  Prove that negligible
 morphisms form a tensor ideal and that the quantum dimension of the tilting
 module of highest weight $k+1$ is
@@ -3529,8 +3600,12 @@ of the bulk rather than of a chosen boundary presentation.
 Define the symmetric monoidal Morita $3$-category
 $\mathsf{Fus}$ to have unitary fusion categories as objects, finite
 semisimple bimodule categories as $1$-morphisms, module functors as
-$2$-morphisms, and natural transformations as $3$-morphisms, with
-Deligne tensor product as its monoidal product.  An object in a symmetric
+$2$-morphisms, and natural transformations as $3$-morphisms.  Define the
+Deligne tensor product $\mathcal C\boxtimes\mathcal D$ by the universal
+property that biexact bilinear functors $\mathcal C\times\mathcal D\to
+\mathcal A$ are the same as exact linear functors
+$\mathcal C\boxtimes\mathcal D\to\mathcal A$, and use it as the monoidal
+product.  An object in a symmetric
 monoidal $3$-category is \emph{fully dualizable} when it has a tensor
 dual and its evaluation, coevaluation, and successive adjunction data
 admit left and right adjoints through level three.  Use as theorem
@@ -3590,7 +3665,7 @@ microscopic gapped Hamiltonians.
 \begin{exercise}[Categorical Fourier transform, modular data, and Verlinde diagonalization]
 Put
 \[
-\mathcal D=\left(\sum_{a=0}^kd_a^2\right)^{1/2},
+\mathcal D=\operatorname{Dim}(\mathcal C_k)^{1/2},
 \qquad
 \theta_a
 =\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
@@ -3804,7 +3879,7 @@ $\overline{V_a}\cong V_{a^\vee}$.  Put
 \mathcal H_\Gamma
 =\ell^2\!\left(\{0,\ldots,k\}^{E(\Gamma)}\right),
 \qquad
-\mathcal D^2=\sum_{a=0}^kd_a^2.
+\mathcal D^2=\operatorname{Dim}(\mathcal C_k).
 \]
 For each vertex $v$, let $Q_v$ be the projection onto edge labelings
 admissible under the fusion rules.  For a face $p$, let $B_p^a$ insert a
@@ -3853,8 +3928,10 @@ these identifications assemble to a canonical unitary isomorphism
 \]
 compatible with collar gluing and the mapping-class action.
 
-For $k=1$, identify the labels with $\Z/2\Z$, let $Z_e$ act on a label
-$a_e$ by $(-1)^{a_e}$, and let $X_e$ reverse that label.  Show that
+For the fusion category $\operatorname{Vec}_{\Z/2}$ with trivial
+associator, identify the labels with $\Z/2\Z$, let $Z_e$ act on a label
+$a_e$ by $(-1)^{a_e}$, and let $X_e$ reverse that label.  Construct the
+corresponding string-net Hamiltonian and show that
 \[
 Q_v=\frac12\left(I+\prod_{e\ni v}Z_e\right),
 \qquad
@@ -3867,6 +3944,19 @@ the two pairs of noncontractible string operators and their mutual sign,
 and state the boundary conditions and gap-preserving perturbation regime
 under which the fourfold low-energy multiplicity is a measurable
 prediction of a qubit realization.
+
+For $\mathcal C_1=SU(2)_1$, use its associator and ribbon twist
+$\theta_1=i$ to show that the same fusion rule does not give the displayed
+toric-code plaquette operator.  Use
+$Z(\mathcal C_1)\simeq\mathcal C_1\boxtimes\mathcal C_1^{\rm rev}$ to
+derive the four torus twists
+\[
+1,\quad i,\quad-i,\quad1,
+\]
+and contrast them with the toric-code twists $1,1,1,-1$.  Deduce that the
+equal ground-state degeneracies do not identify the two phases and that a
+Dehn-twist Berry-phase measurement distinguishes doubled semion from
+toric-code order.
 \end{exercise}
 
 \begin{exercise}[String-net loop operators and spectroscopy]
@@ -3913,7 +4003,7 @@ lines test the doubled $SU(2)_k$ string-net model.
 \end{exercise}
 
 \begin{exercise}[Anyon interference and fusion counting]
-Prove that the phases $\theta_a$ define a ribbon twist on $\mathcal C_k$.
+Use the ribbon twist $\theta_a$ and the Hopf-link matrix already obtained.
 On every simple fusion channel $V_c\subseteq V_a\otimes V_b$, prove the
 balancing identity
 \[

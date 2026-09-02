@@ -10,7 +10,11 @@ $\sigma:G\times G\to\T$ satisfying
 \qquad
 \sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
 \]
-Let $(E,\omega)$ be a symplectic vector space.
+Let $(E,\omega)$ be a symplectic vector space.  For
+$E=V\oplus V^*$, the canonical symplectic form used below is
+\[
+\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
+\]
 For $\lambda\in\R$, define
 \[
 \sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
@@ -278,16 +282,8 @@ isometrically with $B(H)$.
 Let $V$ be an $n$-dimensional real vector space with Lebesgue measure $dq$,
 let $\hbar>0$, and equip $V^*$ with the dual measure $dp$ for which
 $(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq$ is unitary on $L^2$.
-For $q\in V$ and $p\in V^*$, define
-\[
-(T_q\xi)(x)=\xi(x-q),
-\qquad
-(M_p^\hbar\xi)(x)=e^{ip(x)/\hbar}\xi(x).
-\]
-For $z=(q,p)\in V\oplus V^*$, define
-\[
-W_\hbar(z)=e^{-ip(q)/(2\hbar)}M_p^\hbar T_q.
-\]
+Use the translation, modulation, and Weyl operators
+$T_q,M_p^\hbar,W_\hbar(q,p)$ already normalized by the Weyl relations.
 The \emph{Fourier--Wigner transform} is
 \[
 \mathcal W_\hbar:S_1(L^2(V))\longrightarrow C_b(V\oplus V^*),
@@ -344,10 +340,11 @@ $\mathcal O_\lambda$.
 \end{exercise}
 
 \begin{exercise}[Heisenberg Plancherel and inversion]
-\label{ex:heisenberg-harmonic-analysis}
 For $f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
 $dq\,dp\,ds$ and the scalar Fourier transform
-$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds$, and define
+$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds
+=(2\pi)^{1/2}(\mathcal Fh)(\lambda)$, so its inverse carries
+$(2\pi)^{-1}$, and define
 \[
 \widehat f(\lambda)
 =\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
@@ -465,8 +462,8 @@ on a common invariant domain.
 
 
 \begin{exercise}[Classical and quantum evolution]
-Let $H\in C^\infty(V\oplus V^*,\R)$ have bounded derivatives of order at
-least two.  Define its Hamiltonian field by
+Let $H\in C^\infty(V\oplus V^*,\R)$ be subquadratic, meaning that every
+derivative of order at least two is bounded.  Define its Hamiltonian field by
 \[
 da(X_H)=\{a,H\}
 \]
@@ -490,7 +487,7 @@ Prove
 =\frac{i}{\hbar}
 [\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
 \]
-Use as theorem input~\cite{folland-phase} the semiclassical operator estimate that the Moyal
+Use as theorem input~\cite{hormander3} the semiclassical operator estimate that the Moyal
 commutator remainder obtained from symbols with the displayed derivative
 bounds has operator norm $O(\hbar)$, uniformly for $|t|\leq T$, after
 division by $i\hbar$.  Apply Duhamel's formula to prove, for every $T>0$,
@@ -509,8 +506,9 @@ $v\in V$.
 \begin{exercise}[Linear symplectic covariance]
 Let $S$ be a linear symplectic automorphism of $V\oplus V^*$.  Construct
 unitary implementers for cotangent lifts of linear automorphisms of $V$,
-for symplectic shears defined by quadratic forms, and for the exchange of
-position and momentum implemented by the Fourier transform.  Prove for
+for symplectic shears defined by quadratic forms, and, after fixing a
+positive inner product $b:V\to V^*$, for the symplectic exchange
+$(q,p)\mapsto(-b^{-1}p,bq)$ implemented by the $b$-Fourier transform.  Prove for
 these generators that
 \[
 \mu(S)\operatorname{Op}_\hbar^W(a)\mu(S)^*
@@ -519,8 +517,10 @@ these generators that
 W_\hbar[\mu(S)\psi]=W_\hbar[\psi]\circ S^{-1}.
 \]
 Deduce the covariance for their products and prove that each implementer is
-determined up to phase.  Show that coherent choices form the metaplectic
-double cover, whose two lifts of a fixed symplectic map differ by sign.  Use
+determined up to phase.  Use as theorem input the metaplectic lifting
+theorem~\cite{folland-phase}: the multiplier of these implementers has a
+canonical double cover on which the projective representation becomes
+unitary, and its two lifts of a fixed symplectic map differ by sign.  Use
 the Groenewold--van Hove obstruction to show why exact covariance cannot
 extend to every nonlinear canonical transformation.
 \end{exercise}
@@ -546,6 +546,29 @@ changes of the Wigner distribution from those of $L_n$.
 
 
 \begin{exercise}[Laguerre tomography]
+For $F\in\mathcal S(\R^2)$, $n_\theta=(\cos\theta,\sin\theta)$, and
+$n_\theta^\perp=(-\sin\theta,\cos\theta)$, define the Radon transform by
+\[
+(\mathcal RF)(\theta,s)
+=\int_\R F(sn_\theta+tn_\theta^\perp)\,dt.
+\]
+With
+\[
+\widehat h(k)=\int_\R h(s)e^{-iks}\,ds,
+\qquad
+\widehat F(\xi)=\int_{\R^2}F(z)e^{-i\xi\cdot z}\,dz,
+\]
+which are the same unnormalized transforms and hence differ from the
+unitary transform $\mathcal F$ by $(2\pi)^{1/2}$ and $2\pi$ respectively,
+prove the Fourier-slice identity
+\[
+\widehat{\mathcal RF}(\theta,k)=\widehat F(kn_\theta)
+\]
+and the inversion formula
+\[
+F(z)=\frac1{(2\pi)^2}\int_0^\pi\int_\R
+|k|\widehat{\mathcal RF}(\theta,k)e^{ikn_\theta\cdot z}\,dk\,d\theta.
+\]
 For the dimensionless quadrature
 \[
 X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
@@ -553,7 +576,7 @@ X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
 \]
 prove that its probability density in a state $\psi$ is the Radon
 transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
-Derive the Fourier-slice inversion formula reconstructing the Wigner
+Apply the Fourier-slice inversion formula to reconstruct the Wigner
 distribution from the family of quadrature densities.  For the oscillator
 state $\psi_n$, use the Wigner--Laguerre identity to prove that the
 reconstructed radial profile is
@@ -723,7 +746,16 @@ continuous-spin family and an additional positive scale.
 
 On the common invariant space of smooth vectors, let $P$ be the
 translation generator and let $J$ be the Lorentz bivector generator.
-Using the Minkowski volume form, define the Pauli--Lubanski covector by
+Use the isomorphism
+\[
+\Lambda^2M\longrightarrow\mathfrak{so}(M,g),
+\qquad
+u\wedge v\longmapsto\bigl[w\mapsto g(v,w)u-g(u,w)v\bigr]
+\]
+to fix the normalization of $J$.  The chosen orientation and $g$ determine
+the Hodge operator by
+$\alpha\wedge *\beta=\langle\alpha,\beta\rangle_g\operatorname{vol}_g$.
+Define the Pauli--Lubanski covector by
 \[
 W=*\,(P\wedge J).
 \]
@@ -845,7 +877,9 @@ radiation are tested.
 \end{exercise}
 
 \begin{exercise}[Bessel mass-shell kernels and relativistic signal propagation]
-Use units $c=\hbar=1$, put
+Use units $c=\hbar=1$.  Fix a future-pointing observer and use its
+orthogonal complement, with the negative Minkowski form, as the Euclidean
+space in which $x,p\in\R^3$.  Put
 $E_p=\sqrt{|p|^2+m^2}$, and let $\Theta$ be the Heaviside function.
 Define the retarded Klein--Gordon kernel by
 \[
@@ -1089,11 +1123,14 @@ channels enter the proof.
 
 
 \begin{exercise}[Hard-sphere phase shifts and effective-range scattering]
-Define the spherical Neumann function by
+Define the spherical Neumann function intrinsically by
 \[
-n_\ell(z)=(-1)^{\ell+1}
-\sqrt{\frac{\pi}{2z}}J_{-\ell-1/2}(z).
+n_\ell(z)=-(-z)^\ell
+\left(\frac1z\frac d{dz}\right)^\ell\frac{\cos z}{z}.
 \]
+Prove that it satisfies the spherical Bessel equation, that its Wronskian
+with $j_\ell$ is $z^{-2}$, and that
+$n_\ell(z)\sim-(2\ell-1)!!z^{-\ell-1}$ as $z\downarrow0$.
 For scattering from an impenetrable sphere of radius $a$, impose the Dirichlet
 condition at $r=a$ and write the exterior radial factor as
 \[
@@ -1178,8 +1215,8 @@ $\varphi_\ell(k,r)$ be the regular solution of the radial equation,
 normalized by $\varphi_\ell(k,r)\sim r^{\ell+1}$ at the origin, and let
 $f_\ell(k,r)$ be the outgoing solution normalized by
 \[
-f_\ell(k,r)\sim e^{i(kr-\ell\pi/2)}
-\qquad(r>R).
+f_\ell(k,r)\sim e^{ikr}
+\qquad(r\to\infty).
 \]
 Define the Jost function by the $r$-independent Wronskian
 \[
@@ -1187,9 +1224,14 @@ F_\ell(k)=W(f_\ell(k,-),\varphi_\ell(k,-)).
 \]
 Prove from constancy of the Wronskian and reality of $V$ that, for $k>0$,
 \[
-S_\ell(k)=\frac{F_\ell(-k)}{F_\ell(k)},
-\qquad
 F_\ell(-k)=\overline{F_\ell(k)}.
+\]
+With the conventional partial-wave asymptotic
+$\sin(kr-\ell\pi/2+\delta_\ell)$, include the free centrifugal phase and
+prove
+\[
+S_\ell(k)=e^{2i\delta_\ell(k)}
+=(-1)^\ell\frac{F_\ell(-k)}{F_\ell(k)}.
 \]
 Prove that zeros $k=i\kappa$, $\kappa>0$, are exactly the
 square-integrable bound states of energy
@@ -1222,9 +1264,29 @@ under which scattering data determine an integer bound-state count.
 \begin{exercise}[Marchenko reconstruction and the one-soliton potential]
 For the Schr\"odinger operator $L=-d^2/dx^2+V$ with a real potential on
 the line satisfying
-$\int_\R(1+|x|)|V(x)|\,dx<\infty$, let $R(k)$ be its right reflection
-coefficient and let $i\kappa_j$, $\kappa_j>0$, be its bound-state poles
-with positive norming constants $c_j$.  Define
+$\int_\R(1+|x|)|V(x)|\,dx<\infty$, let $f_+(k,x)$ and $f_-(k,x)$ be the
+Jost solutions normalized by
+\[
+f_+(k,x)e^{-ikx}\longrightarrow1\quad(x\to+\infty),
+\qquad
+f_-(k,x)e^{ikx}\longrightarrow1\quad(x\to-\infty).
+\]
+For real $k\ne0$, define the right-incident reflection and transmission
+coefficients by the asymptotics
+\[
+\psi_R(k,x)\sim e^{-ikx}+R(k)e^{ikx}\quad(x\to+\infty),
+\qquad
+\psi_R(k,x)\sim T(k)e^{-ikx}\quad(x\to-\infty).
+\]
+The bound states are the poles $i\kappa_j$, $\kappa_j>0$, of the
+meromorphic transmission coefficient.  Normalize their real eigenfunctions
+so that
+\[
+\|\psi_j\|_2=1,
+\qquad
+\psi_j(x)\sim c_j^{1/2}e^{-\kappa_jx}\quad(x\to+\infty),
+\]
+and call $c_j>0$ the right norming constants.  Define
 \[
 \mathcal F(s)=\frac1{2\pi}\int_\R R(k)e^{iks}\,dk
 +\sum_jc_je^{-\kappa_js}.
@@ -1264,7 +1326,11 @@ T(k)=\frac{k+i\kappa}{k-i\kappa}
 \]
 and recover the bound-state pole from transmission data.  Let the norming
 constant evolve by $c(t)=c(0)e^{8\kappa^3t}$ and show that
-$u(x,t)=-V(x,t)$ is the KdV soliton
+$u(x,t)=-V(x,t)$ solves the Korteweg--de Vries equation
+\[
+u_t+6uu_x+u_{xxx}=0
+\]
+and is the soliton
 \[
 u(x,t)=2\kappa^2
 \operatorname{sech}^2\!\bigl(\kappa(x-x_0-4\kappa^2t)\bigr).
@@ -1361,79 +1427,21 @@ how screening, finite charge radius, recoil calibration, multiple scattering,
 and detector acceptance alter the comparison with measured counts.
 \end{exercise}
 
-\begin{exercise}[Levi--Civita geometry and geodesic deviation]
-Let $(M,g)$ be a Riemannian manifold.  For a connection on $TM$, define
-its torsion by
-\[
-T_\nabla(X,Y)=\nabla_XY-\nabla_YX-[X,Y].
-\]
-Call the connection metric-compatible when
-\[
-Xg(Y,Z)=g(\nabla_XY,Z)+g(Y,\nabla_XZ).
-\]
-Show that torsion-freeness and metric compatibility force the Koszul
-formula
-\[
-\begin{split}
-2g(\nabla_XY,Z)={}&Xg(Y,Z)+Yg(Z,X)-Zg(X,Y)\\
-&-g(X,[Y,Z])+g(Y,[Z,X])+g(Z,[X,Y]),
-\end{split}
-\]
-and use it to prove existence and uniqueness of the Levi--Civita
-connection.
-
-Define a geodesic to be a curve $\gamma$ satisfying
-$\nabla_{\dot\gamma}\dot\gamma=0$.  For a fixed-endpoint variation, derive
-the first-variation formula for
-\[
-E(\gamma)=\frac12\int g(\dot\gamma,\dot\gamma)\,dt
-\]
-and prove that its critical curves are precisely the constant-speed
-geodesics.  Prove local existence and uniqueness from initial data
-$(p,v)\in TM$, define
-\[
-\exp_p(v)=\gamma_v(1),
-\]
-and show that $d(\exp_p)_0$ is the identity on $T_pM$.  Deduce that short
-geodesics uniquely minimize length by proving the Gauss lemma for radial
-geodesics in a normal neighborhood.
-
-Let $R$ be the curvature endomorphism of the Levi--Civita connection.
-Derive its skew symmetries and the first Bianchi identity.  Define
-\[
-\operatorname{Ric}(X,Y)
-=\operatorname{Tr}\bigl(Z\mapsto R(Z,X)Y\bigr),
-\qquad
-\mathcal R=\operatorname{Tr}_g\operatorname{Ric},
-\]
-and, for a two-plane spanned by $v,w$, define its sectional curvature by
-\[
-K(v,w)=
-\frac{g(R(v,w)w,v)}{g(v,v)g(w,w)-g(v,w)^2}.
-\]
-For a variation through geodesics, let $J$ be its variation field and prove
-the Jacobi equation
-\[
-\frac{D^2J}{dt^2}+R(J,\dot\gamma)\dot\gamma=0.
-\]
-On a manifold of constant sectional curvature $K$, solve this equation for
-a perpendicular field with $J(0)=0$ and $DJ/dt(0)=w$ to obtain the factors
-\[
-\frac{\sin(\sqrt Kt)}{\sqrt K},
-\qquad t,
-\qquad
-\frac{\sinh(\sqrt{-K}t)}{\sqrt{-K}}
-\]
-for $K>0$, $K=0$, and $K<0$.  Relate their zeros or growth to conjugate
-points and the focusing or spreading of neighboring rays.
-\end{exercise}
+\section{Schwarzschild Spacetime}
 
 \begin{exercise}[Schwarzschild geometry and gravitational redshift]
 A \emph{Lorentzian metric} on a four-manifold is a smooth
-nondegenerate symmetric form of signature $(-,+,+,+)$.  Call a tangent
+nondegenerate symmetric form of signature $(+,-,-,-)$.  Call a tangent
 vector timelike, null, or spacelike according as its squared length is
-negative, zero, or positive.  Use the Koszul formula to prove that such a
-metric has a unique torsion-free metric-compatible connection.  Let
+positive, zero, or negative.  Use as theorem input the fundamental theorem
+of pseudo-Riemannian geometry: there is a unique torsion-free
+metric-compatible connection $\nabla$, characterized by the Koszul
+formula.  Define geodesics by $\nabla_{\dot\gamma}\dot\gamma=0$, curvature
+by
+\[
+R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z,
+\]
+and $\operatorname{Ric}(X,Y)=\Tr(Z\mapsto R(Z,X)Y)$.  Let
 \[
 r_s=\frac{2G_{\mathrm N}M}{c^2},
 \qquad
@@ -1441,7 +1449,7 @@ f(r)=1-\frac{r_s}{r},
 \]
 and on $(r_s,\infty)\times\mathbb R\times S^2$ consider
 \[
-g=-f(r)c^2dt^2+f(r)^{-1}dr^2+r^2g_{S^2}.
+g=f(r)c^2dt^2-f(r)^{-1}dr^2-r^2g_{S^2}.
 \]
 Use as theorem input Birkhoff's theorem~\cite{wald-gr}: every
 spherically symmetric Lorentzian vacuum solution with
@@ -1457,7 +1465,7 @@ coordinate singularity at $r=r_s$.
 
 Prove that time translation preserves $g$.  For its timelike Killing
 field $\partial_t$, prove that
-$-g(k,\partial_t)$ is conserved along a null geodesic with tangent $k$.
+$g(k,\partial_t)$ is conserved along a null geodesic with tangent $k$.
 Compare it with the frequency measured by static observers to derive
 \[
 \frac{\nu_{\rm rec}}{\nu_{\rm emit}}
@@ -1481,14 +1489,18 @@ $u=1/r$.  Derive
 \qquad
 \frac{d^2u}{d\phi^2}+u=\frac32r_su^2.
 \]
-Define the Weierstrass elliptic function by
+For $g_2^3-27g_3^2\ne0$, use as theorem input the Weierstrass
+uniformization theorem: there is a lattice $\Lambda\subset\C$, unique up
+to homothety with the prescribed invariants, and a unique even
+$\Lambda$-periodic meromorphic function satisfying
 \[
 (\wp')^2=4\wp^3-g_2\wp-g_3,
 \qquad
 \wp(z)=z^{-2}+O(z^2),
 \]
-and prove that every nonradial orbit is obtained by analytic continuation
-of
+and this function gives the universal covering of the nonsingular cubic.
+For a nonradial orbit whose cubic is nonsingular, prove from uniqueness of
+solutions on that cubic that it is given by
 \[
 u(\phi)=\frac{1/3+4\wp(\phi-\phi_0;g_2,g_3)}{r_s},
 \qquad
@@ -1543,9 +1555,13 @@ y''+\left(\alpha+\frac{\beta+1}{z}
 +\frac{\gamma+1}{z-1}\right)y'
 +\left(\frac\mu z+\frac\nu{z-1}\right)y=0.
 \]
-Define its locally normalized solutions to be the confluent Heun functions
-and determine $\alpha,\beta,\gamma,\mu,\nu$ from $\omega r_s/c$,
-$\ell$, and $s$ for the chosen asymptotic factors.
+When the exponent difference is nonintegral, define $H_0$ and $H_1$ to be
+the Frobenius solutions with exponent zero normalized by
+$H_0(0)=H_1(1)=1$; in resonant cases use their analytic limits.  Call these
+the local confluent Heun functions.  Substitute their power series into
+the equation to derive the three-term coefficient recurrences and their
+radii of convergence.  Determine $\alpha,\beta,\gamma,\mu,\nu$ from
+$\omega r_s/c$, $\ell$, and $s$ for the chosen asymptotic factors.
 
 Define the horizon-ingoing and infinity-outgoing solutions by
 \[
@@ -1570,8 +1586,14 @@ half-plane.  Show that it is equivalently a mode ingoing at the horizon and
 outgoing at infinity, and that its time dependence is a damped oscillation.
 
 For $\ell\to\infty$, locate the maximum of the Regge--Wheeler potential at
-the photon sphere.  Apply the leading parabolic-barrier WKB connection
-formula, with the Langer replacement
+the photon sphere.  Use as theorem input the leading parabolic-barrier WKB
+connection formula: if $V$ has a nondegenerate maximum $V_0$ and
+$V_0''=d^2V/dr_*^2<0$ there, an outgoing resonance satisfies
+\[
+\frac{\omega^2/c^2-V_0}{\sqrt{-2V_0''}}
+=-i\left(n+\frac12\right)+O(\ell^{-1})
+\]
+in the eikonal scaling.  Apply it with the Langer replacement
 $\ell(\ell+1)\sim(\ell+\tfrac12)^2$, to derive
 \[
 \omega_{\ell n}
@@ -1602,4 +1624,15 @@ asymptotically flat,
 linear-perturbation, eikonal, detector-frame, cosmological-redshift, and
 mode-identification assumptions under which shadow and ringdown
 measurements test these linked predictions.
+For the axial gravitational fundamental mode $(\ell,n)=(2,0)$, compute
+\[
+\frac{GM\omega}{c^3}\approx0.4811-0.0962i
+\]
+from the eikonal formula.  Numerically continue the two local Heun
+solutions, locate the corresponding zero of $D_{2,2}$, and compare with
+\[
+\frac{GM\omega}{c^3}\approx0.3737-0.0890i.
+\]
+Record that the leading formula overestimates this low-multipole real part
+by about $29\%$ and is a controlled prediction only as $\ell\to\infty$.
 \end{exercise}

@@ -309,7 +309,10 @@ with the fermion-parity condition determined by the chosen $P$ sector.
 \gamma(k)=2\operatorname{arsinh}|\sin(k/2)|
 =|k|+O(|k|^3).
 \]
-After subtracting the sector ground energy and measuring gaps in units
+Apply Euler--Maclaurin summation to the filled negative-energy modes and
+derive the chiral vacuum correction $-1/48$.  Define $c=1/2$ by writing
+this correction as $-c/24$.  Let $q$ be the formal variable recording
+chiral excitation grade.  After subtracting the sector ground energy and measuring gaps in units
 $2\pi(a_x/a_t)/L$, use the parity projections to obtain the chiral
 scaling products
 \[
@@ -330,6 +333,12 @@ scaling products
 Let $\Lambda_0(L)>0$ be the Perron eigenvalue of
 $T_N^{\rm Is}(K_c,K_c)$ and let
 $\Lambda_{a,r,\bar r}(L)$ denote its low-lying symmetry-resolved eigenvalues.
+Call $e_\infty$ the nonuniversal bulk energy per unit length and $v_{\rm crit}$ the
+calibrated critical propagation speed.  Define the left and right central
+charges $c,\bar c$ as the coefficients of the universal vacuum-energy
+correction, define $h_a,\bar h_a$ as the lowest left and right scaling
+weights in sector $a$, and let $r,\bar r\geq0$ denote the excitation grades
+recorded by the corresponding character coefficients.
 Define
 \[
 E_{a,r,\bar r}(L)
@@ -339,7 +348,7 @@ Use the critical Clifford spectrum and Euler--Maclaurin summation to prove
 the finite-size asymptotic
 \[
 E_{a,r,\bar r}(L)
-=e_\infty L+\frac{2\pi v}{L}
+=e_\infty L+\frac{2\pi v_{\rm crit}}{L}
 \left(h_a+\bar h_a+r+\bar r-\frac{c+\bar c}{24}\right)
 +o(L^{-1}).
 \]
@@ -348,7 +357,7 @@ If $R_N$ acts on the same state by $e^{i\mathsf p a_x}$, prove
 \mathsf p=\frac{2\pi}{L}(h_a-\bar h_a+r-\bar r)
 \pmod{2\pi/a_x}.
 \]
-Prove that $v=a_x/a_t$ for the displayed isotropic transfer normalization.
+Prove that $v_{\rm crit}=a_x/a_t$ for the displayed isotropic transfer normalization.
 Use the three Ising character products to prove that the coefficient of
 $q^{h_a+r-c/24}\bar q^{\bar h_a+\bar r-\bar c/24}$ gives the predicted
 multiplicity at these energy and momentum values.  Express every excitation
@@ -360,7 +369,7 @@ E_j(L)-E_0(L)
 Compute the first spectral gaps and degeneracies in the three Ising
 sectors.  Deduce the universal gap ratios and the $L^{-1}$ Casimir-energy
 correction.  State how finite-size transfer eigenvalues determine $c$, the
-primary weights, and $v$, including the symmetry-sector resolution,
+primary weights, and $v_{\rm crit}$, including the symmetry-sector resolution,
 anisotropy corrections, and irrelevant-operator corrections required for
 the comparison.
 \end{exercise}
@@ -379,8 +388,9 @@ x_{\mathbf1}=0,
 \qquad x_\varepsilon=1.
 \]
 Define a scale transformation by $L\mapsto L/b$ followed by the energy
-rescaling that keeps the critical velocity fixed.  A coupling $g_i$ to a
-scaling field of dimension $x_i$ has linearized renormalization law
+rescaling that keeps the critical velocity fixed.  Call a coupling $g_i$
+a \emph{scaling field} of dimension $x_i$ when it is an eigen-coordinate
+for the linearized transformation with law
 \[
 g_i\longmapsto b^{y_i}g_i,
 \qquad y_i=2-x_i.
@@ -388,6 +398,21 @@ g_i\longmapsto b^{y_i}g_i,
 Prove that the thermal perturbation has $y_t=1$ and the magnetic
 perturbation has $y_h=15/8$.
 
+Put $t=(T-T_c)/T_c$ and let $h$ be the dimensionless magnetic field in a
+fixed microscopic normalization.  Define the critical exponents by
+\[
+\xi(t,0)\asymp|t|^{-\nu},\qquad
+\langle\sigma(0)\sigma(r)\rangle_c\asymp r^{-\eta}
+\quad(t=h=0),
+\]
+\[
+M(t,0)\asymp(-t)^{\beta_{\rm mag}},\quad
+\chi(t,0)\asymp|t|^{-\gamma},\quad
+M(0,h)\asymp|h|^{1/\delta},\quad
+C(t,0)\asymp |t|^{-\alpha},
+\]
+where the two-dimensional correlation law has exponent
+$d-2+\eta=\eta$.
 Assume the scaling hypothesis for the singular free-energy
 density,
 \[
@@ -397,12 +422,14 @@ f_{\rm sing}(b^{y_t}t,b^{y_h}h),
 and derive
 \[
 \nu=1,
-\qquad \eta=\frac14,
-\qquad \beta=\frac18,
+\qquad \beta_{\rm mag}=\frac18,
 \qquad \gamma=\frac74,
 \qquad \delta=15,
 \qquad \alpha=0.
 \]
+Separately use the critical two-point scaling law
+$2x_\sigma=d-2+\eta$ to derive $\eta=1/4$; do not infer it from the
+free-energy homogeneity law alone.
 Show that a perturbation with $x_i>2$ gives corrections to finite-size
 levels that decay as a power of $L$, whereas $x_i<2$ opens a scale set by
 $|g_i|^{-1/y_i}$.  State the locality, single-fixed-point, scaling-window,
@@ -498,7 +525,7 @@ Z_N^{\rm hom}(z;\eta)
 \frac{c}{a(z)b(z)}
 \right]_{i,j=0}^{N-1}.
 \]
-Use as theorem input~\cite{korepin-qism} the homogeneous determinant
+Use as theorem input~\cite{kuperberg-asm} the homogeneous determinant
 evaluation obtained from its Desnanot--Jacobi recurrence at
 $z=\eta=\pi/3$:
 \[
@@ -542,8 +569,9 @@ of the flux quantum, and define the magnetic nearest-neighbor Hamiltonian
 \[
 H_\alpha=U+U^*+V+V^*.
 \]
-In the position realization on $\ell^2(\mathbb Z)$ with transverse phase
-$\theta$, take
+Pass from the abstract Weyl relation to its independent magnetic-lattice
+representation on $\ell^2(\mathbb Z)$; this is not the Schr\"odinger
+representation on $L^2(\mathbb R)$.  With transverse phase $\theta$, take
 \[
 (U\psi)_m=\psi_{m+1},
 \qquad
@@ -581,6 +609,9 @@ M_{p/q}(E,\theta)
 \qquad
 \Delta_{p/q}(E,\theta)=\operatorname{Tr}M_{p/q}(E,\theta).
 \]
+Interpret $M_{p/q}$ as the one-dimensional transfer matrix through one
+magnetic unit cell and contrast its spectral trace with the row-to-row
+partition-function traces above.
 Define
 \[
 SL_2(\mathbb R)
@@ -1308,16 +1339,9 @@ initial value.
 
 \begin{exercise}[Quantum coupling coefficients and XXZ symmetry]
 Use the distinguished weight-line realization
-$V_1=\C e_+\oplus\C e_-$ of the fundamental type-$1$ module.  Define the
-Pauli endomorphisms, relative to the ordered weight lines, by
-\[
-\sigma^x=\begin{pmatrix}0&1\\1&0\end{pmatrix},
-\qquad
-\sigma^y=\begin{pmatrix}0&-i\\i&0\end{pmatrix},
-\qquad
-\sigma^z=\begin{pmatrix}1&0\\0&-1\end{pmatrix},
-\]
-and let $\sigma_j^a$ act as $\sigma^a$ on the $j$th tensor factor and as
+$V_1=\C e_+\oplus\C e_-$ of the fundamental type-$1$ module and the
+distinguished Pauli endomorphisms $\sigma^x,\sigma^y,\sigma^z$.  Let
+$\sigma_j^a$ act as $\sigma^a$ on the $j$th tensor factor and as
 the identity on the others.  On $V_1^{\otimes L}$ let
 \[
 \begin{aligned}
@@ -1333,6 +1357,16 @@ $U_v(\mathfrak{sl}_2)$.
 \end{exercise}
 
 \begin{exercise}[Dual \texorpdfstring{$Q$}{Q}-Hahn coupling coefficients]
+For $N\in\Z_{\geq0}$ and parameters for which no denominator vanishes,
+define the dual $Q$-Hahn polynomial by
+\[
+R_n(\mu(x);\gamma,\delta,N\mid Q)
+={}_3\phi_2\!\left(
+\begin{matrix}Q^{-n},Q^{-x},\gamma\delta Q^{x+1}\\
+\gamma Q,Q^{-N}\end{matrix};Q,Q\right),
+\qquad
+\mu(x)=Q^{-x}+\gamma\delta Q^{x+1}.
+\]
 For irreducible type-$1$ modules $V_a,V_b,V_c$, let
 \[
 C_{ab}^c:V_c\longrightarrow V_a\otimes V_b
@@ -1345,7 +1379,8 @@ Decompose two coupled irreducible spin sectors by
 the projections $C_{ab}^c(C_{ab}^c)^*$ and derive the orthogonality
 relations for their $v$-Clebsch--Gordan coefficients.  Prove that their
 weight dependence satisfies the dual $Q$-Hahn recurrence with $Q=v^2$ and
-normalized amplitudes with a terminating ${}_3\phi_2$ of base $Q$.
+normalized amplitudes with the displayed terminating ${}_3\phi_2$.
+Determine $N,\gamma,\delta$ from the endpoint weights and coupling labels.
 
 \end{exercise}
 
@@ -1373,10 +1408,30 @@ extend, satisfying
 \quad
 (\id\otimes\Delta)(\mathcal R)=\mathcal R_{13}\mathcal R_{12}.
 \]
+Use as theorem input that the $\hbar$-adic completion of the displayed
+$U_v(\mathfrak{sl}_2)$ is quasitriangular with
+\[
+\mathcal R_v
+=v^{H\otimes H/2}
+\sum_{n\geq0}v^{n(n-1)/2}
+\frac{(v-v^{-1})^n}{[n]_v!}
+F^n\otimes E^n,
+\qquad [n]_v!=\prod_{j=1}^n[j]_v,
+\]
+with products interpreted in the displayed order.  Verify the series on
+finite-dimensional type-$1$ modules and the three quasitriangular
+identities on the generators.  On $V_1\otimes V_1=V_2\oplus V_0$, prove
+\[
+\check{\mathcal R}_v
+:=\tau(\pi_{V_1}\otimes\pi_{V_1})(\mathcal R_v)
+=v^{1/2}P_2-v^{-3/2}P_0,
+\qquad
+T=v^{1/2}\check{\mathcal R}_v=vP_2-v^{-1}P_0.
+\]
 For finite-dimensional modules $V,W$, define
 \[
 c_{V,W}
-=\tau\circ(\pi_V\otimes\pi_W)(\mathcal R):
+=\tau\circ(\pi_V\otimes\pi_W)(\mathcal R_v):
 V\otimes W\longrightarrow W\otimes V.
 \]
 A \emph{braiding} on a $\C$-linear tensor category $\mathcal C$ is a family
@@ -1411,7 +1466,13 @@ and, on $V^{\otimes3}$,
 \[
 c_{12}c_{23}c_{12}=c_{23}c_{12}c_{23}.
 \]
-Prove that the operators $c_{j,j+1}$ define braid-group representations on
+For $r\geq2$, define the braid group by
+\[
+B_r=\left\langle b_1,\ldots,b_{r-1}\ \middle|\
+b_ib_{i+1}b_i=b_{i+1}b_ib_{i+1},\quad
+b_ib_j=b_jb_i\ (|i-j|>1)\right\rangle.
+\]
+Prove that $b_j\mapsto c_{j,j+1}$ defines braid-group representations on
 tensor powers of every finite-dimensional type-$1$ module.
 \end{exercise}
 
@@ -1459,26 +1520,28 @@ Derive invariance of the quantum trace under framed ribbon isotopy.
 Let $\Sigma$ be an oriented surface and let $\mathcal L(\Sigma)$ be the
 set of framed-isotopy classes of unoriented links in
 $\Sigma\times[0,1]$, including the empty link.  For
-$v\in\mathbb C^\times$, define $K_v(\Sigma)$ as the complex span of
+$A\in\mathbb C^\times$, define $K_A(\Sigma)$ as the complex span of
 $\mathcal L(\Sigma)$ modulo the following local relations.  If
 $L_\times,L_0,L_\infty$ agree outside a disk and differ inside it by a
 crossing and its two smoothings, impose
 \[
-[L_\times]=v[L_0]+v^{-1}[L_\infty].
+[L_\times]=A[L_0]+A^{-1}[L_\infty].
 \]
 If $\bigcirc$ is a contractible component disjoint from $L$, impose
 \[
-[L\sqcup\bigcirc]=-(v^2+v^{-2})[L].
+[L\sqcup\bigcirc]=-(A^2+A^{-2})[L].
 \]
 Define multiplication by stacking links in the interval direction.
 
 Prove that the relations are preserved by framed Reidemeister moves and
-that stacking makes $K_v(\Sigma)$ an associative algebra with the empty
+that stacking makes $K_A(\Sigma)$ an associative algebra with the empty
 link as identity.  For two simple closed curves meeting once, resolve
 their crossing to express both multiplication orders in terms of the two
 smoothings and compute their commutator.
 
-At $v=-1$, let $\rho:\pi_1(\Sigma)\to SL_2(\mathbb C)$ and assign to an
+The quantum-group and skein parameters are related by $A=v^{1/2}$ up to
+the chosen framing sign.  At $A=-1$, let
+$\rho:\pi_1(\Sigma)\to SL_2(\mathbb C)$ and assign to an
 unoriented loop $\gamma$ the function
 \[
 [\gamma]\longmapsto-W_\gamma(\rho)
@@ -1503,12 +1566,24 @@ every $W_{p,q}$ as a polynomial in $x,y,z$, reduced modulo
 \[
 x^2+y^2+z^2-xyz-4=0.
 \]
-Use the commutator computed above to prove that $K_v(T^2)$ is
-noncommutative for generic $v$ and that its specialization at $v=-1$
+Use the commutator computed above to prove that $K_A(T^2)$ is
+noncommutative for generic $A$ and that its specialization at $A=-1$
 maps to the torus Wilson-trace algebra.
 \end{exercise}
 
 \begin{exercise}[Quantum recoupling coefficients]
+For $N\in\Z_{\geq0}$ and the terminating specialization
+$\gamma=Q^{-N-1}$, define the $Q$-Racah polynomial by
+\[
+R_n(\mu(x);\alpha,\beta,\gamma,\delta\mid Q)
+={}_4\phi_3\!\left(
+\begin{matrix}Q^{-n},\alpha\beta Q^{n+1},Q^{-x},
+\gamma\delta Q^{x+1}\\
+\alpha Q,\beta\delta Q,\gamma Q
+\end{matrix};Q,Q\right),
+\qquad
+\mu(x)=Q^{-x}+\gamma\delta Q^{x+1}.
+\]
 The matrix coefficients of the recoupling map
 \[
 (V_a\otimes V_b)\otimes V_c
@@ -1589,6 +1664,13 @@ graded state count.
 \end{exercise}
 
 \begin{exercise}[Affine Hecke algebras and Baxterization]
+The extended affine braid group of type $GL_r$ is generated by
+$b_1,\ldots,b_{r-1}$ and commuting invertible elements
+$X_1,\ldots,X_r$, subject to the braid relations and
+\[
+b_iX_ib_i=X_{i+1},
+\qquad b_iX_j=X_jb_i\quad(j\ne i,i+1).
+\]
 The extended affine Hecke algebra
 $\mathcal H_v^{\mathrm{aff}}(GL_r)$ is generated by
 $T_1,\ldots,T_{r-1}$ and commuting invertible elements
@@ -1598,65 +1680,69 @@ T_iX_iT_i=X_{i+1},
 \qquad
 T_iX_j=X_jT_i\quad(j\neq i,i+1).
 \]
-Equivalently, it is the Hecke quotient of the extended affine braid group
-of $\Z^r\rtimes S_r$.
+Equivalently, it is the quotient of this group algebra by the displayed
+quadratic Hecke relations.
 
-For an invertible spectral parameter $u$, define
+For an invertible spectral parameter $z$, define
 \[
-\check R_i(u)=uT_i-u^{-1}T_i^{-1}.
+\check R_i(z)=zT_i-z^{-1}T_i^{-1}.
 \]
 Its eigenvalues on the $v$ and $-v^{-1}$ eigenspaces of $T_i$ are
 \[
-uv-u^{-1}v^{-1},
+zv-z^{-1}v^{-1},
 \qquad
--uv^{-1}+u^{-1}v.
+-zv^{-1}+z^{-1}v.
 \]
 
 Use the braid and Hecke relations for $T_i$ to prove
 \[
-\check R_i(u)\check R_{i+1}(uv)\check R_i(v)
-=\check R_{i+1}(v)\check R_i(uv)\check R_{i+1}(u).
+\check R_i(z)\check R_{i+1}(zw)\check R_i(w)
+=\check R_{i+1}(w)\check R_i(zw)\check R_{i+1}(z).
 \]
 Prove that $\check R_i(1)$ is a scalar multiple of the identity and compute
-$\check R_i(u)\check R_i(u^{-1})$.  For $|u|=1$, prove that
-$\check R_i(u)^*=\check R_i(u^{-1})$ and normalize the operators to be
+$\check R_i(z)\check R_i(z^{-1})$.  For $|z|=1$, prove that
+$\check R_i(z)^*=\check R_i(z^{-1})$ and normalize the operators to be
 unitary wherever the scalar product is nonzero.  Prove that their two
-eigenvalues depend on $u$ and hence that the spectral family itself does
+eigenvalues depend on $z$ and hence that the spectral family itself does
 not satisfy one parameter-independent Hecke polynomial.
 \end{exercise}
 
 \begin{exercise}[Six-vertex transfer matrices and the XXZ spectrum]
 On the fundamental module $V_1$, put
 \[
-\check R(u)=uT-u^{-1}T^{-1},
+\check R(z)=zT-z^{-1}T^{-1},
 \qquad
-R(u)=\tau\circ\check R(u),
+R(z)=\tau\circ\check R(z),
 \]
 where $T=vP_2-v^{-1}P_0$ and $\tau$ is the flip.  For an auxiliary copy
 $V_a\cong V_1$ and a periodic row of length $N$, define
 \[
-\mathsf T_N(u)
-=\Tr_{V_a}\bigl(R_{aN}(u)\cdots R_{a1}(u)\bigr)
+\mathsf T_N(z)
+=\Tr_{V_a}\bigl(R_{aN}(z)\cdots R_{a1}(z)\bigr)
 \quad\text{on }V_1^{\otimes N},
 \]
 and for an $N\times M$ periodic lattice define
 \[
-Z^{6\mathrm V}_{N,M}(u)=\Tr_{V_1^{\otimes N}}\mathsf T_N(u)^M.
+Z^{6\mathrm V}_{N,M}(z)=\Tr_{V_1^{\otimes N}}\mathsf T_N(z)^M.
 \]
 
 Use invariance of $P_2$ and $P_0$ under the Cartan action to prove
 \[
-[R(u),K\otimes K]=0.
+[R(z),K\otimes K]=0.
 \]
 Relative to the distinguished weight lines of $V_1$, deduce that exactly
 the six arrow configurations preserving total weight can have nonzero
-local weights, and compute those weights from $P_2$ and $P_0$.  Prove the
+local weights, and compute those weights from $P_2$ and $P_0$.  With
+$v=e^{-i\eta}$ and $z=e^{-iu}$, determine the scalar normalization and
+diagonal gauge that identify these weights with the additive six-vertex
+matrix $R(u)$, and verify all six entries rather than treating the two
+parametrizations as independent models.  Prove the
 spectral Yang--Baxter equation for $R$ from the Baxterization identity.
 Apply it to an auxiliary pair and take their intrinsic traces to prove
 \[
-[\mathsf T_N(u),\mathsf T_N(w)]=0.
+[\mathsf T_N(z),\mathsf T_N(w)]=0.
 \]
-Show that $Z^{6\mathrm V}_{N,M}(u)$ is the sum of products of the six local
+Show that $Z^{6\mathrm V}_{N,M}(z)$ is the sum of products of the six local
 weights over arrow configurations on the periodic square lattice.
 
 Use $\check R(1)=(v-v^{-1})I$ and compute the logarithmic derivative at
@@ -1717,6 +1803,9 @@ rapidities $u_j$ through
 \[
 e^{ik_j}=\frac{\sinh(u_j+\eta/2)}{\sinh(u_j-\eta/2)}.
 \]
+Use the additive normalization of the same commuting transfer family,
+obtained from the multiplicative parameter by $z=e^{-u}$ followed by a
+nonzero scalar normalization, and write its eigenvalue as $\Lambda(u)$.
 Define
 \[
 Q(u)=\prod_{j=1}^M\sinh(u-u_j),
@@ -1794,7 +1883,12 @@ factorizations of a three-spin exchange give the same output probabilities.
 Express this equality as the $Q$-Racah recoupling identity.  If the prepared
 state lies in the $e^{i\phi}$-eigenspace of $\mathcal M_\kappa(z)$, derive the
 interference phase $\phi$ accumulated in one simultaneous $\kappa$-shift
-cycle.  State the twist calibration, spectral-parameter path, unitarity,
+cycle.  In a balanced reference interferometer with calibrated phase
+$\phi_{\rm ref}$, derive the output probabilities
+\[
+P_\pm=\frac12\left(1\pm\cos(\phi+\phi_{\rm ref})\right).
+\]
+State the twist calibration, spectral-parameter path, unitarity,
 coherence, sector preparation, and phase-resolution assumptions separately
 from the recoupling probabilities and phase prediction.
 \end{exercise}
@@ -1802,6 +1896,9 @@ from the recoupling probabilities and phase prediction.
 \section{Double Affine Hecke Algebras}
 
 \begin{exercise}[Root systems, affine Weyl groups, and alcoves]
+The DAHA Hecke parameter below is $t^{1/2}$.  Under comparison with the
+quantum-group Hecke action, use the convention $t^{1/2}=v$; otherwise
+$q$ and $t$ are independent parameters.
 Let $E$ be a finite-dimensional real Euclidean space.  A finite
 \emph{root system} is a finite spanning set $R\subset E\setminus\{0\}$
 such that, with
@@ -1812,9 +1909,33 @@ s_\alpha(x)=x-\langle x,\alpha^\vee\rangle\alpha,
 \]
 one has $s_\alpha(R)=R$ and
 $\langle\beta,\alpha^\vee\rangle\in\Z$ for all $\alpha,\beta\in R$.
-Define the Weyl group $W$, root lattice $Q$, coroot lattice $Q^\vee$,
-weight lattice $P$, a positive system, simple roots, and the dominant
-chamber.  Prove that $W$ is
+Define
+\[
+W=\langle s_\alpha:\alpha\in R\rangle,
+\qquad
+Q=\operatorname{span}_\Z(R),
+\qquad
+Q^\vee=\operatorname{span}_\Z\{\alpha^\vee:\alpha\in R\},
+\]
+\[
+P=\{\lambda\in E:\langle\lambda,\alpha^\vee\rangle\in\Z
+\text{ for every }\alpha\in R\}.
+\]
+A \emph{positive system} is a subset $R_+\subset R$ such that
+$R=R_+\sqcup(-R_+)$ and the sum of two members of $R_+$, when it is a
+root, again lies in $R_+$.  Its indecomposable members are the
+\emph{simple roots}; their nonnegative span is the positive root cone, the
+closed dominant chamber is
+\[
+\overline C_+=\{x\in E:\langle x,\alpha^\vee\rangle\geq0
+\text{ for every simple }\alpha\},
+\]
+and
+\[
+P_+=\{\lambda\in P:\langle\lambda,\alpha^\vee\rangle\geq0
+\text{ for every simple }\alpha\}
+\]
+is the dominant cone.  Prove that $W$ is
 generated by the simple reflections and acts simply transitively on the
 chambers.
 
@@ -1826,7 +1947,7 @@ E=\{x\in\R^r:\textstyle\sum_i x_i=0\},
 and prove $W\cong S_r$.  For the nonreduced system $BC_r$, identify the
 reflection hyperplanes associated with
 \[
-\pm e_i,qquad\pm2e_i,qquad\pm e_i\pm e_j
+\pm e_i,\qquad\pm2e_i,\qquad\pm e_i\pm e_j
 \]
 and prove that its Weyl group is the signed permutation group.
 
@@ -2343,6 +2464,16 @@ orthogonality and three-term recurrence of the Askey--Wilson polynomials.
 \end{exercise}
 
 \begin{exercise}[Wilson polynomials and degeneration]
+For parameters with no denominator Pochhammer symbol vanishing, define
+\[
+{}_pF_q\!\left(
+\begin{matrix}a_1,\ldots,a_p\\b_1,\ldots,b_q\end{matrix};z\right)
+=\sum_{m=0}^\infty
+\frac{(a_1)_m\cdots(a_p)_m}{(b_1)_m\cdots(b_q)_m}
+\frac{z^m}{m!},
+\]
+with the terminating interpretation when a numerator parameter is a
+nonpositive integer.
 For positive $a,b,c,d$, define
 \[
 \begin{aligned}
@@ -2382,23 +2513,23 @@ T_i=t^{1/2}s_i+(t^{1/2}-t^{-1/2})
 \]
 and
 \[
-(\pi f)(x_1,\ldots,x_r)=f(x_2,\ldots,x_r,qx_1).
+(\omega f)(x_1,\ldots,x_r)=f(qx_r,x_1,\ldots,x_{r-1}).
 \]
 Define the Cherednik operators by
 \[
-Y_i=T_i\cdots T_{r-1}\pi
+Y_i=T_i\cdots T_{r-1}\omega
 T_1^{-1}\cdots T_{i-1}^{-1}.
 \]
 For generic independent parameters $q,t$, call the operator algebra
-generated by $X_j^{\pm1}$, $T_i$, and $\pi^{\pm1}$ the type-$A$
+generated by $X_j^{\pm1}$, $T_i$, and $\omega^{\pm1}$ the type-$A$
 polynomial operator model.
 
 Prove that the displayed operators preserve $\mathcal P_r$ and satisfy
 the braid and Hecke relations, and prove that the $Y_i$ commute.  Prove
 \[
-\pi X_i\pi^{-1}=X_{i+1}\quad(1\leq i<r),
+\omega X_1\omega^{-1}=qX_r,
 \qquad
-\pi X_r\pi^{-1}=qX_1,
+\omega X_i\omega^{-1}=X_{i-1}\quad(2\leq i\leq r),
 \]
 and identify the two affine-Hecke subalgebras generated respectively by
 $T_i,X_j$ and by $T_i,Y_j$.  Prove that this representation is obtained
@@ -2434,7 +2565,8 @@ On a joint eigenspace on which the denominator is invertible, define the
 Cherednik intertwiner
 \[
 \Phi_i
-=T_i+\frac{t^{-1/2}-t^{1/2}}{1-Y_i/Y_{i+1}}.
+=T_i+(t^{1/2}-t^{-1/2})
+\frac{Y_i/Y_{i+1}}{1-Y_i/Y_{i+1}}.
 \]
 Use the affine-Hecke relations to prove
 \[
@@ -2445,7 +2577,7 @@ Use the affine-Hecke relations to prove
 \Phi_iY_j=Y_j\Phi_i\quad(j\ne i,i+1),
 \]
 and deduce that a nonzero $\Phi_iE_\alpha$ is proportional to
-$E_{s_i\alpha}$.  Include the affine intertwiner obtained from $\pi$ and
+$E_{s_i\alpha}$.  Include the affine intertwiner obtained from $\omega$ and
 show that intertwiners generate every $E_\alpha$ from a dominant seed.
 
 Define the finite-Hecke symmetrizer $\mathsf e$ to be the normalized
@@ -2476,7 +2608,7 @@ D_{q,t}=\sum_{i=1}^r
 Use the displayed polynomial representation and the affine braid relations
 to prove that symmetric Laurent polynomials in the $Y_i$ preserve
 $\mathcal P_r^{S_r}$ and identify
-$t^{-(r-1)/2}(Y_1+\cdots+Y_r)$ with $D_{q,t}$.
+$t^{(r-1)/2}(Y_1+\cdots+Y_r)$ with $D_{q,t}$.
 \end{exercise}
 
 \begin{exercise}[Macdonald spectral theory]
@@ -2512,27 +2644,21 @@ in the commuting $Y_i$.
 \end{exercise}
 
 \begin{exercise}[DAHA Fourier duality]
-Define the DAHA Fourier assignment on the torus, winding, and Hecke
-generators by
-\[
-\mathcal F(X_j)=Y_j^{-1},\qquad
-\mathcal F(Y_j)=X_j,\qquad
-\mathcal F(T_i)=T_i.
-\]
 For $\rho=(r-1,r-2,\ldots,0)$ and a partition $\lambda$, put
 \[
 \xi_\lambda=(q^{\lambda_1}t^{r-1},
 q^{\lambda_2}t^{r-2},\ldots,q^{\lambda_r}).
 \]
 
-Verify the DAHA relations after applying $\mathcal F$ and prove that it
-extends to an automorphism.  Use as theorem input the polynomial
-intertwiner theorem~\cite{cherednik-daha}: for generic $q,t$, this
-automorphism is implemented
-between the polynomial representation and its spectral realization by a
-nondegenerate transform whose kernel is normalized to equal $1$ at
-$(t^\rho,t^\rho)$.  Apply the intertwining relations to the commuting
-$X$- and $Y$-operators and prove the evaluation symmetry
+Use as theorem input the polynomial Fourier-duality theorem
+for the displayed $GL_r$ convention~\cite{cherednik-daha}: for generic
+$q,t$, the polynomial representation and its contragredient spectral
+representation are joined by a nondegenerate transform that exchanges
+the commuting multiplication and Cherednik operator algebras, with the
+parameter and inverse conventions determined by the contragredient
+pairing.  In the spherical monic normalization, its kernel is normalized
+to equal $1$ at $(t^\rho,t^\rho)$ and is symmetric in its two spectral
+labels.  Apply this symmetry to prove the evaluation identity
 \[
 \frac{P_\lambda(\xi_\mu;q,t)}{P_\lambda(t^\rho;q,t)}
 =
@@ -2572,6 +2698,20 @@ b_\lambda(q,t)
 \frac{1-q^{a_\lambda(s)}t^{\ell_\lambda(s)+1}}
 {1-q^{a_\lambda(s)+1}t^{\ell_\lambda(s)}}.
 \]
+Write the individual factor as
+\[
+\mathfrak b_\lambda(s)
+=\frac{1-q^{a_\lambda(s)}t^{\ell_\lambda(s)+1}}
+{1-q^{a_\lambda(s)+1}t^{\ell_\lambda(s)}}.
+\]
+If $\lambda/\mu$ is a vertical strip, let $C_{\lambda/\mu}$ and
+$R_{\lambda/\mu}$ be the cells of $\mu$ in columns and rows meeting the
+strip, respectively, and define
+\[
+\psi'_{\lambda/\mu}
+=\prod_{s\in C_{\lambda/\mu}\setminus R_{\lambda/\mu}}
+\frac{\mathfrak b_\lambda(s)}{\mathfrak b_\mu(s)}.
+\]
 
 Prove that the finite-variable Macdonald polynomials are stable under
 adjoining a zero variable and hence determine elements $P_\lambda$ of
@@ -2590,6 +2730,14 @@ kernel in the power sums and use the $q$-binomial identity to prove
 {(a_i b_j;q)_\infty}
 \]
 for finite alphabets with $|a_i b_j|<1$.
+Use as theorem input the first Macdonald Pieri identity
+\[
+(x_1+\cdots+x_r)P_\mu
+=\sum_{\substack{\lambda\supset\mu\\|\lambda|-|\mu|=1}}
+\psi'_{\lambda/\mu}P_\lambda
+\]
+in the displayed monic normalization, and derive its adjoint from the
+Macdonald pairing.
 \end{exercise}
 
 \begin{exercise}[Finite Macdonald measures]
@@ -2816,7 +2964,7 @@ Askey--Wilson weight and its order-two Weyl normalization, and identify
 $\mathcal D_K$ with $\mathcal D_{AW}$.
 \end{exercise}
 
-\begin{exercise}[Koornwinder spectral theory]
+\begin{exercise}[Koornwinder spectral theory and \texorpdfstring{$BC_r$}{BCr} frequencies]
 The Koornwinder polynomial $K_\lambda$ is the Weyl-invariant Laurent
 polynomial triangular in orbit sums and satisfying
 \[
@@ -2834,9 +2982,7 @@ Use as theorem input Koornwinder's symmetry
 theorem~\cite{koornwinder-bc}: $\mathcal D_K$ is symmetric for the
 $\Delta_{BC_r}$ inner product.  Deduce that its triangular eigenfunctions
 are mutually orthogonal when the displayed eigenvalues are distinct.
-\end{exercise}
 
-\begin{exercise}[Koornwinder spectral values and \texorpdfstring{$BC_r$}{BCr} simulator frequencies]
 Assume $r\geq2$, $M\geq2$, $0<q,t<1$,
 $a_1,a_2,a_3,a_4\in(-1,1)$, and the displayed eigenvalues are distinct on
 \[
@@ -2909,7 +3055,7 @@ squared strengths cannot distinguish any additional discrete ambiguity in
 that fiber.  State that these are predictions for the engineered simulator.
 \end{exercise}
 
-\begin{exercise}[Macdonald--Ruijsenaars spectrum]
+\begin{exercise}[Macdonald--Ruijsenaars transition spectrum]
 Let $0<q,t<1$, fix $M\geq0$, and define
 \[
 \mathcal H_{q,t}^{(M)}
@@ -2933,11 +3079,8 @@ E_\lambda
 =\varepsilon\sum_{i=1}^r
 t^{r-i}(1-q^{\lambda_i}).
 \]
-\end{exercise}
-
-\begin{exercise}[Macdonald transition spectrum]
 Model a finite programmable $q$-difference simulator by this operator.
-Use the Macdonald Pieri identity for
+Use the displayed Macdonald Pieri identity for
 $\rho_1=x_1+\cdots+x_r$ and its adjoint to determine every nonzero matrix
 element of the compression of $\rho_1+\rho_1^*$ to
 $\mathcal H_{q,t}^{(M)}$.  For a periodic drive proportional to this

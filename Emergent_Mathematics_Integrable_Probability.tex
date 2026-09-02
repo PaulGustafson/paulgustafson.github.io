@@ -53,30 +53,6 @@ cutoff, and detector-resolution assumptions under which fermion counts
 below $E_F$ test the phase-shift prediction.
 \end{exercise}
 
-\begin{exercise}[Hermite Gaussian moments]
-Let $\mathbb P$ be the probability measure on $\R$ with density
-$(2\pi)^{-1/2}e^{-x^2/2}$, let $X(x)=x$, and write
-$\mathbb Ef(X)=\int_\R f(x)\,d\mathbb P(x)$ whenever the integral exists.
-
-For this $X$, prove
-\[
-\mathbb E[e^{tX}]=e^{t^2/2}.
-\]
-Define the probabilists' Hermite polynomials by
-\[
-e^{xt-t^2/2}
-=\sum_{n\geq0}\operatorname{He}_n(x)\frac{t^n}{n!}
-\]
-and prove
-\[
-\mathbb E[\operatorname{He}_m(X)\operatorname{He}_n(X)]
-=n!\delta_{mn},
-\qquad
-\mathbb E[X^{2n}]=\frac{(2n)!}{2^nn!}.
-\]
-Relate $\operatorname{He}_n$ to the oscillator Hermite functions.
-\end{exercise}
-
 \begin{exercise}[Dyson ensembles and unitary orbit Jacobians]
 For $\mathbb F=\R,\C,\mathbb H$, put
 $\beta_{\rm D}=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
@@ -127,23 +103,40 @@ state the symmetry-sector separation required in spectral data.
 \end{exercise}
 
 \begin{exercise}[Fredholm determinants and trace identities]
-Let $A$ be a positive trace-class operator on a Hilbert space, and let
-$\lambda_j(A)$ be its nonzero spectral values repeated with multiplicity.
-Define
+Let $A$ be an arbitrary complex trace-class operator on a Hilbert space.
+Its exterior powers are trace class and satisfy
+$|\Tr(\Lambda^nA)|\leq\|A\|_1^n/n!$.  Define
+\[
+\det(I+zA)=\sum_{n=0}^\infty z^n\Tr(\Lambda^nA).
+\]
+
+Prove absolute local uniform convergence and, by finite-rank approximation,
+the trace-norm continuity estimate
+\[
+|\det(I+A)-\det(I+B)|
+\leq\|A-B\|_1\exp(1+\|A\|_1+\|B\|_1).
+\]
+Use as theorem input the trace-class spectral determinant theorem: if
+$\lambda_j(A)$ are the nonzero spectral values with algebraic
+multiplicity, then
 \[
 \det(I+zA)=\prod_j(1+z\lambda_j(A)),
 \qquad
 \Tr(A^m)=\sum_j\lambda_j(A)^m.
 \]
-
-Prove absolute local uniform convergence of the defining product and
+Deduce
 \[
 \det(I-zA)
 =\exp\!\left(-\sum_{m\geq1}\frac{z^m}{m}\Tr(A^m)\right)
 \qquad(|z|<\|A\|^{-1}).
 \]
-Prove that the determinant is entire, identify its zeros, and show that its
-finite-rank specialization agrees with the exterior-power identity.
+Prove that the determinant is entire and identify its zeros.  For a
+trace-class integral operator on $L^2(X,\mu)$ whose kernel admits the standard Fredholm
+expansion, derive
+\[
+\det(I+zA)=1+\sum_{n\geq1}\frac{z^n}{n!}
+\int_{X^n}\det[A(x_i,x_j)]_{i,j=1}^n\,d\mu^{\otimes n}.
+\]
 \end{exercise}
 
 \begin{exercise}[Point processes and determinantal statistics]
@@ -208,8 +201,15 @@ Prove Andr\'eief's identity
 =N!\det\!\left[\int_Xf_i g_j\,d\mu\right].
 \]
 Deduce that the unitary polynomial ensemble is determinantal with kernel
-$K_N$.  Derive the Christoffel--Darboux formula from the three-term
-recurrence and prove
+$K_N$.  Derive from the monic three-term recurrence the
+Christoffel--Darboux formula
+\[
+K_N(x,y)=\sqrt{w(x)w(y)}
+\frac{P_N(x)P_{N-1}(y)-P_{N-1}(x)P_N(y)}
+{H_{N-1}(x-y)}
+\qquad(x\ne y),
+\]
+with the diagonal value obtained by continuity, and prove
 \[
 \int K_N(x,z)K_N(z,y)d\mu(z)=K_N(x,y),
 \qquad
@@ -616,8 +616,6 @@ G_{\exp}(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
 \sum_{(i,j)\in\pi}E_{ij}.
 \]
 
-The variables $E_{ij}$ are independent when their joint law is the product
-of their marginal laws.
 For random variables $Y_\varepsilon,Y$, write $Y_\varepsilon\Longrightarrow Y$
 when their laws converge against bounded continuous test functions.
 Set $\alpha_i=\gamma_j=e^{-\varepsilon/2}$ in the $n\times n$ geometric
@@ -661,6 +659,16 @@ transport data.
 \end{exercise}
 
 \begin{exercise}[Extended Airy kernels, the Airy process, and KPZ scaling]
+Let
+\[
+\mathcal H_{\rm Ai}=-\frac{d^2}{dx^2}+x
+\]
+be the self-adjoint Airy operator on $L^2(\R)$ defined by its closed
+quadratic form.  Verify in the generalized spectral sense that
+\[
+\mathcal H_{\rm Ai}\operatorname{Ai}(x+\lambda)
+=-\lambda\operatorname{Ai}(x+\lambda).
+\]
 For times $s,t\in\R$, define the extended Airy kernel by
 \[
 K_{\rm Ai}^{\rm ext}(s,x;t,y)=
@@ -675,21 +683,25 @@ e^{-\lambda(s-t)}\operatorname{Ai}(x+\lambda)
 \]
 For $t_1<\cdots<t_m$ and thresholds $a_1,\ldots,a_m$, let $\chi$ act on
 $\bigoplus_{j=1}^mL^2(\R)$ by multiplication by
-$\mathbf1_{(a_j,\infty)}$ in the $j$th summand.  Define the Airy process
-$\mathcal A_2$ by
+$\mathbf1_{(a_j,\infty)}$ in the $j$th summand.  Use as theorem input the
+Airy-process existence theorem~\cite{praehofer-spohn}: the following
+Fredholm determinants are consistent probability distributions and
+determine a stationary process with continuous paths, denoted
+$\mathcal A_2$:
 \[
 \mathbb P\bigl(\mathcal A_2(t_j)\leq a_j, 1\leq j\leq m\bigr)
 =\det(I-\chi K_{\rm Ai}^{\rm ext}\chi).
 \]
-Prove from the semigroup identity for the Airy operator that these
-finite-dimensional distributions are consistent, and recover
+Use the spectral semigroup identity for $\mathcal H_{\rm Ai}$ to verify
+their marginal consistency, and recover
 $\mathbb P(\mathcal A_2(t)\leq a)=F_2(a)$.
 
 For exponential last-passage percolation, put
 \[
 a_N(u)=\lfloor2^{2/3}uN^{2/3}\rfloor.
 \]
-Use as theorem input the multipoint edge theorem~\cite{corwin-kpz} to
+Use as theorem input the multipoint PNG/last-passage edge theorem in its
+exponential specialization~\cite{praehofer-spohn} to
 obtain, in finite-dimensional distributions,
 \[
 \frac{G_{\exp}(N+a_N(u),N-a_N(u))-4N}

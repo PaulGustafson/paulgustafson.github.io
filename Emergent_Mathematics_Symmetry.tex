@@ -338,21 +338,16 @@ $\spec_A(a)\subseteq[0,\infty)$.
 \end{exercise}
 
 
-\begin{exercise}[Positive functionals and scalar measures]
-For a locally compact Hausdorff space $X$, a linear functional
-$\varphi:C_c(X)\to\C$ is \emph{positive} when $\varphi(f)\geq0$ for every
-real-valued $f\geq0$.
-
-Let $X$ be locally compact Hausdorff.  Use as theorem input the positive
-Riesz--Markov theorem~\cite{folland-real}: every positive linear functional
-$\varphi:C_c(X)\to\C$ that is bounded on functions supported in each compact
-set has a unique regular Borel measure $\mu_\varphi$ satisfying
-\[
-\varphi(f)=\int_Xf\,d\mu_\varphi.
-\]
-\end{exercise}
-
 \begin{exercise}[Complex Riesz--Markov representation]
+For a locally compact Hausdorff space $X$, call a linear functional
+$\varphi:C_c(X)\to\C$ \emph{positive} when $\varphi(f)\geq0$ for every
+real-valued $f\geq0$.  Use as theorem input the positive Riesz--Markov
+theorem~\cite{folland-real}: if such a functional is bounded on functions
+supported in each compact set, then there is a unique regular Borel measure
+$\mu_\varphi$ satisfying $\varphi(f)=\int_Xf\,d\mu_\varphi$.  Prove that
+$\mu_\varphi$ is positive and that its values on compact sets recover the
+local bounds of $\varphi$.
+
 Use as theorem input the complex Riesz--Markov
 theorem~\cite{folland-real}: every
 $\varphi\in C_0(X)^*$ has a unique finite complex regular measure
@@ -621,7 +616,6 @@ self-adjoint, prove $U_t=e^{-itA}$, and prove uniqueness of $A$.
 
 
 \begin{exercise}[Spectral lines and time evolution]
-\label{ex:spectral-lines}
 Let $A$ be self-adjoint, let $B\in B(H)$, and set
 $B(t)=e^{itA/\hbar}Be^{-itA/\hbar}$.  For eigenvalues $\lambda,\mu$ of
 $A$, write $P_\lambda=E_A(\{\lambda\})$ and prove
@@ -762,6 +756,14 @@ normalized by
 \[
 \operatorname{Ai}(x)\sim
 \frac{x^{-1/4}}{2\sqrt\pi}e^{-2x^{3/2}/3}
+\qquad(x\to+\infty).
+\]
+Use as theorem input its oscillatory continuation
+\[
+\operatorname{Ai}(-x)
+=\frac{x^{-1/4}}{\sqrt\pi}
+\left(\sin\left(\frac23x^{3/2}+\frac\pi4\right)
++O(x^{-3/2})\right)
 \qquad(x\to+\infty).
 \]
 Let $a_n>0$ be determined by
@@ -1046,7 +1048,6 @@ prove
 \end{exercise}
 
 \begin{exercise}[Liouville's theorem]
-\label{ex:liouville-theorem}
 On a $2n$-dimensional symplectic manifold, prove that Hamiltonian flow
 preserves $\omega$, the volume form $\omega^n/n!$, and every density
 depending only on the Hamiltonian.  On a symplectic vector space, prove
@@ -1338,26 +1339,8 @@ sections of $L$.
 \end{exercise}
 
 
-\begin{exercise}[Coadjoint-orbit quantization, coherent-state harmonic analysis, and spin spectroscopy]
-On the distinguished Hermitian space $\C^2$, let the Pauli endomorphisms
-$\sigma_1,\sigma_2,\sigma_3$ be normalized by
-\[
-\sigma_a\sigma_b
-=\delta_{ab}I+i\sum_{c=1}^3\varepsilon_{abc}\sigma_c,
-\qquad
-\operatorname{Tr}(\sigma_a\sigma_b)=2\delta_{ab}.
-\]
+\begin{exercise}[Coadjoint-orbit harmonic analysis]
 \begin{enumerate}[label=(\alph*)]
-\item
-Let $SU(2)$ act by conjugation on the real vector space of traceless
-Hermitian endomorphisms of $\C^2$.  Use
-$x\mapsto x_1\sigma_1+x_2\sigma_2+x_3\sigma_3$ to identify this Euclidean
-space with $\R^3$ and prove that the resulting homomorphism
-\[
-SU(2)\longrightarrow SO(3)
-\]
-is surjective with kernel $\{\pm\id\}$.
-
 \item Let $\mathcal O_L$ be the coadjoint sphere of radius $L>0$ with its
 Kirillov form, and regard it as an $SU(2)$ orbit through
 the spin covering.  Put
@@ -1365,9 +1348,9 @@ the spin covering.  Put
 N=\frac{2L}{\hbar}.
 \]
 Assume $N\in\mathbb Z_{>0}$ and use as theorem input~\cite{woodhouse} that
-$\mathcal O_L$ has an
-$SU(2)$-invariant complex structure $J$, an endomorphism of its tangent
-bundle satisfying $J^2=-\id$.  Let $T^{0,1}\mathcal O_L$ be the
+$\mathcal O_L$ has the $SU(2)$-invariant complex structure $J$ compatible
+with the Kirillov form and positive orbit metric; thus $J^2=-\id$ and
+$\omega(-,J-)$ is positive definite.  Let $T^{0,1}\mathcal O_L$ be the
 $-i$-eigenspace of the complex-linear extension of $J$.  Call a section
 $s$ of the prequantum line bundle \emph{polarized} when
 $\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Use as theorem
@@ -1380,27 +1363,9 @@ V_j=\operatorname{Sym}^N(\C^2),
 Call this polarized-section space the \emph{geometric quantization} of
 $\mathcal O_L$.
 The action on $V_j$ is induced from the tensor-power action on
-$(\C^2)^{\otimes N}$.
-
-\item For
-\[
-u_\theta=
-\begin{pmatrix}e^{i\theta/2}&0\\0&e^{-i\theta/2}\end{pmatrix},
-\]
-derive the character identity
-\[
-\chi_j(u_\theta)
-=\sum_{m=-j}^{j}e^{im\theta}
-=\frac{\sin((2j+1)\theta/2)}{\sin(\theta/2)}
-=U_{2j}(\cos(\theta/2)).
-\]
-Define the Chebyshev polynomials of the second kind by this identity and
-derive
-\[
-U_0(t)=1,
-\qquad U_1(t)=2t,
-\qquad U_{n+1}(t)=2tU_n(t)-U_{n-1}(t).
-\]
+$(\C^2)^{\otimes N}$.  Put $u_\theta=t_{\theta/2}$ and use
+$\chi_j(u_\theta)=U_{2j}(\cos(\theta/2))$ to identify the quantized orbit
+with the spin-$j$ character.
 
 \item Write $\rho_j$ for the action on $V_j$.  Let $P_j$ be the orthogonal
 projection onto its highest-weight line, let $d\mu$ be the invariant probability measure on
@@ -1435,6 +1400,14 @@ $\widehat H_B=-\gamma B J_3$, derive
 E_m=-\gamma Bm\hbar,
 \qquad m=-j,-j+1,\ldots,j.
 \]
+Use the Weyl character to derive the normalized coherent rotation amplitude
+\[
+\mathcal A_j(t)
+=\frac1{2j+1}\Tr e^{-it\widehat H_B/\hbar}
+=\frac{U_{2j}(\cos(\gamma Bt/2))}{2j+1},
+\]
+and determine its exact destructive-interference times from the zeros of
+$U_{2j}$.
 Deduce the $2j+1$ resolved Stern--Gerlach outcomes, the Zeeman spacing
 $|\gamma|B\hbar$, and the $4\pi$ restoration measured by spin
 interferometry, stating the field-gradient, weak-coupling,
@@ -1512,8 +1485,10 @@ $\Delta=\sum_j\partial_j^2$.
 \end{exercise}
 
 \begin{exercise}[Haar measure, convolution, and regular representations]
-Every locally compact group below is equipped with a chosen nonzero left
-Haar measure $\mu$.  Haar measure on a compact group is normalized by
+Use as theorem input the Haar theorem: every locally compact group has a
+nonzero left-invariant regular Borel measure, unique up to a positive
+scalar.  Every locally compact group below is equipped with one such
+measure $\mu$, and Haar measure on a compact group is normalized by
 $\mu(G)=1$.
 
 Let $G$ be a locally compact group with left Haar measure $\mu$.  For
@@ -1580,8 +1555,9 @@ f=\sum_{k\in\Z}\widehat f(k)e^{ikx},
 \end{exercise}
 
 \begin{exercise}[Euclidean Fourier inversion and tempered distributions]
-The \emph{Schwartz space} $\mathcal S(V)$ consists of the smooth functions
-$f$ satisfying
+For a finite-dimensional real Euclidean space $V$, extend the Schwartz
+condition already used on $\mathbb R$ by letting $\mathcal S(V)$ consist
+of the smooth functions $f$ satisfying
 \[
 \sup_{q\in V}(1+\|q\|)^m\|d^rf(q)\|<\infty
 \]
@@ -1777,15 +1753,14 @@ For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
 \[
 P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
 \]
-\label{ex:poisson-summation}
 Prove that $P_\Gamma f$ converges with all derivatives and compute its
 Fourier coefficients. With the Fourier-transform normalization above, prove
 \[
 P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
  \sum_{\xi\in\Gamma^{\rm rec}}\mathcal Ff(\xi)e^{i\xi\cdot x}.
 \]
-Set $x=0$ to obtain the Poisson summation formula. Derive the Jacobi theta
-transformation by applying it to a Gaussian.
+Set $x=0$ to obtain the Poisson summation formula and compute the transform
+of a Gaussian in the stated normalization.
 \end{exercise}
 
 \begin{exercise}[Crystal diffraction and Bragg peaks]
@@ -1938,7 +1913,10 @@ L^2(G)\cong
 H_\pi\otimes H_\pi^\vee,
 \]
 with the left regular representation acting as
-$\pi\otimes I_{H_\pi^\vee}$ on the $\pi$-summand.  For
+$I_{H_\pi}\otimes\pi^\vee$ on the coefficient summand
+$C_\pi(H_\pi\otimes H_\pi^\vee)$.  Equivalently, after relabelling this
+summand by its left type, it is a direct sum of $\dim H_\pi$ copies of
+$\pi^\vee$.  For
 $f\in L^2(G)\subseteq L^1(G)$, define
 $\widehat f(\pi)=\int_Gf(g)\pi(g)^*\,dg$ and prove
 \[
@@ -1954,20 +1932,18 @@ the density exercise.
 \end{exercise}
 
 \begin{exercise}[Character inversion]
-Let $G$ be compact with normalized Haar measure, and let $f$ be a finite
-linear combination of irreducible characters.  For an irreducible unitary
-representation $\pi$, set
-\[
-\widehat f(\pi)=\int_G f(s)\pi(s^{-1})\,ds.
-\]
+Let $G$ be compact with normalized Haar measure, let $f$ be a finite
+linear combination of irreducible characters, and use the operator-valued
+Fourier coefficients defined above.
 If $f$ is central, use Schur's lemma to write
 $\widehat f(\pi)=c_\pi I_{d_\pi}$.  Derive
 \[
 f(e)=\sum_{\pi\in\widehat G}d_\pi\Tr(\widehat f(\pi))
 =\sum_{\pi\in\widehat G}d_\pi^2c_\pi
 \]
-and prove that convolution by $f$ acts by the scalar $c_\pi$ on every
-copy of $\pi$ in $L^2(G)$.
+and prove that left convolution by $f$ acts by the scalar $c_\pi$ on
+$C_\pi(H_\pi\otimes H_\pi^\vee)$, equivalently by $c_{\pi^\vee}$ on
+every copy of the left type $\pi$ in $L^2(G)$.
 \end{exercise}
 
 \begin{exercise}[Irreducible representations of $SU(2)$]
@@ -1975,6 +1951,34 @@ Define
 \[
 SU(2)=\{U\in\operatorname{End}(\C^2):U^*U=\id,\ \det U=1\}.
 \]
+Its Lie algebra is
+\[
+\mathfrak{su}(2)=\{X\in\operatorname{End}(\C^2):X^*=-X,\ \Tr X=0\}.
+\]
+Let the distinguished Pauli endomorphisms satisfy
+\[
+\sigma_a\sigma_b=\delta_{ab}I
++i\sum_{c=1}^3\varepsilon_{abc}\sigma_c,
+\qquad \Tr(\sigma_a\sigma_b)=2\delta_{ab},
+\]
+put $e_a=-i\sigma_a/2$, and, in a smooth unitary representation $\pi$,
+define the self-adjoint angular-momentum operators
+\[
+J_a=i\hbar\,d\pi(e_a),\qquad
+J_\pm=J_1\pm iJ_2,\qquad
+J^2=J_1^2+J_2^2+J_3^2.
+\]
+Prove
+$[J_a,J_b]=i\hbar\varepsilon_{abc}J_c$ and derive the raising and
+lowering relations with $J_3$.
+
+Let $SU(2)$ act by conjugation on the real Euclidean space of traceless
+Hermitian endomorphisms, with inner product
+$\langle A,B\rangle=\tfrac12\Tr(AB)$.  Prove that the induced homomorphism
+\[
+SU(2)\longrightarrow SO(3)
+\]
+is surjective with kernel $\{\pm I\}$.
 For a complex vector space $V$, set $\operatorname{Sym}^0(V)=\C$ and, for
 $N\geq1$, define
 \[
@@ -1993,7 +1997,9 @@ complex representation is isomorphic to exactly one $V_j$, that it has
 dimension $2j+1$, and that it has
 $J_3$-eigenvalues $m\hbar$ for $m=-j,-j+1,\ldots,j$. Compute the spectrum of
 $J^2=J_1^2+J_2^2+J_3^2$. For $j=\frac12$, relate the two $J_3$ outcomes to
-the two Stern--Gerlach beams.
+the two Stern--Gerlach beams.  For a calibrated uniform field in the third
+direction, define the Zeeman Hamiltonian
+$\widehat H_B=-\gamma BJ_3$ and derive its spectral values and spacing.
 \end{exercise}
 
 \begin{exercise}[Weyl integration, character formulas, and orbital Fourier transforms]
@@ -2020,6 +2026,13 @@ For the representations $V_j$ above, compute
 =\frac{\sin((2j+1)\phi)}{\sin\phi}
 =U_{2j}(\cos\phi)
 \]
+where the Chebyshev polynomial of the second kind is defined by
+\[
+U_n(\cos\phi)=\frac{\sin((n+1)\phi)}{\sin\phi}
+\]
+with its endpoint values supplied by continuity.  Derive
+$U_0(x)=1$, $U_1(x)=2x$, and
+$U_{n+1}(x)=2xU_n(x)-U_{n-1}(x)$,
 and use the Weyl formula to prove the character orthogonality relations
 directly.  For normalized area measure $d\mu$ on $S^2$, prove
 \[
@@ -2077,7 +2090,11 @@ and Gauss's summation
 =\frac{\Gamma(c)\Gamma(c-a-b)}
 {\Gamma(c-a)\Gamma(c-b)}.
 \]
-State the parameter conditions for the integral and the summation.
+Prove the integral under
+$\operatorname{Re}c>\operatorname{Re}b>0$ and the summation under
+$\operatorname{Re}(c-a-b)>0$, initially with the gamma factors in their
+holomorphic domains, and then extend both identities throughout their common
+meromorphic domains.
 \end{exercise}
 
 \begin{exercise}[Kummer, Whittaker, and Laguerre functions]
@@ -2176,21 +2193,21 @@ $SO(2)$-invariant subspace of $L^2(SO(3))$. Use Peter--Weyl to obtain
 \[
 L^2(S^2)\cong\mathop{\widehat{\bigoplus}}_{\ell=0}^\infty V_\ell
 \]
-For normalized $J_3$-eigenstates $|\ell m\rangle$, define the Wigner
+Choose the normalized $J_3$-eigenstates by the Condon--Shortley convention
+\[
+J_-|\ell m\rangle
+=\hbar\sqrt{(\ell+m)(\ell-m+1)}\,|\ell,m-1\rangle.
+\]
+Define the Wigner
 matrix coefficients
 \[
 D^\ell_{mn}(g)=\langle \ell m|\pi_\ell(g)|\ell n\rangle.
 \]
 Prove that the functions
-$Y_{\ell m}\propto D^\ell_{m0}$, $-\ell\leq m\leq\ell$, form a complete
-orthogonal family in $V_\ell$. For the unit round sphere, set
-\[
-\Delta_{S^2}
-=\frac1{\sin\theta}\partial_\theta
-  \bigl(\sin\theta\,\partial_\theta\bigr)
- +\frac1{\sin^2\theta}\partial_\phi^2.
-\]
-Derive
+$Y_{\ell m}\propto\overline{D^\ell_{m0}}$,
+$-\ell\leq m\leq\ell$, form a complete orthogonal family in $V_\ell$.
+For the intrinsic Laplace--Beltrami operator of the unit round metric,
+derive
 $\Delta_{S^2}Y_{\ell m}=-\ell(\ell+1)Y_{\ell m}$ and completeness of the
 spherical harmonics.  Derive the Jacobi realization
 \[
@@ -2265,12 +2282,8 @@ measured intensity, and final-state scattering corrections.
 \end{exercise}
 
 \begin{exercise}[Clebsch--Gordan and Wigner coefficients]
-Choose the normalized $J_3$-eigenstates in each irreducible
-angular-momentum representation by the Condon--Shortley ladder convention
-\[
-J_-|jm\rangle
-=\hbar\sqrt{(j+m)(j-m+1)}\,|j,m-1\rangle.
-\]
+Use the normalized $J_3$-eigenstates fixed by the Condon--Shortley ladder
+convention above.
 Define
 \[
 |jm\rangle
@@ -2500,6 +2513,15 @@ For $\lambda\in\R$, define
 =\frac1{2\pi}\int_0^{2\pi}
 (\cosh r-\sinh r\cos\theta)^{-1/2-i\lambda}\,d\theta.
 \]
+For $z>1$ and $\nu\in\C$, define the Legendre function of the first kind
+by analytic continuation of
+\[
+P_\nu(z)
+={}_2F_1\!\left(
+\begin{matrix}-\nu,\nu+1\\1\end{matrix};\frac{1-z}{2}\right),
+\qquad P_\nu(1)=1,
+\]
+along the real interval $[1,\infty)$.
 Interpret the integrand as a complex power of the hyperbolic Poisson kernel.
 Prove that $\varphi_\lambda$ is real-valued, even in $\lambda$, normalized
 at $r=0$, and satisfies the spherical product formula.  Differentiate under
@@ -2673,8 +2695,13 @@ normalized matrix coefficient on $a_r$ is the spherical function
 =\varphi_\lambda(r)
 =P_{-1/2+i\lambda}(\cosh r).
 \]
-Show that the Casimir operator, normalized to agree with the
-Laplace--Beltrami operator on $K$-fixed vectors, acts by
+Let $B$ be the invariant bilinear form on $\mathfrak{sl}_2(\R)$ whose
+induced metric on $G/K$ has curvature $-1$.  The inverse pairing gives a
+canonical tensor $C_B\in\mathfrak g\otimes\mathfrak g$; define the
+\emph{Casimir element} $\Omega_B\in U(\mathfrak g)$ as its image under
+multiplication.  Prove that it is central and normalize its sign so that
+the induced operator on $K$-fixed functions is
+$\Delta_{\mathbb H^2}$.  Show that it acts by
 $-(\lambda^2+1/4)$.
 
 For $0<\sigma<1/2$, replace $i\lambda$ in the covariance law by
@@ -2696,7 +2723,12 @@ $A_\sigma$.
 \end{exercise}
 
 \begin{exercise}[Holomorphic discrete series]
-Use the Cayley transform to conjugate $G$ to
+Put
+\[
+C=\frac1{\sqrt2}
+\begin{pmatrix}1&-i\\1&i\end{pmatrix}.
+\]
+Use the Cayley transform $g\mapsto CgC^{-1}$ to conjugate $G$ to
 \[
 SU(1,1)=\left\{
 h=\begin{pmatrix}\alpha&\beta\\\overline\beta&\overline\alpha\end{pmatrix}:
@@ -2709,6 +2741,12 @@ h\cdot z=\frac{\alpha z+\beta}
 \qquad
 j(h,z)=\overline\beta z+\overline\alpha.
 \]
+Verify
+\[
+Ck_\theta C^{-1}
+=\begin{pmatrix}e^{-i\theta}&0\\0&e^{i\theta}\end{pmatrix},
+\]
+which fixes the signs of the $K$-weights below.
 Prove the cocycle identity for $j$.  For an integer $n\geq2$, let
 \[
 \mathcal A_n^2(\mathbb D)
@@ -2782,14 +2820,15 @@ Use as theorem input the group Plancherel theorem~\cite{knapp-representation} in
 $\int_Kdk=1$: $L^2(G)$ decomposes into Hilbert--Schmidt operator spaces
 over the two principal series and the discrete series, while the
 complementary series, limit representations, and trivial representation
-have Plancherel measure zero.  Show that the two continuous densities are,
+have Plancherel measure zero.  In this theorem input, the two continuous
+densities are,
 up to the common Haar-normalization constant,
 \[
 \lambda\tanh(\pi\lambda)\,d\lambda,
 \qquad
 \lambda\coth(\pi\lambda)\,d\lambda,
 \]
-for even and odd parity, and that the formal degree of $D_n^\pm$ is
+for even and odd parity, and the formal degree of $D_n^\pm$ is
 proportional to $n-1$.  Write the resulting Plancherel norm and inversion
 formula for $f(e)$.
 
@@ -2802,6 +2841,13 @@ discrete-series towers.
 \end{exercise}
 
 \begin{exercise}[Associated Legendre functions and hyperbolic-disk modes]
+For $m\in\Z_{\geq0}$, $z>1$, and $\nu\in\C$, define
+\[
+P_\nu^{-m}(z)
+=\frac1{m!}\left(\frac{z-1}{z+1}\right)^{m/2}
+{}_2F_1\!\left(
+\begin{matrix}-\nu,\nu+1\\m+1\end{matrix};\frac{1-z}{2}\right).
+\]
 In geodesic polar coordinates, derive the full Laplace--Beltrami operator
 \[
 \Delta_{\mathbb H^2}
@@ -2896,25 +2942,25 @@ For the $\{3,7\}$ tessellation used in
 {Lenggenhager et al., \emph{Nature Communications} \textbf{13} (2022)},
 let $Q_R$ be the graph Laplacian in their sign convention, put
 $L_R=-Q_R\geq0$, and write $\Lambda_j(L_R)$ for its eigenvalues.  The
-experiment uses curvature $-4$ and lattice parameter
-$h=\tanh(0.545275)$.  At an interior vertex $p$, define
+experiment uses curvature $-4$, geodesic edge length $a=0.545275$, and disk
+coordinate radius $h=\tanh a$.  At an interior vertex $p$, define
 \[
 (Q_Rf)(p)=\sum_{q\sim p}\bigl(f(q)-f(p)\bigr).
 \]
 For the seven tangent displacements $v_j$ to neighboring vertices, treat
-$h$ as the long-wavelength expansion parameter, use the continuum
-normalization $\|v_j\|=h$, and verify the isotropic moment
+$a$ as the long-wavelength expansion parameter, use the continuum
+normalization $\|v_j\|=a$, and verify the isotropic moment
 identities
 \[
 \sum_{j=1}^7v_j=0,
 \qquad
-\sum_{j=1}^7v_j\otimes v_j=\frac72h^2 I.
+\sum_{j=1}^7v_j\otimes v_j=\frac72a^2 I.
 \]
 Apply the covariant Taylor expansion of $f(\exp_pv_j)$ to prove the
 long-wavelength calibration
 \[
 \Lambda_j(L_R)
-=\frac74h^2\nu_j^{(-4)}+O(h^3),
+=\frac74a^2\nu_j^{(-4)}+O(a^3),
 \qquad
 \nu_j^{(-4)}=4\nu_j^{(-1)},
 \]
@@ -2933,8 +2979,8 @@ that the measured circuit resonance satisfies
 =\frac1{\sqrt{LC\,\Lambda_j(L_R)}},
 \qquad
 \nu_j^{(-1)}
-\sim\frac{\Lambda_j(L_R)}{7h^2}
-=\frac1{28\pi^2h^2LC(f_j^{\rm circ})^2}.
+\sim\frac{\Lambda_j(L_R)}{7a^2}
+=\frac1{28\pi^2a^2LC(f_j^{\rm circ})^2}.
 \]
 Use this calibration to compare the inferred parameters
 $\lambda_{n\ell}$ and measured voltage eigenmodes with the associated
@@ -2995,12 +3041,14 @@ Let $\Gamma=PSL_2(\Z)$ act on the upper half-plane and give
 $\Gamma\backslash\mathbb H$ the invariant measure $d\mu=y^{-2}dx\,dy$.
 Put
 \[
-\Delta_{\mathbb H}=-y^2(\partial_x^2+\partial_y^2).
+\mathcal L_{\mathbb H}=-\Delta_{\mathbb H^2}
+=-y^2(\partial_x^2+\partial_y^2).
 \]
-A \emph{Maass cusp form} with spectral parameter $r$ is a smooth
+A \emph{Maass cusp form} with spectral parameter
+$r\in\R_{\geq0}\cup i(0,\tfrac12)$ is a smooth
 $\Gamma$-invariant square-integrable function $u$ satisfying
 \[
-\Delta_{\mathbb H}u=(\tfrac14+r^2)u,
+\mathcal L_{\mathbb H}u=(\tfrac14+r^2)u,
 \qquad
 \int_0^1u(x+iy)\,dx=0.
 \]
@@ -3026,7 +3074,7 @@ E(z,s)=\frac12
 \]
 Prove absolute convergence, $\Gamma$-invariance, and
 \[
-\Delta_{\mathbb H}E(z,s)=s(1-s)E(z,s).
+\mathcal L_{\mathbb H}E(z,s)=s(1-s)E(z,s).
 \]
 Use Poisson summation to derive its Fourier expansion and identify the
 nonconstant terms as multiples of
@@ -3064,7 +3112,12 @@ identity, elliptic, parabolic, and hyperbolic terms, with hyperbolic term
 \frac{\ell_\gamma}{2\sinh(m\ell_\gamma/2)}
 g(m\ell_\gamma).
 \]
-Recover the Weyl area term from the identity contribution.  Choose a
+The identity contribution is
+\[
+\frac{\operatorname{Area}(\Gamma\backslash\mathbb H)}{4\pi}
+\int_\R r\tanh(\pi r)h(r)\,dr.
+\]
+Recover the Weyl area term from it.  Choose a
 family of functions $g$ concentrated near a positive length $L$ and prove
 that the oscillatory remainder in the smoothed spectral density detects
 the primitive lengths and their repetitions.  Conversely, choose $h$
@@ -3080,15 +3133,22 @@ data may be compared with the closed-geodesic lengths.
 \end{exercise}
 
 \begin{exercise}[Lattice theta series]
-Let $L\subset\R^d$ be a lattice with integral dual $L^\vee$.
+Let $L\subset\R^d$ be a full Euclidean lattice and define
+\[
+L^\vee=\{y\in\R^d:\langle x,y\rangle\in\Z
+\text{ for every }x\in L\}.
+\]
+Call $L$ integral when $L\subseteq L^\vee$, unimodular when
+$L=L^\vee$, and even when $\|x\|^2\in2\Z$ for every $x\in L$.
 For $\tau$ in the upper half-plane and $q=e^{2\pi i\tau}$, its theta series
 is
 \[
 \Theta_L(\tau)=\sum_{x\in L}q^{\|x\|^2/2}.
 \]
-Its coefficient of $q^n$ counts lattice vectors of squared length $2n$.
+When $L$ is even, its coefficient of $q^n$ counts lattice vectors of
+squared length $2n$.
 
-Apply Exercise~\ref{ex:poisson-summation} to a Gaussian and prove
+Apply Poisson summation to a Gaussian and prove
 \[
 \Theta_L(-1/\tau)
 =\frac{(-i\tau)^{d/2}}{\vol(L)}\Theta_{L^\vee}(\tau),
@@ -3164,6 +3224,8 @@ $\zeta$.  Use Fourier series and Parseval to prove
 \zeta(2)=\frac{\pi^2}{6},
 \qquad
 \zeta(4)=\frac{\pi^4}{90},
+\qquad
+\zeta(6)=\frac{\pi^6}{945},
 \]
 and then deduce
 \[
@@ -3232,8 +3294,7 @@ L(f,s)=\sum_{n\geq1}\frac{a_n}{n^s}
 =\prod_p\left(1-a_pp^{-s}+p^{k-1-2s}\right)^{-1}
 \]
 in its half-plane of absolute convergence.  Apply this to
-$\Delta=\sum_{n\geq1}\tau(n)q^n$ and compute $\tau(mn)$ for coprime
-$m,n$ and the recurrence for $\tau(p^r)$.
+every normalized eigenform available at this stage.
 
 For an arithmetic hyperbolic resonator on which a finite family of Hecke
 correspondences is implemented as commuting calibrated operators, prove
@@ -3279,7 +3340,6 @@ is not an instance of a scalar integral-weight transformation law.
 \end{exercise}
 
 \begin{exercise}[Jacobi triple product and eta transformations]
-\label{ex:theta-eta-transformations}
 Establish the Jacobi triple product, first as an identity of formal Laurent
 series,
 \[
@@ -3347,6 +3407,10 @@ M_{12}=\C E_4^3\oplus\C\Delta,
 \qquad
 \Delta=\frac{E_4^3-E_6^2}{1728}.
 \]
+Deduce that $S_{12}=\C\Delta$, so the Hecke operators make
+$\Delta=\sum_{n\geq1}\tau(n)q^n$ a normalized simultaneous eigenform.
+Use the Hecke relations to compute $\tau(mn)$ for coprime $m,n$ and the
+recurrence for $\tau(p^r)$.
 Show that $j$ has one simple pole on $X_{PSL_2(\Z)}$ and hence induces an
 isomorphism with $\mathbb P^1(\C)$.  Expand the products and prove that
 \[
@@ -3356,10 +3420,7 @@ so $J$ is the normalized Hauptmodul for $PSL_2(\Z)$.
 \end{exercise}
 
 \begin{exercise}[Leech theta series and its first diffraction shell]
-\label{ex:leech-theta-series}
-For a Euclidean lattice $L$, call $L$ integral when $L\subseteq L^\vee$,
-unimodular when $L=L^\vee$, and even when $\|x\|^2\in2\Z$ for every $x\in L$.
-If the same lattice is used as a crystal lattice, its physical reciprocal
+If an integral lattice $L$ is used as a crystal lattice, its physical reciprocal
 lattice is $L^{\rm rec}=2\pi L^\vee$.
 
 Call a vector of squared length $2$ in an integral Euclidean lattice a
@@ -3690,7 +3751,7 @@ invariance of $\sum_a|\chi_a|^2$.
 \end{exercise}
 
 \begin{exercise}[Eta asymptotics and bosonic thermodynamics]
-Use Exercise~\ref{ex:theta-eta-transformations} to prove
+Use the theta and eta transformation laws to prove
 \[
 \prod_{j\geq1}(1-e^{-tj})^{-1}
 \sim\sqrt{\frac{t}{2\pi}}
@@ -3763,7 +3824,14 @@ and define the resolved two-sided degeneracy
 \]
 Use the explicit theta-product formulas and the $S$-transformation to
 control each character in a complex neighborhood of the positive real
-saddle.  Bound the complementary arcs as in the partition calculation and
+saddle.  Use as theorem input the uniform minor-arc estimate that, for
+each Ising character and some $\delta>0$, the complementary coefficient
+integral is
+\[
+O\!\left(\exp\!\left[
+2\pi\sqrt{\frac{cN}{6}}-\delta\sqrt N\right]\right).
+\]
+Combine it with the saddle contribution and
 prove, as $N,\bar N\to\infty$ with $N/\bar N$ in a fixed compact subset of
 $(0,\infty)$,
 \[
@@ -3816,7 +3884,7 @@ to prove
 \Tr_{\mathcal F_L}q^{L_0-d/24}
 =\frac{\Theta_L(\tau)}{\eta(\tau)^d}.
 \]
-\item For the Leech lattice, use Exercise~\ref{ex:leech-theta-series} to derive
+\item For the Leech lattice, use its theta series to derive
 \[
 \Tr_{\mathcal F_\Lambda}q^{L_0-1}
 =\frac{\Theta_\Lambda}{\eta^{24}}=J+24.
