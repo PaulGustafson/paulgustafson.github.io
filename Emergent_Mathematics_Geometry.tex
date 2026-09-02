@@ -1286,35 +1286,9 @@ verify that the positive coroot is $2\varpi^\vee$ and hence
 \]
 \end{exercise}
 
-\begin{exercise}[Regular holonomic differential equations and perverse sheaves]
-Let $X$ be a complex algebraic variety with a finite stratification by
-smooth locally closed subvarieties.  A bounded constructible complex on
-$X$ is a finite cochain complex of sheaves whose cohomology sheaves have
-finite-dimensional locally constant restrictions to the strata.  Define
-$D_c^b(X)$ by inverting the quasi-isomorphisms of such complexes.  For the
-inclusion $i_S:S\hookrightarrow X$ of a stratum, use the derived stalk
-$i_S^*$ and costalk $i_S^!$.  Call $\mathcal F\in D_c^b(X)$
-\emph{perverse} for the middle perversity when
-\[
-H^k(i_S^*\mathcal F)=0\quad(k>-\dim_\C S),
-\qquad
-H^k(i_S^!\mathcal F)=0\quad(k<-\dim_\C S).
-\]
-Use as theorem input the basic perverse-sheaf and intermediate-extension
-theorems~\cite{bbd-perverse}: perverse complexes form an abelian category,
-Verdier duality preserves it, and for a local system $\mathcal L$ on a
-smooth dense stratum $j:S\hookrightarrow\overline S$ there is a unique
-perverse intermediate extension
-\[
-\operatorname{IC}(\overline S,\mathcal L)
-=j_{!*}\bigl(\mathcal L[\dim_\C S]\bigr)
-\]
-having no nonzero subobject or quotient supported on the boundary.
-Prove that when $\overline S$ is smooth and $\mathcal L$ extends to a local
-system $\overline{\mathcal L}$ on $\overline S$, this is
-$\overline{\mathcal L}[\dim_\C S]$.
-
-Now suppose that $X$ is smooth of complex dimension $d$, and put
+\begin{exercise}[Holonomic differential equations]
+Let $X$ be a smooth complex algebraic variety of complex dimension $d$,
+and put
 $\mathcal D_X=\mathcal D_{\mathcal O_X}$ with its order filtration
 $F_\bullet\mathcal D_X$.  For a coherent left $\mathcal D_X$-module
 $\mathcal M$, call an increasing filtration $F_\bullet\mathcal M$
@@ -1364,6 +1338,50 @@ Denote the derived
 category of complexes with regular holonomic cohomology by
 $D^b_{\rm rh}(\mathcal D_X)$.
 
+Give $\mathcal O_X$ the filtration
+\[
+F_p\mathcal O_X=
+\begin{cases}
+0,&p<0,\\
+\mathcal O_X,&p\geq0.
+\end{cases}
+\]
+Prove that it is good, identify
+$\operatorname{Ch}(\mathcal O_X)$ with the zero section of $T^*X$, and
+deduce that $\mathcal O_X$ is holonomic.  Pull its connection back to a
+smooth curve and use the lattice $\mathcal O_{\overline C}$ to prove that
+$\mathcal O_X$ is regular holonomic.
+\end{exercise}
+
+\begin{exercise}[Perverse sheaves and the Riemann--Hilbert correspondence]
+Let $X$ be a complex algebraic variety with a finite stratification by
+smooth locally closed subvarieties.  A bounded constructible complex on
+$X$ is a finite cochain complex of sheaves whose cohomology sheaves have
+finite-dimensional locally constant restrictions to the strata.  Define
+$D_c^b(X)$ by inverting the quasi-isomorphisms of such complexes.  For the
+inclusion $i_S:S\hookrightarrow X$ of a stratum, use the derived stalk
+$i_S^*$ and costalk $i_S^!$.  Call $\mathcal F\in D_c^b(X)$
+\emph{perverse} for the middle perversity when
+\[
+H^k(i_S^*\mathcal F)=0\quad(k>-\dim_\C S),
+\qquad
+H^k(i_S^!\mathcal F)=0\quad(k<-\dim_\C S).
+\]
+Use as theorem input the basic perverse-sheaf and intermediate-extension
+theorems~\cite{bbd-perverse}: perverse complexes form an abelian category,
+Verdier duality preserves it, and for a local system $\mathcal L$ on a
+smooth dense stratum $j:S\hookrightarrow\overline S$ there is a unique
+perverse intermediate extension
+\[
+\operatorname{IC}(\overline S,\mathcal L)
+=j_{!*}\bigl(\mathcal L[\dim_\C S]\bigr)
+\]
+having no nonzero subobject or quotient supported on the boundary.
+Prove that when $\overline S$ is smooth and $\mathcal L$ extends to a local
+system $\overline{\mathcal L}$ on $\overline S$, this is
+$\overline{\mathcal L}[\dim_\C S]$.
+
+Suppose now that $X$ is smooth of complex dimension $d$.
 The action of vector fields on a left $\mathcal D_X$-module induces its
 de Rham differential.  Define the shifted de Rham complex by
 \[
@@ -1395,7 +1413,9 @@ $\mathcal D_n$-module $\mathcal O(n)$ and show that its de Rham complex is
 $\C_{\mathbb P^1}[1]$.  Conclude that the regular holonomic part of
 Beilinson--Bernstein localization becomes a category of perverse
 solution complexes on the flag variety.
+\end{exercise}
 
+\begin{exercise}[Schubert intersection complexes]
 For the Schubert stratification of $\operatorname{Gr}_G$, define
 \[
 \operatorname{IC}_\lambda
