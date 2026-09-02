@@ -1017,9 +1017,11 @@ relations over $\mathcal D_\lambda$.  Define
 \qquad
 \Gamma(\mathcal M)=\Gamma(X,\mathcal M).
 \]
-Use as theorem input the Beilinson--Bernstein localization theorem: when
-$\lambda$ is regular and dominant in the adopted convention, these are
-exact quasi-inverse equivalences
+Assume that $\lambda$ is integral and dominant, meaning
+$\langle\lambda,\alpha_i^\vee\rangle\geq0$ for every simple coroot;
+then $\lambda+\rho$ is regular.  Use as theorem input the
+Beilinson--Bernstein localization theorem with this $\rho$-normalization:
+in this range the two functors are exact quasi-inverse equivalences
 \[
 U_\lambda\text{-}\mathsf{mod}_{\rm fg}
 \simeq
@@ -1275,9 +1277,16 @@ and prove intrinsically
 \[
 \overline{\operatorname{Gr}}_1\cong\mathbb P^1.
 \]
+If $\varpi^\vee$ denotes the dominant generator of the coweight lattice,
+verify that the positive coroot is $2\varpi^\vee$ and hence
+\[
+\overline{\operatorname{Gr}}_m
+=\coprod_{0\leq r\leq\lfloor m/2\rfloor}
+\operatorname{Gr}_{m-2r}.
+\]
 \end{exercise}
 
-\begin{exercise}[Intersection complexes and equivariant perverse sheaves]
+\begin{exercise}[Regular holonomic differential equations and perverse sheaves]
 Let $X$ be a complex algebraic variety with a finite stratification by
 smooth locally closed subvarieties.  A bounded constructible complex on
 $X$ is a finite cochain complex of sheaves whose cohomology sheaves have
@@ -1304,6 +1313,88 @@ having no nonzero subobject or quotient supported on the boundary.
 Prove that when $\overline S$ is smooth and $\mathcal L$ extends to a local
 system $\overline{\mathcal L}$ on $\overline S$, this is
 $\overline{\mathcal L}[\dim_\C S]$.
+
+Now suppose that $X$ is smooth of complex dimension $d$, and put
+$\mathcal D_X=\mathcal D_{\mathcal O_X}$ with its order filtration
+$F_\bullet\mathcal D_X$.  For a coherent left $\mathcal D_X$-module
+$\mathcal M$, call an increasing filtration $F_\bullet\mathcal M$
+\emph{good} when it is exhaustive,
+\[
+F_p\mathcal D_X\,F_q\mathcal M\subseteq F_{p+q}\mathcal M,
+\]
+and $\operatorname{gr}_F\mathcal M$ is coherent over
+$\operatorname{gr}_F\mathcal D_X$.  Use the symbol isomorphism
+\[
+\operatorname{gr}_F\mathcal D_X
+\cong\operatorname{Sym}_{\mathcal O_X}\mathcal T_X
+\]
+as theorem input.  Define the characteristic variety by
+\[
+\operatorname{Ch}(\mathcal M)
+=\operatorname{Supp}(\operatorname{gr}_F\mathcal M)
+\subseteq T^*X,
+\]
+and use as theorem input that it is independent of the good filtration.
+Use Bernstein's inequality
+$\dim_\C\operatorname{Ch}(\mathcal M)\geq d$ for nonzero
+$\mathcal M$, and call $\mathcal M$ \emph{holonomic} when equality holds.
+
+For a smooth compactification $j:C\hookrightarrow\overline C$ of a
+smooth curve, put $D=\overline C\setminus C$.  Call an integrable
+connection $(\mathcal E,\nabla)$ on $C$ \emph{regular singular} along
+$D$ when it has a meromorphic extension $\mathcal E(*D)$ containing a
+locally free $\mathcal O_{\overline C}$-lattice $E$ satisfying
+\[
+E\otimes\mathcal O_{\overline C}(*D)=\mathcal E(*D),
+\qquad
+\nabla E\subseteq E\otimes
+\Omega^1_{\overline C}(\log D).
+\]
+For a smooth curve map $i:C\to X$, call a point noncharacteristic for
+$\mathcal M$ when the characteristic variety meets the kernel of the
+cotangent map
+\[
+T^*X|_C\longrightarrow T^*C
+\]
+only in the zero section over that point.  Use as theorem input the curve
+criterion for regularity: a holonomic $\mathcal D_X$-module is regular
+when every connection obtained by inverse image to a smooth curve on its
+noncharacteristic locus is regular singular at the omitted points.
+Denote the derived
+category of complexes with regular holonomic cohomology by
+$D^b_{\rm rh}(\mathcal D_X)$.
+
+The action of vector fields on a left $\mathcal D_X$-module induces its
+de Rham differential.  Define the shifted de Rham complex by
+\[
+\operatorname{DR}_X(\mathcal M)
+=\bigl[
+\mathcal M\longrightarrow
+\Omega_X^1\otimes\mathcal M\longrightarrow\cdots\longrightarrow
+\Omega_X^d\otimes\mathcal M
+\bigr][d].
+\]
+Use as theorem input the Riemann--Hilbert correspondence
+\cite{kashiwara-rh}:
+\[
+\operatorname{DR}_X:
+D^b_{\rm rh}(\mathcal D_X)
+\xrightarrow{\ \sim\ }
+D_c^b(X^{\rm an}),
+\]
+which restricts to an equivalence from regular holonomic modules to
+perverse sheaves.  Prove
+\[
+\operatorname{DR}_X(\mathcal O_X)\cong\C_{X^{\rm an}}[d]
+\]
+by the holomorphic Poincar\'e lemma, and show that a regular-singular flat
+bundle is sent to its local system of horizontal sections shifted by
+$d$.  Apply the Morita untwisting
+$\mathcal M\mapsto\mathcal O(-n)\otimes\mathcal M$ to the
+$\mathcal D_n$-module $\mathcal O(n)$ and show that its de Rham complex is
+$\C_{\mathbb P^1}[1]$.  Conclude that the regular holonomic part of
+Beilinson--Bernstein localization becomes a category of perverse
+solution complexes on the flag variety.
 
 For the Schubert stratification of $\operatorname{Gr}_G$, define
 \[
@@ -1350,6 +1441,50 @@ $\operatorname{IC}_0$ is its tensor unit, and that the
 Beilinson--Drinfeld fusion construction equips it with a symmetric
 monoidal structure.
 
+For $G=PGL_2(\C)$ and $m\geq1$, restrict convolution to the proper map
+\[
+m_{1,m}:
+\overline{\operatorname{Gr}}_1\,\widetilde\times\,
+\overline{\operatorname{Gr}}_m
+\longrightarrow
+\overline{\operatorname{Gr}}_{m+1}.
+\]
+Interpret its source as chains of homothety classes of lattices
+$([L_0],[L_1],[L_2])$, with $[L_0]=[\mathcal O^2]$, whose first relative
+position is $1$ and whose second relative position is at most $m$.
+For $[L_2]\in\operatorname{Gr}_{m+1-2r}$, prove from the lattice model
+that
+\[
+m_{1,m}^{-1}([L_2])\cong
+\begin{cases}
+\mathrm{pt},&r=0,\\
+\mathbb P^1,&1\leq r\leq\lfloor(m+1)/2\rfloor.
+\end{cases}
+\]
+Call a proper map $f:Y\to Z$, stratified so that its fiber dimension is
+constant on each stratum $S\subset Z$, \emph{semismall} when
+\[
+2\dim f^{-1}(s)\leq\operatorname{codim}_Z S
+\qquad(s\in S).
+\]
+Use $\operatorname{codim}\operatorname{Gr}_{m+1-2r}=2r$ to prove that
+$m_{1,m}$ is semismall and that only
+$\operatorname{Gr}_{m+1}$ and $\operatorname{Gr}_{m-1}$ attain equality.
+Use as theorem input the semismall decomposition theorem
+\cite{bbd-perverse}: the direct image of the intersection complex is the
+sum of the intersection complexes of the equality strata, with
+multiplicity local systems given by the top homology of their fibers.
+Identify
+$\operatorname{IC}_1\widetilde\boxtimes\operatorname{IC}_m$ with the
+intersection complex of the twisted Schubert product.  Deduce from the
+point and $\mathbb P^1$ fibers, and from equivariance of their top
+homology, that
+\[
+\operatorname{IC}_1*\operatorname{IC}_m
+\cong\operatorname{IC}_{m+1}\oplus\operatorname{IC}_{m-1}
+\qquad(m\geq1).
+\]
+
 Define the Langlands dual group $G^\vee$ to be the connected complex
 reductive group whose roots, coroots, weights, and coweights are the
 coroots, roots, coweights, and weights of $G$, respectively.  Use as
@@ -1381,10 +1516,17 @@ complexes to irreducible characters.
 \begin{exercise}[Satake characters and 't Hooft-line fusion]
 Take $G=PGL_2(\C)$, so $G^\vee=SL_2(\C)$, and write
 $\operatorname{IC}_m$ for the Schubert intersection complex indexed by
-$m\geq0$.  Under geometric Satake identify
+$m\geq0$.  Verify that Langlands duality sends $\varpi^\vee$ to the
+fundamental weight of $SL_2$.  Under geometric Satake identify
 \[
 \operatorname{IC}_m\longleftrightarrow
 V_m=\operatorname{Sym}^m(\C^2).
+\]
+Define the monic Chebyshev polynomial $C_m(y)=U_m(y/2)$.  Use the
+geometric recurrence above to prove inductively in the Grothendieck ring
+that
+\[
+[\operatorname{IC}_m]=C_m([\operatorname{IC}_1]).
 \]
 For a maximal-torus element $u_\theta\in SU(2)$, use the established
 character formula
@@ -1397,14 +1539,18 @@ second kind to prove
 U_m(x)U_n(x)
 =\sum_{r=0}^{\min(m,n)}U_{m+n-2r}(x).
 \]
-Use character orthogonality and geometric Satake to deduce
+Apply this identity to the classes
+$C_m([\operatorname{IC}_1])$ and use the semisimplicity supplied by
+geometric Satake to deduce
 \[
-V_m\otimes V_n
-\cong\bigoplus_{r=0}^{\min(m,n)}V_{m+n-2r},
-\qquad
 \operatorname{IC}_m*\operatorname{IC}_n
 \cong\bigoplus_{r=0}^{\min(m,n)}
 \operatorname{IC}_{m+n-2r}.
+\]
+Under the Satake equivalence recover simultaneously
+\[
+V_m\otimes V_n
+\cong\bigoplus_{r=0}^{\min(m,n)}V_{m+n-2r}.
 \]
 
 Let $T_m$ denote the purely magnetic 't Hooft line of dominant magnetic
