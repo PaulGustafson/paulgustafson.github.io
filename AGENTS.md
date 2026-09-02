@@ -3,8 +3,10 @@
 These rules apply to the manuscript entry point
 `Emergent_Mathematics.tex` and its part files
 `Emergent_Mathematics_Symmetry.tex`,
-`Emergent_Mathematics_Deformation.tex`, and
-`Emergent_Mathematics_Counting.tex`.
+`Emergent_Mathematics_Particles.tex`,
+`Emergent_Mathematics_Integrable_Probability.tex`,
+`Emergent_Mathematics_Integrability.tex`, and
+`Emergent_Mathematics_Geometry.tex`.
 
 - The body should consist of exercises that introduce the required definitions
   and state major results.
@@ -68,8 +70,20 @@ These rules apply to the manuscript entry point
   principal mathematical subject; do not join subjects or applications with
   "and," commas, ampersands, or multi-clause constructions. Put the detailed
   scope and physical culmination in exercise titles and exercise bodies.
-- Use only `\part` and `\section` headings. Do not add `\subsection`,
-  `\subsubsection`, or other intermediate titled divisions.
+- Give every section exactly four subsections, in this order:
+  `Symmetry`, `Decomposition`, `Special Functions`, and
+  `Physical Predictions`.  Use no other subsection titles and do not add
+  `\subsubsection` or lower-level divisions.
+- In `Symmetry`, specify the group, algebra, group action, homogeneous space,
+  or tensor category and what it acts on.  In `Decomposition`, develop the
+  associated spectral, representation-theoretic, transform, convolution, or
+  sector decomposition.  In `Special Functions`, derive the characters,
+  matrix coefficients, eigenfunctions, or kernels that make the decomposition
+  explicit.  In `Physical Predictions`, use those functions to calculate
+  quantitative observables and state the modeling assumptions.
+- Treat the four-subsection structure as a substantive test, not a formatting
+  device.  If a section cannot support every stage without unrelated filler,
+  refocus it or merge its material into a section that can.
 - Every section must culminate in a substantial exercise that derives or uses
   a named special-function family and applies it to a concrete physical
   observable.

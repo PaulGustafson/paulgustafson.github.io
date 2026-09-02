@@ -1,5 +1,7 @@
 \section{Determinantal Kernels}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Scattering projections and fermionic correlations]
 Let
 \[
@@ -19,8 +21,12 @@ intrinsically from $P_R^2=P_R=P_R^*$ that
 \]
 and that every matrix $[K_R(x_i,x_j)]$ is positive semidefinite.
 
-The position density of the state filling this spectral subspace with
-$N$ identical spinless fermions is
+Let the symmetric group $S_N$ act on the $N$-fold Hilbert tensor product by
+permuting tensor factors, and define its alternating sector by the sign
+character.  Prove that
+$\Lambda^N\operatorname{im}P_R$ is the one-dimensional filled-fermion state
+space and that the position density of its unit vector, independently of its
+phase, is
 \[
 p_R(x_1,\ldots,x_N)
 =\frac1{N!}\det[K_R(x_i,x_j)]_{i,j=1}^N.
@@ -102,6 +108,8 @@ Identify the exponent $\beta_{\rm D}$ as the small-gap repulsion prediction and
 state the symmetry-sector separation required in spectral data.
 \end{exercise}
 
+\subsection{Decomposition}
+
 \begin{exercise}[Fredholm determinants and trace identities]
 Let $A$ be an arbitrary complex trace-class operator on a Hilbert space.
 Its exterior powers are trace class and satisfy
@@ -173,6 +181,8 @@ their marginal laws.
 Prove that $N_B$ is distributed as a sum of independent Bernoulli variables
 whose parameters are the eigenvalues of $K_B$.
 \end{exercise}
+
+\subsection{Special Functions}
 
 \begin{exercise}[Unitary polynomial ensembles and Christoffel--Darboux kernels]
 Let $\mu$ be a Radon measure on $\R$ such that $w(x)d\mu(x)$ has infinite
@@ -608,6 +618,8 @@ State how repeated last-passage or growth experiments with the specified
 geometric weights test this distribution without invoking an asymptotic
 limit.
 \end{exercise}
+
+\subsection{Physical Predictions}
 
 \begin{exercise}[Exponential last-passage percolation]
 Let $E_{ij}$ be independent rate-one exponential random variables and define

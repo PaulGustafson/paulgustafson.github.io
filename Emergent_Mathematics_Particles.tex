@@ -1,5 +1,7 @@
 \section{Heisenberg Group}
 
+\subsection{Symmetry}
+
 
 \begin{exercise}[Weyl multipliers]
 A \emph{normalized multiplier} on a locally compact group $G$ is a
@@ -217,6 +219,8 @@ Differentiate the Weyl relations on $\mathcal S(V)$ to prove
 \end{exercise}
 
 
+\subsection{Decomposition}
+
 \begin{exercise}[Irreducibility of the Schr\"odinger representation]
 Prove that an operator on $L^2(V)$ commuting with every translation and
 every modulation is scalar: first use the Fourier transform to identify the
@@ -314,6 +318,8 @@ A=(2\pi\hbar)^{-n/2}\int_{V\oplus V^*}
 in the weak operator topology.
 \end{exercise}
 
+
+\subsection{Special Functions}
 
 \begin{exercise}[Schr\"odinger character]
 For $V=\R^n$, let $f\in C^\infty(\mathbb H_n)$ satisfy
@@ -545,6 +551,8 @@ changes of the Wigner distribution from those of $L_n$.
 \end{exercise}
 
 
+\subsection{Physical Predictions}
+
 \begin{exercise}[Laguerre tomography]
 For $F\in\mathcal S(\R^2)$, $n_\theta=(\cos\theta,\sin\theta)$, and
 $n_\theta^\perp=(-\sin\theta,\cos\theta)$, define the Radon transform by
@@ -596,6 +604,8 @@ assumptions under which these nodes, zero circles, and signs are observable.
 
 
 \section{Poincar\'e Group}
+
+\subsection{Symmetry}
 
 \begin{exercise}[Minkowski momentum orbits and relativistic dispersion]
 A \emph{time-oriented Minkowski space} is a real four-dimensional vector
@@ -702,6 +712,8 @@ unitary for the full Lorentz group, and distinguish these covariant field
 representations from the unitary one-particle representations constructed
 below.
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[Wigner induction and the Poincar\'e particle classification]
 Let
@@ -827,6 +839,8 @@ for these polarization counts, without invoking the spin--statistics
 relation.
 \end{exercise}
 
+\subsection{Special Functions}
+
 \begin{exercise}[Spin-weighted spherical harmonics and radiation patterns]
 Write $S^2=SU(2)/U(1)$.  The \emph{spin-weight-$s$ line bundle} is the
 bundle associated to the character of $U(1)$ under which rotation of an
@@ -875,6 +889,8 @@ angular-resolution assumptions under
 which this pattern and the absence of monopole and dipole spin-$2$
 radiation are tested.
 \end{exercise}
+
+\subsection{Physical Predictions}
 
 \begin{exercise}[Bessel mass-shell kernels and relativistic signal propagation]
 Use units $c=\hbar=1$.  Fix a future-pointing observer and use its
@@ -945,6 +961,8 @@ spacelike decay, and time-of-flight delay are physical predictions.
 
 \section{Potential Scattering}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Outgoing Green kernels and the Lippmann--Schwinger equation]
 Let $\mu>0$ be a reduced mass, let $k>0$, put
 \[
@@ -964,6 +982,19 @@ incident direction $\omega\in S^2$, call a solution of $(H-E)\psi=0$
 and call $f$ its \emph{scattering amplitude}.  For outgoing direction
 $\omega'$, define the scattering angle by
 $\cos\theta=\omega'\cdot\omega$.
+
+Define the Euclidean group and its unitary action by
+\[
+E(3)=\R^3\rtimes SO(3),
+\qquad
+(U_{a,R}\phi)(x)=\phi(R^{-1}(x-a)).
+\]
+Prove that the free Hamiltonian commutes with this action, that $H$ commutes
+with every rotation when $V$ is radial, and that translations are broken
+unless $V$ is constant.  For radial $V$, prove
+\[
+f(R\omega',R\omega;k)=f(\omega',\omega;k).
+\]
 
 Prove in $\mathcal D'(\R^3)$ that
 \[
@@ -1055,6 +1086,8 @@ resolution assumptions under which this differential cross section predicts
 detector counts.
 \end{exercise}
 
+\subsection{Decomposition}
+
 \begin{exercise}[Scattering operators and elastic unitarity]
 For a real radial potential supported in $\{x:\|x\|\leq R\}$, define the
 on-shell scattering operator $S(k)$ on angular wave packets by sending the
@@ -1074,6 +1107,8 @@ S_\ell(k)=e^{2i\delta_\ell(k)}
 \]
 for real phase shifts $\delta_\ell$, determined modulo $\pi$.
 \end{exercise}
+
+\subsection{Special Functions}
 
 \begin{exercise}[Partial waves, Legendre amplitudes, and the optical theorem]
 Put
@@ -1388,6 +1423,8 @@ S_\ell^{\rm C}
 \]
 \end{exercise}
 
+\subsection{Physical Predictions}
+
 \begin{exercise}[Coulomb amplitude and Rutherford detector counts]
 Because the Coulomb potential is not short-range, use the logarithmically
 modified radial phase above and define its nonforward amplitude by Abel
@@ -1438,6 +1475,8 @@ and detector acceptance alter the comparison with measured counts.
 
 \section{Schwarzschild Spacetime}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Schwarzschild geometry and gravitational redshift]
 A \emph{Lorentzian metric} on a four-manifold is a smooth
 nondegenerate symmetric form of signature $(+,-,-,-)$.  Call a tangent
@@ -1487,6 +1526,8 @@ spectral-resolution assumptions under which a clock or spectral-line
 measurement tests the formula.
 \end{exercise}
 
+\subsection{Decomposition}
+
 \begin{exercise}[Weierstrass elliptic functions and Schwarzschild light rays]
 Restrict a Schwarzschild null geodesic to an equatorial great circle.  Let
 $\mathcal E=f(r)c^2\dot t$ and $L=r^2\dot\phi$ be its conserved energy and
@@ -1535,6 +1576,8 @@ distance $D$.  State the vacuum, nonrotating, geometric-optics,
 thin-lens, far-observer, and source-model assumptions separately from the
 bending and shadow predictions.
 \end{exercise}
+
+\subsection{Special Functions}
 
 \begin{exercise}[Regge--Wheeler equations and confluent-Heun scattering]
 Define the tortoise coordinate by
@@ -1588,6 +1631,8 @@ Use constancy of the Wronskian to express reflection and transmission
 amplitudes as confluent-Heun connection coefficients and prove flux
 conservation for real $\omega$.
 \end{exercise}
+
+\subsection{Physical Predictions}
 
 \begin{exercise}[Black-hole resonances, photon spheres, and ringdown]
 Define a Schwarzschild quasinormal frequency to be a zero of the

@@ -1,5 +1,7 @@
 \section{Algebraic Curves}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Affine schemes and the Legendre family]
 Let $m$ be an indeterminate and form the finitely generated
 $\mathbb C[m]$-algebra
@@ -107,6 +109,14 @@ can change the structure sheaf.  Compare
 $\operatorname{Spec}\mathbb C[t]/(t)$ with
 $\operatorname{Spec}\mathbb C[t]/(t^2)$, identify the nonzero nilpotent
 class in the latter ring, and compute its square.
+
+Let $\iota:A\to A$ fix $m,x$ and send $y$ to $-y$.  Prove that it is an
+involution over $\mathbb C[m]$, that
+\[
+A^\iota=\mathbb C[m,x],
+\]
+and that the quotient morphism is the double-cover map to the $x$-line.
+Determine its fixed closed points on every fiber.
 \end{exercise}
 
 \begin{exercise}[Local rings, tangent spaces, and singular fibers]
@@ -360,6 +370,8 @@ holomorphic one-form and that the algebraic morphism
 $E_m\to\mathbb P^1$ becomes the holomorphic branched cover used below.
 \end{exercise}
 
+\subsection{Decomposition}
+
 \begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
 For a compact connected oriented surface $S$, define its genus $g(S)$ by
 \[
@@ -467,6 +479,8 @@ $\alpha_i,\beta_i$ determine its de Rham class.  Specialize to $g=1$ and
 obtain the two generators used in the period-lattice construction.
 \end{exercise}
 
+\subsection{Special Functions}
+
 \begin{exercise}[Riemann bilinear identity and period lattices]
 For a compact genus-one Riemann surface $C$ and a nowhere-vanishing
 holomorphic one-form $\eta$, define
@@ -569,6 +583,8 @@ fringe locations test the discriminant geometry and its wavelength
 scaling.
 \end{exercise}
 
+\subsection{Physical Predictions}
+
 \begin{exercise}[Picard--Fuchs equations, monodromy, and pendulum periods]
 Let $U=\mathbb C\setminus\{0,1\}$.  Along a path in $U$, transport a closed
 cycle continuously through the family $E_m$ and call the resulting
@@ -649,6 +665,8 @@ the location and logarithmic type of the singular fiber.
 
 \section{Riemann--Roch}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Divisors, line bundles, and first Chern classes]
 For a scheme $X$, an \emph{algebraic line bundle} is an
 $\mathcal O_X$-module locally isomorphic to $\mathcal O_X$.  For
@@ -726,7 +744,18 @@ prove
 \[
 \int_C c_1(L)=\deg L.
 \]
+Define $\operatorname{Pic}(C)$ to be the isomorphism classes of holomorphic
+line bundles with tensor product.  Prove that dual line bundles give inverses,
+that $\operatorname{Pic}(C)$ is an abelian group, and that degree is a
+homomorphism
+\[
+\deg:\operatorname{Pic}(C)\longrightarrow\mathbb Z.
+\]
+Write $\operatorname{Pic}^0(C)$ for its kernel and prove that tensor product
+gives an action of $\operatorname{Pic}^0(C)$ on every degree component.
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[\v{C}ech cohomology and exact sequences]
 Let $\mathcal F$ be a sheaf of complex vector spaces on a compact Riemann
@@ -1054,6 +1083,8 @@ character as a twisted system of differential equations on the same flag
 variety.
 \end{exercise}
 
+\subsection{Special Functions}
+
 \begin{exercise}[Abel's theorem and theta divisors]
 For $a,b\in\R$, $z\in\C$, and $\tau$ in the upper half-plane, define
 \[
@@ -1156,6 +1187,8 @@ Relate translation of theta-function zeros to
 $\operatorname{Pic}^N(E_\tau)$.
 \end{exercise}
 
+\subsection{Physical Predictions}
+
 \begin{exercise}[Theta-function Landau spectra]
 Let
 \[
@@ -1237,6 +1270,8 @@ measurements test the theta-function and Riemann--Roch predictions.
 
 \section{Affine Grassmannian}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Loop groups, affine Grassmannians, and Schubert varieties]
 Let $G$ be a connected complex reductive algebraic group and put
 \[
@@ -1304,6 +1339,8 @@ verify that the positive coroot is $2\varpi^\vee$ and hence
 \operatorname{Gr}_{m-2r}.
 \]
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[Holonomic differential equations]
 Let $X$ be a smooth complex algebraic variety of complex dimension $d$,
@@ -1562,7 +1599,9 @@ carrying convolution to tensor product and Schubert intersection
 complexes to irreducible characters.
 \end{exercise}
 
-\begin{exercise}[Satake characters and 't Hooft-line fusion]
+\subsection{Special Functions}
+
+\begin{exercise}[Satake characters]
 Take $G=PGL_2(\C)$, so $G^\vee=SL_2(\C)$, and write
 $\operatorname{IC}_m$ for the Schubert intersection complex indexed by
 $m\geq0$.  Verify that Langlands duality sends $\varpi^\vee$ to the
@@ -1602,7 +1641,11 @@ Under the Satake equivalence recover simultaneously
 V_m\otimes V_n
 \cong\bigoplus_{r=0}^{\min(m,n)}V_{m+n-2r}.
 \]
+\end{exercise}
 
+\subsection{Physical Predictions}
+
+\begin{exercise}['t Hooft-line fusion]
 Let $T_m$ denote the purely magnetic 't Hooft line of dominant magnetic
 coweight $m$ in the topologically twisted $\mathcal N=4$
 super-Yang--Mills theory with compact gauge group $PSU(2)$.  Prove from
@@ -1625,6 +1668,8 @@ rather than a direct laboratory cross section.
 \end{exercise}
 
 \section{Finite-Gap Spectral Curves}
+
+\subsection{Symmetry}
 
 \begin{exercise}[Floquet operators and Bloch spectral curves]
 Let
@@ -1695,6 +1740,8 @@ Show that its branch points occur at the periodic and antiperiodic energies
 $\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
 exactly when $|\Delta(E)|\leq2$.
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[Lax pairs and isospectral KdV flow]
 Let $u(x,t)$ be a smooth real periodic function and define
@@ -1778,6 +1825,8 @@ Use the bilinear identity to prove
 \operatorname{Im}\Omega>0.
 \]
 \end{exercise}
+
+\subsection{Special Functions}
 
 \begin{exercise}[Jacobians, Abel--Jacobi maps, and Riemann theta functions]
 For a compact Riemann surface $C$, define its Jacobian intrinsically by
@@ -2031,6 +2080,8 @@ Specialize to $g=1$ and recover, up to translation and an additive energy
 constant, the Lam\'e potential and its Hermite theta solutions.
 \end{exercise}
 
+\subsection{Physical Predictions}
+
 \begin{exercise}[Lam\'e band edges and attenuation prediction]
 Use the half-period values of the Jacobi functions to recover the three
 band-edge solutions
@@ -2144,6 +2195,8 @@ transmission-line experiment tests these predictions.
 
 \section{Index Theory}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Fredholm operators and Bloch families]
 For the twisted periodic Schr\"odinger operators
 \[
@@ -2209,6 +2262,8 @@ compute
 \operatorname{ind}_{\rm an}(S^*)=1.
 \]
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[Elliptic operators and analytic index]
 Let $E,F\to M$ be smooth complex vector bundles over a closed smooth
@@ -2925,6 +2980,8 @@ and identify this integer as the difference of the two chiral zero-mode
 counts.
 \end{exercise}
 
+\subsection{Special Functions}
+
 \begin{exercise}[Monopole harmonics and spherical Landau levels]
 Let $S_R^2$ be the round sphere of radius $R$, let $N\in\mathbb Z$, and
 let $L_N\to S_R^2$ be a Hermitian line bundle with unitary connection of
@@ -2993,6 +3050,8 @@ uniform-field, round-sphere, fixed-charge, spin$^c$ coupling, noninteracting,
 and spectral-resolution assumptions under which spherical Landau-level
 spectroscopy tests the Jacobi-polynomial and index predictions.
 \end{exercise}
+
+\subsection{Physical Predictions}
 
 \begin{exercise}[Family index and quantized Hall transport]
 Let $B$ be compact and let $T_b:H_0\to H_1$ be a norm-continuous family
@@ -3089,6 +3148,8 @@ measurements test these predictions.
 
 \section{Cobordism}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Oriented, spin, and complex bordism rings]
 For an oriented manifold $M$, write $-M$ for the same manifold with the
 opposite orientation.  An \emph{oriented bordism} from a closed oriented
@@ -3136,6 +3197,8 @@ the corresponding structures and construct the forgetful homomorphisms
 \Omega_*^U\longrightarrow\Omega_*^{SO}.
 \]
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[Pontryagin--Thom collapse and Thom spectra]
 For based spaces $E_k$, a sequence of based structure maps
@@ -3315,6 +3378,8 @@ From the degree-zero and degree-two terms of the Todd class, prove
 \]
 for a compact Riemann surface $C$ of genus $g$.
 \end{exercise}
+
+\subsection{Special Functions}
 
 \begin{exercise}[Atiyah--Patodi--Singer index and spectral eta functions]
 Let $W$ be a compact even-dimensional spin Riemannian manifold whose
@@ -3627,6 +3692,8 @@ partition function.  Distinguish this index from an unsigned state
 degeneracy and from the two-variable K3 elliptic genus above.
 \end{exercise}
 
+\subsection{Physical Predictions}
+
 \begin{exercise}[Bordism characters and invertible topological phases]
 Let $G$ be a finite internal symmetry group and let
 $H=SO$ or $\operatorname{Spin}$.  An \emph{$H$-bordism over $BG$}
@@ -3923,6 +3990,8 @@ nonuniversal deformation of the string correlator.
 \end{exercise}
 \section{Fusion Categories}
 
+\subsection{Symmetry}
+
 \begin{exercise}[Temperley--Lieb categories and Jones--Wenzl projectors]
 For $d\in\C$, the \emph{Temperley--Lieb category} $\mathsf{TL}_d$ has
 objects $n\in\Z_{\geq0}$.  The morphism space
@@ -3979,6 +4048,8 @@ U_if_n=f_nU_i=0\quad(1\leq i<n),
 \item Deduce $\operatorname{tr}(f_{k+1})=[k+2]_\zeta=0$.
 \end{enumerate}
 \end{exercise}
+
+\subsection{Decomposition}
 
 \begin{exercise}[Temperley--Lieb semisimplification and the positive quotient]
 At $d=\zeta+\zeta^{-1}$, a morphism $f:m\to n$ in
@@ -4272,6 +4343,8 @@ low-energy theories and does not by itself prove a classification of all
 microscopic gapped Hamiltonians.
 \end{exercise}
 
+\subsection{Special Functions}
+
 \begin{exercise}[Categorical Fourier transform, modular data, and Verlinde diagonalization]
 Put
 \[
@@ -4343,6 +4416,8 @@ Prove~\cite{etingof-fusion} the canonical braided equivalence
 and deduce that the simple bulk charges are indexed by pairs $(x,y)$
 with $0\leq x,y\leq k$.
 \end{exercise}
+
+\subsection{Physical Predictions}
 
 \begin{exercise}[Chern--Simons theory, quantum invariants, and chiral transport]
 Let $M$ be a closed oriented three-manifold and let $A$ be a connection on
