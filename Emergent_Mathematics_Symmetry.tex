@@ -1739,8 +1739,34 @@ $p_0$ and the de Broglie relation between its measured wavelength and
 momentum.
 \end{exercise}
 
+\begin{exercise}[Lattices and Poisson summation]
+A \emph{lattice} in $\R^n$ is a subgroup
+$\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
+covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
+$F=A[0,1)^n$.  Its \emph{integral dual} and \emph{reciprocal lattice} are
+\[
+\Gamma^\vee=\{y\in\R^n:y\cdot\gamma\in\mathbb Z
+\text{ for every }\gamma\in\Gamma\},
+\qquad
+\Gamma^{\rm rec}=2\pi\Gamma^\vee.
+\]
 
-\subsection{Bessel Functions}
+For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
+\[
+P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
+\]
+Prove that $P_\Gamma f$ converges with all derivatives and compute its
+Fourier coefficients. With the Fourier-transform normalization above, prove
+\[
+P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
+ \sum_{\xi\in\Gamma^{\rm rec}}\mathcal Ff(\xi)e^{i\xi\cdot x}.
+\]
+Set $x=0$ to obtain the Poisson summation formula and compute the transform
+of a Gaussian in the stated normalization.
+\end{exercise}
+
+
+\subsection{Canonical Diffraction Functions}
 
 \begin{exercise}[Bessel functions and radial Fourier analysis]
 For $\alpha>-1$, the Bessel function of the first kind is
@@ -1768,6 +1794,55 @@ transform of a radial Schwartz function on $\R^n$ as a Hankel transform
 with kernel $J_{n/2-1}$.  Derive the corresponding inversion identity.
 \end{exercise}
 
+\begin{exercise}[Airy--Pearcey diffraction]
+For a monochromatic scalar wave with wave number $k=2\pi/\lambda$, define
+the fold and cusp canonical fields as oscillatory integrals
+\[
+\mathcal A_{\rm fold}(a;k)
+=\int_{\mathbb R}^{\rm osc}
+e^{ik(t^3/3-at)}\,dt,
+\]
+\[
+\mathcal A_{\rm cusp}(a,b;k)
+=\int_{\mathbb R}^{\rm osc}
+e^{ik(t^4/4+at^2/2+bt)}\,dt.
+\]
+For a phase function, call the image of its degenerate stationary points
+in parameter space its \emph{caustic}.  Prove that the fold caustic is
+$a=0$ and that the cusp caustic is the discriminant curve
+\[
+4a^3+27b^2=0
+\]
+of the stationary cubic $t^3+at+b$.
+
+Using the Airy function, prove
+\[
+\mathcal A_{\rm fold}(a;k)
+=2\pi k^{-1/3}\operatorname{Ai}(-k^{2/3}a).
+\]
+Define the Pearcey function by
+\[
+\operatorname{Pe}(A,B)
+=\int_{\mathbb R}^{\rm osc}
+e^{i(t^4/4+At^2/2+Bt)}\,dt
+\]
+and derive
+\[
+\mathcal A_{\rm cusp}(a,b;k)
+=k^{-1/4}\operatorname{Pe}(k^{1/2}a,k^{3/4}b).
+\]
+Deduce that fold dark fringes occur at
+$a=a_nk^{-2/3}$, where $\operatorname{Ai}(-a_n)=0$, and that the two
+cusp control scales are $k^{-1/2}$ and $k^{-3/4}$.  Predict the normalized
+intensities $|\operatorname{Ai}|^2$ and $|\operatorname{Pe}|^2$ near fold
+and cusp caustics.  State the scalar-wave, short-wavelength, canonical-form,
+finite-aperture, and detector-resolution assumptions under which measured
+fringe locations test the discriminant geometry and its wavelength
+scaling.
+\end{exercise}
+
+\subsection{Diffraction Patterns}
+
 \begin{exercise}[Bessel diffraction]
 Let $j_{\nu,k}$ be the $k$th positive zero of $J_\nu$.  Separate the wave
 equation on a circular membrane of radius $R$ with Dirichlet boundary and
@@ -1793,34 +1868,6 @@ $\theta_1\sim j_{1,1}\lambda/(2\pi a)$.  Identify which membrane
 resonances and diffraction minima measure zeros of the same Bessel
 functions.
 \end{exercise}
-
-\begin{exercise}[Lattices and Poisson summation]
-A \emph{lattice} in $\R^n$ is a subgroup
-$\Gamma=A\mathbb Z^n$ for some invertible linear map $A:\R^n\to\R^n$. Its
-covolume is $\vol(\Gamma)=|\det A|$, and a fundamental cell is
-$F=A[0,1)^n$.  Its \emph{integral dual} and \emph{reciprocal lattice} are
-\[
-\Gamma^\vee=\{y\in\R^n:y\cdot\gamma\in\mathbb Z
-\text{ for every }\gamma\in\Gamma\},
-\qquad
-\Gamma^{\rm rec}=2\pi\Gamma^\vee.
-\]
-
-For $f\in\mathcal S(\R^n)$, its \emph{$\Gamma$-periodization} is
-\[
-P_\Gamma f(x)=\sum_{\gamma\in\Gamma}f(x+\gamma).
-\]
-Prove that $P_\Gamma f$ converges with all derivatives and compute its
-Fourier coefficients. With the Fourier-transform normalization above, prove
-\[
-P_\Gamma f(x)=\frac{(2\pi)^{n/2}}{\vol(\Gamma)}
- \sum_{\xi\in\Gamma^{\rm rec}}\mathcal Ff(\xi)e^{i\xi\cdot x}.
-\]
-Set $x=0$ to obtain the Poisson summation formula and compute the transform
-of a Gaussian in the stated normalization.
-\end{exercise}
-
-\subsection{Crystal Diffraction}
 
 \begin{exercise}[Crystal diffraction and Bragg peaks]
 For a finite motif $B\subset\R^n$ with scattering weights $c_b$, its

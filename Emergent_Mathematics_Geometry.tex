@@ -1,6 +1,6 @@
 \section{Algebraic Curves}
 
-\subsection{Legendre Family}
+\subsection{Legendre Involution}
 
 \begin{exercise}[Affine schemes and the Legendre family]
 Let $m$ be an indeterminate and form the finitely generated
@@ -370,7 +370,7 @@ holomorphic one-form and that the algebraic morphism
 $E_m\to\mathbb P^1$ becomes the holomorphic branched cover used below.
 \end{exercise}
 
-\subsection{Branched-Cover Monodromy}
+\subsection{Homology Decomposition}
 
 \begin{exercise}[Branched covers and the Riemann--Hurwitz formula]
 For a compact connected oriented surface $S$, define its genus $g(S)$ by
@@ -479,7 +479,7 @@ $\alpha_i,\beta_i$ determine its de Rham class.  Specialize to $g=1$ and
 obtain the two generators used in the period-lattice construction.
 \end{exercise}
 
-\subsection{Elliptic Periods}
+\subsection{Elliptic Integrals}
 
 \begin{exercise}[Riemann bilinear identity and period lattices]
 For a compact genus-one Riemann surface $C$ and a nowhere-vanishing
@@ -536,56 +536,7 @@ Under this identification, show that translation on the complex torus
 defines an intrinsic group law on $E_m$ with identity $p_0$.
 \end{exercise}
 
-\begin{exercise}[Caustics and Airy--Pearcey diffraction]
-For a monochromatic scalar wave with wave number $k=2\pi/\lambda$, define
-the fold and cusp canonical fields as oscillatory integrals
-\[
-\mathcal A_{\rm fold}(a;k)
-=\int_{\mathbb R}^{\rm osc}
-e^{ik(t^3/3-at)}\,dt,
-\]
-\[
-\mathcal A_{\rm cusp}(a,b;k)
-=\int_{\mathbb R}^{\rm osc}
-e^{ik(t^4/4+at^2/2+bt)}\,dt.
-\]
-For a phase function, call the image of its degenerate stationary points
-in parameter space its \emph{caustic}.  Prove that the fold caustic is
-$a=0$ and that the cusp caustic is the discriminant curve
-\[
-4a^3+27b^2=0
-\]
-of the stationary cubic $t^3+at+b$.
-
-Using the Airy function, prove
-\[
-\mathcal A_{\rm fold}(a;k)
-=2\pi k^{-1/3}\operatorname{Ai}(-k^{2/3}a).
-\]
-Define the Pearcey function by
-\[
-\operatorname{Pe}(A,B)
-=\int_{\mathbb R}^{\rm osc}
-e^{i(t^4/4+At^2/2+Bt)}\,dt
-\]
-and derive
-\[
-\mathcal A_{\rm cusp}(a,b;k)
-=k^{-1/4}\operatorname{Pe}(k^{1/2}a,k^{3/4}b).
-\]
-Deduce that fold dark fringes occur at
-$a=a_nk^{-2/3}$, where $\operatorname{Ai}(-a_n)=0$, and that the two
-cusp control scales are $k^{-1/2}$ and $k^{-3/4}$.  Predict the normalized
-intensities $|\operatorname{Ai}|^2$ and $|\operatorname{Pe}|^2$ near fold
-and cusp caustics.  State the scalar-wave, short-wavelength, canonical-form,
-finite-aperture, and detector-resolution assumptions under which measured
-fringe locations test the discriminant geometry and its wavelength
-scaling.
-\end{exercise}
-
-\subsection{Pendulum Periods}
-
-\begin{exercise}[Picard--Fuchs equations, monodromy, and pendulum periods]
+\begin{exercise}[Picard--Fuchs equations and complete elliptic integrals]
 Let $U=\mathbb C\setminus\{0,1\}$.  Along a path in $U$, transport a closed
 cycle continuously through the family $E_m$ and call the resulting
 identification of the groups $H_1(E_m;\mathbb Z)$ \emph{Gauss--Manin
@@ -626,6 +577,12 @@ K(\sqrt m)
 +O\bigl((1-m)|\log(1-m)|\bigr)
 \qquad(m\uparrow1).
 \]
+
+\end{exercise}
+
+\subsection{Pendulum Periods}
+
+\begin{exercise}[Complete elliptic integrals and pendulum periods]
 
 On $T^*S^1$ consider the pendulum Hamiltonian
 \[
@@ -1741,7 +1698,7 @@ $\Delta(E)=\pm2$, and that a real energy supports a propagating Bloch wave
 exactly when $|\Delta(E)|\leq2$.
 \end{exercise}
 
-\subsection{Isospectral Flows}
+\subsection{Spectral-Curve Decomposition}
 
 \begin{exercise}[Lax pairs and isospectral KdV flow]
 Let $u(x,t)$ be a smooth real periodic function and define
@@ -2195,9 +2152,25 @@ transmission-line experiment tests these predictions.
 
 \section{Index Theory}
 
-\subsection{Bloch--Fredholm Families}
+\subsection{Lattice Translations}
 
 \begin{exercise}[Fredholm operators and Bloch families]
+For a real smooth $P$-periodic potential on the line, let the lattice
+$\mathbb Z$ act on distributional solutions by
+\[
+(\tau_n\psi)(x)=\psi(x+nP).
+\]
+Its unitary characters have the form $\chi_\rho(n)=\rho^n$ with
+$|\rho|=1$.  Prove that the $\chi_\rho$-equivariant solutions are exactly
+the functions determined by their restriction to $[0,P]$ with boundary
+conditions
+\[
+\psi(P)=\rho\psi(0),
+\qquad
+\psi'(P)=\rho\psi'(0),
+\]
+so the twisted domains below are the lattice-translation sectors.
+
 For the twisted periodic Schr\"odinger operators
 \[
 \mathcal L_{\rho,E}:H^2_\rho\longrightarrow L^2([0,P])
@@ -2263,7 +2236,7 @@ compute
 \]
 \end{exercise}
 
-\subsection{K-Theoretic Index}
+\subsection{K-Theory Classification}
 
 \begin{exercise}[Elliptic operators and analytic index]
 Let $E,F\to M$ be smooth complex vector bundles over a closed smooth
@@ -3148,7 +3121,7 @@ measurements test these predictions.
 
 \section{Cobordism}
 
-\subsection{Bordism Groups}
+\subsection{Tangential Structures}
 
 \begin{exercise}[Oriented, spin, and complex bordism rings]
 For an oriented manifold $M$, write $-M$ for the same manifold with the
@@ -3198,7 +3171,7 @@ the corresponding structures and construct the forgetful homomorphisms
 \]
 \end{exercise}
 
-\subsection{Thom Spectra}
+\subsection{Pontryagin--Thom Transform}
 
 \begin{exercise}[Pontryagin--Thom collapse and Thom spectra]
 For based spaces $E_k$, a sequence of based structure maps
@@ -3266,6 +3239,8 @@ $S^{n+k}\to S^k$ and recover
 \Omega_n^{\mathrm{fr}}\cong\pi_n^S.
 \]
 \end{exercise}
+
+\subsection{Bordism Genera}
 
 \begin{exercise}[Pontryagin numbers and the signature genus]
 For a real vector bundle $V$, define its Pontryagin classes by
@@ -3378,8 +3353,6 @@ From the degree-zero and degree-two terms of the Todd class, prove
 \]
 for a compact Riemann surface $C$ of genus $g$.
 \end{exercise}
-
-\subsection{Elliptic Genera}
 
 \begin{exercise}[Atiyah--Patodi--Singer index and spectral eta functions]
 Let $W$ be a compact even-dimensional spin Riemannian manifold whose
@@ -3692,7 +3665,7 @@ partition function.  Distinguish this index from an unsigned state
 degeneracy and from the two-variable K3 elliptic genus above.
 \end{exercise}
 
-\subsection{Invertible Phases}
+\subsection{Topological Responses}
 
 \begin{exercise}[Bordism characters and invertible topological phases]
 Let $G$ be a finite internal symmetry group and let
@@ -4343,7 +4316,7 @@ low-energy theories and does not by itself prove a classification of all
 microscopic gapped Hamiltonians.
 \end{exercise}
 
-\subsection{Modular Data}
+\subsection{Categorical Fourier Kernels}
 
 \begin{exercise}[Categorical Fourier transform, modular data, and Verlinde diagonalization]
 Put

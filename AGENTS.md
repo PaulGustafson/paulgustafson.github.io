@@ -73,9 +73,14 @@ These rules apply to the manuscript entry point
 - Give every section exactly four subsections corresponding, in this order,
   to symmetry, decomposition, special functions, and physical predictions.
   Title each subsection by the specific mathematical instance it develops,
-  such as `Compact Groups`, `Peter--Weyl Decomposition`, `Wigner Functions`,
+  such as `Compact Groups`, `Peter--Weyl Decomposition`, `Legendre Functions`,
   or `Angular Spectroscopy`; do not use the generic component names as
   subsection titles.  Do not add `\subsubsection` or lower-level divisions.
+- Make each concrete title identify the role of its subsection, not merely a
+  topic appearing there.  In particular, a representation, transform, or
+  localization procedure belongs to the decomposition stage; it is not a
+  special-function title unless the subsection derives an explicit named
+  function or kernel from it.
 - In the first subsection, specify the group, algebra, group action,
   homogeneous space, or tensor category and what it acts on.  In the second,
   develop the associated spectral, representation-theoretic, transform,
