@@ -1,865 +1,3 @@
-\ifincludeSymmetryCore
-
-\section{Spectral Theory}
-
-\subsection{Unitary Conjugation}
-
-
-
-\begin{exercise}[Vector spaces, duality, trace, and dimension]
-Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
-$V$ with scalar multiplication satisfying
-\[
-a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
-(ab)v=a(bv),\quad 1v=v.
-\]
-A map $T:V\to W$ is \emph{linear} when
-$T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
-\[
-\ker T=\{v:T(v)=0\},
-\qquad
-\im T=\{T(v):v\in V\}.
-\]
-
-The \emph{dual space} of $V$ is
-$V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
-\[
-\operatorname{ev}_V:V^\vee\times V\longrightarrow k,
-\qquad
-(\varphi,v)\longmapsto\varphi(v).
-\]
-The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
-$(v,w)\mapsto v\otimes w$ with the following universal property: every
-bilinear map
-$b:V\times W\to X$ factors uniquely as
-\[
-V\times W\longrightarrow V\otimes W
-\xrightarrow{\,\widetilde b\,}X.
-\]
-The evaluation pairing induces a linear map
-$\operatorname{ev}_V:V^\vee\otimes V\to k$.
-
-A vector space $V$ is \emph{finite-dimensional} when there is a
-coevaluation map
-\[
-\operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
-\]
-satisfying the snake identities
-\[
-(\id_V\otimes\operatorname{ev}_V)
-\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
-\]
-\[
-(\operatorname{ev}_V\otimes\id_{V^\vee})
-\circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
-\]
-
-Let $s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the
-factors.  For $T\in\End(V)$, define
-\[
-\operatorname{tr}(T)
-=\operatorname{ev}_V\circ s_{V,V^\vee}
- \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V.
-\]
-The \emph{dimension} of $V$ is the scalar
-\[
-\dim_k(V)=\operatorname{tr}(\id_V)\in k.
-\]
-Write $GL(V)$ for the group of invertible endomorphisms of $V$ and define
-its conjugation action on $\End(V)$ by
-\[
-g\cdot T=gTg^{-1}.
-\]
-
-\begin{enumerate}[label=(\alph*)]
-\item Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
-$\operatorname{ev}_V$.  Apply
-\[
-\id_V\otimes\operatorname{ev}_V\otimes\id_{V^\vee}
-\]
-to $d\otimes c:k\to V\otimes V^\vee\otimes V\otimes V^\vee$ and use the
-snake identity for $d$ to identify the result with $c$.  Use the snake
-identity for $c$ to identify the same result with $d$, and deduce $c=d$.
-\item Prove that $T\mapsto\operatorname{tr}(T)$ is linear and that
-\[
-\operatorname{tr}(ST)=\operatorname{tr}(TS)
-\qquad(S,T\in\End(V)).
-\]
-\item Prove that conjugation is a group action and that
-\[
-\operatorname{tr}(gTg^{-1})=\operatorname{tr}(T).
-\]
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Exterior algebra, rank, and determinant]
-For $m\geq0$, the $m$th \emph{exterior power} of a vector space $V$ is
-\[
-\Lambda^mV
-=V^{\otimes m}/
-\langle v_1\otimes\cdots\otimes v_m:
-v_i=v_j\text{ for some }i\ne j\rangle,
-\]
-and the image of $v_1\otimes\cdots\otimes v_m$ is written
-$v_1\wedge\cdots\wedge v_m$.  An endomorphism $T$ induces
-\[
-\Lambda^mT(v_1\wedge\cdots\wedge v_m)
-=Tv_1\wedge\cdots\wedge Tv_m.
-\]
-The products
-\[
-\Lambda^rV\otimes\Lambda^sV\longrightarrow\Lambda^{r+s}V,
-\qquad
-(u_1\wedge\cdots\wedge u_r)\otimes
-(v_1\wedge\cdots\wedge v_s)
-\longmapsto
-u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
-\]
-make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
-\emph{exterior algebra} of $V$.
-
-For a finite-dimensional vector space $V$, an integer
-$n\in\mathbb Z_{\geq0}$ satisfying
-\[
-\Lambda^nV\ne0,
-\qquad
-\Lambda^{n+1}V=0
-\]
-is its \emph{exterior rank}, written $\rank(V)=n$, when it exists and is
-unique.  When $\rank(V)=n$, the \emph{determinant} of $T\in\End(V)$ is the
-scalar $\det(T)$ satisfying
-\[
-\Lambda^nT=\det(T)\id_{\Lambda^nV}.
-\]
-
-Let $V$ be finite-dimensional.
-\begin{enumerate}[label=(\alph*)]
-\item Prove that the exterior algebra is graded-commutative:
-\[
-\xi\wedge\eta=(-1)^{rs}\eta\wedge\xi,
-\qquad
-\xi\in\Lambda^rV,\quad\eta\in\Lambda^sV.
-\]
-\item Prove that the exterior rank exists and is unique, that every
-$\Lambda^mV$ is finite-dimensional, and that every endomorphism of
-$\Lambda^nV$ is a unique scalar multiple of the identity.
-\item Prove
-\[
-\dim_k(V)=n\,1_k,
-\qquad
-\dim_k(\Lambda^mV)=\binom{n}{m}1_k,
-\qquad
-\Lambda^mV=0\quad(m>n).
-\]
-Deduce that $\dim_k(V)$ determines $n$ when $\operatorname{char}k=0$, whereas
-it determines only the residue class of $n$ modulo $p$ when
-$\operatorname{char}k=p>0$.
-\item Prove that the determinant is well-defined.  Use functoriality of the
-highest exterior power to prove
-\[
-\det(ST)=\det(S)\det(T),
-\qquad
-T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
-\]
-\item The coevaluation, trace, and exterior-power constructions extend
-under scalar extension to the finite free $k[z]$-module
-$V[z]=V\otimes_k k[z]$; in particular,
-$\Lambda^n_{k[z]}V[z]$ is free of rank one.  Define the determinant of a
-$k[z]$-linear endomorphism through its action on this top exterior power.
-For $T\in\End(V)$ prove
-\[
-\det(I+zT)=\sum_{m=0}^n
-\operatorname{tr}(\Lambda^mT)z^m.
-\]
-Recover $(1+z)^n=\sum_m\binom nmz^m$ by taking $T=I$.
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[Rising factorials and the binomial series]
-For $a\in\C$ and $m\in\Z_{\geq0}$, define
-\[
-(a)_0=1,
-\qquad
-(a)_m=a(a+1)\cdots(a+m-1)\quad(m\geq1).
-\]
-For $|z|<1$, define the \emph{binomial series}
-\[
-B_a(z)=\sum_{m=0}^{\infty}\frac{(a)_m}{m!}z^m.
-\]
-
-Prove that the binomial series converges for $|z|<1$ and satisfies
-\[
-(1-z)B_a'(z)=aB_a(z),
-\qquad B_a(0)=1.
-\]
-For the branch normalized to equal $1$ at $z=0$, deduce
-\[
-B_a(z)=(1-z)^{-a}.
-\]
-For $a=-n$, $n\in\Z_{\geq0}$, prove that the series terminates and, after
-replacing $z$ by $-z$, recover
-\[
-(1+z)^n=\sum_{m=0}^n\binom{n}{m}z^m.
-\]
-\end{exercise}
-
-\begin{exercise}[Hilbert spaces and bounded operators]
-An \emph{inner product} on a complex vector space is conjugate-linear in its
-first argument, linear in its second, positive definite, and satisfies
-$\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
-$\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
-space complete for this norm.
-
-Vectors are \emph{orthogonal} when their inner product is zero.  For a
-subspace $M\subseteq H$, define
-\[
-M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\}.
-\]
-
-A linear map $T:H\to K$ between Hilbert spaces is \emph{bounded} when
-\[
-\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty.
-\]
-Write $B(H,K)$ for the bounded operators and $B(H)=B(H,H)$.
-An \emph{adjoint} of $T$ is an operator $T^*:K\to H$ satisfying
-\[
-\langle x,Ty\rangle=\langle T^*x,y\rangle.
-\]
-An \emph{orthogonal projection} is an operator $P$ satisfying
-$P=P^*=P^2$.
-Define the unitary group
-\[
-U(H)=\{U\in B(H):U^*U=UU^*=I\}
-\]
-and let it act on states by $\psi\mapsto U\psi$ and on bounded observables
-by $T\mapsto UTU^*$.
-
-\begin{enumerate}[label=(\alph*)]
-\item Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
-representation theorem.  Deduce the existence of adjoints and prove
-\[
-\|T\|^2=\|T^*T\|,\qquad
-(\im T)^\perp=\ker T^*.
-\]
-\item For every closed subspace $M\subseteq H$, prove
-$H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
-\item Prove that $U(H)$ is a group, that its action preserves inner products,
-adjoints, normality, and orthogonal projections, and that
-\[
-\langle U\psi,(UTU^*)U\psi\rangle=\langle\psi,T\psi\rangle.
-\]
-\end{enumerate}
-\end{exercise}
-
-\begin{exercise}[\texorpdfstring{$L^p$}{Lp} geometry]
-For a measure space $(X,\mathcal F,\mu)$ and $1\leq p<\infty$, define
-\[
-\begin{aligned}
-L^p(X,\mu)&=
-\left\{f:X\to\C\text{ measurable}:
-\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.},\\
-\|f\|_p&=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
-\end{aligned}
-\]
-Let $L^\infty(X,\mu)$ consist of essentially bounded measurable functions
-modulo equality almost everywhere, with
-\[
-\|f\|_\infty=\operatorname*{ess\,sup}_{x\in X}|f(x)|.
-\]
-
-Prove H\"older's and Minkowski's inequalities and deduce that
-$L^p(X,\mu)$ is complete for $1\leq p\leq\infty$.  For $1<p<\infty$ with
-$p^{-1}+q^{-1}=1$, assume that $(X,\mathcal F,\mu)$ is $\sigma$-finite and
-prove that
-\[
-L^q(X,\mu)\longrightarrow L^p(X,\mu)^*,
-\qquad
-g\longmapsto\left(f\mapsto\int_X\overline{g}f\,d\mu\right)
-\]
-is an isometric isomorphism.
-\end{exercise}
-
-\begin{exercise}[Gamma and beta integrals]
-For $s,t>0$, define
-\[
-\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx,
-\qquad
-B(s,t)=\int_0^1x^{s-1}(1-x)^{t-1}\,dx.
-\]
-
-Use Tonelli's theorem and the change of variables
-$x=ru$, $y=r(1-u)$ to prove
-\[
-B(s,t)=\frac{\Gamma(s)\Gamma(t)}{\Gamma(s+t)}.
-\]
-Use integration by parts to prove
-$\Gamma(s+1)=s\Gamma(s)$, and use the pushforward of Euclidean measure
-under the norm map to obtain
-\[
-\Gamma\!\left(\frac12\right)=\sqrt\pi,
-\qquad
-\int_{\R^n}e^{-|x|^2/2}\,dx=(2\pi)^{n/2}.
-\]
-State the uses of Tonelli, Fubini, monotone convergence, and dominated
-convergence in the derivation.
-\end{exercise}
-
-
-
-\subsection{Spectral Measures}
-
-\begin{exercise}[$C^*$-algebras and spectra]
-A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
-conjugate-linear involution satisfying
-\[
-(ab)^*=b^*a^*,\qquad \|ab\|\leq\|a\|\|b\|,\qquad
-\|a^*a\|=\|a\|^2.
-\]
-For a unital $C^*$-algebra, define
-\[
-\spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
-\]
-An element is \emph{normal} when $a^*a=aa^*$.
-
-Prove that $\spec_A(a)$ is nonempty and compact and that
-\[
-r(a)=\lim_{n\to\infty}\|a^n\|^{1/n}.
-\]
-For normal $a$, prove $r(a)=\|a\|$.
-For $A=B(H)$ and $U\in U(H)$, prove
-\[
-\spec_{B(H)}(UTU^*)=\spec_{B(H)}(T).
-\]
-\end{exercise}
-
-\begin{exercise}[Commutative Gelfand theory]
-For a commutative $C^*$-algebra $A$, a \emph{character} is a nonzero
-homomorphism $\chi:A\to\C$.  Let $\widehat A$ be the space of characters
-with its weak-$*$ topology.  The \emph{Gelfand transform} is
-\[
-\Gamma:A\longrightarrow C_0(\widehat A),
-\qquad \Gamma(a)(\chi)=\chi(a).
-\]
-
-Prove the commutative Gelfand theorem~\cite{conway-functional}:
-every character is
-continuous, $\widehat A$ is locally compact Hausdorff, and the Gelfand
-transform is an isometric $*$-isomorphism
-$A\cong C_0(\widehat A)$.  Deduce that $A$ is unital exactly when
-$\widehat A$ is compact.
-\end{exercise}
-
-\begin{exercise}[Continuous functional calculus]
-An element $a$ of a $C^*$-algebra is \emph{self-adjoint} when $a=a^*$ and
-\emph{positive}, written $a\geq0$, when $a=b^*b$ for some $b$.
-
-For every normal element $a$ of a unital $C^*$-algebra, apply commutative
-Gelfand theory to $C^*(1,a)$ and prove that there is a unique unital isometric
-$*$-homomorphism
-\[
-C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
-\]
-sending the coordinate function to $a$, and prove the continuous spectral
-mapping theorem.  Deduce that positive elements have unique positive square
-roots and that $a\geq0$ if and only if $a=a^*$ and
-$\spec_A(a)\subseteq[0,\infty)$.
-\end{exercise}
-
-
-\begin{exercise}[Complex Riesz--Markov representation]
-For a locally compact Hausdorff space $X$, call a linear functional
-$\varphi:C_c(X)\to\C$ \emph{positive} when $\varphi(f)\geq0$ for every
-real-valued $f\geq0$.  Prove the positive Riesz--Markov
-theorem~\cite{folland-real}: if such a functional is bounded on functions
-supported in each compact set, then there is a unique regular Borel measure
-$\mu_\varphi$ satisfying $\varphi(f)=\int_Xf\,d\mu_\varphi$.  Prove that
-$\mu_\varphi$ is positive and that its values on compact sets recover the
-local bounds of $\varphi$.
-
-Prove the complex Riesz--Markov
-theorem~\cite{folland-real}: every
-$\varphi\in C_0(X)^*$ has a unique finite complex regular measure
-$\mu_\varphi$ such that
-\[
-\varphi(f)=\int_Xf\,d\mu_\varphi,
-\qquad \|\varphi\|=|\mu_\varphi|(X).
-\]
-Deduce the positive theorem for functionals bounded in the
-$C_0(X)$ norm and characterize positive functionals by positive measures.
-\end{exercise}
-
-\begin{exercise}[Spectral distributions of states]
-For a unital $C^*$-algebra, a positive linear functional is one satisfying
-$\varphi(a^*a)\geq0$ for every $a$, and a \emph{state} is a positive
-functional with $\varphi(1)=1$.
-
-Let $A$ be a unital $C^*$-algebra, let $a=a^*\in A$, and let $\varphi$ be a
-state.  Apply the continuous functional calculus and Riesz--Markov theorem
-to prove that there is a unique Borel probability measure
-$\mu_{\varphi,a}$ on $\spec(a)$ such that
-\[
-\varphi(f(a))=\int_{\spec(a)}f(\lambda)\,d\mu_{\varphi,a}(\lambda),
-\qquad f\in C(\spec(a)).
-\]
-Deduce
-\[
-\varphi(a)=\int\lambda\,d\mu_{\varphi,a}(\lambda),
-\qquad
-\varphi(a^2)-\varphi(a)^2
-=\int(\lambda-\varphi(a))^2\,d\mu_{\varphi,a}(\lambda).
-\]
-\end{exercise}
-
-\begin{exercise}[\texorpdfstring{$C_0(X)$}{C0(X)} representations]
-A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
-from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
-\[
-E(\varnothing)=0,\qquad E(X)=I,
-\qquad
-E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
-=\sum_{j=1}^\infty E(B_j)
-\]
-for pairwise disjoint measurable sets, where the sum converges in the strong
-operator topology.  The spectral integral $\int_X f\,dE$ for bounded
-measurable $f$ is defined by uniform approximation from simple functions.
-It is regular when each scalar measure
-$B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
-
-Let $X$ be locally compact Hausdorff.  A representation
-$\pi:C_0(X)\to B(H)$ is \emph{nondegenerate} when
-$\overline{\pi(C_0(X))H}=H$.  Prove that every nondegenerate
-$*$-representation determines scalar measures by applying complex
-Riesz--Markov to $f\mapsto\langle x,\pi(f)y\rangle$.  Use polarization and
-multiplicativity to assemble them into a unique regular projection-valued
-measure $E_\pi$ satisfying
-\[
-\pi(f)=\int_X f(x)\,dE_\pi(x),
-\qquad f\in C_0(X).
-\]
-\end{exercise}
-
-\begin{exercise}[Bounded normal spectral theorem]
-For a normal operator $T\in B(H)$, apply the $C_0(X)$ representation theorem
-to the continuous functional calculus
-$C(\spec(T))\to B(H)$ and prove that there is a unique projection-valued
-measure $E_T$ on $\spec(T)$ satisfying
-\[
-T=\int_{\spec(T)}z\,dE_T(z),
-\qquad
-f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
-\]
-Deduce that a normal operator on a finite-dimensional Hilbert space has the
-intrinsic spectral decomposition
-\[
-H=\bigoplus_{\lambda\in\spec(T)}E_T(\{\lambda\})H,
-\qquad
-T|_{E_T(\{\lambda\})H}=\lambda I.
-\]
-\end{exercise}
-
-\begin{exercise}[Compact spectral theorem]
-An operator $K\in B(H)$ is compact when it maps the closed unit ball to a
-set with compact closure.
-
-For a compact normal operator $K$, prove that every nonzero spectral value is an eigenvalue of
-finite multiplicity, that the nonzero eigenvalues can accumulate only at
-zero, and that
-\[
-K=\sum_{\lambda\in\spec(K)\setminus\{0\}}
-\lambda E_K(\{\lambda\})
-\]
-in operator norm, and prove that the spectral subspaces in the displayed
-sum are mutually orthogonal.
-\end{exercise}
-
-\begin{exercise}[Unbounded self-adjoint operators and the Cayley transform]
-An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
-domain.  Its adjoint has domain
-\[
-\mathcal D(A^*)=
-\{y\in H:x\mapsto\langle y,Ax\rangle
-\text{ is bounded on }\mathcal D(A)\}.
-\]
-For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
-$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
-$x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
-including equality of domains.
-
-For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
-$\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
-\[
-C_A=(A-iI)(A+iI)^{-1}
-\]
-is unitary with $\ker(I-C_A)=0$.  Prove conversely that every unitary $C$
-with $\ker(I-C)=0$ determines a self-adjoint operator through the inverse
-Cayley transform.
-\end{exercise}
-
-\begin{exercise}[Unbounded spectral theorem]
-Apply the bounded normal spectral theorem to $C_A$ and transport its
-projection-valued measure by the inverse Cayley map.  Prove that there is a unique
-projection-valued measure $E_A$ on $\R$ satisfying
-\[
-A=\int_\R\lambda\,dE_A(\lambda),\qquad
-\mathcal D(A)=
-\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
-\]
-\end{exercise}
-
-\begin{exercise}[Closed quadratic forms and Friedrichs realizations]
-Let $H$ be a Hilbert space.  A densely defined Hermitian form is a map
-$q:\mathcal Q(q)\times\mathcal Q(q)\to\C$ on a dense linear subspace,
-linear in the second variable, conjugate-linear in the first, and satisfying
-$q(x,y)=\overline{q(y,x)}$.  It is \emph{bounded below by $c\in\R$} when
-\[
-q(x,x)\geq c\lVert x\rVert^2
-\qquad(x\in\mathcal Q(q)).
-\]
-For such a form put
-\[
-\lVert x\rVert_q^2=q(x,x)+(1-c)\lVert x\rVert^2.
-\]
-Call $q$ \emph{closed} when $\mathcal Q(q)$ is complete in this norm, and
-\emph{closable} when every sequence $x_n\in\mathcal Q(q)$ satisfying
-$x_n\to0$ in $H$ and $\lVert x_n-x_m\rVert_q\to0$ also satisfies
-$\lVert x_n\rVert_q\to0$.
-
-Prove the representation theorem for closed semibounded
-forms~\cite{reed-simon2}: there is a unique self-adjoint operator $A_q$
-bounded below by $c$ such that
-\[
-\mathcal Q(q)=\mathcal D((A_q-cI)^{1/2}),
-\qquad
-q(x,y)=\langle (A_q-cI)^{1/2}x,(A_q-cI)^{1/2}y\rangle
-+c\langle x,y\rangle,
-\]
-and $x\in\mathcal D(A_q)$ exactly when there is $z\in H$ satisfying
-$q(y,x)=\langle y,z\rangle$ for every $y\in\mathcal Q(q)$, in which case
-$A_qx=z$.  Prove uniqueness from the latter characterization.
-
-Let $A_0$ be a densely defined symmetric operator bounded below by $c$, and
-put $q_0(x,y)=\langle x,A_0y\rangle$ on $\mathcal D(A_0)$.  Prove directly
-from symmetry, the lower bound, and density that $q_0$ is
-closable~\cite{reed-simon2}.  Define the \emph{Friedrichs realization} of
-$A_0$ to be the operator associated to its closed form $\overline q_0$.
-Prove that it extends $A_0$, is self-adjoint, and preserves the lower bound.
-For $-d^2/dx^2$ on $C_c^\infty(0,\ell)$, define
-$H_0^1(0,\ell)$ as the completion of $C_c^\infty(0,\ell)$ in the norm
-\[
-\lVert f\rVert_{H^1}^2=\int_0^\ell(|f|^2+|f'|^2)\,dx.
-\]
-Integrate by parts to identify this as the closed form domain and derive the Dirichlet spectral values
-$\pi^2n^2/\ell^2$.  State how changing the interval length changes these
-spectral lines.
-\end{exercise}
-
-\begin{exercise}[Resolvents, compact resolvent, and the min--max principle]
-For a closed operator $A$, define its resolvent set by
-\[
-\rho(A)=\{z\in\C:A-zI:\mathcal D(A)\to H
-\text{ is bijective with bounded inverse}\}
-\]
-and put $R_A(z)=(A-zI)^{-1}$.  For a self-adjoint $A$, use the spectral
-measure to prove
-\[
-R_A(z)=\int_\R\frac1{\lambda-z}\,dE_A(\lambda),
-\qquad
-\|R_A(z)\|\leq\frac1{|\operatorname{Im}z|}
-\quad(z\notin\R),
-\]
-and derive the resolvent identity
-\[
-R_A(z)-R_A(w)=(z-w)R_A(z)R_A(w).
-\]
-If a positively oriented contour $\Gamma$ in $\rho(A)$ encloses an isolated
-compact part $\Sigma$ of the spectrum, prove
-\[
-E_A(\Sigma)=-\frac1{2\pi i}\int_\Gamma R_A(z)\,dz.
-\]
-
-Call $A$ an operator with \emph{compact resolvent} when $R_A(z)$ is compact
-for one $z\in\rho(A)$.  Prove from the resolvent identity that it is then
-compact for every $z\in\rho(A)$.  If $H$ is infinite-dimensional and
-$A$ is self-adjoint, bounded below,
-and has compact resolvent, prove that its spectrum consists of eigenvalues
-of finite multiplicity
-\[
-\lambda_1\leq\lambda_2\leq\cdots,
-\qquad \lambda_n\longrightarrow+\infty,
-\]
-listed with multiplicity.  For a nonzero subspace $L\subset\mathcal D(A)$
-put
-\[
-\mathcal R_A(L)=
-\sup_{x\in L\setminus\{0\}}
-\frac{\langle x,Ax\rangle}{\langle x,x\rangle}.
-\]
-Use the spectral projections, without choosing eigenvectors, to prove the
-min--max identity
-\[
-\lambda_n=\inf_{\dim L=n}\mathcal R_A(L).
-\]
-For a bounded self-adjoint perturbation $B$, apply the same identity to
-prove
-\[
-|\lambda_n(A+B)-\lambda_n(A)|\leq\|B\|.
-\]
-For a closed semibounded form $q$ whose associated operator has compact
-resolvent, extend the argument to prove the form-domain identity
-\[
-\lambda_n(A_q)=
-\inf_{\substack{L\subset\mathcal Q(q)\\\dim L=n}}
-\sup_{x\in L\setminus\{0\}}
-\frac{q(x,x)}{\langle x,x\rangle}.
-\]
-For two such forms $q_1,q_2$ with a common form domain, deduce
-\[
-q_1(x,x)\leq q_2(x,x)\quad\text{for every }x
-\quad\Longrightarrow\quad
-\lambda_n(A_{q_1})\leq\lambda_n(A_{q_2}).
-\]
-State how a calibrated operator-norm bound on an uncontrolled perturbation
-gives an error bar for every predicted discrete spectral line.
-\end{exercise}
-
-\begin{exercise}[Stone's theorem]
-Use the measurable functional calculus of $E_A$ to prove that $e^{-itA}$
-is a strongly continuous unitary group with generator $-iA$.  Conversely,
-let $(U_t)_{t\in\R}$ be a strongly continuous unitary group and define
-\[
-\mathcal D(A)=\left\{x:\lim_{t\to0}
-i\frac{U_tx-x}{t}\text{ exists}\right\},
-\qquad
-Ax=\lim_{t\to0}i\frac{U_tx-x}{t}.
-\]
-Prove that $\mathcal D(A)$ is dense and that $A$ is symmetric.  Use the
-strong integrals
-\[
-i\int_0^\infty e^{-t}U_t\,dt,
-\qquad
--i\int_{-\infty}^0e^tU_t\,dt
-\]
-to prove that $A-iI$ and $A+iI$ are surjective.  Deduce that $A$ is
-self-adjoint, prove $U_t=e^{-itA}$, and prove uniqueness of $A$.
-\end{exercise}
-
-
-\begin{exercise}[Spectral lines and time evolution]
-Let $A$ be self-adjoint, let $B\in B(H)$, and set
-$B(t)=e^{itA/\hbar}Be^{-itA/\hbar}$.  For eigenvalues $\lambda,\mu$ of
-$A$, write $P_\lambda=E_A(\{\lambda\})$ and prove
-\[
-P_\mu B(t)P_\lambda
-=e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
-\]
-Use the functional calculus to prove the factorized weak identity
-\[
-B(t)=
-\left(\int_{\R}e^{it\mu/\hbar}\,dE_A(\mu)\right)
-B
-\left(\int_{\R}e^{-it\lambda/\hbar}\,dE_A(\lambda)\right).
-\]
-When $A$ has pure-point spectrum, deduce in the weak operator topology that
-\[
-B(t)=\sum_{\lambda,\mu}
-e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
-\]
-For an initial state $\psi$, define the line strength
-\[
-I_{\mu\lambda}(\psi)=\|P_\mu BP_\lambda\psi\|^2.
-\]
-Prove that a line at $(\mu-\lambda)/\hbar$ occurs only when this quantity is
-nonzero, and identify vanishing spectral blocks as selection rules.
-\end{exercise}
-
-\subsection{Hermite Functions}
-
-\begin{exercise}[Hermite polynomials and functions]
-Define the physicists' Hermite polynomials by
-\[
-e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!}.
-\]
-The normalized \emph{Hermite functions} are
-\[
-h_n(x)=\frac{e^{-x^2/2}H_n(x)}
-{(2^nn!\sqrt\pi)^{1/2}}.
-\]
-
-Use the generating function and the Gaussian integral to prove that
-$(h_n)_{n\geq0}$ is an orthonormal family in $L^2(\R)$.  Derive the
-Hermite differential equation and recurrence relations.
-\end{exercise}
-
-\begin{exercise}[Mehler kernel]
-For $|r|<1$, use the Hermite generating function and Gaussian integration
-to derive Mehler's identity
-\[
-\sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
-=\frac1{\sqrt{\pi(1-r^2)}}
-\exp\!\left(
--\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
-\right).
-\]
-\end{exercise}
-
-\begin{exercise}[Hermite completeness]
-Let $K_r$ be the integral operator with the Mehler kernel for $0<r<1$.
-Use its explicit Gaussian form to prove
-\[
-K_rf\longrightarrow f\qquad\text{in }L^2(\R)\quad(r\uparrow1).
-\]
-Prove that the image of $K_r$ lies in the closed linear span of the Hermite
-functions and deduce that $(h_n)_{n\geq0}$ is complete in $L^2(\R)$.
-\end{exercise}
-
-\subsection{Quantum Spectroscopy}
-
-\begin{exercise}[Oscillator spectroscopy]
-The \emph{Schwartz space} $\mathcal S(\R)$ consists of the smooth functions
-$\psi$ satisfying
-\[
-\sup_{x\in\R}(1+|x|)^m|\psi^{(r)}(x)|<\infty
-\]
-for all $m,r\geq0$.  On $\mathcal S(\R)$ let
-\[
-(Q\psi)(x)=x\psi(x),
-\qquad
-(P\psi)(x)=-i\hbar\psi'(x).
-\]
-For
-\[
-\widehat H=-\frac{\hbar^2}{2M}\frac{d^2}{dx^2}
-+\frac{M\omega^2x^2}{2},
-\]
-use the Hermite functions to prove that
-\[
-\psi_n(x)=\left(\frac{M\omega}{\hbar}\right)^{1/4}
-h_n\!\left(\sqrt{\frac{M\omega}{\hbar}}x\right),
-\qquad
-E_n=\hbar\omega\left(n+\frac12\right)
-\]
-give the complete spectral decomposition of $\widehat H$.  Construct the
-creation and annihilation operators and compute
-\[
-\langle\psi_k,Q\psi_n\rangle
-=\sqrt{\frac{\hbar}{2M\omega}}
-\bigl(\sqrt{n+1}\,\delta_{k,n+1}
-+\sqrt n\,\delta_{k,n-1}\bigr).
-\]
-Deduce the spectral-line prediction
-$|E_{n\pm1}-E_n|/\hbar=\omega$ and the relative line strengths for a
-linearly coupled oscillator.  For $\alpha\in\C$, prove convergence and
-normalization of
-\[
-\psi_\alpha=e^{-|\alpha|^2/2}
-\sum_{n\geq0}\frac{\alpha^n}{\sqrt{n!}}\psi_n,
-\]
-show that its number statistics are Poisson with mean $|\alpha|^2$, and
-derive its sinusoidal position expectation.  Analytically continue
-Mehler's identity with the usual $t-i0$ prescription to obtain the
-oscillator propagator for $t\notin(\pi/\omega)\Z$,
-\[
-K_t(x,y)=
-\sqrt{\frac{M\omega}{2\pi i\hbar\sin(\omega t)}}
-\exp\!\left[
-\frac{iM\omega}{2\hbar\sin(\omega t)}
-\bigl((x^2+y^2)\cos(\omega t)-2xy\bigr)
-\right].
-\]
-Determine the Maslov phase obtained by continuation across each caustic.
-Prove
-\[
-e^{-2\pi i\widehat H/(\hbar\omega)}=-I,
-\qquad
-e^{-4\pi i\widehat H/(\hbar\omega)}=I,
-\]
-and distinguish the projective and observable revival period
-$2\pi/\omega$ from the exact operator period $4\pi/\omega$.
-Use these formulas to predict the spectral spacing, coherent oscillation
-frequency, occupation-number distribution, and revival period measured in
-an oscillator experiment.
-\end{exercise}
-
-\begin{exercise}[Airy functions and quantum-bouncer spectroscopy]
-The Airy function $\operatorname{Ai}$ is the unique real solution of
-\[
-\operatorname{Ai}''(x)=x\operatorname{Ai}(x)
-\]
-normalized by
-\[
-\operatorname{Ai}(x)\sim
-\frac{x^{-1/4}}{2\sqrt\pi}e^{-2x^{3/2}/3}
-\qquad(x\to+\infty).
-\]
-Prove its oscillatory continuation
-\[
-\operatorname{Ai}(-x)
-=\frac{x^{-1/4}}{\sqrt\pi}
-\left(\sin\left(\frac23x^{3/2}+\frac\pi4\right)
-+O(x^{-3/2})\right)
-\qquad(x\to+\infty).
-\]
-Let $a_n>0$ be determined by
-$\operatorname{Ai}(-a_n)=0$, ordered increasingly.
-
-On $L^2((0,\infty),dz)$ consider the self-adjoint Dirichlet realization
-\[
-\widehat H=-\frac{\hbar^2}{2M}\frac{d^2}{dz^2}+Mgz,
-\qquad \psi(0)=0.
-\]
-With
-\[
-\ell_g=\left(\frac{\hbar^2}{2M^2g}\right)^{1/3},
-\]
-derive
-\[
-E_n=Mg\ell_g a_n,
-\qquad
-\psi_n(z)=C_n\operatorname{Ai}\!\left(\frac z{\ell_g}-a_n\right).
-\]
-Let a weak drive $\epsilon B\cos(\Omega t)$ act for an observation time
-$T_{\rm obs}$.  In first-order time-dependent perturbation theory, use the
-spectral projections of $\widehat H$ to derive, for $k\ne n$,
-\[
-c_{k\leftarrow n}^{(1)}(T_{\rm obs})
-=-\frac{i\epsilon B_{kn}}{2\hbar}
-\left[
-\frac{e^{i(\omega_{kn}+\Omega)T_{\rm obs}}-1}
-     {i(\omega_{kn}+\Omega)}
-+\frac{e^{i(\omega_{kn}-\Omega)T_{\rm obs}}-1}
-     {i(\omega_{kn}-\Omega)}
-\right],
-\]
-where $\omega_{kn}=(E_k-E_n)/\hbar$ and
-$B_{kn}=\langle\psi_k,B\psi_n\rangle$.  Prove that this amplitude depends
-only on
-$E_{\widehat H}(\{E_k\})BE_{\widehat H}(\{E_n\})$ and that its squared
-modulus has peaks of width $O(T_{\rm obs}^{-1})$ centered at
-\[
-\Omega_{kn}=\frac{Mg\ell_g}{\hbar}|a_k-a_n|.
-\]
-It vanishes to this order when the displayed spectral block is zero.
-Separate this first-order, single-photon prediction from strong-drive and
-multiphoton effects.
-Deduce the classical turning heights $z_n=\ell_g a_n$.  Model an absorber
-with lower face at height $h$, width $w$, and loss strength $\Gamma>0$ by
-the potential $-i\Gamma\mathbf1_{[h,h+w]}$.  In first-order decay theory,
-derive
-\[
-\gamma_n(h)=\frac{2\Gamma}{\hbar}
-\int_h^{h+w}|\psi_n(z)|^2\,dz
-\]
-and the transmission factor $e^{-T\gamma_n(h)}$ after flight time $T$.
-Use the Airy asymptotic to prove that the onset occurs across a height
-interval of order $\ell_g$ near $z_n$, rather than as a sharp step.  State
-how measured onset heights and resonance frequencies determine $g$, and
-separate the predicted Airy scales from absorber roughness, finite width,
-and loss.  State the one-dimensional uniform-field, hard-wall,
-nonrelativistic, single-particle, weak-drive, absorber-model,
-state-preparation, and height- and frequency-resolution assumptions.
-\end{exercise}
-
-\fi
 \ifincludeSymmetryQuantization
 \section{Coadjoint Orbits}
 
@@ -1382,7 +520,7 @@ sections of $L$.
 \end{exercise}
 
 
-\subsection{Coherent-State Kernels}
+\subsection{\texorpdfstring{$SU(2)$}{SU(2)} Coherent-State Kernels}
 
 \begin{exercise}[Coadjoint-orbit harmonic analysis]
 \begin{enumerate}[label=(\alph*)]
@@ -1470,74 +608,281 @@ beam-resolution, and coherence assumptions separately.
 \ifincludeSymmetryCore
 \section{Fourier Analysis}
 
-\subsection{Lie Groups}
+\subsection{Locally Compact Abelian Groups}
 
-\begin{exercise}[Lie groups and invariant Laplacians]
-A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
-space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
-whose transition maps are smooth.  A map of smooth manifolds is
-\emph{smooth} when its chart representatives are smooth; it is a
-\emph{diffeomorphism} when it has a smooth inverse.
+\begin{exercise}[Finite-dimensional vector groups, duality, and trace]
+Let $k$ be a field.  A \emph{vector space} over $k$ is an abelian group
+$V$ with scalar multiplication satisfying
+\[
+a(v+w)=av+aw,\quad (a+b)v=av+bv,\quad
+(ab)v=a(bv),\quad 1v=v.
+\]
+A map $T:V\to W$ is \emph{linear} when
+$T(av+bw)=aT(v)+bT(w)$.  Its kernel and image are
+\[
+\ker T=\{v:T(v)=0\},
+\qquad
+\im T=\{T(v):v\in V\}.
+\]
 
-The \emph{tangent space} $T_pM$ is the vector space of derivations
-$v:C^\infty(M)\to\R$ at $p$ satisfying
+The \emph{dual space} of $V$ is
+$V^\vee=\Hom_k(V,k)$.  Its canonical evaluation pairing is
 \[
-v(fg)=f(p)v(g)+g(p)v(f).
+\operatorname{ev}_V:V^\vee\times V\longrightarrow k,
+\qquad
+(\varphi,v)\longmapsto\varphi(v).
 \]
-For a smooth map $F:M\to N$, define
+The \emph{tensor product} $V\otimes W$ is characterized by a bilinear map
+$(v,w)\mapsto v\otimes w$ with the following universal property: every
+bilinear map
+$b:V\times W\to X$ factors uniquely as
 \[
-dF_p:T_pM\longrightarrow T_{F(p)}N,
-\qquad dF_p(v)(f)=v(f\circ F).
+V\times W\longrightarrow V\otimes W
+\xrightarrow{\,\widetilde b\,}X.
 \]
-Put $TM=\coprod_{p\in M}T_pM$.  A \emph{smooth vector bundle} is a smooth
-map $\pi:E\to M$ locally isomorphic by fiberwise linear maps to
-$U\times W\to U$ for a finite-dimensional real vector space $W$.  A
-\emph{smooth section of $E$} is a smooth map $s:M\to E$ satisfying
-$\pi s=\id_M$; write $\Gamma(E)$ for the vector space of smooth sections
-of $E$.  The differentials of chart maps give $TM$ its smooth
-vector-bundle structure.  A smooth section of $TM$ is a \emph{vector
-field}.
+The evaluation pairing induces a linear map
+$\operatorname{ev}_V:V^\vee\otimes V\to k$.
 
-A \emph{Lie group} is a topological group with a smooth manifold structure
-for which multiplication and inversion are smooth.  Its Lie algebra
-$\mathfrak g=T_eG$ has the bracket induced by left-invariant vector fields.
+A vector space $V$ is \emph{finite-dimensional} when there is a
+coevaluation map
+\[
+\operatorname{coev}_V:k\longrightarrow V\otimes V^\vee
+\]
+satisfying the snake identities
+\[
+(\id_V\otimes\operatorname{ev}_V)
+\circ(\operatorname{coev}_V\otimes\id_V)=\id_V,
+\]
+\[
+(\operatorname{ev}_V\otimes\id_{V^\vee})
+\circ(\id_{V^\vee}\otimes\operatorname{coev}_V)=\id_{V^\vee}.
+\]
 
-A \emph{Riemannian metric} on an $n$-manifold $M$ is a smooth family of
-positive-definite inner products $g_p$ on $T_pM$.  Its Riemannian density
-is characterized by
+Let $s_{V,V^\vee}:V\otimes V^\vee\to V^\vee\otimes V$ exchange the
+factors.  For $T\in\End(V)$, define
 \[
-|\operatorname{vol}_g|_p(v_1\wedge\cdots\wedge v_n)
-=\det\bigl(g_p(v_i,v_j)\bigr)^{1/2},
+\operatorname{tr}(T)
+=\operatorname{ev}_V\circ s_{V,V^\vee}
+ \circ(T\otimes\id_{V^\vee})\circ\operatorname{coev}_V.
 \]
-and determines the Riemannian measure $d\operatorname{vol}_g$.  The
-gradient is defined by
+The \emph{dimension} of $V$ is the scalar
 \[
-g(\operatorname{grad}_g f,X)=Xf.
+\dim_k(V)=\operatorname{tr}(\id_V)\in k.
 \]
-The divergence is determined by
+\begin{enumerate}[label=(\alph*)]
+\item Let $c,d:k\to V\otimes V^\vee$ both satisfy the snake identities with
+$\operatorname{ev}_V$.  Apply
 \[
-\int_M Xf\,d\operatorname{vol}_g
-=-\int_M f\,\operatorname{div}_gX\,d\operatorname{vol}_g
+\id_V\otimes\operatorname{ev}_V\otimes\id_{V^\vee}
 \]
-for compactly supported $f$, and the Laplace--Beltrami operator is
-$\Delta_g=\operatorname{div}_g\operatorname{grad}_g$.
+to $d\otimes c:k\to V\otimes V^\vee\otimes V\otimes V^\vee$ and use the
+snake identity for $d$ to identify the result with $c$.  Use the snake
+identity for $c$ to identify the same result with $d$, and deduce $c=d$.
+\item Prove that $T\mapsto\operatorname{tr}(T)$ is linear and that
+\[
+\operatorname{tr}(ST)=\operatorname{tr}(TS)
+\qquad(S,T\in\End(V)).
+\]
+\end{enumerate}
+For a finite-dimensional real vector space $V$, equip its additive group with
+its standard locally compact topology.  Prove that every $p\in V^\vee$
+defines a continuous unitary character $q\mapsto e^{ip(q)}$, and that every
+continuous character is of this form.
+\end{exercise}
 
-An isometry $F:(M,g)\to(N,h)$ is a diffeomorphism satisfying
-$h_{F(p)}(dF_pv,dF_pw)=g_p(v,w)$.
-For a Lie group $G$ and $g\in G$, write $L_g(h)=gh$.  A Riemannian metric
-on $G$ is \emph{left-invariant} when $L_g$ is an isometry for every $g$.
+\begin{exercise}[Exterior powers, determinants, and lattice volume]
+For $m\geq0$, the $m$th \emph{exterior power} of a vector space $V$ is
+\[
+\Lambda^mV
+=V^{\otimes m}/
+\langle v_1\otimes\cdots\otimes v_m:
+v_i=v_j\text{ for some }i\ne j\rangle,
+\]
+and the image of $v_1\otimes\cdots\otimes v_m$ is written
+$v_1\wedge\cdots\wedge v_m$.  An endomorphism $T$ induces
+\[
+\Lambda^mT(v_1\wedge\cdots\wedge v_m)
+=Tv_1\wedge\cdots\wedge Tv_m.
+\]
+The products
+\[
+\Lambda^rV\otimes\Lambda^sV\longrightarrow\Lambda^{r+s}V,
+\qquad
+(u_1\wedge\cdots\wedge u_r)\otimes
+(v_1\wedge\cdots\wedge v_s)
+\longmapsto
+u_1\wedge\cdots\wedge u_r\wedge v_1\wedge\cdots\wedge v_s
+\]
+make $\Lambda^\bullet V=\bigoplus_{m\geq0}\Lambda^mV$ the
+\emph{exterior algebra} of $V$.
+
+For a finite-dimensional vector space $V$, an integer
+$n\in\mathbb Z_{\geq0}$ satisfying
+\[
+\Lambda^nV\ne0,
+\qquad
+\Lambda^{n+1}V=0
+\]
+is its \emph{exterior rank}, written $\rank(V)=n$, when it exists and is
+unique.  When $\rank(V)=n$, the \emph{determinant} of $T\in\End(V)$ is the
+scalar $\det(T)$ satisfying
+\[
+\Lambda^nT=\det(T)\id_{\Lambda^nV}.
+\]
+
+Let $V$ be finite-dimensional.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the exterior algebra is graded-commutative:
+\[
+\xi\wedge\eta=(-1)^{rs}\eta\wedge\xi,
+\qquad
+\xi\in\Lambda^rV,\quad\eta\in\Lambda^sV.
+\]
+\item Prove that the exterior rank exists and is unique, that every
+$\Lambda^mV$ is finite-dimensional, and that every endomorphism of
+$\Lambda^nV$ is a unique scalar multiple of the identity.
+\item Prove
+\[
+\dim_k(V)=n\,1_k,
+\qquad
+\dim_k(\Lambda^mV)=\binom{n}{m}1_k,
+\qquad
+\Lambda^mV=0\quad(m>n).
+\]
+Deduce that $\dim_k(V)$ determines $n$ when $\operatorname{char}k=0$, whereas
+it determines only the residue class of $n$ modulo $p$ when
+$\operatorname{char}k=p>0$.
+\item Prove that the determinant is well-defined.  Use functoriality of the
+highest exterior power to prove
+\[
+\det(ST)=\det(S)\det(T),
+\qquad
+T\text{ is invertible}\Longleftrightarrow\det(T)\ne0.
+\]
+\item The coevaluation, trace, and exterior-power constructions extend
+under scalar extension to the finite free $k[z]$-module
+$V[z]=V\otimes_k k[z]$; in particular,
+$\Lambda^n_{k[z]}V[z]$ is free of rank one.  Define the determinant of a
+$k[z]$-linear endomorphism through its action on this top exterior power.
+For $T\in\End(V)$ prove
+\[
+\det(I+zT)=\sum_{m=0}^n
+\operatorname{tr}(\Lambda^mT)z^m.
+\]
+Recover $(1+z)^n=\sum_m\binom nmz^m$ by taking $T=I$.
+\end{enumerate}
+For an automorphism $A$ of a finite-dimensional real vector group, prove
+that transport of Haar measure multiplies volume by $|\det A|$.  Deduce the
+covolume formula for $A\mathbb Z^n\subset\mathbb R^n$.
+\end{exercise}
+\begin{exercise}[Locally compact abelian groups and translation symmetry]
+A \emph{locally compact abelian group} is a Hausdorff locally compact
+topological group whose multiplication is commutative.  Put
+\[
+U(1)=\{z\in\mathbb C:|z|=1\},
+\qquad
+\mathbb T=\mathbb R/2\pi\mathbb Z.
+\]
+For a finite-dimensional real vector space $V$, prove that the topology
+transported from $\mathbb R^n$ by a linear isomorphism is independent of the
+isomorphism.  Equip its additive group with this topology.  Prove that these
+vector groups, $\mathbb Z^n$,
+$\mathbb T^n$, and $U(1)$ are locally compact abelian groups, and construct
+the explicit isomorphism $\mathbb T\cong U(1)$.  For $a\in G$, define the
+translation $L_a(x)=a+x$ and the induced action
+\[
+(\lambda_a f)(x)=f(x-a).
+\]
+Prove that translations form an action of $G$.  Call a linear operator on a
+translation-stable function space \emph{translation invariant} when it
+commutes with this action.  Prove that finite differences on any abelian
+group and constant-direction derivatives on a vector group are
+translation invariant.  Show that on $U(1)$ the functions $z\mapsto z^n$,
+$n\in\mathbb Z$, are exactly the continuous characters.  Identify their
+pullbacks to $\mathbb T$ as $x\mapsto e^{inx}$.
+\end{exercise}
+
+
+
+\subsection{Pontryagin Duality}
+
+\begin{exercise}[Hilbert spaces and bounded operators]
+An \emph{inner product} on a complex vector space is conjugate-linear in its
+first argument, linear in its second, positive definite, and satisfies
+$\langle x,y\rangle=\overline{\langle y,x\rangle}$.  Its norm is
+$\|x\|=\sqrt{\langle x,x\rangle}$.  A \emph{Hilbert space} is an inner-product
+space complete for this norm.
+
+Vectors are \emph{orthogonal} when their inner product is zero.  For a
+subspace $M\subseteq H$, define
+\[
+M^\perp=\{x:\langle m,x\rangle=0\text{ for every }m\in M\}.
+\]
+
+A linear map $T:H\to K$ between Hilbert spaces is \emph{bounded} when
+\[
+\|T\|=\sup_{\|x\|\leq1}\|Tx\|<\infty.
+\]
+Write $B(H,K)$ for the bounded operators and $B(H)=B(H,H)$.
+An \emph{adjoint} of $T$ is an operator $T^*:K\to H$ satisfying
+\[
+\langle x,Ty\rangle=\langle T^*x,y\rangle.
+\]
+An \emph{orthogonal projection} is an operator $P$ satisfying
+$P=P^*=P^2$.
+Define the unitary group
+\[
+U(H)=\{U\in B(H):U^*U=UU^*=I\}
+\]
+and let it act on states by $\psi\mapsto U\psi$ and on bounded observables
+by $T\mapsto UTU^*$.
 
 \begin{enumerate}[label=(\alph*)]
-\item Prove that an isometry preserves the Riemannian density, gradient,
-divergence, and Laplace--Beltrami operator.
-\item Prove that a left-invariant Riemannian metric on a Lie group has
-left-invariant Riemannian measure.
-\item For the Euclidean metric, recover Lebesgue measure and
-$\Delta=\sum_j\partial_j^2$.
+\item Prove the Cauchy--Schwarz inequality, the projection theorem, and the Riesz
+representation theorem.  Deduce the existence of adjoints and prove
+\[
+\|T\|^2=\|T^*T\|,\qquad
+(\im T)^\perp=\ker T^*.
+\]
+\item For every closed subspace $M\subseteq H$, prove
+$H=M\oplus M^\perp$ and construct the orthogonal projection $P_M:H\to M$.
+\item Prove that $U(H)$ is a group, that its action preserves inner products,
+adjoints, normality, and orthogonal projections, and that
+\[
+\langle U\psi,(UTU^*)U\psi\rangle=\langle\psi,T\psi\rangle.
+\]
 \end{enumerate}
 \end{exercise}
 
-\subsection{Fourier Transforms}
+
+\begin{exercise}[\texorpdfstring{$L^p$}{Lp} geometry]
+For a measure space $(X,\mathcal F,\mu)$ and $1\leq p<\infty$, define
+\[
+\begin{aligned}
+L^p(X,\mu)&=
+\left\{f:X\to\C\text{ measurable}:
+\int_X|f|^p\,d\mu<\infty\right\}\big/\text{equality a.e.},\\
+\|f\|_p&=\left(\int_X|f|^p\,d\mu\right)^{1/p}.
+\end{aligned}
+\]
+Let $L^\infty(X,\mu)$ consist of essentially bounded measurable functions
+modulo equality almost everywhere, with
+\[
+\|f\|_\infty=\operatorname*{ess\,sup}_{x\in X}|f(x)|.
+\]
+
+Prove H\"older's and Minkowski's inequalities and deduce that
+$L^p(X,\mu)$ is complete for $1\leq p\leq\infty$.  For $1<p<\infty$ with
+$p^{-1}+q^{-1}=1$, assume that $(X,\mathcal F,\mu)$ is $\sigma$-finite and
+prove that
+\[
+L^q(X,\mu)\longrightarrow L^p(X,\mu)^*,
+\qquad
+g\longmapsto\left(f\mapsto\int_X\overline{g}f\,d\mu\right)
+\]
+is an isometric isomorphism.
+\end{exercise}
+
 
 \begin{exercise}[Haar measure, convolution, and regular representations]
 Prove the Haar theorem: every locally compact group has a
@@ -1556,8 +901,7 @@ The \emph{left regular representation} on $L^2(G)$ is
 (\lambda_s\xi)(t)=\xi(s^{-1}t).
 \]
 
-Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$. Construct
-normalized Haar measure on a compact Lie group from a left-invariant metric.
+Identify Haar measure on $\R^n$, $\mathbb Z^n$, and $\mathbb T^n$.
 Prove associativity of convolution, the $L^1$ convolution inequality, and
 $\|f*g\|_2\leq\|f\|_1\|g\|_2$. Prove that $g\mapsto\lambda_g$ is a strongly
 continuous unitary representation. For a finite-dimensional representation
@@ -1766,7 +1110,64 @@ of a Gaussian in the stated normalization.
 \end{exercise}
 
 
-\subsection{Canonical Diffraction Functions}
+\subsection{Bessel, Airy, and Pearcey Functions}
+
+\begin{exercise}[Rising factorials and the binomial series]
+For $a\in\C$ and $m\in\Z_{\geq0}$, define
+\[
+(a)_0=1,
+\qquad
+(a)_m=a(a+1)\cdots(a+m-1)\quad(m\geq1).
+\]
+For $|z|<1$, define the \emph{binomial series}
+\[
+B_a(z)=\sum_{m=0}^{\infty}\frac{(a)_m}{m!}z^m.
+\]
+
+Prove that the binomial series converges for $|z|<1$ and satisfies
+\[
+(1-z)B_a'(z)=aB_a(z),
+\qquad B_a(0)=1.
+\]
+For the branch normalized to equal $1$ at $z=0$, deduce
+\[
+B_a(z)=(1-z)^{-a}.
+\]
+For $a=-n$, $n\in\Z_{\geq0}$, prove that the series terminates and, after
+replacing $z$ by $-z$, recover
+\[
+(1+z)^n=\sum_{m=0}^n\binom{n}{m}z^m.
+\]
+\end{exercise}
+
+
+\begin{exercise}[Gamma and beta integrals]
+For $s,t>0$, define
+\[
+\Gamma(s)=\int_0^\infty x^{s-1}e^{-x}\,dx,
+\qquad
+B(s,t)=\int_0^1x^{s-1}(1-x)^{t-1}\,dx.
+\]
+
+Use Tonelli's theorem and the change of variables
+$x=ru$, $y=r(1-u)$ to prove
+\[
+B(s,t)=\frac{\Gamma(s)\Gamma(t)}{\Gamma(s+t)}.
+\]
+Use integration by parts to prove
+$\Gamma(s+1)=s\Gamma(s)$, and use the pushforward of Euclidean measure
+under the norm map to obtain
+\[
+\Gamma\!\left(\frac12\right)=\sqrt\pi,
+\qquad
+\int_{\R^n}e^{-|x|^2/2}\,dx=(2\pi)^{n/2}.
+\]
+State the uses of Tonelli, Fubini, monotone convergence, and dominated
+convergence in the derivation.
+\end{exercise}
+
+
+
 
 \begin{exercise}[Bessel functions and radial Fourier analysis]
 For $\alpha>-1$, the Bessel function of the first kind is
@@ -1906,6 +1307,71 @@ finite-size, wavelength-calibration, and angular-resolution assumptions.
 
 \subsection{Compact Groups}
 
+\begin{exercise}[Compact Lie groups and invariant Laplacians]
+A \emph{smooth manifold} of dimension $n$ is a Hausdorff, second-countable
+space with a maximal atlas of homeomorphisms to open subsets of $\R^n$
+whose transition maps are smooth.  A map of smooth manifolds is
+\emph{smooth} when its chart representatives are smooth; it is a
+\emph{diffeomorphism} when it has a smooth inverse.
+
+The \emph{tangent space} $T_pM$ is the vector space of derivations
+$v:C^\infty(M)\to\R$ at $p$ satisfying
+\[
+v(fg)=f(p)v(g)+g(p)v(f).
+\]
+For a smooth map $F:M\to N$, define
+\[
+dF_p:T_pM\longrightarrow T_{F(p)}N,
+\qquad dF_p(v)(f)=v(f\circ F).
+\]
+Put $TM=\coprod_{p\in M}T_pM$.  A \emph{smooth vector bundle} is a smooth
+map $\pi:E\to M$ locally isomorphic by fiberwise linear maps to
+$U\times W\to U$ for a finite-dimensional real vector space $W$.  A
+\emph{smooth section of $E$} is a smooth map $s:M\to E$ satisfying
+$\pi s=\id_M$; write $\Gamma(E)$ for the vector space of smooth sections
+of $E$.  The differentials of chart maps give $TM$ its smooth
+vector-bundle structure.  A smooth section of $TM$ is a \emph{vector
+field}.
+
+A \emph{Lie group} is a topological group with a smooth manifold structure
+for which multiplication and inversion are smooth.  Its Lie algebra
+$\mathfrak g=T_eG$ has the bracket induced by left-invariant vector fields.
+
+A \emph{Riemannian metric} on an $n$-manifold $M$ is a smooth family of
+positive-definite inner products $g_p$ on $T_pM$.  Its Riemannian density
+is characterized by
+\[
+|\operatorname{vol}_g|_p(v_1\wedge\cdots\wedge v_n)
+=\det\bigl(g_p(v_i,v_j)\bigr)^{1/2},
+\]
+and determines the Riemannian measure $d\operatorname{vol}_g$.  The
+gradient is defined by
+\[
+g(\operatorname{grad}_g f,X)=Xf.
+\]
+The divergence is determined by
+\[
+\int_M Xf\,d\operatorname{vol}_g
+=-\int_M f\,\operatorname{div}_gX\,d\operatorname{vol}_g
+\]
+for compactly supported $f$, and the Laplace--Beltrami operator is
+$\Delta_g=\operatorname{div}_g\operatorname{grad}_g$.
+
+An isometry $F:(M,g)\to(N,h)$ is a diffeomorphism satisfying
+$h_{F(p)}(dF_pv,dF_pw)=g_p(v,w)$.
+For a Lie group $G$ and $g\in G$, write $L_g(h)=gh$.  A Riemannian metric
+on $G$ is \emph{left-invariant} when $L_g$ is an isometry for every $g$.
+
+\begin{enumerate}[label=(\alph*)]
+\item Prove that an isometry preserves the Riemannian density, gradient,
+divergence, and Laplace--Beltrami operator.
+\item Prove that a left-invariant Riemannian metric on a Lie group has
+left-invariant Riemannian measure.
+\item For the Euclidean metric, recover Lebesgue measure and
+$\Delta=\sum_j\partial_j^2$.
+\end{enumerate}
+\end{exercise}
+
 
 
 \begin{exercise}[Finite representations and Maschke's theorem]
@@ -1968,6 +1434,171 @@ nontrivial terms of the Baker--Campbell--Hausdorff formula.
 \end{exercise}
 
 \subsection{Peter--Weyl Decomposition}
+
+\begin{exercise}[$C^*$-algebras and spectra]
+A \emph{$C^*$-algebra} is a complete normed complex algebra $A$ with a
+conjugate-linear involution satisfying
+\[
+(ab)^*=b^*a^*,\qquad \|ab\|\leq\|a\|\|b\|,\qquad
+\|a^*a\|=\|a\|^2.
+\]
+For a unital $C^*$-algebra, define
+\[
+\spec_A(a)=\{\lambda\in\C:a-\lambda1\text{ is not invertible}\}.
+\]
+An element is \emph{normal} when $a^*a=aa^*$.
+
+Prove that $\spec_A(a)$ is nonempty and compact and that
+\[
+r(a)=\lim_{n\to\infty}\|a^n\|^{1/n}.
+\]
+For normal $a$, prove $r(a)=\|a\|$.
+For $A=B(H)$ and $U\in U(H)$, prove
+\[
+\spec_{B(H)}(UTU^*)=\spec_{B(H)}(T).
+\]
+\end{exercise}
+
+\begin{exercise}[Commutative Gelfand theory]
+For a commutative $C^*$-algebra $A$, a \emph{character} is a nonzero
+homomorphism $\chi:A\to\C$.  Let $\widehat A$ be the space of characters
+with its weak-$*$ topology.  The \emph{Gelfand transform} is
+\[
+\Gamma:A\longrightarrow C_0(\widehat A),
+\qquad \Gamma(a)(\chi)=\chi(a).
+\]
+
+Prove the commutative Gelfand theorem~\cite{conway-functional}:
+every character is
+continuous, $\widehat A$ is locally compact Hausdorff, and the Gelfand
+transform is an isometric $*$-isomorphism
+$A\cong C_0(\widehat A)$.  Deduce that $A$ is unital exactly when
+$\widehat A$ is compact.
+\end{exercise}
+
+\begin{exercise}[Continuous functional calculus]
+An element $a$ of a $C^*$-algebra is \emph{self-adjoint} when $a=a^*$ and
+\emph{positive}, written $a\geq0$, when $a=b^*b$ for some $b$.
+
+For every normal element $a$ of a unital $C^*$-algebra, apply commutative
+Gelfand theory to $C^*(1,a)$ and prove that there is a unique unital isometric
+$*$-homomorphism
+\[
+C(\spec(a))\longrightarrow C^*(1,a),\qquad f\longmapsto f(a),
+\]
+sending the coordinate function to $a$, and prove the continuous spectral
+mapping theorem.  Deduce that positive elements have unique positive square
+roots and that $a\geq0$ if and only if $a=a^*$ and
+$\spec_A(a)\subseteq[0,\infty)$.
+\end{exercise}
+
+
+\begin{exercise}[Complex Riesz--Markov representation]
+For a locally compact Hausdorff space $X$, call a linear functional
+$\varphi:C_c(X)\to\C$ \emph{positive} when $\varphi(f)\geq0$ for every
+real-valued $f\geq0$.  Prove the positive Riesz--Markov
+theorem~\cite{folland-real}: if such a functional is bounded on functions
+supported in each compact set, then there is a unique regular Borel measure
+$\mu_\varphi$ satisfying $\varphi(f)=\int_Xf\,d\mu_\varphi$.  Prove that
+$\mu_\varphi$ is positive and that its values on compact sets recover the
+local bounds of $\varphi$.
+
+Prove the complex Riesz--Markov
+theorem~\cite{folland-real}: every
+$\varphi\in C_0(X)^*$ has a unique finite complex regular measure
+$\mu_\varphi$ such that
+\[
+\varphi(f)=\int_Xf\,d\mu_\varphi,
+\qquad \|\varphi\|=|\mu_\varphi|(X).
+\]
+Deduce the positive theorem for functionals bounded in the
+$C_0(X)$ norm and characterize positive functionals by positive measures.
+\end{exercise}
+
+\begin{exercise}[Spectral distributions of states]
+For a unital $C^*$-algebra, a positive linear functional is one satisfying
+$\varphi(a^*a)\geq0$ for every $a$, and a \emph{state} is a positive
+functional with $\varphi(1)=1$.
+
+Let $A$ be a unital $C^*$-algebra, let $a=a^*\in A$, and let $\varphi$ be a
+state.  Apply the continuous functional calculus and Riesz--Markov theorem
+to prove that there is a unique Borel probability measure
+$\mu_{\varphi,a}$ on $\spec(a)$ such that
+\[
+\varphi(f(a))=\int_{\spec(a)}f(\lambda)\,d\mu_{\varphi,a}(\lambda),
+\qquad f\in C(\spec(a)).
+\]
+Deduce
+\[
+\varphi(a)=\int\lambda\,d\mu_{\varphi,a}(\lambda),
+\qquad
+\varphi(a^2)-\varphi(a)^2
+=\int(\lambda-\varphi(a))^2\,d\mu_{\varphi,a}(\lambda).
+\]
+\end{exercise}
+
+\begin{exercise}[\texorpdfstring{$C_0(X)$}{C0(X)} representations]
+A \emph{projection-valued measure} on a measurable space $X$ is a map $E$
+from measurable subsets of $X$ to orthogonal projections on $H$ satisfying
+\[
+E(\varnothing)=0,\qquad E(X)=I,
+\qquad
+E\!\left(\bigsqcup_{j=1}^\infty B_j\right)
+=\sum_{j=1}^\infty E(B_j)
+\]
+for pairwise disjoint measurable sets, where the sum converges in the strong
+operator topology.  The spectral integral $\int_X f\,dE$ for bounded
+measurable $f$ is defined by uniform approximation from simple functions.
+It is regular when each scalar measure
+$B\mapsto\langle x,E(B)y\rangle$ is a regular Borel measure.
+
+Let $X$ be locally compact Hausdorff.  A representation
+$\pi:C_0(X)\to B(H)$ is \emph{nondegenerate} when
+$\overline{\pi(C_0(X))H}=H$.  Prove that every nondegenerate
+$*$-representation determines scalar measures by applying complex
+Riesz--Markov to $f\mapsto\langle x,\pi(f)y\rangle$.  Use polarization and
+multiplicativity to assemble them into a unique regular projection-valued
+measure $E_\pi$ satisfying
+\[
+\pi(f)=\int_X f(x)\,dE_\pi(x),
+\qquad f\in C_0(X).
+\]
+\end{exercise}
+
+\begin{exercise}[Bounded normal spectral theorem]
+For a normal operator $T\in B(H)$, apply the $C_0(X)$ representation theorem
+to the continuous functional calculus
+$C(\spec(T))\to B(H)$ and prove that there is a unique projection-valued
+measure $E_T$ on $\spec(T)$ satisfying
+\[
+T=\int_{\spec(T)}z\,dE_T(z),
+\qquad
+f(T)=\int_{\spec(T)}f(z)\,dE_T(z).
+\]
+Deduce that a normal operator on a finite-dimensional Hilbert space has the
+intrinsic spectral decomposition
+\[
+H=\bigoplus_{\lambda\in\spec(T)}E_T(\{\lambda\})H,
+\qquad
+T|_{E_T(\{\lambda\})H}=\lambda I.
+\]
+\end{exercise}
+
+\begin{exercise}[Compact spectral theorem]
+An operator $K\in B(H)$ is compact when it maps the closed unit ball to a
+set with compact closure.
+
+For a compact normal operator $K$, prove that every nonzero spectral value is an eigenvalue of
+finite multiplicity, that the nonzero eigenvalues can accumulate only at
+zero, and that
+\[
+K=\sum_{\lambda\in\spec(K)\setminus\{0\}}
+\lambda E_K(\{\lambda\})
+\]
+in operator norm, and prove that the spectral subspaces in the displayed
+sum are mutually orthogonal.
+\end{exercise}
+
 
 \begin{exercise}[Compact convolution operators]
 Let $G$ be compact with normalized Haar measure and $k\in C(G)$.  Prove

@@ -1,6 +1,57 @@
 \section{Determinantal Kernels}
 
-\subsection{Fermionic Permutation Symmetry}
+\subsection{Dyson Symmetry Classes}
+
+\begin{exercise}[Dyson ensembles and unitary orbit Jacobians]
+For $\mathbb F=\R,\C,\mathbb H$, put
+$\beta_{\rm D}=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
+self-adjoint operators on $\mathbb F^N$ has density
+\[
+d\mathbb P_{N,\beta_{\rm D}}(H)
+=C_{N,\beta_{\rm D}}\exp\!\left[-\frac{\beta_{\rm D}N}{4\sigma^2}
+\Tr(H^2)\right]dH
+\]
+for the invariant Hilbert--Schmidt volume.  For
+$\lambda=(\lambda_1,\ldots,\lambda_N)$ define
+\[
+\Delta(\lambda)=\det[\lambda_i^{j-1}]_{i,j=1}^N.
+\]
+
+Use the exterior-power determinant to prove
+\[
+\Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
+\]
+Compute the Jacobian of the unitary conjugation-orbit map on the regular
+spectral locus, including the stabilizer and permutation factors, and derive
+\[
+p_{N,2}(\lambda)
+=\frac1{Z_{N,2}}
+e^{-N\sum_i\lambda_i^2/(2\sigma^2)}
+|\Delta(\lambda)|^2.
+\]
+\end{exercise}
+
+\begin{exercise}[Dyson level repulsion]
+For the real and quaternionic classes, show that each off-diagonal spectral
+direction has real multiplicity $\beta_{\rm D}$ and deduce
+\[
+p_{N,\beta_{\rm D}}(\lambda)
+=\frac1{Z_{N,\beta_{\rm D}}}
+e^{-\beta_{\rm D}N\sum_i\lambda_i^2/(4\sigma^2)}
+|\Delta(\lambda)|^{\beta_{\rm D}}.
+\]
+For $2\times2$ GOE and GUE, separate the trace from the traceless operator,
+rescale the gap to unit mean, and obtain
+\[
+P_1(s)=\frac\pi2s e^{-\pi s^2/4},
+\qquad
+P_2(s)=\frac{32}{\pi^2}s^2e^{-4s^2/\pi}.
+\]
+Identify the exponent $\beta_{\rm D}$ as the small-gap repulsion prediction and
+state the symmetry-sector separation required in spectral data.
+\end{exercise}
+
+\subsection{Determinantal Point Processes}
 
 \begin{exercise}[Scattering projections and fermionic correlations]
 Let
@@ -58,57 +109,6 @@ $2\ell+1$ and state the finite-volume, elastic, threshold, angular-momentum
 cutoff, and detector-resolution assumptions under which fermion counts
 below $E_F$ test the phase-shift prediction.
 \end{exercise}
-
-\begin{exercise}[Dyson ensembles and unitary orbit Jacobians]
-For $\mathbb F=\R,\C,\mathbb H$, put
-$\beta_{\rm D}=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
-self-adjoint operators on $\mathbb F^N$ has density
-\[
-d\mathbb P_{N,\beta_{\rm D}}(H)
-=C_{N,\beta_{\rm D}}\exp\!\left[-\frac{\beta_{\rm D}N}{4\sigma^2}
-\Tr(H^2)\right]dH
-\]
-for the invariant Hilbert--Schmidt volume.  For
-$\lambda=(\lambda_1,\ldots,\lambda_N)$ define
-\[
-\Delta(\lambda)=\det[\lambda_i^{j-1}]_{i,j=1}^N.
-\]
-
-Use the exterior-power determinant to prove
-\[
-\Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
-\]
-Compute the Jacobian of the unitary conjugation-orbit map on the regular
-spectral locus, including the stabilizer and permutation factors, and derive
-\[
-p_{N,2}(\lambda)
-=\frac1{Z_{N,2}}
-e^{-N\sum_i\lambda_i^2/(2\sigma^2)}
-|\Delta(\lambda)|^2.
-\]
-\end{exercise}
-
-\begin{exercise}[Dyson level repulsion]
-For the real and quaternionic classes, show that each off-diagonal spectral
-direction has real multiplicity $\beta_{\rm D}$ and deduce
-\[
-p_{N,\beta_{\rm D}}(\lambda)
-=\frac1{Z_{N,\beta_{\rm D}}}
-e^{-\beta_{\rm D}N\sum_i\lambda_i^2/(4\sigma^2)}
-|\Delta(\lambda)|^{\beta_{\rm D}}.
-\]
-For $2\times2$ GOE and GUE, separate the trace from the traceless operator,
-rescale the gap to unit mean, and obtain
-\[
-P_1(s)=\frac\pi2s e^{-\pi s^2/4},
-\qquad
-P_2(s)=\frac{32}{\pi^2}s^2e^{-4s^2/\pi}.
-\]
-Identify the exponent $\beta_{\rm D}$ as the small-gap repulsion prediction and
-state the symmetry-sector separation required in spectral data.
-\end{exercise}
-
-\subsection{Fredholm Expansion}
 
 \begin{exercise}[Fredholm determinants and trace identities]
 Let $A$ be an arbitrary complex trace-class operator on a Hilbert space.

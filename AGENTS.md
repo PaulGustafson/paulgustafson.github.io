@@ -81,6 +81,11 @@ These rules apply to the manuscript entry point
   localization procedure belongs to the decomposition stage; it is not a
   special-function title unless the subsection derives an explicit named
   function or kernel from it.
+- Use standard, immediately recognizable mathematical names.  Name the
+  actual group, algebra, category, decomposition theorem, special-function
+  family, or measured observable; do not coin umbrella phrases or use a
+  broader class when a concrete instance such as `Locally Compact Abelian
+  Groups`, `SU(2)`, or `SL_2(\mathbb R)` is the subject.
 - In the first subsection, specify the group, algebra, group action,
   homogeneous space, or tensor category and what it acts on.  In the second,
   develop the associated spectral, representation-theoretic, transform,

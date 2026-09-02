@@ -219,7 +219,180 @@ Differentiate the Weyl relations on $\mathcal S(V)$ to prove
 \end{exercise}
 
 
-\subsection{Central-Character Decomposition}
+\subsection{Stone--von Neumann Theorem}
+
+\begin{exercise}[Unbounded self-adjoint operators and the Cayley transform]
+An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
+domain.  Its adjoint has domain
+\[
+\mathcal D(A^*)=
+\{y\in H:x\mapsto\langle y,Ax\rangle
+\text{ is bounded on }\mathcal D(A)\}.
+\]
+For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
+$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
+$x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
+including equality of domains.
+
+For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
+$\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
+\[
+C_A=(A-iI)(A+iI)^{-1}
+\]
+is unitary with $\ker(I-C_A)=0$.  Prove conversely that every unitary $C$
+with $\ker(I-C)=0$ determines a self-adjoint operator through the inverse
+Cayley transform.
+\end{exercise}
+
+\begin{exercise}[Unbounded spectral theorem]
+Apply the bounded normal spectral theorem to $C_A$ and transport its
+projection-valued measure by the inverse Cayley map.  Prove that there is a unique
+projection-valued measure $E_A$ on $\R$ satisfying
+\[
+A=\int_\R\lambda\,dE_A(\lambda),\qquad
+\mathcal D(A)=
+\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
+\]
+\end{exercise}
+
+\begin{exercise}[Closed quadratic forms and Friedrichs realizations]
+Let $H$ be a Hilbert space.  A densely defined Hermitian form is a map
+$q:\mathcal Q(q)\times\mathcal Q(q)\to\C$ on a dense linear subspace,
+linear in the second variable, conjugate-linear in the first, and satisfying
+$q(x,y)=\overline{q(y,x)}$.  It is \emph{bounded below by $c\in\R$} when
+\[
+q(x,x)\geq c\lVert x\rVert^2
+\qquad(x\in\mathcal Q(q)).
+\]
+For such a form put
+\[
+\lVert x\rVert_q^2=q(x,x)+(1-c)\lVert x\rVert^2.
+\]
+Call $q$ \emph{closed} when $\mathcal Q(q)$ is complete in this norm, and
+\emph{closable} when every sequence $x_n\in\mathcal Q(q)$ satisfying
+$x_n\to0$ in $H$ and $\lVert x_n-x_m\rVert_q\to0$ also satisfies
+$\lVert x_n\rVert_q\to0$.
+
+Prove the representation theorem for closed semibounded
+forms~\cite{reed-simon2}: there is a unique self-adjoint operator $A_q$
+bounded below by $c$ such that
+\[
+\mathcal Q(q)=\mathcal D((A_q-cI)^{1/2}),
+\qquad
+q(x,y)=\langle (A_q-cI)^{1/2}x,(A_q-cI)^{1/2}y\rangle
++c\langle x,y\rangle,
+\]
+and $x\in\mathcal D(A_q)$ exactly when there is $z\in H$ satisfying
+$q(y,x)=\langle y,z\rangle$ for every $y\in\mathcal Q(q)$, in which case
+$A_qx=z$.  Prove uniqueness from the latter characterization.
+
+Let $A_0$ be a densely defined symmetric operator bounded below by $c$, and
+put $q_0(x,y)=\langle x,A_0y\rangle$ on $\mathcal D(A_0)$.  Prove directly
+from symmetry, the lower bound, and density that $q_0$ is
+closable~\cite{reed-simon2}.  Define the \emph{Friedrichs realization} of
+$A_0$ to be the operator associated to its closed form $\overline q_0$.
+Prove that it extends $A_0$, is self-adjoint, and preserves the lower bound.
+For $-d^2/dx^2$ on $C_c^\infty(0,\ell)$, define
+$H_0^1(0,\ell)$ as the completion of $C_c^\infty(0,\ell)$ in the norm
+\[
+\lVert f\rVert_{H^1}^2=\int_0^\ell(|f|^2+|f'|^2)\,dx.
+\]
+Integrate by parts to identify this as the closed form domain and derive the Dirichlet spectral values
+$\pi^2n^2/\ell^2$.  State how changing the interval length changes these
+spectral lines.
+\end{exercise}
+
+\begin{exercise}[Resolvents, compact resolvent, and the min--max principle]
+For a closed operator $A$, define its resolvent set by
+\[
+\rho(A)=\{z\in\C:A-zI:\mathcal D(A)\to H
+\text{ is bijective with bounded inverse}\}
+\]
+and put $R_A(z)=(A-zI)^{-1}$.  For a self-adjoint $A$, use the spectral
+measure to prove
+\[
+R_A(z)=\int_\R\frac1{\lambda-z}\,dE_A(\lambda),
+\qquad
+\|R_A(z)\|\leq\frac1{|\operatorname{Im}z|}
+\quad(z\notin\R),
+\]
+and derive the resolvent identity
+\[
+R_A(z)-R_A(w)=(z-w)R_A(z)R_A(w).
+\]
+If a positively oriented contour $\Gamma$ in $\rho(A)$ encloses an isolated
+compact part $\Sigma$ of the spectrum, prove
+\[
+E_A(\Sigma)=-\frac1{2\pi i}\int_\Gamma R_A(z)\,dz.
+\]
+
+Call $A$ an operator with \emph{compact resolvent} when $R_A(z)$ is compact
+for one $z\in\rho(A)$.  Prove from the resolvent identity that it is then
+compact for every $z\in\rho(A)$.  If $H$ is infinite-dimensional and
+$A$ is self-adjoint, bounded below,
+and has compact resolvent, prove that its spectrum consists of eigenvalues
+of finite multiplicity
+\[
+\lambda_1\leq\lambda_2\leq\cdots,
+\qquad \lambda_n\longrightarrow+\infty,
+\]
+listed with multiplicity.  For a nonzero subspace $L\subset\mathcal D(A)$
+put
+\[
+\mathcal R_A(L)=
+\sup_{x\in L\setminus\{0\}}
+\frac{\langle x,Ax\rangle}{\langle x,x\rangle}.
+\]
+Use the spectral projections, without choosing eigenvectors, to prove the
+min--max identity
+\[
+\lambda_n=\inf_{\dim L=n}\mathcal R_A(L).
+\]
+For a bounded self-adjoint perturbation $B$, apply the same identity to
+prove
+\[
+|\lambda_n(A+B)-\lambda_n(A)|\leq\|B\|.
+\]
+For a closed semibounded form $q$ whose associated operator has compact
+resolvent, extend the argument to prove the form-domain identity
+\[
+\lambda_n(A_q)=
+\inf_{\substack{L\subset\mathcal Q(q)\\\dim L=n}}
+\sup_{x\in L\setminus\{0\}}
+\frac{q(x,x)}{\langle x,x\rangle}.
+\]
+For two such forms $q_1,q_2$ with a common form domain, deduce
+\[
+q_1(x,x)\leq q_2(x,x)\quad\text{for every }x
+\quad\Longrightarrow\quad
+\lambda_n(A_{q_1})\leq\lambda_n(A_{q_2}).
+\]
+State how a calibrated operator-norm bound on an uncontrolled perturbation
+gives an error bar for every predicted discrete spectral line.
+\end{exercise}
+
+\begin{exercise}[Stone's theorem]
+Use the measurable functional calculus of $E_A$ to prove that $e^{-itA}$
+is a strongly continuous unitary group with generator $-iA$.  Conversely,
+let $(U_t)_{t\in\R}$ be a strongly continuous unitary group and define
+\[
+\mathcal D(A)=\left\{x:\lim_{t\to0}
+i\frac{U_tx-x}{t}\text{ exists}\right\},
+\qquad
+Ax=\lim_{t\to0}i\frac{U_tx-x}{t}.
+\]
+Prove that $\mathcal D(A)$ is dense and that $A$ is symmetric.  Use the
+strong integrals
+\[
+i\int_0^\infty e^{-t}U_t\,dt,
+\qquad
+-i\int_{-\infty}^0e^tU_t\,dt
+\]
+to prove that $A-iI$ and $A+iI$ are surjective.  Deduce that $A$ is
+self-adjoint, prove $U_t=e^{-itA}$, and prove uniqueness of $A$.
+\end{exercise}
+
+
 
 \begin{exercise}[Irreducibility of the Schr\"odinger representation]
 Prove that an operator on $L^2(V)$ commuting with every translation and
@@ -529,7 +702,46 @@ the Groenewold--van Hove obstruction to show why exact covariance cannot
 extend to every nonlinear canonical transformation.
 \end{exercise}
 
-\subsection{Laguerre Functions}
+\subsection{Hermite and Laguerre Functions}
+
+\begin{exercise}[Hermite polynomials and functions]
+Define the physicists' Hermite polynomials by
+\[
+e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!}.
+\]
+The normalized \emph{Hermite functions} are
+\[
+h_n(x)=\frac{e^{-x^2/2}H_n(x)}
+{(2^nn!\sqrt\pi)^{1/2}}.
+\]
+
+Use the generating function and the Gaussian integral to prove that
+$(h_n)_{n\geq0}$ is an orthonormal family in $L^2(\R)$.  Derive the
+Hermite differential equation and recurrence relations.
+\end{exercise}
+
+\begin{exercise}[Mehler kernel]
+For $|r|<1$, use the Hermite generating function and Gaussian integration
+to derive Mehler's identity
+\[
+\sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
+=\frac1{\sqrt{\pi(1-r^2)}}
+\exp\!\left(
+-\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
+\right).
+\]
+\end{exercise}
+
+\begin{exercise}[Hermite completeness]
+Let $K_r$ be the integral operator with the Mehler kernel for $0<r<1$.
+Use its explicit Gaussian form to prove
+\[
+K_rf\longrightarrow f\qquad\text{in }L^2(\R)\quad(r\uparrow1).
+\]
+Prove that the image of $K_r$ lies in the closed linear span of the Hermite
+functions and deduce that $(h_n)_{n\geq0}$ is complete in $L^2(\R)$.
+\end{exercise}
+
 
 \begin{exercise}[Wigner--Laguerre identity]
 Use the generalized Laguerre polynomials and their orthogonality.  For
@@ -551,7 +763,103 @@ changes of the Wigner distribution from those of $L_n$.
 \end{exercise}
 
 
-\subsection{Homodyne Tomography}
+\subsection{Oscillator Spectroscopy}
+
+\begin{exercise}[Spectral lines and time evolution]
+Let $A$ be self-adjoint, let $B\in B(H)$, and set
+$B(t)=e^{itA/\hbar}Be^{-itA/\hbar}$.  For eigenvalues $\lambda,\mu$ of
+$A$, write $P_\lambda=E_A(\{\lambda\})$ and prove
+\[
+P_\mu B(t)P_\lambda
+=e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
+\]
+Use the functional calculus to prove the factorized weak identity
+\[
+B(t)=
+\left(\int_{\R}e^{it\mu/\hbar}\,dE_A(\mu)\right)
+B
+\left(\int_{\R}e^{-it\lambda/\hbar}\,dE_A(\lambda)\right).
+\]
+When $A$ has pure-point spectrum, deduce in the weak operator topology that
+\[
+B(t)=\sum_{\lambda,\mu}
+e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
+\]
+For an initial state $\psi$, define the line strength
+\[
+I_{\mu\lambda}(\psi)=\|P_\mu BP_\lambda\psi\|^2.
+\]
+Prove that a line at $(\mu-\lambda)/\hbar$ occurs only when this quantity is
+nonzero, and identify vanishing spectral blocks as selection rules.
+\end{exercise}
+
+
+\begin{exercise}[Oscillator spectroscopy]
+The \emph{Schwartz space} $\mathcal S(\R)$ consists of the smooth functions
+$\psi$ satisfying
+\[
+\sup_{x\in\R}(1+|x|)^m|\psi^{(r)}(x)|<\infty
+\]
+for all $m,r\geq0$.  On $\mathcal S(\R)$ let
+\[
+(Q\psi)(x)=x\psi(x),
+\qquad
+(P\psi)(x)=-i\hbar\psi'(x).
+\]
+For
+\[
+\widehat H=-\frac{\hbar^2}{2M}\frac{d^2}{dx^2}
++\frac{M\omega^2x^2}{2},
+\]
+use the Hermite functions to prove that
+\[
+\psi_n(x)=\left(\frac{M\omega}{\hbar}\right)^{1/4}
+h_n\!\left(\sqrt{\frac{M\omega}{\hbar}}x\right),
+\qquad
+E_n=\hbar\omega\left(n+\frac12\right)
+\]
+give the complete spectral decomposition of $\widehat H$.  Construct the
+creation and annihilation operators and compute
+\[
+\langle\psi_k,Q\psi_n\rangle
+=\sqrt{\frac{\hbar}{2M\omega}}
+\bigl(\sqrt{n+1}\,\delta_{k,n+1}
++\sqrt n\,\delta_{k,n-1}\bigr).
+\]
+Deduce the spectral-line prediction
+$|E_{n\pm1}-E_n|/\hbar=\omega$ and the relative line strengths for a
+linearly coupled oscillator.  For $\alpha\in\C$, prove convergence and
+normalization of
+\[
+\psi_\alpha=e^{-|\alpha|^2/2}
+\sum_{n\geq0}\frac{\alpha^n}{\sqrt{n!}}\psi_n,
+\]
+show that its number statistics are Poisson with mean $|\alpha|^2$, and
+derive its sinusoidal position expectation.  Analytically continue
+Mehler's identity with the usual $t-i0$ prescription to obtain the
+oscillator propagator for $t\notin(\pi/\omega)\Z$,
+\[
+K_t(x,y)=
+\sqrt{\frac{M\omega}{2\pi i\hbar\sin(\omega t)}}
+\exp\!\left[
+\frac{iM\omega}{2\hbar\sin(\omega t)}
+\bigl((x^2+y^2)\cos(\omega t)-2xy\bigr)
+\right].
+\]
+Determine the Maslov phase obtained by continuation across each caustic.
+Prove
+\[
+e^{-2\pi i\widehat H/(\hbar\omega)}=-I,
+\qquad
+e^{-4\pi i\widehat H/(\hbar\omega)}=I,
+\]
+and distinguish the projective and observable revival period
+$2\pi/\omega$ from the exact operator period $4\pi/\omega$.
+Use these formulas to predict the spectral spacing, coherent oscillation
+frequency, occupation-number distribution, and revival period measured in
+an oscillator experiment.
+\end{exercise}
+
 
 \begin{exercise}[Laguerre tomography]
 For $F\in\mathcal S(\R^2)$, $n_\theta=(\cos\theta,\sin\theta)$, and
@@ -961,7 +1269,7 @@ spacelike decay, and time-of-flight delay are physical predictions.
 
 \section{Potential Scattering}
 
-\subsection{Euclidean Covariance}
+\subsection{Euclidean Group}
 
 \begin{exercise}[Outgoing Green kernels and the Lippmann--Schwinger equation]
 Let $\mu>0$ be a reduced mass, let $k>0$, put
@@ -1086,7 +1394,7 @@ resolution assumptions under which this differential cross section predicts
 detector counts.
 \end{exercise}
 
-\subsection{Scattering Decomposition}
+\subsection{Partial Waves}
 
 \begin{exercise}[Scattering operators and elastic unitarity]
 For a real radial potential supported in $\{x:\|x\|\leq R\}$, define the
