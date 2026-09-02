@@ -70,17 +70,19 @@ These rules apply to the manuscript entry point
   principal mathematical subject; do not join subjects or applications with
   "and," commas, ampersands, or multi-clause constructions. Put the detailed
   scope and physical culmination in exercise titles and exercise bodies.
-- Give every section exactly four subsections, in this order:
-  `Symmetry`, `Decomposition`, `Special Functions`, and
-  `Physical Predictions`.  Use no other subsection titles and do not add
-  `\subsubsection` or lower-level divisions.
-- In `Symmetry`, specify the group, algebra, group action, homogeneous space,
-  or tensor category and what it acts on.  In `Decomposition`, develop the
-  associated spectral, representation-theoretic, transform, convolution, or
-  sector decomposition.  In `Special Functions`, derive the characters,
+- Give every section exactly four subsections corresponding, in this order,
+  to symmetry, decomposition, special functions, and physical predictions.
+  Title each subsection by the specific mathematical instance it develops,
+  such as `Compact Groups`, `Peter--Weyl Decomposition`, `Wigner Functions`,
+  or `Angular Spectroscopy`; do not use the generic component names as
+  subsection titles.  Do not add `\subsubsection` or lower-level divisions.
+- In the first subsection, specify the group, algebra, group action,
+  homogeneous space, or tensor category and what it acts on.  In the second,
+  develop the associated spectral, representation-theoretic, transform,
+  convolution, or sector decomposition.  In the third, derive the characters,
   matrix coefficients, eigenfunctions, or kernels that make the decomposition
-  explicit.  In `Physical Predictions`, use those functions to calculate
-  quantitative observables and state the modeling assumptions.
+  explicit.  In the fourth, use those functions to calculate quantitative
+  observables and state the modeling assumptions.
 - Treat the four-subsection structure as a substantive test, not a formatting
   device.  If a section cannot support every stage without unrelated filler,
   refocus it or merge its material into a section that can.
