@@ -1,4 +1,4 @@
-\part{Representation Theory}
+\part{Harmonic Analysis}
 
 \section{Hilbert Space}
 
@@ -16,7 +16,7 @@ whose two composites obtained by inserting $\operatorname{coev}_V$ and then
 applying $\operatorname{ev}_V$ are the identities of $V$ and $V^\vee$.
 Let $\sigma_{V,V^\vee}(v\otimes\phi)=\phi\otimes v$ be the symmetry.  Define
 \[
- \operatorname{tr}(T)=
+ \Tr(T)=
  \operatorname{ev}_V\circ\sigma_{V,V^\vee}\circ
  (T\otimes1)\circ\operatorname{coev}_V
 \]
@@ -49,7 +49,9 @@ Show that the direct sum over all states is faithful.
 For a unital commutative $C^*$-algebra $A$, define its character space
 $\widehat A$ and the Gelfand transform $a\mapsto\widehat a$.  Prove, by
 maximal ideals and the $C^*$-identity, that
-$A\simeq C(\widehat A)$.  For a bounded self-adjoint operator $H$, apply this
+$A\simeq C(\widehat A)$.  Prove the Riesz--Markov theorem for positive
+functionals on $C(X)$ by constructing a regular Borel measure through outer
+approximation.  For a bounded self-adjoint operator $H$, apply this
 to $C^*(1,H)$ and construct the unique projection-valued measure $P$ on
 $\spec(H)$ satisfying
 \[
@@ -59,6 +61,41 @@ $\spec(H)$ satisfying
 Prove the bounded Borel functional calculus, spectral mapping, and
 $\inner{f(H)x}{y}=\int f\dd\mu_{x,y}$, where
 $\mu_{x,y}(B)=\inner{P(B)x}{y}$.
+\end{exercise}
+
+\begin{exercise}[Closed operators and the unbounded spectral theorem]
+For a densely defined operator $D$ on a Hilbert space, define its graph,
+adjoint, closure, resolvent, and the conditions of being symmetric,
+self-adjoint, and essentially self-adjoint.  Prove the closed-graph criterion
+for the adjoint and show that
+$(D-\ii)(D+\ii)^{-1}$ is unitary exactly when $D$ is self-adjoint.  Apply the
+bounded spectral theorem to this Cayley transform and construct the unique
+projection-valued measure satisfying
+\[
+ D=\int_{\R}\lambda\dd P(\lambda),\qquad
+ \operatorname{Dom}(D)=
+ \left\{x:\int_{\R}\lambda^2\dd\mu_x(\lambda)<\infty\right\}.
+\]
+Develop the measurable functional calculus, including its domain rule and
+spectral mapping.  Define a densely defined closed semibounded quadratic form
+and prove the representation theorem that associates it with a self-adjoint
+operator.  For a semibounded symmetric operator, close its form and construct
+the Friedrichs extension.  Prove that compact resolvent is equivalent to a
+discrete spectral decomposition with finite-rank spectral projections and no
+finite accumulation point.
+\end{exercise}
+
+\begin{exercise}[Holomorphic functions and contour integrals]
+Define complex differentiability, holomorphic and meromorphic functions,
+piecewise smooth contour integrals, winding number, and residues.  Prove
+Goursat's theorem on triangles, the Cauchy integral formula, local power-series
+expansion, the identity and maximum principles, and the residue theorem for a
+finite collection of polygonal boundary curves.  Derive the argument
+principle and Schwarz reflection.  Define analytic continuation along a path
+by overlapping power-series germs, prove uniqueness, and identify monodromy
+on a simply connected domain.  For a holomorphic family of bounded invertible
+operators, prove that inversion is holomorphic and that a pole of a
+finite-rank resolvent has residue equal to its spectral projection.
 \end{exercise}
 
 \begin{exercise}[Green functions and spectral measures]
@@ -103,17 +140,26 @@ three quantities.
 
 \section{Fourier Analysis}
 
-\begin{exercise}[Locally compact abelian groups and Haar measure]
-Let $G$ be a locally compact abelian group.  Construct a nonzero positive
-translation-invariant functional on $C_c(G)$ by the covering-number argument,
-construct its regular Borel measure by outer approximation, and prove the
-Riesz--Markov representation and uniqueness needed to obtain Haar measure
-$\dd x$, unique up to scale.  Define convolution and involution by
+\begin{exercise}[Locally compact groups and Haar measure]
+Let $G$ be a locally compact group.  Construct a nonzero positive
+left-translation-invariant functional on $C_c(G)$ by the covering-number
+argument, construct its regular Borel measure by outer approximation, and
+extend the preceding Riesz--Markov representation to $C_c(G)$ and prove the
+uniqueness needed to obtain left
+Haar measure $\dd x$, unique up to scale.  Construct right Haar measure and
+the continuous homomorphism $\Delta_G:G\to\R_{>0}$ characterized by
 \[
- (f*g)(x)=\int_G f(y)g(x-y)\dd y,
- \qquad f^*(x)=\overline{f(-x)},
+ \int_G f(xg)\dd x=\Delta_G(g)^{-1}\int_Gf(x)\dd x.
 \]
-and prove Young's $L^1*L^p$ inequality and associativity.
+Define convolution and involution by
+\[
+ (f*g)(x)=\int_G f(y)g(y^{-1}x)\dd y,
+ \qquad f^*(x)=\Delta_G(x^{-1})\overline{f(x^{-1})},
+\]
+and prove that $L^1(G)$ is a Banach $*$-algebra and that left translation is
+unitary on $L^2(G)$.  Prove that $\Delta_G=1$ for abelian and compact groups;
+in the abelian case adopt additive notation, so that the formulas reduce to
+the earlier additive convolution and reflection involution.
 \end{exercise}
 
 \begin{exercise}[Pontryagin duality and Fourier decomposition]
@@ -187,7 +233,8 @@ quantity needed to test this prediction.
 \section{Compact Harmonic Analysis}
 
 \begin{exercise}[Compact groups and unitary representations]
-Normalize Haar measure on a compact group $K$ to total mass one.  Average an
+Use the preceding Haar construction and compactness to normalize Haar measure
+on a compact group $K$ to total mass one.  Average an
 inner product to prove that every finite-dimensional continuous
 representation is unitarizable and every invariant subspace has an invariant
 orthogonal complement.  Define irreducibility, intertwiners, contragredients,
@@ -264,10 +311,37 @@ $\nu_{J\to J+1}=\hbar(J+1)/(2\pi I)$ and the relative line strengths from the
 $3j$ symbols; these are the quantitative spectroscopic predictions.
 \end{exercise}
 
+\part{Lie Symmetry}
+
 \section{Reductive Groups}
 
+\begin{exercise}[Lie algebras, enveloping algebras, and Hopf algebras]
+Define a complex Lie algebra, Lie ideals, representations, and the adjoint
+representation.  Construct the tensor algebra by its universal property and
+define
+\[
+ U(\mathfrak g)=T(\mathfrak g)/
+ \langle x\otimes y-y\otimes x-[x,y]\rangle
+\]
+by its universal property among associative algebras receiving a Lie map from
+$\mathfrak g$.  Filter $U(\mathfrak g)$ by tensor degree, construct the
+canonical graded map
+$\operatorname{Sym}(\mathfrak g)\to\operatorname{gr}U(\mathfrak g)$, and
+prove it is an isomorphism by the rewriting filtration and the Jacobi
+identity.  Deduce the Poincar\'e--Birkhoff--Witt theorem, induction and
+restriction of modules, and the construction of a Verma module from a
+triangular decomposition.  Define coalgebras, bialgebras, and Hopf algebras by
+their universal diagrams, and construct the cocommutative Hopf structure on
+$U(\mathfrak g)$ for which every $x\in\mathfrak g$ is primitive.
+\end{exercise}
+
 \begin{exercise}[Root data and Weyl groups]
-Define a connected complex reductive group $G$, a maximal torus $T$, its
+Define an affine complex algebraic group by its finitely generated reduced
+commutative coordinate Hopf algebra, after defining nilpotent elements and
+reduced algebras.  Define connectedness, unipotent groups,
+the unipotent radical, and reductivity, and construct its Lie algebra from
+derivations at the counit.  For a connected complex reductive group $G$,
+define a maximal torus $T$, its
 character and cocharacter lattices, roots, coroots, and the Weyl group
 $W=N_G(T)/T$.  Derive the root-space decomposition of $\mathfrak g$ and the
 rank-one $\mathfrak{sl}_2$ subalgebra associated with each root.  Choose a
@@ -288,7 +362,11 @@ and the highest-weight classification.
 \end{exercise}
 
 \begin{exercise}[Weyl characters and Schur functions]
-In the group ring of the weight lattice define
+Define exterior powers as alternating tensor quotients and define the
+determinant of an endomorphism as the scalar by which it acts on the highest
+nonzero exterior power.  Define a partition as a finite weakly decreasing
+sequence of nonnegative integers.  In the group ring of the weight lattice
+define
 $A_\mu=\sum_{w\in W}(-1)^{\ell(w)}e^{w\mu}$.  Construct the BGG resolution
 from Verma modules and use its Euler character to prove
 \[
@@ -301,9 +379,7 @@ For $G=GL_r$ identify these characters with the Schur functions
  s_\lambda(x)=
 \frac{\det(x_i^{\lambda_j+r-j})}{\det(x_i^{r-j})},
 \]
-after defining exterior powers as alternating tensor quotients and the
-determinant as the scalar by which an endomorphism acts on the highest
-exterior power.  Derive the tableaux expansion, Cauchy identity, and
+and derive the tableaux expansion, Cauchy identity, and
 Littlewood--Richardson tensor-product rule.
 \end{exercise}
 
@@ -325,8 +401,12 @@ first-order symmetry-breaking assumption.
 \section{Coadjoint Orbits}
 
 \begin{exercise}[Hamiltonian group actions and moment maps]
-Define tangent and cotangent bundles, differential forms, pullback, wedge
-product, and the exterior derivative.  Define symplectic manifolds and
+Define smooth manifolds by compatible smooth atlases, smooth maps by their
+chart representatives, and tangent vectors intrinsically as derivations of
+germs.  Construct tangent and cotangent bundles, differential forms, pullback,
+wedge product, and the exterior derivative, and prove their independence of
+charts.  Define a Lie group as a group object in smooth manifolds and identify
+its Lie algebra with its left-invariant vector fields.  Define symplectic manifolds and
 Hamiltonian vector fields by
 $\iota_{X_f}\omega=\dd f$, and the Poisson bracket
 $\{f,g\}=\omega(X_f,X_g)$.  For a Lie-group action define an equivariant

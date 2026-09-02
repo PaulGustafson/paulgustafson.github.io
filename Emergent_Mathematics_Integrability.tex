@@ -133,13 +133,14 @@ Let $\mathcal C_{\mathfrak g}\in\mathfrak g\otimes\mathfrak g$ be the inverse
 tensor to the invariant form and define the dual Coxeter number $h^\vee$ by
 the scalar $2h^\vee$ through which the associated Casimir acts on
 $\mathfrak g$.  Write $J_{x,n}$ for the action of $x\otimes z^n$ and set
-$:J_{x,p}J_{y,q}:=J_{x,p}J_{y,q}$ for $p<0$ and
-$J_{y,q}J_{x,p}$ for $p\geq0$.  Contract the two current factors with
-$\mathcal C_{\mathfrak g}$ and define the Sugawara operators, written
-symbolically as
+the linear map
+$\mathcal N_{p,q}:\mathfrak g\otimes\mathfrak g\to\End(L)$ to send
+$x\otimes y$ to $J_{x,p}J_{y,q}$ for $p<0$ and to
+$J_{y,q}J_{x,p}$ for $p\geq0$.  Define the Sugawara operators intrinsically
+by contraction with $\mathcal C_{\mathfrak g}$:
 \[
  L_n=\frac1{2(k+h^\vee)}
- \sum_{m\in\Z}\sum_a:J^a_{n-m}J_{a,m}: .
+ \sum_{m\in\Z}\mathcal N_{n-m,m}(\mathcal C_{\mathfrak g}).
 \]
 Prove from the affine commutators that these operators satisfy the Virasoro
 relations and
@@ -257,12 +258,45 @@ define
  \frac{(v-v^{-1})^r}{[r]_v!}E^r\otimes F^r.
 \]
 Verify directly on highest-weight modules that
-$\mathcal R\Delta(a)=\Delta^{\rm op}(a)\mathcal R$ and the two hexagon
-identities; deduce braid-group actions and the quantum Yang--Baxter equation.
+$\mathcal R\Delta(a)=\Delta^{\rm op}(a)\mathcal R$ and
+\[
+ (\Delta\otimes\id)\mathcal R=\mathcal R_{13}\mathcal R_{23},
+ \qquad
+ (\id\otimes\Delta)\mathcal R=\mathcal R_{13}\mathcal R_{12}.
+\]
+Define the braid group $B_n$ by generators
+$\sigma_i$ with the far-commutativity and braid relations; deduce its actions
+on tensor powers and the quantum Yang--Baxter equation.
 On the two fundamental channels, where the sum terminates and has a regular
 root-of-unity value, specialize at $v=e^{\pi\ii/(k+2)}$.  Prove that the
 ratio of its two braid eigenvalues and its recoupling matrix agree with the
 framing-independent Knizhnik--Zamolodchikov braid data.
+\end{exercise}
+
+\begin{exercise}[Root-of-unity tilting modules and ribbon quotients]
+Construct the divided-power integral form of
+$U_v(\mathfrak{sl}_2)$ over $\Z[v,v^{-1}]$ and specialize it at
+$v=e^{\pi\ii/(k+2)}$.  Define Weyl modules, dual Weyl modules, and tilting
+modules through filtrations by both.  Use the antipode, evaluation, and
+coevaluation to define their rigid duals and prove closure of the tilting
+subcategory under tensor products and duals.  Construct the pivotal element
+from the square of the antipode and use it to define the categorical trace.
+Define a morphism to be
+negligible when its categorical trace vanishes after every composable
+morphism, prove that negligible morphisms form a tensor ideal, and form the
+Karoubi-completed quotient by formally adjoining the images of idempotents.
+Show that it is semisimple with simple objects
+$V_0,\ldots,V_k$, quantum dimensions
+\[
+ d_a=\frac{\sin((a+1)\pi/(k+2))}{\sin(\pi/(k+2))},
+\]
+and truncated Clebsch--Gordan products.  Construct the ribbon element from
+the specialized $R$-matrix, define its compatibility with the coproduct,
+antipode, and pivotal element, prove the ribbon identities in the quotient,
+and derive
+\[
+ \theta_a=\exp\!\left(\frac{\pi\ii a(a+2)}{2(k+2)}\right).
+\]
 \end{exercise}
 
 \begin{exercise}[Quantum Peter--Weyl decomposition]

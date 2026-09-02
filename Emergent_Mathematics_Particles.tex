@@ -75,6 +75,8 @@ from Hilbert Space, and have intensities in the ratios prescribed above.
 These positions and ratios are the spectroscopic prediction.
 \end{exercise}
 
+\input{Emergent_Mathematics_Integrable_Probability}
+
 \section{Poincar\'e Group}
 
 \begin{exercise}[Minkowski isometries and their Casimirs]
@@ -142,6 +144,101 @@ this is a quantitative mass determination from spacelike correlation data.
 
 \part{Scattering Theory}
 
+\section{One-Dimensional Scattering}
+
+\begin{exercise}[Asymptotic translation symmetry and scattering channels]
+On $L^2(\R)$ let
+\[
+ H_0=-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd x^2},\qquad H=H_0+V,
+\]
+where $V$ is real and
+$\int_{\R}(1+\abs x)\abs{V(x)}\dd x<\infty$.  Construct $H$ from its closed
+semibounded quadratic form and prove that its absolutely continuous spectrum
+on $(0,\infty)$ has two asymptotic translation channels.  Construct the wave
+operators
+\[
+ \Omega_\pm=\operatorname*{s-lim}_{t\to\pm\infty}
+ e^{\ii Ht/\hbar}e^{-\ii H_0t/\hbar}
+\]
+first on Fourier transforms of compactly supported functions away from zero,
+using the Duhamel formula and the one-dimensional dispersive estimate, and
+then by density.  Prove isometry, intertwining, and completeness from the
+Volterra resolvent.  Define $S=\Omega_+^*\Omega_-$ and prove that it commutes
+with $H_0$.  Show that time reversal makes the
+two-channel scattering matrix symmetric and that an even potential further
+decomposes it into parity channels.
+\end{exercise}
+
+\begin{exercise}[Jost solutions and the scattering matrix]
+For $k>0$ define the Jost solutions as the unique solutions of
+\[
+ -\frac{\hbar^2}{2m}f''+Vf=\frac{\hbar^2k^2}{2m}f,
+ \qquad f_\pm(k,x)e^{\mp\ii kx}\longrightarrow1
+ \quad(x\to\pm\infty),
+\]
+and construct them from their Volterra integral equations.  Use their
+Wronskians to define transmission and left and right reflection amplitudes,
+fixing the convention
+\[
+ f_+(k,x)=t(k)^{-1}e^{\ii kx}
+ +t(k)^{-1}r_-(k)e^{-\ii kx}+o(1)
+ \quad(x\to-\infty).
+\]
+Prove that these coefficients form the fiber of $S$, derive unitarity and
+reciprocity, and meromorphically continue them to $\Im k>0$.  Prove that poles
+of $t(k)$ at $k=\ii\kappa$ are bound states of energy
+$-\hbar^2\kappa^2/(2m)$, derive their norming constants from the residues, and
+identify lower-half-plane continuation poles as resonances.
+\end{exercise}
+
+\begin{exercise}[P\"oschl--Teller hypergeometric functions]
+For
+\[
+ V(x)=-\frac{\hbar^2}{2ma^2}\lambda(\lambda+1)
+ \operatorname{sech}^2(x/a),\qquad \lambda>0,
+\]
+put $z=(1-\tanh(x/a))/2$ and reduce the Jost equation to the Gauss equation.
+Define
+\[
+ {}_2F_1(A,B;C;z)=
+ \sum_{n\ge0}\frac{(A)_n(B)_n}{(C)_n n!}z^n
+\]
+for $\abs z<1$, where $(A)_0=1$ and
+$(A)_n=A(A+1)\cdots(A+n-1)$.  Derive its differential equation and Euler
+integral, and use
+the integral to prove its connection formula between $z=0$ and $z=1$.
+Express both Jost solutions through these functions and obtain, with $p=ka$,
+\[
+ t(p)=\frac{\Gamma(1+\lambda-\ii p)\Gamma(-\lambda-\ii p)}
+ {\Gamma(1-\ii p)\Gamma(-\ii p)},
+\]
+in the preceding asymptotic convention.  Use the gamma
+reflection formula to prove
+\[
+ \abs{t(p)}^2=
+ \frac{\sinh^2(\pi p)}{\sinh^2(\pi p)+\sin^2(\pi\lambda)},\qquad
+ \abs{r(p)}^2=
+ \frac{\sin^2(\pi\lambda)}{\sinh^2(\pi p)+\sin^2(\pi\lambda)}.
+\]
+\end{exercise}
+
+\begin{exercise}[Reflectionless transmission spectroscopy]
+For integral $\lambda=N$, prove that the P\"oschl--Teller potential is
+reflectionless at every positive energy and that its bound-state poles give
+\[
+ E_n=-\frac{\hbar^2}{2ma^2}(N-n)^2,\qquad n=0,\ldots,N-1.
+\]
+For nonintegral $\lambda$, locate the bound-state poles with
+$n\in\Z_{\ge0}$ and $n<\lambda$ and the continued resonance poles, and derive the threshold
+and high-energy asymptotics of the reflection probability.  Formulate a
+one-dimensional matter-wave or microwave-guide experiment that measures
+transmitted and reflected flux as a function of $k$: the model predicts the
+displayed transmission curve, exact reflectionlessness at integral $N$, and
+the bound-state line positions.  Separate calibration of $a$ and the potential
+depth, finite preparation width, absorption, and truncation of the ideal
+$\operatorname{sech}^2$ profile from these predicted observables.
+\end{exercise}
+
 \section{Potential Scattering}
 
 \begin{exercise}[$SO(3)$ symmetry and radial operators]
@@ -176,8 +273,7 @@ prove $\abs{S_\ell}=1$.  Derive
 
 \begin{exercise}[Coulomb hypergeometric functions]
 For $V(r)=\kappa/r$ set $\rho=kr$ and
-$\eta=m\kappa/(\hbar^2k)$.  Put
-$(a)_n=\Gamma(a+n)/\Gamma(a)$ and define
+$\eta=m\kappa/(\hbar^2k)$.  Define
 $\mathop{{}_1F_1}(a;c;z)=\sum_{n\ge0}(a)_nz^n/((c)_nn!)$.  Define the regular
 Coulomb function by
 \[
@@ -308,10 +404,7 @@ compactly supported smooth $K$-finite functions and extend it to $L^2$.
 \end{exercise}
 
 \begin{exercise}[Legendre functions and the Mehler--Fock transform]
-Define
-$\mathop{{}_2F_1}(a,b;c;z)=\sum_{n\ge0}(a)_n(b)_nz^n/((c)_nn!)$ in the unit
-disk and continue it by its differential equation.  With fixed branches,
-define
+With fixed branches, use the Gauss hypergeometric function to define
 \[
  P_\nu^\mu(z)=\frac1{\Gamma(1-\mu)}
  \left(\frac{z+1}{z-1}\right)^{\mu/2}
@@ -413,7 +506,7 @@ single-cusp, scalar-wave, and lead-matching assumptions from those measured
 quantities.
 \end{exercise}
 
-\part{Scaling Limits}
+\part{Conformal Symmetry}
 
 \section{Virasoro Algebra}
 

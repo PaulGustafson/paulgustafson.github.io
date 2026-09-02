@@ -3,13 +3,39 @@
 \section{Algebraic Curves}
 
 \begin{exercise}[Affine and projective curves]
-Define an affine scheme as a locally ringed space isomorphic to
-$\operatorname{Spec}A$, define schemes by affine covers, and define a
-projective curve over $\C$ to be a smooth connected one-dimensional closed
-subscheme of projective space.  Construct the analytification of a smooth
-projective curve from its local rings and prove it is a compact Riemann
-surface.  Define divisors by valuations of the function field and prove that
-principal divisors have degree zero by the argument principle.
+For a commutative unital ring $A$, define prime ideals, localization, the
+Zariski space $\operatorname{Spec}A$, and its structure sheaf by the rings
+$A_f$ on distinguished opens.  Prove that every stalk is local and define a
+locally ringed space, morphisms of locally ringed spaces, affine schemes, and
+schemes by affine covers.  Define Noetherian rings, Krull dimension, and a
+regular Noetherian local ring by
+$\dim_{A/\mathfrak m}(\mathfrak m/\mathfrak m^2)=\dim A$.  Construct
+$\operatorname{Proj}$ from homogeneous prime ideals and homogeneous
+localization.  Define a projective curve over
+$\C$ to be a smooth connected one-dimensional closed subscheme of a
+projective space, with smoothness expressed by regular local rings.  Construct
+the analytification of a smooth projective curve from its local rings and
+prove it is a compact Riemann surface.  Define divisors by valuations of the
+function field and prove that principal divisors have degree zero by the
+argument principle.
+\end{exercise}
+
+\begin{exercise}[Homology, periods, and de Rham's theorem]
+Define singular chains, boundary, homology, cochains, cup product,
+orientations, and the fundamental class of an oriented closed manifold.  For
+the differential forms developed with Hamiltonian actions, define integration
+over smooth singular simplices.  Prove Stokes's theorem and show that
+integration gives a cochain map.  Construct a good cover, compare the singular
+and de Rham \v Cech double complexes with partitions of unity, and prove
+\[
+ H^*_{\rm dR}(M)\simeq H^*(M;\R)
+\]
+as graded rings.  Derive Mayer--Vietoris and Poincar\'e duality from the
+integration pairing.  For a compact Riemann surface, prove that the
+intersection form on $H_1$ is unimodular and alternating and construct a
+symplectic marking.  Define its genus $g$ by
+$\operatorname{rank}H_1=2g$ and identify this integer with its topological
+handle number.
 \end{exercise}
 
 \begin{exercise}[Elliptic curves and translation symmetry]
@@ -28,7 +54,9 @@ on $E$.
 
 \begin{exercise}[Branched covers and Riemann--Hurwitz]
 Define a branched cover of compact curves and its ramification divisor.
-Prove Riemann--Hurwitz by comparing canonical divisors.  For the normalization
+Define the canonical divisor as the divisor of any nonzero meromorphic
+differential and prove that its divisor class is independent of that
+differential.  Prove Riemann--Hurwitz by comparing canonical divisors.  For the normalization
 of $y^2=\prod_{j=1}^{2g+1}(x-e_j)$, include the chart at infinity and prove
 smoothness and genus $g$.
 \end{exercise}
@@ -82,10 +110,12 @@ Define a line bundle $p:L\to X$ and immediately define a section over
 $U\subset X$ as a map $s:U\to L$ with $p\circ s=\id_U$; write
 $\Gamma(U,L)$ for all such sections.  Define the sheaf of sections, locally
 free and coherent sheaves, tensor product, dual, and pullback.  Construct
-\v Cech cohomology from an affine or Stein cover, prove refinement
-independence by an explicit double-complex homotopy, and derive the long exact
-sequence from a short exact sequence of sheaves.  Identify divisors modulo
-principal divisors with the Picard group.
+\v Cech cohomology from an open cover.  Prove the affine vanishing theorem for
+quasi-coherent sheaves directly from localization, deduce that affine covers
+compute their sheaf cohomology, prove independence of the chosen affine cover
+by the refinement double complex, and derive the long exact sequence from a
+short exact sequence of sheaves.  Identify divisors modulo principal divisors
+with the Picard group.
 \end{exercise}
 
 \begin{exercise}[Serre duality and Riemann--Roch]
@@ -102,6 +132,23 @@ Define the holomorphic Euler characteristic
 $\chi(X,L)=\sum_q(-1)^q\dim H^q(X,L)$.
 Deduce $\deg K_X=2g-2$, the vanishing theorem for $\deg L>2g-2$, and the
 dimension of meromorphic functions with prescribed poles.
+\end{exercise}
+
+\begin{exercise}[Dolbeault cohomology and Serre duality]
+Define a complex manifold by a holomorphic atlas and a holomorphic vector
+bundle by its locally free sheaf of sections.  Decompose complex differential
+forms into bidegrees and define $\partial$ and $\bar\partial$.  Prove the
+$\bar\partial$-Poincar\'e lemma, construct the fine Dolbeault resolution, and
+identify coherent sheaf cohomology of a holomorphic bundle $E$ with
+$H^{0,q}_{\bar\partial}(X,E)$.  On a compact complex manifold with Hermitian
+metric, construct the formal adjoint and Dolbeault Laplacian from the metric
+volume form, establish elliptic regularity from local Fourier estimates and a
+partition of unity, and prove the harmonic-representative theorem.  Use the
+Hodge star and integration pairing to prove the perfect duality
+\[
+ H^q(X,E)\otimes H^{d-q}(X,K_X\otimes E^\vee)\longrightarrow\C
+\]
+for $d=\dim_\C X$, recovering the curve theorem as the case $d=1$.
 \end{exercise}
 
 \begin{exercise}[Bott--Borel--Weil for $SL_2$]
@@ -262,33 +309,33 @@ edge energies and distinguish the one-gap periodic-potential model from
 lattice, interaction, and finite-size corrections.
 \end{exercise}
 
-\part{Generalized Symmetry}
+\part{Topological Phases}
 
 \section{Index Theory}
 
-\begin{exercise}[Homology, differential forms, and de Rham's theorem]
-Define singular chains, boundary, homology, cochains, cup product, and the
-fundamental class of an oriented closed manifold.  For the differential forms
-already defined with Hamiltonian actions, define integration over smooth
-singular simplices.  Prove Stokes's theorem and show that integration gives a
-cochain map.  Construct a good cover, compare the singular and de Rham
-\v Cech double complexes with partitions of unity, and prove
-\[
- H^*_{\rm dR}(M)\simeq H^*(M;\R)
-\]
-as graded rings.  Derive the Mayer--Vietoris exact sequence and Poincar\'e
-duality from the integration pairing.
+\begin{exercise}[Homotopy, CW complexes, and vector bundles]
+Define pointed homotopy, homotopy equivalence, loop and suspension spaces,
+homotopy groups, and CW complexes.  Prove cellular approximation and the long
+exact homotopy sequence of a fibration.  Define a topological complex vector
+bundle intrinsically by local product structure and fiberwise linear
+operations.  Construct the infinite Grassmannian from its finite-dimensional
+subspace functor and prove that homotopy classes $[X,BU(n)]$ classify rank-$n$
+bundles over a finite CW complex.  Define $K^0(X)$ by group completion under
+direct sum, prove homotopy invariance and the splitting principle, and derive
+its reduced suspension and clutching descriptions.  When $X$ is smooth,
+define a smooth vector bundle and prove by approximation and partitions of
+unity that every topological bundle is isomorphic to one with compatible
+smooth structure.
 \end{exercise}
 
 \begin{exercise}[$U(1)$ gauge symmetry and characteristic classes]
-Define smooth complex vector bundles, connections, curvature, and gauge
-transformations intrinsically.  From invariant polynomials and the Bianchi
+For the smooth vector bundles just constructed, define connections, curvature,
+and gauge transformations intrinsically.  From invariant polynomials and the Bianchi
 identity prove that $\Tr\exp(\ii F/2\pi)$ is closed and connection-independent
 in cohomology.  Construct integral Chern classes from transition functions
-and prove that their real images agree with Chern--Weil forms.  Define
-$K^0(X)$ by group completion of bundles, prove homotopy invariance and the
-splitting principle, and derive the Chern character and Todd and $\widehat A$
-classes.
+and prove that their real images agree with Chern--Weil forms.  Use the
+splitting principle to derive the Chern character and Todd and $\widehat A$
+classes and prove their multiplicative identities.
 \end{exercise}
 
 \begin{exercise}[Fredholm operators and elliptic symbols]
@@ -378,11 +425,10 @@ assumptions from the measured transverse conductance.
 
 \section{Cobordism}
 
-\begin{exercise}[Homotopy and stable homotopy]
-Define pointed homotopy, loop and suspension adjunction, homotopy groups, and
-CW complexes.  Prove cellular approximation and the long exact homotopy
-sequence of a fibration.  Construct spectra and stable homotopy groups by
-iterated suspension, prove the Freudenthal stable range, and identify ordinary
+\begin{exercise}[Spectra and stable homotopy]
+Using pointed CW complexes and the loop--suspension adjunction already
+developed, construct spectra and stable homotopy groups by iterated
+suspension, prove the Freudenthal stable range, and identify ordinary
 homology as maps into Eilenberg--Mac Lane spectra.  Construct generalized
 homology and cohomology from a spectrum and prove their exactness and
 suspension axioms.
@@ -468,6 +514,8 @@ symmetry, and interaction assumptions separately from the measurable phase
 and crossing parity.
 \end{exercise}
 
+\part{Categorical Symmetry}
+
 \section{Affine Grassmannian}
 
 \begin{exercise}[Loop groups and Schubert cells]
@@ -484,10 +532,22 @@ the Schubert varieties by orbit closure and derive their dominance order and
 convolution correspondence from modification of $G$-bundles on a formal disk.
 \end{exercise}
 
+\begin{exercise}[Constructible derived categories and Verdier duality]
+For a finite stratification of a locally compact space, define bounded
+constructible complexes of sheaves and chain homotopies.  Localize the
+homotopy category at quasi-isomorphisms to construct the constructible derived
+category.  Resolve by injective and soft sheaves to construct
+$Rf_*,Rf_!,Lf^*,f^!,\otimes^L$, and $R\mathcal Hom$; derive their adjunctions,
+the projection formula, and proper base change from the corresponding
+statements for the resolutions.  Construct the dualizing complex from compactly
+supported cochains and define Verdier duality
+$\mathbb D\mathcal F=R\mathcal Hom(\mathcal F,\omega_X)$.  Prove biduality and
+the interchange of $Rf_*$ with $Rf_!$ under $\mathbb D$.
+\end{exercise}
+
 \begin{exercise}[Perverse sheaves and convolution]
-Define constructible complexes for the Schubert stratification, Verdier
-duality from compactly supported cochains, and the perverse truncation by the
-support and cosupport inequalities.  Prove that intersection cohomology
+For the Schubert stratification, define the perverse truncation by the support
+and cosupport inequalities.  Prove that intersection cohomology
 extensions are simple perverse sheaves.  Define convolution through the
 proper multiplication correspondence, prove perversity by semismallness, and
 derive associativity, commutativity from fusion on two moving points, and
@@ -570,6 +630,10 @@ and prove that the semisimplification has simples $0,\ldots,k$ and fusion
  a\otimes b=\bigoplus_{\substack{c=\abs{a-b}\ (2)\\
  c\le\min(a+b,\,2k-a-b)}}c.
 \]
+Construct the ribbon functor to the root-of-unity tilting quotient developed
+in Quantum Groups by sending one strand to $V_1$, prove that its kernel is the
+negligible ideal generated by $f_{k+1}$, and identify the two
+semisimplifications.
 \end{exercise}
 
 \begin{exercise}[Factorization homology and the Levin--Wen model]
@@ -587,7 +651,8 @@ Levin--Wen theory is doubled semion, not the toric code.
 
 \begin{exercise}[Modular $S$-matrix and the Verlinde decomposition]
 For $\mathcal C=SU(2)_k$, compute the categorical trace of double braiding
-from the quantum-group ribbon structure and recover the finite sine transform
+from the root-of-unity ribbon structure constructed in Quantum Groups and
+recover the finite sine transform
 obtained from affine characters:
 \[
  S_{ab}=\sqrt{\frac{2}{k+2}}

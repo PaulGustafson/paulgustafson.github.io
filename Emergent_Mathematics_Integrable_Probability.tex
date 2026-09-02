@@ -66,16 +66,37 @@ real asymptotic regimes and its differential equation.
 \begin{exercise}[Fredholm determinants and quantum-chaotic spectra]
 Define the singular values of a compact operator from the spectral theorem
 for $|A|=(A^*A)^{1/2}$ and call $A$ trace class when their sum is finite.
-With no positivity or self-adjointness assumption, define
+For positive trace-class $B$, define
+$\Tr(B)=\sum_{\lambda>0}\lambda\operatorname{rank}P_{\{\lambda\}}$ and extend
+the trace to every trace-class operator through its decomposition into the
+real and imaginary parts and their positive and negative parts.  Prove that
+the result is independent of the decomposition, that
+$\abs{\Tr(A)}\leq\Tr\abs A$, and that $\Tr(AB)=\Tr(BA)$ whenever one factor is
+trace class and the other bounded.  Construct the Hilbert exterior powers
+$\wedge^r\mathcal H$ as the ranges of the antisymmetrizing projections on
+Hilbert tensor powers and show that $\wedge^rA$ is trace class.  With no
+positivity or self-adjointness assumption, define
 \[
  \det(1+A)=\sum_{r\ge0}\Tr(\wedge^rA)
 \]
 and prove absolute convergence, multiplicativity, and trace-norm continuity.
-For a determinantal process prove the gap formula
+Define a point process as a random locally finite counting measure and its
+correlation measures by factorial moments.  Call it determinantal with kernel
+$K$ when its correlation densities are
+$\det(K(x_i,x_j))_{i,j\le r}$.  Derive its generating functional and prove
+the gap formula
 $\mathbb P(N_D=0)=\det(1-1_DK1_D)$.  In the sine-kernel limit derive
 $R_2(s)=1-(\sin\pi s/(\pi s))^2=\pi^2s^2/3+O(s^4)$; at the edge define
-$F_2(s)=\det(1-K_{\rm Ai})_{L^2(s,\infty)}$ and derive its Painlev\'e-II
-representation.  For a quantum system whose unfolded spectrum has no
+$F_2(s)=\det(1-K_{\rm Ai})_{L^2(s,\infty)}$.  Define the Hastings--McLeod
+solution by
+\[
+ q''(s)=sq(s)+2q(s)^3,\qquad q(s)\sim\operatorname{Ai}(s)
+ \quad(s\to+\infty),
+\]
+prove existence and uniqueness from its Volterra equation and resolvent
+estimates, and derive
+$F_2(s)=\exp(-\int_s^\infty(x-s)q(x)^2\dd x)$.  For a quantum system whose
+unfolded spectrum has no
 antiunitary symmetry, formulate the predictions of quadratic level repulsion,
 the sine-kernel two-point curve, and the $F_2$ largest-level law, separating
 the random-matrix modeling hypothesis from the measured spacings.
