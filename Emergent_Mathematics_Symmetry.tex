@@ -313,7 +313,7 @@ with its weak-$*$ topology.  The \emph{Gelfand transform} is
 \qquad \Gamma(a)(\chi)=\chi(a).
 \]
 
-Use as theorem input the commutative Gelfand theorem~\cite{conway-functional}:
+Prove the commutative Gelfand theorem~\cite{conway-functional}:
 every character is
 continuous, $\widehat A$ is locally compact Hausdorff, and the Gelfand
 transform is an isometric $*$-isomorphism
@@ -341,14 +341,14 @@ $\spec_A(a)\subseteq[0,\infty)$.
 \begin{exercise}[Complex Riesz--Markov representation]
 For a locally compact Hausdorff space $X$, call a linear functional
 $\varphi:C_c(X)\to\C$ \emph{positive} when $\varphi(f)\geq0$ for every
-real-valued $f\geq0$.  Use as theorem input the positive Riesz--Markov
+real-valued $f\geq0$.  Prove the positive Riesz--Markov
 theorem~\cite{folland-real}: if such a functional is bounded on functions
 supported in each compact set, then there is a unique regular Borel measure
 $\mu_\varphi$ satisfying $\varphi(f)=\int_Xf\,d\mu_\varphi$.  Prove that
 $\mu_\varphi$ is positive and that its values on compact sets recover the
 local bounds of $\varphi$.
 
-Use as theorem input the complex Riesz--Markov
+Prove the complex Riesz--Markov
 theorem~\cite{folland-real}: every
 $\varphi\in C_0(X)^*$ has a unique finite complex regular measure
 $\mu_\varphi$ such that
@@ -496,7 +496,7 @@ Call $q$ \emph{closed} when $\mathcal Q(q)$ is complete in this norm, and
 $x_n\to0$ in $H$ and $\lVert x_n-x_m\rVert_q\to0$ also satisfies
 $\lVert x_n\rVert_q\to0$.
 
-Use as theorem input the representation theorem for closed semibounded
+Prove the representation theorem for closed semibounded
 forms~\cite{reed-simon2}: there is a unique self-adjoint operator $A_q$
 bounded below by $c$ such that
 \[
@@ -510,8 +510,9 @@ $q(y,x)=\langle y,z\rangle$ for every $y\in\mathcal Q(q)$, in which case
 $A_qx=z$.  Prove uniqueness from the latter characterization.
 
 Let $A_0$ be a densely defined symmetric operator bounded below by $c$, and
-put $q_0(x,y)=\langle x,A_0y\rangle$ on $\mathcal D(A_0)$.  Use as theorem
-input~\cite{reed-simon2} that $q_0$ is closable.  Define the \emph{Friedrichs realization} of
+put $q_0(x,y)=\langle x,A_0y\rangle$ on $\mathcal D(A_0)$.  Prove directly
+from symmetry, the lower bound, and density that $q_0$ is
+closable~\cite{reed-simon2}.  Define the \emph{Friedrichs realization} of
 $A_0$ to be the operator associated to its closed form $\overline q_0$.
 Prove that it extends $A_0$, is self-adjoint, and preserves the lower bound.
 For $-d^2/dx^2$ on $C_c^\infty(0,\ell)$, define
@@ -758,7 +759,7 @@ normalized by
 \frac{x^{-1/4}}{2\sqrt\pi}e^{-2x^{3/2}/3}
 \qquad(x\to+\infty).
 \]
-Use as theorem input its oscillatory continuation
+Prove its oscillatory continuation
 \[
 \operatorname{Ai}(-x)
 =\frac{x^{-1/4}}{\sqrt\pi}
@@ -968,9 +969,15 @@ with values in a commutative ring, define the cup product by evaluating
 the two factors on the front and back faces of a simplex.  Prove the
 graded Leibniz identity for $\delta$ and deduce the graded cohomology ring.
 
-For a smooth manifold $M$, use the smooth-approximation theorem to replace
-singular simplices by smooth singular simplices without changing homology,
-and set
+For coefficients in a field $F$, split the cycle and boundary subspaces
+of $C_*(X;F)$ and prove the universal-coefficient isomorphism
+\[
+H^k(X;F)\cong\operatorname{Hom}_F(H_k(X;F),F).
+\]
+
+For a smooth manifold $M$, construct compatible smooth approximations of
+singular simplices relative to their faces and a prism homotopy, thereby
+proving that smooth singular simplices compute singular homology.  Set
 \[
 I(\omega)(\sigma)=\int_{\Delta^k}\sigma^*\omega.
 \]
@@ -979,7 +986,7 @@ the natural de Rham map
 \[
 I:H^k_{\mathrm{dR}}(M)\longrightarrow H^k(M;\R).
 \]
-Use as theorem input the de Rham theorem~\cite{bott-tu}: this map is an
+Prove the de Rham theorem~\cite{bott-tu}: this map is an
 isomorphism of graded rings.  Deduce that a closed form is exact exactly
 when all its periods over smooth singular cycles vanish.
 
@@ -1110,7 +1117,7 @@ H(q,p)=\frac{\lVert p\rVert^2}{2m}+V(\lVert q\rVert).
 Let a compact Lie group $G$ act on $(M,\omega)$ with equivariant moment
 map $\mu:M\to\mathfrak g^*$.  Suppose $0$ is a regular value, meaning
 $d\mu_x$ is surjective for every $x\in\mu^{-1}(0)$, and suppose $G$ acts
-freely on $\mu^{-1}(0)$.  Use as theorem input~\cite{marsden-ratiu} that
+freely on $\mu^{-1}(0)$.  Prove~\cite{marsden-ratiu} that
 \[
 M/\!\!/G=\mu^{-1}(0)/G
 \]
@@ -1268,8 +1275,8 @@ c_{ijk}=f_{ij}+f_{jk}+f_{ki}
 \]
 is constant on every nonempty triple intersection.
 
-Use the following good-cover form of the integral de Rham theorem as
-theorem input~\cite{bott-tu}:
+Prove the following good-cover form of the integral de Rham
+theorem~\cite{bott-tu}:
 \[
 \frac{1}{2\pi i}\int_\Sigma h^*F\in\Z
 \quad\text{for every smooth }h:\Sigma\to M
@@ -1347,15 +1354,16 @@ the spin covering.  Put
 \[
 N=\frac{2L}{\hbar}.
 \]
-Assume $N\in\mathbb Z_{>0}$ and use as theorem input~\cite{woodhouse} that
+Assume $N\in\mathbb Z_{>0}$ and prove~\cite{woodhouse} that
 $\mathcal O_L$ has the $SU(2)$-invariant complex structure $J$ compatible
 with the Kirillov form and positive orbit metric; thus $J^2=-\id$ and
 $\omega(-,J-)$ is positive definite.  Let $T^{0,1}\mathcal O_L$ be the
 $-i$-eigenspace of the complex-linear extension of $J$.  Call a section
 $s$ of the prequantum line bundle \emph{polarized} when
-$\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Use as theorem
-input~\cite{woodhouse}
-that the polarized sections form the $SU(2)$ representation
+$\nabla_Xs=0$ for every $X\in T^{0,1}\mathcal O_L$.  Identify the
+prequantum bundle with $\mathcal O(N)\to\mathbb P^1$, solve the
+polarization equation in the two affine charts, and prove
+\cite{woodhouse} that the polarized sections form the $SU(2)$ representation
 \[
 V_j=\operatorname{Sym}^N(\C^2),
 \qquad j=\frac N2.
@@ -1485,7 +1493,7 @@ $\Delta=\sum_j\partial_j^2$.
 \end{exercise}
 
 \begin{exercise}[Haar measure, convolution, and regular representations]
-Use as theorem input the Haar theorem: every locally compact group has a
+Prove the Haar theorem: every locally compact group has a
 nonzero left-invariant regular Borel measure, unique up to a positive
 scalar.  Every locally compact group below is equipped with one such
 measure $\mu$, and Haar measure on a compact group is normalized by
@@ -2451,7 +2459,7 @@ with multiplicity, and put
 \[
 N_S(\Lambda)=\#\{j:\lambda_j\leq\Lambda\}.
 \]
-Use as theorem input the two-dimensional Weyl law~\cite{hormander3}
+Prove the two-dimensional Weyl law~\cite{hormander3}
 \[
 N_S(\Lambda)
 =\frac{\operatorname{Area}(S)}{4\pi}\Lambda+o(\Lambda)
@@ -2710,7 +2718,7 @@ standard intertwining operator by
 \[
 (A_\sigma F)(g)=\int_\R F(gwn_x)\,dx.
 \]
-Use as theorem input the Knapp--Stein theorem~\cite{knapp-representation}:
+Prove the Knapp--Stein theorem~\cite{knapp-representation}:
 $A_\sigma$ has a meromorphic continuation to the induced representations,
 and the form $\langle F,A_\sigma F'\rangle_{L^2(K)}$ is positive and
 invariant on the even compact picture for $0<\sigma<1/2$.
@@ -2785,7 +2793,7 @@ that
 {}_2F_1\!\left(-m,n+m;1;\tanh^2(r/2)\right).
 \]
 Verify the formula at $m=0$ and identify the terminating hypergeometric
-factor as a Jacobi polynomial.  Use as theorem input the irreducibility of
+factor as a Jacobi polynomial.  Prove the irreducibility of
 these two representations~\cite{knapp-representation} and call them the
 holomorphic and antiholomorphic discrete series.
 \end{exercise}
@@ -2794,7 +2802,7 @@ holomorphic and antiholomorphic discrete series.
 An irreducible unitary representation of $G$ is an irreducible continuous
 homomorphism from $G$ to the unitary operators on a Hilbert space, and two
 such representations are equivalent when they are conjugate by a unitary
-map.  Use as theorem input the classification of the unitary dual of
+map.  Prove the classification of the unitary dual of
 $SL_2(\R)$~\cite{knapp-representation}: it consists of the principal
 series $\pi_{\lambda,\epsilon}$, the even complementary series, the
 holomorphic and antiholomorphic discrete series $D_n^\pm$, their limit
@@ -2816,11 +2824,11 @@ For a square-integrable irreducible representation $\pi$, define its
 \overline{\langle x',\pi(g)y'\rangle}\,dg
 =d_\pi^{-1}\langle x,x'\rangle\langle y',y\rangle.
 \]
-Use as theorem input the group Plancherel theorem~\cite{knapp-representation} in the normalization
+Prove the group Plancherel theorem~\cite{knapp-representation} in the normalization
 $\int_Kdk=1$: $L^2(G)$ decomposes into Hilbert--Schmidt operator spaces
 over the two principal series and the discrete series, while the
 complementary series, limit representations, and trivial representation
-have Plancherel measure zero.  In this theorem input, the two continuous
+have Plancherel measure zero.  The two continuous
 densities are,
 up to the common Haar-normalization constant,
 \[
@@ -2903,7 +2911,7 @@ K_t(d)=\frac1{2\pi^2}\int_0^\infty
 P_{-1/2+i\lambda}(\cosh d)
 |c(\lambda)|^{-2}\,d\lambda.
 \]
-Use as theorem input~\cite{taylor-pde1} finite propagation speed for the wave equation and
+Prove~\cite{taylor-pde1} finite propagation speed for the wave equation and
 the one-dimensional stationary-phase estimate for a nondegenerate critical
 point, including its uniform form for compact parameter sets.  Apply them
 to show
@@ -3080,7 +3088,7 @@ Use Poisson summation to derive its Fourier expansion and identify the
 nonconstant terms as multiples of
 $\sqrt yK_{s-1/2}(2\pi|n|y)e^{2\pi inx}$.
 
-Use as theorem input the automorphic spectral theorem~\cite{iwaniec-spectral}:
+Prove the automorphic spectral theorem~\cite{iwaniec-spectral}:
 $E(z,\tfrac12+ir)$ supplies the continuous spectrum and the constant
 function together with the Maass cusp forms supplies the discrete spectrum
 of $L^2(\Gamma\backslash\mathbb H)$.  Write the resulting Plancherel and
@@ -3102,7 +3110,7 @@ put
 \[
 g(u)=\frac1{2\pi}\int_\R h(r)e^{-iru}\,dr.
 \]
-Use as theorem input the Selberg trace formula for the modular
+Prove the Selberg trace formula for the modular
 surface~\cite{iwaniec-spectral}: after subtracting the continuous
 Eisenstein contribution, its regularized spectral trace is the sum of the
 identity, elliptic, parabolic, and hyperbolic terms, with hyperbolic term
@@ -3424,8 +3432,21 @@ If an integral lattice $L$ is used as a crystal lattice, its physical reciprocal
 lattice is $L^{\rm rec}=2\pi L^\vee$.
 
 Call a vector of squared length $2$ in an integral Euclidean lattice a
-\emph{root}.  Take the rootless case of the Niemeier classification as theorem
-input~\cite{conway-sloane}: there is a unique isometry class of even unimodular Euclidean lattices
+\emph{root}.  For an even integral lattice $L$, define its discriminant
+group and quadratic form by
+\[
+A_L=L^\vee/L,
+\qquad
+q_L(x+L)=\frac{\langle x,x\rangle}{2}\pmod{\Z}.
+\]
+Prove that even overlattices of $L$ correspond to isotropic subgroups of
+$(A_L,q_L)$.  Call two unimodular lattices $p$-neighbors when their
+intersection has index $p$ in each, and construct their common
+index-$p$ sublattice from an isotropic line in $L/pL$.  Use these
+constructions to develop the neighbor and glue-code analysis for rank-$24$
+even unimodular lattices and prove the rootless case of the
+Niemeier classification~\cite{conway-sloane}: there is a unique isometry
+class of even unimodular Euclidean lattices
 of rank $24$ having no roots.  Call its members \emph{Leech lattices}, and fix
 one representative $\Lambda$.
 Use Poisson duality to prove that $\Theta_\Lambda$ is a modular form of weight
@@ -3796,8 +3817,10 @@ major-arc contribution
 
 \begin{exercise}[Partition minor arcs]
 Let $r_n$ be the positive saddle radius and use a Farey dissection of the
-circle $|q|=r_n$ whose principal major arc contains $q=r_n$.  Use as theorem
-input the Hardy--Ramanujan minor-arc estimate~\cite{hardy-ramanujan}: for
+circle $|q|=r_n$ whose principal major arc contains $q=r_n$.  Bound
+$\eta(\tau)^{-1}$ on every nonprincipal Farey arc using its modular
+transformation and prove the Hardy--Ramanujan minor-arc estimate
+\cite{hardy-ramanujan}: for
 some $\delta>0$, the
 coefficient integral over the complement of the principal major arc is
 \[
@@ -3824,7 +3847,7 @@ and define the resolved two-sided degeneracy
 \]
 Use the explicit theta-product formulas and the $S$-transformation to
 control each character in a complex neighborhood of the positive real
-saddle.  Use as theorem input the uniform minor-arc estimate that, for
+saddle.  Prove the uniform minor-arc estimate that, for
 each Ising character and some $\delta>0$, the complementary coefficient
 integral is
 \[
@@ -3911,9 +3934,9 @@ T_g(\tau)=\Tr_V\!\left(gq^{L_0-c/24}\right).
 \]
 Let $\mathbb M$ denote the Monster sporadic simple group.
 
-Take the Frenkel--Lepowsky--Meurman construction and
+Carry out the Frenkel--Lepowsky--Meurman construction and prove
 \href{https://doi.org/10.1007/BF01232032}{Borcherds's monstrous moonshine
-theorem} as theorem input~\cite{borcherds-moonshine}.  If $\theta$ lifts
+theorem}~\cite{borcherds-moonshine}.  If $\theta$ lifts
 $\lambda\mapsto-\lambda$ to the
 Leech-lattice vertex operator algebra and $V_\Lambda^{T,+}$ is the
 $+1$ eigenspace in its $\theta$-twisted module, the orbifold
@@ -3937,9 +3960,9 @@ for the Conway--Norton genus-zero group $\Gamma_g$.  Deduce
 \qquad
 \dim V^\natural_3=21493760.
 \]
-If $\mathbf d$ denotes the indicated irreducible Monster representation of
-dimension $d$, verify the first decompositions supplied by the Monster
-character table,
+Construct the indicated irreducible Monster representations $\mathbf d$,
+compute the required character inner products from the conjugacy classes,
+and verify the first decompositions
 \[
 V^\natural_2\cong\mathbf1\oplus\mathbf{196883},
 \qquad
@@ -4010,7 +4033,7 @@ so that $\Theta_{m+2K,K}=\Theta_{m,K}$.  For $0\leq j\leq k$, define
       \Theta_{-j-1,k+2}(\tau,z)}
      {\Theta_{1,2}(\tau,z)-\Theta_{-1,2}(\tau,z)}.
 \]
-Use as theorem input the Weyl--Kac character formula and the
+Prove the Weyl--Kac character formula and the
 Kac--Peterson modular transformation~\cite{kac-infinite}: these are the
 specialized integrable affine $\widehat{\mathfrak{sl}}_2$ characters at
 level $k$, with

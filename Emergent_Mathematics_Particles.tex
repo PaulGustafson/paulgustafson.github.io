@@ -231,7 +231,7 @@ $U(0,s)=e^{i\lambda s}I$, where $\lambda\ne0$.  Integrate Schwartz
 functions on $V\oplus V^*$ against the canonical section of $U$.  Verify in
 the Schr\"odinger model that Fourier inversion sends such an integrated
 operator with Schwartz symbol to an integral operator with Schwartz kernel.
-Use as theorem input the Stone--von Neumann theorem~\cite{folland-phase}:
+Prove the Stone--von Neumann theorem~\cite{folland-phase}:
 every such $U$ is
 unitarily equivalent to $\pi_\lambda$.  Deduce that the nonzero central
 character $\lambda$ determines the irreducible representation up to unitary
@@ -487,7 +487,7 @@ Prove
 =\frac{i}{\hbar}
 [\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
 \]
-Use as theorem input~\cite{hormander3} the semiclassical operator estimate that the Moyal
+Prove~\cite{hormander3} the semiclassical operator estimate that the Moyal
 commutator remainder obtained from symbols with the displayed derivative
 bounds has operator norm $O(\hbar)$, uniformly for $|t|\leq T$, after
 division by $i\hbar$.  Apply Duhamel's formula to prove, for every $T>0$,
@@ -517,7 +517,7 @@ these generators that
 W_\hbar[\mu(S)\psi]=W_\hbar[\psi]\circ S^{-1}.
 \]
 Deduce the covariance for their products and prove that each implementer is
-determined up to phase.  Use as theorem input the metaplectic lifting
+determined up to phase.  Prove the metaplectic lifting
 theorem~\cite{folland-phase}: the multiplier of these implementers has a
 canonical double cover on which the projective representation becomes
 unitary, and its two lifts of a fixed symplectic map differ by sign.  Use
@@ -680,7 +680,7 @@ induces an exact sequence
 \longrightarrow1.
 \]
 
-Use as theorem input~\cite{fulton-harris} the finite-dimensional Lorentz-representation
+Prove~\cite{fulton-harris} the finite-dimensional Lorentz-representation
 classification: every irreducible finite-dimensional complex
 representation of $SL(S)$, regarded as the spin cover of the real Lorentz
 group, is uniquely of the form
@@ -731,7 +731,7 @@ translation spectral measure is supported on $\mathcal O$.
 
 Call a unitary Poincar\'e representation \emph{positive-energy} when its
 translation spectral measure is supported in the closed future cone.
-Use as theorem input the Mackey--Wigner imprimitivity
+Prove the Mackey--Wigner imprimitivity
 theorem~\cite{mackey-induced,wigner-poincare}: every
 irreducible positive-energy unitary representation whose translation
 spectrum is supported on one orbit is obtained by this construction, and
@@ -1238,7 +1238,7 @@ square-integrable bound states of energy
 $-\hbar^2\kappa^2/(2\mu)$.
 
 Choose the continuous phase shift with $\delta_\ell(k)\to0$ as
-$k\to\infty$.  Use as theorem input the Jost-function argument-principle
+$k\to\infty$.  Prove the Jost-function argument-principle
 form of Levinson's theorem~\cite{newton-scattering} and prove
 \[
 \delta_\ell(0)-\delta_\ell(\infty)=n_\ell\pi
@@ -1301,10 +1301,19 @@ and the reconstructed potential is
 \[
 V(x)=-2\frac d{dx}K(x,x).
 \]
-Use as theorem input the Marchenko existence and uniqueness
-theorem~\cite{deift-trubowitz}: the scattering data satisfying the standard
-reality, positivity, and decay conditions determine $V$ uniquely through
-these formulas.
+Assume $R(-k)=\overline{R(k)}$, $\kappa_j,c_j>0$, and that
+$\mathcal F$ is real and absolutely continuous with
+$\mathcal F,\mathcal F'\in L^1([a,\infty))$ for every $a$.  On
+$L^2([x,\infty))$ define
+\[
+(H_xh)(y)=\int_x^\infty\mathcal F(y+z)h(z)\,dz,
+\]
+and assume $I+H_x$ is strictly positive for every $x$.  Prove the
+Marchenko existence and uniqueness theorem~\cite{deift-trubowitz}: the
+integral equation has a unique solution, its diagonal defines a real
+potential with the stated weighted integrability, and its right
+scattering data are exactly $(R,\{\kappa_j,c_j\})$.  Prove that two
+potentials with the same data therefore coincide.
 
 In the reflectionless one-bound-state case put
 \[
@@ -1433,7 +1442,7 @@ and detector acceptance alter the comparison with measured counts.
 A \emph{Lorentzian metric} on a four-manifold is a smooth
 nondegenerate symmetric form of signature $(+,-,-,-)$.  Call a tangent
 vector timelike, null, or spacelike according as its squared length is
-positive, zero, or negative.  Use as theorem input the fundamental theorem
+positive, zero, or negative.  Prove the fundamental theorem
 of pseudo-Riemannian geometry: there is a unique torsion-free
 metric-compatible connection $\nabla$, characterized by the Koszul
 formula.  Define geodesics by $\nabla_{\dot\gamma}\dot\gamma=0$, curvature
@@ -1451,7 +1460,7 @@ and on $(r_s,\infty)\times\mathbb R\times S^2$ consider
 \[
 g=f(r)c^2dt^2-f(r)^{-1}dr^2-r^2g_{S^2}.
 \]
-Use as theorem input Birkhoff's theorem~\cite{wald-gr}: every
+Prove Birkhoff's theorem~\cite{wald-gr}: every
 spherically symmetric Lorentzian vacuum solution with
 $\operatorname{Ric}=0$ is locally isometric to a member of this family.
 Compute its Ricci tensor and verify $\operatorname{Ric}=0$.  Compute
@@ -1489,7 +1498,7 @@ $u=1/r$.  Derive
 \qquad
 \frac{d^2u}{d\phi^2}+u=\frac32r_su^2.
 \]
-For $g_2^3-27g_3^2\ne0$, use as theorem input the Weierstrass
+For $g_2^3-27g_3^2\ne0$, prove the Weierstrass
 uniformization theorem: there is a lattice $\Lambda\subset\C$, unique up
 to homothety with the prescribed invariants, and a unique even
 $\Lambda$-periodic meromorphic function satisfying
@@ -1532,9 +1541,10 @@ Define the tortoise coordinate by
 \[
 r_*=r+r_s\log\!\left(\frac r{r_s}-1\right).
 \]
-For integer spin $s\in\{0,1,2\}$ and $\ell\geq s$, use as theorem
-input~\cite{regge-wheeler,chandrasekhar}
-the scalar, electromagnetic, and axial gravitational separation theorem:
+For integer spin $s\in\{0,1,2\}$ and $\ell\geq s$, insert the scalar,
+Maxwell, and linearized Einstein equations into the spin-weighted
+spherical-harmonic decomposition and prove the separation theorem
+\cite{regge-wheeler,chandrasekhar}:
 after expansion in modes with time dependence $e^{-i\omega t}$ and the
 corresponding spherical harmonics,
 the radial master field satisfies
@@ -1586,7 +1596,7 @@ half-plane.  Show that it is equivalently a mode ingoing at the horizon and
 outgoing at infinity, and that its time dependence is a damped oscillation.
 
 For $\ell\to\infty$, locate the maximum of the Regge--Wheeler potential at
-the photon sphere.  Use as theorem input the leading parabolic-barrier WKB
+the photon sphere.  Prove the leading parabolic-barrier WKB
 connection formula: if $V$ has a nondegenerate maximum $V_0$ and
 $V_0''=d^2V/dr_*^2<0$ there, an outgoing resonance satisfies
 \[

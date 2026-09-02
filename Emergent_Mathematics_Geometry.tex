@@ -96,7 +96,7 @@ For $m_0\in\mathbb C$, define its algebraic fiber by
 =\operatorname{Spec}\!\left(
 A\otimes_{\mathbb C[m]}\mathbb C[m]/(m-m_0)\right)
 \]
-Use as theorem input the weak Nullstellensatz~\cite{hartshorne}: every maximal ideal of
+Prove the weak Nullstellensatz~\cite{hartshorne}: every maximal ideal of
 $\mathbb C[z_1,\ldots,z_n]$ is the kernel of evaluation at a unique point
 of $\mathbb C^n$.  Identify the closed points of the fiber with
 \[
@@ -135,7 +135,7 @@ derive the conormal sequence and prove at a closed point $p$ that
 T_pX
 =\{v\in\mathbb C^n:df_j(p)(v)=0\text{ for }1\leq j\leq r\}.
 \]
-Use as theorem input the Jacobian criterion over
+Prove the Jacobian criterion over
 $\mathbb C$~\cite{hartshorne}: $p$ is
 smooth exactly when
 $\dim_{\mathbb C}T_pX=\dim\mathcal O_{X,p}$.
@@ -190,8 +190,9 @@ for integral curves of finite type over $\C$.
 
 Call an integral scheme \emph{normal} when all of its local rings are
 integrally closed domains.  For $C=\operatorname{Spec}A$, let
-$\widetilde A$ be the integral closure of $A$ in $K(C)$.  Use as theorem
-input~\cite{hartshorne} that $\widetilde A$ is a finite $A$-module for a
+$\widetilde A$ be the integral closure of $A$ in $K(C)$.  Prove Noether
+normalization in dimension one and use it to prove~\cite{hartshorne} that
+$\widetilde A$ is a finite $A$-module for a
 one-dimensional finitely generated $\C$-domain.  Prove that the affine
 normalizations glue to a finite birational morphism
 \[
@@ -319,7 +320,7 @@ Compute also
 and recover algebraically the two singular Legendre fibers found by the
 Jacobian criterion.
 
-Use as theorem input B\'ezout's theorem for plane
+Prove B\'ezout's theorem for plane
 curves~\cite{hartshorne}:
 \[
 \sum_{p\in C\cap D}I_p(C,D)=\deg C\deg D.
@@ -334,8 +335,9 @@ Let $C$ be a smooth projective complex algebraic curve.  On an affine
 chart $U=\operatorname{Spec}A$ presented inside $\mathbb A^n$, give the
 closed points $U(\C)$ the subspace topology from $\C^n$ and give them the
 sheaf of functions locally representable by convergent power series.
-Use the Jacobian criterion and the holomorphic implicit-function theorem
-to prove that these charts glue to a Riemann surface $C^{\rm an}$.
+Prove the holomorphic implicit-function theorem from the contraction
+mapping theorem, and combine it with the Jacobian criterion to prove that
+these charts glue to a Riemann surface $C^{\rm an}$.
 Prove that projectivity makes $C^{\rm an}$ compact and that a morphism of
 smooth projective complex curves induces a holomorphic map of their
 analytifications.
@@ -345,11 +347,11 @@ points is meromorphic on $C^{\rm an}$ and gives an embedding
 \[
 K(C)\longrightarrow\mathcal M(C^{\rm an}).
 \]
-Use as theorem input the dimension-one algebraic--analytic comparison and
+Prove the dimension-one algebraic--analytic comparison and
 GAGA theorems~\cite{serre-gaga}: this map is an isomorphism, analytification
 gives an equivalence between algebraic and holomorphic line bundles, and
-the induced maps on their spaces of sections and cohomology are
-isomorphisms.  Deduce that algebraic divisors, meromorphic sections, and
+the induced maps on their spaces of sections are isomorphisms.  Deduce
+that algebraic divisors, meromorphic sections, and
 degrees agree with their analytic counterparts.
 
 Apply the construction to the projective Legendre curve $E_m$.  Verify on
@@ -422,11 +424,11 @@ With $m=k^2$, prove that its orientation may be chosen so that
 
 \begin{exercise}[Surface homology and the intersection pairing]
 A \emph{CW complex} is built inductively by attaching closed disks along
-maps from their boundary spheres to the preceding skeleton.  Use as
-theorem input the cellular-homology theorem: its chain groups are the
-relative groups of consecutive skeleta, its differential is determined by
-the attaching maps, and its homology agrees naturally with singular
-homology.  Let $C$ be a closed connected oriented surface of genus $g$.  Use the
+maps from their boundary spheres to the preceding skeleton.  Prove the
+cellular-homology theorem: its chain groups are the relative groups of
+consecutive skeleta, its differential is determined by the attaching
+maps, and its homology agrees naturally with singular homology.  Let $C$
+be a closed connected oriented surface of genus $g$.  Use the
 polygon with edge word
 \[
 a_1b_1a_1^{-1}b_1^{-1}\cdots
@@ -451,8 +453,8 @@ $\alpha_i,\beta_i$ and prove that their oriented intersection numbers are
 \qquad
 \alpha_i\cdot\beta_j=\delta_{ij}.
 \]
-Use as theorem input Poincar\'e duality for the surface~\cite{bott-tu} to prove that this
-alternating pairing is unimodular.
+Prove Poincar\'e duality for the surface~\cite{bott-tu}, and deduce that
+this alternating pairing is unimodular.
 
 Apply the de Rham theorem and the universal coefficient theorem to identify
 \[
@@ -665,7 +667,7 @@ for $n\geq0$ that
 and that $\mathcal O(-1)$ is the tautological line bundle whose fiber over
 a line $\ell\subset V$ is $\ell$.  For a smooth projective plane curve
 $C$, define $\mathcal O_C(n)$ by restriction.
-Use as theorem input~\cite{hartshorne,forster} that an algebraic line bundle on a smooth complex
+Prove~\cite{hartshorne,forster} that an algebraic line bundle on a smooth complex
 projective curve determines a holomorphic line bundle and that this
 correspondence preserves tensor products and global sections.
 
@@ -699,7 +701,7 @@ D\text{ and }D'\text{ are linearly equivalent}.
 \]
 
 For a nonzero meromorphic section $s$, define $\operatorname{div}(s)$ from
-its local representatives.  Use as theorem input the meromorphic-section
+its local representatives.  Prove the meromorphic-section
 theorem~\cite{forster}: every holomorphic line bundle on a compact Riemann surface has a
 nonzero meromorphic section.  Prove that
 \[
@@ -748,11 +750,16 @@ Show directly from the sheaf gluing axiom that
 \check H^0(\mathfrak U,\mathcal F)=\mathcal F(C).
 \]
 
-Use as theorem input~\cite{forster} that a finite cover whose nonempty intersections are
+Prove~\cite{forster} that a finite cover whose nonempty intersections are
 Stein computes the cohomology $H^q(C,\mathcal F)$ of a coherent analytic
 sheaf, that coherent sheaves on $C$ have finite-dimensional cohomology and
 vanish in degrees $q>1$, and that a short exact sequence of coherent sheaves
-induces a long exact cohomology sequence.  For a holomorphic line bundle
+induces a long exact cohomology sequence.  For a coherent algebraic sheaf
+on a smooth projective curve, define its algebraic \v{C}ech complex on a
+finite affine cover, compare it with the analytic \v{C}ech complex after
+analytification, and prove the GAGA cohomology isomorphism.
+
+For a holomorphic line bundle
 $L$, a point $p\in C$, and its inclusion $i_p:\{p\}\to C$, prove that
 evaluation at $p$ gives an exact sequence
 \[
@@ -775,9 +782,9 @@ for every holomorphic line bundle on $C$.
 \begin{exercise}[Serre duality and the Riemann--Roch theorem]
 Define the canonical line bundle $K_C$ to be the holomorphic cotangent
 bundle of a compact connected Riemann surface $C$.  Let $g$ be its
-topological genus and use as theorem input~\cite{forster} the analytic genus identity
+topological genus and prove~\cite{forster} the analytic genus identity
 $\dim H^0(C,K_C)=g$.
-Use as theorem input Serre duality~\cite{forster} in the form of a natural perfect pairing
+Prove Serre duality~\cite{forster} in the form of a natural perfect pairing
 \[
 H^1(C,L)\otimes H^0(C,K_C\otimes L^{-1})
 \longrightarrow\mathbb C,
@@ -813,7 +820,7 @@ P^\circ=\{\alpha\in T_{\mathbb C}^*M:\alpha|_P=0\},
 K_P=\Lambda^{\rm top}P^\circ.
 \]
 A \emph{half-form bundle} is a line bundle $\delta_P$ with
-$\delta_P^{\otimes2}\cong K_P$.  Use as theorem input~\cite{woodhouse} the induced partial
+$\delta_P^{\otimes2}\cong K_P$.  Prove~\cite{woodhouse} the induced partial
 connection on $\delta_P$ along $P$ and the half-form pairing.  Define the
 corrected polarized quantum space to be the square-integrable sections of
 $L\otimes\delta_P$ annihilated by the tensor-product partial connection
@@ -901,7 +908,7 @@ For $\lambda\in X^*(T)$, define the equivariant line bundle
 \]
 using the associated-bundle convention for which dominant weights give
 $H^0(G/B,\mathcal L_\lambda)\cong V_\lambda^\vee$.
-Use as theorem input the Borel--Weil--Bott theorem~\cite{bott-bwb}: if
+Prove the Borel--Weil--Bott theorem~\cite{bott-bwb}: if
 $\lambda+\rho$ is singular then every
 $H^q(G/B,\mathcal L_\lambda)$ vanishes; if it is regular, there is a
 unique $w$ such that $w\mathbin{\boldsymbol\cdot}\lambda$ is dominant and
@@ -960,8 +967,10 @@ it acts on $H^0(\mathbb P^1,\mathcal O(n))$ by
 \[
 \frac12n(n+2).
 \]
-Use the Poincar\'e--Birkhoff--Witt theorem as input to prove the first
-identity below.  Use as theorem input the rank-one global differential
+Filter $U(\mathfrak{sl}_2)$ by word length, prove that the associated
+graded algebra is $S(\mathfrak{sl}_2)$, and deduce the
+Poincar\'e--Birkhoff--Witt theorem.  Use the resulting ordered monomials
+to prove the first identity below.  Prove the rank-one global differential
 operator calculation~\cite{beilinson-bernstein}, which says that the
 infinitesimal-action map is surjective with kernel generated by the
 displayed central relation, to deduce the second:
@@ -979,7 +988,7 @@ $\mathfrak h$, define an infinitesimal character to be an algebra map
 \[
 \chi:Z(U(\mathfrak g))\longrightarrow\C.
 \]
-Use as theorem input the Harish--Chandra isomorphism
+Prove the Harish--Chandra isomorphism
 $Z(U(\mathfrak g))\cong S(\mathfrak h)^W$, normalized so that the
 character $\chi_\lambda$ is evaluation at the Weyl orbit of
 $\lambda+\rho$.  Deduce
@@ -995,16 +1004,22 @@ $\lambda\in\mathfrak h^*$ define the central reduction
 U_\lambda
 =U(\mathfrak g)\big/U(\mathfrak g)\ker\chi_\lambda.
 \]
-Use as theorem input~\cite{beilinson-bernstein} the construction of the
-sheaf $\mathcal D_\lambda$ of $\lambda$-twisted differential operators,
-normalized with the same $\rho$-shift as the Harish--Chandra character,
-and the global-sections isomorphism
+Assume first that $\lambda$ is integral and define
+$\mathcal D_\lambda=\mathcal D_{\mathcal L_\lambda}$ by the commutator
+filtration on differential operators acting on the equivariant line
+bundle $\mathcal L_\lambda$.  Differentiate the $G$-action, prove that the
+map $U(\mathfrak g)\to\Gamma(X,\mathcal D_\lambda)$ annihilates
+$\ker\chi_\lambda$ with the same $\rho$-normalization as the
+Harish--Chandra character, and prove~\cite{beilinson-bernstein} the
+global-sections isomorphism
 \[
 \Gamma(X,\mathcal D_\lambda)\cong U_\lambda.
 \]
-For integral parameters, identify $\mathcal D_\lambda$ locally with the
-differential operators on the corresponding equivariant line bundle and
-recover $\mathcal D_n$ on $\mathbb P^1$.
+Put $\mathcal D_X=\mathcal D_{\mathcal O_X}$.  Identify
+$\mathcal D_\lambda$ locally with $\mathcal D_X$ after choosing a
+nonvanishing local section of $\mathcal L_\lambda$, compute its gluing by
+conjugation with the transition functions, and recover $\mathcal D_n$ on
+$\mathbb P^1$.
 
 Let $U_\lambda\text{-}\mathsf{mod}_{\rm fg}$ be the category of finitely
 generated left $U_\lambda$-modules and let
@@ -1019,7 +1034,7 @@ relations over $\mathcal D_\lambda$.  Define
 \]
 Assume that $\lambda$ is integral and dominant, meaning
 $\langle\lambda,\alpha_i^\vee\rangle\geq0$ for every simple coroot;
-then $\lambda+\rho$ is regular.  Use as theorem input the
+then $\lambda+\rho$ is regular.  Prove the
 Beilinson--Bernstein localization theorem with this $\rho$-normalization:
 in this range the two functors are exact quasi-inverse equivalences
 \[
@@ -1234,10 +1249,14 @@ Define the affine Grassmannian as the quotient
 \[
 \operatorname{Gr}_G=LG/L^+G.
 \]
-Use as theorem input~\cite{mirkovic-vilonen} that this quotient is an
-ind-projective variety representing $G$-bundles on the formal disk
-$\operatorname{Spec}\mathcal O$ equipped with a trivialization on the
-punctured disk $\operatorname{Spec}\mathcal K$.
+Call a filtered union $X=\bigcup_{n\geq0}X_n$ an \emph{ind-projective
+variety} when every $X_n$ is projective and every inclusion
+$X_n\hookrightarrow X_{n+1}$ is closed.  For a $\C$-algebra $R$, define
+the affine-Grassmannian functor to assign the $G$-bundles on
+$\operatorname{Spec}R[[t]]$ equipped with a trivialization over
+$\operatorname{Spec}R((t))$.  Construct its increasing Schubert
+filtration and prove~\cite{mirkovic-vilonen} that it is represented by an
+ind-projective variety whose complex points are $LG/L^+G$.
 
 Fix a maximal torus $T\subset G$.  A coweight is an algebraic homomorphism
 $\lambda:\C^\times\to T$; write $t^\lambda\in T(\mathcal K)$ for its
@@ -1248,7 +1267,7 @@ value at $t$.  Define dominant coweights using the positive roots and put
 \overline{\operatorname{Gr}}_\lambda
 =\overline{\operatorname{Gr}_\lambda}.
 \]
-Use as theorem input the Cartan and Schubert decompositions
+Prove the Cartan and Schubert decompositions
 \[
 \operatorname{Gr}_G
 =\coprod_{\lambda\in X_*(T)_+}\operatorname{Gr}_\lambda,
@@ -1297,18 +1316,20 @@ $\mathcal M$, call an increasing filtration $F_\bullet\mathcal M$
 F_p\mathcal D_X\,F_q\mathcal M\subseteq F_{p+q}\mathcal M,
 \]
 and $\operatorname{gr}_F\mathcal M$ is coherent over
-$\operatorname{gr}_F\mathcal D_X$.  Use the symbol isomorphism
+$\operatorname{gr}_F\mathcal D_X$.  Prove from the commutator definition
+of differential-operator order that the principal-symbol map gives an
+isomorphism
 \[
 \operatorname{gr}_F\mathcal D_X
 \cong\operatorname{Sym}_{\mathcal O_X}\mathcal T_X
 \]
-as theorem input.  Define the characteristic variety by
+of sheaves of graded algebras.  Define the characteristic variety by
 \[
 \operatorname{Ch}(\mathcal M)
 =\operatorname{Supp}(\operatorname{gr}_F\mathcal M)
 \subseteq T^*X,
 \]
-and use as theorem input that it is independent of the good filtration.
+and prove that it is independent of the good filtration.
 Use Bernstein's inequality
 $\dim_\C\operatorname{Ch}(\mathcal M)\geq d$ for nonzero
 $\mathcal M$, and call $\mathcal M$ \emph{holonomic} when equality holds.
@@ -1330,7 +1351,7 @@ cotangent map
 \[
 T^*X|_C\longrightarrow T^*C
 \]
-only in the zero section over that point.  Use as theorem input the curve
+only in the zero section over that point.  Prove the curve
 criterion for regularity: a holonomic $\mathcal D_X$-module is regular
 when every connection obtained by inverse image to a smooth curve on its
 noncharacteristic locus is regular singular at the omitted points.
@@ -1367,7 +1388,7 @@ H^k(i_S^*\mathcal F)=0\quad(k>-\dim_\C S),
 \qquad
 H^k(i_S^!\mathcal F)=0\quad(k<-\dim_\C S).
 \]
-Use as theorem input the basic perverse-sheaf and intermediate-extension
+Prove the basic perverse-sheaf and intermediate-extension
 theorems~\cite{bbd-perverse}: perverse complexes form an abelian category,
 Verdier duality preserves it, and for a local system $\mathcal L$ on a
 smooth dense stratum $j:S\hookrightarrow\overline S$ there is a unique
@@ -1392,7 +1413,7 @@ de Rham differential.  Define the shifted de Rham complex by
 \Omega_X^d\otimes\mathcal M
 \bigr][d].
 \]
-Use as theorem input the Riemann--Hilbert correspondence
+Prove the Riemann--Hilbert correspondence
 \cite{kashiwara-rh}:
 \[
 \operatorname{DR}_X:
@@ -1455,10 +1476,17 @@ product descended from their exterior product and define
 \mathcal F*\mathcal G
 =Rm_!\bigl(\mathcal F\widetilde\boxtimes\mathcal G\bigr).
 \]
-Use as theorem input~\cite{mirkovic-vilonen} that convolution preserves
+Prove~\cite{mirkovic-vilonen} that convolution preserves
 $\operatorname{Perv}_{L^+G}(\operatorname{Gr}_G)$, that
-$\operatorname{IC}_0$ is its tensor unit, and that the
-Beilinson--Drinfeld fusion construction equips it with a symmetric
+$\operatorname{IC}_0$ is its tensor unit.  Over the configuration space
+of two points of a smooth complex curve, construct the
+Beilinson--Drinfeld Grassmannian classifying a $G$-bundle with
+trivialization away from those points.  Prove that its restriction away
+from the diagonal is the exterior product of two affine Grassmannians and
+that its diagonal fiber is the convolution space.  Use nearby cycles and
+exchange of the two points to construct the associativity and
+parity-corrected commutativity constraints, and prove that they equip
+$\operatorname{Perv}_{L^+G}(\operatorname{Gr}_G)$ with a symmetric
 monoidal structure.
 
 For $G=PGL_2(\C)$ and $m\geq1$, restrict convolution to the proper map
@@ -1490,7 +1518,7 @@ constant on each stratum $S\subset Z$, \emph{semismall} when
 Use $\operatorname{codim}\operatorname{Gr}_{m+1-2r}=2r$ to prove that
 $m_{1,m}$ is semismall and that only
 $\operatorname{Gr}_{m+1}$ and $\operatorname{Gr}_{m-1}$ attain equality.
-Use as theorem input the semismall decomposition theorem
+Prove the semismall decomposition theorem
 \cite{bbd-perverse}: the direct image of the intersection complex is the
 sum of the intersection complexes of the equality strata, with
 multiplicity local systems given by the top homology of their fibers.
@@ -1507,8 +1535,8 @@ homology, that
 
 Define the Langlands dual group $G^\vee$ to be the connected complex
 reductive group whose roots, coroots, weights, and coweights are the
-coroots, roots, coweights, and weights of $G$, respectively.  Use as
-theorem input the geometric Satake equivalence
+coroots, roots, coweights, and weights of $G$, respectively.  Construct
+the geometric Satake equivalence
 \[
 \left(
 \operatorname{Perv}_{L^+G}(\operatorname{Gr}_G),*
@@ -1521,7 +1549,8 @@ commutativity constraint, is the fiber functor and
 \[
 \operatorname{IC}_\lambda\longleftrightarrow V_\lambda
 \]
-for the irreducible representation of highest weight $\lambda$.
+for the irreducible representation of highest weight $\lambda$, and prove
+that it is an equivalence of symmetric monoidal categories.
 Deduce the ring isomorphism
 \[
 K_0\!\left(
@@ -1560,8 +1589,9 @@ U_m(x)U_n(x)
 =\sum_{r=0}^{\min(m,n)}U_{m+n-2r}(x).
 \]
 Apply this identity to the classes
-$C_m([\operatorname{IC}_1])$ and use the semisimplicity supplied by
-geometric Satake to deduce
+$C_m([\operatorname{IC}_1])$.  Prove that
+$\operatorname{Rep}_\C(SL_2)$ is semisimple and transport this property
+through the Satake equivalence to deduce
 \[
 \operatorname{IC}_m*\operatorname{IC}_n
 \cong\bigoplus_{r=0}^{\min(m,n)}
@@ -1575,8 +1605,9 @@ V_m\otimes V_n
 
 Let $T_m$ denote the purely magnetic 't Hooft line of dominant magnetic
 coweight $m$ in the topologically twisted $\mathcal N=4$
-super-Yang--Mills theory with compact gauge group $PSU(2)$.  Use as
-theorem input~\cite{kapustin-saulina} that the protected purely magnetic
+super-Yang--Mills theory with compact gauge group $PSU(2)$.  Prove from
+the moduli of singular monopoles~\cite{kapustin-saulina} that the
+protected purely magnetic
 line-operator product is the convolution product in the Satake category.
 Predict the operator-product selection rule
 \[
@@ -1618,9 +1649,10 @@ solution.  Prove
 \rho+\rho^{-1}=\Delta(E)
 \]
 Let $H^2([0,P])$ be the space of $L^2$ functions whose first two
-distributional derivatives belong to $L^2$, and use the one-dimensional
-Sobolev trace theorem~\cite{hormander3} to evaluate a function and its
-first derivative at the endpoints.  For $\rho\in\mathbb C^\times$,
+distributional derivatives belong to $L^2$.  Prove from the fundamental
+theorem of calculus and density of smooth functions that endpoint
+evaluation of a function and its first derivative extends continuously
+to $H^2([0,P])$~\cite{hormander3}.  For $\rho\in\mathbb C^\times$,
 define the twisted Sobolev domain
 \[
 H^2_\rho
@@ -1726,7 +1758,7 @@ period maps
 \mathsf B(\eta)=\left(\int_{b_1}\eta,\ldots,
 \int_{b_g}\eta\right),
 \]
-and use as theorem input the genus-$g$ Riemann bilinear identities
+and prove the genus-$g$ Riemann bilinear identities
 \[
 \int_C\alpha\wedge\beta
 =\sum_{j=1}^g\left(
@@ -1783,14 +1815,14 @@ Fix $p_0\in C$ and define the Abel--Jacobi map by
 =\left[\eta\longmapsto\int_{p_0}^p\eta\right]
 \in\operatorname{Jac}(C).
 \]
-Prove that it is well defined and extend it additively to divisors.  Use as
-theorem input the Abel--Jacobi theorem~\cite{forster}: a degree-zero divisor is principal
+Prove that it is well defined and extend it additively to divisors.  Prove
+the Abel--Jacobi theorem~\cite{forster}: a degree-zero divisor is principal
 exactly when its Abel--Jacobi image vanishes, and every point of the
 Jacobian is represented by a degree-zero divisor.  Deduce
 \[
 \operatorname{Pic}^0(C)\cong\operatorname{Jac}(C).
 \]
-Use as theorem input Riemann's vanishing theorem~\cite{fay-theta} to identify a translate of
+Prove Riemann's vanishing theorem~\cite{fay-theta} to identify a translate of
 the zero locus of $\vartheta$ with the Abel--Jacobi images of effective
 divisors of degree $g-1$.  Recover the genus-one Abel and theta-divisor
 statements above when $g=1$.
@@ -1952,7 +1984,7 @@ asymptotic data.
 
 \begin{exercise}[Finite-gap reconstruction and KdV linearization]
 For admissible spectral data $(\Sigma,D,Z)$ and its normalized
-Baker--Akhiezer function $\psi$, use as theorem input the finite-gap reconstruction
+Baker--Akhiezer function $\psi$, prove the finite-gap reconstruction
 theorem~\cite{belokolos}: there is a
 constant $c$ determined by the expansion at infinity such that
 \[
@@ -1964,7 +1996,7 @@ is real and smooth for admissible $(D,Z)$, and
 \left(-\frac{d^2}{dx^2}-u(x)\right)\psi(x,p)
 =E(p)\psi(x,p).
 \]
-Use as part of the same theorem the real finite-gap Floquet
+Prove as part of the same theorem the real finite-gap Floquet
 characterization: the multiplier has unit modulus precisely over
 \[
 [E_0,E_1]\cup[E_2,E_3]\cup\cdots\cup
@@ -1979,7 +2011,7 @@ $d(4iE^{3/2})$ there in the branch compatible with $d\Omega_1$, and put
 \[
 V_j=\frac1{2\pi i}\int_{b_j}d\Omega_3.
 \]
-Use as theorem input the finite-gap linearization
+Prove the finite-gap linearization
 theorem~\cite{belokolos}: the time-dependent Baker--Akhiezer function is
 obtained by adjoining the exponential of $t\int^p d\Omega_3$, its moving
 pole divisor satisfies
@@ -2151,7 +2183,7 @@ $\mathcal B(H)=\mathcal B(H,H)$.  Define the \emph{Calkin algebra} by
 \mathcal Q(H)=\mathcal B(H)/\mathcal K(H).
 \]
 
-Use as theorem input Atkinson's theorem~\cite{conway-functional}: $T$ is
+Prove Atkinson's theorem~\cite{conway-functional}: $T$ is
 Fredholm exactly when there is a bounded $S:H_1\to H_0$ for which
 \[
 ST-I_{H_0}\in\mathcal K(H_0),
@@ -2213,9 +2245,10 @@ completion of smooth sections for the norm
 \lVert u\rVert_{H^s}
 =\lVert(I+\Delta_E)^{s/2}u\rVert_{L^2}.
 \]
-Use as theorem input~\cite{hormander3} that different choices give equivalent norms.  Use as
-theorem input~\cite{hormander3} the coordinate-invariant elliptic regularity, symbol
-quantization, and parametrix theorem: for every real $s$, an elliptic $D$
+Prove~\cite{hormander3} that different choices give equivalent norms.
+Develop coordinate-invariant symbol quantization and prove elliptic
+regularity and the parametrix theorem~\cite{hormander3}: for every real
+$s$, an elliptic $D$
 extends to
 \[
 D_s:H^s(M;E)\longrightarrow H^{s-m}(M;F)
@@ -2235,7 +2268,7 @@ that
 \[
 \bar\partial_L:\Omega^{0,0}(C;L)\longrightarrow\Omega^{0,1}(C;L)
 \]
-is elliptic.  Use as theorem input~\cite{forster,hormander3} the Dolbeault identification of its
+is elliptic.  Prove~\cite{forster,hormander3} the Dolbeault identification of its
 kernel and cokernel with $H^0(C,L)$ and $H^1(C,L)$.  Recover from
 Riemann--Roch the analytic-index formula
 \[
@@ -2288,7 +2321,7 @@ $E$ and $F$ \emph{stably isomorphic} when
 E\oplus\underline{\mathbb C}^{\,r}
 \cong F\oplus\underline{\mathbb C}^{\,s}
 \]
-for some $r,s$.  Use as theorem input the clutching
+for some $r,s$.  Prove the clutching
 theorem~\cite{atiyah-k-theory}: for compact
 Hausdorff $X$, stable bundles on $\Sigma X$ are classified by stable
 homotopy classes of clutching maps.
@@ -2333,7 +2366,7 @@ connections, derive
 \frac{i\dot\nabla_t}{2\pi}
 \exp\!\left(\frac{iF_{\nabla_t}}{2\pi}\right)\right).
 \]
-Use as theorem input~\cite{bott-tu} the corresponding Chern--Weil transgression formula
+Prove~\cite{bott-tu} the corresponding Chern--Weil transgression formula
 for the determinant invariant polynomials.  Deduce that the de Rham classes
 $\operatorname{ch}(E)$ and $c_j(E)$ are independent of the connection,
 natural under pullback, and satisfy
@@ -2464,7 +2497,7 @@ Let $BU(r)$ be the classifying space characterized by the natural
 correspondence between rank-$r$ complex bundles on a compact space and
 homotopy classes of maps to $BU(r)$.  Let $BU$ and $U$ denote the stable
 classifying and unitary spaces, and write $[X,Y]$ for unbased homotopy
-classes.  Use as theorem input~\cite{atiyah-k-theory} the stable
+classes.  Prove~\cite{atiyah-k-theory} the stable
 classification
 \[
 K^0(X)\cong[X,\mathbb Z\times BU],
@@ -2482,7 +2515,7 @@ Let
 \beta=[E_g]-[\underline{\mathbb C}]
 \in\widetilde K^0(S^2)
 \]
-be the Bott class of the Hopf bundle.  Use as part of Bott periodicity that
+be the Bott class of the Hopf bundle.  Prove as part of Bott periodicity that
 the displayed loop-space equivalence is represented in reduced
 $K$-theory by exterior product with $\beta$, and deduce
 \[
@@ -2505,8 +2538,9 @@ K^1(S^{2r})=0,
 K^1(S^{2r+1})\cong\mathbb Z.
 \]
 For a CW complex, call an inclusion $A\hookrightarrow X$ a
-\emph{cofibration} when it has the homotopy-extension property.  Use as
-theorem input~\cite{atiyah-k-theory} the six-term exact sequence in reduced \(K\)-theory for a
+\emph{cofibration} when it has the homotopy-extension property.  Construct
+the boundary map and prove the six-term exact sequence in reduced
+\(K\)-theory~\cite{atiyah-k-theory} for a
 cofibration and the standard cell attachment
 $S^1\vee S^1\to T^2\to S^2$ to compute
 \[
@@ -2517,10 +2551,16 @@ K^1(T^2)\cong\mathbb Z^2.
 \end{exercise}
 
 \begin{exercise}[Chern characters and gapped band topology]
-When $X$ is a compact smooth manifold, use as theorem
-input~\cite{bott-tu} that the
-Chern--Weil classes $c_j(E)$ are the real images of integral cohomology
-classes.  Use their rational polynomial relation with the Chern character
+For a complex vector bundle $E\to X$, prove the projective-bundle
+cohomology formula by induction over a trivializing cover and the
+Mayer--Vietoris sequence.  Iterate it to construct the full flag bundle
+$p:\operatorname{Fl}(E)\to X$, prove that $p^*$ is injective on rational
+cohomology, and prove that $p^*E$ has a filtration with line-bundle
+quotients.  Deduce the splitting principle~\cite{bott-tu}.  For compact
+smooth $X$, prove integrality of the first Chern class of a line bundle
+from its circle cocycle, and use the splitting principle to prove that
+the Chern--Weil classes $c_j(E)$ are the real images of integral
+cohomology classes.  Use their rational polynomial relation with the Chern character
 and the Chern--Weil identities to prove that
 \[
 \operatorname{ch}([E]-[F])
@@ -2530,7 +2570,7 @@ defines a natural ring homomorphism
 \[
 \operatorname{ch}:K^0(X)\longrightarrow H^{\rm even}(X;\mathbb Q).
 \]
-Use as theorem input~\cite{atiyah-k-theory} that these classes define the same natural
+Prove~\cite{atiyah-k-theory} that these classes define the same natural
 transformation for finite CW complexes and that it becomes an isomorphism
 after tensoring with $\mathbb Q$.
 
@@ -2568,7 +2608,7 @@ Use the universal property to prove
 \[
 Cl_{m+n}\cong Cl_m\widehat\otimes Cl_n.
 \]
-Use as theorem input the real Clifford Morita periodicity
+Prove the real Clifford Morita periodicity
 $Cl_{n+8}\simeq_{\mathrm{Morita}}Cl_n$, the Atiyah--Bott--Shapiro
 construction, and real Bott periodicity~\cite{atiyah-k-theory}:
 \[
@@ -2590,7 +2630,7 @@ corresponding irreducible Clifford-module structures by one generator.
 A finite-range translation-invariant free-fermion Hamiltonian is
 \emph{stably equivalent} to another when one may adjoin spectrally flat
 filled and empty bands and join the flattened Hamiltonians through a
-symmetry-preserving gapped path.  Use as theorem input the free-fermion
+symmetry-preserving gapped path.  Prove the free-fermion
 tenfold-way theorem~\cite{kitaev-periodic}.  An antiunitary time-reversal
 operator $T$, an antiunitary particle--hole operator $C$, and a unitary
 chiral operator $S$ satisfy
@@ -2709,9 +2749,9 @@ that $[P_+,M_u]$ is compact, and deduce from
 $T_uT_{u^{-1}}=I+\text{compact}$ that $T_u$ is Fredholm; prove that
 homotopies of $u$ produce norm-continuous Fredholm paths.  For
 $W=\mathbb C\oplus W'$ compute the index when
-$u(z)=z^n\oplus I_{W'}$ from the unilateral shift.  Use as theorem
-input~\cite{atiyah-k-theory}
-that $SU(r)$ is simply connected for $r\geq2$ and use the determinant
+$u(z)=z^n\oplus I_{W'}$ from the unilateral shift.  Prove by induction
+from $SU(r-1)\to SU(r)\to S^{2r-1}$ that $SU(r)$ is simply connected for
+$r\geq2$, and use the determinant
 fibration
 \[
 SU(r)\longrightarrow U(r)\xrightarrow{\det}U(1)
@@ -2733,7 +2773,7 @@ operator, define its suspended operator on periodic paths by
 \[
 \mathcal D_A=\frac d{dt}+A_t.
 \]
-Use as theorem input the spectral-flow suspension theorem~\cite{aps3}
+Prove the spectral-flow suspension theorem~\cite{aps3}
 \[
 \operatorname{ind}_{\rm an}(\mathcal D_A)
 =\operatorname{sf}(A_t)
@@ -2756,8 +2796,8 @@ where $D(E)$ and $S(E)$ are its unit disk and sphere bundles for any
 Hermitian metric.  Define a \emph{Thom class}
 $u_E\in K_c^0(E)$ to be a class whose restriction to each fiber is the
 Bott generator in $K_c^0(\mathbb C^{\operatorname{rank}E})$.  Use Bott
-periodicity as theorem input~\cite{atiyah-k-theory} for the
-\(K\)-theoretic Thom isomorphism
+periodicity to construct $u_E$ and prove the \(K\)-theoretic Thom
+isomorphism~\cite{atiyah-k-theory}
 \[
 K^j(X)\longrightarrow K_c^j(E),
 \qquad
@@ -2776,7 +2816,7 @@ class is represented by two bundles together with an isomorphism outside
 a compact set.  Verify compatibility of this description with direct sum,
 homotopy, and stabilization.
 
-Use as theorem input~\cite{bott-tu} the Whitney embedding and tubular-neighborhood
+Prove~\cite{bott-tu} the Whitney embedding and tubular-neighborhood
 theorems and choose an embedding $M\hookrightarrow\mathbb R^N$.  Show that
 the Euclidean orthogonal splitting induces an embedding
 \[
@@ -2791,15 +2831,14 @@ periodicity to define
 K_c^0(T^*M)\longrightarrow
 K_c^0(\mathbb R^{2N})\cong\mathbb Z.
 \]
-Use as theorem input~\cite{atiyah-k-theory} isotopy invariance and stabilization of embeddings to
+Prove~\cite{atiyah-k-theory} isotopy invariance and stabilization of embeddings to
 prove that this map is independent of all choices.
 \end{exercise}
 
 \begin{exercise}[Atiyah--Singer index theorem]
-Use as theorem input the splitting principle~\cite{bott-tu}: after a pullback injective
-on rational cohomology, a complex vector bundle $E$ splits as a sum of
-line bundles.  If their first Chern classes are $x_j$, call the $x_j$ the
-\emph{formal Chern roots} of $E$, so
+Apply the splitting principle to a complex vector bundle $E$.  If the
+first Chern classes of the resulting line bundles are $x_j$, call the
+$x_j$ the \emph{formal Chern roots} of $E$, so
 $c(E)=\prod_j(1+x_j)$.  Define
 \[
 \operatorname{Td}(E)
@@ -2837,9 +2876,9 @@ Define
 /\{(1,1),(-1,-1)\}.
 \]
 A \emph{spin$^c$ structure} is a lift of the oriented frame bundle through
-$\operatorname{Spin}^c(n)\to SO(n)$.  Use as theorem
-input~\cite{lawson-michelsohn} that a
-Hermitian complex manifold has a canonical spin$^c$ structure with
+$\operatorname{Spin}^c(n)\to SO(n)$.  Construct from the homomorphism
+$U(n)\to\operatorname{Spin}^c(2n)$ the canonical spin$^c$ structure of a
+Hermitian complex manifold~\cite{lawson-michelsohn}, and identify its
 spinor bundle $\Lambda^{0,*}T^*M$.  Define its chiral Dolbeault--Dirac
 operator for a holomorphic Hermitian bundle $E$ with its Chern connection
 \[
@@ -2850,14 +2889,14 @@ operator for a holomorphic Hermitian bundle $E$ with its Chern connection
 \]
 and compute its principal symbol.
 
-Use as theorem input the Atiyah--Singer index
+Prove the Atiyah--Singer index
 theorem~\cite{atiyah-singer-index}:
 \[
 \operatorname{ind}_{\rm an}(D)
 =\operatorname{ind}_{\rm top}[\sigma(D)]
 \]
-for every elliptic differential operator on a closed manifold.  Use as
-theorem input~\cite{atiyah-singer-index} its cohomological consequences
+for every elliptic differential operator on a closed manifold.  Derive
+its cohomological consequences
 \[
 \operatorname{ind}_{\rm an}(\mathcal D_{\bar\partial,E}^+)
 =\int_M\operatorname{ch}(E)\operatorname{Td}(T^{1,0}M)
@@ -2957,7 +2996,7 @@ spectroscopy tests the Jacobi-polynomial and index predictions.
 
 \begin{exercise}[Family index and quantized Hall transport]
 Let $B$ be compact and let $T_b:H_0\to H_1$ be a norm-continuous family
-of Fredholm operators.  Use as theorem input~\cite{atiyah-singer-families} that there is a
+of Fredholm operators.  Prove~\cite{atiyah-singer-families} that there is a
 finite-dimensional subspace $V\subset H_1$ for which
 \[
 H_0\oplus V\longrightarrow H_1,
@@ -2998,7 +3037,7 @@ Show that the Sobolev completions of
 $\bar\partial_{L_N\otimes F_\chi}$ form a Fredholm family and that
 Riemann--Roch identifies its family index with $[\mathcal H_N]$.
 
-Use as theorem input the families Atiyah--Singer
+Prove the families Atiyah--Singer
 formula~\cite{atiyah-singer-families}: for a
 holomorphic submersion $p:X\to B$ with compact fibers and a holomorphic
 bundle $\mathcal L\to X$,
@@ -3024,7 +3063,7 @@ Extract its degree-zero and degree-two parts to prove
 \int_{\widehat E_\tau}c_1(\mathcal D_N)=1.
 \]
 For the Fermi projection $P(\phi_1,\phi_2)$ over the boundary-twist torus,
-use as theorem input~\cite{tknn} the gapped noninteracting Kubo--Chern
+prove~\cite{tknn} the gapped noninteracting Kubo--Chern
 formula and the adiabatic theorem,
 \[
 \sigma_{xy}=\frac{e^2}{h}\,\frac{i}{2\pi}
@@ -3078,9 +3117,9 @@ a graded-commutative ring with unit the positively oriented point.  Prove
 \qquad
 \Omega_2^{SO}=0
 \]
-by signed point count and disks, and by using as theorem input the
-classification of closed oriented surfaces and constructing oriented
-handlebodies.
+by signed point count and disks.  Prove the classification of closed
+oriented surfaces from polygonal decompositions and construct oriented
+handlebodies to complete the calculation in degree two.
 
 For a spin manifold with boundary, use the outward unit normal to induce
 a spin structure on its boundary.  Define \emph{spin bordism} by requiring
@@ -3140,7 +3179,7 @@ S^{n+k}\longrightarrow\operatorname{Th}(\nu_M)
 \longrightarrow MG(k).
 \]
 Prove that isotopy, stabilization, and a $G$-bordism do not change the
-resulting stable homotopy class.  Use as theorem input the transversality
+resulting stable homotopy class.  Prove the transversality
 and regular-value construction in the Pontryagin--Thom
 theorem~\cite{thom-cobordism} to prove that collapse induces ring
 isomorphisms
@@ -3184,12 +3223,12 @@ TW|_M\cong TM\oplus\underline{\mathbb R}
 and choose a connection that is a product near the boundary.  Use Stokes'
 theorem for its Chern--Weil representatives to prove
 $p_I[M]=0$.  Deduce that every Pontryagin number defines a homomorphism
-$\Omega_{4k}^{SO}\to\mathbb Q$.  Use as theorem input Thom's rational
+$\Omega_{4k}^{SO}\to\mathbb Q$.  Prove Thom's rational
 bordism theorem~\cite{thom-cobordism}: two oriented manifolds determine
 the same class in $\Omega_*^{SO}\otimes\mathbb Q$ exactly when all their
 Pontryagin numbers agree.
 
-For a closed oriented $4k$-manifold, use as theorem input Poincar\'e
+For a closed oriented $4k$-manifold, prove Poincar\'e
 duality~\cite{bott-tu} to prove that
 \[
 ([\alpha],[\beta])\longmapsto\int_M\alpha\wedge\beta
@@ -3201,7 +3240,7 @@ $p(TM)=\prod_j(1+x_j^2)$, define
 \[
 L(TM)=\prod_j\frac{x_j}{\tanh x_j}.
 \]
-Use as theorem input the Hirzebruch signature
+Prove the Hirzebruch signature
 theorem~\cite{hirzebruch-topological}
 \[
 \operatorname{sign}(M)=\int_ML(TM)
@@ -3211,7 +3250,7 @@ $\Omega_*^{SO}\to\mathbb Z$.  In dimension four derive
 \[
 \operatorname{sign}(M)=\frac13\int_Mp_1(TM).
 \]
-For $h=c_1(\mathcal O(1))$ on $\mathbb{CP}^2$, use as theorem input the
+For $h=c_1(\mathcal O(1))$ on $\mathbb{CP}^2$, prove the
 Euler sequence~\cite{hartshorne}
 \[
 0\longrightarrow\mathcal O
@@ -3243,7 +3282,8 @@ For a closed spin $4k$-manifold, define
 \[
 \widehat A[M]=\int_M\widehat A(TM).
 \]
-Use the Atiyah--Singer theorem and the product formula for spinor bundles
+Construct the graded tensor-product spinor bundle on a product, prove the
+product formula for its Dirac operator, and use the Atiyah--Singer theorem
 to prove
 \[
 \widehat A[M]=\operatorname{ind}_{\rm an}(\mathcal D_M^+)
@@ -3258,7 +3298,7 @@ For a closed stable complex manifold $X$, define
 \[
 \operatorname{Td}[X]=\int_X\operatorname{Td}(TX).
 \]
-Use as theorem input the canonical spin$^c$ Dirac operator associated to
+Prove the canonical spin$^c$ Dirac operator associated to
 a stable complex structure~\cite{lawson-michelsohn}, and apply the index
 theorem to prove that $\operatorname{Td}[X]$ is integral and defines a
 genus $\Omega_*^U\to\mathbb Z$.  When $X$ is a compact complex manifold,
@@ -3288,16 +3328,17 @@ $\operatorname{Re}s$ sufficiently large, define the eta function
 =\sum_{\lambda\ne0}
 \operatorname{sign}(\lambda)|\lambda|^{-s},
 \]
-where the spectral values are repeated with multiplicity.  Use as theorem
-input~\cite{aps1} that this function has a meromorphic continuation regular
-at $s=0$.
+where the spectral values are repeated with multiplicity.  Construct the
+small-time heat-kernel expansion and apply its Mellin transform to prove
+that this function has a meromorphic continuation regular at
+$s=0$~\cite{aps1}.
 
 Let $P_{\geq0}(A_{M,E})$ be the spectral projection onto the nonnegative
 spectrum and impose the Atiyah--Patodi--Singer boundary condition
 \[
 P_{\geq0}(A_{M,E})(\psi|_M)=0.
 \]
-Use as theorem input the Atiyah--Patodi--Singer index
+Prove the Atiyah--Patodi--Singer index
 theorem~\cite{aps1}
 \[
 \operatorname{ind}_{\rm APS}(\mathcal D_{W,E}^+)
@@ -3394,7 +3435,7 @@ x_j\,
 \qquad
 \operatorname{Im}\tau>0.
 \]
-Use as theorem input~\cite{witten-elliptic} that this characteristic
+Prove~\cite{witten-elliptic} that this characteristic
 series defines a stable complex bordism genus with values in holomorphic
 functions of $(\tau,z)$.
 
@@ -3417,9 +3458,10 @@ and the Dolbeault index formula to prove
 \qquad
 \int_Xc_2(TX)=24.
 \]
-Use the Chern-root formula, the K3 conditions $c_1=0$, $c_2[X]=24$, and
-the required theta addition identities as theorem input~\cite{eguchi-k3}
-to derive the K3 identity
+Prove the required theta addition identities from the theta series and
+their divisor and automorphy laws~\cite{eguchi-k3}.  Use them with the
+Chern-root formula and the K3 conditions $c_1=0$, $c_2[X]=24$ to derive
+the K3 identity
 \[
 \operatorname{Ell}_{K3}(\tau,z)
 =8\left[
@@ -3441,7 +3483,7 @@ right-moving small $\mathcal N=4$ superconformal algebras, each with four
 supercurrents and an $SU(2)$ current algebra; $L_0,\bar L_0$ are their
 energy operators, $J_0$ is a chosen left $SU(2)$ Cartan charge, and
 $F_L,F_R$ are the fermion parities.  For such a model with K3 target,
-use as theorem input~\cite{witten-elliptic,eguchi-k3} the Ramond-sector
+prove~\cite{witten-elliptic,eguchi-k3} the Ramond-sector
 identity
 \[
 \operatorname{Ell}_{K3}(\tau,z)
@@ -3475,7 +3517,7 @@ whose restriction to $\mathbb{CP}^1$ is the suspended unit.  For a complex
 line bundle $L\to X$ classified by $f_L:X\to\mathbb{CP}^{\infty}$, put
 $c_1^E(L)=f_L^*x_E$.
 
-Use as theorem input the projective-bundle theorem for a complex-oriented
+Prove the projective-bundle theorem for a complex-oriented
 theory~\cite{quillen-formal},
 \[
 E^*(\mathbb{CP}^{\infty})\cong E^*[[x_E]].
@@ -3503,7 +3545,7 @@ $x_K=\beta^{-1}(1-[\mathcal L])$ and derive
 F_K(x,y)=x+y-\beta xy.
 \]
 
-Use as theorem input Quillen's complex-cobordism theorem~\cite{quillen-formal}:
+Prove Quillen's complex-cobordism theorem~\cite{quillen-formal}:
 $MU$ is the universal complex-oriented ring spectrum and its coefficient
 ring carries the universal one-dimensional commutative formal group law.
 Prove that a chosen complex orientation of a ring spectrum $E$ induces a
@@ -3518,7 +3560,7 @@ theory $E$ an \emph{elliptic cohomology theory associated
 to $C$} when $E^0\cong R$ and its formal group is identified with the
 formal completion of $C$.  Prove that changing the local parameter gives an
 isomorphic formal group law and hence does not change the coordinate-free
-formal group.  Use as theorem input~\cite{hopkins-icm} that topological modular
+formal group.  Prove~\cite{hopkins-icm} that topological modular
 forms assemble these local elliptic cohomology theories over the moduli of
 elliptic curves, retaining the descent and torsion information absent from a
 single modular-form expansion.
@@ -3557,7 +3599,7 @@ product and prove that its constant term is $\widehat A[M]$, that the genus
 is multiplicative, and that it vanishes on string boundaries.
 
 Let $\mathrm{tmf}$ denote the connective spectrum of topological modular
-forms.  Use as theorem input the sigma orientation and its rational
+forms.  Prove the sigma orientation and its rational
 coefficient theorem~\cite{hopkins-icm,hopkins-tmf}: there is a ring map of spectra
 \[
 M\operatorname{String}\longrightarrow\mathrm{tmf}
@@ -3615,7 +3657,7 @@ complex conjugation supplies the stacking inverse.  Call a gapped
 $G$-symmetric phase \emph{invertible} when, after adjoining decoupled
 product degrees of freedom, it has a stacking inverse, and call two such
 phases equivalent when a uniformly gapped $G$-symmetric path joins their
-Hamiltonians.  Use as theorem input~\cite{freed-hopkins} that, under the
+Hamiltonians.  Prove~\cite{freed-hopkins} that, under the
 reflection-positivity and low-energy topological-field-theory hypotheses,
 deformation classes of invertible phases are computed from the associated
 Thom spectrum and their closed-manifold partition functions give bordism
@@ -3640,12 +3682,20 @@ U_gU_h=\omega(g,h)U_{gh},
 \qquad U_e=1,
 \]
 associate precisely because $\omega$ is a cocycle and that rephasing
-$U_g$ changes $\omega$ by a coboundary.  Use as theorem
-input~\cite{chen-gu-wen,pollmann-turner} that one-dimensional bosonic
-gapped phases with a unique bulk ground state, unbroken onsite symmetry
-$G$, and finite correlation length are classified, under symmetric
-gapped-path equivalence, by $H^2(G,U(1))$, with boundary degrees of
-freedom carrying the corresponding projective representation.
+$U_g$ changes $\omega$ by a coboundary.  For finite-dimensional physical
+and auxiliary Hilbert spaces $H$ and
+$W$, define the periodic matrix-product state associated to
+$A:W\to H\otimes W$ by contracting the $W$-outputs and inputs around a
+circle.  Call $A$ \emph{injective} when, for some length $r$, contraction
+over $r$ consecutive sites gives an injective map
+$\operatorname{End}(W)\to H^{\otimes r}$.  Prove the canonical-form
+theorem for injective matrix-product states, derive the
+projective virtual symmetry action, and prove
+\cite{chen-gu-wen,pollmann-turner} that one-dimensional bosonic gapped
+phases with a unique bulk ground state, unbroken onsite symmetry $G$, and
+finite correlation length are classified, under symmetric gapped-path
+equivalence, by $H^2(G,U(1))$, with boundary degrees of freedom carrying
+the corresponding projective representation.
 
 For commuting $g,h\in G$, define the twisted torus response
 \[
@@ -3668,7 +3718,7 @@ coherence, and phase-resolution assumptions.
 \end{exercise}
 
 \begin{exercise}[Spin bordism and the Majorana chain]
-For a closed spin surface $(\Sigma,\sigma)$, use as theorem input~\cite{johnson-spin} that
+For a closed spin surface $(\Sigma,\sigma)$, prove~\cite{johnson-spin} that
 $\sigma$ determines a quadratic refinement
 \[
 q_\sigma:H_1(\Sigma;\mathbb Z_2)\longrightarrow\mathbb Z_2,
@@ -3681,7 +3731,7 @@ intrinsically by the Gauss sum
 (-1)^{\operatorname{Arf}(\sigma)}
 =2^{-g}\sum_{x\in H_1(\Sigma;\mathbb Z_2)}(-1)^{q_\sigma(x)},
 \]
-where $g$ is the genus.  Use as theorem input~\cite{freed-hopkins}
+where $g$ is the genus.  Prove~\cite{freed-hopkins}
 \[
 \Omega_2^{\operatorname{Spin}}\cong\mathbb Z_2
 \]
@@ -3949,7 +3999,7 @@ morphisms $q\operatorname{Hom}(X,Y)p$.  Let $\mathcal C_k$ be the
 idempotent completion of $\mathsf{TL}_d/\mathcal N$, and let $V_a$ be the
 image of $f_a$.
 
-Use as theorem input the root-of-unity Markov-form
+Prove the root-of-unity Markov-form
 theorem~\cite{turaev-quantum}: the forms
 \[
 \langle f,g\rangle=\operatorname{tr}_m(f^*g),
@@ -4013,7 +4063,7 @@ abelian group on the classes $[X_a]$ with multiplication
 [X_a][X_b]=\sum_cN_{ab}^{\ \ c}[X_c].
 \]
 For an object $X$, let $N_X$ be left multiplication by $[X]$ on
-$K_0(\mathcal C)\otimes\R$.  Use as theorem input the
+$K_0(\mathcal C)\otimes\R$.  Prove the
 Frobenius--Perron dimension theorem~\cite{etingof-fusion}: there is a unique
 ring homomorphism
 \[
@@ -4061,7 +4111,7 @@ module of highest weight $k+1$ is
 [k+2]_\zeta=0.
 \]
 
-Use as theorem input the root-of-unity semisimplification
+Prove the root-of-unity semisimplification
 theorem~\cite{turaev-quantum}: the idempotent completion of the negligible
 quotient of $\mathsf{Tilt}_\zeta$ is a unitary braided fusion category and
 there is a braided unitary equivalence, writing $(-)^\natural$ for this
@@ -4107,7 +4157,7 @@ $\mathcal D$--$\mathcal E$ bimodule $\mathcal N$, define their
 \]
 for every $\mathcal C$--$\mathcal E$ module category $\mathcal A$, where
 the right side consists of bilinear module functors equipped with coherent
-$\mathcal D$-balancing isomorphisms.  Use as theorem input that relative
+$\mathcal D$-balancing isomorphisms.  Prove that relative
 tensor products of finite semisimple module categories exist and are
 associative up to their canonical equivalence~\cite{etingof-fusion}.
 Call $\mathcal C$ and $\mathcal D$ \emph{Morita equivalent} when there
@@ -4141,9 +4191,10 @@ c_{Y,X}c_{X,Y}=\id_{X\otimes Y}
 \]
 The full fusion subcategory of transparent objects is the \emph{M\"uger
 center}; call the ribbon fusion category \emph{modular} when this center is
-equivalent to $\mathsf{Hilb}_{\rm fd}$.  Use as theorem
-input~\cite{etingof-fusion,turaev-quantum}
-that $Z(\mathcal C)$ is a unitary modular tensor category and that
+equivalent to $\mathsf{Hilb}_{\rm fd}$.  Construct the braiding and ribbon
+structure on $Z(\mathcal C)$ and prove
+\cite{etingof-fusion,turaev-quantum} that it is a unitary modular tensor
+category and that
 \[
 \mathcal C\simeq_{\rm Morita}\mathcal D
 \quad\Longleftrightarrow\quad
@@ -4165,9 +4216,10 @@ $\mathcal C\boxtimes\mathcal D\to\mathcal A$, and use it as the monoidal
 product.  An object in a symmetric
 monoidal $3$-category is \emph{fully dualizable} when it has a tensor
 dual and its evaluation, coevaluation, and successive adjunction data
-admit left and right adjoints through level three.  Use as theorem
-input~\cite{douglas-dualizable} that every unitary fusion category is
-fully dualizable in $\mathsf{Fus}$.
+admit left and right adjoints through level three.  For a unitary fusion
+category, construct these data from its opposite category, regular
+bimodule categories, and adjoint bimodule functors, and prove full
+dualizability in $\mathsf{Fus}$~\cite{douglas-dualizable}.
 
 Let $\operatorname{Bord}_3^{\rm fr}$ be the symmetric monoidal
 $3$-category of compact framed manifolds and bordisms with corners
@@ -4177,12 +4229,13 @@ symmetric monoidal $3$-functor
 \[
 \mathcal Z:\operatorname{Bord}_3^{\rm fr}\longrightarrow\mathsf{Fus}.
 \]
-Use as theorem input the cobordism hypothesis~\cite{lurie-cobordism}:
+Prove the cobordism hypothesis~\cite{lurie-cobordism}:
 evaluation on the positively framed point identifies the
 $3$-groupoid of such theories with the $3$-groupoid of fully dualizable
-objects of $\mathsf{Fus}$.  Use the canonical spherical structure of a
-unitary fusion category as theorem input to obtain its oriented
-Turaev--Viro theory, and use as theorem input that its bulk line
+objects of $\mathsf{Fus}$.  Construct the canonical spherical structure
+of a unitary fusion category, prove its independence from auxiliary
+choices, and use it to construct the oriented Turaev--Viro theory.  Prove
+that its bulk line
 operators form $Z(\mathcal C)$~\cite{turaev-quantum,ai-factorization}.
 
 Let $\operatorname{Pic}(\mathsf{Fus})$ be the sub-$3$-groupoid of
@@ -4200,7 +4253,7 @@ Use the equality of categorical and Frobenius--Perron dimensions to show
 \[
 \operatorname{Dim}(\mathcal C)=\operatorname{FPdim}(\mathcal C).
 \]
-Use as theorem input~\cite{etingof-fusion}
+Prove~\cite{etingof-fusion}
 \[
 \operatorname{Dim}Z(\mathcal C)=\operatorname{Dim}(\mathcal C)^2,
 \qquad
@@ -4227,7 +4280,7 @@ Put
 \theta_a
 =\exp\!\left(\frac{\pi i\,a(a+2)}{2(k+2)}\right).
 \]
-Use as theorem input~\cite{turaev-quantum} that these phases, together with the braiding on
+Prove~\cite{turaev-quantum} that these phases, together with the braiding on
 $\mathcal C_k$, define its unitary ribbon structure.  For simple objects
 define the normalized Hopf-link matrix intrinsically by
 \[
@@ -4244,7 +4297,7 @@ Let $N_{ab}^{\ \ c}$ be the multiplicity of $V_c$ in
 $V_a\otimes V_b$.
 
 Use sine orthogonality to prove that $S$ is real, symmetric, and unitary.
-Use as theorem input~\cite{turaev-quantum} the equivalence between invertibility of the
+Prove~\cite{turaev-quantum} the equivalence between invertibility of the
 Hopf-link matrix and triviality of the M\"uger center, and conclude that
 $\mathcal C_k$ is modular.
 For each $a$, let $(N_a)_{bc}=N_{ab}^{\ \ c}$.  Use the truncated
@@ -4282,7 +4335,7 @@ Deduce that the number of fusion channels from
 $a_1,\ldots,a_n$ to $c$ is
 $(N_{a_1}\cdots N_{a_n})_{0c}$ and express it as a finite sum of products
 of sine functions.  Let $\mathcal C_k^{\rm rev}$ have the inverse braiding.
-Use as theorem input~\cite{etingof-fusion} the canonical braided equivalence
+Prove~\cite{etingof-fusion} the canonical braided equivalence
 \[
 \mathcal C_k\boxtimes\mathcal C_k^{\rm rev}
 \simeq Z(\mathcal C_k)
@@ -4312,7 +4365,7 @@ framed oriented link with components labelled by
 $V_{a_1},\ldots,V_{a_n}\in\mathcal C_k$, define the Wilson-loop observable
 formally by the product of the corresponding holonomy traces.
 
-Use as theorem input the Chern--Simons/Reshetikhin--Turaev
+Prove the Chern--Simons/Reshetikhin--Turaev
 correspondence~\cite{turaev-quantum}: the quantum expectation of framed
 Wilson links is the $SU(2)_k$ Reshetikhin--Turaev invariant, and canonical
 quantization on a surface $\Sigma$ gives its modular-functor Hilbert space.
@@ -4352,9 +4405,16 @@ ground-state degeneracy, and linked-anyon amplitudes test these formulas.
 \end{exercise}
 
 \begin{exercise}[Factorization homology and modular surface state spaces]
-Put $\mathcal A=Z(\mathcal C_k)$.  Use as theorem
-input~\cite{ayala-francis,ai-factorization} that its ribbon structure
-determines an isotopy-invariant symmetric monoidal assignment
+Put $\mathcal A=Z(\mathcal C_k)$.  Let
+$\operatorname{Disk}(\Sigma)$ have finite disjoint unions of oriented
+disks embedded in $\Sigma$ as objects and isotopies followed by inclusions
+as morphisms; send an $r$-disk object to $\mathcal A^{\boxtimes r}$.
+Define $\int_\Sigma\mathcal A$ by the universal property that compatible
+families of functors from this diagram to any target category factor
+uniquely through it.  Prove that this symmetric-monoidal colimit exists,
+and prove from disk isotopy and the ribbon relations
+\cite{ayala-francis,ai-factorization} that this construction determines an
+isotopy-invariant symmetric monoidal assignment
 \[
 \Sigma\longmapsto\int_\Sigma\mathcal A,
 \]
@@ -4378,11 +4438,12 @@ equivalence
 \]
 where the collar embeddings give the two surface values their right and
 left module structures over
-$\int_{N\times\mathbb R}\mathcal A$.  On a closed oriented surface, use
-as theorem input that this assignment has a
-distinguished finite-dimensional Hilbert space
+$\int_{N\times\mathbb R}\mathcal A$.  On a closed oriented surface,
+construct from a handle decomposition a distinguished finite-dimensional
+Hilbert space
 $\mathcal H_{\mathcal A}(\Sigma)$ canonically isomorphic to the
-Reshetikhin--Turaev surface state space.  Apply collar excision to a
+Reshetikhin--Turaev surface state space, and prove invariance under handle
+moves.  Apply collar excision to a
 pair-of-pants decomposition and use Verlinde diagonalization to prove
 \[
 \dim\mathcal H_{Z(\mathcal C_k)}(\Sigma_g)
@@ -4412,9 +4473,10 @@ finite-size, and phase-resolution assumptions under which these numbers
 are measurable.
 
 For a stratified collar labelled by a $\mathcal C$--$\mathcal D$
-bimodule category $\mathcal M$, use stratified excision as theorem
-input~\cite{ai-factorization} to show that gluing interfaces composes
-their labels by relative tensor product.  Prove that a Morita-invertible
+bimodule category $\mathcal M$, construct the corresponding two-sided bar
+resolution and prove stratified excision~\cite{ai-factorization}.  Deduce
+that gluing interfaces composes their labels by relative tensor product.
+Prove that a Morita-invertible
 $\mathcal M$ gives a transparent wall by applying
 \[
 \mathcal M\boxtimes_{\mathcal D}\mathcal M^{\rm op}
@@ -4477,7 +4539,7 @@ Deduce that $\widehat H_\Gamma$ is positive and frustration-free and that
 its ground space is the simultaneous $+1$ space of all $Q_v$ and $B_p$.
 Prove that recoupling across an edge gives a unitary identification of the
 ground spaces before and after the corresponding local change of
-cellulation.  Use as theorem input~\cite{levin-wen,ai-factorization} that
+cellulation.  Prove~\cite{levin-wen,ai-factorization} that
 these identifications assemble to a canonical unitary isomorphism
 \[
 \ker\widehat H_\Gamma
