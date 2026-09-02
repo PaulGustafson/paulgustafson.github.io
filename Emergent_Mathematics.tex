@@ -12,7 +12,7 @@
 \setlength{\parskip}{0.35em}
 \setlength{\emergencystretch}{3em}
 \setlist{nosep}
-\setcounter{tocdepth}{2}
+\setcounter{tocdepth}{1}
 
 \theoremstyle{definition}
 \newtheorem{exercise}{Exercise}[section]
@@ -36,6 +36,11 @@
 \newcommand{\ad}{\operatorname{ad}}
 \newcommand{\Ad}{\operatorname{Ad}}
 \newcommand{\qbinom}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}_q}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ii}{\mathrm i}
 
 \hypersetup{
   pdftitle={Emergent Mathematics},
@@ -46,12 +51,6 @@
 \author{Paul Gustafson}
 \date{}
 
-\newif\ifincludeSymmetryCore
-\newif\ifincludeSymmetryQuantization
-\newif\ifincludeSymmetryAdvanced
-\newif\ifincludeTransferMatrices
-\newif\ifincludeIntegrabilitySymmetry
-
 \begin{document}
 \maketitle
 \begingroup
@@ -61,23 +60,10 @@
 \endgroup
 \clearpage
 
-\includeSymmetryCoretrue
 \input{Emergent_Mathematics_Symmetry}
-\includeSymmetryCorefalse
-\includeSymmetryQuantizationtrue
-\input{Emergent_Mathematics_Symmetry}
-\includeSymmetryQuantizationfalse
 \input{Emergent_Mathematics_Particles}
 \input{Emergent_Mathematics_Integrable_Probability}
-\includeTransferMatricestrue
 \input{Emergent_Mathematics_Integrability}
-\includeTransferMatricesfalse
-\includeSymmetryAdvancedtrue
-\input{Emergent_Mathematics_Symmetry}
-\includeSymmetryAdvancedfalse
-\includeIntegrabilitySymmetrytrue
-\input{Emergent_Mathematics_Integrability}
-\includeIntegrabilitySymmetryfalse
 \input{Emergent_Mathematics_Geometry}
 
 \begin{thebibliography}{99}

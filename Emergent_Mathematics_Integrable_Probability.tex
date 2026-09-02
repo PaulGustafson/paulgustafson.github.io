@@ -1,731 +1,82 @@
-\section{Determinantal Kernels}
+\section{Unitary Ensembles}
 
-\subsection{Unitary Groups}
-
-\begin{exercise}[Dyson ensembles and unitary orbit Jacobians]
-For $\mathbb F=\R,\C,\mathbb H$, put
-$\beta_{\rm D}=\dim_\R\mathbb F\in\{1,2,4\}$.  The Gaussian Dyson ensemble on the
-self-adjoint operators on $\mathbb F^N$ has density
+\begin{exercise}[Unitary symmetry and spectral measures]
+On the real inner-product space of Hermitian endomorphisms of a
+finite-dimensional Hermitian space $W$, let
+$U(W)$ act by conjugation.  For a real confining function $\mathcal V$, prove
+that
 \[
-d\mathbb P_{N,\beta_{\rm D}}(H)
-=C_{N,\beta_{\rm D}}\exp\!\left[-\frac{\beta_{\rm D}N}{4\sigma^2}
-\Tr(H^2)\right]dH
+ \dd\mathbb P(H)=Z^{-1}e^{-\Tr(\mathcal V(H))}\dd H
 \]
-for the invariant Hilbert--Schmidt volume.  For
-$\lambda=(\lambda_1,\ldots,\lambda_N)$ define
-\[
-\Delta(\lambda)=\det[\lambda_i^{j-1}]_{i,j=1}^N.
-\]
-
-Use the exterior-power determinant to prove
-\[
-\Delta(\lambda)=\prod_{i<j}(\lambda_j-\lambda_i).
-\]
-Compute the Jacobian of the unitary conjugation-orbit map on the regular
-spectral locus, including the stabilizer and permutation factors, and derive
-\[
-p_{N,2}(\lambda)
-=\frac1{Z_{N,2}}
-e^{-N\sum_i\lambda_i^2/(2\sigma^2)}
-|\Delta(\lambda)|^2.
-\]
+is invariant whenever it is integrable.  Disintegrate this measure along
+conjugacy orbits and identify the unordered eigenvalue map without choosing
+eigenvectors.
 \end{exercise}
 
-\begin{exercise}[Dyson level repulsion]
-For the real and quaternionic classes, show that each off-diagonal spectral
-direction has real multiplicity $\beta_{\rm D}$ and deduce
+\begin{exercise}[Weyl integration and eigenvalue repulsion]
+Compute the normal Jacobian of the conjugation orbit through a simple-spectrum
+Hermitian operator and prove the Weyl integration formula
 \[
-p_{N,\beta_{\rm D}}(\lambda)
-=\frac1{Z_{N,\beta_{\rm D}}}
-e^{-\beta_{\rm D}N\sum_i\lambda_i^2/(4\sigma^2)}
-|\Delta(\lambda)|^{\beta_{\rm D}}.
+ \int F(H)\dd H=C_n\int_{\R^n}F(\lambda)
+ \prod_{i<j}(\lambda_i-\lambda_j)^2\prod_i\dd\lambda_i
 \]
-For $2\times2$ GOE and GUE, separate the trace from the traceless operator,
-rescale the gap to unit mean, and obtain
-\[
-P_1(s)=\frac\pi2s e^{-\pi s^2/4},
-\qquad
-P_2(s)=\frac{32}{\pi^2}s^2e^{-4s^2/\pi}.
-\]
-Identify the exponent $\beta_{\rm D}$ as the small-gap repulsion prediction and
-state the symmetry-sector separation required in spectral data.
+for conjugation-invariant $F$.  Determine $C_n$ from a Gaussian integral.
+Show that the squared Vandermonde forces quadratic repulsion at collisions and
+rewrite the eigenvalue density as a determinant using monic polynomials
+orthogonal for $e^{-\mathcal V(x)}\dd x$.
 \end{exercise}
 
-\subsection{Weyl Integration Formula}
-
-\begin{exercise}[Scattering projections and fermionic correlations]
-Let
+\begin{exercise}[Orthogonal-polynomial and Christoffel--Darboux kernels]
+Let $p_k$ be the monic orthogonal polynomials for
+$e^{-\mathcal V(x)}\dd x$, assumed positive with all moments, and let
+$h_k=\norm{p_k}^2$.  Derive the three-term recurrence and
+prove the Christoffel--Darboux identity
 \[
-H_R=-\frac{\hbar^2}{2\mu}\Delta+V
+ \sum_{k=0}^{n-1}\frac{p_k(x)p_k(y)}{h_k}
+ =\frac{p_n(x)p_{n-1}(y)-p_{n-1}(x)p_n(y)}{h_{n-1}(x-y)}.
 \]
-be the Dirichlet realization of a real Schr\"odinger operator on the ball
-$B_R\subset\R^3$.  Fix a Fermi energy $E_F$ outside its spectrum and let
-\[
-P_R=\mathbf1_{(-\infty,E_F]}(H_R)
-\]
-have rank $N$.  Suppose its integral kernel $K_R$ is continuous.  Prove
-intrinsically from $P_R^2=P_R=P_R^*$ that
-\[
-\int_{B_R}K_R(x,z)K_R(z,y)\,dz=K_R(x,y),
-\qquad
-\int_{B_R}K_R(x,x)\,dx=N,
-\]
-and that every matrix $[K_R(x_i,x_j)]$ is positive semidefinite.
-
-Let the symmetric group $S_N$ act on the $N$-fold Hilbert tensor product by
-permuting tensor factors, and define its alternating sector by the sign
-character.  Prove that
-$\Lambda^N\operatorname{im}P_R$ is the one-dimensional filled-fermion state
-space and that the position density of its unit vector, independently of its
-phase, is
-\[
-p_R(x_1,\ldots,x_N)
-=\frac1{N!}\det[K_R(x_i,x_j)]_{i,j=1}^N.
-\]
-Use the projection identity and determinant expansion to prove that
-$p_R$ is a probability density and that, for $1\leq k\leq N$,
-\[
-\frac{N!}{(N-k)!}
-\int_{B_R^{N-k}}p_R(x_1,\ldots,x_N)
-\,dx_{k+1}\cdots dx_N
-=\det[K_R(x_i,x_j)]_{i,j=1}^k.
-\]
-
-Assume now that $V$ is radial and supported in a fixed ball.  In angular
-momentum channel $\ell$, use the exterior asymptotic
-\[
-u_\ell(r;k)
-\sim\sin\!\left(kr-\frac{\ell\pi}{2}+\delta_\ell(k)\right)
-\]
-and the Dirichlet condition at $r=R$ to derive
-\[
-kR-\frac{\ell\pi}{2}+\delta_\ell(k)=n\pi+o(1)
-\qquad(R\to\infty).
-\]
-Where $\delta_\ell$ is differentiable and no level crosses the chosen
-energy window, deduce that the shift of the radial density of states from
-its free value is $\delta_\ell'(k)/\pi$.  Include the multiplicity
-$2\ell+1$ and state the finite-volume, elastic, threshold, angular-momentum
-cutoff, and detector-resolution assumptions under which fermion counts
-below $E_F$ test the phase-shift prediction.
+For $\phi_k=p_ke^{-\mathcal V/2}/\sqrt{h_k}$ define
+$K_n(x,y)=\sum_{k<n}\phi_k(x)\phi_k(y)$.  Apply the Andreief determinant
+identity to prove that every $r$-point eigenvalue correlation is
+$\det(K_n(x_i,x_j))_{i,j\le r}$ and that $K_n$ is an orthogonal-projection
+kernel.
 \end{exercise}
 
-\begin{exercise}[Fredholm determinants and trace identities]
-Let $A$ be an arbitrary complex trace-class operator on a Hilbert space.
-Its exterior powers are trace class and satisfy
-$|\Tr(\Lambda^nA)|\leq\|A\|_1^n/n!$.  Define
+\begin{exercise}[Hermite, sine, and Airy kernels]
+For $\mathcal V(x)=x^2$, identify $p_k$ with the Hermite polynomials already developed
+for the oscillator and compute their normalization.  Use steepest descent in
+their contour representation to derive the bulk and soft-edge limits
 \[
-\det(I+zA)=\sum_{n=0}^\infty z^n\Tr(\Lambda^nA).
+ \frac1{\rho_n(E)}K_n\!\left(E+\frac u{\rho_n(E)},
+ E+\frac v{\rho_n(E)}\right)\longrightarrow
+ \frac{\sin\pi(u-v)}{\pi(u-v)},
 \]
-
-Prove absolute local uniform convergence and, by finite-rank approximation,
-the trace-norm continuity estimate
 \[
-|\det(I+A)-\det(I+B)|
-\leq\|A-B\|_1\exp(1+\|A\|_1+\|B\|_1).
-\]
-Prove the trace-class spectral determinant theorem: if
-$\lambda_j(A)$ are the nonzero spectral values with algebraic
-multiplicity, then
-\[
-\det(I+zA)=\prod_j(1+z\lambda_j(A)),
-\qquad
-\Tr(A^m)=\sum_j\lambda_j(A)^m.
-\]
-Deduce
-\[
-\det(I-zA)
-=\exp\!\left(-\sum_{m\geq1}\frac{z^m}{m}\Tr(A^m)\right)
-\qquad(|z|<\|A\|^{-1}).
-\]
-Prove that the determinant is entire and identify its zeros.  For a
-trace-class integral operator on $L^2(X,\mu)$ whose kernel admits the standard Fredholm
-expansion, derive
-\[
-\det(I+zA)=1+\sum_{n\geq1}\frac{z^n}{n!}
-\int_{X^n}\det[A(x_i,x_j)]_{i,j=1}^n\,d\mu^{\otimes n}.
-\]
-\end{exercise}
-
-\begin{exercise}[Point processes and determinantal statistics]
-Let $X$ be a locally compact second-countable Hausdorff space and let $\mu$
-be a Radon measure on $X$.  A simple point process is a random
-locally finite counting measure $\Xi=\sum_i\delta_{x_i}$ with distinct
-points almost surely.  When its $k$th factorial moment measure is absolutely
-continuous with respect to $\mu^{\otimes k}$, its density $\rho_k$ is
-defined, for every nonnegative compactly supported measurable function $f$,
-by
-\[
-\mathbb E\sum_{i_1,\ldots,i_k}^{\ne}
-f(x_{i_1},\ldots,x_{i_k})
-=\int_{X^k}f\rho_k\,d\mu^{\otimes k}.
-\]
-A \emph{determinantal point process} with measurable Hermitian kernel $K$
-is one for which
-\[
-\rho_k(x_1,\ldots,x_k)=\det[K(x_i,x_j)]_{i,j=1}^k.
-\]
-For the existence and counting formulas below, the integral operator defined
-by $K$ is a locally trace-class positive contraction on $L^2(X,\mu)$.
-
-For a relatively compact measurable set $B$, put $N_B=\Xi(B)$ and
-$K_B=\mathbf1_BK\mathbf1_B$.  Use factorial moments and the Fredholm series
-to prove
-\[
-\mathbb E[z^{N_B}]=\det(I+(z-1)K_B),
-\qquad
-\mathbb P(N_B=0)=\det(I-K_B).
-\]
-Random variables are independent when their joint law is the product of
-their marginal laws.
-Prove that $N_B$ is distributed as a sum of independent Bernoulli variables
-whose parameters are the eigenvalues of $K_B$.
-\end{exercise}
-
-\subsection{Hermite Kernels}
-
-\begin{exercise}[Unitary polynomial ensembles and Christoffel--Darboux kernels]
-Let $\mu$ be a Radon measure on $\R$ such that $w(x)d\mu(x)$ has infinite
-support and finite moments, and let $P_j$ be its monic orthogonal
-polynomials, normalized by
-\[
-\int P_j(x)P_k(x)w(x)d\mu(x)=H_j\delta_{jk},
-\qquad H_j>0.
-\]
-The associated unitary polynomial ensemble has density, with respect to
-$\mu^{\otimes N}$,
-\[
-\mathfrak p_N(x_1,\ldots,x_N)
-=\frac1{N!\prod_{j=0}^{N-1}H_j}
-\Delta(x)^2\prod_{i=1}^Nw(x_i)
-\]
-and kernel
-\[
-K_N(x,y)=\sqrt{w(x)w(y)}
-\sum_{j=0}^{N-1}\frac{P_j(x)P_j(y)}{H_j}.
-\]
-
-Prove Andr\'eief's identity
-\[
-\int_{X^N}\det[f_i(x_j)]\det[g_i(x_j)]\prod_jd\mu(x_j)
-=N!\det\!\left[\int_Xf_i g_j\,d\mu\right].
-\]
-Deduce that the unitary polynomial ensemble is determinantal with kernel
-$K_N$.  Derive from the monic three-term recurrence the
-Christoffel--Darboux formula
-\[
-K_N(x,y)=\sqrt{w(x)w(y)}
-\frac{P_N(x)P_{N-1}(y)-P_{N-1}(x)P_N(y)}
-{H_{N-1}(x-y)}
-\qquad(x\ne y),
-\]
-with the diagonal value obtained by continuity, and prove
-\[
-\int K_N(x,z)K_N(z,y)d\mu(z)=K_N(x,y),
-\qquad
-\int K_N(x,x)d\mu(x)=N.
-\]
-\end{exercise}
-
-\begin{exercise}[Simple and coalescing saddle estimates]
-Let
-\[
-I_N(u)=\frac1{2\pi i}\int_{\mathcal C_N(u)}
-e^{N\Phi_u(z)}a_u(z)\,dz,
-\]
-where $u$ ranges over a compact set, the phases and amplitudes are
-holomorphic on fixed neighborhoods of the contours, and the contour
-lengths grow at most polynomially in $N$.  Assume that the phases,
-amplitudes, contour parametrizations, and all derivatives used below are
-uniformly bounded on these neighborhoods.
-
-Suppose first that $\mathcal C_N(u)$ passes through finitely many
-nondegenerate critical points $z_j(u)$ along steepest directions.  Assume
-that the critical points remain uniformly separated, that
-$|\Phi_u''(z_j(u))|$ is bounded below by a positive constant, and that,
-outside fixed neighborhoods of these points,
-\[
-\operatorname{Re}\Phi_u(z)
-\leq\max_j\operatorname{Re}\Phi_u(z_j(u))-\delta
-\]
-for one $\delta>0$ independent of $u$.  Rescale each fixed local
-neighborhood by $z-z_j=N^{-1/2}w$, use Taylor's theorem and Gaussian
-domination there, and use the displayed gap on the complement to derive
-the sum of the Gaussian saddle contributions with absolute remainder
-$O(N^{-3/2}e^{NM(u)})$, where
-$M(u)=\max_j\operatorname{Re}\Phi_u(z_j(u))$.  Deduce an $O(N^{-1})$
-relative error whenever the normalized leading saddle sum is bounded away
-from zero, uniformly in $u$.
-
-Suppose instead that two critical points coalesce at $u=u_*$ and that a
-local analytic variable $w$ has been exhibited for which
-\[
-\Phi_u(z)=c(u)+\frac{w^3}{3}-s(u)w,
-\qquad s(u_*)=0,
-\]
-with the variable, its inverse, and their first three derivatives uniformly
-bounded.  Assume that the transformed amplitude and its first two
-derivatives are uniformly bounded, that the local contour deforms to the
-Airy rays without crossing a singularity, and that the complement satisfies
-a uniform real-part gap and contains no other contributing saddle.  Prove,
-uniformly
-for bounded $N^{2/3}s(u)$, that $I_N(u)$ is the corresponding linear
-combination of
-\[
-N^{-1/3}\operatorname{Ai}\!\left(N^{2/3}s(u)\right),
-\qquad
-N^{-2/3}\operatorname{Ai}'\!\left(N^{2/3}s(u)\right),
-\]
-with a uniform $O(N^{-1})$ remainder after the common exponential factor
-is removed.  Prove exponentially weighted bounds when
-$N^{2/3}s(u)$ lies on the positive real half-line.  State precisely how
-the contour gap and amplitude bounds make both conclusions uniform.
-\end{exercise}
-
-\begin{exercise}[Hermite steepest descent]
-Write $\psi_j^{\rm H}$ for the normalized oscillator Hermite functions.
-
-From the generating function derive
-\[
-H_j(x)=\frac{j!}{2\pi i}\oint
-e^{2xz-z^2}z^{-j-1}\,dz
-\]
-and the resulting contour integral for $\psi_j^{\rm H}$.  After the GUE
-scaling used below, show that the critical-point equation is quadratic,
-has two simple conjugate roots for $E\in(-2\sigma,2\sigma)$, and has a
-double root at $E=2\sigma$.  Exhibit the local Gaussian coordinates in the
-bulk and the cubic Airy coordinate at the edge.  Apply the simple- and
-coalescing-saddle estimates to establish uniform Plancherel--Rotach formulas on
-compact bulk windows and uniform exponentially weighted Airy formulas on
-edge half-lines, including the same estimates for the neighboring indices
-$j=N-1,N$ needed in the Christoffel--Darboux kernel.
-\end{exercise}
-
-\begin{exercise}[GUE bulk statistics]
-For $E\in(-2\sigma,2\sigma)$, define
-\[
-\rho_{\rm sc}(E)=\frac1{2\pi\sigma^2}\sqrt{4\sigma^2-E^2},
-\qquad
-K_{\sin}(u,v)=\frac{\sin\pi(u-v)}{\pi(u-v)}.
+ \frac1{c_n}K_n\!\left(a_n+\frac u{c_n},a_n+\frac v{c_n}\right)
+ \longrightarrow K_{\rm Ai}(u,v)
+ =\frac{\operatorname{Ai}(u)\operatorname{Ai}'(v)
+ -\operatorname{Ai}'(u)\operatorname{Ai}(v)}{u-v}.
 \]
 Define
-\[
-\phi_{j,N}(x)
-=\left(\frac{N}{2\sigma^2}\right)^{1/4}
-\psi_j^{\rm H}\!\left(\sqrt{\frac{N}{2\sigma^2}}x\right),
-\qquad
-K_N^{\rm GUE}(x,y)=\sum_{j=0}^{N-1}\phi_{j,N}(x)\phi_{j,N}(y).
-\]
-
-Insert the bulk Hermite asymptotics into the Christoffel--Darboux identity
-and prove
-\[
-\frac{1}{N\rho_{\rm sc}(E)}
-K_N^{\rm GUE}\!\left(
-E+\frac{u}{N\rho_{\rm sc}(E)},
-E+\frac{v}{N\rho_{\rm sc}(E)}\right)
-\longrightarrow K_{\sin}(u,v)
-\]
-locally uniformly.  For the limiting sine process prove
-\[
-\operatorname{Var}N_{[0,L]}
-=\int_0^LK_{\sin}(u,u)\,du
--\int_0^L\!\int_0^L|K_{\sin}(u,v)|^2\,du\,dv
-=\frac1{\pi^2}\log L+O(1).
-\]
-State the unfolding, symmetry-sector separation, and finite-window
-assumptions required when testing the spacing and number-variance predictions
-with resonance or Hamiltonian spectra.
+$\operatorname{Ai}(u)=(2\pi\ii)^{-1}\int_{\mathcal C}
+e^{t^3/3-ut}\dd t$ on the standard Airy contour and derive both
+real asymptotic regimes and its differential equation.
 \end{exercise}
 
-\begin{exercise}[GUE edge statistics]
-Define
+\begin{exercise}[Fredholm determinants and quantum-chaotic spectra]
+Define the singular values of a compact operator from the spectral theorem
+for $|A|=(A^*A)^{1/2}$ and call $A$ trace class when their sum is finite.
+With no positivity or self-adjointness assumption, define
 \[
-K_{\rm Ai}(u,v)
-=\frac{\operatorname{Ai}(u)\operatorname{Ai}'(v)
--\operatorname{Ai}'(u)\operatorname{Ai}(v)}{u-v},
-\qquad
-F_2(s)=\det(I-K_{\rm Ai})_{L^2(s,\infty)},
+ \det(1+A)=\sum_{r\ge0}\Tr(\wedge^rA)
 \]
-with diagonal values defined by continuity.
-
-Insert the turning-point asymptotics into the Christoffel--Darboux identity
-and prove
-\[
-\frac{\sigma}{N^{2/3}}
-K_N^{\rm GUE}\!\left(
-2\sigma+\frac{\sigma u}{N^{2/3}},
-2\sigma+\frac{\sigma v}{N^{2/3}}\right)
-\longrightarrow K_{\rm Ai}(u,v).
-\]
-Use the exponentially weighted bounds to pass to the Fredholm series and
-deduce the GUE largest-eigenvalue law
-\[
-\mathbb P\!\left(
-\frac{N^{2/3}}{\sigma}(\lambda_{\max}-2\sigma)\leq s\right)
-\longrightarrow F_2(s).
-\]
-State the centering, scale calibration, symmetry class, and finite-size
-assumptions required when testing this prediction with extreme resonance or
-Hamiltonian levels.
-\end{exercise}
-
-
-\begin{exercise}[Pfaffian kernels and the orthogonal and symplectic edge laws]
-For a skew-symmetric $2n\times2n$ matrix $A$, define
-\[
-\operatorname{Pf}(A)
-=\frac1{2^nn!}\sum_{\sigma\in S_{2n}}
-\operatorname{sgn}(\sigma)
-\prod_{j=1}^nA_{\sigma(2j-1),\sigma(2j)}.
-\]
-Prove $\operatorname{Pf}(A)^2=\det A$.
-Let $J=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$ and
-let $K(x,y)$ be a $2\times2$ matrix kernel satisfying
-$K(y,x)=-K(x,y)^{\mathsf T}$.  A simple point process is
-\emph{Pfaffian with kernel $K$} when
-\[
-\rho_k(x_1,\ldots,x_k)
-=\operatorname{Pf}[K(x_i,x_j)]_{i,j=1}^k.
-\]
-Define the Fredholm Pfaffian by its correlation expansion and prove, first
-for finite-rank kernels and then by trace-norm approximation,
-\[
-\operatorname{Pf}(J-K)^2=\det(I+JK),
-\qquad
-\mathbb P(N_D=0)=\operatorname{Pf}(J-K_D).
-\]
-
-Normalize the Gaussian orthogonal, unitary, and symplectic ensembles so
-that their limiting spectral support is $[-2\sigma,2\sigma]$.  Derive the
-Pfaffian correlation formulas and prove the soft-edge limits for
-the orthogonal and symplectic ensembles~\cite{tracy-widom-orthogonal}:
-their scaled matrix kernels are built from
-$\operatorname{Ai}$, $\operatorname{Ai}'$, and integrals of
-$\operatorname{Ai}$ and converge in trace norm to kernels
-$K_1^{\rm Ai}$ and $K_4^{\rm Ai}$.  Define
-\[
-F_1(s)=\operatorname{Pf}(J-K_{1,s}^{\rm Ai}),
-\qquad
-F_4(s)=\operatorname{Pf}(J-K_{4,s}^{\rm Ai}).
-\]
-If $q$ is the real pole-free solution
-\[
-q''=sq+2q^3,
-\qquad q(s)\sim\operatorname{Ai}(s)\quad(s\to+\infty),
-\]
-prove the Tracy--Widom identities~\cite{tracy-widom-orthogonal}
-\[
-F_1(s)^2
-=F_2(s)\exp\!\left(-\int_s^\infty q(x)\,dx\right),
-\]
-\[
-F_4(s/\sqrt2)^2
-=F_2(s)\cosh^2\!\left(\frac12\int_s^\infty q(x)\,dx\right)
-\]
-and prove that the three symmetry classes have distinct edge laws despite
-the same semicircle edge.  State the antiunitary-symmetry, Kramers-pairing,
-centering, scale-calibration, and finite-size assumptions under which
-extreme-level measurements distinguish $F_1$, $F_2$, and $F_4$.
-\end{exercise}
-
-\begin{exercise}[Partitions and symmetric polynomials]
-An \emph{integer partition} is a finite nonincreasing sequence
-$\lambda=(\lambda_1,\ldots,\lambda_\ell)$ of positive integers, with the
-empty sequence allowed.  Put
-\[
-|\lambda|=\sum_i\lambda_i,
-\qquad
-\ell(\lambda)=\ell,
-\]
-and define its Young diagram to have $\lambda_i$ left-justified boxes in
-row $i$.
-
-For $N\geq1$, let
-\[
-\Lambda_N=\C[x_1,\ldots,x_N]^{S_N}.
-\]
-Define
-\[
-e_r=\sum_{1\leq i_1<\cdots<i_r\leq N}
-x_{i_1}\cdots x_{i_r},
-\qquad
-h_r=\sum_{1\leq i_1\leq\cdots\leq i_r\leq N}
-x_{i_1}\cdots x_{i_r},
-\]
-\[
-p_r=\sum_{i=1}^Nx_i^r,
-\qquad
-e_0=h_0=1.
-\]
-Set $e_r=0$ for $r>N$ and $h_r=0$ for $r<0$.  Prove that every
-element of $\Lambda_N$ is uniquely a polynomial in
-$e_1,\ldots,e_N$.  Prove
-\[
-\sum_{r=0}^Ne_rt^r=\prod_{i=1}^N(1+x_it),
-\qquad
-\sum_{r\geq0}h_rt^r=\prod_{i=1}^N\frac1{1-x_it},
-\]
-and deduce
-\[
-\left(\sum_{r\geq0}h_rt^r\right)
-\left(\sum_{r=0}^N(-1)^re_rt^r\right)=1,
-\qquad
-rh_r=\sum_{j=1}^rp_jh_{r-j}.
-\]
-\end{exercise}
-
-\begin{exercise}[Semistandard tableaux and Schur polynomials]
-For a partition $\lambda$ of length at most $N$, a
-\emph{semistandard Young tableau} of shape $\lambda$ is a filling $T$ of
-its Young diagram by entries in $\{1,\ldots,N\}$ that is
-weakly increasing along rows and strictly increasing down columns.  If
-$m_i(T)$ is the number of entries equal to $i$, define
-\[
-s_\lambda(x_1,\ldots,x_N)
-=\sum_T\prod_i x_i^{m_i(T)}.
-\]
-
-Encode $h_r$ by lattice paths directed east
-and south whose east steps at height $i$ have weight $x_i$.  For sources
-$A_i=(i-\lambda_i,N)$ and sinks $B_j=(j,1)$, expand
-$\det[h_{\lambda_i-i+j}]_{i,j=1}^N$ as a signed sum of path families and
-pair every intersecting family with the family obtained by exchanging the
-two tails after its first intersection.  Show that the remaining
-nonintersecting families correspond weight-preservingly to semistandard
-tableaux by reading each path's east-step heights from right to left, and
-deduce
-\[
-s_\lambda(x_1,\ldots,x_N)
-=\det\!\left[h_{\lambda_i-i+j}\right]_{i,j=1}^N.
-\]
-Call this the \emph{Schur polynomial}.  Derive the alternant formula
-\[
-s_\lambda(x)
-=\frac{\det[x_i^{\lambda_j+N-j}]_{i,j=1}^N}
-{\det[x_i^{N-j}]_{i,j=1}^N}
-\]
-and prove $s_{(r)}=h_r$.
-\end{exercise}
-
-
-\begin{exercise}[RSK, last-passage values, and the finite Schur measure]
-To insert an integer $x$ into a semistandard Young tableau, replace the
-first entry
-strictly larger than $x$ in the first row and insert the replaced entry in
-the next row; append when no such entry exists.  For
-$W=(W_{ij})\in M_{m,n}(\Z_{\geq0})$, form the lexicographically ordered
-two-line word containing $W_{ij}$ copies of $(i,j)$, insert the lower
-letters, and record the upper letters in the created boxes.  The resulting
-pair $(P,Q)$ of tableaux of common shape $\lambda$ is the RSK image of
-$W$.
-
-For nonnegative weights $W=(W_{ij})$, define
-\[
-G(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
-\sum_{(i,j)\in\pi}W_{ij}.
-\]
-For parameters $\alpha_i,\gamma_j\geq0$ with
-$\alpha_i\gamma_j<1$, the geometric model has independent weights
-\[
-\mathbb P(W_{ij}=k)
-=(1-\alpha_i\gamma_j)(\alpha_i\gamma_j)^k,
-\qquad k\in\Z_{\geq0}.
-\]
-
-Prove that row insertion is reversible and hence that RSK is a bijection.
-Show that the length of the first row of its shape is the maximal weight of
-an up-right path:
-\[
-\lambda_1=G(m,n).
-\]
-Use the contents of the two RSK tableaux and the geometric weight law to
-derive
-\[
-\mathbb P(\lambda)
-=\prod_{i,j}(1-\alpha_i\gamma_j)
-s_\lambda(\alpha)s_\lambda(\gamma)
-\]
-and the Cauchy identity
-\[
-\sum_\lambda s_\lambda(\alpha)s_\lambda(\gamma)
-=\prod_{i,j}(1-\alpha_i\gamma_j)^{-1}.
-\]
-\end{exercise}
-
-\begin{exercise}[Interlacing partitions and Schur paths]
-For partitions $\mu$ and $\lambda$, write $\mu\prec\lambda$ when
-\[
-\lambda_1\geq\mu_1\geq\lambda_2\geq\mu_2\geq\cdots.
-\]
-
-Prove the branching formula
-\[
-s_\lambda(\alpha_1,\ldots,\alpha_m)
-=\sum_{\varnothing=\lambda^{(0)}\prec\cdots\prec\lambda^{(m)}=\lambda}
-\prod_{k=1}^m
-\alpha_k^{|\lambda^{(k)}|-|\lambda^{(k-1)}|}.
-\]
-Encode each interlacing chain by nonintersecting paths on the integer lattice.
-For a finite directed acyclic graph with compatible sources $u_i$ and sinks
-$v_i$, let $Z(u_i,v_j)$ be the weighted sum of paths from $u_i$ to $v_j$.
-Use the first intersection and tail exchange as a sign-reversing involution
-to prove
-\[
-\sum_{\substack{(\pi_1,\ldots,\pi_r)\\
-\text{vertex-disjoint}}}
-\prod_i\operatorname{wt}(\pi_i)
-=\det[Z(u_i,v_j)]_{i,j=1}^r.
-\]
-Apply this identity to the interlacing-chain encoding of $s_\lambda$.
-\end{exercise}
-
-\begin{exercise}[Finite Schur kernels]
-For finite alphabets, set
-\[
-\Phi(z)=\frac{\prod_j(1-\gamma_j/z)}
-{\prod_i(1-\alpha_i z)}.
-\]
-Choose concentric contours with
-\[
-\max_j\gamma_j<|w|<|z|<\min_i\alpha_i^{-1}.
-\]
-For $r,s\in\Z+\tfrac12$, define
-\[
-K_{\alpha,\gamma}(r,s)
-=\frac1{(2\pi i)^2}\oint\!\oint
-\frac{\Phi(z)}{\Phi(w)}\frac{1}{z-w}
-z^{-r-1/2}w^{s-1/2}\,dz\,dw.
-\]
-
-Encode $\lambda$ by
-\[
-\mathcal X(\lambda)
-=\{\lambda_i-i+\tfrac12:i\geq1\}.
-\]
-Glue the two nonintersecting path ensembles associated with
-$s_\lambda(\alpha)$ and $s_\lambda(\gamma)$ along their common boundary
-$\lambda$.  Apply the Andr\'eief identity successively to prove that the
-occupation correlations of the glued ensemble are determinants.  Evaluate
-the resulting one-particle propagators by coefficient extraction and derive
-the kernel $K_{\alpha,\gamma}$.  Deduce the exact finite Fredholm formula
-\[
-\mathbb P(G(m,n)\leq L)
-=\det(I-K_{\alpha,\gamma})_{
-\ell^2(\{L+\tfrac12,L+\tfrac32,\ldots\})}.
-\]
-State how repeated last-passage or growth experiments with the specified
-geometric weights test this distribution without invoking an asymptotic
-limit.
-\end{exercise}
-
-\subsection{Quantum-Chaotic Spectra}
-
-\begin{exercise}[Exponential last-passage percolation]
-Let $E_{ij}$ be independent rate-one exponential random variables and define
-\[
-G_{\exp}(m,n)=\max_{\pi:(1,1)\nearrow(m,n)}
-\sum_{(i,j)\in\pi}E_{ij}.
-\]
-
-For random variables $Y_\varepsilon,Y$, write $Y_\varepsilon\Longrightarrow Y$
-when their laws converge against bounded continuous test functions.
-Set $\alpha_i=\gamma_j=e^{-\varepsilon/2}$ in the $n\times n$ geometric
-model and prove that $\varepsilon W_{ij}$ converges in distribution to a
-rate-one exponential variable as $\varepsilon\downarrow0$.  Take this limit
-in the finite Schur Fredholm formula and identify the resulting finite-$n$
-kernel with the Laguerre Christoffel--Darboux kernel.
-\end{exercise}
-
-\begin{exercise}[Laguerre edge limit]
-Use the generating function to derive
-\[
-L_n^{(\alpha)}(x)
-=\frac1{2\pi i}\oint
-\frac{\exp(-xz/(1-z))}{(1-z)^{\alpha+1}z^{n+1}}\,dz.
-\]
-For the Laguerre kernel, write its
-scaled phase explicitly and locate the double saddle at the upper spectral
-edge.  Exhibit the cubic coordinate and contours satisfying the gap
-hypotheses of the coalescing-saddle exercise.  Apply that exercise to
-derive convergence of the rescaled Laguerre kernel to $K_{\rm Ai}$ with
-uniform exponentially weighted bounds, and use those bounds to pass
-termwise to the Fredholm series.
-\end{exercise}
-
-\begin{exercise}[Last-passage fluctuations]
-Combine the exponential last-passage determinant with the Laguerre edge limit
-to prove
-\[
-\frac{G_{\exp}(n,n)-4n}{2^{4/3}n^{1/3}}
-\Longrightarrow\chi_2,
-\qquad
-\mathbb P(\chi_2\leq s)=F_2(s).
-\]
-Deduce the $n^{1/3}$ height-fluctuation scale.  Balance this scale against
-the quadratic curvature of the deterministic limit shape to predict the
-transverse $n^{2/3}$ scale.  State the independent-weight, boundary,
-centering, scale-calibration, and finite-size assumptions required when
-the Tracy--Widom prediction is compared with interface-height or directed
-transport data.
-\end{exercise}
-
-\begin{exercise}[Extended Airy kernels, the Airy process, and KPZ scaling]
-Let
-\[
-\mathcal H_{\rm Ai}=-\frac{d^2}{dx^2}+x
-\]
-be the self-adjoint Airy operator on $L^2(\R)$ defined by its closed
-quadratic form.  Verify in the generalized spectral sense that
-\[
-\mathcal H_{\rm Ai}\operatorname{Ai}(x+\lambda)
-=-\lambda\operatorname{Ai}(x+\lambda).
-\]
-For times $s,t\in\R$, define the extended Airy kernel by
-\[
-K_{\rm Ai}^{\rm ext}(s,x;t,y)=
-\begin{cases}
-\displaystyle\int_0^\infty
-e^{-\lambda(s-t)}\operatorname{Ai}(x+\lambda)
-\operatorname{Ai}(y+\lambda)\,d\lambda,&s\geq t,\\[7pt]
-\displaystyle-\int_{-\infty}^0
-e^{-\lambda(s-t)}\operatorname{Ai}(x+\lambda)
-\operatorname{Ai}(y+\lambda)\,d\lambda,&s<t.
-\end{cases}
-\]
-For $t_1<\cdots<t_m$ and thresholds $a_1,\ldots,a_m$, let $\chi$ act on
-$\bigoplus_{j=1}^mL^2(\R)$ by multiplication by
-$\mathbf1_{(a_j,\infty)}$ in the $j$th summand.  Prove the
-Airy-process existence theorem~\cite{praehofer-spohn}: the following
-Fredholm determinants are consistent probability distributions and
-determine a stationary process with continuous paths, denoted
-$\mathcal A_2$:
-\[
-\mathbb P\bigl(\mathcal A_2(t_j)\leq a_j, 1\leq j\leq m\bigr)
-=\det(I-\chi K_{\rm Ai}^{\rm ext}\chi).
-\]
-Use the spectral semigroup identity for $\mathcal H_{\rm Ai}$ to verify
-their marginal consistency, and recover
-$\mathbb P(\mathcal A_2(t)\leq a)=F_2(a)$.
-
-For exponential last-passage percolation, put
-\[
-a_N(u)=\lfloor2^{2/3}uN^{2/3}\rfloor.
-\]
-Prove the multipoint PNG/last-passage edge theorem in its
-exponential specialization~\cite{praehofer-spohn} to
-obtain, in finite-dimensional distributions,
-\[
-\frac{G_{\exp}(N+a_N(u),N-a_N(u))-4N}
-{2^{4/3}N^{1/3}}
-\Longrightarrow\mathcal A_2(u)-u^2.
-\]
-Deduce the KPZ correlation-length exponent $2/3$, fluctuation exponent
-$1/3$, the Tracy--Widom one-point law, and the nontrivial spatial
-correlation function of the centered process.  Express the corresponding
-droplet-growth prediction with nonuniversal velocity, fluctuation, and
-transverse-length calibration constants.  State the curved-geometry,
-short-range-noise, growth-time, spatial-window, and finite-resolution
-assumptions under which interface measurements test the $1{:}2{:}3$
-scaling and Airy-process correlations.
+and prove absolute convergence, multiplicativity, and trace-norm continuity.
+For a determinantal process prove the gap formula
+$\mathbb P(N_D=0)=\det(1-1_DK1_D)$.  In the sine-kernel limit derive
+$R_2(s)=1-(\sin\pi s/(\pi s))^2=\pi^2s^2/3+O(s^4)$; at the edge define
+$F_2(s)=\det(1-K_{\rm Ai})_{L^2(s,\infty)}$ and derive its Painlev\'e-II
+representation.  For a quantum system whose unfolded spectrum has no
+antiunitary symmetry, formulate the predictions of quadratic level repulsion,
+the sine-kernel two-point curve, and the $F_2$ largest-level law, separating
+the random-matrix modeling hypothesis from the measured spacings.
 \end{exercise}

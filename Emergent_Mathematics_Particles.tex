@@ -1,2001 +1,413 @@
 \section{Heisenberg Group}
 
-\subsection{Central Extensions}
-
-
-\begin{exercise}[Weyl multipliers]
-A \emph{normalized multiplier} on a locally compact group $G$ is a
-continuous map
-$\sigma:G\times G\to\T$ satisfying
+\begin{exercise}[Central extensions of phase space]
+Let $(W,\omega)$ be a finite-dimensional real symplectic vector space.
+Define the Heisenberg group
 \[
-\sigma(x,e)=\sigma(e,x)=1,
-\qquad
-\sigma(x,y)\sigma(xy,z)=\sigma(y,z)\sigma(x,yz).
+ \operatorname{Heis}(W)=W\times\R,
+ \qquad (w,s)(w',s')=(w+w',s+s'+\tfrac12\omega(w,w')).
 \]
-Let $(E,\omega)$ be a symplectic vector space.  For
-$E=V\oplus V^*$, the canonical symplectic form used below is
-\[
-\omega\bigl((q,p),(q',p')\bigr)=p(q')-p'(q).
-\]
-For $\lambda\in\R$, define
-\[
-\sigma_{\lambda\omega}(z,z')=e^{i\lambda\omega(z,z')/2}.
-\]
-
-Prove that $\sigma_{\lambda\omega}$ is a normalized multiplier for every
-$\lambda\in\R$.
+Prove associativity, identify its center and commutator, and show that its Lie
+algebra satisfies $[(w,s),(w',s')]=(0,\omega(w,w'))$.  Prove that every
+continuous central extension of the additive group $W$ with this commutator
+is equivalent to this one after changing its section by a continuous
+coboundary.
 \end{exercise}
 
-
-\begin{exercise}[Commutator bicharacter]
-For a multiplier $\sigma$ on an abelian group $A$, define
+\begin{exercise}[Weyl relations and the Schr\"odinger representation]
+For a real finite-dimensional vector space $Q$, put
+$W=Q\oplus Q^*$ and
+$\omega((q,p),(q',p'))=p(q')-p'(q)$.  On $L^2(Q)$ with Lebesgue measure fixed
+by a density, define intrinsically
 \[
-c_\sigma(x,y)=\sigma(x,y)\overline{\sigma(y,x)}.
+ (T_qf)(x)=f(x-q),\qquad (M_pf)(x)=e^{\ii p(x)/\hbar}f(x),
 \]
-Multipliers $\sigma$ and $\sigma'$ are cohomologous when there is a
-continuous map $b:A\to\T$, $b(e)=1$, with
+and $W(q,p)=e^{-\ii p(q)/(2\hbar)}M_pT_q$.  Prove
 \[
-\sigma'(x,y)=b(x)b(y)\overline{b(x+y)}\,\sigma(x,y).
+ W(w)W(w')=e^{\ii\omega(w,w')/(2\hbar)}W(w+w').
 \]
-For $E=V\oplus V^*$, call $\sigma_{\omega/\hbar}$ the Weyl multiplier.
-
-Prove that $c_\sigma$ is an alternating bicharacter and depends only on the
-cohomology class of $\sigma$.  For the Weyl multiplier on $V\oplus V^*$,
-prove
-\[
-c_{\sigma_{\omega/\hbar}}\bigl((q,p),(q',p')\bigr)
-=e^{i(p(q')-p'(q))/\hbar}.
-\]
-Prove
-\[
-c_{\sigma_{\lambda\omega}}(z,z')=e^{i\lambda\omega(z,z')}.
-\]
+Differentiate on the Schwartz core to obtain
+$[\widehat p,\widehat q]=-\ii\hbar,p(q)$ and prove the Robertson uncertainty
+inequality directly from positivity of
+$\norm{(A-\langle A\rangle)x+\ii t(B-\langle B\rangle)x}^2$.
 \end{exercise}
 
-
-\begin{exercise}[Heisenberg groups and central characters]
-A $\sigma$-projective unitary representation of a group $E$ is a strongly
-continuous map $U:E\to U(H)$ satisfying
-$U_zU_{z'}=\sigma(z,z')U_{z+z'}$ and $U_0=I$.
-
-For a symplectic vector space $(E,\omega)$, its \emph{Heisenberg group} is
-\[
-\mathbb H(E,\omega)=E\times\R
-\]
-with multiplication
-\[
-(z,s)(z',s')
-=(z+z',s+s'+\tfrac12\omega(z,z')).
-\]
-Write
-$\mathbb H_n=\mathbb H(\R^n\oplus(\R^n)^*,\omega)$ for the canonical
-symplectic form on $\R^n\oplus(\R^n)^*$.  Its Lie algebra is
-$\mathfrak h(E,\omega)=E\oplus\R Z$ with
-\[
-[(z,sZ),(z',s'Z)]=\omega(z,z')Z.
-\]
-Prove that $\mathbb H(E,\omega)$ is a locally compact group with center
-$\{0\}\times\R$.  Prove that projective representations of $E$ with
-multiplier $e^{i\lambda\omega/2}$ correspond to representations of
-$\mathbb H(E,\omega)$ with central character $e^{i\lambda s}$.
+\begin{exercise}[Stone--von Neumann decomposition]
+Call a unitary representation of $\operatorname{Heis}(W)$ regular if its
+one-parameter subgroups are strongly continuous and assume its center acts by
+$e^{\ii s/\hbar}$.  For a Lagrangian subspace $Q^*\subset W$, construct the
+projection-valued measure obtained from its commuting translations.  Prove
+the imprimitivity relation for the complementary translations, identify its
+spectral multiplicity as constant, and construct a unitary intertwiner with a
+Hilbert direct sum of Schr\"odinger representations.  Deduce that every
+irreducible regular representation with this central character is unitarily
+equivalent to the Schr\"odinger representation.
 \end{exercise}
 
-\begin{exercise}[Heisenberg coadjoint orbits and Schr\"odinger polarization]
-For a connected simply connected nilpotent group $G$ and
-$\ell\in\mathfrak g^*$, a \emph{polarization} is a Lie subalgebra
-$\mathfrak p\subseteq\mathfrak g$ satisfying
+\begin{exercise}[Self-adjoint generators and Hermite functions]
+Prove Stone's theorem by constructing the spectral measure of a strongly
+continuous one-parameter unitary group, and define its self-adjoint generator.
+For $Q=\R$, take the closures of
+$Xf=xf$ and $Pf=-\ii\hbar f'$ from the Schwartz core.  For
 \[
-\ell([\mathfrak p,\mathfrak p])=0,
-\qquad
-\dim\mathfrak p
-=\frac{\dim\mathfrak g+\dim\mathfrak g_\ell}{2}.
+ H=\frac{P^2}{2m}+\frac{m\omega^2X^2}{2},\qquad
+ a=\frac{m\omega X+\ii P}{\sqrt{2m\hbar\omega}},
 \]
-For $P=\exp(\mathfrak p)$, set
-$\chi_\ell(\exp X)=e^{i\ell(X)}$.  The induced representation
-$\operatorname{Ind}_P^G\chi_\ell$ acts by left translation on the
-$L^2$-sections over $G/P$ satisfying
-$F(gp)=\chi_\ell(p)^{-1}F(g)$.
-
-Identify
-\[
-\mathfrak h(E,\omega)^*=E^*\oplus\R Z^*.
-\]
-For $(\xi,\lambda)\in E^*\oplus\R Z^*$, prove
-\[
-\Ad_{(z,s)}^*(\xi,\lambda)
-=\bigl(\xi-\lambda\omega(z,{\cdot}),\lambda\bigr).
-\]
-Deduce that the orbits with $\lambda=0$ are points and that, for
-$\lambda\ne0$,
-\[
-\mathcal O_\lambda
-=\{(\xi,\lambda):\xi\in E^*\}.
-\]
-Prove that
-\[
-E\longrightarrow\mathcal O_\lambda,
-\qquad
-z\longmapsto\bigl(-\lambda\omega(z,{\cdot}),\lambda\bigr),
-\]
-pulls the Kirillov form back to $\lambda\omega$.
-
-For $E=V\oplus V^*$ and
-$\mathfrak p=V^*\oplus\R Z$, prove that $\mathfrak p$ is a polarization
-at $(0,\lambda)$.  Identify
-$\mathbb H(E,\omega)/\exp(\mathfrak p)$ with $V$ and compute the
-induced action to obtain
-\[
-\bigl(\pi_\lambda(q,p,s)\psi\bigr)(x)
-=e^{i\lambda(s+p(x-q/2))}\psi(x-q).
-\]
-Prove that this representation has central character $e^{i\lambda s}$.
-For $\lambda=0$, recover every character of $E$ from a point orbit.
+prove $[a,a^*]=1$ and $H=\hbar\omega(a^*a+1/2)$.  Define the Hermite
+polynomials by
+$H_n(u)=(-1)^ne^{u^2}(\dd/\dd u)^ne^{-u^2}$ and the normalized Hermite
+functions $h_n$.  Derive their differential equation, recurrence,
+orthogonality, Mehler kernel, and completeness without calling them a basis.
 \end{exercise}
-
-\begin{exercise}[Moyal algebra of a Heisenberg orbit]
-Let $(E,\omega)$ be a symplectic vector space, let
-$\Pi:E^*\to E$ be the inverse of $v\mapsto\omega(v,-)$, and define
-\[
-\{f,g\}=dg\bigl(\Pi(df)\bigr),
-\qquad
-\Pi(k,\ell)=\ell(\Pi(k)).
-\]
-For $\lambda\ne0$, use the orbit map
-$E\to\mathcal O_\lambda$ to identify $\omega$ with the pullback of
-$\lambda^{-1}$ times the Kirillov form.
-
-A \emph{differential formal deformation} of $C^\infty(E)$ is an
-associative $\mathbb C[[\hbar]]$-bilinear product on
-$C^\infty(E)[[\hbar]]$ of the form
-\[
-f\star g=fg+\sum_{r\geq1}\hbar^rC_r(f,g),
-\]
-where the $C_r$ are bidifferential operators, $1$ is a unit, and
-\[
-C_1(f,g)-C_1(g,f)=i\{f,g\}.
-\]
-Let $D_\Pi$ be the constant bidifferential operator characterized on
-decomposable functions by
-\[
-D_\Pi(f\otimes g)(x,y)=d_yg\bigl(\Pi(d_xf)\bigr).
-\]
-Define
-\[
-f\star g
-=m\circ\exp\!\left(\frac{i\hbar}{2}D_\Pi\right)(f\otimes g),
-\]
-where $m$ restricts a function on $E\times E$ to the diagonal.  Prove
-associativity from the commutation of the induced constant
-bidifferential operators on $E^3$, and prove
-\[
-f\star g=fg+\frac{i\hbar}{2}\{f,g\}+O(\hbar^2).
-\]
-
-For $k,\ell\in E^*$ put $e_k(x)=e^{ik(x)}$ and derive
-\[
-e_k\star e_\ell
-=e^{-i\hbar\Pi(k,\ell)/2}e_{k+\ell}.
-\]
-Check the multiplier identity directly and prove that every affine
-symplectic transformation of $E$ preserves $\star$.  Call this intrinsic
-formal algebra the \emph{Moyal algebra} of the Heisenberg orbit.
-\end{exercise}
-
-\begin{exercise}[Canonical commutation and Weyl relations]
-For $\hbar>0$, $\ell\in V^*$, and $v\in V$, define on $\mathcal S(V)$
-\[
-Q_\ell\psi(x)=\ell(x)\psi(x),
-\qquad
-P_v\psi(x)=-i\hbar\,d\psi_x(v).
-\]
-For
-\[
-(T_q\psi)(x)=\psi(x-q),
-\qquad
-(M_p^\hbar\psi)(x)=e^{ip(x)/\hbar}\psi(x),
-\]
-prove that the corresponding one-parameter groups have infinitesimal
-generators $-iP_v/\hbar$ and $iQ_\ell/\hbar$, respectively, and prove
-\[
-M_p^\hbar T_q=e^{ip(q)/\hbar}T_qM_p^\hbar.
-\]
-For
-\[
-W_\hbar(q,p)=e^{-ip(q)/(2\hbar)}M_p^\hbar T_q,
-\]
-prove
-\[
-W_\hbar(z)W_\hbar(z')
-=e^{i\omega(z,z')/(2\hbar)}W_\hbar(z+z')
-\]
-and identify $W_\hbar(z)$ with
-$\pi_{1/\hbar}(z,0)$ under the canonical set-theoretic section
-$z\mapsto(z,0)$.  Prove that this section is not a homomorphism and that
-its failure to preserve multiplication is exactly the displayed multiplier.
-Differentiate the Weyl relations on $\mathcal S(V)$ to prove
-\[
-[Q_\ell,P_v]=i\hbar\ell(v)I.
-\]
-\end{exercise}
-
-
-\subsection{Stone--von Neumann Theorem}
-
-\begin{exercise}[Unbounded self-adjoint operators and the Cayley transform]
-An unbounded operator is a linear map $A:\mathcal D(A)\to H$ on a dense
-domain.  Its adjoint has domain
-\[
-\mathcal D(A^*)=
-\{y\in H:x\mapsto\langle y,Ax\rangle
-\text{ is bounded on }\mathcal D(A)\}.
-\]
-For $y\in\mathcal D(A^*)$, the vector $A^*y$ is determined by
-$\langle A^*y,x\rangle=\langle y,Ax\rangle$ for
-$x\in\mathcal D(A)$.  The operator is \emph{self-adjoint} when $A=A^*$,
-including equality of domains.
-
-For a self-adjoint operator $A$, prove that $A\pm iI$ are bijective from
-$\mathcal D(A)$ to $H$ with bounded inverses and that the Cayley transform
-\[
-C_A=(A-iI)(A+iI)^{-1}
-\]
-is unitary with $\ker(I-C_A)=0$.  Prove conversely that every unitary $C$
-with $\ker(I-C)=0$ determines a self-adjoint operator through the inverse
-Cayley transform.
-\end{exercise}
-
-\begin{exercise}[Unbounded spectral theorem]
-Apply the bounded normal spectral theorem to $C_A$ and transport its
-projection-valued measure by the inverse Cayley map.  Prove that there is a unique
-projection-valued measure $E_A$ on $\R$ satisfying
-\[
-A=\int_\R\lambda\,dE_A(\lambda),\qquad
-\mathcal D(A)=
-\left\{x:\int_\R\lambda^2\,d\langle x,E_A(\lambda)x\rangle<\infty\right\}.
-\]
-\end{exercise}
-
-\begin{exercise}[Closed quadratic forms and Friedrichs realizations]
-Let $H$ be a Hilbert space.  A densely defined Hermitian form is a map
-$q:\mathcal Q(q)\times\mathcal Q(q)\to\C$ on a dense linear subspace,
-linear in the second variable, conjugate-linear in the first, and satisfying
-$q(x,y)=\overline{q(y,x)}$.  It is \emph{bounded below by $c\in\R$} when
-\[
-q(x,x)\geq c\lVert x\rVert^2
-\qquad(x\in\mathcal Q(q)).
-\]
-For such a form put
-\[
-\lVert x\rVert_q^2=q(x,x)+(1-c)\lVert x\rVert^2.
-\]
-Call $q$ \emph{closed} when $\mathcal Q(q)$ is complete in this norm, and
-\emph{closable} when every sequence $x_n\in\mathcal Q(q)$ satisfying
-$x_n\to0$ in $H$ and $\lVert x_n-x_m\rVert_q\to0$ also satisfies
-$\lVert x_n\rVert_q\to0$.
-
-Prove the representation theorem for closed semibounded
-forms~\cite{reed-simon2}: there is a unique self-adjoint operator $A_q$
-bounded below by $c$ such that
-\[
-\mathcal Q(q)=\mathcal D((A_q-cI)^{1/2}),
-\qquad
-q(x,y)=\langle (A_q-cI)^{1/2}x,(A_q-cI)^{1/2}y\rangle
-+c\langle x,y\rangle,
-\]
-and $x\in\mathcal D(A_q)$ exactly when there is $z\in H$ satisfying
-$q(y,x)=\langle y,z\rangle$ for every $y\in\mathcal Q(q)$, in which case
-$A_qx=z$.  Prove uniqueness from the latter characterization.
-
-Let $A_0$ be a densely defined symmetric operator bounded below by $c$, and
-put $q_0(x,y)=\langle x,A_0y\rangle$ on $\mathcal D(A_0)$.  Prove directly
-from symmetry, the lower bound, and density that $q_0$ is
-closable~\cite{reed-simon2}.  Define the \emph{Friedrichs realization} of
-$A_0$ to be the operator associated to its closed form $\overline q_0$.
-Prove that it extends $A_0$, is self-adjoint, and preserves the lower bound.
-For $-d^2/dx^2$ on $C_c^\infty(0,\ell)$, define
-$H_0^1(0,\ell)$ as the completion of $C_c^\infty(0,\ell)$ in the norm
-\[
-\lVert f\rVert_{H^1}^2=\int_0^\ell(|f|^2+|f'|^2)\,dx.
-\]
-Integrate by parts to identify this as the closed form domain and derive the Dirichlet spectral values
-$\pi^2n^2/\ell^2$.  State how changing the interval length changes these
-spectral lines.
-\end{exercise}
-
-\begin{exercise}[Resolvents, compact resolvent, and the min--max principle]
-For a closed operator $A$, define its resolvent set by
-\[
-\rho(A)=\{z\in\C:A-zI:\mathcal D(A)\to H
-\text{ is bijective with bounded inverse}\}
-\]
-and put $R_A(z)=(A-zI)^{-1}$.  For a self-adjoint $A$, use the spectral
-measure to prove
-\[
-R_A(z)=\int_\R\frac1{\lambda-z}\,dE_A(\lambda),
-\qquad
-\|R_A(z)\|\leq\frac1{|\operatorname{Im}z|}
-\quad(z\notin\R),
-\]
-and derive the resolvent identity
-\[
-R_A(z)-R_A(w)=(z-w)R_A(z)R_A(w).
-\]
-If a positively oriented contour $\Gamma$ in $\rho(A)$ encloses an isolated
-compact part $\Sigma$ of the spectrum, prove
-\[
-E_A(\Sigma)=-\frac1{2\pi i}\int_\Gamma R_A(z)\,dz.
-\]
-
-Call $A$ an operator with \emph{compact resolvent} when $R_A(z)$ is compact
-for one $z\in\rho(A)$.  Prove from the resolvent identity that it is then
-compact for every $z\in\rho(A)$.  If $H$ is infinite-dimensional and
-$A$ is self-adjoint, bounded below,
-and has compact resolvent, prove that its spectrum consists of eigenvalues
-of finite multiplicity
-\[
-\lambda_1\leq\lambda_2\leq\cdots,
-\qquad \lambda_n\longrightarrow+\infty,
-\]
-listed with multiplicity.  For a nonzero subspace $L\subset\mathcal D(A)$
-put
-\[
-\mathcal R_A(L)=
-\sup_{x\in L\setminus\{0\}}
-\frac{\langle x,Ax\rangle}{\langle x,x\rangle}.
-\]
-Use the spectral projections, without choosing eigenvectors, to prove the
-min--max identity
-\[
-\lambda_n=\inf_{\dim L=n}\mathcal R_A(L).
-\]
-For a bounded self-adjoint perturbation $B$, apply the same identity to
-prove
-\[
-|\lambda_n(A+B)-\lambda_n(A)|\leq\|B\|.
-\]
-For a closed semibounded form $q$ whose associated operator has compact
-resolvent, extend the argument to prove the form-domain identity
-\[
-\lambda_n(A_q)=
-\inf_{\substack{L\subset\mathcal Q(q)\\\dim L=n}}
-\sup_{x\in L\setminus\{0\}}
-\frac{q(x,x)}{\langle x,x\rangle}.
-\]
-For two such forms $q_1,q_2$ with a common form domain, deduce
-\[
-q_1(x,x)\leq q_2(x,x)\quad\text{for every }x
-\quad\Longrightarrow\quad
-\lambda_n(A_{q_1})\leq\lambda_n(A_{q_2}).
-\]
-State how a calibrated operator-norm bound on an uncontrolled perturbation
-gives an error bar for every predicted discrete spectral line.
-\end{exercise}
-
-\begin{exercise}[Stone's theorem]
-Use the measurable functional calculus of $E_A$ to prove that $e^{-itA}$
-is a strongly continuous unitary group with generator $-iA$.  Conversely,
-let $(U_t)_{t\in\R}$ be a strongly continuous unitary group and define
-\[
-\mathcal D(A)=\left\{x:\lim_{t\to0}
-i\frac{U_tx-x}{t}\text{ exists}\right\},
-\qquad
-Ax=\lim_{t\to0}i\frac{U_tx-x}{t}.
-\]
-Prove that $\mathcal D(A)$ is dense and that $A$ is symmetric.  Use the
-strong integrals
-\[
-i\int_0^\infty e^{-t}U_t\,dt,
-\qquad
--i\int_{-\infty}^0e^tU_t\,dt
-\]
-to prove that $A-iI$ and $A+iI$ are surjective.  Deduce that $A$ is
-self-adjoint, prove $U_t=e^{-itA}$, and prove uniqueness of $A$.
-\end{exercise}
-
-
-
-\begin{exercise}[Irreducibility of the Schr\"odinger representation]
-Prove that an operator on $L^2(V)$ commuting with every translation and
-every modulation is scalar: first use the Fourier transform to identify the
-commutant of translations, and then impose commutation with modulations.
-Deduce that $\pi_\lambda$ is irreducible for $\lambda\ne0$.
-\end{exercise}
-
-\begin{exercise}[Stone--von Neumann theorem]
-Let $U$ be a strongly continuous irreducible unitary representation of
-$\mathbb H(V\oplus V^*,\omega)$ with central character
-$U(0,s)=e^{i\lambda s}I$, where $\lambda\ne0$.  Integrate Schwartz
-functions on $V\oplus V^*$ against the canonical section of $U$.  Verify in
-the Schr\"odinger model that Fourier inversion sends such an integrated
-operator with Schwartz symbol to an integral operator with Schwartz kernel.
-Prove the Stone--von Neumann theorem~\cite{folland-phase}:
-every such $U$ is
-unitarily equivalent to $\pi_\lambda$.  Deduce that the nonzero central
-character $\lambda$ determines the irreducible representation up to unitary
-equivalence.
-\end{exercise}
-
-\begin{exercise}[Trace and Hilbert--Schmidt classes]
-For $x,y\in H$, let
-\[
-\theta_{x,y}(\xi)=\langle y,\xi\rangle x.
-\]
-The \emph{trace class} $S_1(H)$ consists of operators admitting a representation
-\[
-A=\sum_{j=1}^{\infty}\theta_{x_j,y_j},
-\qquad
-\sum_{j=1}^{\infty}\|x_j\|\,\|y_j\|<\infty,
-\]
-where the series converges in operator norm, with norm the infimum of the
-displayed sums.  Define
-\[
-\Tr(A)=\sum_{j=1}^{\infty}\langle y_j,x_j\rangle.
-\]
-The \emph{Hilbert--Schmidt class} is
-\[
-S_2(H)=\{A\in B(H):A^*A\in S_1(H)\},
-\qquad
-\|A\|_2^2=\Tr(A^*A).
-\]
-
-Prove that $S_1(H)$, $\Tr$, and $S_2(H)$ are well-defined and that every
-trace-class operator is compact.  For a positive compact operator $A$,
-use its spectral projections to prove
-\[
-A\in S_1(H)
-\quad\Longleftrightarrow\quad
-\sum_j\lambda_j(A)<\infty,
-\qquad
-\Tr(A)=\sum_j\lambda_j(A),
-\]
-where the nonzero spectral values are repeated with multiplicity.  Prove
-that $\langle A,B\rangle_{S_2}=\Tr(A^*B)$ makes $S_2(H)$ a Hilbert space
-and that the pairing $(A,T)\mapsto\Tr(AT)$ identifies $S_1(H)^*$
-isometrically with $B(H)$.
-\end{exercise}
-
-
-\begin{exercise}[Coefficient and Fourier--Wigner transforms]
-Let $V$ be an $n$-dimensional real vector space with Lebesgue measure $dq$,
-let $\hbar>0$, and equip $V^*$ with the dual measure $dp$ for which
-$(2\pi\hbar)^{-n/2}\int_Ve^{-ip(q)/\hbar}f(q)\,dq$ is unitary on $L^2$.
-Use the translation, modulation, and Weyl operators
-$T_q,M_p^\hbar,W_\hbar(q,p)$ already normalized by the Weyl relations.
-The \emph{Fourier--Wigner transform} is
-\[
-\mathcal W_\hbar:S_1(L^2(V))\longrightarrow C_b(V\oplus V^*),
-\qquad
-\mathcal W_\hbar(A)(z)=(2\pi\hbar)^{-n/2}\Tr(AW_\hbar(z)).
-\]
-
-Prove
-\[
-W_\hbar(z)^*=W_\hbar(-z).
-\]
-For $A,B\in S_1(L^2(V))\cap S_2(L^2(V))$, prove the Fourier--Wigner
-orthogonality identity
-\[
-\int_{V\oplus V^*}
-\overline{\mathcal W_\hbar(A)(z)}\mathcal W_\hbar(B)(z)\,dz
-=\Tr(A^*B).
-\]
-Deduce that $\mathcal W_\hbar$ extends uniquely to a unitary map
-\[
-S_2(L^2(V))\longrightarrow L^2(V\oplus V^*)
-\]
-and, whenever $\mathcal W_\hbar(A)\in L^1(V\oplus V^*)$, prove
-\[
-A=(2\pi\hbar)^{-n/2}\int_{V\oplus V^*}
-\mathcal W_\hbar(A)(z)W_\hbar(z)^*\,dz
-\]
-in the weak operator topology.
-\end{exercise}
-
-
-\begin{exercise}[Schr\"odinger character]
-For $V=\R^n$, let $f\in C^\infty(\mathbb H_n)$ satisfy
-\[
-(q,p,s)\longmapsto f\bigl(\exp(q,p,s)\bigr)
-\in\mathcal S(\R^{2n+1})
-\]
-under the canonical identification
-$\mathfrak h_n=\R^n\oplus(\R^n)^*\oplus\R$.  With Haar measure
-$dq\,dp\,ds$, put
-\[
-\pi_\lambda(f)
-=\int_{\mathbb H_n}f(g)\pi_\lambda(g)\,dg.
-\]
-Prove
-\[
-\Tr\pi_\lambda(f)
-=(2\pi)^n|\lambda|^{-n}
-\int_\R f(0,0,s)e^{i\lambda s}\,ds.
-\]
-Derive this identity directly from the Schr\"odinger kernel and identify
-the factor $|\lambda|^{-n}$ with the symplectic-volume scaling of
-$\mathcal O_\lambda$.
-\end{exercise}
-
-\begin{exercise}[Heisenberg Plancherel and inversion]
-For $f\in L^1(\mathbb H_n)\cap L^2(\mathbb H_n)$, use Haar measure
-$dq\,dp\,ds$ and the scalar Fourier transform
-$\widehat h(\lambda)=\int_\R h(s)e^{-i\lambda s}\,ds
-=(2\pi)^{1/2}(\mathcal Fh)(\lambda)$, so its inverse carries
-$(2\pi)^{-1}$, and define
-\[
-\widehat f(\lambda)
-=\int_{\mathbb H_n}f(g)\pi_\lambda(g)^*\,dg.
-\]
-Compute the integral kernel of $\widehat f(\lambda)$ and apply Euclidean
-Plancherel in the central and phase-space variables.  Deduce the Plancherel measure
-$(2\pi)^{-(n+1)}|\lambda|^n\,d\lambda$ and prove
-\[
-\|f\|_2^2
-=(2\pi)^{-(n+1)}\int_{\R\setminus\{0\}}
-\|\widehat f(\lambda)\|_{\rm HS}^2|\lambda|^n\,d\lambda.
-\]
-Prove the inversion formula and the distributional orthogonality of Weyl
-operators.  Prove that representations with trivial central character have
-zero Plancherel measure.
-\end{exercise}
-
-\begin{exercise}[Weyl quantization and Wigner distributions]
-For $a\in\mathcal S(V\oplus V^*)$, define
-$\operatorname{Op}_\hbar^W(a):\mathcal S(V)\to\mathcal S(V)$ by
-\[
-\bigl(\operatorname{Op}_\hbar^W(a)\psi\bigr)(x)
-=\frac{1}{(2\pi\hbar)^n}
-\int_{V\times V^*}
-e^{ip(x-y)/\hbar}
-a\!\left(\frac{x+y}{2},p\right)\psi(y)\,dy\,dp.
-\]
-For polynomial symbols, use the same formula as an oscillatory integral on
-$\mathcal S(V)$.
-
-For $\psi,\varphi\in\mathcal S(V)$, define
-\[
-W_\hbar(\psi,\varphi)(q,p)
-=\frac{1}{(2\pi\hbar)^n}
-\int_Ve^{-ip(y)/\hbar}
-\overline{\psi(q-y/2)}\,\varphi(q+y/2)\,dy.
-\]
-Write $W_\hbar[\psi]=W_\hbar(\psi,\psi)$.
-
-For $\ell\in V^*$ and $v\in V$, prove
-\[
-\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto\ell(q)\bigr)=Q_\ell,
-\qquad
-\operatorname{Op}_\hbar^W\bigl((q,p)\mapsto p(v)\bigr)=P_v.
-\]
-Prove
-\[
-\operatorname{Op}_\hbar^W(a)^*
-=\operatorname{Op}_\hbar^W(\overline a),
-\qquad
-\|\operatorname{Op}_\hbar^W(a)\|_{\rm HS}
-=(2\pi\hbar)^{-n/2}\|a\|_2,
-\]
-and
-\[
-\langle\psi,\operatorname{Op}_\hbar^W(a)\varphi\rangle
-=\int_{V\oplus V^*}a(q,p)W_\hbar(\psi,\varphi)(q,p)\,dq\,dp.
-\]
-Prove that for $a,b\in\mathcal S(V\oplus V^*)$ there is a unique
-$a\star_\hbar b\in\mathcal S(V\oplus V^*)$ satisfying
-\[
-\operatorname{Op}_\hbar^W(a\star_\hbar b)
-=\operatorname{Op}_\hbar^W(a)\operatorname{Op}_\hbar^W(b).
-\]
-Derive the oscillatory-integral formula for $\star_\hbar$ and prove
-\[
-a\star_\hbar b
-=ab+\frac{i\hbar}{2}\{a,b\}+O(\hbar^2),
-\qquad
-\frac{a\star_\hbar b-b\star_\hbar a}{i\hbar}
-=\{a,b\}+O(\hbar^2)
-\]
-in the Schwartz-symbol topology.
-Prove that the complete asymptotic expansion agrees coefficient by
-coefficient with the Moyal product.  First prove that every coefficient
-of that product preserves Schwartz functions, so
-for $E=V\oplus V^*$ it restricts to a formal product on
-$\mathcal S(V\oplus V^*)[[\hbar]]$.  For
-$k\in(V\oplus V^*)^*$ put $e_k(z)=e^{ik(z)}$.  Extend Weyl quantization to
-these oscillatory symbols and prove that $\operatorname{Op}_\hbar^W(e_k)$
-is unitary and that
-\[
-\operatorname{Op}_\hbar^W(e_k)\operatorname{Op}_\hbar^W(e_\ell)
-=e^{-i\hbar\Pi(k,\ell)/2}
-\operatorname{Op}_\hbar^W(e_{k+\ell}).
-\]
-Deduce the operator realization of the Moyal plane-wave identity.
-\end{exercise}
-
-\begin{exercise}[Groenewold--van Hove obstruction]
-Specialize to $V=\R$ and write $Q=Q_{\id_\R}$ and $P=P_1$.
-Prove that the polynomials of degree at most two form a Lie subalgebra for
-the Poisson bracket and that Weyl quantization is an exact Lie-algebra
-quantization on this subalgebra.  Quantize $q^2p^2$ using
-\[
-q^2p^2=\frac19\{q^3,p^3\}
-=\frac13\{q^2p,qp^2\}
-\]
-and prove that there is no linear quantization of the polynomial Poisson
-algebra satisfying
-\[
-\mathcal Q(1)=I,\qquad
-\mathcal Q(q)=Q,\qquad
-\mathcal Q(p)=P,\qquad
-\mathcal Q(q^m)=Q^m,\qquad
-\mathcal Q(p^m)=P^m,
-\]
-together with
-\[
-\mathcal Q(\{f,g\})=(i\hbar)^{-1}
-[\mathcal Q(f),\mathcal Q(g)]
-\]
-on a common invariant domain.
-\end{exercise}
-
-
-\begin{exercise}[Classical and quantum evolution]
-Let $H\in C^\infty(V\oplus V^*,\R)$ be subquadratic, meaning that every
-derivative of order at least two is bounded.  Define its Hamiltonian field by
-\[
-da(X_H)=\{a,H\}
-\]
-for every smooth $a$, let $\Phi_t$ be the flow of $X_H$, and let
-$\operatorname{Op}_\hbar^W(H)$ denote its self-adjoint realization.  Define
-\[
-U_\hbar(t)=e^{-it\operatorname{Op}_\hbar^W(H)/\hbar}.
-\]
-For $a\in\mathcal S(V\oplus V^*)$, define
-\[
-a_t=a\circ\Phi_t,
-\qquad
-A_\hbar(t)=U_\hbar(t)^*\operatorname{Op}_\hbar^W(a)U_\hbar(t).
-\]
-
-Prove
-\[
-\frac{d}{dt}a_t=\{a_t,H\},
-\qquad
-\frac{d}{dt}A_\hbar(t)
-=\frac{i}{\hbar}
-[\operatorname{Op}_\hbar^W(H),A_\hbar(t)].
-\]
-Prove~\cite{hormander3} the semiclassical operator estimate that the Moyal
-commutator remainder obtained from symbols with the displayed derivative
-bounds has operator norm $O(\hbar)$, uniformly for $|t|\leq T$, after
-division by $i\hbar$.  Apply Duhamel's formula to prove, for every $T>0$,
-Egorov's theorem
-\[
-\sup_{|t|\leq T}
-\left\|
-A_\hbar(t)-\operatorname{Op}_\hbar^W(a\circ\Phi_t)
-\right\|=O_T(\hbar).
-\]
-Prove exact equality for quadratic $H$.  Derive Ehrenfest's equations for
-the expectations of $Q_\ell$ and $P_v$ for every $\ell\in V^*$ and
-$v\in V$.
-\end{exercise}
-
-\begin{exercise}[Linear symplectic covariance]
-Let $S$ be a linear symplectic automorphism of $V\oplus V^*$.  Construct
-unitary implementers for cotangent lifts of linear automorphisms of $V$,
-for symplectic shears defined by quadratic forms, and, after fixing a
-positive inner product $b:V\to V^*$, for the symplectic exchange
-$(q,p)\mapsto(-b^{-1}p,bq)$ implemented by the $b$-Fourier transform.  Prove for
-these generators that
-\[
-\mu(S)\operatorname{Op}_\hbar^W(a)\mu(S)^*
-=\operatorname{Op}_\hbar^W(a\circ S^{-1}),
-\qquad
-W_\hbar[\mu(S)\psi]=W_\hbar[\psi]\circ S^{-1}.
-\]
-Deduce the covariance for their products and prove that each implementer is
-determined up to phase.  Prove the metaplectic lifting
-theorem~\cite{folland-phase}: the multiplier of these implementers has a
-canonical double cover on which the projective representation becomes
-unitary, and its two lifts of a fixed symplectic map differ by sign.  Use
-the Groenewold--van Hove obstruction to show why exact covariance cannot
-extend to every nonlinear canonical transformation.
-\end{exercise}
-
-\subsection{Hermite Functions}
-
-\begin{exercise}[Hermite polynomials and functions]
-Define the physicists' Hermite polynomials by
-\[
-e^{2xt-t^2}=\sum_{n=0}^{\infty}H_n(x)\frac{t^n}{n!}.
-\]
-The normalized \emph{Hermite functions} are
-\[
-h_n(x)=\frac{e^{-x^2/2}H_n(x)}
-{(2^nn!\sqrt\pi)^{1/2}}.
-\]
-
-Use the generating function and the Gaussian integral to prove that
-$(h_n)_{n\geq0}$ is an orthonormal family in $L^2(\R)$.  Derive the
-Hermite differential equation and recurrence relations.
-\end{exercise}
-
-\begin{exercise}[Mehler kernel]
-For $|r|<1$, use the Hermite generating function and Gaussian integration
-to derive Mehler's identity
-\[
-\sum_{n=0}^{\infty}r^nh_n(x)h_n(y)
-=\frac1{\sqrt{\pi(1-r^2)}}
-\exp\!\left(
--\frac{(1+r^2)(x^2+y^2)-4rxy}{2(1-r^2)}
-\right).
-\]
-\end{exercise}
-
-\begin{exercise}[Hermite completeness]
-Let $K_r$ be the integral operator with the Mehler kernel for $0<r<1$.
-Use its explicit Gaussian form to prove
-\[
-K_rf\longrightarrow f\qquad\text{in }L^2(\R)\quad(r\uparrow1).
-\]
-Prove that the image of $K_r$ lies in the closed linear span of the Hermite
-functions and deduce that $(h_n)_{n\geq0}$ is complete in $L^2(\R)$.
-\end{exercise}
-
-
-\begin{exercise}[Wigner--Laguerre identity]
-Use the generalized Laguerre polynomials and their orthogonality.  For
-\[
-H_{\rm cl}(q,p)=\frac{p^2}{2m}+\frac{m\omega^2q^2}{2},
-\qquad
-\psi_n(q)=\left(\frac{m\omega}{\hbar}\right)^{1/4}
-h_n\!\left(\sqrt{\frac{m\omega}{\hbar}}q\right),
-\]
-prove
-\[
-W_\hbar[\psi_n](q,p)
-=\frac{(-1)^n}{\pi\hbar}
-e^{-2H_{\rm cl}(q,p)/(\hbar\omega)}
-L_n\!\left(\frac{4H_{\rm cl}(q,p)}{\hbar\omega}\right).
-\]
-Verify the position and momentum marginals and identify the zeros and sign
-changes of the Wigner distribution from those of $L_n$.
-\end{exercise}
-
-
-\subsection{Oscillator Spectroscopy}
-
-\begin{exercise}[Spectral lines and time evolution]
-Let $A$ be self-adjoint, let $B\in B(H)$, and set
-$B(t)=e^{itA/\hbar}Be^{-itA/\hbar}$.  For eigenvalues $\lambda,\mu$ of
-$A$, write $P_\lambda=E_A(\{\lambda\})$ and prove
-\[
-P_\mu B(t)P_\lambda
-=e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
-\]
-Use the functional calculus to prove the factorized weak identity
-\[
-B(t)=
-\left(\int_{\R}e^{it\mu/\hbar}\,dE_A(\mu)\right)
-B
-\left(\int_{\R}e^{-it\lambda/\hbar}\,dE_A(\lambda)\right).
-\]
-When $A$ has pure-point spectrum, deduce in the weak operator topology that
-\[
-B(t)=\sum_{\lambda,\mu}
-e^{it(\mu-\lambda)/\hbar}P_\mu BP_\lambda.
-\]
-For an initial state $\psi$, define the line strength
-\[
-I_{\mu\lambda}(\psi)=\|P_\mu BP_\lambda\psi\|^2.
-\]
-Prove that a line at $(\mu-\lambda)/\hbar$ occurs only when this quantity is
-nonzero, and identify vanishing spectral blocks as selection rules.
-\end{exercise}
-
 
 \begin{exercise}[Oscillator spectroscopy]
-The \emph{Schwartz space} $\mathcal S(\R)$ consists of the smooth functions
-$\psi$ satisfying
+Use the Hermite decomposition to prove
+$E_n=\hbar\omega(n+1/2)$.  Couple the oscillator to a weak electric field by
+$V(t)=-qE_0X\cos(\Omega t)$ and derive from the ladder relations that only
+$n\leftrightarrow n\pm1$ transitions occur, with
 \[
-\sup_{x\in\R}(1+|x|)^m|\psi^{(r)}(x)|<\infty
+ \abs{\langle n+1|X|n\rangle}^2
+ =\frac{\hbar}{2m\omega}(n+1).
 \]
-for all $m,r\geq0$.  On $\mathcal S(\R)$ let
-\[
-(Q\psi)(x)=x\psi(x),
-\qquad
-(P\psi)(x)=-i\hbar\psi'(x).
-\]
-For
-\[
-\widehat H=-\frac{\hbar^2}{2M}\frac{d^2}{dx^2}
-+\frac{M\omega^2x^2}{2},
-\]
-use the Hermite functions to prove that
-\[
-\psi_n(x)=\left(\frac{M\omega}{\hbar}\right)^{1/4}
-h_n\!\left(\sqrt{\frac{M\omega}{\hbar}}x\right),
-\qquad
-E_n=\hbar\omega\left(n+\frac12\right)
-\]
-give the complete spectral decomposition of $\widehat H$.  Construct the
-creation and annihilation operators and compute
-\[
-\langle\psi_k,Q\psi_n\rangle
-=\sqrt{\frac{\hbar}{2M\omega}}
-\bigl(\sqrt{n+1}\,\delta_{k,n+1}
-+\sqrt n\,\delta_{k,n-1}\bigr).
-\]
-Deduce the spectral-line prediction
-$|E_{n\pm1}-E_n|/\hbar=\omega$ and the relative line strengths for a
-linearly coupled oscillator.  For $\alpha\in\C$, prove convergence and
-normalization of
-\[
-\psi_\alpha=e^{-|\alpha|^2/2}
-\sum_{n\geq0}\frac{\alpha^n}{\sqrt{n!}}\psi_n,
-\]
-show that its number statistics are Poisson with mean $|\alpha|^2$, and
-derive its sinusoidal position expectation.  Analytically continue
-Mehler's identity with the usual $t-i0$ prescription to obtain the
-oscillator propagator for $t\notin(\pi/\omega)\Z$,
-\[
-K_t(x,y)=
-\sqrt{\frac{M\omega}{2\pi i\hbar\sin(\omega t)}}
-\exp\!\left[
-\frac{iM\omega}{2\hbar\sin(\omega t)}
-\bigl((x^2+y^2)\cos(\omega t)-2xy\bigr)
-\right].
-\]
-Determine the Maslov phase obtained by continuation across each caustic.
-Prove
-\[
-e^{-2\pi i\widehat H/(\hbar\omega)}=-I,
-\qquad
-e^{-4\pi i\widehat H/(\hbar\omega)}=I,
-\]
-and distinguish the projective and observable revival period
-$2\pi/\omega$ from the exact operator period $4\pi/\omega$.
-Use these formulas to predict the spectral spacing, coherent oscillation
-frequency, occupation-number distribution, and revival period measured in
-an oscillator experiment.
+For a thermal state compute the Green-function absorption profile and show
+that its lines are centered at $\Omega=\omega$, have the resolution width
+from Hilbert Space, and have intensities in the ratios prescribed above.
+These positions and ratios are the spectroscopic prediction.
 \end{exercise}
-
-
-\begin{exercise}[Laguerre tomography]
-For $F\in\mathcal S(\R^2)$, $n_\theta=(\cos\theta,\sin\theta)$, and
-$n_\theta^\perp=(-\sin\theta,\cos\theta)$, define the Radon transform by
-\[
-(\mathcal RF)(\theta,s)
-=\int_\R F(sn_\theta+tn_\theta^\perp)\,dt.
-\]
-With
-\[
-\widehat h(k)=\int_\R h(s)e^{-iks}\,ds,
-\qquad
-\widehat F(\xi)=\int_{\R^2}F(z)e^{-i\xi\cdot z}\,dz,
-\]
-which are the same unnormalized transforms and hence differ from the
-unitary transform $\mathcal F$ by $(2\pi)^{1/2}$ and $2\pi$ respectively,
-prove the Fourier-slice identity
-\[
-\widehat{\mathcal RF}(\theta,k)=\widehat F(kn_\theta)
-\]
-and the inversion formula
-\[
-F(z)=\frac1{(2\pi)^2}\int_0^\pi\int_\R
-|k|\widehat{\mathcal RF}(\theta,k)e^{ikn_\theta\cdot z}\,dk\,d\theta.
-\]
-For the dimensionless quadrature
-\[
-X_\theta=\sqrt{\frac{m\omega}{\hbar}}Q\cos\theta
-+\frac{P}{\sqrt{m\hbar\omega}}\sin\theta,
-\]
-prove that its probability density in a state $\psi$ is the Radon
-transform of $W_\hbar[\psi]$ along the corresponding phase-space lines.
-Apply the Fourier-slice inversion formula to reconstruct the Wigner
-distribution from the family of quadrature densities.  For the oscillator
-state $\psi_n$, use the Wigner--Laguerre identity to prove that the
-reconstructed radial profile is
-\[
-\frac{(-1)^n}{\pi\hbar}e^{-2H_{\rm cl}/(\hbar\omega)}
-L_n\!\left(\frac{4H_{\rm cl}}{\hbar\omega}\right),
-\]
-while every quadrature density is a scaled
-$e^{-x^2}H_n(x)^2$.  Deduce the predicted number of quadrature nodes, the
-radial zero circles determined by $L_n$, and the sign at the phase-space
-origin.  State how homodyne quadrature data distinguish adjacent number
-states and detect Wigner negativity after inverse Radon reconstruction.
-State the harmonic-oscillator, number-state-preparation, quadrature-phase,
-detection-efficiency, inverse-reconstruction, sampling, and spatial-resolution
-assumptions under which these nodes, zero circles, and signs are observable.
-\end{exercise}
-
 
 \section{Poincar\'e Group}
 
-\subsection{Minkowski Isometries}
-
-\begin{exercise}[Minkowski momentum orbits and relativistic dispersion]
-A \emph{time-oriented Minkowski space} is a real four-dimensional vector
-space $M$ with a symmetric nondegenerate form $g$ of signature $(1,3)$
-and a chosen component of the cone $\{v:g(v,v)>0\}$.  Let
-$SO^+(M,g)$ be the group preserving $g$, the orientation, and the time
-orientation.  Define the proper orthochronous Poincar\'e group by
-\[
-\mathcal P^+(M,g)=M\rtimes SO^+(M,g),
-\qquad
-(a,A)(b,B)=(a+Ab,AB).
-\]
-Prove that $(a,A)$ acts on the affine space underlying $M$ by
-$x\mapsto a+Ax$, that this identifies $\mathcal P^+(M,g)$ with its
-orientation- and time-orientation-preserving affine isometries, and that
-the induced action on momentum covectors factors through $SO^+(M,g)$.
-Use $g$ to identify $M^\vee$ with $M$.  For $m\geq0$, define the
-positive mass shell
-\[
-\mathcal O_m^+
-=\{p\in M^\vee:g^{-1}(p,p)=m^2c^2,\ p^\sharp\text{ is future-pointing}\},
-\]
-with the zero covector removed when $m=0$.
-
-Let $u$ be a future-pointing observer with $g(u,u)=c^2$.  Define
-\[
-E_u(p)=g(p^\sharp,u),
-\qquad
-\mathbf p_u=p^\sharp-\frac{E_u(p)}{c^2}u,
-\qquad
-|\mathbf p_u|^2=-g(\mathbf p_u,\mathbf p_u).
-\]
-Prove
-\[
-E_u(p)^2=c^2|\mathbf p_u|^2+m^2c^4
-\]
-and show that $SO^+(M,g)$ acts transitively on each $\mathcal O_m^+$.
-For $m>0$, prove that the stabilizer of a point is the rotation group of
-its negative-definite orthogonal complement and hence is isomorphic to
-$SO(3)$.  For $m=0$, show that the stabilizer preserves the Euclidean
-plane $p^\perp/\mathbb Rp$ and is isomorphic to
-$SO(2)\ltimes\mathbb R^2$.
-
-Put $Q(p)=g^{-1}(p,p)$.  For a Lorentz-invariant volume form $dV$ on
-$M^\vee$, choose along the shell a vector field $N$ satisfying
-$dQ(N)=1$.  Define
-\[
-(\iota_NdV)(v_1,v_2,v_3)=dV(N,v_1,v_2,v_3)
-\]
-and restrict this three-form to the shell.  Prove that the
-restriction is independent of $N$ and constructs an invariant measure
-$d\mu_m$, unique up to scale.  Show that in the observer decomposition it
-is proportional to
-\[
-\frac{d^3\mathbf p_u}{E_u(\mathbf p)}.
-\]
-Deduce that the mass-shell relation and this measure are independent of
-the observer used to express them.
+\begin{exercise}[Minkowski isometries and their Casimirs]
+Let Minkowski spacetime be an oriented, time-oriented affine space modeled on
+$(M,g)$ with signature $(-,+,+,+)$.  Define
+$\mathcal P^+=M\rtimes SO^+(M,g)$, derive its Lie algebra, and construct its
+metric volume form and Hodge star, then construct its two Casimirs from
+momentum $P$ and the Pauli--Lubanski covector
+$W=* (P^\flat\wedge J)$, fixing this normalization.  Prove
+$P^2=-m^2c^2$ and $W^2=-m^2c^2\hbar^2j(j+1)$ on a massive spin-$j$
+irreducible representation.
 \end{exercise}
 
-\begin{exercise}[The Lorentz spin cover and finite-dimensional fields]
-Let $S$ be a two-dimensional complex vector space equipped with a nonzero
-alternating form $\epsilon:\Lambda^2S\to\mathbb C$.  Let
-$\operatorname{Herm}(S)$ be the fixed real subspace of
-$S\otimes\overline S$ under conjugation followed by exchange of the
-factors, and use $\epsilon\otimes\overline\epsilon$ to define its
-determinant.
-Prove that
-\[
-q(X)=\det X
-\]
-has signature $(1,3)$, with the positive-definite forms selecting a time
-orientation.  For $A\in SL(S)$, define
-\[
-X\longmapsto(A\otimes\overline A)X.
-\]
-Prove that this action preserves $q$ and the chosen orientations and
-induces an exact sequence
-\[
-1\longrightarrow\{\pm I\}\longrightarrow SL(S)
-\longrightarrow SO^+(\operatorname{Herm}(S),q)
-\longrightarrow1.
-\]
-
-Prove~\cite{fulton-harris} the finite-dimensional Lorentz-representation
-classification: every irreducible finite-dimensional complex
-representation of $SL(S)$, regarded as the spin cover of the real Lorentz
-group, is uniquely of the form
-\[
-\operatorname{Sym}^{2j_L}S\otimes
-\operatorname{Sym}^{2j_R}\overline S,
-\qquad
-j_L,j_R\in\tfrac12\mathbb Z_{\geq0}.
-\]
-Identify the scalar, left- and right-handed Weyl-spinor, Lorentz-vector,
-and self-dual and anti-self-dual two-form representations.  Restrict to
-the massive little group $SU(2)\subset SL(S)$ and derive
-\[
-(j_L,j_R)|_{SU(2)}
-\cong\bigoplus_{j=|j_L-j_R|}^{j_L+j_R}V_j.
-\]
-Prove that no nontrivial representation in the displayed family is
-unitary for the full Lorentz group, and distinguish these covariant field
-representations from the unitary one-particle representations constructed
-below.
+\begin{exercise}[Wigner classification by little groups]
+For a transitive action of a locally compact group $G$ on $G/H$, define the
+representation induced from a unitary $H$-representation as square-integrable
+equivariant sections of the associated bundle.  Prove the imprimitivity
+theorem by disintegrating the translation spectral measure.  Apply it to the
+mass shells in $M^*$: identify the massive little group with $SU(2)$ after
+passing to the double cover, the massless little group with
+$\operatorname{Spin}(2)\ltimes\R^2$, where
+$\operatorname{Spin}(2)=U(1)\to SO(2)$ is the angle-doubling cover, and
+derive the massive spin and massless
+helicity families.  State explicitly the exclusion of continuous-spin
+representations when the translational part of the massless little group acts
+trivially.
 \end{exercise}
 
-\subsection{Wigner Classification}
-
-\begin{exercise}[Wigner induction and the Poincar\'e particle classification]
-Let
+\begin{exercise}[Klein--Gordon Bessel functions]
+Put $\mu=mc/\hbar$ and
+$\Box=-c^{-2}\partial_t^2+\Delta$.  Derive
+$(\Box-\mu^2)\phi=0$ from the massive Casimir.  Define
+$\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\dd t$ for $\Re s>0$, derive its
+functional equation and meromorphic continuation, and define
 \[
-\widetilde{\mathcal P}=M\rtimes SL(S)
+ J_\nu(z)=\sum_{k\ge0}\frac{(-1)^k(z/2)^{2k+\nu}}
+ {k!\Gamma(k+\nu+1)},
+ \qquad
+ K_\nu(z)=\int_0^\infty e^{-z\cosh u}\cosh(\nu u)\dd u
 \]
-be the spin Poincar\'e group.  Fix a Lorentz orbit
-$\mathcal O\subset M^\vee$, a point $p_0\in\mathcal O$, its little group
-$K\subset SL(S)$, and a unitary representation
-$\sigma:K\to U(V_\sigma)$.  Define the associated bundle
+in their stated domains and continue by their differential equation.  Use
+the Fourier decomposition of the positive mass shell to derive, at equal
+time and spatial separation $r>0$,
 \[
-\mathcal E_\sigma=SL(S)\times_KV_\sigma
-\longrightarrow\mathcal O
+ \Delta_+(0,r)=\frac{mc}{4\pi^2\hbar r}K_1(\mu r).
 \]
-as the quotient by $(A,v)\sim(Ak,\sigma(k)^{-1}v)$, with $[A,v]$ lying
-over $Ap_0$.  Define the Hilbert space
-$L^2(\mathcal O,\mathcal E_\sigma;d\mu)$ of its
-square-integrable sections.  For $(a,A)\in\widetilde{\mathcal P}$, define
-intrinsically
-\[
-[U(a,A)\psi](p)
-=e^{-ip(a)/\hbar}\,A\cdot\psi(A^{-1}p),
-\]
-where $A\cdot$ is the induced map between the associated fibers.  Prove
-that this is a strongly continuous unitary representation and that the
-translation spectral measure is supported on $\mathcal O$.
-
-Call a unitary Poincar\'e representation \emph{positive-energy} when its
-translation spectral measure is supported in the closed future cone.
-Prove the Mackey--Wigner imprimitivity
-theorem~\cite{mackey-induced,wigner-poincare}: every
-irreducible positive-energy unitary representation whose translation
-spectrum is supported on one orbit is obtained by this construction, and
-two such representations are equivalent exactly when their orbit and
-little-group representation data are equivalent.  Deduce that a massive
-particle is labelled by $m>0$ and an irreducible $SU(2)$ representation
-$V_j$, so it has $2j+1$ rest-frame polarizations.  For a massless orbit,
-show that little-group representations trivial on the translation
-subgroup are labelled by helicity
-$h\in\tfrac12\mathbb Z$, while nontrivial translation action produces the
-continuous-spin family and an additional positive scale.
-
-On the common invariant space of smooth vectors, let $P$ be the
-translation generator and let $J$ be the Lorentz bivector generator.
-Use the isomorphism
-\[
-\Lambda^2M\longrightarrow\mathfrak{so}(M,g),
-\qquad
-u\wedge v\longmapsto\bigl[w\mapsto g(v,w)u-g(u,w)v\bigr]
-\]
-to fix the normalization of $J$.  The chosen orientation and $g$ determine
-the Hodge operator by
-$\alpha\wedge *\beta=\langle\alpha,\beta\rangle_g\operatorname{vol}_g$.
-Define the Pauli--Lubanski covector by
-\[
-W=*\,(P\wedge J).
-\]
-With this sign convention for the Minkowski form, prove
-\[
-P^2=m^2c^2I,
-\qquad
-W^2=-m^2c^2\hbar^2j(j+1)I
-\]
-in the massive representation and
-\[
-P^2=0,
-\qquad
-W=h\hbar P
-\]
-in a finite-helicity massless representation.  Explain why this
-classification constrains masses, spins, helicities, and polarization
-counts but does not determine the numerical masses or interactions.
+Derive the small- and large-argument asymptotics needed below.
 \end{exercise}
 
-\begin{exercise}[Covariant wave equations and helicity polarizations]
-Use units $c=1$ in this exercise.  Let $\Box$ be the constant-coefficient
-d'Alembertian whose symbol is $-g^{-1}(p,p)$.  For
-$\widehat\phi\in C_c^\infty(\mathcal O_m^+)$, put
+\begin{exercise}[Relativistic correlation length]
+For a free massive scalar field, define the vacuum two-point observable by
+the positive-energy mass-shell integral and derive the preceding $K_1$
+formula without choosing an inertial frame until evaluating the invariant
+spacelike distance.  Prove
 \[
-\phi(x)=\int_{\mathcal O_m^+}
-e^{-ip(x)/\hbar}\widehat\phi(p)\,d\mu_m(p).
+ \Delta_+(x,y)\sim
+ \frac{\sqrt m}{4\sqrt2\,\pi^{3/2}
+ (\hbar/c)^{1/2}\,r^{3/2}}e^{-r/\lambda_C},
+ \qquad \lambda_C=\frac\hbar{mc},
 \]
-Prove
-\[
-(\Box+m^2/\hbar^2)\phi=0
-\]
-and show that completion in the mass-shell norm realizes the positive
-energy spin-zero Wigner representation.
-
-Let $\operatorname{Cl}(M,g)$ be the Clifford algebra defined by
-\[
-vw+wv=2g(v,w)I.
-\]
-A \emph{complex spin module} is a four-dimensional
-$\mathbb Z/2\mathbb Z$-graded irreducible module
-$\Sigma=\Sigma^+\oplus\Sigma^-$ for the complexified Clifford algebra in
-which multiplication by $M$ exchanges the two graded summands.  Let
-$\mathcal D$ be Clifford multiplication followed by differentiation.
-Prove $\mathcal D^2=\Box$ and show that
-\[
-(i\hbar\mathcal D-m)\psi=0
-\]
-implies the Klein--Gordon equation and that its positive-frequency
-solution space realizes the massive spin-$1/2$ mass shell.  At $m=0$,
-prove that the two chiral positive-frequency solution spaces carry
-helicities $\pm\frac12$.
-
-Put $M_\mathbb C=M\otimes_\mathbb R\mathbb C$.  For a null covector $p$,
-define the complex transverse-polarization space
-\[
-\mathcal T_p
-=\{\varepsilon\in M_\mathbb C^\vee:
-g^{-1}(p,\varepsilon)=0\}/\mathbb Cp.
-\]
-Interpret $\varepsilon$ as the amplitude of a plane-wave vector potential
-and the quotient by $\mathbb Cp$ as its gauge equivalence.  Show that
-rotations in the massless little group split $\mathcal T_p$ into
-helicities $+1$ and $-1$, giving the two plane-wave polarizations of the
-source-free Maxwell equations.  Show that the transverse traceless
-symmetric square has precisely the two helicity lines $+2$ and $-2$.
-State the gauge, positive-energy, and finite-helicity assumptions required
-for these polarization counts, without invoking the spin--statistics
-relation.
-\end{exercise}
-
-\subsection{Bessel Functions}
-
-\begin{exercise}[Spin-weighted spherical harmonics and radiation patterns]
-Write $S^2=SU(2)/U(1)$.  The \emph{spin-weight-$s$ line bundle} is the
-bundle associated to the character of $U(1)$ under which rotation of an
-oriented tangent frame through $\psi$ acts by $e^{-is\psi}$.
-Write it as
-\[
-\mathcal L_s=SU(2)\times_{U(1)}\mathbb C_s\longrightarrow S^2.
-\]
-For integers $\ell\geq|s|$ and $-\ell\leq m\leq\ell$, define
-\[
-{}_sY_{\ell m}(\theta,\phi)
-=(-1)^s\sqrt{\frac{2\ell+1}{4\pi}}\,
-\overline{D^\ell_{m,-s}
-\bigl(R_z(\phi)R_y(\theta)\bigr)},
-\]
-using the Wigner coefficients in the Condon--Shortley convention.  Verify
-the frame-equivariance law, prove
-\[
-\int_{S^2}{}_sY_{\ell m}\,
-\overline{{}_sY_{\ell' m'}}\,d\Omega
-=\delta_{\ell\ell'}\delta_{mm'},
-\]
-and prove completeness in $L^2(S^2,\mathcal L_s)$.
-Use the Jacobi-polynomial formula for the Wigner $d$-functions to express
-every ${}_sY_{\ell m}$ as a phase times powers of
-$\sin(\theta/2)$ and $\cos(\theta/2)$ times a Jacobi polynomial.
-
-Deduce that helicity-$h$ radiation has no angular multipoles with
-$\ell<|h|$.  In the spin-weight $-2$ convention, derive
-\[
-{}_{-2}Y_{2,2}
-=\sqrt{\frac5{64\pi}}(1+\cos\theta)^2e^{2i\phi},
-\qquad
-{}_{-2}Y_{2,-2}
-=\sqrt{\frac5{64\pi}}(1-\cos\theta)^2e^{-2i\phi}.
-\]
-For a prepared pure quadrupole helicity mode, deduce the normalized angular
-intensity
-\[
-\frac{I_\pm(\theta)}{I_\pm^{\max}}
-=\left(\frac{1\pm\cos\theta}{2}\right)^4
-\]
-and its symmetry-enforced dark direction.  State the linearized
-massless-spin-$2$, far-field, single-mode, polarization-frame, and
-angular-resolution assumptions under
-which this pattern and the absence of monopole and dipole spin-$2$
-radiation are tested.
-\end{exercise}
-
-\subsection{Relativistic Propagation}
-
-\begin{exercise}[Bessel mass-shell kernels and relativistic signal propagation]
-Use units $c=\hbar=1$.  Fix a future-pointing observer and use its
-orthogonal complement, with the negative Minkowski form, as the Euclidean
-space in which $x,p\in\R^3$.  Put
-$E_p=\sqrt{|p|^2+m^2}$, and let $\Theta$ be the Heaviside function.
-Define the retarded Klein--Gordon kernel by
-\[
-G_{\rm ret}(t,x)
-=\Theta(t)\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3}
-\frac{\sin(E_pt)}{E_p}e^{ip\cdot x}.
-\]
-Using the Fourier transform of tempered distributions and the radial
-Fourier--Bessel transform, prove
-\[
-(\Box+m^2)G_{\rm ret}=\delta_{(0,0)}
-\]
-and, for $r=|x|$ and $\tau=\sqrt{t^2-r^2}$,
-\[
-G_{\rm ret}(t,r)
-=\Theta(t)\left[
-\frac{\delta(t^2-r^2)}{2\pi}
--\Theta(t^2-r^2)\frac{mJ_1(m\tau)}{4\pi\tau}
-\right].
-\]
-Deduce exact vanishing outside the light cone, a light-cone impulse, and
-the massive interior tail.  Show that the tail kernel has proper-time
-zeros $m\tau=j_{1,n}$, where $j_{1,n}$ are the positive zeros of $J_1$.
-
-For $\operatorname{Re}z>0$, define the modified Bessel function by
-\[
-K_\nu(z)=\int_0^\infty e^{-z\cosh u}\cosh(\nu u)\,du.
-\]
-For the positive-frequency mass-shell kernel
-\[
-\Delta_+(t,x)
-=\int_{\mathbb R^3}\frac{d^3p}{(2\pi)^3\,2E_p}
-e^{-iE_pt+ip\cdot x},
-\]
-prove that at spacelike separation $\rho=\sqrt{r^2-t^2}>0$,
-\[
-\Delta_+(t,r)=\frac{m}{4\pi^2\rho}K_1(m\rho).
-\]
-Derive
-\[
-K_1(z)\sim\sqrt{\frac\pi{2z}}e^{-z}
-\qquad(z\to+\infty)
-\]
-by Laplace's method.  Restore $c$ and $\hbar$ to identify the Compton
-length $\hbar/(mc)$ and the invariant tail-node lengths
-$j_{1,n}\hbar/(mc)$.  Distinguish this nonzero spacelike
-positive-frequency correlation from the causal response represented by
-$G_{\rm ret}$.
-
-For a wave packet concentrated near spatial momentum $p_0$, derive
-\[
-v_{\rm group}=\frac{c^2p_0}{\sqrt{c^2|p_0|^2+m^2c^4}},
-\qquad
-\Delta t
-\sim\frac{Lm^2c}{2|p_0|^2}
-\quad(|p_0|\gg mc)
-\]
-for its delay relative to a light signal over distance $L$.  State the
-flat-spacetime, free-field, point-impulse, wave-packet, and detector-smearing
-assumptions under which the causal front, Bessel tail nodes, exponential
-spacelike decay, and time-of-flight delay are physical predictions.
+up to the normalization fixed in the previous exercise.  Show that the slope
+of $\log(r^{3/2}\Delta_+)$ against invariant separation is $-1/\lambda_C$;
+this is a quantitative mass determination from spacelike correlation data.
 \end{exercise}
 
 \section{Potential Scattering}
 
-\subsection{\texorpdfstring{$SO(3)$}{SO(3)}}
-
-\begin{exercise}[Outgoing Green kernels and the Lippmann--Schwinger equation]
-Let $\mu>0$ be a reduced mass, let $k>0$, put
+\begin{exercise}[$SO(3)$ symmetry and radial operators]
+On $L^2(\R^3)$ let $SO(3)$ act by pullback.  For a central potential $V(r)$,
+prove that the Schr\"odinger operator commutes with this action.  Use the
+spherical-harmonic decomposition from Compact Harmonic Analysis to obtain
+the intrinsic orthogonal sum over angular momentum and the radial operators
 \[
-E=\frac{\hbar^2k^2}{2\mu},
-\qquad
-H=-\frac{\hbar^2}{2\mu}\Delta+V,
+ H_\ell=-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd r^2}
+ +\frac{\hbar^2\ell(\ell+1)}{2mr^2}+V(r)
 \]
-and initially take $V$ to be a real Schwartz function on $\R^3$.  For an
-incident direction $\omega\in S^2$, call a solution of $(H-E)\psi=0$
-\emph{outgoing} when
-\[
-\psi(x)=e^{ik\omega\cdot x}
-+f(\widehat x,\omega;k)\frac{e^{ik|x|}}{|x|}
-+o(|x|^{-1}),
-\qquad \widehat x=\frac{x}{|x|},
-\]
-and call $f$ its \emph{scattering amplitude}.  For outgoing direction
-$\omega'$, define the scattering angle by
-$\cos\theta=\omega'\cdot\omega$.
-
-Define the Euclidean group and its unitary action by
-\[
-E(3)=\R^3\rtimes SO(3),
-\qquad
-(U_{a,R}\phi)(x)=\phi(R^{-1}(x-a)).
-\]
-Prove that the free Hamiltonian commutes with this action, that $H$ commutes
-with every rotation when $V$ is radial, and that translations are broken
-unless $V$ is constant.  For radial $V$, prove
-\[
-f(R\omega',R\omega;k)=f(\omega',\omega;k).
-\]
-
-Prove in $\mathcal D'(\R^3)$ that
-\[
-G_k^+(x)=\frac{e^{ik|x|}}{4\pi|x|},
-\qquad
-(-\Delta-k^2)G_k^+=\delta_0,
-\]
-and verify the Sommerfeld condition
-$(\partial_r-ik)G_k^+=o(r^{-1})$.  Derive the Lippmann--Schwinger equation
-\[
-\psi(x)=e^{ik\omega\cdot x}
--\frac{2\mu}{\hbar^2}
-\int_{\R^3}G_k^+(x-y)V(y)\psi(y)\,dy.
-\]
-First take $V$ compactly supported and use
-\[
-G_k^+(x-y)=\frac{e^{ik|x|}}{4\pi|x|}
-e^{-ik\widehat x\cdot y}+O(|x|^{-2})
-\]
-for bounded $y$ to prove
-\[
-f(\omega',\omega;k)
-=-\frac{\mu}{2\pi\hbar^2}
-\int_{\R^3}e^{-ik\omega'\cdot y}V(y)\psi(y)\,dy.
-\]
-Extend the formula to Schwartz $V$ by controlling the tails with its decay.
+on $L^2(\R_+,\dd r)$ with the regular boundary condition.
 \end{exercise}
 
-\begin{exercise}[Probability current, Born series, and screened-Coulomb counts]
-For the probability current
+\begin{exercise}[Partial-wave decomposition and phase shifts]
+For a short-range real potential, construct the regular radial solution by a
+Volterra equation and prove that for $k>0$ it has the asymptotic form
 \[
-j_\psi=\frac{\hbar}{\mu}\operatorname{Im}(\overline\psi\nabla\psi),
+ u_\ell(k,r)=A_\ell(k)
+ \sin(kr-\ell\pi/2+\delta_\ell(k))+o(1).
 \]
-divide the outgoing radial flux through $r^2d\Omega$ by the incident flux and
-derive
+Define $S_\ell(k)=e^{2\ii\delta_\ell(k)}$, fix
+$\delta_\ell=0$ for the free operator, and use the conserved Wronskian to
+prove $\abs{S_\ell}=1$.  Derive
 \[
-\frac{d\sigma}{d\Omega}=|f(\omega',\omega;k)|^2.
-\]
-
-Replace $\psi$ in the amplitude by the incident plane wave to obtain the first
-Born term
-\[
-f_{\rm B}(\omega',\omega;k)
-=-\frac{\mu}{2\pi\hbar^2}
-\int_{\R^3}e^{-iQ\cdot y}V(y)\,dy,
-\qquad Q=k(\omega'-\omega).
-\]
-On any Banach space $X$ containing the incident plane wave and on which
-\[
-K_k\phi=\frac{2\mu}{\hbar^2}G_k^+*(V\phi)
-\]
-is bounded, prove that $\|K_k\|_{X\to X}<1$ implies the convergent Born
-series
-\[
-\psi=\sum_{n\geq0}(-K_k)^n e^{ik\omega\cdot x}.
-\]
-Writing $q=\|K_k\|_{X\to X}$, prove the geometric remainder bounds
-\[
-\|\psi-e^{ik\omega\cdot x}\|_X
-\leq\frac{q}{1-q}\|e^{ik\omega\cdot x}\|_X,
-\]
-\[
-\|\psi-(I-K_k)e^{ik\omega\cdot x}\|_X
-\leq\frac{q^2}{1-q}\|e^{ik\omega\cdot x}\|_X,
-\]
-and explain which bound controls the first and second Born approximations
-to the amplitude when the amplitude integral is a bounded functional on
-$X$.
-For the screened Coulomb potential
-\[
-V_\alpha(x)=g\frac{e^{-\alpha|x|}}{|x|},
-\qquad \alpha>0,
-\]
-justify the same calculation by approximation, prove
-\[
-\int_{\R^3}e^{-iQ\cdot x}\frac{e^{-\alpha|x|}}{|x|}\,dx
-=\frac{4\pi}{\|Q\|^2+\alpha^2},
-\qquad
-\|Q\|^2=4k^2\sin^2\frac\theta2,
-\]
-and derive
-\[
-\frac{d\sigma_{\rm B}}{d\Omega}
-=\frac{4\mu^2g^2}{\hbar^4
-\left(4k^2\sin^2(\theta/2)+\alpha^2\right)^2}.
-\]
-State the weak-coupling, single-scattering, wave-packet, far-field, and angular
-resolution assumptions under which this differential cross section predicts
-detector counts.
-\end{exercise}
-
-\subsection{Partial-Wave Decomposition}
-
-\begin{exercise}[Scattering operators and elastic unitarity]
-For a real radial potential supported in $\{x:\|x\|\leq R\}$, define the
-on-shell scattering operator $S(k)$ on angular wave packets by sending the
-incoming far-field coefficient to the outgoing one, with the free propagation
-phases normalized so that $V=0$ gives $S(k)=I$.  Use conservation of
-probability current to prove that $S(k)$ is unitary, and use rotation covariance
-together with the multiplicity-free decomposition
-\[
-L^2(S^2)=\mathop{\widehat{\bigoplus}}_{\ell\geq0}\mathcal H_\ell
-\]
-where $\mathcal H_\ell$ is the degree-$\ell$ spherical-harmonic summand, to
-prove
-\[
-S(k)|_{\mathcal H_\ell}=S_\ell(k)I,
-\qquad
-S_\ell(k)=e^{2i\delta_\ell(k)}
-\]
-for real phase shifts $\delta_\ell$, determined modulo $\pi$.
-\end{exercise}
-
-\begin{exercise}[Partial waves, Legendre amplitudes, and the optical theorem]
-Put
-\[
-j_\ell(z)=\sqrt{\frac{\pi}{2z}}J_{\ell+1/2}(z).
-\]
-Project the Euclidean Fourier kernel onto the spherical-harmonic summands and
-derive the distinguished expansion
-\[
-e^{ikr\cos\theta}
-=\sum_{\ell\geq0}i^\ell(2\ell+1)j_\ell(kr)P_\ell(\cos\theta),
-\]
-where $P_\ell=P_\ell^{(0,0)}$ is the Legendre polynomial.  Separate the radial
-equation and show that the regular radial function $u_\ell$ satisfies
-\[
-u_\ell''(r)+\left(k^2-\frac{\ell(\ell+1)}{r^2}
--\frac{2\mu}{\hbar^2}V(r)\right)u_\ell(r)=0,
-\]
-with
-\[
-u_\ell(r)\sim
-\sin\left(kr-\frac{\ell\pi}{2}+\delta_\ell(k)\right)
-\qquad(r\to\infty).
-\]
-Match incoming and outgoing spherical waves to derive
-\[
-f(\theta;k)
-=\frac1{2ik}\sum_{\ell\geq0}(2\ell+1)
-(S_\ell(k)-1)P_\ell(\cos\theta)
-=\frac1k\sum_{\ell\geq0}(2\ell+1)e^{i\delta_\ell}
-\sin\delta_\ell P_\ell(\cos\theta).
-\]
-Use Legendre orthogonality and $P_\ell(1)=1$ to prove
-\[
-\sigma_{\rm el}(k)
-=\frac{4\pi}{k^2}\sum_{\ell\geq0}(2\ell+1)\sin^2\delta_\ell(k),
-\qquad
-\sigma_{\rm el}(k)=\frac{4\pi}{k}\operatorname{Im}f(0;k),
-\]
-and obtain the partial-wave unitarity bound
-\[
-\sigma_\ell(k)\leq\frac{4\pi}{k^2}(2\ell+1).
-\]
-Identify exactly where reality of the potential and absence of inelastic
-channels enter the proof.
-\end{exercise}
-
-
-\begin{exercise}[Hard-sphere phase shifts and effective-range scattering]
-Define the spherical Neumann function intrinsically by
-\[
-n_\ell(z)=-(-z)^\ell
-\left(\frac1z\frac d{dz}\right)^\ell\frac{\cos z}{z}.
-\]
-Prove that it satisfies the spherical Bessel equation, that its Wronskian
-with $j_\ell$ is $z^{-2}$, and that
-$n_\ell(z)\sim-(2\ell-1)!!z^{-\ell-1}$ as $z\downarrow0$.
-For scattering from an impenetrable sphere of radius $a$, impose the Dirichlet
-condition at $r=a$ and write the exterior radial factor as
-\[
-\cos\delta_\ell\,j_\ell(kr)-\sin\delta_\ell\,n_\ell(kr).
-\]
-Prove
-\[
-\tan\delta_\ell(k)=\frac{j_\ell(ka)}{n_\ell(ka)}.
-\]
-Use the Bessel series to show that $\delta_0=-ka$ modulo $\pi$ and
-$\delta_\ell=O((ka)^{2\ell+1})$ for $\ell>0$.  Deduce the low-energy
-predictions
-\[
-f(\theta;k)\longrightarrow-a,
-\qquad
-\sigma_{\rm el}(k)\longrightarrow4\pi a^2
-\qquad(ka\downarrow0).
-\]
-
-For a short-range $s$-wave phase shift, define the effective-range
-parameters by
-\[
-k\cot\delta_0(k)
-=-\frac1{a_s}+\frac12r_e k^2+O(k^4).
-\]
-For the hard sphere, use $\delta_0=-ka$ to prove
-\[
-a_s=a,
-\qquad
-r_e=\frac{2a}{3}.
-\]
-State how low-energy measurements at two or more momenta distinguish the
-scattering length from the effective range.
-\end{exercise}
-
-\begin{exercise}[Square-well thresholds and Breit--Wigner resonances]
-For the attractive square well
-\[
-V(r)=\begin{cases}-V_0,&0<r<a,\\0,&r>a,\end{cases}
-\qquad V_0>0,
-\]
-put $K=(k^2+2\mu V_0/\hbar^2)^{1/2}$ and match the logarithmic derivatives of
-the regular $s$-wave solutions to prove
-\[
-K\cot(Ka)=k\cot(ka+\delta_0(k)).
-\]
-Define the scattering length by $\delta_0(k)=-ka_s+o(k)$ and derive
-\[
-a_s=a-\frac{\tan(\gamma a)}{\gamma},
-\qquad
-\gamma=\frac{\sqrt{2\mu V_0}}{\hbar}.
-\]
-Show that $a_s$ diverges when $\gamma a=(n+\tfrac12)\pi$, $n\in\Z_{\geq0}$,
-and identify these values with the appearance of an $s$-wave state at zero
-binding energy.
-
-If an elastic phase shift has a simple resonance at $E_R$ with
-\[
-\cot\delta_\ell(E)
-=\frac{2(E_R-E)}{\Gamma}
-+O\!\left(\frac{(E-E_R)^2}{\Gamma^2}\right),
-\qquad \Gamma>0,
-\]
-derive the Breit--Wigner line shape
-\[
-\sigma_\ell(E)
-=\frac{4\pi}{k^2}(2\ell+1)
-\frac{\Gamma^2/4}{(E-E_R)^2+\Gamma^2/4}
-\]
-to leading order, prove that its full width at half maximum is $\Gamma$, and
-show that the Wigner delay $2\hbar\,d\delta_\ell/dE$ equals
-$4\hbar/\Gamma$ at the resonance.  State the hard-core or square-well model,
-elastic-channel, energy-resolution, and finite-range assumptions needed to
-infer a radius, scattering length, resonance energy, or width from measured
-angular distributions.
-\end{exercise}
-
-\begin{exercise}[Jost functions, Levinson's theorem, and bound-state counting]
-Let $V$ be a real radial potential supported in $[0,R]$ and suppose
-$rV(r)$ is integrable.  For angular momentum $\ell$, let
-$\varphi_\ell(k,r)$ be the regular solution of the radial equation,
-normalized by $\varphi_\ell(k,r)\sim r^{\ell+1}$ at the origin, and let
-$f_\ell(k,r)$ be the outgoing solution normalized by
-\[
-f_\ell(k,r)\sim e^{ikr}
-\qquad(r\to\infty).
-\]
-Define the Jost function by the $r$-independent Wronskian
-\[
-F_\ell(k)=W(f_\ell(k,-),\varphi_\ell(k,-)).
-\]
-Prove from constancy of the Wronskian and reality of $V$ that, for $k>0$,
-\[
-F_\ell(-k)=\overline{F_\ell(k)}.
-\]
-With the conventional partial-wave asymptotic
-$\sin(kr-\ell\pi/2+\delta_\ell)$, include the free centrifugal phase and
-prove
-\[
-S_\ell(k)=e^{2i\delta_\ell(k)}
-=(-1)^\ell\frac{F_\ell(-k)}{F_\ell(k)}.
-\]
-Prove that zeros $k=i\kappa$, $\kappa>0$, are exactly the
-square-integrable bound states of energy
-$-\hbar^2\kappa^2/(2\mu)$.
-
-Choose the continuous phase shift with $\delta_\ell(k)\to0$ as
-$k\to\infty$.  Prove the Jost-function argument-principle
-form of Levinson's theorem~\cite{newton-scattering} and prove
-\[
-\delta_\ell(0)-\delta_\ell(\infty)=n_\ell\pi
-\]
-when there is no zero-energy resonance, where $n_\ell$ is the number of
-bound states in the $\ell$th channel.  In the $s$-wave channel derive from
-a small semicircle around $k=0$ the threshold formula
-\[
-\delta_0(0)-\delta_0(\infty)=\left(n_0+\frac12\right)\pi
-\]
-when there is a zero-energy resonance.
-
-For the square well above and away from its threshold values, prove
-\[
-n_0=\left\lfloor\frac{\gamma a}{\pi}+\frac12\right\rfloor
-\]
-and verify that each divergence of the scattering length increases the
-continuous value of $\delta_0(0)$ by $\pi$.  State the finite-range,
-elasticity, zero-energy extrapolation, and phase-unwrapping assumptions
-under which scattering data determine an integer bound-state count.
-\end{exercise}
-
-\begin{exercise}[Marchenko reconstruction and the one-soliton potential]
-For the Schr\"odinger operator $L=-d^2/dx^2+V$ with a real potential on
-the line satisfying
-$\int_\R(1+|x|)|V(x)|\,dx<\infty$, let $f_+(k,x)$ and $f_-(k,x)$ be the
-Jost solutions normalized by
-\[
-f_+(k,x)e^{-ikx}\longrightarrow1\quad(x\to+\infty),
-\qquad
-f_-(k,x)e^{ikx}\longrightarrow1\quad(x\to-\infty).
-\]
-For real $k\ne0$, define the right-incident reflection and transmission
-coefficients by the asymptotics
-\[
-\psi_R(k,x)\sim e^{-ikx}+R(k)e^{ikx}\quad(x\to+\infty),
-\qquad
-\psi_R(k,x)\sim T(k)e^{-ikx}\quad(x\to-\infty).
-\]
-The bound states are the poles $i\kappa_j$, $\kappa_j>0$, of the
-meromorphic transmission coefficient.  Normalize their real eigenfunctions
-so that
-\[
-\|\psi_j\|_2=1,
-\qquad
-\psi_j(x)\sim c_j^{1/2}e^{-\kappa_jx}\quad(x\to+\infty),
-\]
-and call $c_j>0$ the right norming constants.  Define
-\[
-\mathcal F(s)=\frac1{2\pi}\int_\R R(k)e^{iks}\,dk
-+\sum_jc_je^{-\kappa_js}.
-\]
-The Marchenko kernel is the solution of
-\[
-K(x,y)+\mathcal F(x+y)
-+\int_x^\infty K(x,z)\mathcal F(z+y)\,dz=0,
-\qquad y\geq x,
-\]
-and the reconstructed potential is
-\[
-V(x)=-2\frac d{dx}K(x,x).
-\]
-Assume $R(-k)=\overline{R(k)}$, $\kappa_j,c_j>0$, and that
-$\mathcal F$ is real and absolutely continuous with
-$\mathcal F,\mathcal F'\in L^1([a,\infty))$ for every $a$.  On
-$L^2([x,\infty))$ define
-\[
-(H_xh)(y)=\int_x^\infty\mathcal F(y+z)h(z)\,dz,
-\]
-and assume $I+H_x$ is strictly positive for every $x$.  Prove the
-Marchenko existence and uniqueness theorem~\cite{deift-trubowitz}: the
-integral equation has a unique solution, its diagonal defines a real
-potential with the stated weighted integrability, and its right
-scattering data are exactly $(R,\{\kappa_j,c_j\})$.  Prove that two
-potentials with the same data therefore coincide.
-
-In the reflectionless one-bound-state case put
-\[
-R(k)=0,
-\qquad
-\mathcal F(s)=2\kappa e^{2\kappa x_0}e^{-\kappa s}.
-\]
-Solve the integral equation and prove
-\[
-K(x,y)=
--\frac{2\kappa e^{2\kappa x_0}e^{-\kappa(x+y)}}
-{1+e^{-2\kappa(x-x_0)}},
-\qquad
-V(x)=-2\kappa^2\operatorname{sech}^2(\kappa(x-x_0)).
-\]
-Compute its transmission coefficient
-\[
-T(k)=\frac{k+i\kappa}{k-i\kappa}
-\]
-and recover the bound-state pole from transmission data.  Let the norming
-constant evolve by $c(t)=c(0)e^{8\kappa^3t}$ and show that
-$u(x,t)=-V(x,t)$ solves the Korteweg--de Vries equation
-\[
-u_t+6uu_x+u_{xxx}=0
-\]
-and is the soliton
-\[
-u(x,t)=2\kappa^2
-\operatorname{sech}^2\!\bigl(\kappa(x-x_0-4\kappa^2t)\bigr).
-\]
-State the one-dimensional, reflectionless, full-line, coherent-scattering,
-and weakly dispersive assumptions under which the measured pole and pulse
-speed test the inverse-scattering reconstruction.
-\end{exercise}
-
-\subsection{Coulomb Functions}
-
-\begin{exercise}[Coulomb radial functions and phase shifts]
-For the repulsive Coulomb potential $V(r)=\kappa/r$, with $\kappa>0$, put
-\[
-\rho=kr,
-\qquad
-\eta=\frac{\mu\kappa}{\hbar^2k},
-\qquad
-C_\ell(\eta)
-=\frac{2^\ell e^{-\pi\eta/2}|\Gamma(\ell+1+i\eta)|}{(2\ell+1)!}.
-\]
-Verify that the regular radial solution is
-\[
-F_\ell(\eta,\rho)
-=C_\ell(\eta)\rho^{\ell+1}e^{-i\rho}
-M(\ell+1-i\eta,2\ell+2,2i\rho).
-\]
-Derive from the Kummer series and the beta integral that
-\[
-M(a,b,z)=\frac{\Gamma(b)}{\Gamma(a)\Gamma(b-a)}
-\int_0^1e^{zt}t^{a-1}(1-t)^{b-a-1}\,dt
-\]
-when $\operatorname{Re}b>\operatorname{Re}a>0$.  Analyze its two endpoints
-for the displayed Coulomb parameters and prove
-\[
-F_\ell(\eta,\rho)
-=\sin\left(\rho-\eta\log(2\rho)-\frac{\ell\pi}{2}
-+\sigma_\ell(\eta)\right)+o(1),
-\qquad
-\sigma_\ell(\eta)=\arg\Gamma(\ell+1+i\eta),
-\]
-where the argument is chosen continuously from $\sigma_\ell(0)=0$.
-Deduce the Coulomb partial-wave factor
-\[
-S_\ell^{\rm C}
-=e^{2i\sigma_\ell}
-=\frac{\Gamma(\ell+1+i\eta)}{\Gamma(\ell+1-i\eta)}.
+ f(\theta)=\frac1{2\ii k}\sum_{\ell\ge0}(2\ell+1)
+ (S_\ell-1)P_\ell(\cos\theta),
+ \quad \sigma_{\rm tot}=\frac{4\pi}{k^2}
+ \sum_{\ell\ge0}(2\ell+1)\sin^2\delta_\ell.
 \]
 \end{exercise}
 
-\subsection{Rutherford Scattering}
+\begin{exercise}[Coulomb hypergeometric functions]
+For $V(r)=\kappa/r$ set $\rho=kr$ and
+$\eta=m\kappa/(\hbar^2k)$.  Put
+$(a)_n=\Gamma(a+n)/\Gamma(a)$ and define
+$\mathop{{}_1F_1}(a;c;z)=\sum_{n\ge0}(a)_nz^n/((c)_nn!)$.  Define the regular
+Coulomb function by
+\[
+ F_\ell(\eta,\rho)=C_\ell(\eta)\rho^{\ell+1}e^{-\ii\rho}
+ {}_1F_1(\ell+1-\ii\eta;2\ell+2;2\ii\rho),
+\]
+choosing $C_\ell(\eta)>0$ so that its large-$\rho$ sine amplitude is one.
+Derive the radial equation, the Euler integral and connection formula for
+${}_1F_1$, and
+$\sigma_\ell=\arg\Gamma(\ell+1+\ii\eta)$ with
+$\sigma_\ell-\sigma_{\ell-1}=\arctan(\eta/\ell)$.
+Sum the resulting Legendre series by its generating function.
+\end{exercise}
 
-\begin{exercise}[Coulomb amplitude and Rutherford detector counts]
-Because the Coulomb potential is not short-range, use the logarithmically
-modified radial phase above and define its nonforward amplitude by Abel
-regularization of the partial-wave expression.
-
-For $\operatorname{Re}s>0$, use the hypergeometric form of $P_\ell$ to prove
+\begin{exercise}[Rutherford scattering]
+Show that Coulomb scattering has amplitude, up to an unobservable constant
+phase,
 \[
-\int_{-1}^1(1-x)^{s-1}P_\ell(x)\,dx
-=2^s(-1)^\ell
-\frac{\Gamma(s)^2}{\Gamma(s-\ell)\Gamma(s+\ell+1)}.
+ f_C(\theta)=-\frac{\eta}{2k\sin^2(\theta/2)}
+ \exp\!\left[-2\ii\eta\log\sin\frac\theta2+2\ii\sigma_0\right].
 \]
-Continue in $s$ and use the Legendre generating function to obtain, for
-$-1<x<1$, the Abel-summed identity
+Hence derive
 \[
-\lim_{r\uparrow1}\sum_{\ell\geq0}(2\ell+1)
-(S_\ell^{\rm C}-1)r^\ell P_\ell(x)
-=-2i\eta\,2^{i\eta}
-\frac{\Gamma(1+i\eta)}{\Gamma(1-i\eta)}
-(1-x)^{-1-i\eta}.
+ \frac{\dd\sigma}{\dd\Omega}=
+ \left(\frac{Z_1Z_2e^2}{16\pi\epsilon_0E}\right)^2
+ \csc^4\frac\theta2
 \]
-With $x=\cos\theta$, derive the exact Coulomb amplitude away from the forward
-direction,
-\[
-f_{\rm C}(\theta)
-=-\frac{\eta}{2k\sin^2(\theta/2)}
-\frac{\Gamma(1+i\eta)}{\Gamma(1-i\eta)}
-\exp\!\left(-i\eta\log\sin^2\frac\theta2\right),
-\]
-and hence the Rutherford law
-\[
-\frac{d\sigma_{\rm C}}{d\Omega}
-=\left(\frac{\kappa}{4E\sin^2(\theta/2)}\right)^2.
-\]
-For incident particle rate $\dot N_{\rm in}$, target areal density $n_T$,
-acquisition time $T$, detector efficiency $\epsilon(\theta)$, and a narrow
-solid-angle bin $\Delta\Omega$ away from $\theta=0$, derive
-\[
-N(\theta;\Delta\Omega)
-\simeq \dot N_{\rm in}n_TT\epsilon(\theta)
-\frac{d\sigma_{\rm C}}{d\Omega}\Delta\Omega.
-\]
-State separately the assumptions of nonrelativistic spinless two-body motion,
-a thin target, pointlike unscreened charges, single scattering, negligible
-inelasticity, far-field detection, and sufficiently fine angular bins.  State
-how screening, finite charge radius, recoil calibration, multiple scattering,
-and detector acceptance alter the comparison with measured counts.
+for repulsive charges with center-of-mass kinetic energy $E$.  Identify beam
+energy, scattering angle, and detector solid angle as the measured quantities,
+and state the point-charge and nonrelativistic limitations of the prediction.
 \end{exercise}
 
 \section{Schwarzschild Spacetime}
 
-\subsection{Schwarzschild Isometries}
-
-\begin{exercise}[Schwarzschild geometry and gravitational redshift]
-A \emph{Lorentzian metric} on a four-manifold is a smooth
-nondegenerate symmetric form of signature $(+,-,-,-)$.  Call a tangent
-vector timelike, null, or spacelike according as its squared length is
-positive, zero, or negative.  Prove the fundamental theorem
-of pseudo-Riemannian geometry: there is a unique torsion-free
-metric-compatible connection $\nabla$, characterized by the Koszul
-formula.  Define geodesics by $\nabla_{\dot\gamma}\dot\gamma=0$, curvature
-by
+\begin{exercise}[Lorentzian geometry and spherical vacuum metrics]
+Define a Lorentzian metric, its Levi--Civita connection by the Koszul identity,
+curvature, Ricci tensor, and geodesics.  Derive the Jacobi equation from a
+variation of geodesics.  For a static spherically symmetric metric, use the
+area radius and proper-time normalization at infinity to solve
+$\operatorname{Ric}=0$, obtaining
 \[
-R(X,Y)Z=\nabla_X\nabla_YZ-\nabla_Y\nabla_XZ-\nabla_{[X,Y]}Z,
+ g=-\left(1-\frac{r_s}{r}\right)c^2\dd t^2
+ +\left(1-\frac{r_s}{r}\right)^{-1}\dd r^2+r^2\dd\Omega^2,
+ \qquad r_s=\frac{2GM}{c^2}.
 \]
-and $\operatorname{Ric}(X,Y)=\Tr(Z\mapsto R(Z,X)Y)$.  Let
-\[
-r_s=\frac{2G_{\mathrm N}M}{c^2},
-\qquad
-f(r)=1-\frac{r_s}{r},
-\]
-and on $(r_s,\infty)\times\mathbb R\times S^2$ consider
-\[
-g=f(r)c^2dt^2-f(r)^{-1}dr^2-r^2g_{S^2}.
-\]
-Prove Birkhoff's theorem~\cite{wald-gr}: every
-spherically symmetric Lorentzian vacuum solution with
-$\operatorname{Ric}=0$ is locally isometric to a member of this family.
-Compute its Ricci tensor and verify $\operatorname{Ric}=0$.  Compute
-the invariant
-\[
-R_{abcd}R^{abcd}
-=\frac{48G_{\mathrm N}^2M^2}{c^4r^6}
-\]
-and use it to distinguish the curvature singularity at $r=0$ from the
-coordinate singularity at $r=r_s$.
-
-Prove that time translation preserves $g$.  For its timelike Killing
-field $\partial_t$, prove that
-$g(k,\partial_t)$ is conserved along a null geodesic with tangent $k$.
-Compare it with the frequency measured by static observers to derive
-\[
-\frac{\nu_{\rm rec}}{\nu_{\rm emit}}
-=\sqrt{\frac{f(r_{\rm emit})}{f(r_{\rm rec})}}.
-\]
-In particular, for reception at infinity predict
-$\nu_\infty/\nu_r=\sqrt{1-r_s/r}$.  State the static-emitter,
-static-receiver, geometric-optics, negligible-backreaction, and
-spectral-resolution assumptions under which a clock or spectral-line
-measurement tests the formula.
+Prove that its connected exterior isometry group is
+$\R\times SO(3)$.
 \end{exercise}
 
-\subsection{Regge--Wheeler Decomposition}
-
-\begin{exercise}[Weierstrass elliptic functions and Schwarzschild light rays]
-Restrict a Schwarzschild null geodesic to an equatorial great circle.  Let
-$\mathcal E=f(r)c^2\dot t$ and $L=r^2\dot\phi$ be its conserved energy and
-angular momentum per affine parameter, put $b=cL/\mathcal E$, and set
-$u=1/r$.  Derive
+\begin{exercise}[Regge--Wheeler decomposition]
+Set $G=c=1$ temporarily and define the tortoise coordinate by
+$\dd r_*/\dd r=(1-2M/r)^{-1}$.  Separate the scalar wave equation using the
+$SO(3)$ decomposition and prove that $u_{\ell m}=r\phi_{\ell m}$ satisfies
 \[
-\left(\frac{du}{d\phi}\right)^2
-=\frac1{b^2}-u^2+r_su^3,
-\qquad
-\frac{d^2u}{d\phi^2}+u=\frac32r_su^2.
+ \left(-\partial_t^2+\partial_{r_*}^2-V_\ell(r)\right)u_{\ell m}=0,
+ \qquad
+ V_\ell(r)=\left(1-\frac{2M}{r}\right)
+ \left(\frac{\ell(\ell+1)}{r^2}+\frac{2M}{r^3}\right).
 \]
-For $g_2^3-27g_3^2\ne0$, prove the Weierstrass
-uniformization theorem: there is a lattice $\Lambda\subset\C$, unique up
-to homothety with the prescribed invariants, and a unique even
-$\Lambda$-periodic meromorphic function satisfying
-\[
-(\wp')^2=4\wp^3-g_2\wp-g_3,
-\qquad
-\wp(z)=z^{-2}+O(z^2),
-\]
-and this function gives the universal covering of the nonsingular cubic.
-For a nonradial orbit whose cubic is nonsingular, prove from uniqueness of
-solutions on that cubic that it is given by
-\[
-u(\phi)=\frac{1/3+4\wp(\phi-\phi_0;g_2,g_3)}{r_s},
-\qquad
-g_2=\frac1{12},
-\qquad
-g_3=\frac1{216}-\frac{r_s^2}{16b^2}.
-\]
-Show that its nontrivial finite-impact-parameter discriminant degeneration
-occurs at
-\[
-r_{\rm ph}=\frac32r_s=\frac{3G_{\mathrm N}M}{c^2},
-\qquad
-b_c=\frac{3\sqrt3G_{\mathrm N}M}{c^2},
-\]
-the unstable circular photon orbit and critical capture impact parameter.
-Expand the orbit equation for $r_s/b\ll1$ to derive the deflection angle
-\[
-\delta\phi=\frac{4G_{\mathrm N}M}{bc^2}
-+O\!\left(\frac{G_{\mathrm N}^2M^2}{b^2c^4}\right).
-\]
-Predict the far-field shadow angular radius $b_c/D$ for an observer at
-distance $D$.  State the vacuum, nonrotating, geometric-optics,
-thin-lens, far-observer, and source-model assumptions separately from the
-bending and shadow predictions.
+Construct the conserved Wronskian and the ingoing/outgoing scattering
+coefficients, and prove their flux identity.
 \end{exercise}
 
-\subsection{Confluent Heun Functions}
-
-\begin{exercise}[Regge--Wheeler equations and confluent-Heun scattering]
-Define the tortoise coordinate by
+\begin{exercise}[Confluent Heun functions and quasinormal modes]
+Define a confluent Heun function as the Frobenius solution at a regular
+singular point of
 \[
-r_*=r+r_s\log\!\left(\frac r{r_s}-1\right).
+ y''+\left(\alpha+\frac{\beta+1}{z}+\frac{\gamma+1}{z-1}\right)y'
+ +\left(\frac\mu z+\frac\nu{z-1}\right)y=0,
 \]
-For integer spin $s\in\{0,1,2\}$ and $\ell\geq s$, insert the scalar,
-Maxwell, and linearized Einstein equations into the spin-weighted
-spherical-harmonic decomposition and prove the separation theorem
-\cite{regge-wheeler,chandrasekhar}:
-after expansion in modes with time dependence $e^{-i\omega t}$ and the
-corresponding spherical harmonics,
-the radial master field satisfies
-\[
-\frac{d^2\psi}{dr_*^2}
-+\left(\frac{\omega^2}{c^2}-V_{\ell,s}(r)\right)\psi=0,
-\]
-\[
-V_{\ell,s}(r)
-=f(r)\left(\frac{\ell(\ell+1)}{r^2}
-+(1-s^2)\frac{r_s}{r^3}\right).
-\]
-Show that $r=r_s$ and $r=\infty$ are respectively regular and irregular
-singular endpoints.  After putting $z=r/r_s$ and factoring the ingoing or
-outgoing exponential and power behavior, transform the radial equation to
-\[
-y''+\left(\alpha+\frac{\beta+1}{z}
-+\frac{\gamma+1}{z-1}\right)y'
-+\left(\frac\mu z+\frac\nu{z-1}\right)y=0.
-\]
-When the exponent difference is nonintegral, define $H_0$ and $H_1$ to be
-the Frobenius solutions with exponent zero normalized by
-$H_0(0)=H_1(1)=1$; in resonant cases use their analytic limits.  Call these
-the local confluent Heun functions.  Substitute their power series into
-the equation to derive the three-term coefficient recurrences and their
-radii of convergence.  Determine $\alpha,\beta,\gamma,\mu,\nu$ from
-$\omega r_s/c$, $\ell$, and $s$ for the chosen asymptotic factors.
-
-Define the horizon-ingoing and infinity-outgoing solutions by
-\[
-\psi_{\rm in}\sim e^{-i\omega r_*/c}\quad(r_*\to-\infty),
-\qquad
-\psi_{\rm out}\sim e^{+i\omega r_*/c}\quad(r_*\to+\infty),
-\]
-and define the connection determinant
-\[
-D_{\ell,s}(\omega)
-=W(\psi_{\rm in},\psi_{\rm out}).
-\]
-Use constancy of the Wronskian to express reflection and transmission
-amplitudes as confluent-Heun connection coefficients and prove flux
-conservation for real $\omega$.
+with its parameters and initial exponent specified.  Transform the separated
+Schwarzschild radial equation to this form and derive the three-term
+recurrence of its Frobenius coefficients.  Define a quasinormal frequency as
+a zero of the connection coefficient multiplying the incoming solution at
+infinity for the solution ingoing at the horizon.  Express that coefficient
+as the limit of the recurrence's continued fraction and prove its convergence
+under the minimal-solution condition.
 \end{exercise}
 
-\subsection{Black-Hole Ringdown}
+\begin{exercise}[Black-hole ringdown in the eikonal limit]
+For $\ell\to\infty$, locate the maximum of $V_\ell$ at the unstable photon
+orbit $r=3M$.  Match parabolic-cylinder solutions across the maximum and
+derive, for fixed overtone $n$,
+\[
+ \frac{GM\omega_{\ell n}}{c^3}=
+ \frac{\ell+1/2-\ii(n+1/2)}{3\sqrt3}+O(\ell^{-1}).
+\]
+Show that the predicted waveform has oscillation frequency
+$\Re\omega/(2\pi)$ and damping time $1/\abs{\Im\omega}$.  Explain how the
+confluent-Heun continued fraction supplies the finite-$\ell$ correction and
+why the displayed asymptotic value must not be substituted as an exact
+$\ell=2$ prediction.
+\end{exercise}
 
-\begin{exercise}[Black-hole resonances, photon spheres, and ringdown]
-Define a Schwarzschild quasinormal frequency to be a zero of the
-confluent-Heun connection determinant $D_{\ell,s}(\omega)$ in the lower
-half-plane.  Show that it is equivalently a mode ingoing at the horizon and
-outgoing at infinity, and that its time dependence is a damped oscillation.
+\section{\texorpdfstring{$SL_2(\mathbb R)$}{SL2(R)}}
 
-For $\ell\to\infty$, locate the maximum of the Regge--Wheeler potential at
-the photon sphere.  Prove the leading parabolic-barrier WKB
-connection formula: if $V$ has a nondegenerate maximum $V_0$ and
-$V_0''=d^2V/dr_*^2<0$ there, an outgoing resonance satisfies
+\begin{exercise}[Hyperbolic isometries and the Casimir]
+Let $SL_2(\R)$ act on $\mathbb H=\{x+\ii y:y>0\}$ by M\"obius maps.  Prove
+that it preserves $\dd s^2=(\dd x^2+\dd y^2)/y^2$, identify the stabilizer of
+$\ii$ with $SO(2)$, and derive the Iwasawa and Cartan decompositions.  With
+the nonnegative convention define
 \[
-\frac{\omega^2/c^2-V_0}{\sqrt{-2V_0''}}
-=-i\left(n+\frac12\right)+O(\ell^{-1})
+ \Delta_{\mathbb H}=-y^2(\partial_x^2+\partial_y^2)
 \]
-in the eikonal scaling.  Apply it with the Langer replacement
-$\ell(\ell+1)\sim(\ell+\tfrac12)^2$, to derive
+and show that it is the action of the quadratic Casimir on right-$SO(2)$
+invariant functions.
+\end{exercise}
+
+\begin{exercise}[Principal, complementary, and discrete series]
+Construct the spherical principal series by unitary induction from the upper
+triangular subgroup, the complementary series by its invariant kernel, and
+the holomorphic and antiholomorphic discrete series on weighted Bergman
+spaces.  Determine their Casimir and $SO(2)$ spectra, including the signs of
+the discrete-series weights.  Prove irreducibility by cyclicity of a
+$K$-finite vector and classify the irreducible unitary representations by
+the possible lowest/highest weight or continuous Casimir parameter.
+\end{exercise}
+
+\begin{exercise}[$SL_2(\R)$ Plancherel decomposition]
+Construct the standard intertwining operator between opposite principal
+series, compute its scalar on every $SO(2)$ type from the raising and lowering
+relations, and determine its poles and residues.  Shift its contour to recover
+the discrete-series summands and derive the group Plancherel measure, with
+both even and odd principal-series densities.  Prove inversion first for
+compactly supported smooth $K$-finite functions and extend it to $L^2$.
+\end{exercise}
+
+\begin{exercise}[Legendre functions and the Mehler--Fock transform]
+Define
+$\mathop{{}_2F_1}(a,b;c;z)=\sum_{n\ge0}(a)_n(b)_nz^n/((c)_nn!)$ in the unit
+disk and continue it by its differential equation.  With fixed branches,
+define
 \[
-\omega_{\ell n}
-=\Omega_{\rm ph}\left(\ell+\frac12\right)
--i\lambda_{\rm ph}\left(n+\frac12\right)
-+O(\Omega_{\rm ph}\ell^{-1}),
+ P_\nu^\mu(z)=\frac1{\Gamma(1-\mu)}
+ \left(\frac{z+1}{z-1}\right)^{\mu/2}
+ {}_2F_1\!\left(-\nu,\nu+1;1-\mu;\frac{1-z}{2}\right).
 \]
+Derive the associated Legendre equation and show that the spherical function
+at spectral parameter $\lambda$ is
+$P_{-1/2+\ii\lambda}(\cosh r)$.  From the radial Sturm--Liouville problem
+prove the Mehler--Fock inversion and Plancherel formulas, including the
+density $\lambda\tanh(\pi\lambda)$.  Derive the analogous fixed-$SO(2)$-type
+transform with $P_{-1/2+\ii\lambda}^{-m}$.
+\end{exercise}
+
+\begin{exercise}[Hyperbolic-drum spectra]
+Let a membrane occupy a geodesic disk of curvature radius $a$ and hyperbolic
+radius $R$, with wave speed $v$ and Dirichlet boundary.  Separate its wave
+equation into $SO(2)$ types and prove that its resonances are
 \[
-\Omega_{\rm ph}=\lambda_{\rm ph}
-=\frac{c^3}{3\sqrt3G_{\mathrm N}M},
-\qquad n=0,1,2,\ldots.
+ \omega_{m,k}=\frac va\sqrt{\frac14+\lambda_{m,k}^2},
+ \qquad
+ P_{-1/2+\ii\lambda_{m,k}}^{-\abs m}(\cosh R)=0.
 \]
-Relate $\Omega_{\rm ph}$ to the critical impact parameter by
-$\Omega_{\rm ph}=c/b_c$.  If the source has cosmological redshift
-$z_{\rm cos}$ and angular-diameter distance $D_A$, predict the observed
-ringdown frequency, e-folding time, and shadow angular radius
+Prove the $m\ne0$ double degeneracy and the Weyl asymptotic from the
+Mehler--Fock spectral measure.  The zero locations, degeneracies, and area
+coefficient are the three measurable predictions.
+\end{exercise}
+
+\section{\texorpdfstring{$SL_2(\mathbb Z)$}{SL2(Z)}}
+
+\begin{exercise}[Modular group and its fundamental domain]
+Define $SL_2(\Z)$, its action on $\mathbb H$, and
+$S\tau=-1/\tau$, $T\tau=\tau+1$.  Prove the presentation
+$PSL_2(\Z)=\langle S,T\mid S^2=(ST)^3=1\rangle$ by reducing points to the
+standard fundamental domain.  Compute its hyperbolic area and the cusp,
+elliptic-point, and orbifold stabilizer data.
+\end{exercise}
+
+\begin{exercise}[Eisenstein series and the scattering coefficient]
+Construct $L^2(SL_2(\Z)\backslash\mathbb H)$ with hyperbolic measure and the
+nonnegative Laplacian.  Define the Eisenstein series
+$E(\tau,s)=\sum_{\Gamma_\infty\backslash\Gamma}(\Im\gamma\tau)^s$ for
+$\Re s>1$.  Unfold its inner products, continue it using the theta Mellin
+transform, compute its constant term, and prove its functional equation and
+unitarity on $\Re s=1/2$.
+\end{exercise}
+
+\begin{exercise}[Automorphic spectral and trace decomposition]
+Develop the Friedrichs realization of the nonnegative Laplacian at the cusp.
+Truncate the Eisenstein series, prove the Maass--Selberg relation, and obtain
+the orthogonal decomposition into constants, cusp forms, and the continuous
+Eisenstein integral.  Build the automorphic kernel from a compactly supported
+point-pair invariant, unfold it by conjugacy classes, and derive the Selberg
+trace identity with its identity, elliptic, parabolic, and hyperbolic terms.
+Recover the Weyl area term.
+\end{exercise}
+
+\begin{exercise}[Modular forms, theta constants, and the eta function]
+Define modular forms by their weight, multiplier, and cusp growth.  Starting
+from the theta transformation proved in Fourier Analysis, define
+$\vartheta_2,\vartheta_3,\vartheta_4$ by their shifted or signed lattice sums
+and derive all their $S,T$ transformations without re-proving Poisson
+summation.  Define
+$\eta(\tau)=q^{1/24}\prod_{n\ge1}(1-q^n)$ with
+$q=e^{2\pi\ii\tau}$, and derive its transformations from the Jacobi triple
+product.  Construct $E_4,E_6$, prove the valence formula, and show
 \[
-f_{\ell n}^{\rm obs}
-=\frac{\operatorname{Re}\omega_{\ell n}}{2\pi(1+z_{\rm cos})},
-\qquad
-\tau_{\ell n}^{\rm obs}
-=\frac{1+z_{\rm cos}}{|\operatorname{Im}\omega_{\ell n}|},
-\qquad
-\theta_{\rm sh}=\frac{b_c}{D_A},
+ \C[E_4,E_6]=\bigoplus_{k\ge0}M_k,\qquad
+ \Delta=\eta^{24}=\frac{E_4^3-E_6^2}{1728}.
 \]
-all from the same photon-sphere geometry.  State the isolated, nonrotating,
-asymptotically flat,
-linear-perturbation, eikonal, detector-frame, cosmological-redshift, and
-mode-identification assumptions under which shadow and ringdown
-measurements test these linked predictions.
-For the axial gravitational fundamental mode $(\ell,n)=(2,0)$, compute
+\end{exercise}
+
+\begin{exercise}[The modular invariant and monstrous moonshine]
+Define $j=E_4^3/\Delta$ and prove from the valence formula that every modular
+function holomorphic away from the cusp is a polynomial in $j$.  Compute
 \[
-\frac{GM\omega}{c^3}\approx0.4811-0.0962i
+ J(\tau)=j(\tau)-744=q^{-1}+196884q+21493760q^2+\cdots.
 \]
-from the eikonal formula.  Numerically continue the two local Heun
-solutions, locate the corresponding zero of $D_{2,2}$, and compare with
+Construct the graded traces of the moonshine module from the vertex-operator
+axioms, derive the denominator recursion from its Borcherds product, and use
+that recursion and genus-zero invariance to prove that the identity trace is
+$J$.  Verify the first decompositions
+$196884=1+196883$ and
+$21493760=1+196883+21296876$ into irreducible Monster dimensions.
+\end{exercise}
+
+\begin{exercise}[Conformal spectra and the Cardy prediction]
+Define a unitary two-dimensional conformal theory on a circle of circumference
+$L$ by commuting Virasoro actions with central charges $c,\bar c$ and weights
+$h,\bar h$.  Derive the cylinder Hamiltonian and momentum
 \[
-\frac{GM\omega}{c^3}\approx0.3737-0.0890i.
+ H=\frac{2\pi v}{L}\left(L_0+\bar L_0-\frac{c+\bar c}{24}\right),
+ \qquad P=\frac{2\pi}{L}(L_0-\bar L_0).
 \]
-Record that the leading formula overestimates this low-multipole real part
-by about $29\%$ and is a controlled prediction only as $\ell\to\infty$.
+Show that the torus trace is modular invariant when gravitational anomaly
+constraints are met.  Apply the $S$ transformation and a saddle-point
+estimate to prove, for effective chiral central charge $c_{\rm eff}$,
+\[
+ \log\rho(\Delta)=2\pi\sqrt{\frac{c_{\rm eff}\Delta}{6}}+o(\sqrt\Delta).
+\]
+Thus predict both the finite-size ground-energy shift
+$-\pi v(c+\bar c)/(12L)$ and the high-energy level-counting rate, specifying
+$v,L$, and the measured energies.
 \end{exercise}

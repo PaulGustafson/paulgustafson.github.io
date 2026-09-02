@@ -2,16 +2,17 @@
 
 These rules govern `Emergent_Mathematics.tex`.
 
-1. Apart from front matter and sectioning commands, every manuscript passage
-   belongs to a `definition` or `exercise` environment.
-2. Definitions introduce data, terminology, or notation. They do not contain
-   motivational essays or named theorem statements.
+1. Apart from front matter, sectioning commands, and the bibliography, every
+   manuscript passage belongs to an `exercise` environment.
+2. Definitions, hypotheses, notation, and normalization conventions occur at
+   the beginning of the first exercise that uses them. There are no standalone
+   definition environments.
 3. Exercises contain the mathematical and physical development. Physical
    motivation must take the form of a concrete calculation, construction,
    comparison, or inference from specified data.
 4. Transitions are made by exercise sequence: an exercise at a boundary must
    expose the question, obstruction, or construction used in the next
-   subsection. Free-standing transitional prose is not used.
+   section. Free-standing transitional prose is not used.
 5. The manuscript has no theorem, observation, remark, example, or proof
    environments. Experimental facts may occur as data in an exercise, but not
    as a separate observations list.
@@ -22,6 +23,10 @@ These rules govern `Emergent_Mathematics.tex`.
    exercise.
 7. Citations may identify data or invite comparison with a source inside an
    exercise; they may not substitute for an argument required by the exercise.
+
+8. The table of contents uses section headings only. Each section realizes,
+   through its exercise sequence, a symmetry, a decomposition, a named
+   special-function system, and a quantitative physical prediction.
 
 Structural audits and a successful LaTeX build are required before changes to
 the manuscript are committed.
