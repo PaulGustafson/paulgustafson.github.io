@@ -1,8 +1,18 @@
 # Manuscript section audit
 
 Every section is organized internally as symmetry, decomposition, named
-special functions, and a quantitative physical prediction. Intermediate
-headings are deliberately omitted from the rendered table of contents.
+special functions, and a quantitative physical prediction. The sections are
+grouped into seven parts; intermediate headings are deliberately omitted.
+
+| Part | Sections |
+|---|---|
+| Representation Theory | Hilbert Space through Poincar\'e Group |
+| Scattering Theory | Potential Scattering and Schwarzschild Spacetime |
+| Hyperbolic Symmetry | $SL_2(\mathbb R)$ and $SL_2(\mathbb Z)$ |
+| Scaling Limits | Virasoro Algebra, Unitary Ensembles, and Ising Model |
+| Quantum Algebra | Affine Kac--Moody Algebras through Double Affine Hecke Algebras |
+| Algebraic Geometry | Algebraic Curves through Finite-Gap Spectral Curves |
+| Generalized Symmetry | Index Theory through Fusion Categories |
 
 | Section | Symmetry | Decomposition | Special functions | Prediction |
 |---|---|---|---|---|

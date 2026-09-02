@@ -24,9 +24,11 @@ These rules govern `Emergent_Mathematics.tex`.
 7. Citations may identify data or invite comparison with a source inside an
    exercise; they may not substitute for an argument required by the exercise.
 
-8. The table of contents uses section headings only. Each section realizes,
-   through its exercise sequence, a symmetry, a decomposition, a named
-   special-function system, and a quantitative physical prediction.
+8. The table of contents uses part and section headings only. Parts group
+   consecutive sections by the kind of symmetry or analysis they share.
+   Each section realizes, through its exercise sequence, a symmetry, a
+   decomposition, a named special-function system, and a quantitative
+   physical prediction.
 
 Structural audits and a successful LaTeX build are required before changes to
 the manuscript are committed.
