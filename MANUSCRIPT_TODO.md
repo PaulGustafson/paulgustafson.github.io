@@ -137,12 +137,14 @@ reorganized to match the titles.
   - **Symmetry:** Global $\mathbb Z_2$ spin-flip symmetry of the Ising model.
   - **Decomposition:** Transfer-matrix spectral sectors and correlation
     lengths.
-  - **Special functions:** Theta functions encoding finite-size Ising
-    partition functions and scaling characters.
+  - **Special functions:** Ising characters derived from finite-size transfer
+    spectra and expressed through theta and eta functions.  Their product
+    formulas are established here and their modular transformations are
+    developed later under $SL_2(\mathbb Z)$.
   - **Physical application:** Ising criticality, including the critical
     temperature, correlation length, and finite-size spectrum.
   - **Subsection titles:** `$\mathbb Z_2$ Spin Symmetry`, `Transfer-Matrix
-    Spectrum`, `Theta Functions`, `Ising Criticality`.
+    Spectrum`, `Ising Characters`, `Ising Criticality`.
 
 - [ ] $SL_2(\mathbb R)$
 
@@ -211,12 +213,14 @@ reorganized to match the titles.
   - **Symmetry:** The Picard group acting on line bundles by tensor product.
   - **Decomposition:** Sheaf cohomology and the Riemann--Roch index
     $h^0-h^1$.
-  - **Special functions:** Theta functions as explicit sections of positive
-    line bundles on complex tori.
+  - **Special functions:** Bergman kernels as the projection kernels onto
+    spaces of holomorphic sections.  On a complex torus, express them through
+    the theta functions established earlier without redefining those
+    functions.
   - **Physical application:** Landau levels on a torus, including flux
     degeneracy and magnetic-translation constraints.
-  - **Subsection titles:** `Picard Group`, `Sheaf Cohomology`, `Theta
-    Functions`, `Landau Levels`.
+  - **Subsection titles:** `Picard Group`, `Sheaf Cohomology`, `Bergman
+    Kernels`, `Landau Levels`.
 
 - [ ] Affine Grassmannian
 
