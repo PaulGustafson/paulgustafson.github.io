@@ -2,13 +2,12 @@
 
 Every section is organized internally as symmetry or mathematical structure,
 special-function decomposition, and a quantitative physical prediction. The
-sections are grouped into nine parts; subsection and lower-level headings are
+sections are grouped into eight parts; subsection and lower-level headings are
 deliberately omitted.
 
 | Part | Sections |
 |---|---|
-| Harmonic Analysis | Hilbert Space, Fourier Analysis, and Peter--Weyl Theory |
-| Lie Theory | Reductive Groups through Poincaré Group |
+| Harmonic Analysis | Hilbert Space through Poincaré Group |
 | Scattering Theory | One-Dimensional Scattering through Schwarzschild Spacetime |
 | Hyperbolic Geometry | $SL_2(\mathbb R)$ and $SL_2(\mathbb Z)$ |
 | Conformal Field Theory | Virasoro Algebra and Ising Model |
