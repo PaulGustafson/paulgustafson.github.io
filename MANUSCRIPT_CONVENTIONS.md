@@ -24,11 +24,19 @@ These rules govern `Emergent_Mathematics.tex`.
 7. Citations may identify data or invite comparison with a source inside an
    exercise; they may not substitute for an argument required by the exercise.
 
-8. The table of contents uses part and section headings only. Parts group
-   consecutive sections by the kind of symmetry or analysis they share.
-   Each section realizes, through its exercise sequence, a symmetry, a
-   decomposition, a named special-function system, and a quantitative
-   physical prediction.
+8. The manuscript and table of contents use part and section headings only;
+   there are no subsection or lower-level headings.
+9. Part titles are standard names of mathematical disciplines. Section titles
+   are short, nonconjunctive, and use a standard name for the principal
+   mathematical subject, structure, or theory developed there.
+10. Parts group consecutive sections by a common mathematical discipline.
+    Every section realizes, through its exercise sequence and without printing
+    generic stage headings, the progression
+    symmetry or mathematical structure, decomposition, named special
+    functions or kernels, and quantitative physical prediction.
+11. The four stages are a substantive completeness test. If the special
+    functions do not arise from the stated decomposition or do not calculate
+    the final observable, the section must be refocused, merged, or removed.
 
 Structural audits and a successful LaTeX build are required before changes to
 the manuscript are committed.

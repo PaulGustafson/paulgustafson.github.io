@@ -66,35 +66,37 @@ These rules apply to the manuscript entry point
 
 - Treat each `\section` as a complete mathematical arc rather than as a
   container for prerequisite material.
+- Use only `\part` and `\section` headings. Do not add
+  `\subsection`, `\subsubsection`, or lower-level divisions.
+- Give every part a standard, immediately recognizable mathematical subject
+  name, such as `Lie Theory`, `Algebraic Topology`, or
+  `Tensor Categories`. A part title names the common mathematical discipline of its
+  consecutive sections, not their physical applications or a newly coined
+  umbrella idea.
 - Keep section titles short and nonconjunctive. Each title should name one
-  principal mathematical subject; do not join subjects or applications with
-  "and," commas, ampersands, or multi-clause constructions. Put the detailed
-  scope and physical culmination in exercise titles and exercise bodies.
-- Give every section exactly four subsections corresponding, in this order,
-  to symmetry, decomposition, special functions, and physical predictions.
-  Title each subsection by the specific mathematical instance it develops,
-  such as `Compact Groups`, `Peter--Weyl Decomposition`, `Legendre Functions`,
-  or `Angular Spectroscopy`; do not use the generic component names as
-  subsection titles.  Do not add `\subsubsection` or lower-level divisions.
-- Make each concrete title identify the role of its subsection, not merely a
-  topic appearing there.  In particular, a representation, transform, or
-  localization procedure belongs to the decomposition stage; it is not a
-  special-function title unless the subsection derives an explicit named
-  function or kernel from it.
+  standard mathematical subject, structure, or theory; do not join subjects
+  or applications with "and," commas, ampersands, or multi-clause
+  constructions. Put the detailed scope and physical culmination in exercise
+  titles and exercise bodies.
 - Use standard, immediately recognizable mathematical names.  Name the
-  actual group, algebra, category, decomposition theorem, special-function
-  family, or measured observable; do not coin umbrella phrases or use a
-  broader class when a concrete instance such as `Locally Compact Abelian
-  Groups`, `SU(2)`, or `SL_2(\mathbb R)` is the subject.
-- In the first subsection, specify the group, algebra, group action,
-  homogeneous space, or tensor category and what it acts on.  In the second,
+  actual group, algebra, category, theorem, or established field; do not coin
+  umbrella phrases or use a broader class when a concrete subject such as
+  `Peter--Weyl Theory`, `SL_2(\mathbb R)`, or `Geometric Satake` is
+  intended.
+- Organize every section, through its exercise sequence, into exactly this
+  conceptual progression: symmetry or mathematical structure; decomposition;
+  named special functions or kernels; quantitative physical prediction.
+  These are roles in the argument, not headings to print in the manuscript.
+- In the symmetry stage, specify the group, algebra, group action, homogeneous
+  space, or tensor category and what it acts on. In the decomposition stage,
   develop the associated spectral, representation-theoretic, transform,
-  convolution, or sector decomposition.  In the third, derive the characters,
-  matrix coefficients, eigenfunctions, or kernels that make the decomposition
-  explicit.  In the fourth, use those functions to calculate quantitative
-  observables and state the modeling assumptions.
-- Treat the four-subsection structure as a substantive test, not a formatting
-  device.  If a section cannot support every stage without unrelated filler,
+  convolution, localization, or sector decomposition. In the special-function
+  stage, derive the characters, matrix coefficients, eigenfunctions, or
+  kernels that make the decomposition explicit. In the prediction stage, use
+  those functions to calculate quantitative observables and state the modeling
+  assumptions.
+- Treat the four-stage structure as a substantive test, not a formatting
+  device. If a section cannot support every stage without unrelated filler,
   refocus it or merge its material into a section that can.
 - Every section must culminate in a substantial exercise that derives or uses
   a named special-function family and applies it to a concrete physical
@@ -113,8 +115,8 @@ These rules apply to the manuscript entry point
   distinguish the derived prediction, modeling assumptions, measured
   quantity, and limitations of the comparison.
 - Foundational material that does not naturally support such a culminating
-  exercise must be organized as subsections of the earliest larger section
-  that uses it. It should not remain a standalone section.
+  exercise must be integrated into the exercise sequence of the earliest
+  larger section that uses it. It should not remain a standalone section.
 - Do not append an unrelated special-function example merely to satisfy this
   rule. Merge, rename, reorder, or divide sections so that the culminating
   application follows from the preceding development.

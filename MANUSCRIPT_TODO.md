@@ -2,33 +2,37 @@
 
 Every section is organized internally as symmetry, decomposition, named
 special functions, and a quantitative physical prediction. The sections are
-grouped into seven parts; intermediate headings are deliberately omitted.
+grouped into nine parts; subsection and lower-level headings are deliberately
+omitted.
 
 | Part | Sections |
 |---|---|
-| Representation Theory | Hilbert Space through Poincar\'e Group |
-| Scattering Theory | Potential Scattering and Schwarzschild Spacetime |
-| Hyperbolic Symmetry | $SL_2(\mathbb R)$ and $SL_2(\mathbb Z)$ |
-| Scaling Limits | Virasoro Algebra, Unitary Ensembles, and Ising Model |
+| Harmonic Analysis | Hilbert Space, Fourier Analysis, and Peter--Weyl Theory |
+| Lie Theory | Reductive Groups through Poincaré Group |
+| Scattering Theory | One-Dimensional Scattering through Schwarzschild Spacetime |
+| Hyperbolic Geometry | $SL_2(\mathbb R)$ and $SL_2(\mathbb Z)$ |
+| Conformal Field Theory | Virasoro Algebra and Ising Model |
 | Quantum Algebra | Affine Kac--Moody Algebras through Double Affine Hecke Algebras |
 | Algebraic Geometry | Algebraic Curves through Finite-Gap Spectral Curves |
-| Generalized Symmetry | Index Theory through Fusion Categories |
+| Algebraic Topology | Index Theory and Cobordism |
+| Tensor Categories | Geometric Satake and Fusion Categories |
 
 | Section | Symmetry | Decomposition | Special functions | Prediction |
 |---|---|---|---|---|
 | Hilbert Space | $C^*$-algebras | Spectral theorem | Green functions | Resonance spectroscopy |
 | Fourier Analysis | LCA groups | Pontryagin duality | Fourier kernels | Fraunhofer diffraction |
-| Compact Harmonic Analysis | Compact groups | Peter--Weyl | Wigner functions | Rotational spectroscopy |
+| Peter--Weyl Theory | Compact groups | Peter--Weyl decomposition | Wigner functions | Rotational spectroscopy |
 | Reductive Groups | Weyl groups | Highest weights | Weyl characters | Flavor multiplets |
 | Coadjoint Orbits | Hamiltonian actions | Symplectic reduction | Coherent-state kernels | Spin precession |
 | Heisenberg Group | Central extensions | Stone--von Neumann | Hermite functions | Oscillator spectroscopy |
+| Unitary Ensembles | Unitary conjugation | Weyl integration | Hermite/sine/Airy kernels | Quantum-chaotic spectra |
 | Poincaré Group | Minkowski isometries | Wigner classification | Bessel functions | Correlation length |
+| One-Dimensional Scattering | Asymptotic translations | Jost decomposition | Pöschl--Teller hypergeometric functions | Transmission and bound-state spectra |
 | Potential Scattering | $SO(3)$ | Partial waves | Coulomb functions | Rutherford scattering |
 | Schwarzschild Spacetime | Exterior isometries | Regge--Wheeler modes | Confluent Heun functions | Ringdown |
 | $SL_2(\mathbb R)$ | Hyperbolic isometries | Unitary dual | Legendre functions | Hyperbolic-drum spectra |
 | $SL_2(\mathbb Z)$ | Modular group | Automorphic spectrum | Eisenstein series and modular forms | Cusp-scattering resonances |
 | Virasoro Algebra | Central extension of circle vector fields | Positive-energy highest weights | Virasoro and minimal-model characters | Conformal finite-size spectra |
-| Unitary Ensembles | Unitary conjugation | Weyl integration | Hermite/sine/Airy kernels | Quantum-chaotic spectra |
 | Ising Model | $\mathbb Z_2$ | Transfer spectrum | Ising characters | Criticality |
 | Affine Kac--Moody Algebras | Centrally extended loop groups | Integrable highest weights | Weyl--Kac characters and KZ blocks | WZW finite-size spectra |
 | Quantum Groups | $U_v(\mathfrak{sl}_2)$ | Quantum Peter--Weyl | Basic hypergeometric functions | XXZ spectroscopy |
@@ -38,7 +42,7 @@ grouped into seven parts; intermediate headings are deliberately omitted.
 | Finite-Gap Spectral Curves | KdV flows | Bloch--Floquet theory | Baker--Akhiezer functions | Band gaps |
 | Index Theory | $U(1)$ gauge symmetry | Analytic/topological index | Monopole harmonics | Hall conductance |
 | Cobordism | Tangential structures | Pontryagin--Thom | Eta functions | Invertible phases |
-| Affine Grassmannian | Loop groups | Geometric Satake | Hall--Littlewood polynomials | 't Hooft fusion |
+| Geometric Satake | Loop groups | Satake equivalence | Hall--Littlewood polynomials | 't Hooft fusion |
 | Fusion Categories | Noninvertible symmetry | Semisimplification | Modular $S$-matrix | Anyon interferometry |
 
 ## Validation checklist
