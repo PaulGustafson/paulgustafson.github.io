@@ -1,9 +1,8 @@
 # Manuscript section audit
 
-Every section is organized internally as symmetry or mathematical structure,
-special-function decomposition, and a quantitative physical prediction. The
-sections are grouped into eight parts; subsection and lower-level headings are
-deliberately omitted.
+Every section is organized internally as geometric symmetry, special-function
+decomposition, and physical observables. The sections are grouped into eight
+parts; subsection and lower-level headings are deliberately omitted.
 
 | Part | Sections |
 |---|---|
@@ -16,7 +15,7 @@ deliberately omitted.
 | Algebraic Topology | Index Theory and Cobordism |
 | Tensor Categories | Geometric Satake and Fusion Categories |
 
-| Section | Symmetry or structure | Special-function decomposition | Prediction |
+| Section | Geometric symmetry | Special-function decomposition | Physical observable |
 |---|---|---|---|
 | Hilbert Space | $C^*$-algebras | Spectral theorem and Green functions | Resonance spectroscopy |
 | Fourier Analysis | LCA groups | Pontryagin duality and Fourier kernels | Fraunhofer diffraction |
