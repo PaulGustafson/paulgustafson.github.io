@@ -1,166 +1,31 @@
 \part{Harmonic Analysis}
 
-\section{Hilbert Space}
-
-\begin{exercise}[Finite-dimensional vector spaces and Hilbert spaces]
-Work over $\C$.  Define the tensor product $V\otimes W$ by its universal
-bilinear map and construct its associativity, unit, and symmetry
-isomorphisms from that property.  A vector space $V$ is called
-finite-dimensional when there
-are a vector space $V^\vee$ and maps
-\[
- \operatorname{coev}_V:\C\longrightarrow V\otimes V^\vee,
- \qquad \operatorname{ev}_V:V^\vee\otimes V\longrightarrow\C
-\]
-whose two composites obtained by inserting $\operatorname{coev}_V$ and then
-applying $\operatorname{ev}_V$ are the identities of $V$ and $V^\vee$.
-Let $\sigma_{V,V^\vee}(v\otimes\phi)=\phi\otimes v$ be the symmetry.  Define
-\[
- \Tr(T)=
- \operatorname{ev}_V\circ\sigma_{V,V^\vee}\circ
- (T\otimes1)\circ\operatorname{coev}_V
-\]
-for $T\in\End(V)$.  Prove cyclicity of trace and the direct-sum and tensor
-product formulas.  Define a complex inner-product space, its norm, Cauchy
-sequences, and completion.  Define a Hilbert space to be a complete
-inner-product space and prove the projection theorem for a closed subspace.
-Deduce the Riesz representation theorem for bounded linear functionals.
-For a bounded operator $T$ define its adjoint intrinsically by
-$\inner{Tx}{y}=\inner{x}{T^*y}$, and prove
-$\norm{T^*T}=\norm{T}^2$.
-\end{exercise}
-
-\begin{exercise}[$C^*$-algebras, states, and projective symmetry]
-Define a unital $C^*$-algebra to be a complete normed complex algebra $A$
-with an involution satisfying $\norm{a^*a}=\norm a^2$.  Define positive
-elements, states, and $*$-representations.  Prove that every positive
-functional $\omega$ satisfies Cauchy--Schwarz.  On $A/N_\omega$, where
-$N_\omega=\{a:\omega(a^*a)=0\}$, complete
-\[
- \inner{[a]}{[b]}_\omega=\omega(b^*a)
-\]
-and show that left multiplication gives a cyclic representation
-$(\pi_\omega,\mathcal H_\omega,\Omega_\omega)$ with
-$\omega(a)=\inner{\pi_\omega(a)\Omega_\omega}{\Omega_\omega}$.
-Show that the direct sum over all states is faithful.  Define the projective
-state space $\mathbb P(\mathcal H)$ as the one-dimensional closed subspaces
-of a Hilbert space and its transition probability by
-\[
- p([x],[y])=\frac{\abs{\inner{x}{y}}^2}{\norm{x}^2\norm{y}^2}.
-\]
-Define $U(A)=\{u:u^*u=uu^*=1\}$ and prove that every representation makes
-$U(A)$ act on $\mathbb P(\mathcal H)$ preserving $p$.  For $h=h^*\in A$,
-identify its geometric symmetry group with
-$U(A)_h=\{u:uhu^*=h\}$ and prove that every $\pi(u)$ in this group commutes
-with every polynomial in $\pi(h)$.
-\end{exercise}
-
-\begin{exercise}[Gelfand transform and the spectral theorem]
-For a unital commutative $C^*$-algebra $A$, define its character space
-$\widehat A$ and the Gelfand transform $a\mapsto\widehat a$.  Prove, by
-maximal ideals and the $C^*$-identity, that
-$A\simeq C(\widehat A)$.  Prove the Riesz--Markov theorem for positive
-functionals on $C(X)$ by constructing a regular Borel measure through outer
-approximation.  For a bounded self-adjoint operator $H$, apply this
-to $C^*(1,H)$ and construct the unique projection-valued measure $P$ on
-$\spec(H)$ satisfying
-\[
- f(H)=\int_{\spec(H)}f(E)\dd P(E),\qquad
- H=\int_{\spec(H)}E\dd P(E).
-\]
-Write $\mathcal B(\mathcal H)$ for the $C^*$-algebra of bounded operators and
-prove that $uP(B)u^*=P(B)$ for every
-$u\in U(\mathcal B(\mathcal H))_H$, so the spectral resolution is equivariant
-for the geometric symmetry above.  Prove the bounded Borel functional
-calculus, spectral mapping, and
-$\inner{f(H)x}{y}=\int f\dd\mu_{x,y}$, where
-$\mu_{x,y}(B)=\inner{P(B)x}{y}$.
-\end{exercise}
-
-\begin{exercise}[Closed operators and the unbounded spectral theorem]
-For a densely defined operator $D$ on a Hilbert space, define its graph,
-adjoint, closure, resolvent, and the conditions of being symmetric,
-self-adjoint, and essentially self-adjoint.  Prove the closed-graph criterion
-for the adjoint and show that
-$(D-\ii)(D+\ii)^{-1}$ is unitary exactly when $D$ is self-adjoint.  Apply the
-bounded spectral theorem to this Cayley transform and construct the unique
-projection-valued measure satisfying
-\[
- D=\int_{\R}\lambda\dd P(\lambda),\qquad
- \operatorname{Dom}(D)=
- \left\{x:\int_{\R}\lambda^2\dd\mu_x(\lambda)<\infty\right\}.
-\]
-Develop the measurable functional calculus, including its domain rule and
-spectral mapping.  Define a densely defined closed semibounded quadratic form
-and prove the representation theorem that associates it with a self-adjoint
-operator.  For a semibounded symmetric operator, close its form and construct
-the Friedrichs extension.  Prove that compact resolvent is equivalent to a
-discrete spectral decomposition with finite-rank spectral projections and no
-finite accumulation point.
-\end{exercise}
-
-\begin{exercise}[Holomorphic functions and contour integrals]
-Define complex differentiability, holomorphic and meromorphic functions,
-piecewise smooth contour integrals, winding number, and residues.  Prove
-Goursat's theorem on triangles, the Cauchy integral formula, local power-series
-expansion, the identity and maximum principles, and the residue theorem for a
-finite collection of polygonal boundary curves.  Derive the argument
-principle and Schwarz reflection.  Define analytic continuation along a path
-by overlapping power-series germs, prove uniqueness, and identify monodromy
-on a simply connected domain.  For a holomorphic family of bounded invertible
-operators, prove that inversion is holomorphic and that a pole of a
-finite-rank resolvent has residue equal to its spectral projection.
-\end{exercise}
-
-\begin{exercise}[Green functions and spectral measures]
-For $z\notin\spec(H)$ define the resolvent $R_H(z)=(H-z)^{-1}$ and the scalar
-Green function
-\[
- G_x(z)=\inner{R_H(z)x}{x}
-       =\int\frac{\dd\mu_x(E)}{E-z}.
-\]
-Prove the resolvent identity, $\Im G_x(z)>0$ for $\Im z>0$, and the Stieltjes
-inversion formula
-\[
- \mu_x((a,b))=\lim_{\epsilon\downarrow0}
- \frac1\pi\int_a^b\Im G_x(E+\ii\epsilon)\dd E
-\]
-when the endpoints are not atoms.  Conversely, prove the Herglotz
-representation for a function with positive imaginary part and the decay
-$G(\ii y)=O(y^{-1})$.  Thus identify scalar Green functions as the Stieltjes
-special-function transforms of finite positive measures.
-\end{exercise}
-
-\begin{exercise}[Green-function resonance spectroscopy]
-Let $H$ act on a finite-dimensional Hilbert space, let $d$ be a normalized
-state prepared by a weak monochromatic probe, and let $\gamma>0$ be its
-energy resolution.  Define the absorption profile
-\[
- A_\gamma(E)=\frac1\pi\Im G_d(E+\ii\gamma).
-\]
-Use the spectral theorem to prove
-\[
- A_\gamma(E)=\sum_{\lambda\in\spec(H)}
- \norm{P_{\{\lambda\}}d}^2
- \frac{\gamma/\pi}{(E-\lambda)^2+\gamma^2}.
-\]
-Show that an isolated line is centered at $\lambda$, has full width at half
-maximum $2\gamma$, integrated intensity
-$\norm{P_{\{\lambda\}}d}^2$, and converges to the corresponding spectral
-mass as $\gamma\downarrow0$.  Formulate the experimental test as simultaneous
-comparison of line positions, widths, and oscillator strengths with these
-three quantities.
-\end{exercise}
-
 \section{Fourier Analysis}
 
+\begin{exercise}[Hilbert spaces and unitary translations]
+Work over $\C$.  Define normed and Banach spaces, bounded linear maps and
+their operator norms, inner-product spaces, Cauchy sequences, and completion.
+Define a Hilbert space to be a complete inner-product space and prove the
+projection theorem for a closed subspace.  Deduce the Riesz representation
+theorem for bounded linear functionals.  For a bounded operator $T$ define
+its adjoint intrinsically by
+$\inner{Tx}{y}=\inner{x}{T^*y}$ and prove
+$\norm{T^*T}=\norm T^2$.  Define a unitary operator as a surjective linear
+isometry and a unitary action as a group homomorphism into such operators.
+Construct $L^2(X,\mu)$ from square-integrable functions modulo equality
+almost everywhere.  If a locally compact group $G$ acts continuously on $X$
+preserving $\mu$, prove that pullback defines a unitary action on
+$L^2(X,\mu)$.  Specialize to the additive action of $\R^n$ on itself with
+Lebesgue measure and prove strong continuity of its translations.
+\end{exercise}
+
 \begin{exercise}[Locally compact groups and Haar measure]
-Let $G$ be a locally compact group.  Construct a nonzero positive
-left-translation-invariant functional on $C_c(G)$ by the covering-number
-argument, construct its regular Borel measure by outer approximation, and
-extend the preceding Riesz--Markov representation to $C_c(G)$ and prove the
-uniqueness needed to obtain left
-Haar measure $\dd x$, unique up to scale.  Construct right Haar measure and
+Let $G$ be a locally compact group.  Define a positive linear functional on
+$C_c(G)$ and prove its Riesz--Markov representation by outer approximation.
+Construct a
+nonzero positive left-translation-invariant functional by the covering-number
+argument, apply that representation, and prove the uniqueness needed to
+obtain left Haar measure $\dd x$, unique up to scale.  Construct right Haar measure and
 the continuous homomorphism $\Delta_G:G\to\R_{>0}$ characterized by
 \[
  \int_G f(xg)\dd x=\Delta_G(g)^{-1}\int_Gf(x)\dd x.
@@ -246,7 +111,23 @@ quantity needed to test this prediction.
 
 \section{Peter--Weyl Theory}
 
-\begin{exercise}[Compact groups and unitary representations]
+\begin{exercise}[Finite-dimensional unitary representations of compact groups]
+Define the tensor product $V\otimes W$ by its universal bilinear map and
+construct its associativity, unit, and symmetry isomorphisms, writing the
+last as $\sigma_{V,W}:V\otimes W\to W\otimes V$.  Call $V$ finite-dimensional
+when there are a vector space $V^\vee$ and evaluation
+and coevaluation maps
+\[
+ \operatorname{ev}_V:V^\vee\otimes V\to\C,
+ \qquad \operatorname{coev}_V:\C\to V\otimes V^\vee
+\]
+satisfying the two snake identities.  Define the trace by
+\[
+\Tr(T)=\operatorname{ev}_V\circ\sigma_{V,V^\vee}\circ
+ (T\otimes1)\circ\operatorname{coev}_V
+\]
+and put $\dim V=\Tr(1_V)$.  Prove cyclicity of trace and its direct-sum and
+tensor-product formulas.
 Use the preceding Haar construction and compactness to normalize Haar measure
 on a compact group $K$ to total mass one.  Let $K\times K$ act on $K$ by
 $(a,b)\mathbin\cdot g=agb^{-1}$ and prove that normalized Haar measure is
@@ -266,7 +147,7 @@ map
  \qquad C_\pi(v\otimes\phi)(g)=\phi(\pi(g^{-1})v).
 \]
 Prove Schur orthogonality and that $\sqrt{\dim V_\pi}\,C_\pi$ is an isometry.
-Use convolution, finite-rank spectral projections, and Stone--Weierstrass to
+Use convolution, finite-rank convolution projections, and Stone--Weierstrass to
 prove the unitary decomposition
 \[
  L^2(K)\simeq\widehat\bigoplus_{\pi\in\widehat K}

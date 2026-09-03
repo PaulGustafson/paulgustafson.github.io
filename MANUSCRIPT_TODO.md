@@ -6,7 +6,7 @@ parts; subsection and lower-level headings are deliberately omitted.
 
 | Part | Sections |
 |---|---|
-| Harmonic Analysis | Hilbert Space through Poincaré Group |
+| Harmonic Analysis | Fourier Analysis through Poincaré Group |
 | Scattering Theory | One-Dimensional Scattering through Schwarzschild Spacetime |
 | Hyperbolic Geometry | $SL_2(\mathbb R)$ and $SL_2(\mathbb Z)$ |
 | Conformal Field Theory | Virasoro Algebra and Ising Model |
@@ -17,7 +17,6 @@ parts; subsection and lower-level headings are deliberately omitted.
 
 | Section | Geometric symmetry | Special-function decomposition | Physical prediction |
 |---|---|---|---|
-| Hilbert Space | $U(A)_h$ acting on projective state space | Spectral theorem and Green functions | Resonance spectroscopy |
 | Fourier Analysis | LCA translations on $G$ | Pontryagin duality and Fourier kernels | Fraunhofer diffraction |
 | Peter--Weyl Theory | $K\times K$ acting on $K$ | Peter--Weyl decomposition and Wigner functions | Rotational spectroscopy |
 | Reductive Groups | Weyl group acting on weight space | Highest weights and Weyl characters | Flavor multiplets |
