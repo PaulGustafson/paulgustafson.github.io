@@ -1,6 +1,6 @@
 \part{Algebraic Geometry}
 
-\section{Algebraic Curves}
+\section{Elliptic Functions}
 
 \begin{exercise}[Affine and projective curves]
 For a commutative unital ring $A$, define prime ideals, localization, the
@@ -103,7 +103,7 @@ $\theta_0$, and the measured return time, and distinguish ideal rigid,
 frictionless motion from experimental corrections.
 \end{exercise}
 
-\section{Riemann--Roch}
+\section{Bergman Kernels}
 
 \begin{exercise}[Line-bundle automorphisms and sheaf cohomology]
 Define a line bundle $p:L\to X$ and immediately define a section over
@@ -201,8 +201,10 @@ $\mathcal D_n$ by gluing the displayed chart operators.
 For a weight $\lambda$, define $\mathcal D_\lambda$ by twisting differential
 operators with $L_\lambda$.  Construct the order filtration, identify its
 associated graded with functions
-on $T^*(G/B)$, and use the moment map and the Koszul resolution of its fibers
-to prove
+on $T^*(G/B)$.  For a finite-dimensional space of commuting endomorphisms,
+construct its Koszul complex intrinsically by exterior powers, prove its
+exactness for a regular sequence, and apply it to the moment-map fibers to
+prove
 \[
  \Gamma(G/B,\mathcal D_\lambda)
  \simeq U(\mathfrak g)/U(\mathfrak g)\ker\chi_\lambda.
@@ -255,7 +257,7 @@ quantization, curvature, boundary, interaction, and field-uniformity
 assumptions.
 \end{exercise}
 
-\section{Finite-Gap Spectral Curves}
+\section{Baker--Akhiezer Functions}
 
 \begin{exercise}[KdV Lax flows]
 Let the translation circle act on the phase space
@@ -333,7 +335,7 @@ lattice, interaction, and finite-size corrections.
 
 \part{Algebraic Topology}
 
-\section{Index Theory}
+\section{Monopole Harmonics}
 
 \begin{exercise}[Homotopy, CW complexes, and vector bundles]
 Define pointed homotopy, homotopy equivalence, loop and suspension spaces,
@@ -448,13 +450,17 @@ gap, noninteracting-band, zero-temperature, and disorder-localization
 assumptions from the measured transverse conductance.
 \end{exercise}
 
-\section{Cobordism}
+\section{Eta Functions}
 
 \begin{exercise}[Spectra and stable homotopy]
 Using pointed CW complexes and the loop--suspension adjunction already
 developed, construct spectra and stable homotopy groups by iterated
-suspension, prove the Freudenthal stable range, and identify ordinary
-homology as maps into Eilenberg--Mac Lane spectra.  Construct generalized
+suspension and prove the Freudenthal stable range.  For an abelian group $A$,
+construct $K(A,n)$ inductively by classifying spaces, prove that its only
+nonzero homotopy group is $\pi_n\simeq A$, and use the loop equivalences
+$K(A,n)\simeq\Omega K(A,n+1)$ to define the Eilenberg--Mac Lane spectrum
+$HA$.  Identify ordinary homology and cohomology with the theories represented
+by $HA$.  Construct generalized
 homology and cohomology from a spectrum and prove their exactness and
 suspension axioms.
 \end{exercise}
@@ -466,7 +472,10 @@ stable tangent classifier through $BG\to BO$, equivalently as the appropriate
 reduction of this frame symmetry.  Construct orientation, spin, and stable
 complex
 structures as the cases $SO$, $\operatorname{Spin}$, and $U$, and identify
-their obstructions $w_1$, $w_2$, and the stable complex lifting condition.
+the obstruction cocycles over the skeleta of $BO$.  Define their universal
+classes $w_1,w_2$, prove naturality and the Whitney product formula, and show
+that they are precisely the orientation and spin obstructions; identify the
+stable complex lifting condition.
 Define $G$-bordism by compact manifolds with compatible boundary structure
 and prove it is a graded ring under disjoint union and product.
 \end{exercise}
@@ -520,7 +529,10 @@ with boundary, analyze separated boundary modes, and prove
  -\frac{\eta_{D_\partial}(0)+\dim\ker D_\partial}{2}.
 \]
 For the circle operator with holonomy $e^{2\pi\ii a}$ derive
-$\eta(0)=1-2a$ for $0<a<1$ from the Hurwitz-zeta functional equation.
+$\eta(0)=1-2a$ for $0<a<1$ as follows: define
+$\zeta(s,a)=\sum_{n\geq0}(n+a)^{-s}$ for $\Re s>1$, use the Mellin transform
+of the shifted Gaussian and Poisson summation to continue it and derive its
+functional equation, and evaluate the resulting difference at $s=0$.
 \end{exercise}
 
 \begin{exercise}[Invertible phases and eta-response predictions]
@@ -528,7 +540,8 @@ Define an invertible reflection-positive field theory as a symmetric
 monoidal map from the appropriate bordism category to invertible complex
 lines, and use stacking to form its classification group.  Apply
 Pontryagin--Thom to identify deformation classes with maps from the relevant
-Thom spectrum to the Picard spectrum of invertible phases, including the
+Thom spectrum to the Picard spectrum obtained by iteratively delooping the
+grouplike symmetric monoidal $\infty$-groupoid of invertible phases, including the
 symmetry structure in the tangential data.  For a
 massive fermion whose boundary operator is $D_\partial$, derive the relative
 partition phase
@@ -544,7 +557,7 @@ and crossing parity.
 
 \part{Tensor Categories}
 
-\section{Geometric Satake}
+\section{Hall--Littlewood Polynomials}
 
 \begin{exercise}[Loop groups and Schubert cells]
 For a complex reductive group $G$, define
@@ -587,7 +600,10 @@ rigid duals from inversion and Verdier duality.
 \begin{exercise}[Satake fiber functor]
 Let $\operatorname{Sat}_G$ be the category of $G[[z]]$-equivariant perverse
 sheaves on $\operatorname{Gr}_G$.  Prove exactness and faithfulness of total
-cohomology by the weight-functor decomposition over semi-infinite orbits.
+cohomology by the weight-functor decomposition over the semi-infinite orbits
+$S_\mu=N((z))z^\mu$, where $N$ is the unipotent radical selected by the
+positive roots; prove the required dimension and transversality statements
+for their intersections with Schubert varieties.
 Use convolution to make it a symmetric monoidal fiber functor.  Construct the
 group of its tensor automorphisms, recover its coordinate Hopf algebra from
 matrix coefficients and rigid duals, and prove the Tannaka equivalence with
@@ -684,7 +700,7 @@ and separate the protected multiplicities from coupling-dependent operator
 normalizations and from corrections to the local-defect idealization.
 \end{exercise}
 
-\section{Fusion Categories}
+\section{Modular S-Matrices}
 
 \begin{exercise}[Rigid and unitary fusion categories]
 Define a unitary fusion category as a finite semisimple rigid
@@ -725,9 +741,14 @@ semisimplifications.
 \begin{exercise}[Factorization homology and the Levin--Wen model]
 Define a disk algebra in a symmetric monoidal higher category and construct
 factorization homology by the colimit over embedded disks.  Prove excision by
-cofinality of collar gluings.  Apply it to the three-dimensional
-Turaev--Viro theory of a fusion category $\mathcal C$ and identify the category
-assigned to a circle with its Drinfeld center.  Triangulate a closed surface,
+cofinality of collar gluings.  Define the Drinfeld center $Z(\mathcal C)$ to
+have objects $(x,c_{x,-})$ consisting of an object and a natural half-braiding
+satisfying the hexagon relation.  From the simple labels, quantum dimensions,
+and associators of $\mathcal C$, construct the Turaev--Viro state sum and
+prove its invariance under Pachner moves from the pentagon and spherical
+identities.  Construct its bordism maps by gluing, regard the result as the
+three-dimensional Turaev--Viro theory, and prove that the category it assigns
+to a circle is $Z(\mathcal C)$.  Triangulate a closed surface,
 define the Levin--Wen vertex and plaquette projectors from the $F$-symbols,
 and prove their commutativity by the pentagon identity.  Show that the
 ground-state space is the corresponding factorization-homology state space.

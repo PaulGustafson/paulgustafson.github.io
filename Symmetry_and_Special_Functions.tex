@@ -62,10 +62,10 @@
 \clearpage
 
 \begingroup
-\fontsize{7.4}{8.1}\selectfont
+\scriptsize
 \setlength{\parskip}{0pt}
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{0.98}
+\renewcommand{\arraystretch}{1.02}
 \begin{center}
 {\large\bfseries Section Map}
 \end{center}
@@ -75,77 +75,68 @@
   >{\raggedright\arraybackslash}p{0.34\textwidth}
   >{\raggedright\arraybackslash}p{0.21\textwidth}@{}}
 \textbf{Section} & \textbf{Geometric symmetry} &
-\textbf{Special-function decomposition} & \textbf{Physical experiment}\\
+\textbf{Special-function decomposition} & \textbf{Physical observable}\\
 \hline
 \endfirsthead
 \textbf{Section} & \textbf{Geometric symmetry} &
-\textbf{Special-function decomposition} & \textbf{Physical experiment}\\
+\textbf{Special-function decomposition} & \textbf{Physical observable}\\
 \hline
 \endhead
 \multicolumn{4}{@{}l}{\textbf{I. Harmonic Analysis}}\\
-1. Fourier Analysis & LCA translations on $G$ &
-Pontryagin duality and Fourier kernels & Fraunhofer diffraction\\
-2. Peter--Weyl Theory & $K\times K$ acting on $K$ &
-Peter--Weyl decomposition and Wigner functions & Rotational spectroscopy\\
-3. Symmetric Spaces & $O(d+1)$ acting on $S^d$ &
-Jacobi functions and spherical harmonic decomposition & Spherical resonators\\
-4. Euclidean Group & $E(V)$ acting on Euclidean space &
-Bessel functions and Hankel decomposition & Circular diffraction\\
-5. Reductive Groups & Weyl symmetry of weight space &
-Highest weights and Weyl characters & Flavor multiplets\\
-6. Coadjoint Orbits & $G$ acting on symplectic orbits &
-Orbit quantization and coherent-state kernels & Spin precession\\
-7. Heisenberg Group & Central extension of phase-space translations &
-Stone--von Neumann decomposition and Hermite functions & Oscillator spectroscopy\\
-8. Unitary Ensembles & $U(W)$ acting on Hermitian endomorphisms &
-Weyl integration and Hermite, sine, and Airy kernels & Quantum-chaotic spectra\\
-9. Poincar\'e Group & Poincar\'e symmetry of Minkowski spacetime &
-Wigner classification and Bessel functions & Correlation-length mass measurement\\
-\multicolumn{4}{@{}l}{\textbf{II. Scattering Theory}}\\
-10. One-Dimensional Scattering & Asymptotic translations of the line &
-Jost decomposition and hypergeometric functions & Transmission and bound-state spectra\\
-11. Potential Scattering & $SO(3)$ acting on $\mathbb R^3$ &
-Partial waves and spherical Bessel functions & Hard-sphere scattering\\
-12. Coulomb Problem & $SO(4)$ dynamical symmetry of bound states &
-Kummer, Laguerre, and Coulomb spectral functions & Hydrogen and Rutherford experiments\\
-13. Schwarzschild Spacetime & $\mathbb R\times SO(3)$ acting on the exterior &
-Regge--Wheeler modes, Heun functions, and parabolic-cylinder functions & Scalar ringdown\\
-\multicolumn{4}{@{}l}{\textbf{III. Hyperbolic Geometry}}\\
-14. $SL_2(\mathbb R)$ & $SL_2(\mathbb R)$ acting on $\mathbb H$ &
-Unitary dual, Legendre functions, and the Mehler--Fock transform & Hyperbolic-drum spectra\\
-15. $SL_2(\mathbb Z)$ & Modular symmetry of $\mathbb H$ &
-Automorphic spectra, Eisenstein series, and modular forms & Cusp-scattering resonances\\
-\multicolumn{4}{@{}l}{\textbf{IV. Conformal Field Theory}}\\
-16. Virasoro Algebra & $\operatorname{Diff}^+(S^1)$ acting on circle fields &
-Positive-energy modules and Virasoro characters & Conformal finite-size spectra\\
-17. Ising Model & $\mathbb Z_2$ acting on spin configurations &
-Transfer spectra, Toeplitz determinants, and Ising characters & Critical temperature and exponents\\
-\multicolumn{4}{@{}l}{\textbf{V. Quantum Algebra}}\\
-18. Affine Kac--Moody Algebras & $LK_c\rtimes S^1$ acting on loop fields &
-Integrable modules, Weyl--Kac characters, and KZ blocks & WZW finite-size spectra\\
-19. Quantum Groups & $U_v(\mathfrak{sl}_2)$ acting on tensor products &
-Quantum Peter--Weyl decomposition and basic hypergeometric functions & XXZ spectroscopy\\
-20. Dunkl Operators & Reflection groups acting on Euclidean space &
-Generalized Bessel and Jack decompositions & Calogero--Sutherland spectroscopy\\
-21. Double Affine Hecke Algebras & DAHA acting on an algebraic torus &
-Cherednik operators and Macdonald polynomials & Ruijsenaars spectrum\\
-\multicolumn{4}{@{}l}{\textbf{VI. Algebraic Geometry}}\\
-22. Algebraic Curves & Elliptic translations on complex tori &
+1. Fourier Kernels & LCA translations on $G$ &
+Pontryagin decomposition with Gaussian, Dirichlet, and sinc kernels & Rectangular diffraction\\
+2. Wigner Functions & $K\times K$ and $SU(2)$ orbit symmetry &
+Peter--Weyl, Wigner, and Krawtchouk decompositions & Rotational and spin spectroscopy\\
+3. Jacobi Functions & $O(d+1)$ acting on $S^d$ &
+Jacobi--Gegenbauer spherical decomposition & Spherical-resonator spectra\\
+4. Hermite Functions & Central phase-space translations &
+Stone--von Neumann decomposition and the Mehler kernel & Oscillator spectroscopy\\
+5. Determinantal Kernels & $U(W)$ acting on Hermitian endomorphisms &
+Orthogonal-polynomial, sine, and Airy kernels & Quantum-chaotic spectra\\
+6. Bessel Functions & Euclidean, Poincar\'e, and radial rotation symmetry &
+Hankel, mass-shell, and partial-wave decompositions & Diffraction, correlations, and hard-sphere scattering\\
+\multicolumn{4}{@{}l}{\textbf{II. Hypergeometric Functions}}\\
+7. Gauss Hypergeometric Functions & Asymptotic translations of the line &
+Jost decomposition and Gauss connection formulas & Reflectionless transmission\\
+8. Legendre Functions & $SL_2(\mathbb R)$ acting on $\mathbb H$ &
+Unitary dual and Mehler--Fock decomposition & Hyperbolic-drum spectra\\
+9. Kummer Functions & $SO(4)$ dynamical symmetry &
+Kummer, Laguerre, and Coulomb spectral functions & Hydrogen and Rutherford observables\\
+10. Heun Functions & $\mathbb R\times SO(3)$ acting on Schwarzschild spacetime &
+Regge--Wheeler, Heun, and parabolic-cylinder modes & Scalar ringdown\\
+\multicolumn{4}{@{}l}{\textbf{III. Character Theory}}\\
+11. Weyl Characters & Weyl symmetry of reductive weight spaces &
+Highest-weight, Weyl-character, and Schur decomposition & Flavor multiplets\\
+12. Automorphic Forms & $SL_2(\mathbb Z)$ acting on $\mathbb H$ &
+Eisenstein, theta, eta, and automorphic spectral decomposition & Cusp scattering\\
+13. Virasoro Characters & $\operatorname{Diff}^+(S^1)$ and Ising spin reversal &
+Virasoro, Toeplitz, and Ising character decompositions & Critical and finite-size spectra\\
+14. Affine Characters & $LK_c\rtimes S^1$ acting on loop fields &
+Weyl--Kac characters and KZ conformal blocks & WZW finite-size spectra\\
+\multicolumn{4}{@{}l}{\textbf{IV. $q$-Series}}\\
+15. Basic Hypergeometric Functions & $U_v(\mathfrak{sl}_2)$ on tensor products &
+Quantum Peter--Weyl, $q$-Hahn, and $q$-Racah functions & XXZ spectroscopy\\
+16. Jack Polynomials & Reflection groups acting on Euclidean space &
+Dunkl, generalized-Bessel, and Jack decomposition & Calogero--Sutherland spectroscopy\\
+17. Macdonald Polynomials & DAHA acting on an algebraic torus &
+Cherednik, Macdonald, and Askey--Wilson decomposition & Ruijsenaars spectrum\\
+\multicolumn{4}{@{}l}{\textbf{V. Algebraic Geometry}}\\
+18. Elliptic Functions & Elliptic translations on complex tori &
 Abel--Jacobi inversion and elliptic functions & Nonlinear-pendulum periods\\
-23. Riemann--Roch & $\operatorname{Aut}(X,L)$ acting on sections &
-Sheaf cohomology, localization, and Bergman kernels & Landau-level density\\
-24. Finite-Gap Spectral Curves & Translations and KdV flows on periodic potentials &
-Spectral curves, Baker--Akhiezer functions, and Bloch--Floquet theory & Band-gap spectroscopy\\
-\multicolumn{4}{@{}l}{\textbf{VII. Algebraic Topology}}\\
-25. Index Theory & Gauge symmetry of connections and coupled operators &
-Analytic and topological indices with monopole harmonics & Integer Hall conductance\\
-26. Cobordism & Frame symmetry and tangential structures &
-Pontryagin--Thom theory and eta functions & Invertible-phase response\\
-\multicolumn{4}{@{}l}{\textbf{VIII. Tensor Categories}}\\
-27. Geometric Satake & $G[[z]]$ acting on affine-Grassmannian modifications &
-Satake convolution and Hall--Littlewood polynomials & 't Hooft fusion\\
-28. Fusion Categories & Fusion categories acting on fusion state spaces &
-Modular sine functions and Verlinde decomposition & Anyon interferometry\\
+19. Bergman Kernels & $\operatorname{Aut}(X,L)$ acting on sections &
+Riemann--Roch, localization, and Bergman projection & Landau-level density\\
+20. Baker--Akhiezer Functions & Translations and KdV flows on periodic potentials &
+Theta, Baker--Akhiezer, and Bloch--Floquet decomposition & Band-gap spectroscopy\\
+\multicolumn{4}{@{}l}{\textbf{VI. Algebraic Topology}}\\
+21. Monopole Harmonics & Gauge symmetry of connections and coupled operators &
+Index decomposition and monopole harmonics & Integer Hall conductance\\
+22. Eta Functions & Frame symmetry and tangential structures &
+Pontryagin--Thom and eta-spectral decomposition & Invertible-phase response\\
+\multicolumn{4}{@{}l}{\textbf{VII. Tensor Categories}}\\
+23. Hall--Littlewood Polynomials & $G[[z]]$ acting on affine-Grassmannian modifications &
+Satake convolution and Hall--Littlewood decomposition & 't Hooft fusion\\
+24. Modular $S$-Matrices & Fusion categories acting on fusion state spaces &
+Modular sine transform and Verlinde decomposition & Anyon interferometry\\
 \end{longtable}
 \endgroup
 \clearpage

@@ -26,11 +26,16 @@ These rules govern `Symmetry_and_Special_Functions.tex`.
 
 8. The manuscript and table of contents use part and section headings only;
    there are no subsection or lower-level headings.
-9. Part titles are standard names of mathematical disciplines. Section titles
-   are short, nonconjunctive, and use a standard name for the principal
-   mathematical subject, structure, or theory developed there.
-10. Parts group consecutive sections by a common mathematical discipline.
-    Every section realizes, through its exercise sequence and without printing
+9. Part titles are standard names of mathematical disciplines or major
+   special-function classes. Section titles are short, nonconjunctive, and
+   name the principal special-function family, transform kernel, or character
+   system developed there.
+10. Sections follow the genealogy of their special functions: classical
+    harmonic kernels, hypergeometric functions, character formulas,
+    $q$-series, geometric kernels, and categorical transforms.  The geometric
+    structures that generate a family belong inside its section rather than
+    determining a separate section merely for prerequisite material.  Every
+    section realizes, through its exercise sequence and without printing
     generic stage headings, the progression
     geometric symmetry, special-function decomposition, and physical
     predictions.
