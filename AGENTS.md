@@ -1,7 +1,7 @@
 # Manuscript style
 
 These rules apply to the manuscript entry point
-`Emergent_Mathematics.tex` and its part files
+`Symmetry_and_Special_Functions.tex` and its part files
 `Emergent_Mathematics_Symmetry.tex`,
 `Emergent_Mathematics_Particles.tex`,
 `Emergent_Mathematics_Integrable_Probability.tex`,

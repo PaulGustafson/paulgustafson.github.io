@@ -1,6 +1,6 @@
 # Manuscript conventions
 
-These rules govern `Emergent_Mathematics.tex`.
+These rules govern `Symmetry_and_Special_Functions.tex`.
 
 1. Apart from front matter, sectioning commands, and the bibliography, every
    manuscript passage belongs to an `exercise` environment.
