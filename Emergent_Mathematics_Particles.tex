@@ -11,7 +11,9 @@ Prove associativity, identify its center and commutator, and show that its Lie
 algebra satisfies $[(w,s),(w',s')]=(0,\omega(w,w'))$.  Prove that every
 continuous central extension of the additive group $W$ with this commutator
 is equivalent to this one after changing its section by a continuous
-coboundary.
+coboundary.  Show that the quotient by the center acts transitively on $W$ by
+symplectic translations, identifying $W$ as the homogeneous classical phase
+space of this symmetry.
 \end{exercise}
 
 \begin{exercise}[Weyl relations and the Schr\"odinger representation]
@@ -147,13 +149,16 @@ this is a quantitative mass determination from spacelike correlation data.
 \section{One-Dimensional Scattering}
 
 \begin{exercise}[Asymptotic translation symmetry and scattering channels]
-On $L^2(\R)$ let
+Let $\R$ act on its configuration line by translations and on $L^2(\R)$ by
+pullback.  Let
 \[
  H_0=-\frac{\hbar^2}{2m}\frac{\dd^2}{\dd x^2},\qquad H=H_0+V,
 \]
 where $V$ is real and
 $\int_{\R}(1+\abs x)\abs{V(x)}\dd x<\infty$.  Construct $H$ from its closed
-semibounded quadratic form and prove that its absolutely continuous spectrum
+semibounded quadratic form, prove that $H_0$ is translation-invariant and
+that $V$ breaks this symmetry only by a short-range interaction, and prove
+that the absolutely continuous spectrum
 on $(0,\infty)$ has two asymptotic translation channels.  Construct the wave
 operators
 \[
@@ -346,26 +351,43 @@ singular point of
 \]
 with its parameters and initial exponent specified.  Transform the separated
 Schwarzschild radial equation to this form and derive the three-term
-recurrence of its Frobenius coefficients.  Define a quasinormal frequency as
-a zero of the connection coefficient multiplying the incoming solution at
+recurrence of its Frobenius coefficients.  With time dependence
+$e^{-\ii\omega t}$, define a quasinormal frequency as a zero of the
+connection coefficient multiplying the incoming solution at
 infinity for the solution ingoing at the horizon.  Express that coefficient
 as the limit of the recurrence's continued fraction and prove its convergence
 under the minimal-solution condition.
 \end{exercise}
 
-\begin{exercise}[Black-hole ringdown in the eikonal limit]
+\begin{exercise}[Schwarzschild scalar ringdown]
 For $\ell\to\infty$, locate the maximum of $V_\ell$ at the unstable photon
-orbit $r=3M$.  Match parabolic-cylinder solutions across the maximum and
-derive, for fixed overtone $n$,
+orbit $r=3M$.  Define the parabolic-cylinder function $D_\nu(z)$ as the
+solution of $y''+(\nu+\tfrac12-z^2/4)y=0$ normalized by
+$D_\nu(z)\sim z^\nu e^{-z^2/4}$ for $\abs{\arg z}<3\pi/4$.  Derive its
+connection formula by analytically continuing
+\[
+ D_\nu(z)=\frac{e^{-z^2/4}}{\Gamma(-\nu)}
+ \int_0^\infty e^{-zt-t^2/2}t^{-\nu-1}\dd t,
+ \qquad \Re\nu<0,
+\]
+and match these functions
+across the potential maximum to obtain, for fixed overtone $n$,
 \[
  \frac{GM\omega_{\ell n}}{c^3}=
  \frac{\ell+1/2-\ii(n+1/2)}{3\sqrt3}+O(\ell^{-1}).
 \]
-Show that the predicted waveform has oscillation frequency
+For the scalar $\ell=2$ fundamental mode, truncate the confluent-Heun
+continued fraction with a rigorously bounded minimal-solution tail and obtain
+\[
+ \frac{GM\omega_{20}}{c^3}
+ =0.48364\ldots-0.09676\ldots\ii.
+\]
+Show that the predicted scalar waveform has oscillation frequency
 $\Re\omega/(2\pi)$ and damping time $1/\abs{\Im\omega}$.  Explain how the
-confluent-Heun continued fraction supplies the finite-$\ell$ correction and
-why the displayed asymptotic value must not be substituted as an exact
-$\ell=2$ prediction.
+continued-fraction value supplies the finite-$\ell$ correction and compare it
+with the eikonal approximation.  State that this is a test-field prediction,
+not the gravitational $\ell=2$ mode, and identify the mass calibration and
+measured oscillation and damping times.
 \end{exercise}
 
 \part{Hyperbolic Geometry}
@@ -511,7 +533,9 @@ quantities.
 \section{Virasoro Algebra}
 
 \begin{exercise}[The Virasoro central extension]
-On the punctured complex line let
+Let $\operatorname{Diff}^+(S^1)$ act on the circle and on scalar fields by
+pullback, and identify its infinitesimal action with smooth vector fields.
+After complexification on the punctured complex line let
 $L_n=-z^{n+1}\partial_z$, $n\in\Z$, be the distinguished Fourier vector
 fields.  Prove
 $[L_m,L_n]=(m-n)L_{m+n}$.  Define

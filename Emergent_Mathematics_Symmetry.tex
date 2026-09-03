@@ -30,7 +30,7 @@ $\inner{Tx}{y}=\inner{x}{T^*y}$, and prove
 $\norm{T^*T}=\norm{T}^2$.
 \end{exercise}
 
-\begin{exercise}[$C^*$-algebras, states, and representations]
+\begin{exercise}[$C^*$-algebras, states, and projective symmetry]
 Define a unital $C^*$-algebra to be a complete normed complex algebra $A$
 with an involution satisfying $\norm{a^*a}=\norm a^2$.  Define positive
 elements, states, and $*$-representations.  Prove that every positive
@@ -42,7 +42,17 @@ $N_\omega=\{a:\omega(a^*a)=0\}$, complete
 and show that left multiplication gives a cyclic representation
 $(\pi_\omega,\mathcal H_\omega,\Omega_\omega)$ with
 $\omega(a)=\inner{\pi_\omega(a)\Omega_\omega}{\Omega_\omega}$.
-Show that the direct sum over all states is faithful.
+Show that the direct sum over all states is faithful.  Define the projective
+state space $\mathbb P(\mathcal H)$ as the one-dimensional closed subspaces
+of a Hilbert space and its transition probability by
+\[
+ p([x],[y])=\frac{\abs{\inner{x}{y}}^2}{\norm{x}^2\norm{y}^2}.
+\]
+Define $U(A)=\{u:u^*u=uu^*=1\}$ and prove that every representation makes
+$U(A)$ act on $\mathbb P(\mathcal H)$ preserving $p$.  For $h=h^*\in A$,
+identify its geometric symmetry group with
+$U(A)_h=\{u:uhu^*=h\}$ and prove that every $\pi(u)$ in this group commutes
+with every polynomial in $\pi(h)$.
 \end{exercise}
 
 \begin{exercise}[Gelfand transform and the spectral theorem]
@@ -58,7 +68,11 @@ $\spec(H)$ satisfying
  f(H)=\int_{\spec(H)}f(E)\dd P(E),\qquad
  H=\int_{\spec(H)}E\dd P(E).
 \]
-Prove the bounded Borel functional calculus, spectral mapping, and
+Write $\mathcal B(\mathcal H)$ for the $C^*$-algebra of bounded operators and
+prove that $uP(B)u^*=P(B)$ for every
+$u\in U(\mathcal B(\mathcal H))_H$, so the spectral resolution is equivariant
+for the geometric symmetry above.  Prove the bounded Borel functional
+calculus, spectral mapping, and
 $\inner{f(H)x}{y}=\int f\dd\mu_{x,y}$, where
 $\mu_{x,y}(B)=\inner{P(B)x}{y}$.
 \end{exercise}
@@ -234,7 +248,9 @@ quantity needed to test this prediction.
 
 \begin{exercise}[Compact groups and unitary representations]
 Use the preceding Haar construction and compactness to normalize Haar measure
-on a compact group $K$ to total mass one.  Average an
+on a compact group $K$ to total mass one.  Let $K\times K$ act on $K$ by
+$(a,b)\mathbin\cdot g=agb^{-1}$ and prove that normalized Haar measure is
+invariant.  Average an
 inner product to prove that every finite-dimensional continuous
 representation is unitarizable and every invariant subspace has an invariant
 orthogonal complement.  Define irreducibility, intertwiners, contragredients,
@@ -341,7 +357,10 @@ the unipotent radical, and reductivity, and construct its Lie algebra from
 derivations at the counit.  For a connected complex reductive group $G$,
 define a maximal torus $T$, its
 character and cocharacter lattices, roots, coroots, and the Weyl group
-$W=N_G(T)/T$.  Derive the root-space decomposition of $\mathfrak g$ and the
+$W=N_G(T)/T$.  Prove that $W$ is finite, construct a $W$-invariant Euclidean
+metric on the real weight space $X^*(T)\otimes_\Z\R$ by averaging, and prove
+that every root reflection is the orthogonal reflection in its root
+hyperplane.  Derive the root-space decomposition of $\mathfrak g$ and the
 rank-one $\mathfrak{sl}_2$ subalgebra associated with each root.  Choose a
 positive system, define simple roots, dominant weights, the Weyl length, and
 $\rho$, and prove the chamber and Bruhat decompositions.

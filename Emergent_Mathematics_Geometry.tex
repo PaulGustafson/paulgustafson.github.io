@@ -105,12 +105,18 @@ frictionless motion from experimental corrections.
 
 \section{Riemann--Roch}
 
-\begin{exercise}[Line bundles, sections, and sheaf cohomology]
+\begin{exercise}[Line-bundle automorphisms and sheaf cohomology]
 Define a line bundle $p:L\to X$ and immediately define a section over
 $U\subset X$ as a map $s:U\to L$ with $p\circ s=\id_U$; write
 $\Gamma(U,L)$ for all such sections.  Define the sheaf of sections, locally
-free and coherent sheaves, tensor product, dual, and pullback.  Construct
-\v Cech cohomology from an open cover.  Prove the affine vanishing theorem for
+free and coherent sheaves, tensor product, dual, and pullback.  Define
+$\operatorname{Aut}(X,L)$ to consist of pairs formed by an automorphism
+$\phi$ of $X$ and a fiberwise-linear bundle isomorphism
+$\widetilde\phi:L\to L$ covering it, and prove
+that
+$(\phi,\widetilde\phi)s=\widetilde\phi\circ s\circ\phi^{-1}$ acts on sections
+and functorially on every sheaf-cohomology group.  Construct \v Cech
+cohomology from an open cover.  Prove the affine vanishing theorem for
 quasi-coherent sheaves directly from localization, deduce that affine covers
 compute their sheaf cohomology, prove independence of the chosen affine cover
 by the refinement double complex, and derive the long exact sequence from a
@@ -223,30 +229,46 @@ explicitly, reusing rather than redefining the earlier theta functions.
 \end{exercise}
 
 \begin{exercise}[Landau-level degeneracy and density]
-Let a charged particle move on a compact Riemann surface in a magnetic line
-bundle $L$ with $\frac{q}{2\pi\hbar}\int_XB=N\in\Z$.  Factor its magnetic
+Define a magnetic line bundle for a charge $q$ on a compact Riemann surface
+to be a positive Hermitian holomorphic line bundle $L$.  Define its Chern
+connection as the unique unitary connection whose $(0,1)$ part is
+$\bar\partial_L$, prove existence and uniqueness, and require its curvature
+to be $F_L=-\ii qB/\hbar$, so that
+$\frac{q}{2\pi\hbar}\int_XB=N\in\Z$.  Define its unitary gauge group as the
+unitary bundle automorphisms over $\id_X$, prove that it acts on the quantum
+state space, and show that automorphisms in
+$\operatorname{Aut}(X,L)$ preserving the metric and connection commute with
+the magnetic Hamiltonian.  Factor its magnetic
 Laplacian through the Dolbeault operator and identify the lowest Landau level
 with $H^0(X,L)$.  When $N>2g-2$, prove
 \[
  \dim H^0(X,L)=N+1-g,\qquad
  \rho(x)=B_L(x,x).
 \]
-Thus predict both the exact number of lowest-level states and their local
-particle density; state flux quantization, curvature, boundary, interaction,
-and field-uniformity assumptions.
+For $X=\mathbb P^1$ and $L=\mathcal O(N)$ with its invariant metric, use the
+$SU(2)$ action, Bott--Borel--Weil, and the Bergman projection identity to
+identify the state representation with
+$\operatorname{Sym}^N(\C^2)^\vee$ and prove the constant density
+$\rho=(N+1)/\operatorname{area}(X)$.  Thus predict both the exact number of
+lowest-level states and their local particle density; state flux
+quantization, curvature, boundary, interaction, and field-uniformity
+assumptions.
 \end{exercise}
 
 \section{Finite-Gap Spectral Curves}
 
 \begin{exercise}[KdV Lax flows]
-On periodic smooth functions define
+Let the translation circle act on the phase space
+$\mathcal U=C^\infty(\R/a\Z,\R)$ of periodic potentials by pullback.  On
+periodic smooth functions define
 $L=-\partial_x^2+u$ and
 $P=-4\partial_x^3+3(u\partial_x+\partial_xu)$.  Compute the commutator and
 prove that $L_t=[P,L]$ is
 \[
  u_t-6uu_x+u_{xxx}=0.
 \]
-Construct the monodromy of $L\psi=E\psi$, prove that its discriminant is
+Prove that the Lax vector field commutes with translations.  Construct the
+monodromy of $L\psi=E\psi$, prove that its discriminant is
 constant under the flow, and show that the periodic spectrum is preserved.
 Derive the commuting odd operator for a stationary higher KdV flow and the
 Burchnall--Chaundy polynomial relation.
@@ -330,7 +352,10 @@ smooth structure.
 
 \begin{exercise}[$U(1)$ gauge symmetry and characteristic classes]
 For the smooth vector bundles just constructed, define connections, curvature,
-and gauge transformations intrinsically.  From invariant polynomials and the Bianchi
+and gauge transformations intrinsically.  Prove that the gauge group acts on
+the affine space of connections and by conjugation on every naturally coupled
+elliptic operator, preserving its spectrum and index.  From invariant
+polynomials and the Bianchi
 identity prove that $\Tr\exp(\ii F/2\pi)$ is closed and connection-independent
 in cohomology.  Construct integral Chern classes from transition functions
 and prove that their real images agree with Chern--Weil forms.  Use the
@@ -435,8 +460,11 @@ suspension axioms.
 \end{exercise}
 
 \begin{exercise}[$SO$, $\operatorname{Spin}$, and $U$ structures]
-Define a tangential $G$-structure as a lift of the stable tangent classifier
-through $BG\to BO$.  Construct orientation, spin, and stable complex
+Construct the orthogonal frame bundle of a Riemannian manifold with its free
+right $O(d)$ action.  Define a tangential $G$-structure as a lift of the
+stable tangent classifier through $BG\to BO$, equivalently as the appropriate
+reduction of this frame symmetry.  Construct orientation, spin, and stable
+complex
 structures as the cases $SO$, $\operatorname{Spin}$, and $U$, and identify
 their obstructions $w_1$, $w_2$, and the stable complex lifting condition.
 Define $G$-bordism by compact manifolds with compatible boundary structure
@@ -522,7 +550,9 @@ and crossing parity.
 For a complex reductive group $G$, define
 $G((z))$, $G[[z]]$, the faithfully flat quasi-compact topology on affine
 schemes, and sheafification of a functor of points.  Define the fpqc quotient
-$\operatorname{Gr}_G=G((z))/G[[z]]$.  Prove the Cartan decomposition
+$\operatorname{Gr}_G=G((z))/G[[z]]$ and prove that $G((z))$ acts transitively
+with stabilizer $G[[z]]$.  For the induced $G[[z]]$ action, prove the Cartan
+decomposition
 \[
  \operatorname{Gr}_G=\bigsqcup_{\lambda\in X_*(T)_+}
  G[[z]]z^\lambda
@@ -617,6 +647,14 @@ $\sum_cd_{ab}^cd_c=d_ad_b$ identities intrinsically.  Define braidings,
 twists, and nondegeneracy through the categorical trace of double braiding.
 Show that the line-defect fusion category from the preceding section is the
 prototype, while noninvertible simple objects require no underlying group.
+For simple objects $a_1,\ldots,a_n,b$, define the fusion state space
+\[
+ \mathcal H(a_1,\ldots,a_n;b)
+ =\Hom(b,a_1\otimes\cdots\otimes a_n).
+\]
+Use $f^*g=\langle f,g\rangle1_b$ to make it a Hilbert space.  Prove that
+associators and braidings induce unitary maps among these fusion spaces and
+derive the resulting braid-group action and its invariance under isotopy.
 \end{exercise}
 
 \begin{exercise}[Temperley--Lieb categories and fusion semisimplification]
@@ -681,8 +719,15 @@ In a balanced two-path interferometer with controllable phase $\phi$, derive
 \[
  P_\pm(b)=\frac12\left(1\pm\Re(e^{\ii\phi}M_{ab})\right).
 \]
-Insert the $SU(2)_k$ sine matrix to predict every fringe displacement and
-visibility and show which charges are distinguishable by a fixed probe.
+When $\mathcal C$ is modular, identify the simple charges of the Drinfeld
+center realized by its Levin--Wen model with pairs and prove
+\[
+ S^{Z(\mathcal C)}_{(a,b),(c,d)}
+ =S_{ac}\overline{S_{bd}}.
+\]
+Insert the $SU(2)_k$ sine matrix into the chiral and doubled monodromy formulas
+to predict every fringe displacement and visibility and show which charges
+are distinguishable by a fixed probe.
 State coherence, braiding adiabaticity, charge-superselection, path balance,
 and detector-resolution assumptions separately from these probabilities.
 \end{exercise}

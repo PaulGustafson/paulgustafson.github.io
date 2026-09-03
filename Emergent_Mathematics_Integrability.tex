@@ -85,7 +85,12 @@ magnetization, and gaps; and the nonuniversal calibrations $J$ and $v_s$.
 \section{Affine Kac--Moody Algebras}
 
 \begin{exercise}[Central extensions of loop algebras]
-Let $\mathfrak g$ be a complex simple Lie algebra and normalize its invariant
+Let $K_c$ be a simply connected compact Lie group whose complexified Lie
+algebra is the complex simple Lie algebra $\mathfrak g$.  Define its smooth
+loop group $LK_c=C^\infty(S^1,K_c)$ and let it act on the loop-field
+configuration space $LK_c$ by left multiplication, with $S^1$ acting by
+rotation of the source circle; prove that these actions combine to an
+$LK_c\rtimes S^1$ action.  Normalize the invariant
 form $(\ ,\ )$ so that long roots have squared length two.  Define the
 polynomial loop algebra $L\mathfrak g=\mathfrak g\otimes\C[z,z^{-1}]$ and
 \[
@@ -99,8 +104,8 @@ by
 \]
 Obtain the central term from the residue cocycle
 $\operatorname{Res}_{z=0}(\partial_zx(z),y(z))\dd z$ and prove the Jacobi
-identity.  For the simply connected compact real form construct the
-corresponding $U(1)$-central extension of its smooth loop group at an integer
+identity.  For $K_c$ construct the corresponding $U(1)$-central extension of
+its smooth loop group at an integer
 level $k$ by exponentiating the cocycle.  If $\vartheta$ is the left
 Maurer--Cartan form, define the Cartan three-form as the scalar multiple of
 $(\vartheta,[\vartheta,\vartheta])$ that integrates to one on every long-root
@@ -246,7 +251,10 @@ and construct its counit and antipode from the Hopf identities.  Define
 $[n]_v=(v^n-v^{-n})/(v-v^{-1})$ and construct every finite-dimensional
 type-one irreducible $V_n$ from a highest-weight vector.  Prove the deformed
 Clebsch--Gordan rule $V_m\otimes V_n\simeq
-\bigoplus_{j=0}^{\min(m,n)}V_{m+n-2j}$.
+\bigoplus_{j=0}^{\min(m,n)}V_{m+n-2j}$.  For any ordered collection of
+type-one modules, use the iterated coproduct to define the diagonal
+$U_v(\mathfrak{sl}_2)$ action on their tensor-product state space and identify
+quantum-group-invariant observables with its commuting endomorphisms.
 \end{exercise}
 
 \begin{exercise}[Universal $R$-matrix]
@@ -401,10 +409,11 @@ independent.
 \end{exercise}
 
 \begin{exercise}[Polynomial representation and Cherednik operators]
-Let
+Let $\mathcal T_r=(\C^\times)^r$ be the algebraic torus and let
 \[
- \mathcal P_r=\C(q,t^{1/2})[x_1^{\pm1},\ldots,x_r^{\pm1}].
+ \mathcal P_r=\C(q,t^{1/2})[x_1^{\pm1},\ldots,x_r^{\pm1}]
 \]
+be its Laurent-polynomial functions.
 Let $X_i$ be multiplication, let $s_i$ exchange $x_i,x_{i+1}$, define
 $T_{q,x_i}f(x_1,\ldots,x_r)=f(x_1,\ldots,qx_i,\ldots,x_r)$, and put
 \[
@@ -416,7 +425,9 @@ $T_{q,x_i}f(x_1,\ldots,x_r)=f(x_1,\ldots,qx_i,\ldots,x_r)$, and put
 \[
  Y_i=T_i\cdots T_{r-1}\omega T_1^{-1}\cdots T_{i-1}^{-1}.
 \]
-Verify preservation of Laurent polynomials, the Hecke and affine braid
+Verify that these difference-reflection operators define the double-affine
+Hecke action on the function space of $\mathcal T_r$, including preservation
+of Laurent polynomials, the Hecke and affine braid
 relations, and $[Y_i,Y_j]=0$.  Prove their triangular action on monomials in
 Bruhat-refined dominance order.  Show on symmetric Laurent polynomials that
 \[
