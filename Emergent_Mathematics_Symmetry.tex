@@ -38,7 +38,7 @@ Define convolution and involution by
 and prove that $L^1(G)$ is a Banach $*$-algebra and that left translation is
 unitary on $L^2(G)$.  Prove that $\Delta_G=1$ for abelian and compact groups;
 in the abelian case adopt additive notation, so that the formulas reduce to
-the earlier additive convolution and reflection involution.
+additive convolution and reflection involution.
 \end{exercise}
 
 \begin{exercise}[Pontryagin duality and Fourier decomposition]
@@ -88,25 +88,17 @@ of Fourier sums.  Define $\operatorname{sinc}u=\sin(u)/u$ continuously at
 zero and compute it as the normalized Fourier transform of an interval.
 \end{exercise}
 
-\begin{exercise}[Fraunhofer diffraction by rectangular and circular apertures]
+\begin{exercise}[Fraunhofer diffraction by rectangular aperture arrays]
 For monochromatic scalar light of wavelength $\lambda$, derive from the
 Huygens integral in the far-field limit that the amplitude at angle
 $\boldsymbol\theta$ is the Fourier transform of the aperture evaluated at
 $\boldsymbol\theta/\lambda$.  Deduce the rectangular-aperture intensity as a
 product of squared sinc functions.  For $N$ equally spaced identical slits,
-derive the squared Dirichlet-kernel array factor and its peak spacing.
-Define
-$J_1(u)=\sum_{k\ge0}(-1)^k(u/2)^{2k+1}/(k!(k+1)!)$, derive its differential
-equation and polar integral, and for a circular aperture of diameter $D$
-deduce
-\[
- \frac{I(\theta)}{I(0)}=
- \left[\frac{2J_1(\pi D\sin\theta/\lambda)}
- {\pi D\sin\theta/\lambda}\right]^2.
-\]
-Show from the first positive zero $j_{1,1}=3.831705\ldots$ that the first dark
-ring obeys $\sin\theta=1.21967\ldots\lambda/D$, and state the measured
-quantity needed to test this prediction.
+derive the squared Dirichlet-kernel array factor, its principal-peak spacing,
+and the finite-$N$ peak width.  Identify aperture dimensions, slit spacing,
+wavelength, screen distance, and measured intensity as the calibrated and
+observed quantities, and state the scalar, paraxial, and far-field
+approximations.
 \end{exercise}
 
 \section{Peter--Weyl Theory}
@@ -128,8 +120,8 @@ satisfying the two snake identities.  Define the trace by
 \]
 and put $\dim V=\Tr(1_V)$.  Prove cyclicity of trace and its direct-sum and
 tensor-product formulas.
-Use the preceding Haar construction and compactness to normalize Haar measure
-on a compact group $K$ to total mass one.  Let $K\times K$ act on $K$ by
+Normalize Haar measure on a compact group $K$ to total mass one.  Let
+$K\times K$ act on $K$ by
 $(a,b)\mathbin\cdot g=agb^{-1}$ and prove that normalized Haar measure is
 invariant.  Average an
 inner product to prove that every finite-dimensional continuous
@@ -159,9 +151,14 @@ points and closure under conjugation.  Derive Fourier inversion and
 Plancherel for $K$.
 \end{exercise}
 
-\begin{exercise}[$SU(2)$, Wigner functions, and spherical harmonics]
-Define $SU(2)$ and prove that conjugation on its traceless Hermitian
-endomorphisms gives the two-to-one covering $SU(2)\to SO(3)$.  Construct the
+\begin{exercise}[$SU(2)$, Wigner functions, and characters]
+Let $U$ be a two-dimensional Hermitian complex vector space with a unit-norm
+nonzero alternating form $\varepsilon:U\otimes U\to\C$.  Define $SU(2)$ as
+the unitary automorphisms preserving $\varepsilon$.  On the real Euclidean
+space of traceless Hermitian endomorphisms of $U$, with
+$\langle A,B\rangle=\tfrac12\Tr(AB)$, prove that conjugation maps
+$SU(2)$ onto the connected orthogonal group, denoted $SO(3)$, with kernel
+$\{\pm1\}$.  Construct the
 permutation coinvariant quotient $\operatorname{Sym}^n(V)$ of $V^{\otimes n}$.
 Construct the irreducibles $V_j=\operatorname{Sym}^{2j}(\C^2)$ for
 $j\in\frac12\Z_{\ge0}$ and define the Wigner functions
@@ -171,13 +168,7 @@ their Euler-angle formula, orthogonality, completeness, and
  \chi_j(\theta)=\frac{\sin((2j+1)\theta/2)}{\sin(\theta/2)}
                 =U_{2j}(\cos(\theta/2)),
 \]
-thereby defining the Chebyshev polynomials $U_n$.  Identify the spherical
-harmonics with the right-$U(1)$-invariant coefficients and derive the addition
-kernel
-\[
- \sum_{m=-\ell}^{\ell}Y_{\ell m}(x)\overline{Y_{\ell m}(y)}
- =\frac{2\ell+1}{4\pi}P_\ell(x\cdot y).
-\]
+thereby defining the Chebyshev polynomials $U_n$.
 \end{exercise}
 
 \begin{exercise}[Clebsch--Gordan and Wigner special functions]
@@ -206,6 +197,201 @@ $\Delta K$ rule for dipoles parallel or perpendicular to the symmetry axis.
 For a linear rotor deduce the line positions
 $\nu_{J\to J+1}=\hbar(J+1)/(2\pi I)$ and the relative line strengths from the
 $3j$ symbols; these are the quantitative spectroscopic predictions.
+\end{exercise}
+
+\section{Symmetric Spaces}
+
+\begin{exercise}[Riemannian symmetric spaces and Gelfand pairs]
+Define smooth manifolds by compatible smooth atlases, smooth maps by their
+chart representatives, and tangent vectors intrinsically as derivations of
+germs.  Construct tangent bundles and define a Lie group as a group object in
+smooth manifolds.  Define a Riemannian metric, its volume measure, gradient,
+and divergence, and use
+$\Delta=-\operatorname{div}\operatorname{grad}$ for the nonnegative
+Laplace--Beltrami operator.  Call a connected Riemannian manifold symmetric
+when every point $x$ admits an isometry fixing $x$ and acting as $-1$ on
+$T_xX$.  Prove that a connected compact symmetric space is a homogeneous
+space $G/K$ for the identity component of its isometry group and a compact
+stabilizer $K$.
+
+For a compact group $G$ and closed subgroup $K$, define the convolution
+algebra of continuous $K$-bi-invariant functions.  Call $(G,K)$ a Gelfand
+pair when this algebra is commutative, and prove that this is equivalent to
+multiplicity-free decomposition of $L^2(G/K)$.  Define the orthogonal group
+$O(V)$ of a Euclidean space $V$.  For $\dim V=d+1$ with $d\geq2$, identify
+its unit sphere with $O(V)/O(V)_x$, prove that its geodesic symmetries are induced by the
+orthogonal maps fixing $x$ and negating $x^\perp$, and prove that
+$(O(d+1),O(d))$ is a Gelfand pair.
+\end{exercise}
+
+\begin{exercise}[Gamma and generalized hypergeometric functions]
+For $\Re s>0$ define
+\[
+ \Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\dd t,
+ \qquad
+ B(a,b)=\int_0^1t^{a-1}(1-t)^{b-1}\dd t,
+\]
+derive the functional equation and meromorphic continuation of $\Gamma$, and
+prove $B(a,b)=\Gamma(a)\Gamma(b)/\Gamma(a+b)$ together with the Euler
+reflection and Legendre duplication formulas.  Put
+$(a)_0=1$ and $(a)_n=a(a+1)\cdots(a+n-1)$.  When no lower parameter is a
+nonpositive integer, define
+\[
+ {}_pF_q\!\left(\begin{matrix}a_1,\ldots,a_p\\b_1,\ldots,b_q\end{matrix};z\right)
+ =\sum_{n\geq0}\frac{(a_1)_n\cdots(a_p)_n}
+ {(b_1)_n\cdots(b_q)_n}\frac{z^n}{n!}.
+\]
+Determine its disk of convergence for $p\leq q$, $p=q+1$, and $p>q+1$, with
+terminating exceptions, and derive its differential equation in terms of
+$\vartheta=z\partial_z$:
+\[
+ \left[\vartheta\prod_{j=1}^q(\vartheta+b_j-1)
+ -z\prod_{i=1}^p(\vartheta+a_i)\right]y=0.
+\]
+Derive the confluence limits ${}_2F_1\to{}_1F_1\to{}_0F_1$ by sending an
+upper parameter to infinity while rescaling $z$.  Specialize to the Gauss
+function ${}_2F_1(a,b;c;z)$ and
+derive its three regular singular points, Euler integral, Gauss value at
+$z=1$, Euler and Pfaff transformations, and connection formula between the
+Frobenius solutions at $0$ and $1$, first when the exponent differences are
+nonintegral and then by limits.
+\end{exercise}
+
+\begin{exercise}[Jacobi and Gegenbauer functions]
+For $\alpha,\beta>-1$ define the Jacobi polynomials by
+\[
+ P_n^{(\alpha,\beta)}(1-2z)
+ =\frac{(\alpha+1)_n}{n!}
+ {}_2F_1(-n,n+\alpha+\beta+1;\alpha+1;z).
+\]
+Derive their differential equation, Rodrigues formula, three-term recurrence,
+orthogonality for $(1-t)^\alpha(1+t)^\beta\dd t$, squared norms, and
+completeness.  For $\lambda>0$ define the Gegenbauer functions by
+\[
+ C_n^\lambda(t)=
+ \frac{(2\lambda)_n}{(\lambda+1/2)_n}
+ P_n^{(\lambda-1/2,\lambda-1/2)}(t)
+\]
+and derive their generating function.  Recover the Legendre and Chebyshev
+families as specializations and
+express each $SU(2)$ Wigner small-$d$ function as an elementary half-angle
+factor times a Jacobi polynomial, including its normalization.
+\end{exercise}
+
+\begin{exercise}[Spherical harmonic decomposition]
+Define the degree-$\ell$ polynomial functions on $V$ as
+$\operatorname{Sym}^\ell(V^\vee)$ acting by evaluation.  On the unit sphere
+$S^d\subset V$, define $\mathcal H_\ell$ as the restrictions of those
+annihilated by the Euclidean Laplacian.  Prove intrinsically the orthogonal decomposition
+\[
+ L^2(S^d)=\widehat\bigoplus_{\ell\geq0}\mathcal H_\ell,
+ \qquad
+ \Delta_{S^d}|_{\mathcal H_\ell}=\ell(\ell+d-1),
+\]
+and compute, with a binomial coefficient understood to vanish when its lower
+argument is negative,
+\[
+ N_{d,\ell}=\dim\mathcal H_\ell
+ =\binom{\ell+d}{\ell}-\binom{\ell+d-2}{\ell-2}.
+\]
+Using the Gelfand-pair decomposition, prove that the orthogonal projection
+onto $\mathcal H_\ell$ has kernel
+\[
+ \Pi_\ell(x,y)=\frac{N_{d,\ell}}{\operatorname{vol}(S^d)}
+ \frac{C_\ell^{(d-1)/2}(x\cdot y)}
+ {C_\ell^{(d-1)/2}(1)}.
+\]
+Derive the Funk--Hecke formula and its inversion for zonal kernels.  For
+$d=2$, define the distinguished spherical harmonics $Y_{\ell m}$ as the
+right-$SO(2)$ types among the $SO(3)$ matrix coefficients and recover the
+Legendre addition formula without choosing an auxiliary family.
+\end{exercise}
+
+\begin{exercise}[Spherical resonator spectroscopy]
+Let a scalar wave of propagation speed $v$ be confined to a thin spherical
+resonator of radius $R$, with dynamics
+$\partial_t^2u+(v^2/R^2)\Delta_{S^d}u=0$.  Use the spherical harmonic
+decomposition and Gegenbauer projection kernels to prove that its angular
+normal modes have frequencies and degeneracies
+\[
+ \omega_\ell=\frac vR\sqrt{\ell(\ell+d-1)},
+ \qquad \operatorname{mult}(\omega_\ell)=N_{d,\ell}.
+\]
+For a rotationally symmetric source, express the measured two-point response
+as a Gegenbauer series and derive its allowed frequencies and angular nodal
+sets.  Separate the scalar thin-shell model, uniform propagation speed, and
+perfect rotational symmetry from the measured resonance frequencies,
+degeneracies, and angular correlations.
+\end{exercise}
+
+\section{Euclidean Group}
+
+\begin{exercise}[Euclidean motion symmetry and momentum orbits]
+For a finite-dimensional real inner-product space $V$, define
+$E(V)=V\rtimes O(V)$ and its isometric action on the affine Euclidean space
+modeled on $V$, and write $d=\dim V$.  Show that Fourier transformation intertwines translations
+with multiplication by characters and rotations with their action on $V^*$.
+Prove that the nonzero $O(V)$-orbits in $V^*$ are the momentum spheres and
+disintegrate Plancherel measure into radial measure and their invariant
+probability measures.  Apply the compact-group decomposition of each sphere
+to obtain the orthogonal angular-momentum decomposition of $L^2(V)$.
+For a transitive locally compact group action on $G/H$ with invariant measure
+and a unitary $H$-representation, define the induced representation as the
+square-integrable equivariant sections of the associated Hilbert bundle and
+prove that left translation is unitary.
+Construct the irreducible positive-momentum representations of $E(V)$ by
+inducing the corresponding translation character tensored with an
+irreducible representation of its orthogonal stabilizer, and identify the
+scalar sector with its $O(V)$-fixed induced functions.
+\end{exercise}
+
+\begin{exercise}[Bessel functions and Hankel decomposition]
+For $c\notin\Z_{\leq0}$ specialize the generalized hypergeometric series to
+\[
+ {}_0F_1(;c;z)=\sum_{k\geq0}\frac{z^k}{(c)_k k!},
+ \qquad
+ J_\nu(z)=\frac{(z/2)^\nu}{\Gamma(\nu+1)}
+ {}_0F_1(;\nu+1;-z^2/4).
+\]
+Verify directly the double-confluence limit from the Gauss series.
+Derive Bessel's differential equation, its recurrence and Wronskian
+relations, and the angular integral that realizes $J_{d/2-1}$ as the
+spherical function of the Gelfand pair $(E(d),O(d))$.  Continue $J_\nu$ in
+its order and argument, and for $\nu\notin\Z$ define
+\[
+ Y_\nu(z)=\frac{\cos(\pi\nu)J_\nu(z)-J_{-\nu}(z)}{\sin(\pi\nu)},
+ \qquad H_\nu^{(1)}=J_\nu+\ii Y_\nu,
+\]
+with integral-order values obtained by continuation.  Derive their Wronskian
+and incoming/outgoing asymptotics.
+
+Use polar disintegration and the spherical harmonic projections to derive
+the radial Fourier formula
+\[
+ \widehat f(\rho)=2\pi\rho^{1-d/2}
+ \int_0^\infty f(r)J_{d/2-1}(2\pi r\rho)r^{d/2}\dd r
+\]
+for radial Schwartz functions, and the order
+$\ell+d/2-1$ Hankel transform on the $\ell$th spherical summand.  Prove its
+inversion, Plancherel formula, and completeness kernel from Fourier inversion.
+\end{exercise}
+
+\begin{exercise}[Circular-aperture diffraction]
+For a circular aperture of diameter $D$ illuminated by monochromatic scalar
+light of wavelength $\lambda$, use Euclidean rotational symmetry and the
+order-zero Hankel transform to derive
+\[
+ \frac{I(\theta)}{I(0)}=
+ \left[\frac{2J_1(\pi D\sin\theta/\lambda)}
+ {\pi D\sin\theta/\lambda}\right]^2.
+\]
+Prove simplicity of the first positive zero of $J_1$, bound it by convergent
+series or Sturm comparison to obtain $j_{1,1}=3.831705\ldots$, and hence
+predict the first dark ring
+$\sin\theta=1.21967\ldots\lambda/D$.  Derive the encircled-energy profile
+from the Bessel recurrence.  Distinguish the predicted angular intensity and
+dark-ring radius from aperture calibration, finite screen distance,
+polarization, and aberration corrections.
 \end{exercise}
 
 \section{Reductive Groups}
@@ -299,12 +485,10 @@ first-order symmetry-breaking assumption.
 \section{Coadjoint Orbits}
 
 \begin{exercise}[Hamiltonian group actions and moment maps]
-Define smooth manifolds by compatible smooth atlases, smooth maps by their
-chart representatives, and tangent vectors intrinsically as derivations of
-germs.  Construct tangent and cotangent bundles, differential forms, pullback,
-wedge product, and the exterior derivative, and prove their independence of
-charts.  Define a Lie group as a group object in smooth manifolds and identify
-its Lie algebra with its left-invariant vector fields.  Define symplectic manifolds and
+For a smooth manifold, construct its cotangent bundle, differential forms,
+pullback, wedge product, and exterior derivative, and prove their independence
+of charts.  Identify the Lie algebra of a Lie group with its left-invariant
+vector fields.  Define symplectic manifolds and
 Hamiltonian vector fields by
 $\iota_{X_f}\omega=\dd f$, and the Poisson bracket
 $\{f,g\}=\omega(X_f,X_g)$.  For a Lie-group action define an equivariant
@@ -362,7 +546,9 @@ Define the Krawtchouk polynomials by
  =\left(1-\frac{1-p}{p}t\right)^x(1+t)^{N-x}.
 \]
 Identify the associated rotation coefficients with these polynomials at
-$p=\sin^2(\theta/2)$ and derive their binomial orthogonality.
+$p=\sin^2(\theta/2)$, identify
+$K_n(x;p,N)={}_2F_1(-n,-x;-N;1/p)$, and derive their difference equation and
+binomial orthogonality.
 \end{exercise}
 
 \begin{exercise}[Spin precession and Stern--Gerlach intensities]
@@ -371,7 +557,7 @@ $H=-\gamma\mathbf B\cdot\mathbf J$.  Solve the Hamiltonian orbit equation and
 the quantum evolution to obtain precession frequency
 $\omega_L=\abs\gamma\abs{\mathbf B}$.  If a beam polarized along $x$ is
 measured along an axis making angle $\theta$ with $x$, prove that the
-$2j+1$ separated intensities are precisely $p_m(\theta)$ above.  Thus the
+$2j+1$ separated intensities are precisely the displayed $p_m(\theta)$.  Thus the
 coherent-state/Krawtchouk kernel predicts both the line count and every
 relative Stern--Gerlach intensity.
 \end{exercise}

@@ -19,13 +19,16 @@ parts; subsection and lower-level headings are deliberately omitted.
 |---|---|---|---|
 | Fourier Analysis | LCA translations on $G$ | Pontryagin duality and Fourier kernels | Fraunhofer diffraction |
 | Peter--Weyl Theory | $K\times K$ acting on $K$ | Peter--Weyl decomposition and Wigner functions | Rotational spectroscopy |
+| Symmetric Spaces | $O(d+1)$ acting on $S^d$ and, generally, $G$ acting on $G/K$ | Gauss--Jacobi functions and spherical harmonic decomposition | Spherical-resonator frequencies and degeneracies |
+| Euclidean Group | $E(V)$ acting on Euclidean space | Momentum-orbit decomposition and Bessel/Hankel transforms | Circular-aperture diffraction |
 | Reductive Groups | Weyl group acting on weight space | Highest weights and Weyl characters | Flavor multiplets |
 | Coadjoint Orbits | $G$ acting on symplectic manifolds and orbits | Symplectic reduction and coherent-state kernels | Spin precession |
 | Heisenberg Group | Central extension acting on symplectic phase space | Stone--von Neumann decomposition and Hermite functions | Oscillator spectroscopy |
 | Unitary Ensembles | $U(W)$ acting on Hermitian endomorphisms | Weyl integration and Hermite/sine/Airy kernels | Quantum-chaotic spectra |
 | Poincaré Group | Poincaré group acting on Minkowski spacetime | Wigner classification and Bessel functions | Correlation length |
 | One-Dimensional Scattering | Translations acting on the configuration line | Jost decomposition and Pöschl--Teller hypergeometric functions | Transmission and bound-state spectra |
-| Potential Scattering | $SO(3)$ acting on $\mathbb R^3$ | Partial waves and Coulomb functions | Rutherford scattering |
+| Potential Scattering | $SO(3)$ acting on $\mathbb R^3$ | Partial waves and spherical Bessel functions | Hard-sphere differential and total cross sections |
+| Coulomb Problem | $SO(4)$ dynamical symmetry on the negative-energy subspace | Kummer, Laguerre, and Coulomb spectral functions | Hydrogen spectral lines and Rutherford scattering |
 | Schwarzschild Spacetime | $\mathbb R\times SO(3)$ acting on the exterior | Regge--Wheeler modes, Heun functions, and parabolic-cylinder functions | Scalar ringdown frequencies and damping times |
 | $SL_2(\mathbb R)$ | $SL_2(\mathbb R)$ acting on $\mathbb H$ | Unitary dual, Legendre functions, and the Mehler--Fock transform | Hyperbolic-drum spectra |
 | $SL_2(\mathbb Z)$ | $SL_2(\mathbb Z)$ acting on $\mathbb H$ | Automorphic spectrum, Eisenstein series, and modular forms | Cusp-scattering resonances |
@@ -33,6 +36,7 @@ parts; subsection and lower-level headings are deliberately omitted.
 | Ising Model | $\mathbb Z_2$ acting on spin configurations | Transfer spectrum, Toeplitz determinants, and Ising characters | Criticality |
 | Affine Kac--Moody Algebras | $LK_c\rtimes S^1$ acting on loop fields | Integrable modules, Weyl--Kac characters, and KZ blocks | WZW finite-size spectra |
 | Quantum Groups | $U_v(\mathfrak{sl}_2)$ acting on tensor-product state spaces | Quantum Peter--Weyl decomposition and basic hypergeometric functions | XXZ spectroscopy |
+| Dunkl Operators | Reflection groups acting on Euclidean spaces and tori | Dunkl transforms and Heckman--Opdam/Jack polynomials | Calogero--Sutherland levels and transition intensities |
 | Double Affine Hecke Algebras | DAHA difference-reflection symmetry on an algebraic torus | Cherednik operators and Macdonald polynomials | Ruijsenaars spectrum |
 | Algebraic Curves | Elliptic curve acting on itself by translations | Abel--Jacobi decomposition and elliptic functions | Pendulum periods |
 | Riemann--Roch | $\operatorname{Aut}(X,L)$ acting on sections | Sheaf cohomology, localization, and Bergman kernels | Landau-level degeneracy and density |

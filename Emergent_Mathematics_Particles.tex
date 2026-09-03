@@ -128,6 +128,8 @@ polynomials by
 $H_n(u)=(-1)^ne^{u^2}(\dd/\dd u)^ne^{-u^2}$ and the normalized Hermite
 functions $h_n$.  Derive their differential equation, recurrence,
 orthogonality, Mehler kernel, and completeness without calling them a basis.
+Identify the even and odd Hermite polynomials with
+${}_1F_1(-n;1/2;u^2)$ and $u{}_1F_1(-n;3/2;u^2)$, including their constants.
 \end{exercise}
 
 \begin{exercise}[Oscillator spectroscopy]
@@ -170,11 +172,9 @@ irreducible representation.
 \end{exercise}
 
 \begin{exercise}[Wigner classification by little groups]
-For a transitive action of a locally compact group $G$ on $G/H$, define the
-representation induced from a unitary $H$-representation as square-integrable
-equivariant sections of the associated bundle.  Prove the imprimitivity
-theorem by disintegrating the translation spectral measure.  Apply it to the
-mass shells in $M^*$: identify the massive little group with $SU(2)$ after
+Prove the imprimitivity theorem for an induced unitary representation by
+disintegrating the translation spectral measure.  Apply it to the mass shells
+in $M^*$: identify the massive little group with $SU(2)$ after
 passing to the double cover, the massless little group with
 $\operatorname{Spin}(2)\ltimes\R^2$, where
 $\operatorname{Spin}(2)=U(1)\to SO(2)$ is the angle-doubling cover, and
@@ -184,19 +184,16 @@ representations when the translational part of the massless little group acts
 trivially.
 \end{exercise}
 
-\begin{exercise}[Klein--Gordon Bessel functions]
+\begin{exercise}[Klein--Gordon modified Bessel functions]
 Put $\mu=mc/\hbar$ and
 $\Box=-c^{-2}\partial_t^2+\Delta$.  Derive
-$(\Box-\mu^2)\phi=0$ from the massive Casimir.  Define
-$\Gamma(s)=\int_0^\infty t^{s-1}e^{-t}\dd t$ for $\Re s>0$, derive its
-functional equation and meromorphic continuation, and define
+$(\Box-\mu^2)\phi=0$ from the massive Casimir.  For $\Re z>0$ define the
+modified Bessel function
 \[
- J_\nu(z)=\sum_{k\ge0}\frac{(-1)^k(z/2)^{2k+\nu}}
- {k!\Gamma(k+\nu+1)},
- \qquad
  K_\nu(z)=\int_0^\infty e^{-z\cosh u}\cosh(\nu u)\dd u
 \]
-in their stated domains and continue by their differential equation.  Use
+for $\Re z>0$.  Derive its differential equation, recurrence, analytic
+continuation, and connection with the outgoing Hankel function.  Use
 the Fourier decomposition of the positive mass shell to derive, at equal
 time and spatial separation $r>0$,
 \[
@@ -283,15 +280,8 @@ For
  \operatorname{sech}^2(x/a),\qquad \lambda>0,
 \]
 put $z=(1-\tanh(x/a))/2$ and reduce the Jost equation to the Gauss equation.
-Define
-\[
- {}_2F_1(A,B;C;z)=
- \sum_{n\ge0}\frac{(A)_n(B)_n}{(C)_n n!}z^n
-\]
-for $\abs z<1$, where $(A)_0=1$ and
-$(A)_n=A(A+1)\cdots(A+n-1)$.  Derive its differential equation and Euler
-integral, and use
-the integral to prove its connection formula between $z=0$ and $z=1$.
+Identify its Gauss hypergeometric parameters and specialize the Euler integral
+and the connection formula between $z=0$ and $z=1$.
 Express both Jost solutions through these functions and obtain, with $p=ka$,
 \[
  t(p)=\frac{\Gamma(1+\lambda-\ii p)\Gamma(-\lambda-\ii p)}
@@ -356,39 +346,158 @@ prove $\abs{S_\ell}=1$.  Derive
 \]
 \end{exercise}
 
-\begin{exercise}[Coulomb hypergeometric functions]
-For $V(r)=\kappa/r$ set $\rho=kr$ and
-$\eta=m\kappa/(\hbar^2k)$.  Define
-$\mathop{{}_1F_1}(a;c;z)=\sum_{n\ge0}(a)_nz^n/((c)_nn!)$.  Define the regular
-Coulomb function by
+\begin{exercise}[Spherical Bessel functions and hard-sphere phase shifts]
+Define
+\[
+ j_\ell(z)=\sqrt{\frac{\pi}{2z}}J_{\ell+1/2}(z),
+ \qquad
+ y_\ell(z)=\sqrt{\frac{\pi}{2z}}Y_{\ell+1/2}(z),
+\]
+and derive their radial equation, recurrences, Wronskian, small-argument
+behavior, and incoming/outgoing combinations.  For an impenetrable sphere of
+radius $a$, impose the exterior boundary condition $u_\ell(a)=0$ and prove
+\[
+ \tan\delta_\ell(k)=\frac{j_\ell(ka)}{y_\ell(ka)}.
+\]
+Use the Bessel asymptotics to determine the low- and high-energy behavior of
+these phase shifts and verify the optical theorem from the partial-wave
+decomposition.
+\end{exercise}
+
+\begin{exercise}[Hard-sphere scattering]
+Use the preceding Bessel phase shifts to derive the angular amplitude
+\[
+ f_a(\theta)=\frac1k\sum_{\ell\geq0}(2\ell+1)
+ e^{\ii\delta_\ell}\sin\delta_\ell P_\ell(\cos\theta)
+\]
+and the total cross section
+\[
+ \sigma_{\rm tot}(k)=\frac{4\pi}{k^2}
+ \sum_{\ell\geq0}(2\ell+1)
+ \frac{j_\ell(ka)^2}{j_\ell(ka)^2+y_\ell(ka)^2}.
+\]
+Prove $\sigma_{\rm tot}(k)\to4\pi a^2$ as $ka\downarrow0$, determine the
+first corrections and the diffraction oscillations at finite $ka$, and
+formulate a matter-wave or acoustic scattering experiment measuring the
+differential and total cross sections.  Separate the perfectly reflecting
+spherical-boundary model and incident-wave calibration from the measured
+angular intensities and cross section.
+\end{exercise}
+
+\section{Coulomb Problem}
+
+\begin{exercise}[Runge--Lenz symmetry of the Coulomb Hamiltonian]
+Let $V$ be an oriented three-dimensional Euclidean space, let $X$ and $P$ be
+the position and momentum operators in the Schr\"odinger representation, and
+use the metric and orientation to define their cross product.  Construct the
+attractive Coulomb Hamiltonian by its closed semibounded form,
+\[
+ H=\frac{P^2}{2m}-\frac\kappa{\abs X},\qquad \kappa>0,
+\]
+and on a common invariant core define
+\[
+ L=X\times P,
+ \qquad
+ A=\frac1{2m}(P\times L-L\times P)-\kappa\frac X{\abs X}.
+\]
+Prove the Hardy inequality needed to make the Coulomb term form-bounded with
+relative bound zero and hence justify the stated self-adjoint realization.
+For $a,b\in V$, derive
+\[
+ [a\cdot L,b\cdot L]=\ii\hbar(a\times b)\cdot L,
+ \quad [a\cdot L,b\cdot A]=\ii\hbar(a\times b)\cdot A,
+ \quad [a\cdot A,b\cdot A]
+ =-\frac{2\ii\hbar H}{m}(a\times b)\cdot L,
+\]
+together with $L\cdot A=0$ and
+$A^2=\kappa^2+2H(L^2+\hbar^2)/m$.  On the negative spectral subspace rescale
+$A$ and prove that $L$ and the rescaled Runge--Lenz operator generate
+$\mathfrak{so}(4)\simeq\mathfrak{su}(2)\oplus\mathfrak{su}(2)$.  Use its two
+Casimirs to derive
+\[
+ E_n=-\frac{m\kappa^2}{2\hbar^2n^2},
+ \qquad \operatorname{mult}(E_n)=n^2,qquad n\geq1.
+\]
+\end{exercise}
+
+\begin{exercise}[Kummer and Laguerre spectral functions]
+Specialize the generalized hypergeometric series and verify its Gauss
+confluence formula
+\[
+ {}_1F_1(a;c;z)=\lim_{b\to\infty}{}_2F_1(a,b;c;z/b)
+ =\sum_{j\geq0}\frac{(a)_j}{(c)_j j!}z^j.
+\]
+Derive Kummer's equation, its Euler integral and connection formula, and the
+confluence of the Gauss singular points, initially under
+$\Re c>\Re a>0$ for the integral and then by meromorphic continuation.  For
+$\alpha>-1$ define
+\[
+ L_j^\alpha(z)=\frac{(\alpha+1)_j}{j!}
+ {}_1F_1(-j;\alpha+1;z),
+\]
+and derive its Rodrigues formula, recurrence, differential equation,
+orthogonality for $z^\alpha e^{-z}\dd z$, squared norm, and completeness.
+
+Put $a_0=\hbar^2/(m\kappa)$.  Separate the Coulomb Hamiltonian by the
+spherical decomposition and prove that its normalized bound radial functions
+are
+\[
+ R_{n\ell}(r)=N_{n\ell}e^{-r/(na_0)}
+ \left(\frac{2r}{na_0}\right)^\ell
+ L_{n-\ell-1}^{2\ell+1}\!\left(\frac{2r}{na_0}\right),
+ \quad 0\leq\ell<n.
+\]
+Determine $N_{n\ell}$, prove orthogonality and completeness on the bound
+spectral subspace, and identify the resulting $SO(4)$ decomposition with the
+tensor product of the two spin-$(n-1)/2$ representations obtained from the
+Runge--Lenz symmetry.
+\end{exercise}
+
+\begin{exercise}[Coulomb scattering functions]
+For the repulsive potential $V(r)=\kappa/r$, set $\rho=kr$ and
+$\eta=m\kappa/(\hbar^2k)$.  Define the regular Coulomb function by
 \[
  F_\ell(\eta,\rho)=C_\ell(\eta)\rho^{\ell+1}e^{-\ii\rho}
  {}_1F_1(\ell+1-\ii\eta;2\ell+2;2\ii\rho),
 \]
 choosing $C_\ell(\eta)>0$ so that its large-$\rho$ sine amplitude is one.
-Derive the radial equation, the Euler integral and connection formula for
-${}_1F_1$, and
-$\sigma_\ell=\arg\Gamma(\ell+1+\ii\eta)$ with
-$\sigma_\ell-\sigma_{\ell-1}=\arctan(\eta/\ell)$.
-Sum the resulting Legendre series by its generating function.
+Derive the radial equation and specialize the Kummer connection formula to
+obtain
+$\sigma_\ell=\arg\Gamma(\ell+1+\ii\eta)$ and
+$\sigma_\ell-\sigma_{\ell-1}=\arctan(\eta/\ell)$.  Sum the resulting
+Legendre series by its generating function and prove that its long-range
+phase is compatible with flux conservation.
 \end{exercise}
 
-\begin{exercise}[Rutherford scattering]
-Show that Coulomb scattering has amplitude, up to an unobservable constant
-phase,
+\begin{exercise}[Hydrogen spectroscopy and Rutherford scattering]
+For the attractive potential with
+$\kappa=Ze^2/(4\pi\epsilon_0)$, use the Laguerre spectral functions and the
+Wigner--Eckart theorem to derive the electric-dipole rules
+$\Delta\ell=\pm1$ and $\Delta m=0,\pm1$, and express every radial line
+strength by a terminating Laguerre integral.  Prove that the line frequencies
+are
+\[
+ \nu_{n\to n'}=\frac{m\kappa^2}{4\pi\hbar^3}
+ \left|\frac1{n^2}-\frac1{{n'}^2}\right|,
+\]
+with the reduced mass replacing $m$ for a moving nucleus.
+
+For the repulsive potential, use the Coulomb connection coefficient to derive
+the amplitude, up to an unobservable constant phase,
 \[
  f_C(\theta)=-\frac{\eta}{2k\sin^2(\theta/2)}
- \exp\!\left[-2\ii\eta\log\sin\frac\theta2+2\ii\sigma_0\right].
+ \exp\!\left[-2\ii\eta\log\sin\frac\theta2+2\ii\sigma_0\right],
 \]
-Hence derive
+and hence
 \[
  \frac{\dd\sigma}{\dd\Omega}=
  \left(\frac{Z_1Z_2e^2}{16\pi\epsilon_0E}\right)^2
- \csc^4\frac\theta2
+ \csc^4\frac\theta2.
 \]
-for repulsive charges with center-of-mass kinetic energy $E$.  Identify beam
-energy, scattering angle, and detector solid angle as the measured quantities,
-and state the point-charge and nonrelativistic limitations of the prediction.
+Identify spectroscopic frequencies and intensities, beam energy, scattering
+angle, and detector solid angle as measured quantities.  State separately
+the nonrelativistic, point-nucleus, spin-free, and radiative limitations of
+the two predictions.
 \end{exercise}
 
 \section{Schwarzschild Spacetime}
