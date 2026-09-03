@@ -74,17 +74,15 @@ These rules apply to the manuscript entry point
   consecutive sections, not their physical applications or a newly coined
   umbrella idea.
 - Keep section titles short and nonconjunctive. Each title should name one
-  established special-function family, transform kernel, or character
-  system; do not join subjects or applications with "and," commas,
-  ampersands, or multi-clause constructions. Put the generating symmetry,
-  detailed scope, and physical culmination in exercise titles and bodies.
-- Order sections by the genealogy of their special functions rather than by
-  a catalogue of high-level structures.  Groups, algebras, spaces, and
-  categories explain why a function family appears inside a section; they do
-  not receive a separate section when their material naturally belongs to a
-  family already being developed.  Use standard names such as `Bessel
-  Functions`, `Weyl Characters`, or `Macdonald Polynomials`, not newly coined
-  umbrella phrases.
+  standard mathematical subject, structure, or theory; do not join subjects
+  or applications with "and," commas, ampersands, or multi-clause
+  constructions. Put the detailed scope and physical culmination in exercise
+  titles and exercise bodies.
+- Use standard, immediately recognizable mathematical names.  Name the
+  actual group, algebra, category, theorem, or established field; do not coin
+  umbrella phrases or use a broader class when a concrete subject such as
+  `Peter--Weyl Theory`, `SL_2(\mathbb R)`, or `Geometric Satake` is
+  intended.
 - Organize every section, through its exercise sequence, into exactly this
   conceptual progression: geometric symmetry; special-function decomposition;
   physical predictions.  These are roles in the argument, not headings to
