@@ -32,11 +32,15 @@ These rules govern `Emergent_Mathematics.tex`.
 10. Parts group consecutive sections by a common mathematical discipline.
     Every section realizes, through its exercise sequence and without printing
     generic stage headings, the progression
-    symmetry or mathematical structure, decomposition, named special
-    functions or kernels, and quantitative physical prediction.
-11. The four stages are a substantive completeness test. If the special
-    functions do not arise from the stated decomposition or do not calculate
-    the final observable, the section must be refocused, merged, or removed.
+    symmetry or mathematical structure, special-function decomposition, and
+    quantitative physical prediction.
+11. The middle stage introduces the characters, matrix coefficients,
+    eigenfunctions, orthogonal polynomials, or kernels together with the
+    orthogonality, completeness, inversion, Plancherel, spectral-resolution,
+    or representation-theoretic decomposition they realize. The three stages
+    are a substantive completeness test: if the special-function decomposition
+    does not calculate the final observable, the section must be refocused,
+    merged, or removed.
 
 Structural audits and a successful LaTeX build are required before changes to
 the manuscript are committed.

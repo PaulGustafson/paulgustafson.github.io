@@ -84,18 +84,19 @@ These rules apply to the manuscript entry point
   `Peter--Weyl Theory`, `SL_2(\mathbb R)`, or `Geometric Satake` is
   intended.
 - Organize every section, through its exercise sequence, into exactly this
-  conceptual progression: symmetry or mathematical structure; decomposition;
-  named special functions or kernels; quantitative physical prediction.
-  These are roles in the argument, not headings to print in the manuscript.
+  conceptual progression: symmetry or mathematical structure;
+  special-function decomposition; quantitative physical prediction.  These
+  are roles in the argument, not headings to print in the manuscript.
 - In the symmetry stage, specify the group, algebra, group action, homogeneous
-  space, or tensor category and what it acts on. In the decomposition stage,
-  develop the associated spectral, representation-theoretic, transform,
-  convolution, localization, or sector decomposition. In the special-function
-  stage, derive the characters, matrix coefficients, eigenfunctions, or
-  kernels that make the decomposition explicit. In the prediction stage, use
-  those functions to calculate quantitative observables and state the modeling
-  assumptions.
-- Treat the four-stage structure as a substantive test, not a formatting
+  space, or tensor category and what it acts on. In the special-function
+  decomposition stage, define the relevant characters, matrix coefficients,
+  eigenfunctions, orthogonal polynomials, or kernels together with the
+  spectral, representation-theoretic, transform, convolution, localization,
+  or sector decomposition they realize. Include the applicable orthogonality,
+  completeness, inversion, Plancherel, or spectral-resolution identity. In the
+  prediction stage, use that decomposition to calculate quantitative
+  observables and state the modeling assumptions.
+- Treat the three-stage structure as a substantive test, not a formatting
   device. If a section cannot support every stage without unrelated filler,
   refocus it or merge its material into a section that can.
 - Every section must culminate in a substantial exercise that derives or uses
