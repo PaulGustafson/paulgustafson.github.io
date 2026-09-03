@@ -85,7 +85,7 @@ These rules apply to the manuscript entry point
   intended.
 - Organize every section, through its exercise sequence, into exactly this
   conceptual progression: geometric symmetry; special-function decomposition;
-  physical observables.  These are roles in the argument, not headings to
+  physical predictions.  These are roles in the argument, not headings to
   print in the manuscript.
 - In the geometric-symmetry stage, specify the group, algebra, or tensor
   category; the space, orbit, variety, configuration space, or state space on
@@ -95,8 +95,9 @@ These rules apply to the manuscript entry point
   together with the spectral, representation-theoretic, transform,
   convolution, localization, or sector decomposition they realize. Include
   the applicable orthogonality, completeness, inversion, Plancherel, or
-  spectral-resolution identity. In the physical-observables stage, use that
-  decomposition to calculate quantitative observables and state the modeling
+  spectral-resolution identity. In the physical-prediction stage, identify a
+  physical observable, use the decomposition to calculate its value, spectrum,
+  distribution, scaling law, or selection rule, and state the modeling
   assumptions.
 - Treat the three-stage structure as a substantive test, not a formatting
   device. If a section cannot support every stage without unrelated filler,
