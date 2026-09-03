@@ -40,7 +40,7 @@ parts; subsection and lower-level headings are deliberately omitted.
 | Finite-Gap Spectral Curves | Translations and KdV flows acting on periodic potentials | Spectral curves, Baker--Akhiezer functions, and Bloch--Floquet theory | Band gaps |
 | Index Theory | Gauge group acting on connections and coupled operators | Analytic/topological index and monopole harmonics | Hall conductance |
 | Cobordism | Frame-group symmetry and tangential structures | Pontryagin--Thom theory and eta functions | Invertible-phase response |
-| Geometric Satake | $G[[z]]$ acting on $\operatorname{Gr}_G$ | Satake equivalence and Hall--Littlewood polynomials | 't Hooft fusion |
+| Geometric Satake | $G[[z]]$ acting on affine-Grassmannian modifications of 't Hooft defects | Schubert convolution, the Satake equivalence, and Hall--Littlewood polynomials | 't Hooft fusion channels and junction multiplicities |
 | Fusion Categories | Fusion category acting on fusion state spaces | Semisimplification, modular $S$-matrix, and Verlinde decomposition | Anyon interferometry |
 
 ## Validation checklist
