@@ -1,0 +1,221 @@
+\part{Lattice Gauge Theory}
+
+\section{Gauge fields on edges}
+
+\begin{exercise}[Finite-group lattice gauge fields and gauge-invariant weights]
+Let $G$ be a finite group and $X$ a finite oriented cell complex
+whose faces have specified boundary edge words. A gauge field is
+an assignment $g_e\in G$ with $g_{\bar e}=g_e^{-1}$.
+The gauge transformations are the vertex actions of the section
+TQFT, $g_e\mapsto h_{s(e)}g_eh_{t(e)}^{-1}$. The face holonomy
+$U_f$ is the ordered product around its boundary, based at a vertex.
+For a real class function $w$ define
+\[
+ Z_X(\beta_g)=|G|^{-|E|}\sum_g
+       \exp\left(\beta_g\sum_f w(U_f)\right).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove that changing the base vertex conjugates $U_f$ and
+that the Gibbs measure is gauge invariant. State the additional
+condition on $w$ for invariance under reversal of a face orientation.
+\item For $G=\{\pm1\}$, $w(u)=u$, identify the Hamiltonian
+$H=-J_g\sum_f U_f$ with $\beta_g=\beta J_g$.
+On a connected graph fix a root and a spanning tree. Prove that
+each field has a unique gauge transform trivial on the tree
+if the transformation at the root is required to be the identity.
+Determine the remaining root action.
+\end{enumerate}
+\end{exercise}
+
+\section{Wilson loops}
+
+\begin{exercise}[Wilson observables and the exact planar area law]
+For a finite-dimensional representation $\rho:G\to\GL(V)$ and
+an oriented closed edge path $C$ define the normalized Wilson loop
+$W_\rho(C)=(\dim V)^{-1}\Tr\rho(U_C)$.
+Use the defining one-dimensional representation for $G=\{\pm1\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove gauge invariance and independence of the starting
+vertex. For the $\Z/2$ model show that
+$W(C)=\prod_{f\subset D}U_f$ when $C=\partial D$ is a simple
+loop bounding a union of faces.
+\item On a planar disc cellulation with free edge boundary
+conditions show that the map from edge fields to face holonomies
+is onto and that all fibres have size $2^{|E|-|F|}$.
+One proof successively removes boundary faces; another uses
+the tree elimination of the section Gauge fields on edges.
+Deduce
+\[
+ Z_X=(\cosh\beta_g)^{|F|},\qquad
+ \langle W(C)\rangle=(\tanh\beta_g)^{|D|}.
+\]
+\item Prove that any gauge-noninvariant single edge has zero
+expectation, even when $\beta_g$ is large, by changing the gauge
+at an endpoint. Compare this with the gauge-invariant loop.
+\end{enumerate}
+\end{exercise}
+
+\section{Flat connections}
+
+\begin{exercise}[Flat fields and the path groupoid]
+A field is flat if $U_f=1$ for every face. The path groupoid
+$\Pi(X)$ has vertices as objects and edge words as morphisms,
+modulo immediate backtracking and face-boundary relations.
+Regard $G$ as the one-object groupoid $BG_{\rm alg}$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that flat fields are functors
+$\Pi(X)\to BG_{\rm alg}$ and that gauge transformations are
+natural isomorphisms. Check that subdivision of an edge gives
+an equivalent groupoid of flat fields.
+\item On a connected complex with root $x$ prove that gauge
+classes are conjugacy classes of homomorphisms
+$\Aut_{\Pi(X)}(x)\to G$. Determine the automorphism group
+of the field corresponding to $\rho$ as the centralizer
+of $\im\rho$.
+\item For a torus use its polygon with boundary word
+$aba^{-1}b^{-1}$ to obtain commuting pairs $(A,B)\in G^2$
+modulo simultaneous conjugation. For abelian $G$ count
+$|G|^{2g}$ flat classes on an oriented genus-$g$ surface.
+\end{enumerate}
+\end{exercise}
+
+\section{Dijkgraaf--Witten}
+
+\begin{exercise}[Cocycle actions for finite gauge fields]
+For the normalized three-cocycle $\omega$ of the section Pentagon
+identities and a flat field on an ordered triangulated closed
+oriented three-manifold define
+\[
+ Z_{G,\omega}(M)=|G|^{-n_0}\sum_{g\ {\rm flat}}
+ \prod_{i<j<k<\ell}
+ \omega(g_{ij},g_{jk},g_{k\ell})^{\epsilon_{ijk\ell}},
+\]
+where the product is over tetrahedra and $\epsilon$ compares the
+vertex ordering with the orientation of $M$.
+\begin{enumerate}[label=(\alph*)]
+\item Recover the pointed state sum of the section Turaev--Viro.
+Using the pentagon, check invariance under the $2$--$3$ move.
+For the $1$--$4$ move show that each of the $|G|$ extensions
+has the same total weight as the original tetrahedron.
+\item Prove that replacing $\omega$ by $\omega\,\delta\nu$
+leaves the closed sum unchanged: each oriented triangle factor
+cancels with the factor from the tetrahedron on the other side.
+For a manifold with boundary identify the uncancelled boundary
+product explicitly.
+\item For $\omega=1$ prove
+$Z_{G,1}(M)=|\Hom(\pi_1(M),G)|/|G|$ when $M$ is connected,
+where $\pi_1(M)=\Aut_{\Pi(M)}(x)$ for a triangulation.
+Calculate $Z_{G,1}(S^3)$ and $Z_{G,1}(S^2\times S^1)$.
+\end{enumerate}
+\end{exercise}
+
+\section{Classifying spaces}
+
+\begin{exercise}[The nerve of a group and its classifying space]
+The nerve of a category has as its $n$-simplices the strings of
+$n$ composable arrows; face maps compose or omit end arrows and
+degeneracy maps insert identities. Its geometric realization
+glues a standard topological simplex to each such string by these
+maps. Define $BG$ to be the realization of the nerve of
+$BG_{\rm alg}$.
+A homotopy between maps is a continuous map on the product with
+$[0,1]$ restricting to the given maps at its ends.
+\begin{enumerate}[label=(\alph*)]
+\item Show that a flat field on an ordered simplicial complex
+specifies a simplicial map to the nerve: an ordered simplex
+$i_0<\cdots<i_n$ maps to
+$(g_{i_0i_1},\dots,g_{i_{n-1}i_n})$.
+Construct the homotopy induced by a vertex gauge transformation.
+\item Let $\mathcal E G$ have object set $G$ and exactly one
+arrow between each pair of objects. Prove its nerve is
+contractible by inserting a fixed initial object. Prove that
+the free $G$-action on its realization has quotient $BG$.
+Deduce $\pi_1(BG)\simeq G$ and $\pi_n(BG)=0$ for $n>1$,
+where $\pi_n$ denotes based maps from the $n$-sphere modulo
+based homotopy.
+\item For a connected finite cell complex build a map to $BG$
+from a homomorphism of fundamental groups, first on its edges,
+then across its faces and higher cells. Use the vanishing
+higher homotopy groups to prove
+$[X,BG]\simeq\Hom(\pi_1(X),G)/G$.
+\end{enumerate}
+\end{exercise}
+
+\section{Higher gauge theory}
+
+\begin{exercise}[Abelian two-form fields and gauge transformations between transformations]
+For a finite cell complex $X$ let $C_n(X;\Z)$ be its free group of
+oriented cells, with incidence boundary $\partial$, and put
+$C^n(X;A)=\Hom(C_n(X;\Z),A)$ for an abelian group $A$.
+The coboundary is $\delta c=c\partial$; define
+$H^n(X;A)=\ker\delta/\im\delta$.
+A flat two-form field is $b\in C^2(X;A)$ with $\delta b=0$.
+A gauge transformation is $b\mapsto b+\delta a$, $a\in C^1(X;A)$,
+and $a\mapsto a+\delta\lambda$, $\lambda\in C^0(X;A)$,
+is a transformation between gauge transformations.
+\begin{enumerate}[label=(\alph*)]
+\item Verify $\partial^2=0$ for a simplicial boundary by pairing
+the two orders of deleting vertices. Deduce $\delta^2=0$ and
+that flat two-form fields modulo gauge transformations are
+classified by $H^2(X;A)$.
+\item For a two-cycle $S$ and a character $\chi:A\to U(1)$ define
+$W_\chi(S)=\chi(b(S))$. Prove gauge invariance and invariance
+under replacing $S$ by a homologous cycle when $b$ is flat.
+\item Give the three-torus its product cell structure with one
+vertex, three edges, three faces, and one three-cell.
+Compute its cellular boundaries and prove
+$H^2(T^3;A)=A^3$.
+\end{enumerate}
+\end{exercise}
+
+\section{Homotopy types}
+
+\begin{exercise}[Cocycle spaces as homotopy types of higher gauge fields]
+For an abelian group $A$ and $n\ge1$ define a simplicial abelian
+group by
+$K(A,n)_r=Z^n(\Delta^r;A)$, the normalized simplicial
+$n$-cocycles on the standard $r$-simplex, with restriction maps.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that a simplicial map $X\to K(A,n)$ is the same
+as an $n$-cocycle on $X$: restrict a cocycle to every simplex
+and check the compatibility conditions.
+\item Use the oriented prism on each simplex of $X\times[0,1]$
+to show that homotopic maps give cohomologous cocycles.
+Conversely extend a coboundary difference across the prism to
+construct a homotopy. Obtain $[X,K(A,n)]=H^n(X;A)$ in
+the simplicial homotopy category, allowing subdivision.
+\item Apply this to spheres and derive
+$\pi_j(K(A,n))=A$ for $j=n$ and zero otherwise.
+Interpret the edge-field and two-form classifications as
+$[X,K(A,1)]$ and $[X,K(A,2)]$ for abelian $A$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: Wilson area decay and quantized higher flux sectors]
+For the planar square $\Z/2$ gauge model with lattice spacing $a_0$
+and $\beta_g=\beta J_g>0$, let $C$ enclose physical area
+$\mathcal A=a_0^2|D|$. For the flat $\Z/2$ two-form model on a
+spatial three-torus use the uniform superposition of every gauge
+orbit as its zero-energy state, with constraints imposed by
+commuting averages and flatness projections.
+\begin{enumerate}[label=(\alph*)]
+\item Derive
+\[
+ -\log\langle W(C)\rangle=\sigma_{\rm area}\mathcal A,\qquad
+ \sigma_{\rm area}=-a_0^{-2}\log\tanh\beta_g.
+\]
+Obtain $\sigma_{\rm area}\sim2a_0^{-2}e^{-2\beta_g}$ at large
+$\beta_g$ and calculate the ratio of expectations for loops
+whose enclosed areas differ by one plaquette.
+\item Derive eight ground states on the three-torus, labelled
+by the three independent signs of the Wilson surfaces on
+the coordinate two-tori. Construct the commuting surface
+measurements distinguishing them using the pairing of the
+section Higher gauge theory.
+\item State which prediction requires free planar boundary
+conditions and finite $\beta_g$, and which requires exact
+flatness and periodic spatial boundaries. Identify loop and
+surface expectation measurements in a lattice simulator that
+test the two formulas.
+\end{enumerate}
+\end{exercise}

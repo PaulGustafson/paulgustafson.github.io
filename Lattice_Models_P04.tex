@@ -1,0 +1,187 @@
+\part{Six-Vertex Model}
+
+\section{Row-to-row transfer matrices}
+
+\begin{exercise}[Ice configurations and the row transfer operator]
+Let $S=\{+,-\}$ label arrows pointing up or right, and down or left,
+respectively, and put $V=\C^S$ with counting inner product. At each
+square-lattice vertex require two incoming and two outgoing arrows.
+Regard the left and bottom arrows as inputs and the right and top arrows
+as outputs. The vertex operator on $V\otimes V$ has kernel
+\[
+ R^{++}_{++}=R^{--}_{--}=a,\quad
+ R^{+-}_{+-}=R^{-+}_{-+}=b,\quad
+ R^{-+}_{+-}=R^{+-}_{-+}=c,
+\]
+with all other values zero. For $a,b,c>0$ the weight of a configuration
+is the product of its vertex weights; normalize these weights by their
+sum to obtain its Gibbs measure. On a cylinder of circumference $L$ set
+$\mathcal H_L=V^{\otimes L}$ and
+\[
+ \mathcal T_0=R_{0L}\cdots R_{01},\qquad
+ T=\Tr_0\mathcal T_0.
+\]
+Here $0$ is the horizontal arrow space and $\Tr_0$ is the partial trace
+of the section Transfer matrices.
+\begin{enumerate}[label=(\alph*)]
+\item Expand the partial trace as a sum over horizontal arrow
+configurations and prove that $Z_{L,N}=\Tr(T^N)$ on the $L$ by $N$ torus.
+\item Let $(Zf)(s)=s f(s)$, with $+=1$, $-=-1$, and
+$(Xf)(s)=f(-s)$. Prove that $T$ commutes with
+$S^z_{\rm tot}=\frac12\sum_j Z_j$, with $X^{\otimes L}$, and with
+cyclic translation. Decompose $\mathcal H_L$ into the sectors
+$\mathcal H_{L,M}$ with exactly $M$ down arrows.
+\item Prove that the two polarized sectors have transfer eigenvalue
+$a^L+b^L$. Show that multiplying all vertex weights by $\rho>0$
+adds $\log\rho$ to the pressure per vertex.
+\end{enumerate}
+\end{exercise}
+
+\section{Spectral parameter}
+
+\begin{exercise}[The trigonometric vertex operator and anisotropy]
+For $\eta>0$ and a complex spectral parameter $u$ use the preceding
+kernel with
+\[
+ a(u)=\sinh(u+\eta),\qquad b(u)=\sinh u,\qquad c(u)=\sinh\eta.
+\]
+The anisotropy is $\Delta=(a^2+b^2-c^2)/(2ab)$ wherever $ab\ne0$.
+Let $P(v\otimes w)=w\otimes v$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $\Delta=\cosh\eta$, $R(0)=\sinh\eta\,P$, and
+\[
+ R(u)R(-u)=\bigl(\sinh^2\eta-\sinh^2u\bigr)\id.
+\]
+Determine the exceptional parameters where $R(u)$ is singular.
+\item Continue to $(u,\eta)=(\ii v,\ii\gamma)$ and divide all
+weights by $\ii$. Prove that the resulting weights are positive for
+$0<\gamma<\pi$ and $0<v<\pi-\gamma$, with $\Delta=\cos\gamma$.
+\item Show that under $u=\epsilon x$, $\eta=\epsilon$,
+$\epsilon^{-1}R(u)\to x\id+P$. Identify the three limiting weights.
+\end{enumerate}
+\end{exercise}
+
+\section{Commuting families}
+
+\begin{exercise}[Monodromy, the RTT relation, and conserved operators]
+An $RLL$ relation for operators $L_{0j}(u)$ on an auxiliary copy of $V$
+and a site space $W_j$ is
+\[
+ R_{00'}(u-v)L_{0j}(u)L_{0'j}(v)
+ =L_{0'j}(v)L_{0j}(u)R_{00'}(u-v).
+\]
+Let operators at disjoint sites and auxiliary factors commute, and put
+$\mathcal T_0(u)=L_{0L}(u)\cdots L_{01}(u)$ and
+$t(u)=\Tr_0\mathcal T_0(u)$. These equations are the defining relations
+for the operator families in this exercise.
+\begin{enumerate}[label=(\alph*)]
+\item Multiply the local relations, keeping the order of factors, to
+prove the same relation with $L$ replaced by $\mathcal T$ (the RTT
+relation). Use invertibility of $R(u-v)$ and cyclicity in the auxiliary
+factors to prove $[t(u),t(v)]=0$, first away from its exceptional
+parameters and then by analytic continuation.
+\item For the distinguished arrow space define
+$A(u),B(u),C(u),D(u)$ by the four input-output kernels of
+$\mathcal T_0(u)$ on the auxiliary arrows, so $t(u)=A(u)+D(u)$.
+Extract $[B(u),B(v)]=0$ from RTT.
+\item Wherever $t(u_0)$ is invertible prove that
+$t(u_0)^{-1}t'(u_0)$ commutes with every $t(v)$ and that the
+coefficients of the local power series for
+$\log(t(u_0)^{-1}t(u))$ commute with one another.
+\end{enumerate}
+\end{exercise}
+
+\section{Yang--Baxter equation}
+
+\begin{exercise}[The Yang--Baxter identity and the XXZ Hamiltonian]
+The Yang--Baxter equation is the operator identity
+\[
+ R_{12}(u-v)R_{13}(u)R_{23}(v)
+ =R_{23}(v)R_{13}(u)R_{12}(u-v).
+\]
+On the arrow space use $S^z=Z/2$, $S^x=X/2$,
+$S^y=Y/2$, where $(Yf)(s)=-\ii s f(-s)$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove the equation for the trigonometric kernel of the section
+Spectral parameter. The sectors of three equal arrows are scalar;
+on the sectors with one or two down arrows reduce the identity to
+the addition formulas for $\sinh$. Deduce the $RLL$ relation for
+$L_{0j}(u)=R_{0j}(u-\theta_j)$ with arbitrary fixed inhomogeneities
+$\theta_j$.
+\item For $\theta_j=0$ show that $t(0)=(\sinh\eta)^L U$,
+where $U$ is cyclic translation in the direction determined by the
+ordered monodromy. Differentiate one factor at a time to prove
+\[
+ t(0)^{-1}t'(0)=
+ \frac1{\sinh\eta}\sum_{j=1}^L P_{j,j+1}R'_{j,j+1}(0).
+\]
+\item Compute the local derivative and deduce that
+\[
+ H_{\Delta,h}=J\sum_{j=1}^L
+ \left(S^x_jS^x_{j+1}+S^y_jS^y_{j+1}
+       +\Delta(S^z_jS^z_{j+1}-\tfrac14)\right)
+       -h\sum_j(S^z_j-\tfrac12)
+\]
+commutes with every $t(u)$. State the additive constant and
+multiplicative factor relating $H_{\Delta,0}$ to $t(0)^{-1}t'(0)$.
+Take $L\ge3$ and periodic indices throughout.
+\end{enumerate}
+\end{exercise}
+
+\section{Bethe ansatz}
+
+\begin{exercise}[Magnon scattering and periodic Bethe equations]
+In $\mathcal H_{L,M}$ a configuration is the set of down-arrow sites
+$1\le x_1<\cdots<x_M\le L$. For nonzero complex $z_1,\dots,z_M$
+consider the function on configurations
+\[
+ \psi(x_1,\dots,x_M)=
+ \sum_{\pi\in\mathfrak S_M}A_\pi
+       \prod_{a=1}^M z_{\pi(a)}^{x_a}.
+\]
+This is the coordinate Bethe ansatz for the specified lattice
+configuration space. Assume all denominators below are nonzero and
+the resulting function is not identically zero.
+\begin{enumerate}[label=(\alph*)]
+\item Away from adjacent down arrows compute the action of
+$H_{\Delta,h}$ and obtain
+$E=\sum_a[h+\frac J2(z_a+z_a^{-1}-2\Delta)]$.
+\item Impose the equation at adjacent sites to derive
+\[
+ \frac{A_{\pi\circ(a,a+1)}}{A_\pi}
+ =S(z_{\pi(a)},z_{\pi(a+1)}),\qquad
+ S(z,w)=-\frac{1+zw-2\Delta w}{1+zw-2\Delta z}.
+\]
+Check $S(z,w)S(w,z)=1$ and compatibility of successive swaps.
+Verify directly that the same pairwise conditions handle a string
+of three or more adjacent down arrows.
+\item Impose periodicity and derive
+$z_a^L=\prod_{b\ne a}S(z_b,z_a)$. Prove that a nonzero function
+satisfying these conditions is an eigenfunction of $H_{\Delta,h}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: the one-magnon band above a saturated chain]
+Consider $H_{\Delta,h}$ with $J>0$, $\Delta\ge0$, lattice spacing
+$a_0$, and even $L\ge4$. The polarized state has energy zero.
+The measured energy variable is $\hbar\omega$ and the wave number is
+$k/a_0$, with $k$ defined modulo $2\pi$.
+\begin{enumerate}[label=(\alph*)]
+\item Use the $M=1$ Bethe equation to derive
+\[
+ k=\frac{2\pi n}{L},\qquad
+ \hbar\omega(k)=h+J(\cos k-\Delta).
+\]
+Calculate the band width $2J$ and the gap $h-J(1+\Delta)$.
+\item Write the exchange on each bond plus half the field on each
+endpoint as a positive operator when $h\ge J(1+\Delta)$.
+Conclude that the polarized state is a ground state above this
+field. For $h<J(1+\Delta)$ use the $k=\pi$ magnon to show that
+it is not a ground state.
+\item Let $S^-_k=L^{-1/2}\sum_j e^{\ii kj}(S^x_j-\ii S^y_j)$.
+Compute its spectral measure in the polarized state: a single
+unit-weight line at $\hbar\omega(k)$. Specify the zero-temperature,
+nearest-neighbour, and fully polarized assumptions under which
+this is a prediction for momentum-resolved spin spectroscopy.
+\end{enumerate}
+\end{exercise}

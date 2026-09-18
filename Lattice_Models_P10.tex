@@ -1,0 +1,164 @@
+\part{Topological Lattice Phases}
+
+\section{Gapped Hamiltonians}
+
+\begin{exercise}[A bipartite hopping chain and its bulk spectral gap]
+Consider spinless fermions with two distinguished sites $A,B$ per
+cell of a one-dimensional lattice. Its one-particle Hamiltonian has
+hopping $v>0$ from $A_j$ to $B_j$ and $w>0$ from $B_j$ to $A_{j+1}$,
+with Hermitian conjugate hoppings and no on-site terms.
+On the Brillouin circle $\T=\R/(2\pi\Z)$ the Fourier transform gives
+\[
+ H(k)=\begin{pmatrix}0&\overline{q(k)}\\q(k)&0\end{pmatrix},
+ \qquad q(k)=v+w e^{\ii k}.
+\]
+The two entries refer to the physical sublattices. The involution
+$\Gamma=+1$ on $A$, $-1$ on $B$ satisfies
+$\Gamma H\Gamma=-H$ (chiral symmetry).
+A bulk gap at Fermi energy zero is a number $\epsilon>0$ such that
+$\Spec H(k)\cap(-\epsilon,\epsilon)=\emptyset$ for every $k$.
+\begin{enumerate}[label=(\alph*)]
+\item Derive the Fourier formula directly on periodic chains and
+prove $H(k)^2=|q(k)|^2\id$. Find the two band energies and their
+spectral projections.
+\item Prove that a gap exists exactly when $v\ne w$ and that its
+half-width is $|v-w|$. At half filling calculate the minimum
+particle-hole excitation energy $2|v-w|$.
+\item Define the filled-band ground state by occupying the negative
+spectral subspace at each allowed momentum. Show that its
+one-particle correlation operator is the negative spectral
+projection, without choosing eigenvectors.
+\end{enumerate}
+\end{exercise}
+
+\section{Deformation classes of phases}
+
+\begin{exercise}[Symmetry-preserving deformations and winding number]
+Two continuous gapped chiral one-particle Hamiltonian families on
+$\T$ are deformation equivalent if they are joined by a continuous
+path with a uniform gap and the same chiral grading. Stabilization
+allows adding decoupled copies of the constant family
+$\left(\begin{smallmatrix}0&1\\1&0\end{smallmatrix}\right)$.
+For a smooth nonvanishing scalar $q$ put
+\[
+ \nu(q)=\frac1{2\pi\ii}\int_{\T}q^{-1}\dd q.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Lift the phase of $q/|q|$ continuously on $[0,2\pi]$ and
+prove that $\nu(q)\in\Z$. Prove its invariance under gapped
+deformations and additivity under multiplication.
+\item Prove that two scalar loops are homotopic through
+nonvanishing loops exactly when their windings agree, by
+lifting their quotient's phase. Calculate
+$\nu(v+w e^{\ii k})=0$ for $v>w$ and $1$ for $w>v$.
+\item For a finite-dimensional graded space with an invertible
+off-diagonal map $D(k):V_A\to V_B$, use
+$U=D(D^*D)^{-1/2}$ to flatten the Hamiltonian through a
+gapped chiral path. For two unitary families $U,U_0$ with
+the same domain and codomain define the relative integer
+as the winding of $\det(U_0^{-1}U)$, using the determinant
+of the section Transfer matrices. Prove stabilization invariance.
+\end{enumerate}
+\end{exercise}
+
+\section{Generalized cohomology}
+
+\begin{exercise}[Reduced cohomology, suspension, and stable unitary families]
+For a based finite cell complex $X$, its reduced suspension is
+$\Sigma X=(X\times[0,1])/(X\times\{0,1\}\cup\{*\}\times[0,1])$.
+A reduced generalized cohomology theory consists of contravariant
+homotopy-invariant graded abelian groups $\widetilde E^n(X)$,
+natural suspension isomorphisms
+$\widetilde E^{n+1}(\Sigma X)\simeq\widetilde E^n(X)$,
+and exact sequences for cell cofibrations $A\hookrightarrow X$
+and their quotients $X/A$, with additivity on finite wedges.
+\begin{enumerate}[label=(\alph*)]
+\item From the cellular cochains of the section Higher gauge
+theory construct the relative complex $C^*(X,A;\Z)$ and its
+long exact sequence. Compute the cellular cochains of a
+suspension to obtain the suspension isomorphism for ordinary
+reduced cohomology.
+\item A complex vector bundle is a family of vector spaces
+locally isomorphic to a product $U\times\C^n$, with linear
+fibre identifications. Define $K^0(X)$ as the group completion
+of bundles under direct sum and $\widetilde K^0(X)$ as the
+kernel of restriction to the base point. Show that a continuous
+constant-rank orthogonal projection family on $X$ defines a
+bundle, by projecting from a nearby fibre and proving local
+invertibility.
+\item Define $K^{-1}(X)$ by stable homotopy classes of continuous
+unitary endomorphism families, with direct sum as addition.
+Show that adjoining identity families does not change the
+class, and construct an explicit block-rotation homotopy from
+$U\oplus U^{-1}$ to the identity. For $X=S^1$ prove that
+determinant winding is an additive homotopy invariant of these
+classes. Relate it to the flattened hopping family.
+\end{enumerate}
+\end{exercise}
+
+\section{Stable homotopy theory}
+
+\begin{exercise}[Suspension spectra and ordinary cohomology]
+A sequential spectrum is a sequence of based spaces $E_j$ with
+structure maps $\Sigma E_j\to E_{j+1}$. Its stable homotopy
+groups are $\pi_n(E)=\varinjlim_j\pi_{n+j}(E_j)$.
+The suspension spectrum of $X$ has levels $\Sigma^jX$ and the
+canonical structure maps. A loop space $\Omega Y$ consists of
+based loops in $Y$; the adjunction
+$[\Sigma X,Y]=[X,\Omega Y]$ uses based homotopy classes.
+\begin{enumerate}[label=(\alph*)]
+\item Prove the suspension-loop adjunction from the two quotient
+definitions. Write the transition maps defining $\pi_n(E)$
+and show that a compatible levelwise homotopy induces the
+same maps on these groups.
+\item Use the cocycle models $K(A,j)$ of the section Homotopy
+types. Construct the maps
+$\Sigma K(A,j)\to K(A,j+1)$ from the suspension of cocycles.
+Show that the associated represented groups on finite cell
+complexes are ordinary cohomology:
+\[
+ \widetilde H^n(X;A)=
+ \varinjlim_j[\Sigma^jX,K(A,n+j)].
+\]
+Derive the suspension isomorphism and exactness from the
+relative cochain calculation of the preceding section.
+\item For $X=S^1$, identify the scalar flattened Hamiltonian
+$q/|q|$ with its class in $H^1(S^1;\Z)=\Z$ by phase lifting.
+Show that its image under each suspension isomorphism is
+the same integer on the suspended fundamental class.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: bulk gap and boundary modes of the hopping chain]
+For an open chain of $N$ cells use the hoppings of the section
+Gapped Hamiltonians, with no bond from $B_N$ to $A_1$.
+Fix $0<v<w$, $r=v/w$, cell spacing $a_0$, chiral symmetry,
+and half filling.
+\begin{enumerate}[label=(\alph*)]
+\item On the semi-infinite chain construct the normalized
+zero-energy state supported on sublattice $A$,
+$\psi(A_j)=\sqrt{1-r^2}(-r)^{j-1}$, $\psi(B_j)=0$.
+Derive its amplitude localization length
+$\ell=a_0/\log(w/v)$.
+\item On the finite chain normalize the truncated state and
+compute its residual norm
+\[
+ \|H\psi\|=v r^{N-1}
+       \sqrt{\frac{1-r^2}{1-r^{2N}}}.
+\]
+Apply the spectral theorem to prove the existence of a pair
+of energies $\pm E_N$ satisfying the same upper bound on
+$|E_N|$. Prove that zero itself is absent for $v>0$ by the
+invertibility of the triangular hopping map.
+\item Connect $v<w$ to $v=0$ through gapped bulk Hamiltonians
+and identify the two exactly unpaired boundary sites at that
+endpoint. Compare with the gapped deformation of $v>w$ to
+$w=0$ and its absence of boundary zero modes.
+Relate the difference to the winding class.
+\item State the bulk absorption threshold $2(w-v)$ and the
+boundary localization length as distinct measurable predictions.
+Identify the fixed termination and chiral symmetry as hypotheses;
+show directly that an on-site potential at $A_1$ can shift the
+boundary energy when that symmetry is relaxed.
+\end{enumerate}
+\end{exercise}

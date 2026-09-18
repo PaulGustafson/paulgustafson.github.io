@@ -1,6 +1,7 @@
 # Manuscript conventions
 
-These rules govern `Symmetry_and_Special_Functions.tex`.
+These rules govern `Mathematics_of_Lattice_Models.tex` and its part files
+`Lattice_Models_P01.tex` through `Lattice_Models_P12.tex`.
 
 1. Apart from front matter, sectioning commands, and the bibliography, every
    manuscript passage belongs to an `exercise` environment.
@@ -17,32 +18,49 @@ These rules govern `Symmetry_and_Special_Functions.tex`.
    environments. Experimental facts may occur as data in an exercise, but not
    as a separate observations list.
 6. No result is declared "supplied," "used without proof," or a theorem to be
-   assumed. An exercise must be solvable from earlier material and hypotheses
+   assumed, except that the final prediction exercise of a part may adopt a
+   cited theorem as an explicit hypothesis ("assume, as proved by ..."). An
+   exercise must otherwise be solvable from earlier material and hypotheses
    stated as mathematical data. Material that requires an undeveloped deep
-   theorem is omitted rather than presented as a citation disguised as an
-   exercise.
+   theorem is restricted or omitted rather than presented as a citation
+   disguised as an exercise.
 7. Citations may identify data or invite comparison with a source inside an
    exercise; they may not substitute for an argument required by the exercise.
-
 8. The manuscript and table of contents use part and section headings only;
    there are no subsection or lower-level headings.
-9. Part titles are standard names of mathematical disciplines. Section titles
-   are short, nonconjunctive, and use a standard name for the principal
-   mathematical subject, structure, or theory developed there.
-10. Parts group consecutive sections by a common mathematical discipline.
-    Every section realizes, through its exercise sequence and without printing
-    generic stage headings, the progression
-    geometric symmetry, special-function decomposition, and physical
-    predictions.
-11. The middle stage introduces the characters, matrix coefficients,
-    eigenfunctions, orthogonal polynomials, or kernels together with the
-    orthogonality, completeness, inversion, Plancherel, spectral-resolution,
-    or representation-theoretic decomposition they realize. The three stages
-    are a substantive completeness test. The geometric-symmetry stage must
-    specify both the symmetry and the space on which it acts; if the
-    special-function decomposition does not yield a quantitative prediction
-    for a specified physical observable, the section must be refocused,
-    merged, or removed.
+9. Part titles name lattice models; section titles name the mathematical
+   subjects those models force. Both are the fixed table of contents below.
+10. Every part realizes, through its exercise sequence and without printing
+    generic stage headings, the progression model, mathematical structure,
+    physical prediction, and ends with a quantitative experimentally testable
+    prediction.
+11. Each notion is defined once, in its owner section, and is used by later
+    sections by naming that section. No `\label`/`\ref`.
+12. Notation is fixed across parts: inverse temperature $\beta$, coupling
+    $J$, $K=\beta J$, field $h$; magnetization exponent $\beta_{\mathrm{mag}}$;
+    cluster weight $Q$ and bond density $p$ (Part III); quantum parameter $q$,
+    anisotropy $\Delta=\cosh\eta$, loop value $d=q+q^{-1}$; elliptic nome
+    $p=e^{\mathrm{i}\pi\tau}$ (Part VI only); gauge coupling $\beta_g$.
+
+## Table of contents (fixed)
+
+| Part | Sections |
+|---|---|
+| I. Independent Spins / Ising Chain | Microstates, Hamiltonians, partition functions; Gibbs measures; $\log Z$, cumulants, entropy, free energy; Transfer matrices |
+| II. 2D Ising Model | Thermodynamic limit; Boundary conditions; Gibbs states; Correlation functions; Phase transitions; Lee--Yang zeros; High/low-temperature expansions |
+| III. Percolation / Random-Cluster Model | Probability on lattices; Connectivity; Critical phenomena; Correlation length; Scaling and universality; SLE / conformal invariance |
+| IV. Six-Vertex Model | Row-to-row transfer matrices; Spectral parameter; Commuting families; Yang--Baxter equation; Bethe ansatz |
+| V. XXZ / Vertex Models | Quantum groups; $U_q(\mathfrak{sl}_2)$; Hecke / Temperley--Lieb algebras; Representation theory; Rational/trigonometric hierarchy |
+| VI. Eight-Vertex / RSOS Models | Theta and elliptic functions; Elliptic $R$-matrices; Fusion; Quantum dimensions; Elliptic quantum groups |
+| VII. Loop Models / Anyonic Chains | Temperley--Lieb; Fusion graphs; Perron--Frobenius; Modular tensor categories; Braid group representations; Knot invariants |
+| VIII. String-Net / State-Sum Models | Fusion categories; $6j$-symbols; Pentagon identities; Turaev--Viro; TQFT |
+| IX. Lattice Gauge Theory | Gauge fields on edges; Wilson loops; Flat connections; Dijkgraaf--Witten; Classifying spaces; Higher gauge theory; Homotopy types |
+| X. Topological Lattice Phases | Gapped Hamiltonians; Deformation classes of phases; Generalized cohomology; Stable homotopy theory |
+| XI. Quiver / Spin-Chain Models | Bethe ansatz; Quiver varieties; Cohomology and $K$-theory; Stable envelopes; Geometric representation theory |
+| XII. Gaudin Model | Commuting Hamiltonians; Bethe equations; Opers; Langlands duality; Geometric Langlands |
 
 Structural audits and a successful LaTeX build are required before changes to
-the manuscript are committed.
+the manuscript are committed. Build with `pdflatex` run three times on
+`Mathematics_of_Lattice_Models.tex`. The reproducible command
+`bash scripts/build_lattice_manuscript.sh` performs the source audit,
+three passes, and PDF checks before updating the tracked PDF.

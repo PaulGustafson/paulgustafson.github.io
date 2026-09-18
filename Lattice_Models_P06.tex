@@ -1,0 +1,544 @@
+\part{Eight-Vertex / RSOS Models}
+
+\section{Theta and elliptic functions}
+
+\begin{exercise}[Restricted solid-on-solid configurations]
+Fix an integer $k\ge1$. The height set of the restricted solid-on-solid
+(RSOS) model is $\{1,\dots,k+1\}$; neighbouring lattice sites must
+have heights differing by one. On a finite graph take the uniform
+measure on admissible configurations, with zero weight for
+inadmissible ones. Equivalently the energy is zero on the allowed
+configuration space.
+Prove invariance under the height reflection $a\mapsto k+2-a$.
+On a path of $N$ edges with initial height $a$ and terminal height
+$b$, express the partition function as $(A^N)_{ab}$, where $A$
+is the adjacency kernel of the path graph $A_{k+1}$.
+\end{exercise}
+
+\begin{exercise}[Jacobi theta functions: series, quasi-periodicity, half-period shifts, and zeros]
+Let $\tau\in\C$ with $\operatorname{Im}\tau>0$ and $p=e^{\ii\pi\tau}$ (the
+nome), so $|p|<1$; fix $p^{1/4}=e^{\ii\pi\tau/4}$.  Define, for $z\in\C$,
+\begin{align*}
+ \vartheta_1(z|\tau)&=2\sum_{n\ge0}(-1)^np^{(n+1/2)^2}\sin((2n+1)z)
+ =-\ii\sum_{n\in\Z}(-1)^np^{(n+1/2)^2}e^{\ii(2n+1)z},\\
+ \vartheta_2(z|\tau)&=2\sum_{n\ge0}p^{(n+1/2)^2}\cos((2n+1)z),\qquad
+ \vartheta_3(z|\tau)=1+2\sum_{n\ge1}p^{n^2}\cos(2nz),\\
+ \vartheta_4(z|\tau)&=1+2\sum_{n\ge1}(-1)^np^{n^2}\cos(2nz)=\sum_{n\in\Z}(-1)^np^{n^2}e^{2\ii nz}.
+\end{align*}
+The dependence on $\tau$ is suppressed when it is fixed.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the series converge absolutely and uniformly on compact
+sets, so the $\vartheta_j$ are entire; $\vartheta_1$ is odd and
+$\vartheta_2,\vartheta_3,\vartheta_4$ are even.
+\item Prove the quasi-periodicity relations
+\begin{align*}
+ \vartheta_1(z+\pi)&=-\vartheta_1(z),&\vartheta_1(z+\pi\tau)&=-p^{-1}e^{-2\ii z}\vartheta_1(z),\\
+ \vartheta_2(z+\pi)&=-\vartheta_2(z),&\vartheta_2(z+\pi\tau)&=p^{-1}e^{-2\ii z}\vartheta_2(z),\\
+ \vartheta_3(z+\pi)&=\vartheta_3(z),&\vartheta_3(z+\pi\tau)&=p^{-1}e^{-2\ii z}\vartheta_3(z),\\
+ \vartheta_4(z+\pi)&=\vartheta_4(z),&\vartheta_4(z+\pi\tau)&=-p^{-1}e^{-2\ii z}\vartheta_4(z),
+\end{align*}
+and the half-period shifts
+$\vartheta_1(z+\tfrac\pi2)=\vartheta_2(z)$, $\vartheta_2(z+\tfrac\pi2)=-\vartheta_1(z)$,
+$\vartheta_3(z+\tfrac\pi2)=\vartheta_4(z)$, $\vartheta_4(z+\tfrac\pi2)=\vartheta_3(z)$,
+$\vartheta_1(z+\tfrac{\pi\tau}2)=\ii p^{-1/4}e^{-\ii z}\vartheta_4(z)$,
+$\vartheta_4(z+\tfrac{\pi\tau}2)=\ii p^{-1/4}e^{-\ii z}\vartheta_1(z)$.
+\item Zero count.  Let $f$ be entire, not identically zero, with
+$f(z+\pi)=\epsilon f(z)$, $\epsilon\in\{\pm1\}$, and
+$f(z+\pi\tau)=Ce^{-2\ii nz}f(z)$ for some $C\in\C^\times$ and $n\in\Z_{\ge0}$.
+Prove by integrating $f'/f$ around a period parallelogram avoiding zeros
+that $f$ has exactly $n$ zeros modulo the lattice $\pi\Z+\pi\tau\Z$,
+counted with multiplicity.  Deduce that $\vartheta_1$ vanishes exactly on
+the lattice, with simple zeros, and that the zeros of
+$\vartheta_2,\vartheta_3,\vartheta_4$ are the translates of the lattice by
+$\frac\pi2$, $\frac\pi2+\frac{\pi\tau}2$, $\frac{\pi\tau}2$ respectively.
+\item Dimension count.  For $\epsilon\in\{\pm1\}$, $n\ge1$, $C\in\C^\times$
+let $\Theta_n(\epsilon,C)$ be the space of entire $f$ with
+$f(z+\pi)=\epsilon f(z)$ and $f(z+\pi\tau)=Ce^{-2\ii nz}f(z)$.  Expanding
+$f(z)=\sum_mc_me^{\ii(2m+\delta)z}$ with $\delta\in\{0,1\}$ determined by
+$\epsilon$, show that the second relation is a recursion $c_{m+n}=\gamma_mc_m$
+with explicit $\gamma_m\ne0$, whose solutions converge, and conclude
+$\dim\Theta_n(\epsilon,C)=n$.  Verify that a product of $n$ theta
+functions $\vartheta_{j_1}(z+w_1)\cdots\vartheta_{j_n}(z+w_n)$ lies in
+$\Theta_n(\epsilon,C)$ for suitable $\epsilon,C$ depending only on the
+$j_i$ and $\sum w_i$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Addition identities of degree two]
+Write $\vartheta_j=\vartheta_j(\cdot|\tau)$.  Prove each of the following
+identities by the same method: both sides lie in a space
+$\Theta_2(\epsilon,C)$ of dimension two (as functions of $x$, with the
+other variables fixed), the right side vanishes at a point where the left
+side also vanishes, so that the two sides are proportional, and the constant
+is found by evaluating at $x=0$ or $x=\frac\pi2$.
+\begin{enumerate}[label=(\alph*)]
+\item $\vartheta_1(x+y)\vartheta_1(x-y)\vartheta_4(0)^2=\vartheta_1(x)^2\vartheta_4(y)^2-\vartheta_4(x)^2\vartheta_1(y)^2$
+and $\vartheta_4(x+y)\vartheta_4(x-y)\vartheta_4(0)^2=\vartheta_4(x)^2\vartheta_4(y)^2-\vartheta_1(x)^2\vartheta_1(y)^2$.
+\item $\vartheta_1(x+y)\vartheta_4(x-y)\vartheta_2(0)\vartheta_3(0)=\vartheta_1(x)\vartheta_4(x)\vartheta_2(y)\vartheta_3(y)+\vartheta_2(x)\vartheta_3(x)\vartheta_1(y)\vartheta_4(y)$.
+\item $\vartheta_4(0)^2\vartheta_3(x)^2=\vartheta_3(0)^2\vartheta_4(x)^2-\vartheta_2(0)^2\vartheta_1(x)^2$
+and $\vartheta_4(0)^2\vartheta_2(x)^2=\vartheta_2(0)^2\vartheta_4(x)^2-\vartheta_3(0)^2\vartheta_1(x)^2$;
+deduce $\vartheta_3(0)^4=\vartheta_2(0)^4+\vartheta_4(0)^4$ by putting $x=\frac\pi2$.
+\item For a fixed shift $\eta$ put
+$f(x)=\vartheta_4(x)\vartheta_1(x+\eta)$,
+$g(x)=\vartheta_1(x)\vartheta_4(x+\eta)$,
+$h(x)=\vartheta_4(x)\vartheta_4(x+\eta)$, and
+$j(x)=\vartheta_1(x)\vartheta_1(x+\eta)$.
+Prove the four identities
+\begin{align*}
+ f(x)f(y)-g(x)g(y)
+ &=\vartheta_4(0)\vartheta_1(\eta)
+       \vartheta_4(x-y)\vartheta_1(x+y+\eta),\\
+ h(x)h(y)-j(x)j(y)
+ &=\vartheta_4(0)\vartheta_4(\eta)
+       \vartheta_4(x-y)\vartheta_4(x+y+\eta),\\
+ h(x)j(y)-j(x)h(y)
+ &=\vartheta_4(0)\vartheta_4(\eta)
+       \vartheta_1(y-x)\vartheta_1(x+y+\eta),\\
+ f(x)g(y)-g(x)f(y)
+ &=\vartheta_4(0)\vartheta_1(\eta)
+       \vartheta_1(y-x)\vartheta_4(x+y+\eta).
+\end{align*}
+For the first use the common zero $x=-y-\eta$; for the
+second use $x=y+\pi\tau/2$ and the half-period shifts;
+for the last two use $x=y$.
+\item The three-term identity.  Put $[x,y]=\vartheta_1(x+y)\vartheta_1(x-y)$.
+Deduce from (a) that $[x,y]\vartheta_4(0)^2=P_xQ_y-Q_xP_y$ with
+$P_x=\vartheta_1(x)^2$, $Q_x=\vartheta_4(x)^2$, and from the Pl\"ucker
+relation for $2\times2$ determinants that
+\[
+ [c,d]\,[a,b]+[d,b]\,[a,c]+[b,c]\,[a,d]=0\qquad(a,b,c,d\in\C).
+\]
+\item Wronskian.  Show that $\vartheta_1'\vartheta_4-\vartheta_1\vartheta_4'$
+lies in the same $\Theta_2$ as $\vartheta_2\vartheta_3$ and is even, and
+conclude $(\vartheta_1/\vartheta_4)'=\kappa\,\vartheta_2\vartheta_3/\vartheta_4^2$
+with $\kappa=\vartheta_1'(0)\vartheta_4(0)/(\vartheta_2(0)\vartheta_3(0))$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Jacobi's triple product and the product formulas]
+\leavevmode\par
+\begin{enumerate}[label=(\alph*)]
+\item For $|p|<1$ and $w\in\C^\times$ put
+$F(w)=\prod_{n\ge1}(1+p^{2n-1}w)(1+p^{2n-1}w^{-1})$.  Prove that $F$ is
+holomorphic on $\C^\times$ with $F(p^2w)=(pw)^{-1}F(w)$, expand
+$F(w)=\sum_{m\in\Z}c_mw^m$, derive $c_m=p^{2m-1}c_{m-1}$, hence
+$c_m=p^{m^2}c_0$, so that $\prod_{n\ge1}(1-p^{2n})\,F(w)=\phi(p)\sum_mp^{m^2}w^m$
+for some $\phi(p)$ depending only on $p$.
+\item Determine $\phi(p)=1$.  Put $w=\ii$: the series becomes
+$\sum_j(-1)^jp^{4j^2}$ and $F(\ii)=\prod_n(1+p^{4n-2})$.  Apply (a) with
+$p$ replaced by $p^4$ and $w=-1$ to the same series, and use
+$\prod_n(1-p^{2n})=\prod_n(1-p^{8n})(1-p^{8n-4})(1-p^{4n-2})$ to obtain
+$\phi(p)=\phi(p^4)$; iterate and let $p\to0$.
+\item Deduce the product formulas
+\begin{align*}
+ \vartheta_3(z)&=\prod_{n\ge1}(1-p^{2n})(1+2p^{2n-1}\cos2z+p^{4n-2}),\\
+ \vartheta_4(z)&=\prod_{n\ge1}(1-p^{2n})(1-2p^{2n-1}\cos2z+p^{4n-2}),\\
+ \vartheta_2(z)&=2p^{1/4}\cos z\prod_{n\ge1}(1-p^{2n})(1+2p^{2n}\cos2z+p^{4n}),\\
+ \vartheta_1(z)&=2p^{1/4}\sin z\prod_{n\ge1}(1-p^{2n})(1-2p^{2n}\cos2z+p^{4n}),
+\end{align*}
+and the derivative formula $\vartheta_1'(0)=\vartheta_2(0)\vartheta_3(0)\vartheta_4(0)$
+from $\prod_n(1+p^{2n})(1+p^{2n-1})(1-p^{2n-1})=1$.  Conclude that the
+constant $\kappa$ of the previous exercise equals $\vartheta_4(0)^2$.
+\item Degeneration.  Show that as $p\to0$ with $z$ fixed,
+$\vartheta_1(z)=2p^{1/4}\sin z\,(1+O(p^2))$, $\vartheta_2(z)=2p^{1/4}\cos z\,(1+O(p^2))$,
+$\vartheta_3(z),\vartheta_4(z)=1+O(p)$, uniformly on compact sets.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Modular transformation, Jacobi elliptic functions, and the modulus]
+\leavevmode\par
+\begin{enumerate}[label=(\alph*)]
+\item Prove the Fourier identity
+$\sum_{n\in\Z}e^{-\pi n^2t+2\pi\ii nz}=t^{-1/2}\sum_{n\in\Z}e^{-\pi(n-z)^2/t}$
+for $\operatorname{Re}t>0$, $z\in\C$ by integrating a Gaussian against $e^{-2\pi\ii nx}$ and
+periodizing the result (the branch of $t^{-1/2}$ is positive
+for $t>0$). Derive
+\[
+ \vartheta_3(z|\tau)=(-\ii\tau)^{-1/2}e^{-\ii z^2/(\pi\tau)}\,\vartheta_3\!\Big(\frac z\tau\Big|-\frac1\tau\Big),
+\]
+and, using the half-period shifts,
+$\vartheta_4(z|\tau)=(-\ii\tau)^{-1/2}e^{-\ii z^2/(\pi\tau)}\vartheta_2(z/\tau|-1/\tau)$,
+$\vartheta_2(z|\tau)=(-\ii\tau)^{-1/2}e^{-\ii z^2/(\pi\tau)}\vartheta_4(z/\tau|-1/\tau)$,
+$\vartheta_1(z|\tau)=\ii(-\ii\tau)^{-1/2}e^{-\ii z^2/(\pi\tau)}\vartheta_1(z/\tau|-1/\tau)$.
+\item Define the modulus $k=\vartheta_2(0)^2/\vartheta_3(0)^2$, the
+complementary modulus $k'=\vartheta_4(0)^2/\vartheta_3(0)^2$, and
+$K=\frac\pi2\vartheta_3(0)^2$, $K'=-\ii\tau K$.  Show $k^2+k'^2=1$ and that
+$\tau\mapsto-1/\tau$ exchanges $k$ with $k'$ and $K$ with $K'$.
+\item Define, with $u=\vartheta_3(0)^2z$,
+\[
+ \operatorname{sn}u=\frac{\vartheta_3(0)}{\vartheta_2(0)}\frac{\vartheta_1(z)}{\vartheta_4(z)},\qquad
+ \operatorname{cn}u=\frac{\vartheta_4(0)}{\vartheta_2(0)}\frac{\vartheta_2(z)}{\vartheta_4(z)},\qquad
+ \operatorname{dn}u=\frac{\vartheta_4(0)}{\vartheta_3(0)}\frac{\vartheta_3(z)}{\vartheta_4(z)}.
+\]
+Prove from the identities of degree two that
+$\operatorname{sn}^2+\operatorname{cn}^2=1$, $\operatorname{dn}^2+k^2\operatorname{sn}^2=1$,
+$\frac{\dd}{\dd u}\operatorname{sn}=\operatorname{cn}\operatorname{dn}$, that
+$\operatorname{sn}$ is meromorphic with periods $4K$ and $2\ii K'$, simple
+poles at $\ii K'+2K\Z+2\ii K'\Z$, and that $\operatorname{sn}$ is
+determined by the initial value problem
+$(\operatorname{sn}')^2=(1-\operatorname{sn}^2)(1-k^2\operatorname{sn}^2)$, $\operatorname{sn}0=0$, $\operatorname{sn}'0=1$,
+so that it inverts the elliptic integral
+$u=\int_0^{x}\dd t/\sqrt{(1-t^2)(1-k^2t^2)}$ near $0$.  For $0<k<1$
+(i.e. $\tau\in\ii\R_{>0}$) show that $\operatorname{sn}$ increases from
+$0$ to $1$ on $[0,K]$ (use $\operatorname{sn}K=1$ from the half-period
+shift) and deduce $K=\int_0^{\pi/2}(1-k^2\sin^2\theta)^{-1/2}\dd\theta$
+by the substitution $\operatorname{sn}u=\sin\theta$.
+\item Show that as $p\to0$: $k\to0$, $K\to\pi/2$, $K'\to\infty$,
+$\operatorname{sn}u\to\sin u$, $\operatorname{cn}u\to\cos u$, $\operatorname{dn}u\to1$,
+uniformly on compact sets; and that $\tau\mapsto-1/\tau$ followed by
+$p\to0$ gives the hyperbolic degeneration $\operatorname{sn}(u;k)\to\tanh u$ as $k\to1$.
+\end{enumerate}
+\end{exercise}
+
+\section{Elliptic R-matrices}
+
+\begin{exercise}[Eight-vertex configurations, weights, invariants, and the elliptic parametrization]
+On the square lattice place an arrow on every edge and keep the vertices at
+which the number of incoming arrows is even: the six vertices of the
+section Row-to-row transfer matrices in Part IV, with weights $a$
+(both arrows continue straight, parallel), $b$ (straight, antiparallel),
+$c$ (turning), together with the two vertices with four incoming or four
+outgoing arrows (source and sink), both of weight $d$.  With $V=\C^2$,
+$e_+$ (arrow up or right), $e_-$, the vertex operator is
+\[
+ R=\begin{pmatrix}a&0&0&d\\0&b&c&0\\0&c&b&0\\d&0&0&a\end{pmatrix}\in\End(V\otimes V)
+\]
+in the basis $e_+\otimes e_+,e_+\otimes e_-,e_-\otimes e_+,e_-\otimes e_-$,
+and the partition function on the $L\times N$ torus is $Z=\Tr(T^N)$ with
+$T$ the row-to-row transfer matrix built from $R$ exactly as in Part IV.
+Put
+\[
+ \Delta=\frac{a^2+b^2-c^2-d^2}{2(ab+cd)},\qquad\Gamma=\frac{ab-cd}{ab+cd}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $R$ commutes with $\sigma^z\otimes\sigma^z$ and with
+$\sigma^x\otimes\sigma^x$ (parity of the number of down arrows is conserved,
+and arrow reversal is a symmetry), and that $R$ commutes with
+$\sigma^z\otimes1+1\otimes\sigma^z$ if and only if $d=0$.
+\item Elliptic parametrization.  Fix $\tau$, $\eta\in\C$ and define, with
+$\vartheta_j=\vartheta_j(\cdot|\tau)$,
+\begin{align*}
+ a(u)&=\vartheta_4(\eta)\,\vartheta_4(u)\,\vartheta_1(u+\eta),&
+ b(u)&=\vartheta_4(\eta)\,\vartheta_1(u)\,\vartheta_4(u+\eta),\\
+ c(u)&=\vartheta_1(\eta)\,\vartheta_4(u)\,\vartheta_4(u+\eta),&
+ d(u)&=\vartheta_1(\eta)\,\vartheta_1(u)\,\vartheta_1(u+\eta),
+\end{align*}
+and $R(u)$ accordingly.  Show that these are Baxter's weights
+\cite{baxter-eightvertex} $\vartheta_4(2\eta')\vartheta_4(u'-\eta')\vartheta_1(u'+\eta')$,
+etc., under $u'=u+\eta/2$, $\eta'=\eta/2$, up to the common
+factor.  Prove $\Gamma=\dfrac{\vartheta_4(\eta)^2-\vartheta_1(\eta)^2}{\vartheta_4(\eta)^2+\vartheta_1(\eta)^2}$
+directly, and
+\[
+ \Delta=\frac{\vartheta_2(\eta)\vartheta_3(\eta)\vartheta_4(0)^2}{\vartheta_2(0)\vartheta_3(0)\,(\vartheta_4(\eta)^2+\vartheta_1(\eta)^2)}
+\]
+by combining the identities (a) and (b) of the exercise on addition
+identities: write $a^2+b^2-c^2-d^2$ as
+$\vartheta_1(u+\eta)^2[\vartheta_4(\eta)^2\vartheta_4(u)^2-\vartheta_1(\eta)^2\vartheta_1(u)^2]
++\vartheta_4(u+\eta)^2[\vartheta_4(\eta)^2\vartheta_1(u)^2-\vartheta_1(\eta)^2\vartheta_4(u)^2]$,
+factor each bracket, and use (b) at $y=\pm\eta$.  Both invariants are
+independent of $u$.
+\item Trigonometric limit.  Show that as $p\to0$,
+$(a,b,c,d)/(2p^{1/4})\to(\sin(u+\eta),\sin u,\sin\eta,0)$, which is the
+six-vertex parametrization of Part IV with $(u,\eta)$ replaced by
+$(\ii u,\ii\eta)$ up to a common factor, and $\Gamma\to1$,
+$\Delta\to\cos\eta$.
+\item Positivity.  For $\tau\in\ii\R_{>0}$ (so $0<p<1$) show from the
+product formulas that $\vartheta_4(x)>0$ for real $x$ and
+$\vartheta_1(x)>0$ for $0<x<\pi$; deduce that for real $\eta,u$ with
+$0<u$ and $u+\eta<\pi$, $0<\eta<\pi$, all four weights are positive, and
+compute the signs of $\Delta$ and $\Gamma$ there.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The eight-vertex Yang--Baxter equation]
+Let $R(u)$ be the elliptic eight-vertex $R$-matrix.
+\begin{enumerate}[label=(\alph*)]
+\item Write the equation
+$R_{12}(u-v)R_{13}(u)R_{23}(v)=R_{23}(v)R_{13}(u)R_{12}(u-v)$ on
+$V^{\otimes3}$ with three sets of weights $(a,b,c,d)$, $(a',b',c',d')$,
+$(a'',b'',c'',d'')$ for the arguments $u-v$, $u$, $v$.  Using the
+parity conservation and arrow reversal of the previous exercise, show that
+it is equivalent to the six polynomial identities
+\begin{align*}
+ d(a'a''-b'b'')&=a(c''d'-c'd''),&
+ c(a'b''-a''b')&=b(d'd''-c'c''),\\
+ c'(aa''-bb'')&=a'(cc''-dd''),&
+ c''(ab'-a'b)&=b''(cc'-dd'),\\
+ d''(aa'-bb')&=a''(cd'-c'd),&
+ d'(ab''-a''b)&=b'(cd''-c''d).
+\end{align*}
+\item Using the four shifted identities of the exercise on addition
+identities, prove for all $x,y$:
+\begin{align*}
+ a(x)a(y)-b(x)b(y)&=\vartheta_4(\eta)^2\vartheta_4(0)\vartheta_1(\eta)\,\vartheta_4(x-y)\vartheta_1(x+y+\eta),\\
+ c(x)c(y)-d(x)d(y)&=\vartheta_1(\eta)^2\vartheta_4(0)\vartheta_4(\eta)\,\vartheta_4(x-y)\vartheta_4(x+y+\eta),\\
+ c(x)d(y)-c(y)d(x)&=\vartheta_1(\eta)^2\vartheta_4(0)\vartheta_4(\eta)\,\vartheta_1(y-x)\vartheta_1(x+y+\eta),\\
+ a(x)b(y)-a(y)b(x)&=\vartheta_4(\eta)^2\vartheta_4(0)\vartheta_1(\eta)\,\vartheta_1(y-x)\vartheta_4(x+y+\eta).
+\end{align*}
+\item Substitute $(x,y)=(u-v,v)$, $(u-v,u)$, $(u,v)$ as appropriate into
+(b) and verify each of the six identities of (a); for instance the third
+becomes
+$c(u)\,\vartheta_4(\eta)^2\vartheta_4(0)\vartheta_1(\eta)\vartheta_4(u-2v)\vartheta_1(u+\eta)
+=a(u)\,\vartheta_1(\eta)^2\vartheta_4(0)\vartheta_4(\eta)\vartheta_4(u-2v)\vartheta_4(u+\eta)$,
+which holds by the definitions of $a(u)$ and $c(u)$.  Conclude that the
+eight-vertex Yang--Baxter equation holds identically in $u,v,\eta,\tau$.
+\item Deduce the three-parameter form
+$R_{12}(u-v)R_{13}(u-w)R_{23}(v-w)=R_{23}(v-w)R_{13}(u-w)R_{12}(u-v)$
+and, in the limit $p\to0$, recover the six-vertex Yang--Baxter equation
+of Part IV.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Regularity, unitarity, crossing symmetry, and commuting eight-vertex transfer matrices]
+\leavevmode\par
+\begin{enumerate}[label=(\alph*)]
+\item Prove $R(0)=a(0)P$ with $a(0)=\vartheta_4(\eta)\vartheta_4(0)\vartheta_1(\eta)$
+and $P$ the flip (regularity).
+\item Prove $R_{12}(u)R_{12}(-u)=\rho(u)\,1$ with
+$\rho(u)=a(u)a(-u)+d(u)d(-u)=b(u)b(-u)+c(u)c(-u)$ (unitarity; use the
+identities of the previous exercise at $(x,y)=(u,-u)$ to show the two
+expressions agree and the cross terms
+\[
+ a(u)d(-u)+d(u)a(-u),\qquad b(u)c(-u)+c(u)b(-u)
+\]
+vanish).
+\item Prove the crossing relations $a(-u-\eta)=-b(u)$, $b(-u-\eta)=-a(u)$,
+$c(-u-\eta)=c(u)$, $d(-u-\eta)=d(u)$, and deduce
+\[
+ R_{12}(-u-\eta)=-(\sigma^y\otimes1)R_{12}(u)^{t_1}
+                            (\sigma^y\otimes1)
+\]
+where $t_1$ is the partial transpose in the first factor (crossing symmetry).
+\item Define $L_j(u)=R_{0j}(u)$, $\mathcal T(u)=L_N(u)\cdots L_1(u)$,
+$t(u)=\Tr_0\mathcal T(u)$ on $\mathcal H_N$.  Prove the RLL relation and
+$[t(u),t(v)]=0$ exactly as in the section Commuting families in Part IV,
+now without conservation of $S^z$ but with $[t(u),\sigma^z_1\cdots\sigma^z_N]=0$
+and $[t(u),\sigma^x_1\cdots\sigma^x_N]=0$; show that the row-to-row
+transfer matrix of the eight-vertex model on the torus is $t(u)$ for the
+appropriate normalization, so that on an $N$-site row and $M$ rows, $Z=\Tr t(u)^M$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The XYZ chain from the logarithmic derivative and the hierarchy of degenerations]
+\leavevmode\par
+\begin{enumerate}[label=(\alph*)]
+\item Repeating the derivation of the section Rational/trigonometric
+hierarchy in Part V with $a(0)$ in place of $\sinh\eta$, prove
+\[
+\begin{aligned}
+ t(0)^{-1}t'(0)&=\frac1{a(0)}\sum_{j=1}^NP_{j,j+1}R'_{j,j+1}(0),\\
+ P R'(0)&=\frac{a'+c'}2+\frac{a'-c'}2\sigma^z\otimes\sigma^z\\
+ &\quad+\frac{b'+d'}2\sigma^x\otimes\sigma^x
+       +\frac{b'-d'}2\sigma^y\otimes\sigma^y .
+\end{aligned}
+\]
+with $a'=a'(0)$ etc.
+\item Compute $a'(0)=\vartheta_4(\eta)\vartheta_4(0)\vartheta_1'(\eta)$,
+$b'(0)=\vartheta_4(\eta)^2\vartheta_1'(0)$, $c'(0)=\vartheta_1(\eta)\vartheta_4(0)\vartheta_4'(\eta)$,
+$d'(0)=\vartheta_1(\eta)^2\vartheta_1'(0)$, and, using the Wronskian identity
+$(\vartheta_1/\vartheta_4)'=\vartheta_4(0)^2\vartheta_2\vartheta_3/\vartheta_4^2$
+and $\vartheta_1'(0)=\vartheta_2(0)\vartheta_3(0)\vartheta_4(0)$, prove that
+\[
+ H_{XYZ}=\sum_{j=1}^N\big(J_x\sigma^x_j\sigma^x_{j+1}+J_y\sigma^y_j\sigma^y_{j+1}+J_z\sigma^z_j\sigma^z_{j+1}\big),
+ \qquad J_x:J_y:J_z=1:\Gamma:\Delta,
+\]
+is, up to the additive constant $N(a'+c')/(2a(0))$ and the factor
+$2a(0)/(b'+d')$, the logarithmic derivative of $t(u)$ at $u=0$; hence
+$[H_{XYZ},t(u)]=0$.
+\item Hierarchy.  Show: $p\to0$ gives $\Gamma=1$, $J_x=J_y$, the XXZ chain
+with $\Delta=\cos\eta$ (after $\eta\to\ii\eta$, the $\Delta=\cosh\eta$
+form of Part V); the further limit $\eta\to0$ with $u/\eta$ fixed gives the
+XXX chain and the Yang $R$-matrix; and the limits $k\to1$ of the modulus
+(via $\tau\mapsto-1/\tau$) give the hyperbolic (massive XXZ) forms.  State
+the resulting inclusions rational $\subset$ trigonometric $\subset$
+elliptic of solutions of the Yang--Baxter equation.
+\end{enumerate}
+\end{exercise}
+
+\section{Fusion}
+
+\begin{exercise}[The fusion procedure: degeneration of $R$ at $u=-\eta$ and the fused $R$-matrix on $V_2\otimes V_1$]
+Let $R(u)$ be either the six-vertex $R$-matrix of Part IV or the elliptic
+eight-vertex $R$-matrix, both with $R(0)\propto P$.  Write
+$P^{\pm}=\frac12(1\pm P)$ for the projections onto the symmetric and
+antisymmetric parts of $V\otimes V$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $R(-\eta)=2b(-\eta)P^-$ in both cases (six-vertex:
+$a(-\eta)=0$, $c(-\eta)=-b(-\eta)$; eight-vertex: $a(-\eta)=d(-\eta)=0$,
+$c(-\eta)=-b(-\eta)$).
+\item From the Yang--Baxter equation at $u-v=-\eta$ deduce
+$P^-_{12}R_{13}(u)R_{23}(u+\eta)=R_{23}(u+\eta)R_{13}(u)P^-_{12}$ and hence
+that $R_{13}(u)R_{23}(u+\eta)$ maps $(\operatorname{im}P^+_{12})\otimes V$
+into itself and $R_{23}(u+\eta)R_{13}(u)$ maps $(\operatorname{im}P^-_{12})\otimes V$
+into itself.
+\item Define the fused $R$-matrix
+$R^{(2,1)}(u)=R_{13}(u)R_{23}(u+\eta)\big|_{(\operatorname{im}P^+_{12})\otimes V}\in\End(\Sym^2V\otimes V)$
+and prove the mixed Yang--Baxter equation
+\[
+ R^{(2,1)}_{A3}(u-v)R^{(2,1)}_{A4}(u)R_{34}(v)=R_{34}(v)R^{(2,1)}_{A4}(u)R^{(2,1)}_{A3}(u-v)
+\]
+on $\Sym^2V\otimes V\otimes V$ ($A$ the fused pair of factors $1,2$), by
+expanding each fused matrix, commuting factors on disjoint spaces, and
+applying the Yang--Baxter equation twice.
+\item Quantum determinant.  Prove that $R_{23}(u+\eta)R_{13}(u)$ acts on
+$(\operatorname{im}P^-_{12})\otimes V$ as the scalar
+$\delta(u)=b(u)a(u+\eta)-d(u)d(u+\eta)=a(u)b(u+\eta)-c(u)c(u+\eta)$
+(equal expressions by the identities of the eight-vertex section; for the
+six-vertex case $\delta(u)=\sinh u\,\sinh(u+2\eta)$).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The fusion hierarchy of transfer matrices and the first functional relation]
+Let $\mathcal T(u)=L_N(u)\cdots L_1(u)$ with $L_j(u)=R_{0j}(u)$ and
+$t(u)=\Tr_0\mathcal T(u)$.  Define the fused monodromy
+$\mathcal T^{(2)}(u)=\mathcal T_{0}(u)\mathcal T_{0'}(u+\eta)\big|_{\operatorname{im}P^+_{00'}\otimes\mathcal H_N}$
+and $t^{(2)}(u)=\Tr_{\Sym^2V}\mathcal T^{(2)}(u)$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\mathcal T_0(u)\mathcal T_{0'}(u+\eta)=\prod_{j=N}^{1}\big(L_{j,0}(u)L_{j,0'}(u+\eta)\big)$
+(factors with distinct $j$ commute), that
+$P^-_{00'}\mathcal T_0(u)\mathcal T_{0'}(u+\eta)=\mathcal T_{0'}(u+\eta)\mathcal T_0(u)P^-_{00'}$,
+and that $\mathcal T_{0'}(u+\eta)\mathcal T_0(u)$ acts on
+$\operatorname{im}P^-_{00'}\otimes\mathcal H_N$ as the scalar $\delta(u)^N$.
+\item Prove the functional relation
+\[
+ t(u)\,t(u+\eta)=t^{(2)}(u)+\delta(u)^N,
+\]
+by decomposing the trace over $V_0\otimes V_{0'}$ according to
+$\operatorname{im}P^+\oplus\operatorname{im}P^-$ and using that the
+operator $\mathcal T_0(u)\mathcal T_{0'}(u+\eta)$ is block triangular for
+this decomposition.
+\item Deduce $[t^{(2)}(u),t(v)]=0$ and
+$[t^{(2)}(u),t^{(2)}(v)]=0$. If a common eigenspace of the
+$t(u)$ has eigenvalue function $\Lambda(u)$, compute the
+eigenvalue of $t^{(2)}(u)$ as
+$\Lambda(u)\Lambda(u+\eta)-\delta(u)^N$.
+\end{enumerate}
+\end{exercise}
+
+\section{Quantum dimensions}
+
+\begin{exercise}[Restricted fusion and quantum dimensions of RSOS heights]
+Put $\gamma=\pi/(k+2)$, $q=e^{\ii\gamma}$, and
+$d_r=\sin((r+1)\gamma)/\sin\gamma$ for $0\le r\le k$.
+These are the quantum dimensions of the height labels $r+1$;
+they are the specialization of the weighted traces
+$\operatorname{tr}_q(\id_{V_r})$ of the section
+$U_q(\mathfrak{sl}_2)$.
+Define $U_0(x)=1$, $U_1(x)=2x$,
+$U_{r+1}(x)=2xU_r(x)-U_{r-1}(x)$ and
+$N_r=U_r(A/2)$.
+\begin{enumerate}[label=(\alph*)]
+\item Show that $\psi(a)=\sin(a\gamma)$ satisfies
+$A\psi=2\cos\gamma\,\psi$, that $d_0=1$, and
+$d_1d_r=d_{r-1}+d_{r+1}$ with $d_{-1}=d_{k+1}=0$.
+\item Define
+$S_{ar}=\sqrt{2/(k+2)}\sin(a(r+1)\gamma)$,
+$1\le a\le k+1$, $0\le r\le k$.
+Sum geometric series to prove
+$\sum_aS_{ar}S_{as}=\delta_{rs}$ and the inversion
+$\sum_rS_{ar}S_{br}=\delta_{ab}$.
+Deduce the kernel resolution
+\[
+ (A^N)_{ab}=\sum_{r=0}^k S_{ar}S_{br}
+                   \bigl(2\cos((r+1)\gamma)\bigr)^N.
+\]
+\item Use the Chebyshev recurrence and $U_{k+1}(A/2)=0$ to prove
+\[
+ N_rN_s=\sum_{\substack{t=|r-s|\\t\equiv r+s\ (2)}}^{
+                  \min(r+s,2k-r-s)}N_t.
+\]
+Show by induction that all $N_r$ have nonnegative integer
+entries and that evaluation on $\psi$ gives
+$d_rd_s=\sum_tN_{rs}^t d_t$ with the displayed fusion coefficients.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Critical RSOS face weights and the Temperley--Lieb identity]
+For an admissible height path $(a_0,\dots,a_N)$ define
+\[
+ (e_i f)(a)=\mathbf1_{a_{i-1}=a_{i+1}}
+ \sum_{b:\,|b-a_{i-1}|=1}
+ \frac{\sqrt{\psi(a_i)\psi(b)}}{\psi(a_{i-1})}
+ f(a_0,\dots,a_{i-1},b,a_{i+1},\dots,a_N),
+\]
+with $\psi$ from the preceding exercise and $1\le i<N$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $e_i^*=e_i$, $e_i^2=d_1e_i$,
+$e_ie_{i+1}e_i=e_i$, and distant commutativity.
+Identify $e_i/d_1$ as a rank-one orthogonal projection on
+each returning-path fibre.
+\item Put $X_i(u)=\sin(\gamma-u)\id+\sin u\,e_i$.
+Prove positivity of its admissible kernel for $0<u<\gamma$
+and derive the face Yang--Baxter equation from the
+Baxterization exercise of the section Hecke / Temperley--Lieb
+algebras by analytic continuation.
+\end{enumerate}
+\end{exercise}
+
+\section{Elliptic quantum groups}
+
+\begin{exercise}[A dynamical elliptic vertex operator]
+Write $\theta=\vartheta_1(\,\cdot\,|\tau)$ and
+$s(a,z)=\theta(a-z)\theta'(0)/(\theta(a)\theta(z))$.
+For $\gamma\ne0$ define a meromorphic arrow kernel
+$\mathcal R(u,\lambda)$ equal to one on $++$ and $--$,
+with mixed-arrow block
+\[
+ \frac1{s(\gamma,u)}
+ \begin{pmatrix}s(\gamma,\lambda)&s(\lambda,u)\\
+                 s(-\lambda,u)&s(\gamma,-\lambda)\end{pmatrix}.
+\]
+Set $\epsilon=\gamma/2$, and interpret
+$f(\lambda+\epsilon Z_j)$ through the two spectral projections
+of the physical arrow involution $Z_j$.
+\begin{enumerate}[label=(\alph*)]
+\item Use the theta addition identity to verify
+\[
+\begin{split}
+ &\mathcal R_{12}(u-v,\lambda+\epsilon Z_3)
+ \mathcal R_{13}(u,\lambda-\epsilon Z_2)
+ \mathcal R_{23}(v,\lambda+\epsilon Z_1)\\
+ &\quad=\mathcal R_{23}(v,\lambda-\epsilon Z_1)
+ \mathcal R_{13}(u,\lambda+\epsilon Z_2)
+ \mathcal R_{12}(u-v,\lambda-\epsilon Z_3).
+\end{split}
+\]
+Work away from poles and extend meromorphically.
+\item Define a representation of this elliptic exchange
+relation to be a weight space $W$ and an operator $L(u,\lambda)$
+satisfying the same equation with the last factor replaced by
+$W$ and $\mathcal R_{13},\mathcal R_{23}$ replaced by $L_{13},L_{23}$.
+Verify that $W=V$, $L(u,\lambda)=\mathcal R(u-a,\lambda)$
+is such a representation for each $a$.
+Compare conventions with Felder \cite{felder-elliptic}.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: residual entropy of a constrained RSOS strip]
+Use the uniform RSOS chain of the section Theta and elliptic
+functions, with $N$ bonds, fixed initial height $a$, and freely
+summed terminal height. Let
+$Z_N(a)=\sum_b(A^N)_{ab}$, and define the residual entropy
+per bond as $s_0=k_B\lim_{N\to\infty}N^{-1}\log Z_N(a)$.
+\begin{enumerate}[label=(\alph*)]
+\item Since $\psi$ is strictly positive, bound $Z_N(a)$
+above and below by positive constants times
+$(2\cos\gamma)^N\psi(a)$, using
+$\sum_b(A^N)_{ab}\psi(b)=(2\cos\gamma)^N\psi(a)$.
+Derive
+\[
+ s_0=k_B\log\bigl(2\cos(\pi/(k+2))\bigr).
+\]
+Explain why summing the endpoint avoids the parity zeros
+of a fixed-endpoint partition function.
+\item Obtain $s_0=0$ for $k=1$, $s_0=\frac12k_B\log2$
+for $k=2$, and $s_0=k_B\log((1+\sqrt5)/2)$ for $k=3$.
+Derive the physical free energy per bond $-Ts_0$ for
+the exactly degenerate allowed configurations.
+\item Use the spectral kernel to calculate finite-$N$
+corrections. Specify that an entropy measurement tests
+this counting law only when forbidden neighbouring heights
+cost energy much larger than $k_BT$ and energy splittings
+among allowed configurations are much smaller than $k_BT$.
+\end{enumerate}
+\end{exercise}

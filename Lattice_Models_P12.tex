@@ -1,0 +1,224 @@
+\part{Gaudin Model}
+
+\section{Commuting Hamiltonians}
+
+\begin{exercise}[The rational Gaudin spin system and its invariant interaction]
+Let $V_{s_i}$ carry spin $s_i\in\frac12\Z_{\ge0}$, with
+$[S_i^a,S_i^b]=\ii\varepsilon_{abc}S_i^c$,
+$\sum_a(S_i^a)^2=s_i(s_i+1)\id$, and operators at different
+sites commuting. These are the $q\to1$ representations of the
+section Representation theory. For pairwise distinct real
+parameters $z_1,\dots,z_N$ define
+\[
+ \Omega_{ij}=\mathbf S_i\cdot\mathbf S_j,\qquad
+ G_i=\sum_{j\ne i}\frac{\Omega_{ij}}{z_i-z_j}
+ \quad\text{on }\mathcal H=\bigotimes_iV_{s_i}.
+\]
+Intrinsically, $\Omega_{ij}$ is the contraction of the two spin
+actions with the invariant Euclidean pairing on the physical
+rotation Lie algebra. A Gaudin Hamiltonian is
+$H=\sum_i c_iG_i$ for specified real $c_i$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $[\Omega_{ij},\Omega_{k\ell}]=0$ for disjoint
+pairs and $[\Omega_{ij},\Omega_{ik}+\Omega_{jk}]=0$ for
+distinct $i,j,k$, using invariance of the pairing.
+Combine these identities with partial fractions to prove
+$[G_i,G_j]=0$.
+\item Prove $\sum_iG_i=0$ and
+\[
+ \sum_i z_iG_i=\frac12\left(
+ \mathbf S_{\rm tot}^2-\sum_i s_i(s_i+1)\id\right).
+\]
+Show that every $G_i$ is self-adjoint and rotation invariant.
+\item Use joint spectral projections to express the partition
+function of $H$ as a sum over joint energies with their
+multiplicities.
+\end{enumerate}
+\end{exercise}
+
+\section{Bethe equations}
+
+\begin{exercise}[Gaudin Bethe states and cancellation of unwanted terms]
+Let $\Omega$ be a tensor product of highest-weight states and put
+$S^-(w)=\sum_iS_i^-/(w-z_i)$,
+$S_i^\pm=S_i^x\pm\ii S_i^y$.
+For distinct roots $w_1,\dots,w_M$ avoiding all $z_i$ define
+$\Psi=\prod_aS^-(w_a)\Omega$.
+\begin{enumerate}[label=(\alph*)]
+\item Compute the action for $M=0,1$ directly from the spin
+commutation relations. Then commute $G_i$ successively through
+the product to prove that, if $\Psi\ne0$ and
+\[
+ \sum_i\frac{s_i}{w_a-z_i}
+       -\sum_{b\ne a}\frac1{w_a-w_b}=0
+       \quad(1\le a\le M),
+\]
+it has joint eigenvalues
+\[
+ g_i=\sum_{j\ne i}\frac{s_i s_j}{z_i-z_j}
+           -\sum_a\frac{s_i}{z_i-w_a}.
+\]
+Keep the terms in which one $S^-(w_a)$ is replaced by $S_i^-$;
+their coefficients are the displayed Bethe equations.
+\item Compute $S^+_{\rm tot}\Psi$ by the same method and show
+that it vanishes under these equations. Its total spin is
+$s_{\rm tot}=\sum_i s_i-M$ when the vector is nonzero.
+Check both identities of the section Commuting Hamiltonians
+against the resulting eigenvalues.
+\item For two spins $s_1=s_2=\tfrac12$ solve the $M=1$
+equation, show $w=(z_1+z_2)/2$, and identify the alternating
+spin state without choosing a decomposition into eigenvectors.
+\end{enumerate}
+\end{exercise}
+
+\section{Opers}
+
+\begin{exercise}[Projective differential operators and the Miura transformation]
+On a Riemann surface let $K$ be the holomorphic cotangent line.
+A projective second-order differential operator acts from
+$K^{-1/2}$ to $K^{3/2}$, with principal symbol one and
+vanishing first-derivative term in a local coordinate:
+$D=\partial_z^2-t(z)$. On the sphere use its fixed spin line
+$K^{1/2}=\mathcal O(-1)$, where $\mathcal O(-1)$ denotes the
+tautological line of the section Cohomology and $K$-theory.
+Such an operator, or its projective
+solution local system, is the scalar form of a $PGL_2$-oper.
+Meromorphic poles are permitted at specified marked points.
+For the Gaudin parameters define the Miura function
+\[
+ \chi(z)=\sum_i\frac{s_i}{z-z_i}-\sum_a\frac1{z-w_a},
+ \qquad
+ D=(\partial_z-\chi)(\partial_z+\chi)
+   =\partial_z^2-(\chi^2-\chi').
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Use $T_L\mathbb P(W)=\Hom(L,W/L)$ for $\dim W=2$
+and a fixed identification $\bigwedge^2W=\C$ to prove that
+the cotangent line is the square of the tautological line.
+Under $z=z(\zeta)$ transform a solution as a
+half-density and derive the transformation rule
+$t_\zeta=(z')^2t_z-\frac12\{z,\zeta\}$, where
+$\{z,\zeta\}=z'''/z'-\frac32(z''/z')^2$.
+Verify compatibility on overlapping coordinates.
+\item Expand $\chi^2-\chi'$ at each $w_a$. Show that its
+double pole cancels automatically and its simple pole
+vanishes exactly when the Bethe equation holds. At a marked
+point prove
+\[
+ t(z)=\frac{s_i(s_i+1)}{(z-z_i)^2}
+                  +\frac{2g_i}{z-z_i}+O(1).
+\]
+Recover the joint Hamiltonian eigenvalues from these coefficients.
+\item Set
+$y(z)=\prod_a(z-w_a)\prod_i(z-z_i)^{-s_i}$ on a simply
+connected domain avoiding the marked points. Verify $Dy=0$
+and construct a second solution $y\int y^{-2}\dd z$.
+Use the Bethe equations to show that $y^{-2}\dd z$ has
+zero residues at the $w_a$; it is regular at each $z_i$.
+Deduce projectively trivial monodromy for the constructed
+oper when $2s_i$ are nonnegative integers.
+\end{enumerate}
+\end{exercise}
+
+\section{Langlands duality}
+
+\begin{exercise}[Rank-one root data and the dual group of the spin symmetry]
+For a complex algebraic torus $T$, its character and cocharacter
+lattices are $X^*(T)=\Hom(T,\C^\times)$ and
+$X_*(T)=\Hom(\C^\times,T)$, paired by composition.
+A root datum consists of these paired lattices and paired finite
+sets of roots and coroots with $\langle\alpha,\alpha^\vee\rangle=2$,
+such that the reflections
+$x\mapsto x-\langle x,\alpha^\vee\rangle\alpha$ and their
+dual reflections preserve the respective root sets.
+Its dual interchanges the two lattices and the two root sets.
+\begin{enumerate}[label=(\alph*)]
+\item Use the specified maximal torus
+$T=\{\operatorname{diag}(t,t^{-1})\}\subset SL_2$.
+Compute $X^*(T)=\Z$, root $2$, $X_*(T)=\Z$, and coroot $1$.
+After interchange identify the result with the torus and root
+data of $PGL_2=GL_2/\C^\times$.
+\item The indicial exponents of the oper at $z_i$ solve
+$r(r-1)=s_i(s_i+1)$. Compute them as $-s_i$ and $s_i+1$
+and their difference as $2s_i+1$. Explain this integer
+through the highest weight $2s_i$ and the rank-one
+half-sum of positive roots, with the positive root fixed above.
+\item Show that changing signs of a lift of the oper's
+two-dimensional solution transport has no effect on its
+projectivization. Relate this to the quotient from $SL_2$
+to the dual group $PGL_2$.
+Compare the constructed Bethe-to-oper map with \cite{frenkel-opers}.
+\end{enumerate}
+\end{exercise}
+
+\section{Geometric Langlands}
+
+\begin{exercise}[Line bundles, Hecke modifications, and the abelian eigencondition on the sphere]
+For a smooth complex curve $C$, a rank-one local system is a
+functor from its fundamental groupoid to one-dimensional complex
+vector spaces. A divisor is a finite integer sum of points.
+For a divisor $D$ define $\mathcal O(D)$ by its meromorphic
+sections $f$ satisfying $\operatorname{ord}_x(f)+D(x)\ge0$
+wherever the section is required to be holomorphic.
+The divisor Picard group is divisors modulo the divisors
+of nonzero meromorphic functions; use its line bundles
+$\mathcal O(D)$ as the Picard space in this exercise.
+A Hecke modification at $x$ is
+$\mathcal O(D)\mapsto\mathcal O(D+x)$.
+For a local system $E$ on $C$, the abelian Hecke eigencondition
+for a family of lines $\mathcal A$ on $\operatorname{Pic}(C)$ is
+\[
+ h^*\mathcal A\simeq E\boxtimes\mathcal A,\qquad
+ h(x,L)=L(x),
+\]
+with the isomorphisms compatible with successive modifications.
+Use the coarse Picard space and $C=\mathbb P^1$ in this exercise.
+\begin{enumerate}[label=(\alph*)]
+\item On the spectral sphere with fixed affine parameter $z$
+prove $\operatorname{div}(z-a)=(a)-(\infty)$.
+Deduce that every divisor is equivalent to $d(\infty)$,
+where $d$ is its degree, and that degree is unchanged by
+a principal divisor. Prove that multiplication by a
+meromorphic function realizes the corresponding isomorphism
+of divisor line bundles. Thus compute the divisor Picard
+space as $\{\mathcal O(d(\infty)):d\in\Z\}$.
+\item Use simple connectivity of the sphere to identify every
+rank-one local system with a constant line $E_0$.
+Set $\mathcal A_d=E_0^{\otimes d}$, using dual lines for
+negative $d$, and construct the Hecke eigenisomorphism.
+Prove compatibility for modifications at two different
+points from the tensor symmetry.
+\item Fixing $\mathcal A_0=\C$, prove that the eigencondition
+determines all $\mathcal A_d$ and the compatible identifications.
+Identify the dual torus as $\C^\times$ by interchanging its
+character and cocharacter lattices. State explicitly the
+curve, group, and rank for this abelian correspondence.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: two-site Gaudin spectroscopy from oper residues]
+Consider two spin-$\tfrac12$ sites with distinct real $z_1,z_2$
+and physical Hamiltonian
+$H_{\rm phys}=J(z_1-z_2)G_1=J\,\mathbf S_1\cdot\mathbf S_2$,
+$J>0$. The measured energy transfer is $\hbar\omega$.
+\begin{enumerate}[label=(\alph*)]
+\item For $M=0$ calculate the oper and its residue at $z_1$.
+For $M=1$ insert $w=(z_1+z_2)/2$ and calculate the changed
+residue. Use $E=J(z_1-z_2)g_1$ to derive the energies
+$J/4$ and $-3J/4$.
+\item Use total spin to determine the multiplicities three
+and one. Derive a singlet-triplet absorption line at
+$\hbar\omega=J$ and the partition function
+$Z=e^{3\beta J/4}+3e^{-\beta J/4}$.
+Verify agreement with the two-site quiver prediction after
+its stated additive energy shift.
+\item Compute the response to
+$S_1^z-S_2^z$: it maps the normalized singlet into the
+zero-magnetization triplet with norm one. Determine the
+zero-temperature spectral weight of the absorption line.
+State the isolated-pair, isotropic-exchange, and negligible
+line-broadening assumptions. Distinguish the derived
+two-site Bethe-to-oper calculation from the separate
+abelian Hecke eigencondition on the sphere.
+\end{enumerate}
+\end{exercise}

@@ -1,0 +1,204 @@
+\part{Quiver / Spin-Chain Models}
+
+\section{Bethe ansatz}
+
+\begin{exercise}[The inhomogeneous rational spin chain and a one-root Bethe state]
+Let $V=\C^{\{+,-\}}$ be the arrow space of the section
+Row-to-row transfer matrices. For $\epsilon\ne0$ use
+$R(u)=u\id+\epsilon P$ and
+$\mathcal T_0(u)=R_{0N}(u-\theta_N)\cdots R_{01}(u-\theta_1)$.
+With the auxiliary kernels $A,B,C,D$ of the section Commuting
+families and nonzero $\kappa_\pm$, put
+$t_\kappa(u)=\kappa_+A(u)+\kappa_-D(u)$.
+Let $\Omega$ be the all-up configuration.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $[t_\kappa(u),t_\kappa(v)]=0$ by RTT and the
+commutation of $R$ with the product of the two diagonal twists.
+Compute
+$A(u)\Omega=a(u)\Omega$, $D(u)\Omega=d(u)\Omega$, $C(u)\Omega=0$,
+where $a(u)=\prod_j(u-\theta_j+\epsilon)$ and
+$d(u)=\prod_j(u-\theta_j)$.
+\item Extract the two exchange relations involving $A,B$ and
+$D,B$ from RTT. For a nonzero state $B(\lambda)\Omega$ derive
+\[
+ \Lambda(u)=\kappa_+a(u)\frac{u-\lambda-\epsilon}{u-\lambda}
+          +\kappa_-d(u)\frac{u-\lambda+\epsilon}{u-\lambda},
+ \qquad
+ \kappa_+a(\lambda)=\kappa_-d(\lambda).
+\]
+Show that the Bethe equation cancels the apparent pole at
+$u=\lambda$ and the unwanted vector $B(u)\Omega$.
+\end{enumerate}
+\end{exercise}
+
+\section{Quiver varieties}
+
+\begin{exercise}[A framed one-vertex quiver and the cotangent Grassmannian]
+A quiver is a finite directed graph. Consider the quiver with one
+vertex, no arrows, a framing space $W$, and a vertex space $U$,
+both finite-dimensional. Its doubled framed data are
+$I:W\to U$, $J:U\to W$, with action
+$g\cdot(I,J)=(gI,Jg^{-1})$ of $\GL(U)$.
+Use the trace pairing to equip this space with the symplectic
+form $\omega((I_1,J_1),(I_2,J_2))=\Tr(I_1J_2-I_2J_1)$.
+The moment map is $\mu(I,J)=IJ\in\End(U)$; stability means that
+$I$ is surjective. The quiver variety is
+\[
+ \mathfrak M(r,W)=\{(I,J):IJ=0,\ I\text{ surjective},
+                       \ \dim U=r\}/\GL(U).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item For $\xi\in\End(U)$ verify
+$\iota_{\xi^\#}\omega=\dd\Tr(\xi\mu)$, fixing this sign
+convention for moment maps.
+\item Put $S=\ker I$. Prove that $J$ has image in $S$ and
+descends to a map $W/S\to S$. Identify the orbit space with
+the cotangent bundle of the Grassmannian of codimension-$r$
+subspaces of $W$, using the trace duality between
+$\Hom(S,W/S)$ and $\Hom(W/S,S)$.
+\item For $r=1$, $\dim W=2$, identify $\mathfrak M$ with
+$T^*\mathbb P(W)$ by recording the kernel line. Prove that
+scaling the cotangent fibre retracts this space onto
+$\mathbb P(W)$. Compute the varieties for $r=0$ and $r=2$.
+\end{enumerate}
+\end{exercise}
+
+\section{\texorpdfstring{Cohomology and $K$-theory}{Cohomology and K-theory}}
+
+\begin{exercise}[The cohomology of a projective line and its line bundles]
+Use the cellular cohomology and bundle group completion of the
+sections Higher gauge theory and Generalized cohomology.
+The first Chern class of a complex line bundle $L$ is the pullback
+of the generator of $H^2(\mathbb P(\C^\infty);\Z)$ under its
+classifying map, normalized so that the dual tautological line
+on $\mathbb P(\C^2)$ has integral one.
+\begin{enumerate}[label=(\alph*)]
+\item Build $\mathbb P(\C^n)$ by its cells of dimensions
+$0,2,\dots,2n-2$. Intersect transverse projective hyperplanes
+to show that the powers of their degree-two class give
+$H^*(\mathbb P(\C^n);\Z)=\Z[x]/(x^n)$.
+Deduce $H^*(T^*\mathbb P(W);\Z)=\Z[x]/(x^2)$ for $\dim W=2$.
+\item Let $L$ be the tautological line on $\mathbb P(W)$.
+Use $0\to L\to W\to W/L\to0$ and its determinant to prove
+$[L]+[L]^{-1}=2$ when $W$ is two-dimensional and constant.
+Deduce $([L]-1)^2=0$ in $K^0(\mathbb P(W))$ and calculate
+the rank and first Chern class of $[L]-1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Equivariant cohomology of the two-site quiver variety]
+Specify the physical framing decomposition $W=W_1\oplus W_2$
+into lines and let a torus scale the two lines independently.
+Let an additional circle scale cotangent fibres.
+Equivariant cohomology is
+$H_T^*(X;\C)=H^*(ET\times_T X;\C)$, where $ET$ is a
+contractible free $T$-space; for circles use the union of odd
+unit spheres in $\C^\infty$.
+Write $a_1,a_2,\epsilon$ for the degree-two character classes,
+$B=\C[a_1,a_2,\epsilon]$, and $t=c_1(L)$.
+\begin{enumerate}[label=(\alph*)]
+\item Use finite projective-space approximations to $BT$ and
+the two-cell calculation of the preceding exercise to prove
+\[
+ H_T^*(T^*\mathbb P(W);\C)
+ =B[t]/((t-a_1)(t-a_2)).
+\]
+Derive the relation from the tautological line and quotient
+line whose sum is the pulled-back framing bundle.
+\item Restrict to the two fixed points $p_i=\mathbb P(W_i)$
+and prove $t|_{p_i}=a_i$. Show that restriction is injective
+and that a pair $(f_1,f_2)\in B^2$ is in its image exactly
+when $f_1-f_2$ is divisible by $a_1-a_2$.
+\end{enumerate}
+\end{exercise}
+
+\section{Stable envelopes}
+
+\begin{exercise}[Two chambers and the stable-envelope maps of a projective line]
+For the two fixed points in the preceding exercise choose opposite
+orders $p_1<p_2$ and $p_2<p_1$, called chambers $+$ and $-$.
+Fix the polarization and signs by the following normalization:
+the stable-envelope class for $p_1$ in chamber $+$ vanishes
+at $p_2$ and equals $a_1-a_2$ at $p_1$; the class for $p_2$
+has restrictions $\epsilon$ and $a_2-a_1+\epsilon$.
+In chamber $-$ the classes have restrictions
+$(a_1-a_2+\epsilon,\epsilon)$ and $(0,a_2-a_1)$.
+These support, normalization, and degree conditions define the
+stable envelopes in this two-fixed-point model.
+\begin{enumerate}[label=(\alph*)]
+\item Use the divisibility criterion to prove existence and
+uniqueness, and obtain
+\[
+ \operatorname{Stab}_+(p_1)=t-a_2,\quad
+ \operatorname{Stab}_+(p_2)=t-a_1+\epsilon,\quad
+ \operatorname{Stab}_-(p_1)=t-a_2+\epsilon,\quad
+ \operatorname{Stab}_-(p_2)=t-a_1 .
+\]
+\item Put $u=a_1-a_2$ and invert $u$, $u-\epsilon$,
+$u+\epsilon$. Compute the chamber-change operator
+$\operatorname{Stab}_-^{-1}\operatorname{Stab}_+$ on the
+fixed-point function space:
+\[
+ \frac1{u+\epsilon}
+ \begin{pmatrix}u&\epsilon\\ \epsilon&u\end{pmatrix}.
+\]
+The entries here are indexed by the two geometrically fixed points.
+\item Add the two one-point quiver varieties $r=0,2$, with
+chamber change equal to one. Identify the resulting operator
+with $(u\id+\epsilon P)/(u+\epsilon)$ on two arrow spaces.
+Verify its Yang--Baxter identity using the rational limit of
+the section Spectral parameter.
+Compare this concrete construction with \cite{maulik-okounkov}.
+\end{enumerate}
+\end{exercise}
+
+\section{Geometric representation theory}
+
+\begin{exercise}[Permutation symmetry and the two-site representation]
+Let $\mathcal W=\bigoplus_{r=0}^2
+H_T^*(\mathfrak M(r,W))$ with the character differences inverted,
+and identify its fixed-point function space with the four spin
+configurations of $V^{\otimes2}$ by the occupied subset of
+$\{W_1,W_2\}$. On each arrow space use the spin operators of
+the section Yang--Baxter equation.
+\begin{enumerate}[label=(\alph*)]
+\item Show that the raising and lowering operators on the
+occupied subsets, defined by removing or adding one label
+with coefficient one, satisfy
+$[S^z_{\rm tot},S^\pm_{\rm tot}]=\pm S^\pm_{\rm tot}$ and
+$[S^+_{\rm tot},S^-_{\rm tot}]=2S^z_{\rm tot}$.
+\item Prove that chamber change commutes with this action.
+Use the intrinsic projections $(\id\pm P)/2$ to split the
+two-site space into symmetric and alternating subspaces.
+Compute their dimensions and the chamber-change eigenvalues
+$1$ and $(u-\epsilon)/(u+\epsilon)$.
+\item For $\theta_1=\theta_2=0$, $\kappa_+=\kappa_-=1$,
+solve the one-root Bethe equation and show that
+$B(-\epsilon/2)\Omega$ belongs to the alternating line.
+Identify the complementary spin-one multiplet by the total
+spin action.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: the exchange splitting of a two-spin bond]
+Let two physical spins of magnitude $\tfrac12$ interact through
+$H=J(\mathbf S_1\cdot\mathbf S_2-\tfrac14)$ with $J>0$
+and $\hbar=1$ in the spin commutation relations.
+Use the quiver chamber-change operator
+$\mathcal R(u)=(u\id+\epsilon P)/(u+\epsilon)$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove
+$H=\frac{J\epsilon}{2}\mathcal R(0)^{-1}\mathcal R'(0)
+=\frac J2(P-\id)$.
+Derive a singlet energy $-J$ and a triplet energy $0$.
+\item In a magnetic field with Zeeman term
+$-hS^z_{\rm tot}$ calculate all four energies and the first
+ground-state crossing at $h=J$.
+\item Derive the zero-field partition function
+$Z=e^{\beta J}+3$ and susceptibility to $h$,
+$\chi=2\beta/(e^{\beta J}+3)$.
+State the singlet-triplet spectroscopic gap $J$ and specify
+that isotropic exchange, two spin-$\tfrac12$ degrees of freedom,
+and negligible coupling to other bonds are the model assumptions.
+\end{enumerate}
+\end{exercise}

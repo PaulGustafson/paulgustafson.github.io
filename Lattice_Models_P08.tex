@@ -1,0 +1,206 @@
+\part{String-Net / State-Sum Models}
+
+\section{Fusion categories}
+
+\begin{exercise}[Closed-string configurations and a commuting-projector Hamiltonian]
+Let $\Gamma$ be a connected trivalent graph giving a cell decomposition
+of a closed oriented surface, with vertices $V$, edges $E$, and disc
+faces $F$. A string configuration is a subset of $E$ with an even
+number of occupied edges incident at every vertex. On
+$\mathcal H=\C^{\{0,1\}^E}$ define
+\[
+ (Z_e\psi)(n)=(-1)^{n_e}\psi(n),\quad
+ (X_e\psi)(n)=\psi(n+\mathbf1_e),\quad
+ Q_v=\frac{1+\prod_{e\ni v}Z_e}{2},\quad
+ B_f=\frac{1+\prod_{e\in\partial f}X_e}{2},
+\]
+where additions and incidences are modulo two. Assume each face
+boundary is an embedded cycle. For $J_v,J_f>0$ put
+$H=\sum_vJ_v(1-Q_v)+\sum_fJ_f(1-B_f)$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the $Q_v$ impose the string constraint and that
+$B_f$ averages a configuration with the configuration obtained by
+adding the boundary of $f$. Prove that all these orthogonal
+projections commute.
+\item Prove that the zero-energy states are the functions supported
+on string configurations and constant on orbits of face-boundary
+addition. Construct one such state per orbit by uniform summation.
+Prove invariance under every automorphism of the cell decomposition
+that preserves the couplings.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Fusion categories and group-labelled strings]
+A fusion category over $\C$ is a $\C$-linear semisimple rigid monoidal
+category with finite-dimensional morphism spaces, finitely many simple
+isomorphism classes, and simple tensor unit; semisimplicity and rigidity
+have the meanings of the section Modular tensor categories. A spherical
+structure is a pivotal structure whose left and right traces agree.
+For a finite group $G$ let $\Vect_G$ consist of finite-dimensional
+$G$-graded spaces, grading-preserving maps, and
+$(U\otimes V)_g=\bigoplus_{ab=g}U_a\otimes V_b$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\Vect_G$ is a fusion category with simple objects
+the specified graded lines $\C_g$, dual $\C_g^*=\C_{g^{-1}}$,
+and fusion $\C_g\otimes\C_h=\C_{gh}$. Use the vector-space evaluation
+and coevaluation to construct a spherical structure with all simple
+dimensions equal to one.
+\item For $G=\Z/2$ prove that the admissible trivalent labellings
+$a+b+c=0$ are exactly the string configurations of the preceding
+exercise. Interpret adding a face boundary as inserting the
+nontrivial group-labelled loop and applying the fusion rule.
+\end{enumerate}
+\end{exercise}
+
+\section{\texorpdfstring{$6j$}{6j}-symbols}
+
+\begin{exercise}[Associators as maps between fusion spaces]
+For simple objects $a,b,c,d$ in a fusion category define
+$V_{ab}^c=\Hom(c,a\otimes b)$. Composition and the associator induce
+the recoupling isomorphism
+\[
+ F^{abc}_d:
+ \bigoplus_e V_{ab}^e\otimes V_{ec}^d
+ \longrightarrow
+ \bigoplus_f V_{bc}^f\otimes V_{af}^d.
+\]
+These intrinsic recoupling maps are the $6j$ data used here.
+\begin{enumerate}[label=(\alph*)]
+\item Construct this map by identifying the left and right sides
+with $\Hom(d,(a\otimes b)\otimes c)$ and
+$\Hom(d,a\otimes(b\otimes c))$, respectively. Prove both identifications
+using the simple summands and composition pairings.
+\item In $\Vect_G$, prove that the only nonzero channel has
+$e=ab$, $f=bc$, $d=abc$ and that $F$ is the identity on the
+canonical graded lines. Reverse the orientation of a string and
+verify that its label changes to its group inverse.
+\item Replace the associator on the canonical lines by multiplication
+by $\omega(a,b,c)\in U(1)$. Compute the inverse recoupling map
+and show that it is the adjoint. Determine the normalization of
+$\omega$ forced by keeping the unit constraints equal to the identity.
+\end{enumerate}
+\end{exercise}
+
+\section{Pentagon identities}
+
+\begin{exercise}[The pentagon, three-cocycles, and changes of associator]
+A normalized group three-cocycle is a function $\omega:G^3\to U(1)$,
+equal to one if an argument is the identity, satisfying
+\[
+ \omega(b,c,d)\omega(a,bc,d)\omega(a,b,c)
+ =\omega(ab,c,d)\omega(a,b,cd).
+\]
+For a normalized function $\nu:G^2\to U(1)$ put
+$ (\delta\nu)(a,b,c)=
+\nu(b,c)\nu(a,bc)/(\nu(ab,c)\nu(a,b))$.
+\begin{enumerate}[label=(\alph*)]
+\item Compare the two composites from
+$((a\otimes b)\otimes c)\otimes d$ to
+$a\otimes(b\otimes(c\otimes d))$.
+Prove that the associator of the preceding exercise satisfies
+the pentagon exactly when $\omega$ is a three-cocycle.
+\item Prove that replacing $\omega$ by $\omega\,\delta\nu$
+gives a monoidally equivalent category by giving the tensor
+constraint of the identity functor. Denote this category by
+$\Vect_G^\omega$.
+Construct its left and right duals by multiplying the
+evaluation and coevaluation on the canonical graded lines
+by unit scalars, and use the cocycle equation to check
+both snake identities.
+\item On $G=\Z/2$ verify that $\omega(a,b,c)=(-1)^{abc}$
+is a normalized three-cocycle and cannot equal $\delta\nu$ for
+a normalized $\nu$, by evaluating at $(1,1,1)$.
+\end{enumerate}
+\end{exercise}
+
+\section{Turaev--Viro}
+
+\begin{exercise}[The pointed Turaev--Viro sum and local retriangulations]
+Let $M$ be a closed oriented triangulated three-manifold, with an
+ordering of its vertices. Label an oriented edge $ij$ by $g_{ij}\in G$,
+with $g_{ji}=g_{ij}^{-1}$, and impose $g_{ij}g_{jk}=g_{ik}$ on each
+ordered triangle. In the untwisted category $\Vect_G$ define
+\[
+ Z_G(M)=|G|^{-n_0}
+ \sum_{\text{admissible edge labellings}}1,
+\]
+where $n_0$ is the number of vertices. This is the pointed,
+untwisted Turaev--Viro state sum in this exercise.
+\begin{enumerate}[label=(\alph*)]
+\item For a $2$--$3$ move, compare two and three tetrahedra filling
+the same triangular bipyramid. Prove that the triangle constraints
+give a bijection between internal labellings for each admissible
+boundary labelling.
+\item For a $1$--$4$ move, inserting one vertex in a tetrahedron,
+prove that an admissible boundary labelling has exactly $|G|$
+extensions, parametrized by the label of one new edge.
+Deduce invariance of $Z_G$ under both moves and their inverses.
+\item Insert the oriented recoupling weight
+$\omega(g_{ij},g_{jk},g_{k\ell})^{\epsilon_{ijk\ell}}$
+on a tetrahedron $i<j<k<\ell$. Verify that equality of the products
+in the $2$--$3$ move is precisely the pentagon identity.
+Keep the subsequent state-space calculation untwisted.
+\end{enumerate}
+\end{exercise}
+
+\section{TQFT}
+
+\begin{exercise}[Finite field groupoids and gluing of state spaces]
+A groupoid is a category in which every morphism is invertible.
+For a finite groupoid $\mathcal G$ define
+$|\mathcal G|=\sum_{[x]}|\Aut(x)|^{-1}$. For a triangulated
+surface $\Sigma$, let $\mathcal A_\Sigma$ be the groupoid of
+the admissible $G$-edge labellings of the preceding section;
+a morphism is a vertex labelling $(h_i)$ acting by
+$g_{ij}\mapsto h_i g_{ij}h_j^{-1}$. Set
+$\mathcal V(\Sigma)=\Fun(\pi_0\mathcal A_\Sigma,\C)$ with inner product
+$\sum_{[a]}\overline{f(a)}g(a)/|\Aut(a)|$.
+An oriented bordism $M:\Sigma_0\to\Sigma_1$ is a compact
+oriented three-manifold with boundary identified with
+$\overline{\Sigma_0}\sqcup\Sigma_1$.
+A three-dimensional oriented TQFT assigns spaces to closed oriented
+surfaces and linear maps to oriented bordisms, compatibly with
+composition and disjoint union.
+\begin{enumerate}[label=(\alph*)]
+\item Prove the orbit-counting identity
+$|X//G|=|X|/|G|$ for a finite group action.
+Recover $Z_G(M)$ as the cardinality of the field groupoid on $M$.
+\item For a bordism $M:\Sigma_0\to\Sigma_1$ define its map by
+pullback along restriction to $\Sigma_0$ followed by summation over
+the homotopy fibres of restriction to $\Sigma_1$, weighted by
+$|\Aut|^{-1}$. A homotopy fibre over $b$ consists of a field
+and an isomorphism from its restriction to $b$.
+Show by finite double counting that composition corresponds to
+gluing, the cylinder gives the identity, and disjoint union gives
+the tensor product. Work with fixed triangulated bordisms and the
+local moves proved in the section Turaev--Viro.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: string-net ground-state degeneracy and excitation energy]
+Return to the $\Z/2$ string Hamiltonian of the section Fusion
+categories on a genus-$g$ surface, with constant $J_v,J_f>0$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the even edge subsets form a vector space over
+$\mathbb F_2$ of dimension $|E|-|V|+1$ by eliminating edges of
+a spanning tree. Prove that face boundaries span a space of
+dimension $|F|-1$: in a sum with zero boundary, coefficients
+of adjacent faces agree. Using $|V|-|E|+|F|=2-2g$, derive
+\[
+ \dim\ker H=2^{2g}.
+\]
+\item The global products of the vertex involutions and of the
+face involutions are both one. Deduce that each type of
+violation occurs in pairs, and construct a string operator
+creating a pair of either type. On a sufficiently large cell
+decomposition derive the excitation gap $2\min(J_v,J_f)$.
+\item Identify the degeneracy with $\dim\mathcal V(\Sigma)$ for
+$G=\Z/2$ by exchanging the primal and dual cell decompositions.
+State the predicted values on the sphere and torus and the
+spectroscopic pair-creation thresholds $2J_v$, $2J_f$.
+Specify that these are exact predictions for the stated
+commuting-projector Hamiltonian; a microscopic material requires
+an identification of its effective couplings and degrees of freedom.
+Compare the construction with Levin and Wen \cite{levin-wen}.
+\end{enumerate}
+\end{exercise}

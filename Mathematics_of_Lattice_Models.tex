@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{array,longtable}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\setlength{\emergencystretch}{3em}
+\setlist{nosep}
+\setcounter{tocdepth}{1}
+
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[section]
+
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\mathbb N}
+\newcommand{\T}{\mathbb T}
+\newcommand{\E}{\mathbb E}
+\newcommand{\Prob}{\mathbb P}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Mat}{\operatorname{Mat}}
+\newcommand{\Ob}{\operatorname{Ob}}
+\newcommand{\Fun}{\operatorname{Fun}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Vect}{\operatorname{Vect}}
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\sgn}{\operatorname{sgn}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\qbinom}[2]{\genfrac{[}{]}{0pt}{}{#1}{#2}_q}
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\dd}{\,\mathrm d}
+\newcommand{\ii}{\mathrm i}
+
+\hypersetup{
+  pdftitle={Mathematics via Lattice Models},
+  pdfauthor={Paul Gustafson}
+}
+
+\title{Mathematics via Lattice Models}
+\author{Paul Gustafson}
+\date{}
+
+\begin{document}
+\maketitle
+\begingroup
+\small
+\setlength{\parskip}{0pt}
+\makeatletter
+\renewcommand*\l@part[2]{%
+  \addpenalty\@secpenalty
+  \addvspace{1.25em plus 1pt}%
+  {\large\bfseries\parindent\z@\rightskip\@pnumwidth
+   \parfillskip-\@pnumwidth
+   \leavevmode #1\nobreak\hfil\nobreak
+   \hb@xt@\@pnumwidth{\hss #2}\par}%
+  \nobreak}
+\renewcommand*\l@section{\@dottedtocline{1}{1.5em}{2.6em}}
+\makeatother
+\tableofcontents
+\endgroup
+\clearpage
+
+%% PARTMAP
+
+\input{Lattice_Models_P01}
+\input{Lattice_Models_P02}
+\input{Lattice_Models_P03}
+\input{Lattice_Models_P04}
+\input{Lattice_Models_P05}
+\input{Lattice_Models_P06}
+\input{Lattice_Models_P07}
+\input{Lattice_Models_P08}
+\input{Lattice_Models_P09}
+\input{Lattice_Models_P10}
+\input{Lattice_Models_P11}
+\input{Lattice_Models_P12}
+
+\begin{thebibliography}{99}
+%% BIBITEMS
+\bibitem{onsager-ising}
+L. Onsager, \emph{Crystal statistics. I. A two-dimensional model
+with an order-disorder transition}, Physical Review 65 (1944),
+117--149. \href{https://doi.org/10.1103/PhysRev.65.117}{doi:10.1103/PhysRev.65.117}.
+\bibitem{yang-magnetization}
+C. N. Yang, \emph{The spontaneous magnetization of a two-dimensional
+Ising model}, Physical Review 85 (1952), 808--816.
+\href{https://doi.org/10.1103/PhysRev.85.808}{doi:10.1103/PhysRev.85.808}.
+\bibitem{smirnov-percolation}
+S. Smirnov, \emph{Critical percolation in the plane:
+conformal invariance, Cardy's formula, scaling limits},
+Comptes Rendus de l'Acad\'emie des Sciences, Series I,
+333 (2001), 239--244; expanded version,
+\href{https://arxiv.org/abs/0909.4499}{arXiv:0909.4499}.
+\bibitem{baxter-eightvertex}
+R. J. Baxter, \emph{Eight-vertex model in lattice statistics},
+Physical Review Letters 26 (1971), 832--833.
+\href{https://doi.org/10.1103/PhysRevLett.26.832}{doi:10.1103/PhysRevLett.26.832}.
+\bibitem{felder-elliptic}
+G. Felder, \emph{Elliptic quantum groups} (1994),
+\href{https://arxiv.org/abs/hep-th/9412207}{arXiv:hep-th/9412207}.
+\bibitem{levin-wen}
+M. A. Levin and X.-G. Wen, \emph{String-net condensation:
+a physical mechanism for topological phases}, Physical Review B
+71 (2005), 045110.
+\href{https://arxiv.org/abs/cond-mat/0404617}{arXiv:cond-mat/0404617}.
+\bibitem{maulik-okounkov}
+D. Maulik and A. Okounkov, \emph{Quantum groups and quantum
+cohomology}, Ast\'erisque 408 (2019), 1--209.
+\href{https://arxiv.org/abs/1211.1287}{arXiv:1211.1287}.
+\bibitem{frenkel-opers}
+E. Frenkel, \emph{Gaudin model and opers} (2004),
+\href{https://arxiv.org/abs/math/0407524}{arXiv:math/0407524}.
+\end{thebibliography}
+
+\end{document}

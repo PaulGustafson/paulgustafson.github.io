@@ -1,0 +1,304 @@
+\part{XXZ / Vertex Models}
+
+\section{Quantum groups}
+
+\begin{exercise}[The open XXZ chain and Hopf algebra symmetry]
+Let $V=\C^{\{+,-\}}$ be the physical arrow space of the section
+Row-to-row transfer matrices and let $q>0$, $q\ne1$,
+$d=q+q^{-1}$. On $V\otimes V$ define a kernel $e$ that vanishes
+on equal arrows and has mixed-arrow kernel
+\[
+ \begin{pmatrix}q&-1\\-1&q^{-1}\end{pmatrix}
+\]
+in the order $(+-,-+)$. On $V^{\otimes N}$ put
+$H^{\rm open}=-J\sum_{i=1}^{N-1}e_i/2$, $J>0$.
+An algebra action on a tensor product is specified by a coproduct:
+a bialgebra is a unital associative algebra $A$ with algebra maps
+$\Delta:A\to A\otimes A$ and $\varepsilon:A\to\C$ satisfying
+coassociativity and
+$(\varepsilon\otimes\id)\Delta=\id=(\id\otimes\varepsilon)\Delta$.
+A Hopf algebra also has an antipode $S$ satisfying
+$m(S\otimes\id)\Delta=m(\id\otimes S)\Delta=\eta\varepsilon$.
+\begin{enumerate}[label=(\alph*)]
+\item Show that $e$ is positive, $e^2=de$, and
+\[
+ H^{\rm open}=J\sum_{i=1}^{N-1}
+ \left(S_i^xS_{i+1}^x+S_i^yS_{i+1}^y
+ +\frac d2(S_i^zS_{i+1}^z-\tfrac14)\right)
+ -\frac{J(q-q^{-1})}{4}(S_1^z-S_N^z).
+\]
+Use the spin conventions of the section Yang--Baxter equation.
+\item For a Hopf algebra prove that
+$x\cdot(v\otimes w)=\Delta(x)(v\otimes w)$ defines an action
+and that iterating $\Delta$ is independent of parentheses.
+Prove uniqueness of $S$ as the inverse of $\id$ under convolution
+$f*g=m(f\otimes g)\Delta$.
+\item On a finite-dimensional module define
+$(xf)(v)=f(S(x)v)$ on its dual. Prove that evaluation and the
+coevaluation of the section Transfer matrices are module maps,
+using the antipode and snake identities.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Monoidal categories and quasitriangular symmetry]
+A category consists of objects, morphism sets, associative
+composition, and identity morphisms. A monoidal category has a
+tensor bifunctor, a unit, an associator
+$\alpha_{U,V,W}:(U\otimes V)\otimes W\to U\otimes(V\otimes W)$,
+and left and right unit isomorphisms. Their coherence equations
+are the pentagon
+\[
+ \alpha_{U,V,W\otimes X}\alpha_{U\otimes V,W,X}
+ =(\id_U\otimes\alpha_{V,W,X})\alpha_{U,V\otimes W,X}
+                  (\alpha_{U,V,W}\otimes\id_X)
+\]
+and the triangle equating the two unit-removal maps on
+$(U\otimes\mathbf1)\otimes V$.
+A braiding consists of natural isomorphisms
+$c_{U,V}:U\otimes V\to V\otimes U$ satisfying, with associators
+inserted, the two hexagon identities
+\[
+ c_{U\otimes V,W}=(c_{U,W}\otimes\id_V)(\id_U\otimes c_{V,W}),
+ \quad
+ c_{U,V\otimes W}=(\id_V\otimes c_{U,W})(c_{U,V}\otimes\id_W).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Verify these structures for vector spaces and for modules
+over a bialgebra, using its coproduct for the latter.
+\item A quasitriangular Hopf algebra has an invertible
+$\mathcal R\in A\otimes A$ with
+$\mathcal R\Delta(x)=\Delta^{\rm op}(x)\mathcal R$,
+$(\Delta\otimes\id)\mathcal R=\mathcal R_{13}\mathcal R_{23}$,
+and $(\id\otimes\Delta)\mathcal R=\mathcal R_{13}\mathcal R_{12}$.
+Prove that $c_{U,V}=\tau\mathcal R$ gives a braiding on its
+modules and derive the Yang--Baxter identity.
+\item Prove the braid relation for $c$ directly from its
+hexagons and naturality. Check that a cocommutative Hopf algebra
+has $\mathcal R=1$ and the usual tensor symmetry.
+\end{enumerate}
+\end{exercise}
+
+\section{\texorpdfstring{$U_q(\mathfrak{sl}_2)$}{Uq(sl2)}}
+
+\begin{exercise}[The quantum enveloping algebra and its fundamental spin action]
+For $q\in\C^\times$, $q^2\ne1$, define $U_q(\mathfrak{sl}_2)$
+by generators $E,F,K,K^{-1}$ and relations
+\[
+ KEK^{-1}=q^2E,\quad KFK^{-1}=q^{-2}F,\quad
+ [E,F]=\frac{K-K^{-1}}{q-q^{-1}},\quad KK^{-1}=K^{-1}K=1.
+\]
+Set
+\[
+ \Delta(E)=E\otimes K+1\otimes E,\quad
+ \Delta(F)=F\otimes1+K^{-1}\otimes F,\quad
+ \Delta(K)=K\otimes K,
+\]
+$\varepsilon(E)=\varepsilon(F)=0$, $\varepsilon(K)=1$,
+$S(E)=-EK^{-1}$, $S(F)=-KF$, $S(K)=K^{-1}$.
+Write $[n]_q=(q^n-q^{-n})/(q-q^{-1})$.
+\begin{enumerate}[label=(\alph*)]
+\item Verify that these maps respect all the defining relations
+and give a Hopf algebra. Prove $S^2(x)=KxK^{-1}$.
+\item On the physical arrow space let $K$ multiply the two
+arrow states by $q,q^{-1}$, let $E$ flip $-$ to $+$ and
+annihilate $+$, and let $F$ flip $+$ to $-$ and annihilate $-$.
+Verify the relations and prove that $e$ commutes with the
+coproduct action on two sites.
+\item By induction using the commutator relation prove
+\[
+ [E,F^r]=[r]_q F^{r-1}
+ \frac{q^{1-r}K-q^{r-1}K^{-1}}{q-q^{-1}}.
+\]
+Define a type-$1$ module to be a module with a direct
+decomposition into $K$-eigenspaces of weights in $q^\Z$.
+Show that $E$ and $F$ move these spaces by weights $+2$ and $-2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Quantum symmetric powers and highest-weight modules]
+Assume $q$ is not a root of unity. In the physical tensor space
+$V^{\otimes n}$ define $V_n=\bigcap_{i=1}^{n-1}\ker e_i$ and
+$V_0=\C$.
+\begin{enumerate}[label=(\alph*)]
+\item In the sector with $r$ down arrows show that the equations
+$e_i\psi=0$ relate values at configurations differing by an
+adjacent exchange by a factor of $q$ or $q^{-1}$.
+Check consistency by counting inversions of the down-arrow set.
+Deduce that this sector of $V_n$ is a line for $0\le r\le n$.
+\item Prove that $V_n$ is a submodule. If $L$ is its
+highest-weight line, prove that $F^r:L\to V_n[q^{n-2r}]$
+is an isomorphism for $0\le r\le n$, and that
+$EF^r|_L=[r]_q[n-r+1]_qF^{r-1}|_L$.
+Deduce irreducibility and $\dim V_n=n+1$.
+\item Let a finite-dimensional simple type-$1$ module have
+highest nonzero weight space $L$. Apply the same commutator
+identity at the first vanishing lowering map to prove that its
+highest weight is $q^n$ for some $n\ge0$ and that the module
+is isomorphic to $V_n$.
+\item Compute the intrinsic weighted trace
+$\operatorname{tr}_q(f)=\Tr(Kf)$ on $V_n$ and obtain
+$\operatorname{tr}_q(\id_{V_n})=[n+1]_q$.
+Prove cyclicity for module maps and multiplicativity under
+tensor products.
+\end{enumerate}
+\end{exercise}
+
+\section{Hecke / Temperley--Lieb algebras}
+
+\begin{exercise}[Braid, Hecke, and Temperley--Lieb relations]
+The braid group $B_N$ has generators $\sigma_i$ with
+$\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1}$
+and commuting generators for $|i-j|\ge2$.
+The Hecke algebra $H_N(q)$ imposes additionally
+$(g_i-q)(g_i+q^{-1})=0$.
+The Temperley--Lieb algebra $TL_N(d)$ has generators $e_i$ with
+\[
+ e_i^2=de_i,\qquad e_ie_{i\pm1}e_i=e_i,\qquad
+ [e_i,e_j]=0\quad(|i-j|\ge2).
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Verify these relations for the two-arrow kernel $e$
+of the section Quantum groups, by checking the three-site
+arrow configurations.
+\item In $TL_N(q+q^{-1})$ put $g_i=q-e_i$.
+Prove the braid and Hecke relations and derive
+$g_i^{-1}=g_i-(q-q^{-1})$. Deduce the homomorphism
+$H_N(q)\to TL_N(d)$.
+\item Define $TL_N(d)$ also by planar noncrossing pairings
+of $N$ input and $N$ output endpoints, with multiplication
+by stacking and with each closed loop replaced by $d$.
+Reduce an arbitrary pairing using an innermost arc and
+prove that the generators satisfy the presentation above:
+straightening adjacent cups and caps gives the three relations,
+and the relations reduce every word to a scalar times a word
+\[
+ (e_{i_1}e_{i_1-1}\cdots e_{j_1})\cdots
+ (e_{i_r}e_{i_r-1}\cdots e_{j_r}),
+ \quad i_1<\cdots<i_r,\quad j_1<\cdots<j_r,\quad j_a\le i_a.
+\]
+Here $1\le j_a\le i_a<N$, and the empty word is allowed.
+Match these words bijectively with the planar pairings.
+Count pairings by the arc at the first boundary point to derive
+the Catalan recurrence and $\dim TL_N(d)=\binom{2N}{N}/(N+1)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Baxterization of the Temperley--Lieb interaction]
+Let $q=e^\eta$ and $d=2\cosh\eta$. In $TL_N(d)$ put
+$X_i(u)=\sinh(\eta-u)\id+\sinh u\,e_i$.
+\begin{enumerate}[label=(\alph*)]
+\item Expand both sides and use the Temperley--Lieb relations
+to prove
+\[
+ X_i(u)X_{i+1}(u+v)X_i(v)
+ =X_{i+1}(v)X_i(u+v)X_{i+1}(u).
+\]
+Reduce the remaining scalar condition to hyperbolic addition.
+\item Prove $X_i(0)=\sinh\eta\,\id$ and
+$X_i(u)X_i(-u)=(\sinh^2\eta-\sinh^2u)\id$.
+Calculate the logarithmic derivative at zero and identify
+its nonconstant part with $e_i/\sinh\eta$.
+\end{enumerate}
+\end{exercise}
+
+\section{Representation theory}
+
+\begin{exercise}[Intrinsic isotypic decomposition and Clebsch--Gordan fusion]
+Let $q$ be not a root of unity. The Casimir element is
+$C=FE+(qK+q^{-1}K^{-1})/(q-q^{-1})^2$.
+A module is semisimple if it is a direct sum of simple modules.
+\begin{enumerate}[label=(\alph*)]
+\item Check that $C$ is central and acts on $V_n$ by
+$c_n=(q^{n+1}+q^{-n-1})/(q-q^{-1})^2$.
+Show that the $c_n$ are distinct for $n\ge0$.
+\item For a finite-dimensional type-$1$ module decompose by
+generalized Casimir eigenspaces. In a summand whose simple
+quotients are $V_n$, show that its weight-$q^n$ space generates
+a sum of copies of $V_n$: the lowering maps are injective
+until level $n$, and level $n+1$ is absent.
+Compare dimensions with a composition series to prove
+complete reducibility.
+\item Prove that the evaluation map gives the canonical
+decomposition
+\[
+ W\simeq\bigoplus_{n\ge0}V_n\otimes\Hom_{U_q}(V_n,W).
+\]
+Compute multiplicities by subtracting consecutive weight
+dimensions, and derive
+$V_m\otimes V_n\simeq\bigoplus_{r=0}^{\min(m,n)}V_{m+n-2r}$.
+\item Apply this to $V^{\otimes N}$ and obtain the multiplicity
+$\binom Nr-\binom N{r-1}$ of $V_{N-2r}$.
+Show that the open-chain Hamiltonian acts only on the
+multiplicity spaces, so that every energy in such a space
+has multiplicity at least $N-2r+1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The classical spin limit]
+Let $\mathfrak{sl}_2$ be the trace-zero endomorphisms of a
+two-dimensional vector space with bracket $[A,B]=AB-BA$.
+Its enveloping algebra is the tensor algebra modulo
+$x\otimes y-y\otimes x-[x,y]$; it acts on tensor powers by
+the coproduct $x\mapsto x\otimes1+1\otimes x$.
+\begin{enumerate}[label=(\alph*)]
+\item Set $q=e^\eta$ and write $K=e^{\eta H}$ on the
+weight spaces of $V_n$. Take $\eta\to0$ in the ladder
+relations and obtain $[H,E]=2E$, $[H,F]=-2F$, $[E,F]=H$.
+Identify $V_n$ with $\Sym^n(V)$ by its tensor action.
+\item Put $S^z=H/2$, $S^x=(E+F)/2$,
+$S^y=(E-F)/(2\ii)$, and $s=n/2$.
+Compute the central operator
+$(S^x)^2+(S^y)^2+(S^z)^2=s(s+1)\id$ and the character
+$\Tr e^{tS^z}=\sinh((2s+1)t/2)/\sinh(t/2)$.
+Use the induced inner product on $\Sym^n(V)$ to verify
+self-adjointness of the spin operators.
+\end{enumerate}
+\end{exercise}
+
+\section{Rational/trigonometric hierarchy}
+
+\begin{exercise}[Trigonometric transfer operators and the rational limit]
+Use the trigonometric $R(u)$ and $H_{\Delta,h}$ of the
+sections Spectral parameter and Yang--Baxter equation.
+\begin{enumerate}[label=(\alph*)]
+\item Under $u=\epsilon x$, $\eta=\epsilon$ prove
+$\epsilon^{-1}R(u)\to x\id+P$ and $\Delta\to1$.
+Pass to the limit in the Yang--Baxter and RTT relations.
+\item Show that the classical limit of the open-chain kernel
+is $e=\id-P$. Derive
+$H^{\rm open}=\frac J2\sum_i(P_{i,i+1}-\id)$ and its
+global rotation symmetry.
+\item On a periodic chain derive the one-magnon energy
+$h+J(\cos k-1)$ at $\Delta=1$ and compare with the
+trigonometric band $h+J(\cos k-\cosh\eta)$.
+Keep the different open and periodic boundary terms explicit.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: quantum-group multiplets of an open XXZ segment]
+For $q>0$, $q\ne1$, take the Hermitian open Hamiltonian
+$H^{\rm open}=-J\sum_i e_i/2$ with the boundary field fixed
+in the section Quantum groups.
+\begin{enumerate}[label=(\alph*)]
+\item For two sites use $e^2=de$ and the intrinsic decomposition
+$V\otimes V=V_2\oplus V_0$ to derive a triplet at energy zero
+and a singlet at energy $-Jd/2=-J\Delta$.
+\item For $N$ sites prove that any simple energy in the
+multiplicity space of $V_{N-2r}$ has exactly $N-2r+1$
+states unless its energy coincides with that of another
+multiplet. Show that it has one state in each magnetization
+sector $S^z_{\rm tot}=(N-2r)/2-m$ for $0\le m\le N-2r$.
+\item For an operator in the $V_2$ component of
+$\End(\mathcal H_N)$, with action
+$x\cdot O=\sum x_{(1)}OS(x_{(2)})$, apply Clebsch--Gordan
+fusion to derive the selection rule
+$V_n\to V_{n-2}\oplus V_n\oplus V_{n+2}$, omitting
+negative labels. Prove that a scalar sector $V_0$ couples
+only to $V_2$ through such an operator.
+\item State the two-site absorption energy $J\Delta$, the
+multiplet degeneracies, and the selection rule as separate
+spectroscopic predictions. Identify the boundary field,
+anisotropy, and transformation law of the probe required
+to test them.
+\end{enumerate}
+\end{exercise}

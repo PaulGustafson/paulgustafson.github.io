@@ -1,0 +1,270 @@
+\part{Percolation / Random-Cluster Model}
+
+\section{Probability on lattices}
+
+\begin{exercise}[Independent edges, monotone events, and lattice probability]
+Let $\mathbb E^d$ be the nearest-neighbour edges of $\Z^d$.
+A bond configuration is $\omega\in\{0,1\}^{\mathbb E^d}$;
+an edge is open when its value is one. The measure $\Prob_p$
+makes the edge values independent with probability $p$ of
+being open. An event is increasing if opening more edges
+cannot destroy it. A cylinder event depends on finitely many
+edges.
+\begin{enumerate}[label=(\alph*)]
+\item Construct the monotone coupling
+$\omega_e(p)=\mathbf1_{U_e\le p}$ from independent uniform
+variables. Prove that probabilities of increasing events
+are nondecreasing in $p$.
+\item Prove the Harris inequality
+$\Prob_p(A\cap B)\ge\Prob_p(A)\Prob_p(B)$ for increasing
+cylinder events, by induction on the number of edges and
+conditioning on the last edge. Extend it to increasing
+connection events by monotone limits.
+\item An edge is pivotal for a cylinder event when changing
+that edge alone changes whether the event occurs.
+Differentiate first with independent densities $p_e$ and
+then set $p_e=p$ to prove Russo's formula
+$\frac{\dd}{\dd p}\Prob_p(A)=\sum_e\Prob_p(e\text{ pivotal})$
+for increasing cylinder events.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Random-cluster weights and the Edwards--Sokal coupling]
+On a finite graph $(V,E)$ write $o(\omega)$ for the number
+of open edges and $k(\omega)$ for the number of connected
+components, including isolated vertices. For $Q>0$ define
+\[
+ \phi_{p,Q}(\omega)=Z_{\rm RC}^{-1}
+    p^{o(\omega)}(1-p)^{|E|-o(\omega)}Q^{k(\omega)}.
+\]
+A boundary wiring is an equivalence relation on specified
+boundary vertices; count components after making those
+identifications. For integer $Q\ge2$ the Potts Hamiltonian
+is $H=-J\sum_{ij}\mathbf1_{\sigma_i=\sigma_j}$,
+$\sigma_i\in\{1,\dots,Q\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Put $p=1-e^{-\beta J}$ and assign joint weight
+$\prod_{ij}[(1-p)\mathbf1_{\omega_{ij}=0}
++p\mathbf1_{\omega_{ij}=1}\mathbf1_{\sigma_i=\sigma_j}]$.
+Prove that its spin marginal is the Potts measure and its
+edge marginal is $\phi_{p,Q}$, with
+$Z_{\rm RC}=e^{-\beta J|E|}Z_{\rm Potts}$.
+\item Conditional on edges, colour each cluster independently
+and uniformly. Derive
+\[
+ \langle\mathbf1_{\sigma_x=\sigma_y}\rangle-\frac1Q
+   =\left(1-\frac1Q\right)\phi_{p,Q}(x\leftrightarrow y).
+\]
+For $Q=2$ identify the Ising coupling $K=\beta J/2$
+and prove $\langle\sigma_x\sigma_y\rangle
+=\phi_{p,2}(x\leftrightarrow y)$.
+\item For $Q\ge1$ prove supermodularity of $k$ by considering
+the effect of opening two edges. Apply the FKG lattice
+condition of the section Boundary conditions to prove
+positive association. Calculate the conditional open-edge
+probability as $p$ if its endpoints are already connected
+and $p/(p+Q(1-p))$ otherwise.
+\end{enumerate}
+\end{exercise}
+
+\section{Connectivity}
+
+\begin{exercise}[Open clusters and bounds on the percolation threshold]
+Let $C(x)$ be the cluster containing $x$, let
+$\theta(p)=\Prob_p(|C(0)|=\infty)$, and put
+$p_c=\sup\{p:\theta(p)=0\}$.
+For $\Lambda_n=\{-n,\dots,n\}^d$, define its boundary as
+in the section Thermodynamic limit.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\{|C(0)|=\infty\}$ is the decreasing
+intersection of $\{0\leftrightarrow\partial\Lambda_n\}$.
+Show that an infinite cluster contains an infinite
+self-avoiding path by choosing successive extensions in
+the finitely branching tree of finite paths.
+\item Count at most $2d(2d-1)^{n-1}$ self-avoiding
+$n$-edge paths from zero. Deduce
+$p_c(\Z^d)\ge1/(2d-1)$ for $d\ge2$, and prove
+$p_c(\Z)=1$ separately.
+\item On $\Z^2$, if the origin's cluster is finite, trace a
+closed dual circuit of closed primal edges around it.
+Bound the number of possible length-$n$ circuits by
+$4(2n+1)^2\,3^{n-1}$, by specifying a nearby starting edge
+and a nonbacktracking continuation. Deduce $\theta(p)>0$
+when $p$ is sufficiently close to one and hence $p_c<1$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Planar duality and random-cluster self-duality]
+Let $G$ be a connected finite plane graph and let $G^*$
+have one vertex for each face, including the unbounded face.
+Declare the dual edge open precisely when its crossed
+primal edge is closed.
+\begin{enumerate}[label=(\alph*)]
+\item Apply Euler's formula to the open subgraph to prove
+$k(\omega)=k(\omega^*)+o(\omega^*)+|V|-|E|-1$.
+\item Substitute this equality in the random-cluster weight
+and derive
+\[
+ \frac{p^*}{1-p^*}=\frac{Q(1-p)}p,\qquad
+ p_{\rm sd}=\frac{\sqrt Q}{1+\sqrt Q}.
+\]
+Explain the exchange of a free boundary with a single wired
+outer dual vertex through the graph construction.
+\item For a rectangle prove that exactly one of a primal
+left-right open crossing and a dual top-bottom open
+crossing occurs, with the dual boundary arcs specified
+by the crossed boundary edges. Use planar separation.
+Distinguish this finite combinatorial identity from an
+assertion that $p_{\rm sd}=p_c$ in an infinite lattice.
+\end{enumerate}
+\end{exercise}
+
+\section{Critical phenomena}
+
+\begin{exercise}[An exact percolation transition on a branching lattice]
+Consider independent bond percolation on the rooted tree
+with $b\ge2$ children at each vertex. Write $\theta_b(p)$
+for the probability that the root has infinitely many
+descendants in its open cluster.
+\begin{enumerate}[label=(\alph*)]
+\item Let $x_n$ be the probability of an open path from
+the root to generation $n$. Prove $x_0=1$,
+$x_{n+1}=1-(1-px_n)^b$, and $x_n\downarrow\theta_b(p)$.
+\item Prove that $\theta_b(p)$ is the largest solution in
+$[0,1]$ of $x=1-(1-px)^b$. Use strict concavity to show
+$p_c=1/b$, with zero survival at $p_c$.
+\item Expand at the bifurcation to obtain
+$\theta_b(p)\sim 2b^2(p-1/b)/(b-1)$ as $p\downarrow1/b$.
+Count open descendants by generations to prove
+$\E_p|C(0)|=(1-bp)^{-1}$ for $p<1/b$.
+\end{enumerate}
+\end{exercise}
+
+\section{Correlation length}
+
+\begin{exercise}[Exponential connectivity decay and the inverse correlation seminorm]
+For $0<p<1$ on $\Z^d$ set
+$\tau_n(x)=-\log\Prob_p(0\leftrightarrow nx)$.
+Use the correlation-length convention of the section
+Correlation functions, with spin correlation replaced by
+connection probability.
+\begin{enumerate}[label=(\alph*)]
+\item Use Harris' inequality and translation invariance
+to prove $\tau_{n+m}(x)\le\tau_n(x)+\tau_m(x)$.
+Prove the subadditive limit formula
+$\tau(x)=\lim_n\tau_n(x)/n=\inf_n\tau_n(x)/n$ by division
+with remainder.
+\item Prove integer homogeneity, the triangle inequality,
+symmetry, and $\tau(x)\le-\log p\,|x|_1$. Extend to a
+continuous seminorm on $\R^d$.
+If $\xi^{-1}=\tau(e_1)$, use coordinate-reflection symmetry
+to prove $\tau(x)\ge|x|_\infty/\xi$ and hence
+$\Prob_p(0\leftrightarrow x)\le e^{-|x|_\infty/\xi}$.
+\item Count self-avoiding paths to prove $\xi<\infty$
+for $p<1/(2d-1)$. With
+$\chi(p)=\E_p|C(0)|=\sum_x\Prob_p(0\leftrightarrow x)$,
+derive $\chi(p)\le C_d\max(1,\xi)^d$ whenever $\xi<\infty$.
+\item On the rooted tree a fixed length-$n$ path has
+connection probability $p^n$. Compute its decay length
+$-1/\log p$ and show it stays finite at $p=1/b$ even though
+the mean cluster size diverges. Identify the exponential
+growth in the number of sites per generation.
+\end{enumerate}
+\end{exercise}
+
+\section{Scaling and universality}
+
+\begin{exercise}[Critical exponents and finite-size crossing windows]
+When the indicated asymptotics hold, define exponents by
+$\theta(p)\sim C(p-p_c)^{\beta_{\rm perc}}$,
+$\chi(p)\sim C'(p_c-p)^{-\gamma}$, and
+$\xi(p)\sim C''|p-p_c|^{-\nu}$ on the specified sides.
+Universality of an exponent means its equality for a
+specified class of models after identifying the observables;
+it does not assert equality of thresholds or amplitudes.
+\begin{enumerate}[label=(\alph*)]
+\item Determine $\beta_{\rm perc}$ and $\gamma$ on the
+rooted branching lattice from the section Critical phenomena.
+Explain why no divergent path-decay exponent $\nu$ is
+obtained there.
+\item Let $\pi_n(p)$ be finite-volume crossing probabilities.
+Suppose, as mathematical data for this conditional assertion,
+$\pi_n(p_c+t n^{-1/\nu})\to\Phi(t)$, locally uniformly
+in $t$, where $\Phi$ is continuous and strictly increasing
+from zero to one. Put
+$p_n(a)=\inf\{p:\pi_n(p)\ge a\}$.
+Use monotonicity to prove
+\[
+ n^{1/\nu}(p_n(b)-p_n(a))
+ \longrightarrow \Phi^{-1}(b)-\Phi^{-1}(a)
+ \quad(0<a<b<1).
+\]
+\item For a change of parameter $\widetilde p=f(p)$ with
+$f'(p_c)>0$, determine which exponents, amplitudes, thresholds,
+and window coefficients change. State the normalization
+needed when comparing crossing windows on two lattices.
+\end{enumerate}
+\end{exercise}
+
+\section{SLE / conformal invariance}
+
+\begin{exercise}[Loewner evolution and Brownian scaling]
+For a given continuous real driving function $W$ define
+$g_t(z)$ in the upper half-plane, up to its collision lifetime,
+by
+$\partial_tg_t(z)=2/(g_t(z)-W_t)$, $g_0(z)=z$.
+A standard Brownian motion is a continuous process $B_0=0$
+with independent Gaussian increments of mean zero and
+variance $t-s$ on an interval $[s,t]$.
+Given such a process, the random Loewner evolution driven
+by $W_t=\sqrt\kappa B_t$ is chordal $\mathrm{SLE}_\kappa$.
+\begin{enumerate}[label=(\alph*)]
+\item Solve the evolution for $W=0$ and obtain
+$g_t(z)=\sqrt{z^2+4t}$, with the branch asymptotic to $z$.
+Determine the removed vertical slit.
+\item For general continuous $W$ prove, by rescaling the ODE,
+that $\widetilde g_t(z)=a g_{t/a^2}(z/a)$ is driven by
+$\widetilde W_t=aW_{t/a^2}$.
+Use Gaussian increment laws to prove scale invariance
+of $\mathrm{SLE}_\kappa$ up to the corresponding time change.
+\item For deterministic $s$, compose $g_{s+t}$ with
+$g_s^{-1}(\,\cdot+W_s)$ and subtract $W_s$.
+Show that the resulting evolution is driven by
+$W_{s+t}-W_s$, independent of the past with the original
+driving law. Prove injectivity and existence of the inverse
+on the surviving domain using the forward and reverse ODEs.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: conformally invariant percolation crossing probabilities]
+Let $D$ be a Jordan domain with four counterclockwise marked
+boundary points $a,b,c,d$, and fix a conformal map to the
+upper half-plane sending them to $0,x,1,\infty$, $0<x<1$.
+Use independent site percolation at density $1/2$ on a
+triangular lattice of mesh $\delta$ approximating $D$.
+The observable is a black crossing from arc $(ab)$ to
+arc $(cd)$. For this model assume, as proved by Smirnov
+\cite{smirnov-percolation}, that its probability converges to
+\[
+ P(x)=\frac{\displaystyle\int_0^x
+                  t^{-2/3}(1-t)^{-2/3}\dd t}
+             {\displaystyle\int_0^1
+                  t^{-2/3}(1-t)^{-2/3}\dd t}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove $P(x)+P(1-x)=1$, $P(1/2)=1/2$, and
+$P(x)\sim3x^{1/3}/\int_0^1t^{-2/3}(1-t)^{-2/3}\dd t$
+as $x\downarrow0$. Calculate $P(1/4)$ numerically.
+\item Use a conformal symmetry exchanging opposite pairs
+of sides to derive crossing probability $1/2$ for a square.
+Specify that $x$ is the cross-ratio of the mapped real
+boundary points, not of arbitrary points in the original domain.
+\item For $M$ independent lattice samples compute the mean
+and variance of the empirical crossing frequency.
+Separate this sampling uncertainty from the finite-mesh
+error, for which the stated hypothesis supplies no rate.
+State precisely the triangular-site model covered by the
+hypothesis; a corresponding square-bond assertion requires
+an additional universality result.
+\end{enumerate}
+\end{exercise}

@@ -1,65 +1,57 @@
-# Manuscript section audit
+# Mathematics via Lattice Models: development status
 
-Every section is organized internally as geometric symmetry, special-function
-decomposition, and physical predictions. The sections are grouped into eight
-parts; subsection and lower-level headings are deliberately omitted.
+The twelve-part conversion has a buildable exercise draft with the fixed
+64-section table of contents in `MANUSCRIPT_CONVENTIONS.md`. The entry point
+and PDF retain the filenames `Mathematics_of_Lattice_Models.tex` and
+`Mathematics_of_Lattice_Models.pdf`.
 
-| Part | Sections |
-|---|---|
-| Harmonic Analysis | Fourier Analysis through Poincaré Group |
-| Scattering Theory | One-Dimensional Scattering through Schwarzschild Spacetime |
-| Hyperbolic Geometry | $SL_2(\mathbb R)$ and $SL_2(\mathbb Z)$ |
-| Conformal Field Theory | Virasoro Algebra and Ising Model |
-| Quantum Algebra | Affine Kac--Moody Algebras through Double Affine Hecke Algebras |
-| Algebraic Geometry | Algebraic Curves through Finite-Gap Spectral Curves |
-| Algebraic Topology | Index Theory and Cobordism |
-| Tensor Categories | Geometric Satake and Fusion Categories |
+| Part | Current development | Final quantitative prediction |
+|---|---|---|
+| I | Finite Gibbs measures, intrinsic linear algebra, exact chain transfer operator | Brillouin magnetization and chain heat capacity |
+| II | Pressure, boundary comparison, DLR states, correlations, Peierls bounds, Lee–Yang, duality | Critical temperature, logarithmic heat capacity, magnetization exponent |
+| III | Independent edges, random clusters, planar duality, branching threshold, decay, Loewner scaling | Triangular-site crossing probabilities |
+| IV | Ice configurations, spectral parameter, RTT, Yang–Baxter, magnon Bethe equations | Saturation field and one-magnon dispersion |
+| V | Hopf action, quantum symmetric powers, Hecke and Temperley–Lieb, intrinsic representation decomposition | Open-chain multiplets and selection rules |
+| VI | Theta identities, eight-vertex operator, first fusion relation, RSOS dimensions, dynamical elliptic relation | RSOS strip residual entropy |
+| VII | Loop diagrams, fusion paths, Perron–Frobenius, a pointed modular category, braids, bracket invariant | Fibonacci state growth and mutual braiding phase |
+| VIII | Pointed fusion categories, intrinsic recoupling, cocycles, finite state sums and gluing | String-net degeneracy and pair-creation gap |
+| IX | Finite gauge fields, Wilson loops, flat fields, cocycle action, classifying and cocycle spaces | Wilson area coefficient and higher flux sectors |
+| X | Chiral hopping model, winding, bundle classes, ordinary cohomology spectrum | Bulk gap and localized boundary levels |
+| XI | One-root rational Bethe state, one-vertex quiver, cotangent projective line, two-chamber stable envelopes | Two-spin exchange splitting |
+| XII | Rational Gaudin operators, Bethe states, scalar opers, rank-one dual root data, abelian sphere Hecke eigencondition | Gaudin pair spectroscopy from oper residues |
 
-| Section | Geometric symmetry | Special-function decomposition | Physical prediction |
-|---|---|---|---|
-| Fourier Analysis | LCA translations on $G$ | Pontryagin duality and Fourier kernels | Fraunhofer diffraction |
-| Peter--Weyl Theory | $K\times K$ acting on $K$ | Peter--Weyl decomposition and Wigner functions | Rotational spectroscopy |
-| Symmetric Spaces | $O(d+1)$ acting on $S^d$ and, generally, $G$ acting on $G/K$ | Gauss--Jacobi functions and spherical harmonic decomposition | Spherical-resonator frequencies and degeneracies |
-| Euclidean Group | $E(V)$ acting on Euclidean space | Momentum-orbit decomposition and Bessel/Hankel transforms | Circular-aperture diffraction |
-| Reductive Groups | Weyl group acting on weight space | Highest weights and Weyl characters | Flavor multiplets |
-| Coadjoint Orbits | $G$ acting on symplectic manifolds and orbits | Symplectic reduction and coherent-state kernels | Spin precession |
-| Heisenberg Group | Central extension acting on symplectic phase space | Stone--von Neumann decomposition and Hermite functions | Oscillator spectroscopy |
-| Unitary Ensembles | $U(W)$ acting on Hermitian endomorphisms | Weyl integration and Hermite/sine/Airy kernels | Quantum-chaotic spectra |
-| Poincaré Group | Poincaré group acting on Minkowski spacetime | Wigner classification and Bessel functions | Correlation length |
-| One-Dimensional Scattering | Translations acting on the configuration line | Jost decomposition and Pöschl--Teller hypergeometric functions | Transmission and bound-state spectra |
-| Potential Scattering | $SO(3)$ acting on $\mathbb R^3$ | Partial waves and spherical Bessel functions | Hard-sphere differential and total cross sections |
-| Coulomb Problem | $SO(4)$ dynamical symmetry on the negative-energy subspace | Kummer, Laguerre, and Coulomb spectral functions | Hydrogen spectral lines and Rutherford scattering |
-| Schwarzschild Spacetime | $\mathbb R\times SO(3)$ acting on the exterior | Regge--Wheeler modes, Heun functions, and parabolic-cylinder functions | Scalar ringdown frequencies and damping times |
-| $SL_2(\mathbb R)$ | $SL_2(\mathbb R)$ acting on $\mathbb H$ | Unitary dual, Legendre functions, and the Mehler--Fock transform | Hyperbolic-drum spectra |
-| $SL_2(\mathbb Z)$ | $SL_2(\mathbb Z)$ acting on $\mathbb H$ | Automorphic spectrum, Eisenstein series, and modular forms | Cusp-scattering resonances |
-| Virasoro Algebra | $\operatorname{Diff}^+(S^1)$ acting on circle fields | Positive-energy modules and Virasoro characters | Conformal finite-size spectra |
-| Ising Model | $\mathbb Z_2$ acting on spin configurations | Transfer spectrum, Toeplitz determinants, and Ising characters | Criticality |
-| Affine Kac--Moody Algebras | $LK_c\rtimes S^1$ acting on loop fields | Integrable modules, Weyl--Kac characters, and KZ blocks | WZW finite-size spectra |
-| Quantum Groups | $U_v(\mathfrak{sl}_2)$ acting on tensor-product state spaces | Quantum Peter--Weyl decomposition and basic hypergeometric functions | XXZ spectroscopy |
-| Dunkl Operators | Reflection groups acting on Euclidean spaces and tori | Dunkl transforms and Heckman--Opdam/Jack polynomials | Calogero--Sutherland levels and transition intensities |
-| Double Affine Hecke Algebras | DAHA difference-reflection symmetry on an algebraic torus | Cherednik operators and Macdonald polynomials | Ruijsenaars spectrum |
-| Algebraic Curves | Elliptic curve acting on itself by translations | Abel--Jacobi decomposition and elliptic functions | Pendulum periods |
-| Riemann--Roch | $\operatorname{Aut}(X,L)$ acting on sections | Sheaf cohomology, localization, and Bergman kernels | Landau-level degeneracy and density |
-| Finite-Gap Spectral Curves | Translations and KdV flows acting on periodic potentials | Spectral curves, Baker--Akhiezer functions, and Bloch--Floquet theory | Band gaps |
-| Index Theory | Gauge group acting on connections and coupled operators | Analytic/topological index and monopole harmonics | Hall conductance |
-| Cobordism | Frame-group symmetry and tangential structures | Pontryagin--Thom theory and eta functions | Invertible-phase response |
-| Geometric Satake | $G[[z]]$ acting on affine-Grassmannian modifications of 't Hooft defects | Schubert convolution, the Satake equivalence, and Hall--Littlewood polynomials | 't Hooft fusion channels and junction multiplicities |
-| Fusion Categories | Fusion category acting on fusion state spaces | Semisimplification, modular $S$-matrix, and Verlinde decomposition | Anyon interferometry |
+## Scope for subsequent development
 
-## Validation checklist
+The general subjects have deliberately restricted worked models. Further
+development can extend them without changing the table of contents:
 
-- [x] Every definition occurs at first use inside an exercise.
-- [x] No standalone motivational or transitional prose appears in the body.
-- [x] No theorem is designated as supplied or assumed input.
-- [x] Every section specifies an acting symmetry, its geometric or state
-      space, and the invariant structure or operator used in the decomposition.
-- [x] Every named special-function system occurs with an orthogonality,
-      completeness, inversion, kernel, or spectral-resolution identity.
-- [x] Every final exercise uses the section's special-function decomposition
-      to calculate a stated physical prediction.
-- [x] Hermite, determinant, Fredholm, and representation-theoretic
-      prerequisites have a single owner; one-variable, Jacobi, and
-      higher-genus theta functions occur as explicit successive extensions.
-- [x] Fourier, metric-signature, Laplacian, modular-nome, quantum, elliptic,
-      and Clifford conventions are explicit and nonconflicting.
-- [x] Full LaTeX build and PDF structural audit.
+- Derive thermodynamic six-vertex spectra beyond the finite magnon sector.
+- Extend the verified first fusion relation to a carefully normalized
+  higher elliptic fusion hierarchy.
+- Develop nonpointed string-net recoupling and state sums beyond the
+  group-labelled case.
+- Extend the topological-phase treatment beyond chiral one-particle
+  Hamiltonians; the current spectrum construction represents ordinary
+  cohomology and does not classify general interacting phases.
+- Extend stable envelopes beyond the two-fixed-point cotangent projective
+  line, and quiver actions beyond the two-site calculation.
+- Develop the punctured, nonabelian geometric Langlands correspondence.
+  The current Hecke exercise proves the abelian sphere case; the Gaudin
+  exercise constructs the rank-one Bethe-to-oper map without asserting a
+  general spectral equivalence.
+
+## Validation
+
+Run `bash scripts/build_lattice_manuscript.sh`. It audits the prescribed
+headings, exercise-only body, final predictions, bibliography, and placement
+of external hypotheses, then runs `pdflatex` three times in a temporary
+directory. It replaces the tracked PDF only after checking the generated
+TOC, PDF text, unresolved citations, and overfull boxes.
+
+The continuation was also checked against independent finite calculations:
+the ordinary and dynamical elliptic Yang–Baxter equations, the first fusion
+determinant, Temperley–Lieb relations, RSOS fusion at levels 1–7, a periodic
+two-magnon Bethe state, Gaudin commutators and one-root eigenvalues, a
+four-plaquette gauge partition function, and hopping-chain boundary
+residuals. These are numerical consistency checks, not a complete proof
+audit of the manuscript.

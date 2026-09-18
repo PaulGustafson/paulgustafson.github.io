@@ -1,12 +1,9 @@
 # Manuscript style
 
 These rules apply to the manuscript entry point
-`Symmetry_and_Special_Functions.tex` and its part files
-`Emergent_Mathematics_Symmetry.tex`,
-`Emergent_Mathematics_Particles.tex`,
-`Emergent_Mathematics_Integrable_Probability.tex`,
-`Emergent_Mathematics_Integrability.tex`, and
-`Emergent_Mathematics_Geometry.tex`.
+`Mathematics_of_Lattice_Models.tex` and its part files
+`Lattice_Models_P01.tex` through `Lattice_Models_P12.tex` (one file per
+part).
 
 - The body should consist of exercises that introduce the required definitions
   and state major results.
@@ -62,68 +59,34 @@ These rules apply to the manuscript entry point
   completeness, kernel, or inversion identities without calling the system a
   basis.
 
-## Application-driven section structure
+## Model-driven part structure
 
-- Treat each `\section` as a complete mathematical arc rather than as a
-  container for prerequisite material.
-- Use only `\part` and `\section` headings. Do not add
-  `\subsection`, `\subsubsection`, or lower-level divisions.
-- Give every part a standard, immediately recognizable mathematical subject
-  name, such as `Lie Theory`, `Algebraic Topology`, or
-  `Tensor Categories`. A part title names the common mathematical discipline of its
-  consecutive sections, not their physical applications or a newly coined
-  umbrella idea.
-- Keep section titles short and nonconjunctive. Each title should name one
-  standard mathematical subject, structure, or theory; do not join subjects
-  or applications with "and," commas, ampersands, or multi-clause
-  constructions. Put the detailed scope and physical culmination in exercise
-  titles and exercise bodies.
-- Use standard, immediately recognizable mathematical names.  Name the
-  actual group, algebra, category, theorem, or established field; do not coin
-  umbrella phrases or use a broader class when a concrete subject such as
-  `Peter--Weyl Theory`, `SL_2(\mathbb R)`, or `Geometric Satake` is
-  intended.
-- Organize every section, through its exercise sequence, into exactly this
-  conceptual progression: geometric symmetry; special-function decomposition;
-  physical predictions.  These are roles in the argument, not headings to
-  print in the manuscript.
-- In the geometric-symmetry stage, specify the group, algebra, or tensor
-  category; the space, orbit, variety, configuration space, or state space on
-  which it acts; and the invariant geometric structure or operator. In the
-  special-function decomposition stage, define the relevant characters,
-  matrix coefficients, eigenfunctions, orthogonal polynomials, or kernels
-  together with the spectral, representation-theoretic, transform,
-  convolution, localization, or sector decomposition they realize. Include
-  the applicable orthogonality, completeness, inversion, Plancherel, or
-  spectral-resolution identity. In the physical-prediction stage, identify a
-  physical observable, use the decomposition to calculate its value, spectrum,
-  distribution, scaling law, or selection rule, and state the modeling
-  assumptions.
-- Treat the three-stage structure as a substantive test, not a formatting
-  device. If a section cannot support every stage without unrelated filler,
-  refocus it or merge its material into a section that can.
-- Every section must culminate in a substantial exercise that derives or uses
-  a named special-function family and applies it to a concrete physical
-  observable.
-- The culminating exercise must extract a quantitative, experimentally
-  testable prediction, such as spectral values or spacings, zeros and
-  resonance locations, scattering or diffraction intensities, selection
-  rules, transition amplitudes, correlation laws, transport coefficients,
-  critical exponents, or asymptotic distributions.
-- Group characters, spherical functions, orthogonal polynomials,
-  hypergeometric functions, transform kernels, and integrable kernels count as
-  special functions when their defining identities and analytic role are made
-  explicit. Merely mentioning such a function does not satisfy this rule.
-- State the mathematical model, normalization conventions, observable, and
-  prediction in the exercise. When experimental evidence is cited,
-  distinguish the derived prediction, modeling assumptions, measured
-  quantity, and limitations of the comparison.
-- Foundational material that does not naturally support such a culminating
-  exercise must be integrated into the exercise sequence of the earliest
-  larger section that uses it. It should not remain a standalone section.
-- Do not append an unrelated special-function example merely to satisfy this
-  rule. Merge, rename, reorder, or divide sections so that the culminating
-  application follows from the preceding development.
+- Treat each `\part` as one lattice model and each `\section` inside it as
+  one mathematical subject that the model forces. The part and section titles
+  are the fixed table of contents (see `MANUSCRIPT_CONVENTIONS.md`); do not
+  add, remove, rename, or reorder them without the user's instruction.
+- Use only `\part` and `\section` headings. Do not add `\subsection`,
+  `\subsubsection`, or lower-level divisions. A table-of-contents bullet is a
+  syllabus item, not a mandate for a heading of its own below the section.
+- Organize every part, through its exercise sequence, into this progression:
+  the model (configuration space, weights or Hamiltonian, measure, symmetry);
+  the mathematical structures its sections name, each with the identity,
+  decomposition, or classification it realizes; a quantitative physical
+  prediction. These are roles in the argument, not headings to print.
+- Every part must culminate in a substantial exercise that uses the part's
+  mathematics to derive a quantitative, experimentally testable prediction:
+  a critical temperature or exponent, a residual entropy, a dispersion
+  relation, a crossing probability, a degeneracy, a braiding phase, a string
+  tension, an edge multiplet, a gap equation. State the model, normalization
+  conventions, observable, and prediction in the exercise. When experimental
+  evidence is cited, distinguish the derived prediction, modeling
+  assumptions, measured quantity, and limitations of the comparison.
+- Each notion has one owner section; later sections use it by naming that
+  section ("the transfer matrix of the section Transfer matrices"). There are
+  no `\label`/`\ref` cross-references.
+- A deep external theorem may be adopted as a cited hypothesis only inside a
+  part's final prediction exercise, and only with the words "assume, as
+  proved by". Elsewhere restrict the claim to what the book has developed.
 - Introduce prerequisites before their first use and do not reintroduce them
   in later sections.
 - Treat general topology, including compactness, local compactness, Borel

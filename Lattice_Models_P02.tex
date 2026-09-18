@@ -1,0 +1,774 @@
+\part{2D Ising Model}
+
+\section{Thermodynamic limit}
+
+\begin{exercise}[Boundary terms, subadditivity, and the existence of the pressure]
+Let $d\ge1$.  A box is a finite set $\Lambda\subset\Z^d$; $\Lambda_L=\{1,\dots,L\}^d$;
+For state limits put $\Lambda_L^{\rm c}=\{-L,\dots,L\}^d$. $E(\Lambda)$ is the set of nearest-neighbour edges with both ends in
+$\Lambda$; $\partial\Lambda$ is the set of sites of $\Lambda$ with a
+nearest neighbour outside $\Lambda$; $\abs\Lambda$ is the number of sites.
+Let $\Omega=\{\pm1\}^{\Z^d}$ with the product $\sigma$-algebra.  For
+$\eta\in\Omega$ the Ising Hamiltonian in $\Lambda$ with boundary condition
+$\eta$ is
+\[
+ H^\eta_\Lambda(\sigma)=-J\sum_{ij\in E(\Lambda)}\sigma_i\sigma_j-h\sum_{i\in\Lambda}\sigma_i
+ -J\sum_{\substack{i\in\Lambda,\ j\notin\Lambda\\ i\sim j}}\sigma_i\eta_j,
+ \qquad\sigma\in\Omega_\Lambda=\{\pm1\}^\Lambda,
+\]
+with partition function $Z^\eta_\Lambda(\beta,h)$ and Gibbs measure
+$\mu^\eta_\Lambda$ (the section Gibbs measures of Part~I); the free
+boundary condition $\eta=\emptyset$ omits the last sum, giving
+$Z^\emptyset_\Lambda$.  Put $K=\beta J$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $\abs{\log Z^\eta_\Lambda-\log Z^\emptyset_\Lambda}\le 2dK\abs{\partial\Lambda}$
+for every $\eta$, and, if $\Lambda=\Lambda_1\sqcup\Lambda_2$,
+\[
+ e^{-K\abs{E(\Lambda_1,\Lambda_2)}}Z^\emptyset_{\Lambda_1}Z^\emptyset_{\Lambda_2}
+ \le Z^\emptyset_\Lambda\le
+ e^{K\abs{E(\Lambda_1,\Lambda_2)}}Z^\emptyset_{\Lambda_1}Z^\emptyset_{\Lambda_2},
+\]
+where $E(\Lambda_1,\Lambda_2)$ is the set of edges between $\Lambda_1$ and $\Lambda_2$.
+\item Prove that $\psi_k=2^{-kd}\log Z^\emptyset_{\Lambda_{2^k}}$ satisfies
+$\abs{\psi_{k+1}-\psi_k}\le dK2^{-k}$, hence converges to a limit
+$\psi(\beta,h)$, and that
+$\abs{\Lambda_L}^{-1}\log Z^\emptyset_{\Lambda_L}\to\psi(\beta,h)$ as $L\to\infty$
+(tile $\Lambda_L$ by translates of $\Lambda_{2^k}$ and a remainder of at most
+$d\,2^kL^{d-1}$ sites, and use $\abs{\log Z^\emptyset_\Lambda}\le(dK+\beta\abs h+\log2)\abs\Lambda$).
+\item A sequence of boxes $\Lambda^{(n)}$ is a van Hove sequence if
+$\abs{\Lambda^{(n)}}\to\infty$ and, for every $r$,
+\[
+ \frac{\abs{\{i\in\Lambda^{(n)}:\operatorname{dist}(i,\Z^d\setminus\Lambda^{(n)})\le r\}}}{\abs{\Lambda^{(n)}}}\longrightarrow0 .
+\]  Prove that $\abs{\Lambda^{(n)}}^{-1}\log Z^{\eta_n}_{\Lambda^{(n)}}\to\psi(\beta,h)$
+for every van Hove sequence and every choice of boundary conditions $\eta_n$
+(including $\emptyset$), and for the torus $\T_L=(\Z/L\Z)^d$ with periodic
+boundary conditions.  The limit $\psi(\beta,h)$ is the pressure; the free
+energy density is $f=-\beta^{-1}\psi$.
+\item Prove $dK\le\psi(\beta,h)-\beta\abs h\le dK+\log2$, that $\psi$ is even in
+$h$, and that $\psi(\beta,h)-\beta\abs h\to dK$ as $\abs h\to\infty$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Convexity of the pressure, magnetization, and one-sided derivatives]
+Keep the notation of the previous exercise and regard $\psi$ as a function of
+$(\beta,\beta h)$ as in the section $\log Z$, cumulants, entropy, free energy
+of Part~I.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\psi$ is convex in $(\beta,\beta h)\in(0,\infty)\times\R$
+and continuous, and that for fixed $\beta$ the function $\beta h\mapsto\psi$ is
+convex, even, and nondecreasing on $[0,\infty)$.
+\item Prove that the one-sided derivatives
+$m^\pm(\beta,h)=\partial^\pm\psi/\partial(\beta h)$ exist everywhere, are
+nondecreasing in $h$, satisfy $m^-\le m^+$, and coincide except at countably
+many $h$; the magnetization $m(\beta,h)=\partial\psi/\partial(\beta h)$ is
+defined where they coincide, and $\abs{m}\le1$.
+\item Prove that if $\psi$ is differentiable in $\beta h$ at $(\beta,h)$ then
+for every van Hove sequence and every boundary condition
+\[
+ \frac1{\abs{\Lambda^{(n)}}}\Bigl\langle\sum_{i\in\Lambda^{(n)}}\sigma_i\Bigr\rangle^{\eta_n}_{\Lambda^{(n)}}
+ \longrightarrow m(\beta,h)
+\]
+(a sequence of convex functions converging pointwise has derivatives
+converging at every point of differentiability of the limit).
+\item Define the spontaneous magnetization
+$m^*(\beta)=\lim_{h\downarrow0}m(\beta,h)$.  Prove that the limit exists, that
+$m^*(\beta)=m^+(\beta,0)=-m^-(\beta,0)\ge0$, and that $\psi$ is differentiable
+in $h$ at $h=0$ if and only if $m^*(\beta)=0$.
+\item Prove that $\beta\mapsto\beta f(\beta,0)=-\psi(\beta,0)$ is concave,
+that its one-sided derivatives $u^\pm(\beta)$ (the internal energy per site)
+exist and are nonincreasing, and that for $\beta_1<\beta_2$,
+$\psi(\beta_2,0)-\psi(\beta_1,0)=-\int_{\beta_1}^{\beta_2}u(\beta)\dd\beta$
+with $u=u^+$ almost everywhere.
+\end{enumerate}
+\end{exercise}
+
+\section{Boundary conditions}
+
+\begin{exercise}[The FKG lattice condition, the four functions theorem, Holley's inequality, and the FKG inequality]
+Let $\Lambda$ be a finite set and order $\{\pm1\}^\Lambda$ pointwise, with
+$(\sigma\vee\sigma')_i=\max(\sigma_i,\sigma'_i)$ and
+$(\sigma\wedge\sigma')_i=\min(\sigma_i,\sigma'_i)$.  A function
+$f:\{\pm1\}^\Lambda\to\R$ is increasing if $\sigma\le\sigma'$ implies
+$f(\sigma)\le f(\sigma')$; an event is increasing if its indicator is.  A
+strictly positive measure $\mu$ on $\{\pm1\}^\Lambda$ satisfies the FKG
+lattice condition if
+\[
+ \mu(\sigma\vee\sigma')\,\mu(\sigma\wedge\sigma')\ge\mu(\sigma)\,\mu(\sigma')
+ \qquad\text{for all }\sigma,\sigma' .
+\]
+Two positive measures $\mu_1,\mu_2$ satisfy the Holley condition if
+$\mu_1(\sigma\vee\sigma')\mu_2(\sigma\wedge\sigma')\ge\mu_1(\sigma)\mu_2(\sigma')$
+for all $\sigma,\sigma'$.  For probability measures, $\mu_2\preceq\mu_1$
+(stochastic domination) means $\E_{\mu_2}f\le\E_{\mu_1}f$ for every increasing $f$.
+\begin{enumerate}[label=(\alph*)]
+\item (Four functions, one site.)  Let $\alpha,\beta,\gamma,\delta:\{\pm1\}\to[0,\infty)$
+satisfy $\alpha(s)\beta(s')\le\gamma(s\vee s')\delta(s\wedge s')$ for all
+$s,s'$.  Prove
+$\bigl(\alpha(+)+\alpha(-)\bigr)\bigl(\beta(+)+\beta(-)\bigr)\le\bigl(\gamma(+)+\gamma(-)\bigr)\bigl(\delta(+)+\delta(-)\bigr)$.
+(If $\gamma(+)\delta(-)=0$ argue directly; otherwise normalize
+$\gamma(+)=\delta(-)=1$, replace $\gamma(-)$ and $\delta(+)$ by the smaller
+values $\alpha(-)\beta(-)$ and $\alpha(+)\beta(+)$, and reduce to
+$(1-\alpha(-)\beta(+))(1-\alpha(+)\beta(-))\ge0$.)
+\item (Four functions theorem.)  Let $\alpha,\beta,\gamma,\delta:\{\pm1\}^\Lambda\to[0,\infty)$
+satisfy $\alpha(\sigma)\beta(\sigma')\le\gamma(\sigma\vee\sigma')\delta(\sigma\wedge\sigma')$
+for all $\sigma,\sigma'$.  Prove by induction on $\abs\Lambda$ that
+$\alpha(\{\pm1\}^\Lambda)\beta(\{\pm1\}^\Lambda)\le\gamma(\{\pm1\}^\Lambda)\delta(\{\pm1\}^\Lambda)$,
+where $\alpha(A)=\sum_{\sigma\in A}\alpha(\sigma)$: fix a site $i$, define
+$\alpha'(\tau)=\alpha(\tau,+)+\alpha(\tau,-)$ on $\{\pm1\}^{\Lambda\setminus\{i\}}$
+and similarly $\beta',\gamma',\delta'$, and verify the hypothesis for the
+primed functions using (a).  Deduce
+$\alpha(A)\beta(B)\le\gamma(A\vee B)\delta(A\wedge B)$ for all
+$A,B\subset\{\pm1\}^\Lambda$, where $A\vee B=\{\sigma\vee\sigma':\sigma\in A,\sigma'\in B\}$.
+\item (Holley's inequality.)  If probability measures $\mu_1,\mu_2$ satisfy
+the Holley condition, prove $\mu_2\preceq\mu_1$ (apply (b) to
+$\alpha=f\mu_2$, $\beta=\mu_1$, $\gamma=f\mu_1$, $\delta=\mu_2$ for
+$f\ge0$ increasing).
+\item (FKG inequality.)  If a probability measure $\mu$ satisfies the lattice
+condition, prove $\E_\mu(fg)\ge\E_\mu f\,\E_\mu g$ for all increasing $f,g$,
+and $\E_\mu(fg)\le\E_\mu f\,\E_\mu g$ if $f$ is increasing and $g$ decreasing.
+\item Prove that if $\mu$ satisfies the lattice condition, then so does every
+conditional measure $\mu(\,\cdot\mid\sigma_i=s)$ on $\{\pm1\}^{\Lambda\setminus\{i\}}$,
+and that the pair $\mu(\,\cdot\mid\sigma_i=+1)$, $\mu(\,\cdot\mid\sigma_i=-1)$
+satisfies the Holley condition.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Monotone couplings from the Holley condition]
+Let $\mu_1,\mu_2$ be probability measures on $\{\pm1\}^\Lambda$ satisfying
+the Holley condition.  Prove, by induction on $\abs\Lambda$, that there is a
+probability measure $P$ on $\{\pm1\}^\Lambda\times\{\pm1\}^\Lambda$ with
+marginals $\mu_1$ and $\mu_2$ and $P(\sigma^{(1)}\ge\sigma^{(2)})=1$: choose
+a site $i$; from Holley's inequality $\mu_1(\sigma_i=+1)\ge\mu_2(\sigma_i=+1)$,
+so the two Bernoulli laws of $\sigma_i$ admit a monotone coupling; and for
+$s\ge s'$ the conditional measures $\mu_1(\,\cdot\mid\sigma_i=s)$ and
+$\mu_2(\,\cdot\mid\sigma_i=s')$ again satisfy the Holley condition (compare
+the points $(\sigma,s)$ and $(\sigma',s')$).  Deduce that for any
+$f:\{\pm1\}^\Lambda\to\R$,
+\[
+ \abs{\E_{\mu_1}f-\E_{\mu_2}f}\le\sum_{i\in\Lambda}\operatorname{osc}_i(f)\,
+ \frac{\E_{\mu_1}\sigma_i-\E_{\mu_2}\sigma_i}2,
+\]
+where $\operatorname{osc}_i(f)$ is the maximal change of $f$ under a flip of
+$\sigma_i$.
+\end{exercise}
+
+\begin{exercise}[The Ising model satisfies the lattice condition; Griffiths inequalities via duplicate variables]
+Let $\Lambda\subset\Z^d$ be a box.  The boundary conditions $+$, $-$ are
+$\eta\equiv+1$, $\eta\equiv-1$; $\emptyset$ is free; periodic means the
+Hamiltonian of the torus.  More generally admit real boundary values
+$\eta_j\in\R$ and site-dependent fields $h_i\in\R$ in $H^\eta_\Lambda$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that for $a,a',b,b'\in\{\pm1\}$,
+$(a\vee a')(b\vee b')+(a\wedge a')(b\wedge b')\ge ab+a'b'$, and deduce that
+$\mu^\eta_\Lambda$ satisfies the lattice condition for every $J\ge0$, every
+$\eta\in\R^{\Z^d\setminus\Lambda}$, and all fields $h_i\in\R$; likewise the
+free and periodic measures.
+\item Prove that if $\eta\le\eta'$ pointwise and $h_i\le h'_i$, then the pair
+$\mu^{\eta'}_\Lambda(h')$, $\mu^\eta_\Lambda(h)$ satisfies the Holley
+condition, hence $\mu^\eta_\Lambda(h)\preceq\mu^{\eta'}_\Lambda(h')$; in
+particular $\mu^-_\Lambda\preceq\mu^\eta_\Lambda\preceq\mu^+_\Lambda$ for every
+$\eta\in\Omega$, and $\mu^\emptyset_\Lambda\preceq\mu^+_\Lambda$.
+\item (Griffiths I.)  For $A\subset\Lambda$ put $\sigma_A=\prod_{i\in A}\sigma_i$.
+Expanding every factor $e^{K\sigma_i\sigma_j}$, $e^{\beta h_i\sigma_i}$, and
+$e^{K\sigma_i\eta_j}$ in its power series, prove
+$\langle\sigma_A\rangle^\eta_\Lambda\ge0$ whenever $J\ge0$, $h_i\ge0$, and
+$\eta_j\ge0$ for all $i,j$.
+\item (Griffiths II, Ginibre's argument.)  Under the same hypotheses and for
+$A,B\subset\Lambda$, write
+$\langle\sigma_A\sigma_B\rangle-\langle\sigma_A\rangle\langle\sigma_B\rangle
+=(Z^\eta_\Lambda)^{-2}\sum_{\sigma,\sigma'}\sigma_A(\sigma_B-\sigma'_B)
+e^{-\beta H^\eta_\Lambda(\sigma)-\beta H^\eta_\Lambda(\sigma')}$
+and substitute $\sigma_i=(x_i+y_i)/2$, $\sigma'_i=(x_i-y_i)/2$.  Prove that
+$\sigma_A(\sigma_B-\sigma'_B)$, $\sigma_i\sigma_j+\sigma'_i\sigma'_j=(x_ix_j+y_iy_j)/2$,
+and $\sigma_i+\sigma'_i=x_i$ are polynomials in $(x,y)$ with nonnegative
+coefficients, that the exponential of a polynomial with nonnegative
+coefficients has a power series with nonnegative coefficients, and that
+$\sum_{\sigma_i,\sigma'_i\in\{\pm1\}}x_i^ay_i^b\ge0$ for all $a,b\ge0$.
+Conclude
+\[
+ \langle\sigma_A\sigma_B\rangle^\eta_\Lambda\ge\langle\sigma_A\rangle^\eta_\Lambda\langle\sigma_B\rangle^\eta_\Lambda ,
+\]
+and that $\langle\sigma_A\rangle^\eta_\Lambda$ is nondecreasing in each
+coupling $K$, in each field $\beta h_i\ge0$, and in each boundary value
+$\eta_j\ge0$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Probability measures on spin products and conditional expectations]
+For the countable product $\Omega=\{\pm1\}^{\Z^d}$ a cylinder
+set fixes finitely many spins. Suppose probability laws on all
+finite spin sets are consistent under restriction.
+\begin{enumerate}[label=(\alph*)]
+\item Define their common finitely additive law on the algebra
+of cylinder sets. Use compactness to show that a decreasing
+sequence of cylinder sets with empty intersection is
+eventually empty. Extend the resulting premeasure and prove
+uniqueness on the product sigma-algebra by approximation
+with cylinder functions.
+\item For a probability measure $\mu$, the space
+$L^2(\mu)$ is the completion of bounded measurable functions
+modulo zero-norm functions for
+$\|f\|_2^2=\int|f|^2\dd\mu$.
+For a sub-sigma-algebra $\mathcal A$, define
+$\E_\mu(f\mid\mathcal A)$ as the orthogonal projection
+onto its closed subspace of $\mathcal A$-measurable functions.
+Prove the integral characterization against bounded
+$\mathcal A$-measurable functions, positivity, and the tower
+property; extend to $L^1$ by truncation.
+\item Prove that orthogonal projections onto a decreasing
+sequence of closed Hilbert subspaces converge in norm to
+the projection onto their intersection, by comparing the
+squared norms and applying the Cauchy criterion.
+Deduce the corresponding convergence of bounded conditional
+expectations; treat sigma-algebras modulo null sets.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Monotonicity in the volume and the infinite-volume limits \texorpdfstring{$\mu^\pm$}{mu+-}]
+Let $\Lambda\subset\Lambda'$ be boxes in $\Z^d$.  A function
+$f:\Omega\to\R$ is local if it depends on finitely many coordinates.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $\mu^+_{\Lambda'}\preceq\mu^+_\Lambda$ and
+$\mu^-_\Lambda\preceq\mu^-_{\Lambda'}$ (condition $\mu^+_{\Lambda'}$ on
+$\sigma|_{\Lambda'\setminus\Lambda}$ and use the finite-volume consistency of
+Part~I together with the previous exercise).
+\item Prove that $\langle\sigma_0\rangle^+_\Lambda$ is nondecreasing in $h$
+and, for $h\ge0$, nondecreasing in $\beta$; and that
+$\langle\sigma_0\rangle^+_\Lambda\ge\langle\sigma_0\rangle^\emptyset_\Lambda\ge0$
+for $h\ge0$.
+\item Prove that every local $f$ is a difference of two increasing local
+functions.  Deduce that for every local $f$ the limits
+$\mu^+(f)=\lim_{L\to\infty}\mu^+_{\Lambda_L^{\rm c}}(f)$ and $\mu^-(f)=\lim\mu^-_{\Lambda_L^{\rm c}}(f)$
+exist, are the same along every sequence of boxes increasing to $\Z^d$, and
+define (Kolmogorov extension) probability measures $\mu^\pm$ on $\Omega$ with
+$\mu^-\preceq\mu^+$; that $\mu^\pm$ are invariant under translations of $\Z^d$
+and under the lattice symmetries fixing the origin; and that
+$\mu^+(f)=\mu^-(f\circ(-1))$ at $h=0$, where $(-1)$ is global spin reversal.
+\item Prove that $\mu^\pm$ satisfy the FKG inequality for increasing local
+functions, and that $\langle\sigma_A\rangle^+\ge0$,
+$\langle\sigma_A\sigma_B\rangle^+\ge\langle\sigma_A\rangle^+\langle\sigma_B\rangle^+$
+for $h\ge0$.
+\end{enumerate}
+\end{exercise}
+
+\section{Gibbs states}
+
+\begin{exercise}[The Gibbs specification, DLR equations, and the Gibbs property of \texorpdfstring{$\mu^\pm$}{mu+-}]
+Fix $\beta>0$, $h\in\R$.  For a box $\Lambda$ let $\mathcal F_{\Lambda^c}$ be
+the $\sigma$-algebra on $\Omega$ generated by $(\sigma_j)_{j\notin\Lambda}$.
+The Gibbs specification is the family of probability kernels
+$\gamma_\Lambda(A\mid\eta)=\sum_{\tau\in\Omega_\Lambda}\mu^\eta_\Lambda(\tau)\,
+\mathbf 1_A(\tau\eta)$, $A$ measurable, $\eta\in\Omega$, where
+$\tau\eta$ agrees with $\tau$ on $\Lambda$ and with $\eta$ off $\Lambda$;
+for bounded measurable $f$ put
+$(\gamma_\Lambda f)(\eta)=\sum_\tau\mu^\eta_\Lambda(\tau)f(\tau\eta)$.  A
+probability measure $\mu$ on $\Omega$ is a Gibbs state (for $\beta,h$) if it
+satisfies the DLR equations
+\[
+ \mu(A\mid\mathcal F_{\Lambda^c})=\gamma_\Lambda(A\mid\cdot\,)\quad\mu\text{-a.s.},
+ \qquad\text{for every box }\Lambda\text{ and measurable }A ,
+\]
+equivalently $\mu(\gamma_\Lambda f)=\mu(f)$ for all bounded measurable $f$ and
+all $\Lambda$.  Write $\mathcal G(\beta,h)$ for the set of Gibbs states.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\gamma_\Lambda f$ is $\mathcal F_{\Lambda^c}$-measurable,
+that $\gamma_\Lambda(gf)=g\,\gamma_\Lambda f$ for $g$
+$\mathcal F_{\Lambda^c}$-measurable, that $\gamma_\Lambda f$ is local
+whenever $f$ is local, and that $\gamma_{\Lambda'}\gamma_\Lambda=\gamma_{\Lambda'}$
+for $\Lambda\subset\Lambda'$ (the finite-volume consistency of Part~I).
+Prove the equivalence of the two formulations of the DLR equations.
+\item Prove that $\mu^+$ and $\mu^-$ are Gibbs states: for local $f$ and
+$\Lambda\subset\Lambda_L^{\rm c}$, $\mu^+_{\Lambda_L^{\rm c}}(\gamma_\Lambda f)=\mu^+_{\Lambda_L^{\rm c}}(f)$,
+and $\gamma_\Lambda f$ is local.
+\item Prove that $\mathcal G(\beta,h)$ is convex and closed in the weak
+topology of probability measures on the compact space $\Omega$, hence
+compact, and that every Gibbs state $\mu$ satisfies
+$\mu^-\preceq\mu\preceq\mu^+$ on increasing local functions
+(write $\mu(f)=\mu(\gamma_\Lambda f)$ and bound $\gamma_\Lambda f$ pointwise
+by $\mu^\pm_\Lambda(f)$ using the section Boundary conditions).
+\item Prove that if $\mu$ is a translation-invariant Gibbs state then
+$\mu(\sigma_0)\in[\langle\sigma_0\rangle^-,\langle\sigma_0\rangle^+]$, where
+$\langle\sigma_0\rangle^\pm=\mu^\pm(\sigma_0)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Extremal Gibbs states and tail triviality]
+The tail $\sigma$-algebra is $\mathcal T=\bigcap_{L}\mathcal F_{(\Lambda_L^{\rm c})^c}$.
+A probability measure $\mu$ is tail trivial if $\mu(A)\in\{0,1\}$ for all
+$A\in\mathcal T$.  A Gibbs state $\mu$ is extremal if $\mu=t\nu_1+(1-t)\nu_2$
+with $\nu_1,\nu_2\in\mathcal G(\beta,h)$ and $t\in(0,1)$ implies $\nu_1=\nu_2=\mu$.
+\begin{enumerate}[label=(\alph*)]
+\item Let $\mu\in\mathcal G(\beta,h)$ and let $\nu\in\mathcal G(\beta,h)$ be
+absolutely continuous with respect to $\mu$, with density $g$.  For a box
+$\Lambda$ let $g_\Lambda=\E_\mu(g\mid\mathcal F_{\Lambda^c})$.  Prove
+$\nu(A)=\mu(g\,\gamma_\Lambda(A))=\mu(g_\Lambda\gamma_\Lambda(A))=\mu(g_\Lambda\mathbf 1_A)$
+for every measurable $A$, and conclude $g=g_\Lambda$ $\mu$-a.s. for every box $\Lambda$.
+\item Deduce that for every $c\in\Q$ the event $\{g>c\}$ coincides
+$\mu$-a.s. with the tail event $\limsup_L\{g_{\Lambda_L^{\rm c}}>c\}$.  Prove: if
+$\mu$ is tail trivial then $g$ is $\mu$-a.s. constant, hence $\nu=\mu$.
+\item Prove that a tail-trivial Gibbs state is extremal (if
+$\mu=t\nu_1+(1-t)\nu_2$ then $\nu_1\ll\mu$).  Conversely, if
+$\mu\in\mathcal G(\beta,h)$ and $A\in\mathcal T$ with $0<\mu(A)<1$, prove that
+$\mu(\,\cdot\mid A)$ and $\mu(\,\cdot\mid A^c)$ are Gibbs states (use
+$\gamma_\Lambda(f\mathbf 1_A)=\mathbf 1_A\gamma_\Lambda f$), so that $\mu$ is not
+extremal.  Conclude that a Gibbs state is extremal if and only if it is tail
+trivial.
+\item Prove that a tail-trivial probability measure $\mu$ on $\Omega$ has
+the mixing property
+\[
+ \lim_{L\to\infty}\sup_{B\in\mathcal F_{(\Lambda_L^{\rm c})^c}}
+ \abs{\mu(A\cap B)-\mu(A)\mu(B)}=0
+\]
+for every measurable $A$ (approximate $\mathbf 1_A$ by local functions and use
+that $\E_\mu(\mathbf 1_A\mid\mathcal F_{(\Lambda_L^{\rm c})^c})$ converges in $L^1(\mu)$
+to $\E_\mu(\mathbf 1_A\mid\mathcal T)=\mu(A)$; prove the convergence first for bounded variables by the decreasing-subspace projection argument, and then use $L^1$ approximation).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Uniqueness of the Gibbs state and the magnetization criterion]
+Fix $\beta>0$ and $h\in\R$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the following are equivalent: (i) $\mathcal G(\beta,h)$ has
+exactly one element; (ii) $\mu^+=\mu^-$; (iii)
+$\langle\sigma_0\rangle^+=\langle\sigma_0\rangle^-$.  For (iii)$\Rightarrow$(ii)
+apply the coupling bound of the section Boundary conditions to
+$\mu^+_\Lambda,\mu^-_\Lambda$, then let $\Lambda\uparrow\Z^d$ and use the
+translation invariance of $\mu^\pm$.
+\item Prove that at $h=0$ the condition (iii) reads $\langle\sigma_0\rangle^+_{\beta,0}=0$.
+\item Prove that $\beta\mapsto\langle\sigma_0\rangle^+_{\beta,0}$ is
+nondecreasing, so that
+$\beta_c=\inf\{\beta>0:\langle\sigma_0\rangle^+_{\beta,0}>0\}\in[0,\infty]$
+satisfies: $\mathcal G(\beta,0)$ is a singleton for $\beta<\beta_c$ and has
+at least the two elements $\mu^+\ne\mu^-$ for $\beta>\beta_c$.
+\item Prove that $\mu^+$ and $\mu^-$ are extremal Gibbs states, in the
+following two steps.  First, if $\mu^+=t\nu_1+(1-t)\nu_2$ with
+$\nu_1,\nu_2\in\mathcal G$, then $\nu_1\preceq\mu^+$ and $\nu_2\preceq\mu^+$ by
+the previous exercise, and $t\nu_1(f)+(1-t)\nu_2(f)=\mu^+(f)$ for increasing
+$f$ forces $\nu_1(f)=\nu_2(f)=\mu^+(f)$; second, increasing local functions
+determine a measure.
+\end{enumerate}
+\end{exercise}
+
+\section{Correlation functions}
+
+\begin{exercise}[Correlation functions, truncated correlations, and their monotonicity]
+For a Gibbs state $\mu$ and a finite $A\subset\Z^d$ the $n$-point function
+is $\langle\sigma_A\rangle=\mu(\sigma_A)$, $n=\abs A$; the truncated two-point
+function is $\langle\sigma_x;\sigma_y\rangle=\langle\sigma_x\sigma_y\rangle-\langle\sigma_x\rangle\langle\sigma_y\rangle$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that for $h\ge0$, $\langle\sigma_A\rangle^+$ is nondecreasing in
+$\beta$ and in $h$, that $\langle\sigma_x;\sigma_y\rangle^+\ge0$, and that
+$\langle\sigma_x;\sigma_y\rangle^+\le1-(\langle\sigma_0\rangle^+)^2$.
+\item Prove that at $h=0$, $\langle\sigma_A\rangle^\emptyset_\Lambda=0$ for
+$\abs A$ odd, $\langle\sigma_A\rangle^+\ge\langle\sigma_A\rangle^\emptyset_\Lambda\ge0$
+for $A\subset\Lambda$, and $\langle\sigma_x\sigma_y\rangle^+\ge(\langle\sigma_0\rangle^+)^2$.
+\item Prove that $\mu^+$ is mixing in the sense of the section Gibbs states,
+so that $\langle\sigma_0;\sigma_x\rangle^+\to0$ as $\abs x\to\infty$, and hence
+$\lim_{\abs x\to\infty}\langle\sigma_0\sigma_x\rangle^+=(\langle\sigma_0\rangle^+)^2$.
+\item Define the correlation length $\xi(\beta,h)\in[0,\infty]$ by
+\[
+ \frac1{\xi}=\liminf_{n\to\infty}\Bigl(-\frac1n\log\langle\sigma_0;\sigma_{ne_1}\rangle^+\Bigr),
+\]
+with $-\log0=+\infty$ in the limit inferior.  Prove that $\xi$ is unchanged when $e_1$ is replaced by any other unit
+vector of $\Z^d$, that $\xi\le1/c$ whenever
+$\langle\sigma_0;\sigma_x\rangle^+\le Ce^{-c\abs x}$ for all $x$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Exponential decay at high temperature from the path expansion]
+Let $\Lambda\subset\Z^d$ be a box, $h=0$, and $t=\tanh K$.  Adjoin a ghost
+site $g$ joined by one edge to each boundary site $i\in\partial\Lambda$ for
+each of its neighbours outside $\Lambda$, so that the $+$ boundary term is
+$K\sum_{i}n_i\sigma_i=K\sum_{ig}\sigma_i\sigma_g$ with $\sigma_g=+1$ fixed.
+Write $\bar E$ for the edge set of $\Lambda$ together with the ghost edges.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $e^{K\sigma_i\sigma_j}=\cosh K\,(1+t\sigma_i\sigma_j)$, and by
+expanding the product over edges and summing over $\sigma\in\Omega_\Lambda$,
+\[
+ Z^+_\Lambda=2^{\abs\Lambda}(\cosh K)^{\abs{\bar E}}\sum_{E'\subset\bar E:\ \deg_{E'}(i)\text{ even }\forall i\in\Lambda}t^{\abs{E'}},
+ \qquad
+ \langle\sigma_0\rangle^+_\Lambda=\frac{\sum_{E':\ \deg_{E'}(i)\text{ odd iff }i=0}t^{\abs{E'}}}
+ {\sum_{E':\ \deg_{E'}(i)\text{ even }\forall i\in\Lambda}t^{\abs{E'}}},
+\]
+where degrees are counted at sites of $\Lambda$ only; the same formulas with
+$\bar E$ replaced by $E(\Lambda)$ give $Z^\emptyset_\Lambda$ and
+$\langle\sigma_0\sigma_x\rangle^\emptyset_\Lambda$ (odd degree exactly at $0$ and $x$).
+\item Prove that every $E'$ in the numerator for $\langle\sigma_0\rangle^+_\Lambda$
+contains a self-avoiding path from $0$ to $g$ (the total number of odd-degree
+vertices of a finite graph is even), and every $E'$ in the numerator of
+$\langle\sigma_0\sigma_x\rangle^\emptyset_\Lambda$ contains a self-avoiding path from
+$0$ to $x$.  Removing a canonically chosen such path $\gamma$ from $E'$ leaves
+a set with all degrees even; deduce
+\[
+ \langle\sigma_0\rangle^+_\Lambda\le\sum_{\gamma:0\to g}t^{\abs\gamma},\qquad
+ \langle\sigma_0\sigma_x\rangle^\emptyset_\Lambda\le\sum_{\gamma:0\to x}t^{\abs\gamma},
+\]
+the sums running over self-avoiding paths.
+\item Prove that the number of paths of length $n$ from $0$ in $\Z^d$ is at
+most $(2d)^n$, and conclude that for $2d\tanh K<1$,
+\[
+ \langle\sigma_0\rangle^+_\Lambda\le\frac{(2dt)^{\operatorname{dist}(0,\partial\Lambda)+1}}{1-2dt},\qquad
+ \langle\sigma_0\sigma_x\rangle^\emptyset_\Lambda\le\frac{(2dt)^{\abs x_1}}{1-2dt},
+\]
+hence $\langle\sigma_0\rangle^+_{\beta,0}=0$, the Gibbs state at $(\beta,0)$ is
+unique, and $\beta_c\ge\beta_0$ with $\tanh(\beta_0J)=1/(2d)$.
+\item Prove that for $2d\tanh K<1$ the unique Gibbs state satisfies
+$\langle\sigma_0\sigma_x\rangle\le(2dt)^{\abs x_1}/(1-2dt)$ (every weak limit
+point of the free measures $\mu^\emptyset_{\Lambda_L^{\rm c}}$ is a Gibbs state), so that
+$\xi(\beta,0)\le1/\log(1/(2d\tanh K))$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Two-point functions on the cylinder from the spectrum of the transfer matrix]
+Let $T_L$ be the transfer matrix of the section Transfer matrices of Part~I
+on the row space $\mathcal H_L$, with spectral decomposition
+$T_L=\sum_a\lambda_aP_a$, $\lambda_{\max}=\lambda_0>\lambda_1\ge\lambda_2\ge\dots>0$
+($P_a$ are mutually orthogonal spectral projections, refined
+by spin reversal when $h=0$, with their full multiplicities), and
+let $\Sigma_j$ be multiplication by $\tau_j$ on $\mathcal H_L$.  Consider the
+torus $\T_{N,L}$ and the sites $(0,0)$ and $(n,0)$ in rows $0$ and $n$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove
+\[
+ \langle\sigma_{(0,0)}\sigma_{(n,0)}\rangle_{\T_{N,L}}
+ =\frac{\sum_{a,b}\lambda_a^{n}\lambda_b^{N-n}\Tr(P_a\Sigma_0P_b\Sigma_0)}{\sum_a\lambda_a^N\Tr P_a},
+ \qquad 0\le n\le N .
+\]
+\item Prove that as $N\to\infty$ with $n$ and $L$ fixed (the infinite
+cylinder of circumference $L$),
+\[
+ \langle\sigma_{(0,0)}\sigma_{(n,0)}\rangle_{L}
+ =\sum_{a}\Bigl(\frac{\lambda_a}{\lambda_{\max}}\Bigr)^n\Tr(P_0\Sigma_0P_a\Sigma_0),
+ \]
+\[
+ \Tr(P_0\Sigma_0P_a\Sigma_0)\ge0,\qquad
+ \sum_a\Tr(P_0\Sigma_0P_a\Sigma_0)=1 .
+\]
+\item At $h=0$ prove that $\Sigma_0$ anticommutes with the spin reversal $F$,
+that $P_0$ lies in the $F=+1$ eigenspace, hence $\Tr(P_0\Sigma_0)=0$ and only
+$a$ with $P_a$ in the $F=-1$ eigenspace contribute; conclude that
+$\langle\sigma_{(0,0)};\sigma_{(n,0)}\rangle_L$ decays as
+$e^{-n/\xi_L}$ with $1/\xi_L=\log(\lambda_{\max}/\lambda^{(-)}_{\max})$, where
+$\lambda^{(-)}_{\max}$ is the largest eigenvalue $\lambda_a$ in the $F=-1$
+sector with $\Tr(P_0\Sigma_0P_a\Sigma_0)\ne0$.
+\end{enumerate}
+\end{exercise}
+
+\section{Phase transitions}
+
+\begin{exercise}[Phase transitions: nonanalyticity of the pressure, nonuniqueness of Gibbs states, and their equivalence at zero field]
+A phase transition occurs at $(\beta,h)$ in the thermodynamic sense if
+$\psi$ is not real analytic at $(\beta,h)$, and in the sense of Gibbs states
+if $\abs{\mathcal G(\beta,h)}>1$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $h\mapsto\langle\sigma_0\rangle^+_{\beta,h}$ is
+nondecreasing and right-continuous (a decreasing limit of continuous
+nondecreasing functions of $h$ is upper semicontinuous).
+\item Prove, for $0\le h<h'$ and every box $\Lambda$,
+\[
+\begin{aligned}
+ \beta\int_h^{h'}\langle\sigma_0\rangle^+_{\beta,s}\dd s
+ &\le\frac{\log Z^+_\Lambda(\beta,h')-\log Z^+_\Lambda(\beta,h)}{\abs\Lambda}\\
+ &\le\beta\int_h^{h'}\Bigl(\langle\sigma_0\rangle^+_{\Lambda'_\ell,s}
+ +\frac{\abs{\{i\in\Lambda:\operatorname{dist}(i,\Lambda^c)\le\ell\}}}{\abs\Lambda}\Bigr)\dd s .
+\end{aligned}
+\]
+for every $\ell$, using $\langle\sigma_i\rangle^+_\Lambda\ge\langle\sigma_i\rangle^+$
+and $\langle\sigma_i\rangle^+_\Lambda\le\langle\sigma_i\rangle^+_{i+\Lambda_\ell'}$
+for the box $i+\Lambda'_\ell$ of side $2\ell+1$ centred at $i$ when it lies in
+$\Lambda$.  Deduce $\psi(\beta,h')-\psi(\beta,h)=\beta\int_h^{h'}\langle\sigma_0\rangle^+_{\beta,s}\dd s$
+and hence
+\[
+ m^*(\beta)=m^+(\beta,0)=\langle\sigma_0\rangle^+_{\beta,0},\qquad
+ m(\beta,h)=\langle\sigma_0\rangle^+_{\beta,h}\ \text{ at every $h>0$ where $\psi$ is differentiable}.
+\]
+\item Conclude that at $h=0$ the following are equivalent: $\psi(\beta,\cdot)$
+is differentiable at $0$; $m^*(\beta)=0$; $\mathcal G(\beta,0)$ is a
+singleton.  Conclude also that $\beta_c$ of the section Gibbs states equals
+$\sup\{\beta:m^*(\beta)=0\}$, that $m^*(\beta)>0$ for $\beta>\beta_c$, and that
+for $d=1$, $\beta_c=\infty$ (the section Transfer matrices of Part~I).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Peierls argument on \texorpdfstring{$\Z^2$}{Z2}]
+Let $d=2$, $h=0$, and let $\Lambda\subset\Z^2$ be a box with $+$ boundary
+condition.  The dual lattice is $(\Z^2)^*=\Z^2+(\tfrac12,\tfrac12)$; each edge
+$ij$ of $\Z^2$ crosses exactly one dual edge $(ij)^*$.  For
+$\sigma\in\Omega_\Lambda$ (extended by $+1$ outside $\Lambda$) let
+$E^*(\sigma)$ be the set of dual edges $(ij)^*$ with $\sigma_i\ne\sigma_j$.  A
+contour is a cycle (closed self-avoiding polygon) of the dual lattice; its
+length $\abs\gamma$ is its number of edges; it surrounds $0$ if $0$ lies in
+the bounded component of its complement in $\R^2$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $E^*(\sigma)$ has even degree at every dual vertex.  Prove
+that if $\sigma_0=-1$ then $E^*(\sigma)$ contains a contour surrounding $0$:
+let $C$ be the connected component of $\{i:\sigma_i=-1\}$ containing $0$
+(finite, contained in $\Lambda$), and take the boundary of the unbounded
+component of the complement of the union of the closed unit squares centred
+at the sites of $C$.
+\item For a contour $\gamma\subset E^*(\sigma)$ let $\sigma^\gamma$ be
+obtained by reversing every spin inside $\gamma$.  Prove that
+$\sigma\mapsto\sigma^\gamma$ is an injection of $\{\sigma:\gamma\subset E^*(\sigma)\}$
+into $\Omega_\Lambda$ with $H^+_\Lambda(\sigma^\gamma)=H^+_\Lambda(\sigma)-2J\abs\gamma$,
+and deduce $\mu^+_\Lambda(\gamma\subset E^*(\sigma))\le e^{-2K\abs\gamma}$.
+\item Prove that the number of contours of length $\ell$ surrounding $0$ is
+at most $\tfrac\ell2\,3^{\ell-1}$ (such a contour crosses the half-line
+$\{(x,0):x\ge0\}$ at a vertical dual edge within distance $\ell/2$ of $0$, and
+a self-avoiding polygon is determined by its successive turns) and that
+$\ell$ is even and $\ell\ge4$.
+\item Conclude, with $y=9e^{-4K}<1$,
+\[
+ \mu^+_\Lambda(\sigma_0=-1)\le\sum_{\ell\ge4\text{ even}}\frac\ell2\,3^{\ell-1}e^{-2K\ell}
+ =\frac13\cdot\frac{y^2(2-y)}{(1-y)^2},
+ \qquad
+ \langle\sigma_0\rangle^+_{\beta,0}\ge1-\frac23\cdot\frac{y^2(2-y)}{(1-y)^2},
+\]
+uniformly in $\Lambda$; hence $m^*(\beta)>0$ for $K\ge\tfrac34$ (where the
+bound gives $m^*\ge0.318$), and $\beta_c(2)J\le\tfrac34$.  Combined with the
+section Correlation functions, $\operatorname{artanh}(\tfrac14)\le\beta_cJ\le\tfrac34$
+for $d=2$, so that $0<\beta_c<\infty$ and there is a phase transition at
+$(\beta_c,0)$; and $\beta_c(d)<\infty$ for every $d\ge2$ (embed $\Z^2$ and use
+monotonicity of $\langle\sigma_0\rangle^+$ in the couplings).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Critical exponents and the Rushbrooke inequality]
+Suppose $0<\beta_c<\infty$ and $m^*(\beta_c)=0$.  Write $\tau=(\beta-\beta_c)/\beta_c$, and
+regard $\psi$ as a function of $(\beta,\eta)$ with $\eta=\beta h$.  Where the
+derivatives exist put $\chi=\beta\,\partial^2\psi/\partial\eta^2$
+(the susceptibility $\partial m/\partial h$), $c=k_B\beta^2\,\partial^2\psi/\partial\beta^2$
+(the specific heat per site; at $\eta=0$ the derivative at fixed $\eta$
+coincides with the derivative at fixed $h=0$, so this agrees with Part~I).
+The critical exponents are defined, when the limits exist, by
+\begin{alignat*}{2}
+ &c(\beta,0)\sim\abs\tau^{-\alpha}\ (\tau\to0),&\qquad
+ &m^*(\beta)\sim\tau^{\beta_{\mathrm{mag}}}\ (\tau\downarrow0),\\
+ &\chi(\beta,0)\sim\abs\tau^{-\gamma}\ (\tau\to0),&
+ &m(\beta_c,h)\sim h^{1/\delta}\ (h\downarrow0),\\
+ &\xi(\beta,0)\sim\abs\tau^{-\nu}\ (\tau\to0),&
+ &\langle\sigma_0;\sigma_x\rangle_{\beta_c,0}\sim\abs x^{-(d-2+\eta_{\mathrm{corr}})}\ (\abs x\to\infty),
+\end{alignat*}
+in this display interpret the power laws as
+$\log c/\log|\tau|\to-\alpha$ and the corresponding logarithmic
+ratios for the other observables; retain the usual ratio-one
+meaning of $\sim$ elsewhere. A logarithmic divergence of $c$ is
+recorded as $\alpha=0$ (log).  Primed exponents $\alpha',\gamma'$ refer to
+$\tau\downarrow0$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the Hessian of $\psi$ in $(\beta,\eta)$ is positive
+semidefinite wherever $\psi$ is $C^2$, hence
+$c\,\chi\ge k_B\beta^3\bigl(\partial m/\partial\beta\bigr)^2$ there, where
+$m=\partial\psi/\partial\eta$ and $\partial m/\partial\beta$ is taken at fixed $\eta$.
+\item Assume: $\psi$ is $C^2$ on $\{\beta_c<\beta<\beta_c+\epsilon,\ 0<\eta<\epsilon\}$;
+there are constants with $c\le A\tau^{-\alpha'}$ and
+$\chi\le B\tau^{-\gamma'}$ on that region; $m(\beta,\eta)\to m^*(\beta)$ as
+$\eta\downarrow0$ for each $\beta$; and $m^*(\beta)\ge D\tau^{\beta_{\mathrm{mag}}}$.
+Prove, by integrating (a) in $\beta$ from $\beta_c$ to $\beta$ at fixed $\eta$ and
+letting $\eta\downarrow0$, that
+\[
+ \alpha'+2\beta_{\mathrm{mag}}+\gamma'\ge2 .
+\]
+(If $\alpha'+\gamma'\ge2$ there is nothing to prove.)
+\item For the Ising chain at $h=0$ prove
+$\chi/(\beta\xi)\to2$ as $K\to\infty$.
+Distinguish this zero-temperature relation from exponents
+defined at a finite critical temperature.
+\end{enumerate}
+\end{exercise}
+
+\section{Lee--Yang zeros}
+
+\begin{exercise}[The partition function as a polynomial in the fugacity and the Asano contraction lemma]
+Let $\Gamma=(V,E)$ be a finite graph, $K\ge0$, and for $\sigma\in\{\pm1\}^V$
+let $n_-(\sigma)=\abs{\{i:\sigma_i=-1\}}$.  Put
+\[
+ P_\Gamma(z_1,\dots,z_n)=\sum_{\sigma}\Bigl(\prod_{ij\in E}e^{K\sigma_i\sigma_j}\Bigr)\prod_{i:\sigma_i=-1}z_i ,
+ \qquad V=\{1,\dots,n\},
+\]
+a polynomial of degree at most one in each variable (multiaffine), and
+$P_\Gamma(z)=P_\Gamma(z,\dots,z)$, so that
+$Z_\Gamma(K,\beta h)=e^{\beta h\abs V}P_\Gamma(e^{-2\beta h})$ with $z=e^{-2\beta h}$.
+Let $D=\{z\in\C:\abs z<1\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $P_\Gamma(z)=z^{\abs V}P_\Gamma(1/z)$ (spin reversal), that
+$P_\Gamma$ has real nonnegative coefficients, leading and constant
+coefficients $e^{K\abs E}$, and that the zero set of $P_\Gamma$ is invariant
+under $z\mapsto1/z$ and under complex conjugation.
+\item (Asano contraction lemma.)  Let $A(z_1,z_2)=a+bz_1+cz_2+dz_1z_2$ with
+$a,b,c,d\in\C$ and $A(z_1,z_2)\ne0$ for all $(z_1,z_2)\in D\times D$.  Prove
+that $a\ne0$; that $\abs{a+bz_1}\ge\abs{c+dz_1}$ for all $z_1\in\overline D$
+and $\abs{a+cz_2}\ge\abs{b+dz_2}$ for all $z_2\in\overline D$; by
+averaging the squares of these inequalities over $\abs{z_1}=1$ and
+$\abs{z_2}=1$, that $\abs a\ge\abs d$; and conclude that $a+dz\ne0$ for
+$z\in D$.
+\item (Edge polynomials.)  Prove that
+\[
+ A_K(z,z')=e^{K}+e^{-K}z+e^{-K}z'+e^{K}zz'
+ =\sum_{\sigma,\sigma'\in\{\pm1\}}e^{K\sigma\sigma'}
+              z^{[\sigma=-1]}z'^{[\sigma'=-1]}
+\]
+has no zero in $D\times D$ for $K\ge0$: solving $A_K=0$ for $z'$, show that
+$\abs{e^K+e^{-K}z}^2-\abs{e^{-K}+e^Kz}^2=2\sinh(2K)(1-\abs z^2)\ge0$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Lee--Yang circle theorem]
+Keep the notation of the previous exercise.
+\begin{enumerate}[label=(\alph*)]
+\item Introduce a variable $z_{e,i}$ for each pair (edge $e$, endpoint $i$
+of $e$), and put $Q=\prod_{e=ij\in E}A_K(z_{e,i},z_{e,j})$, a multiaffine
+polynomial in the $2\abs E$ variables with no zero in the polydisc
+$D^{2\abs E}$.  Define the contraction of two variables $z_{e,i},z_{e',i}$ at
+the same site $i$ into one variable $z_i$ as the operation replacing
+$a+bz_{e,i}+cz_{e',i}+dz_{e,i}z_{e',i}$ (with $a,b,c,d$ polynomials in the
+remaining variables) by $a+dz_i$.  Prove, by (b) of the previous exercise
+applied with the remaining variables fixed in the polydisc, that a
+contraction of a multiaffine polynomial without zeros in the polydisc has no
+zeros in the polydisc.
+\item Prove that contracting, for each site $i$, all variables $z_{e,i}$
+($e\ni i$) into $z_i$ turns $Q$ into $P_\Gamma(z_1,\dots,z_n)$ (a term of $Q$
+survives all contractions exactly when, at every site, either all or none of
+the variables $z_{e,i}$ occur, which is the consistency of the spin values
+$\sigma_i$ across the edges at $i$); treat isolated sites separately.
+Conclude that $P_\Gamma(z_1,\dots,z_n)\ne0$ on $D^n$.
+\item (Circle theorem.)  Prove that all zeros of $P_\Gamma(z)$ lie on the
+unit circle $\abs z=1$, for every finite graph $\Gamma$ and every $K\ge0$.
+\item Prove that the same holds for the Ising model on a box $\Lambda$ with
+free or periodic boundary conditions and with site-dependent couplings
+$K_{ij}\ge0$, and that with $+$ boundary conditions the zeros of the
+polynomial $e^{-\beta h\abs\Lambda}Z^+_\Lambda$ in $z=e^{-2\beta h}$ lie in
+$\{\abs z\ge1\}$ (a boundary field $Kn_i\sigma_i$ rescales $z_i$ by $e^{-2Kn_i}$).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Consequences: analyticity of the pressure in the field and the density of zeros]
+Let $\Lambda=\Lambda_L\subset\Z^d$ with free boundary conditions, and write
+$P_\Lambda(z)=e^{K\abs{E(\Lambda)}}\prod_{k=1}^{\abs\Lambda}(z-e^{\ii\theta_k})$
+with $\theta_k\in(-\pi,\pi]$ (the circle theorem).  Let
+$\rho_\Lambda=\abs\Lambda^{-1}\sum_k\delta_{\theta_k}$, a probability measure on
+the circle, symmetric under $\theta\mapsto-\theta$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that for $z\notin\{\abs z=1\}$,
+\[
+ \frac{\log Z_\Lambda(K,\beta h)}{\abs\Lambda}=\beta h+K\frac{\abs{E(\Lambda)}}{\abs\Lambda}
+ +\int\log\abs{z-e^{\ii\theta}}\dd\rho_\Lambda(\theta),\qquad z=e^{-2\beta h}>0 ,
+\]
+and that every subsequential weak limit $\rho$ of $(\rho_{\Lambda_L})$ satisfies
+$\psi(\beta,h)=\beta h+dK+\int\log\abs{z-e^{\ii\theta}}\dd\rho(\theta)$ for
+all $h\ne0$ (the integrand is continuous in $\theta$ for $\abs z\ne1$).
+\item Prove that $u(z)=\int\log\abs{z-e^{\ii\theta}}\dd\rho(\theta)$ is
+harmonic on $D$ and on $\C\setminus\overline D$, and conclude that
+$h\mapsto\psi(\beta,h)$ is real analytic on $(0,\infty)$ and on $(-\infty,0)$
+for every $\beta>0$; hence in the thermodynamic sense a phase transition in
+$h$ at fixed $\beta$ can occur only at $h=0$, and $m(\beta,h)$,
+$\chi(\beta,h)$ are real analytic in $h\ne0$.
+\item Prove that if there is $\delta>0$ with $\rho_{\Lambda_L}((-\delta,\delta))=0$
+for all large $L$, then $\psi(\beta,\cdot)$ is real analytic in a
+neighbourhood of $h=0$ and $m^*(\beta)=0$.
+\item Suppose that a subsequential limit $\rho$ has, near $\theta=0$, a
+density $g(\theta)$ with respect to $\dd\theta$ that is continuous at $0$.
+Prove
+\[
+ m(\beta,h)=1-2z\,\partial_zu(z)=1-2z\int\frac{z-\cos\theta}{1-2z\cos\theta+z^2}\dd\rho(\theta),
+ \qquad z=e^{-2\beta h},
+\]
+and, letting $z\uparrow1$ (Poisson kernel), $m^*(\beta)=2\pi g(0)$.
+\end{enumerate}
+\end{exercise}
+
+\section{High/low-temperature expansions}
+
+\begin{exercise}[High-temperature and low-temperature expansions and Kramers--Wannier duality on the torus]
+Let $\T_L=(\Z/L\Z)^2$ with edge set $E$, $\abs E=2L^2$, $h=0$, $t=\tanh K$, and let
+$K^*>0$ be defined by $\tanh K^*=e^{-2K}$, equivalently
+$\sinh2K\sinh2K^*=1$.  The dual torus $\T_L^*$ has one vertex per face of
+$\T_L$ and one edge $e^*$ crossing each edge $e$ of $\T_L$.
+\begin{enumerate}[label=(\alph*)]
+\item (High temperature.)  Prove
+$Z_{\T_L}(K)=2^{L^2}(\cosh K)^{2L^2}\sum_{E'\subset E\text{ even}}t^{\abs{E'}}$,
+the sum over edge sets with even degree at every vertex, and
+$\langle\sigma_x\sigma_y\rangle=\sum_{E'\text{ odd exactly at }x,y}t^{\abs{E'}}/\sum_{E'\text{ even}}t^{\abs{E'}}$.
+\item (Low temperature.)  For a configuration $\sigma$ on $\T_L$ let
+$\Gamma(\sigma)\subset E^*$ be the set of dual edges crossing edges with
+$\sigma_i\ne\sigma_j$.  Prove that $\Gamma(\sigma)$ is even, that
+$\sigma\mapsto\Gamma(\sigma)$ is two-to-one onto its image, and that
+$Z_{\T_L}(K)=2e^{2KL^2}\sum_{\Gamma\in\mathcal B}e^{-2K\abs\Gamma}$, where
+$\mathcal B$ is the image: the even subsets of $E^*$ that are boundaries,
+that is, those crossing every closed loop of $\T_L$ an even number of times.
+\item Prove that an even subset of $E^*$ has a homology class in
+$(\Z/2)^2$ (its parities of crossings with a horizontal and a vertical loop),
+that $\mathcal B$ is the class $(0,0)$, and that the even subsets of class
+$(a,b)$ are exactly the images $\Gamma(\sigma)$ of configurations with
+twisted boundary conditions $\varepsilon=(\varepsilon_1,\varepsilon_2)=((-1)^b,(-1)^a)$
+(the coupling across the seam in direction $r$ is $\varepsilon_rK\sigma_i\sigma_j$).
+Denote the corresponding partition functions $Z^{\varepsilon}_{\T_L}(K)$.
+\item Combining (a) with (b)--(c) on the dual torus (which is again $\T_L$),
+prove the Kramers--Wannier identity
+\[
+ \frac{Z_{\T_L}(K)}{(\sinh2K)^{L^2/2}}=\frac12\sum_{\varepsilon\in\{\pm1\}^2}
+ \frac{Z^{\varepsilon}_{\T_L}(K^*)}{(\sinh2K^*)^{L^2/2}} .
+\]
+\item Prove $\abs{\log Z^\varepsilon_{\T_L}-\log Z_{\T_L}}\le4KL$ and deduce
+that $\Phi(K)=\psi(K)-\tfrac12\log\sinh2K$ (with $\psi(K)=\psi(\beta,0)$,
+$K=\beta J$) satisfies $\Phi(K)=\Phi(K^*)$.  The map $K\mapsto K^*$ is a
+decreasing involution of $(0,\infty)$ with unique fixed point
+\[
+ K_{\rm sd}=\tfrac12\log(1+\sqrt2)=\tfrac12\operatorname{arsinh}1=0.4407\ldots ,
+\]
+and if $\psi$ has exactly one point of nonanalyticity in $K\in(0,\infty)$, it
+is $K_{\rm sd}$.
+\item Prove that on a bipartite graph at $h=0$, $Z(K)=Z(-K)$ and
+$\langle\sigma_x\sigma_y\rangle_K=(-1)^{\abs{x-y}_1}\langle\sigma_x\sigma_y\rangle_{-K}$
+(reverse the spins of one sublattice), so that the antiferromagnet $J<0$ on
+$\Z^2$ has the same pressure and the same critical coupling.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: the square-lattice Ising critical temperature and singularities]
+Consider the infinite square-lattice nearest-neighbour Ising
+model with $J>0$, $h=0$, and $K=J/(k_BT)$.
+For this final exercise assume, as proved by Onsager
+\cite{onsager-ising}, the pressure formula
+\[
+ \psi(K)=\frac12\log(2\sinh2K)
+ +\frac1{2\pi}\int_0^\pi
+       \operatorname{arcosh}(\cosh2K\,\coth2K-\cos\theta)\dd\theta.
+\]
+For the plus Gibbs state assume, as proved by Yang
+\cite{yang-magnetization}, that
+$m^*(K)=(1-\sinh^{-4}2K)^{1/8}$ for
+$K>K_{\rm sd}$ and $m^*(K)=0$ for $K\le K_{\rm sd}$,
+with $K_{\rm sd}$ from the duality exercise.
+\begin{enumerate}[label=(\alph*)]
+\item Set $s=\sinh2K$ and use
+$\cosh2K\,\coth2K=s+s^{-1}\ge2$ to show that the
+pressure is analytic away from $K_{\rm sd}$.
+Locate the singular integrand at $\theta=0$ and derive
+\[
+ K_c=K_{\rm sd}=\tfrac12\log(1+\sqrt2),\qquad
+ k_BT_c=2.269185\ldots J.
+\]
+\item Split the integral at a fixed small $\theta_0$.
+Near $(K_c,0)$ use
+$\operatorname{arcosh}(\cosh2K\,\coth2K-\cos\theta)
+=\sqrt{16(K-K_c)^2+\theta^2}$ to leading order.
+Control the differentiated remainder and derive
+\[
+ \frac c{k_B}=\frac{8K_c^2}{\pi}
+       \log\frac1{|1-T/T_c|}+O(1).
+\]
+Calculate the logarithmic amplitude and its ratio above
+and below the transition.
+\item Expand the magnetization formula to obtain
+$m^*(K)\sim(8\sqrt2)^{1/8}(K-K_c)^{1/8}$ and hence
+$\beta_{\rm mag}=1/8$. Use the section Gibbs states to
+identify the ordered and unique-state regimes.
+\item Under the bipartite spin reversal derive the
+corresponding prediction for staggered magnetization in
+the square-lattice antiferromagnet. State which fitted
+quantities test the exponent and which only set the
+nonuniversal energy scale $J$. Separate the model's
+strictly two-dimensional, nearest-neighbour, zero-field
+assumptions from any material's interlayer couplings or
+anisotropy corrections.
+\end{enumerate}
+\end{exercise}

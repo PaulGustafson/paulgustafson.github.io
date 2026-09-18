@@ -1,0 +1,557 @@
+\part{Independent Spins / Ising Chain}
+
+\section{Microstates, Hamiltonians, partition functions}
+
+\begin{exercise}[Configuration spaces, Hamiltonians, Boltzmann weights, and the partition function]
+Let $S$ be a finite set (the local state space) and $\Lambda$ a finite set
+(the sites).  The configuration space is $\Omega_\Lambda=S^\Lambda$, a
+microstate is a point $\sigma\in\Omega_\Lambda$, and $\sigma_i=\sigma(i)$ is
+its value at $i\in\Lambda$.  A Hamiltonian is a function
+$H:\Omega_\Lambda\to\R$.  For $\beta>0$ the Boltzmann weight of $\sigma$ is
+$e^{-\beta H(\sigma)}$ and the partition function is
+\[
+ Z_\Lambda(\beta)=\sum_{\sigma\in\Omega_\Lambda}e^{-\beta H(\sigma)} .
+\]
+Physically $\beta=1/(k_BT)$ with $T$ the absolute temperature and $k_B$
+Boltzmann's constant; $\beta$ is called the inverse temperature.
+\begin{enumerate}[label=(\alph*)]
+\item Suppose $H(\sigma)=\sum_{i\in\Lambda}\phi_i(\sigma_i)$ for functions
+$\phi_i:S\to\R$.  Prove that $Z_\Lambda=\prod_{i\in\Lambda}z_i$ with
+$z_i=\sum_{s\in S}e^{-\beta\phi_i(s)}$.
+\item (Independent spins in a field.)  Take $S=\{\pm1\}$, a field $h\in\R$,
+and $H(\sigma)=-h\sum_{i\in\Lambda}\sigma_i$.  Prove
+$Z_\Lambda=(2\cosh\beta h)^{\abs\Lambda}$.
+\item (Zeeman Hamiltonian for spin $s$.)  Let $s\in\tfrac12\N$,
+$S=\{-s,-s+1,\dots,s\}$ (the $2s+1$ levels), and for a magnetic induction
+$B\in\R$, a Land\'e factor $g>0$, and the Bohr magneton $\mu_B>0$ put
+$H(\sigma)=-g\mu_BB\sum_{i\in\Lambda}\sigma_i$.  With $x=\beta g\mu_BB$
+prove
+\[
+ Z_\Lambda=\left(\frac{\sinh\bigl((2s+1)x/2\bigr)}{\sinh(x/2)}\right)^{\abs\Lambda},
+\]
+the right side being interpreted as $(2s+1)^{\abs\Lambda}$ at $x=0$.  Prove
+that $Z_\Lambda$ extends to an entire function of $x$ and that
+$\log Z_\Lambda$ is real analytic in $x\in\R$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Ising Hamiltonian on a finite graph and its $\mathbb Z_2$ symmetry]
+Let $\Gamma=(V,E)$ be a finite graph with unordered edges $ij\in E$, and let
+$\Omega_V=\{\pm1\}^V$.  For a coupling $J>0$ and a field $h\in\R$ the Ising
+Hamiltonian is
+\[
+ H(\sigma)=-J\sum_{ij\in E}\sigma_i\sigma_j-h\sum_{i\in V}\sigma_i .
+\]
+Put $K=\beta J$ (the reduced coupling) and write
+\[
+ Z_\Gamma(K,\beta h)=\sum_{\sigma\in\Omega_V}
+ \exp\Bigl(K\sum_{ij\in E}\sigma_i\sigma_j+\beta h\sum_{i\in V}\sigma_i\Bigr).
+\]
+The group $\mathbb Z_2=\{\pm1\}$ acts on $\Omega_V$ by $\sigma\mapsto-\sigma$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $H$ is $\mathbb Z_2$-invariant if and only if $h=0$ or
+$V=\emptyset$, and that $Z_\Gamma(K,\beta h)=Z_\Gamma(K,-\beta h)$ for all
+$h$.
+\item For $\sigma\in\Omega_V$ let $u(\sigma)$ be the number of edges $ij$
+with $\sigma_i\ne\sigma_j$ and $n_-(\sigma)$ the number of sites with
+$\sigma_i=-1$.  Prove
+\[
+ Z_\Gamma(K,\beta h)=e^{K\abs E+\beta h\abs V}
+ \sum_{\sigma\in\Omega_V}x^{u(\sigma)}z^{n_-(\sigma)},
+ \qquad x=e^{-2K},\ z=e^{-2\beta h},
+\]
+so that $e^{-K\abs E-\beta h\abs V}Z_\Gamma$ is a polynomial in $(x,z)$ with
+nonnegative integer coefficients, of degree at most $\abs E$ in $x$ and
+exactly $\abs V$ in $z$.  Determine its constant term and its coefficient of
+$z^{\abs V}$.
+\item Prove that $Z_\Gamma(K,\beta h)>0$ for all real $(K,\beta h)$ and that
+$Z_\Gamma$ extends to an entire function of $(K,\beta h)\in\C^2$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The Curie--Weiss partition function as a binomial sum]
+Let $\Gamma$ be the complete graph on $n$ sites and take the mean-field
+Hamiltonian
+\[
+ H_n(\sigma)=-\frac{J}{n}\sum_{1\le i<j\le n}\sigma_i\sigma_j-h\sum_{i=1}^n\sigma_i .
+\]
+Put $M(\sigma)=\sum_i\sigma_i$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $\sum_{i<j}\sigma_i\sigma_j=\tfrac12(M(\sigma)^2-n)$ and deduce
+\[
+ Z_n=\sum_{k=0}^n\binom nk
+ \exp\Bigl(\frac{K}{2n}(n-2k)^2-\frac K2+\beta h\,(n-2k)\Bigr),
+ \qquad K=\beta J .
+\]
+\item Let $s(m)=-\frac{1+m}2\log\frac{1+m}2-\frac{1-m}2\log\frac{1-m}2$ for
+$m\in[-1,1]$.  Prove the bounds
+$\frac1{n+1}e^{ns(1-2k/n)}\le\binom nk\le e^{ns(1-2k/n)}$ for $0\le k\le n$,
+and deduce
+\[
+ \lim_{n\to\infty}\frac1n\log Z_n
+ =\sup_{m\in[-1,1]}\Bigl(\frac K2m^2+\beta h\,m+s(m)\Bigr).
+\]
+\item Prove that for $K\le1$ and $h=0$ the supremum is attained only at
+$m=0$, and that for $K>1$ and $h=0$ it is attained exactly at $\pm m_K$ with
+$m_K>0$ the positive solution of $m=\tanh(Km)$.
+\end{enumerate}
+\end{exercise}
+
+\section{Gibbs measures}
+
+\begin{exercise}[Gibbs measures, expectations, and the Markov property of the Ising model]
+Let $\Omega$ be a finite set, $H:\Omega\to\R$, and $\beta>0$.  The Gibbs
+measure is the probability measure on $\Omega$ with
+\[
+ \mu(\sigma)=\frac{e^{-\beta H(\sigma)}}{Z},\qquad Z=\sum_{\sigma\in\Omega}e^{-\beta H(\sigma)} .
+\]
+For $A:\Omega\to\C$ the expectation is
+$\langle A\rangle=\E_\mu A=\sum_\sigma A(\sigma)\mu(\sigma)$, and for
+$A,B:\Omega\to\C$ the truncated correlation is
+$\langle A;B\rangle=\langle AB\rangle-\langle A\rangle\langle B\rangle$.
+For a subset $\Delta\subset V$ of the vertex set of a finite graph
+$\Gamma=(V,E)$ and $\eta\in\{\pm1\}^{V\setminus\Delta}$, define the Ising
+Hamiltonian on $\Delta$ with boundary condition $\eta$,
+\[
+ H^\eta_\Delta(\sigma)=-J\sum_{\substack{ij\in E\\ i,j\in\Delta}}\sigma_i\sigma_j
+ -h\sum_{i\in\Delta}\sigma_i
+ -J\sum_{\substack{ij\in E\\ i\in\Delta,\ j\notin\Delta}}\sigma_i\eta_j,
+ \qquad \sigma\in\{\pm1\}^\Delta,
+\]
+with Gibbs measure $\mu^\eta_\Delta$ and partition function $Z^\eta_\Delta$.
+Let $\mu$ be the Gibbs measure of the Ising Hamiltonian $H$ of the section
+Microstates, Hamiltonians, partition functions on all of $\Gamma$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that under $\mu$ the conditional law of $\sigma_i$ given
+$(\sigma_j)_{j\ne i}$ is
+\[
+ \mu\bigl(\sigma_i=\pm1\bigm|(\sigma_j)_{j\ne i}\bigr)
+ =\frac{e^{\pm\beta(J\sum_{j\sim i}\sigma_j+h)}}
+ {2\cosh\bigl(\beta(J\sum_{j\sim i}\sigma_j+h)\bigr)},
+\]
+where $j\sim i$ means $ij\in E$; in particular it depends on
+$(\sigma_j)_{j\ne i}$ only through the neighbours of $i$.
+\item (Finite-volume consistency.)  Prove that for every
+$\Delta\subset V$ and every $\eta\in\{\pm1\}^{V\setminus\Delta}$ with
+$\mu(\sigma|_{V\setminus\Delta}=\eta)>0$,
+\[
+ \mu\bigl(\sigma|_\Delta=\tau\bigm|\sigma|_{V\setminus\Delta}=\eta\bigr)
+ =\mu^\eta_\Delta(\tau),\qquad\tau\in\{\pm1\}^\Delta ,
+\]
+and that $\mu^\eta_\Delta$ depends on $\eta$ only through its restriction to
+the set of sites of $V\setminus\Delta$ adjacent to $\Delta$.
+\item Prove that for $\Delta'\subset\Delta\subset V$ and
+$\eta\in\{\pm1\}^{V\setminus\Delta}$,
+$\mu^\eta_\Delta\bigl(\sigma|_{\Delta'}=\tau\bigm|\sigma|_{\Delta\setminus\Delta'}=\zeta\bigr)
+=\mu^{\zeta\eta}_{\Delta'}(\tau)$, where $\zeta\eta$ denotes the
+configuration on $V\setminus\Delta'$ equal to $\zeta$ on
+$\Delta\setminus\Delta'$ and to $\eta$ on $V\setminus\Delta$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Gibbs entropy, relative entropy, and the variational principle]
+For a probability measure $\nu$ on a finite set $\Omega$ the Shannon--Gibbs
+entropy is
+\[
+ S(\nu)=-\sum_{\sigma\in\Omega}\nu(\sigma)\log\nu(\sigma),
+\]
+with $0\log0=0$, and for probability measures $\nu,\mu$ with
+$\mu(\sigma)>0$ for all $\sigma$ the relative entropy is
+$D(\nu\,\|\,\mu)=\sum_\sigma\nu(\sigma)\log\bigl(\nu(\sigma)/\mu(\sigma)\bigr)$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $0\le S(\nu)\le\log\abs\Omega$, with $S(\nu)=0$ if and only if
+$\nu$ is a point mass and $S(\nu)=\log\abs\Omega$ if and only if $\nu$ is
+uniform.
+\item (Gibbs inequality.)  Using $\log t\le t-1$ for $t>0$ with equality only
+at $t=1$, prove $D(\nu\,\|\,\mu)\ge0$ with equality if and only if
+$\nu=\mu$.
+\item (Variational principle.)  Let $H:\Omega\to\R$, $\beta>0$, and let
+$\mu_\beta$ be the Gibbs measure.  Prove that for every probability measure
+$\nu$ on $\Omega$,
+\[
+ S(\nu)-\beta\,\E_\nu H=\log Z-D(\nu\,\|\,\mu_\beta)\le\log Z ,
+\]
+so that $\mu_\beta$ is the unique maximizer of $\nu\mapsto S(\nu)-\beta\E_\nu H$
+over probability measures on $\Omega$, and $S(\mu_\beta)=\log Z+\beta\langle H\rangle$.
+\item Prove that $\mu_\beta$ is the unique maximizer of $S(\nu)$ over
+probability measures $\nu$ with $\E_\nu H=\langle H\rangle_{\mu_\beta}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Symmetries of Gibbs measures and vanishing of odd correlations]
+Let $\mu$ be the Gibbs measure of a Hamiltonian $H$ on a finite set $\Omega$
+and let $g:\Omega\to\Omega$ be a bijection with $H\circ g=H$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\mu$ is $g$-invariant and that
+$\langle A\circ g\rangle=\langle A\rangle$ for every $A:\Omega\to\C$.
+\item For the Ising Hamiltonian on a finite graph $\Gamma=(V,E)$ at $h=0$
+and $A\subset V$ put $\sigma_A=\prod_{i\in A}\sigma_i$.  Prove
+$\langle\sigma_A\rangle=0$ whenever $\abs A$ is odd; in particular
+$\langle\sigma_i\rangle=0$ for every $i\in V$ and every $\beta>0$.
+\item Prove that $\mu$ is invariant under every automorphism of $\Gamma$ (for
+all $h$), and that for a vertex-transitive graph
+$\langle\sigma_i\rangle$ is independent of $i$.
+\end{enumerate}
+\end{exercise}
+
+\section{\texorpdfstring{$\log Z$}{log Z}, cumulants, entropy, free energy}
+
+\begin{exercise}[The logarithm of the partition function as a cumulant generating function]
+Let $X$ be a real random variable on a finite probability space
+$(\Omega,\nu)$.  Its cumulant generating function is
+$\kappa_X(t)=\log\E_\nu e^{tX}$, $t\in\R$, and its cumulants are the
+coefficients $\kappa_n(X)$ in the expansion $\kappa_X(t)=\sum_{n\ge1}\kappa_n(X)t^n/n!$ near $t=0$.
+Let $H:\Omega\to\R$ be a Hamiltonian on a finite set, $\mu_\beta$ its Gibbs
+measure, and $Z(\beta)$ its partition function. Put $F(\beta)=-\beta^{-1}\log Z(\beta)$, the free energy.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $\kappa_X$ is real analytic and convex, that
+$\kappa_1(X)=\E_\nu X$, $\kappa_2(X)=\Var_\nu X$, and
+$\kappa_3(X)=\E_\nu(X-\E_\nu X)^3$, and that $\kappa_X$ is strictly convex
+unless $X$ is $\nu$-almost surely constant.
+\item Prove that $\log Z(\beta+t)-\log Z(\beta)=\kappa_{-H}(t)$ computed in
+$\mu_\beta$.  Deduce
+\[
+ \frac{\partial}{\partial\beta}\log Z=-\langle H\rangle,\qquad
+ \frac{\partial^2}{\partial\beta^2}\log Z=\Var(H)=\langle H;H\rangle\ge0,
+\]
+so that the internal energy $U(\beta)=\langle H\rangle_{\mu_\beta}$ is
+nonincreasing in $\beta$, and strictly decreasing unless $H$ is constant.
+\item Let $\Omega=\{\pm1\}^\Lambda$, $H=H_0-hM$ with $M(\sigma)=\sum_{i\in\Lambda}\sigma_i$
+and $H_0$ independent of $h$, and regard $\log Z$ as a function of the
+variables $(\beta,\beta h)$.  Prove
+\[
+ \frac{\partial\log Z}{\partial(\beta h)}=\langle M\rangle,\qquad
+ \frac{\partial^2\log Z}{\partial(\beta h)^2}=\Var(M),\qquad
+ \frac{\partial^2\log Z}{\partial\beta\,\partial(\beta h)}=-\langle H_0;M\rangle ,
+\]
+and that the Hessian of $\log Z$ with respect to $(\beta,\beta h)$ is the
+covariance matrix of $(-H_0,M)$ under $\mu_\beta$.  Deduce that $\log Z$ is a
+convex function of $(\beta,\beta h)\in\R^2$ and that $\beta F=-\log Z$ is
+concave.
+\item (Fluctuation--response.)  Define the magnetization per site
+$m=\abs\Lambda^{-1}\langle M\rangle$, the susceptibility
+$\chi=\partial m/\partial h$ at fixed $\beta$, and the specific heat per site
+$c=\abs\Lambda^{-1}\,\partial U/\partial T$ at fixed $h$, where
+$T=1/(k_B\beta)$.  Prove
+\[
+ \chi=\frac{\beta\,\Var(M)}{\abs\Lambda}\ge0,\qquad
+ c=\frac{k_B\beta^2\,\Var(H)}{\abs\Lambda}\ge0 .
+\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Free energy, thermodynamic entropy, and the Legendre transform]
+Let $H:\Omega\to\R$ on a finite set $\Omega$, with Gibbs measures
+$\mu_\beta$ and partition function $Z(\beta)$, $\beta>0$.  Use the free energy $F$ of the preceding exercise; the internal energy is
+$U(\beta)=\langle H\rangle_{\mu_\beta}$, and the thermodynamic entropy is
+$S_{\mathrm{th}}(\beta)=k_BS(\mu_\beta)$ with $S$ the Shannon--Gibbs entropy
+of the section Gibbs measures.  Put $u_-=\min H$, $u_+=\max H$, and for
+$u\in[u_-,u_+]$ let
+$s(u)=\sup\{S(\nu):\nu\text{ a probability measure on }\Omega,\ \E_\nu H=u\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove $S_{\mathrm{th}}=k_B(\log Z+\beta U)$ and $F=U-TS_{\mathrm{th}}$
+with $T=1/(k_B\beta)$; prove $\partial(\beta F)/\partial\beta=U$ and
+$\partial F/\partial T=-S_{\mathrm{th}}$.
+\item Prove that $s$ is concave on $[u_-,u_+]$, that $s(u_\pm)=\log\abs{H^{-1}(u_\pm)}$,
+and that $\beta\mapsto U(\beta)$ is a real-analytic bijection of $\R$ onto
+$(u_-,u_+)$ when $H$ is nonconstant (extend $\mu_\beta$ to all $\beta\in\R$).
+\item (Legendre transform.)  Prove, for all $\beta\in\R$,
+\[
+ \log Z(\beta)=\sup_{u\in[u_-,u_+]}\bigl(s(u)-\beta u\bigr),
+\]
+and that for $u\in(u_-,u_+)$, with $\beta(u)$ the unique solution of
+$U(\beta)=u$,
+\[
+ s(u)=S(\mu_{\beta(u)})=\inf_{\beta\in\R}\bigl(\log Z(\beta)+\beta u\bigr),
+ \qquad s'(u)=\beta(u).
+\]
+\item Prove that $\beta\mapsto S_{\mathrm{th}}(\beta)$ is nonincreasing and
+that $\lim_{\beta\to\infty}S_{\mathrm{th}}(\beta)=k_B\log\abs{H^{-1}(u_-)}$
+(the residual entropy of the ground states).
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Independent spins: Curie's law, the Brillouin function, and the Schottky anomaly]
+Let $s\in\tfrac12\N$ and consider the Zeeman Hamiltonian
+$H=-g\mu_BB\sum_{i\in\Lambda}\sigma_i$ on $\{-s,\dots,s\}^\Lambda$ of the
+section Microstates, Hamiltonians, partition functions, with
+$x=\beta g\mu_BB$.  The Brillouin function of spin $s$ is
+\[
+ B_s(y)=\frac{2s+1}{2s}\coth\Bigl(\frac{2s+1}{2s}\,y\Bigr)-\frac1{2s}\coth\Bigl(\frac y{2s}\Bigr),
+ \qquad y\in\R\setminus\{0\},\quad B_s(0)=0 .
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $B_s$ is real analytic and odd, strictly increasing, with
+$B_s(y)\to1$ as $y\to\infty$ and
+$B_s(y)=\frac{s+1}{3s}\,y-\frac{(s+1)(2s^2+2s+1)}{90s^3}\,y^3+O(y^5)$ as $y\to0$; and
+that $B_{1/2}(y)=\tanh y$.
+\item Prove that the magnetic moment per site is
+\[
+ \frac{\langle g\mu_B\sum_i\sigma_i\rangle}{\abs\Lambda}
+ =g\mu_Bs\,B_s(sx),
+\]
+so that the ratio of the moment to its saturation value $g\mu_Bs$ is
+$B_s\bigl(g\mu_BsB/(k_BT)\bigr)$.
+\item (Curie's law.)  Prove that the zero-field susceptibility per site is
+\[
+ \chi=\frac{(g\mu_B)^2s(s+1)}{3k_BT},
+\]
+both from (b) and from the fluctuation--response identity of the previous
+exercise using $\Var(\sigma_i)=s(s+1)/3$ under the uniform measure on
+$\{-s,\dots,s\}$.
+\item (Schottky anomaly.)  For $s=\tfrac12$ let $\Delta=g\mu_B\abs B>0$ be
+the level splitting.  Prove that the specific heat per site is
+\[
+ c=k_B\Bigl(\frac{\beta\Delta}2\Bigr)^2\operatorname{sech}^2\Bigl(\frac{\beta\Delta}2\Bigr),
+\]
+that $c\to0$ both as $T\to0$ and as $T\to\infty$, and that $c$ attains its
+maximum at the unique solution of $\beta\Delta\tanh(\beta\Delta/2)=2$, namely
+$k_BT/\Delta=0.4168\ldots$, with maximal value $c_{\max}=0.4392\ldots\,k_B$.
+\end{enumerate}
+\end{exercise}
+
+\section{Transfer matrices}
+
+\begin{exercise}[Tensor products, finite-dimensional spaces, and intrinsic traces]
+A tensor product $V\otimes W$ of complex vector spaces represents
+bilinear maps from $V\times W$: composition with its bilinear map
+induces $\Hom(V\otimes W,U)\simeq\operatorname{Bil}(V,W;U)$.
+Write $V^*=\Hom(V,\C)$ and
+$\mathrm{ev}_V:V^*\otimes V\to\C$ for evaluation.
+A vector space $V$ is finite-dimensional if there is a map
+$\mathrm{coev}_V:\C\to V\otimes V^*$ satisfying
+\[
+ (\id_V\otimes\mathrm{ev}_V)(\mathrm{coev}_V\otimes\id_V)=\id_V,
+ \qquad
+ (\mathrm{ev}_V\otimes\id_{V^*})(\id_{V^*}\otimes\mathrm{coev}_V)=\id_{V^*}.
+\]
+For such a space and $A\in\End(V)$ define
+$\Tr A=\mathrm{ev}_V\,\tau(A\otimes\id)\mathrm{coev}_V$,
+where $\tau$ interchanges the factors, and $\dim V=\Tr\id_V$.
+The exterior power $\bigwedge^n V$ represents alternating $n$-linear
+maps. If $\dim V=n$, the scalar by which $\bigwedge^n A$ acts on
+the line $\bigwedge^n V$ is $\det A$.
+\begin{enumerate}[label=(\alph*)]
+\item Construct the tensor product as the quotient of the free vector
+space on $V\times W$ by the bilinearity relations. Prove uniqueness
+of the representing object and of coevaluation when it exists.
+Show that $W\otimes V^*\to\Hom(V,W)$ is an isomorphism for
+finite-dimensional $V$, using the snake identities.
+\item For a finite set $S$ use the evaluation functions and their
+evaluation functionals to construct coevaluation on $\C^S$.
+Prove that an operator with kernel $A(s,t)$ has
+$\Tr A=\sum_s A(s,s)$. Prove $\Tr(AB)=\Tr(BA)$ for maps
+$A:V\to W$, $B:W\to V$, and prove multiplicativity under tensor
+products and additivity under direct sums.
+\item Split off a nonzero line using a linear functional and use
+induction to show that $\dim V$ is a nonnegative integer,
+$\bigwedge^{\dim V}V$ is a line, and the next exterior power vanishes.
+Prove $\det(AB)=\det A\det B$.
+\item Define the partial trace $\Tr_V:\End(V\otimes W)\to\End(W)$
+by inserting $\mathrm{coev}_V$, applying the operator to $V\otimes W$,
+and contracting $V$ with $V^*$ by evaluation and the symmetry.
+Prove $\Tr_V(A\otimes B)=(\Tr A)B$ and its cyclicity with respect
+to operators acting only on $V$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Inner products and spectral projections]
+A Hermitian inner product is a positive definite sesquilinear pairing,
+conjugate-linear in its first argument. The adjoint of $A$ is the
+operator $A^*$ satisfying $\inner{v}{Aw}=\inner{A^*v}{w}$.
+An operator is self-adjoint if $A=A^*$, unitary if $A^*A=AA^*=\id$,
+and an orthogonal projection if $P=P^*=P^2$.
+\begin{enumerate}[label=(\alph*)]
+\item On a finite-dimensional inner product space prove existence
+and uniqueness of adjoints and the orthogonal decomposition
+$V=W\oplus W^\perp$ for every subspace $W$.
+\item For self-adjoint $A$ maximize $\inner{v}{Av}$ on the unit
+sphere, prove that the maximizing line is invariant, and induct on
+its orthogonal complement. Obtain the intrinsic decomposition
+$V=\bigoplus_{\lambda\in\Spec A}\ker(A-\lambda)$ and
+$A=\sum_\lambda\lambda P_\lambda$ with mutually orthogonal
+spectral projections. Prove $\Tr A=\sum_\lambda\lambda\dim\im P_\lambda$
+and $\det A=\prod_\lambda\lambda^{\dim\im P_\lambda}$.
+\item Prove that commuting self-adjoint operators preserve one
+another's spectral subspaces, and hence admit joint spectral
+projections. Define $f(A)=\sum_\lambda f(\lambda)P_\lambda$
+and prove the product rule for this functional calculus.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[The transfer matrix of the periodic Ising chain and the exact free energy]
+Let $\Lambda=\Z/N\Z$ with edges $\{n,n+1\}$, $N\ge3$ (the periodic Ising
+chain), so that
+$H(\sigma)=-J\sum_{n\in\Z/N\Z}\sigma_n\sigma_{n+1}-h\sum_n\sigma_n$.
+Let $\C^{\{\pm1\}}$ be the space of functions on $\{\pm1\}$ with its standard
+inner product, and let $T$ be the operator on it with matrix entries in the
+configuration basis
+\[
+ \langle\sigma|T|\sigma'\rangle=\exp\Bigl(K\sigma\sigma'+\frac{\beta h}2(\sigma+\sigma')\Bigr),
+ \qquad\sigma,\sigma'\in\{\pm1\} .
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove $Z_N=\Tr(T^N)$.
+\item Prove that $T$ is symmetric with positive entries and
+$\det T=2\sinh2K>0$, hence positive definite, with eigenvalues
+\[
+ \lambda_\pm=e^K\cosh\beta h\pm\sqrt{e^{2K}\sinh^2\beta h+e^{-2K}},
+ \qquad \lambda_+>\lambda_->0 .
+\]
+\item Prove $Z_N=\lambda_+^N+\lambda_-^N$ and
+$\lim_{N\to\infty}N^{-1}\log Z_N=\log\lambda_+$, so that the free energy per
+site converges to
+\[
+ f(\beta,h)=-\beta^{-1}\log\Bigl(e^K\cosh\beta h+\sqrt{e^{2K}\sinh^2\beta h+e^{-2K}}\Bigr),
+\]
+with $f(\beta,0)=-\beta^{-1}\log(2\cosh K)$.
+\item Prove that at $h=0$ the internal energy per site and the specific heat
+per site converge to $-J\tanh K$ and $k_BK^2\operatorname{sech}^2K$, and that
+the limiting magnetization per site is
+\[
+ m(\beta,h)=\frac{\partial\log\lambda_+}{\partial(\beta h)}
+ =\frac{\sinh\beta h}{\sqrt{\sinh^2\beta h+e^{-4K}}} .
+\]
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Analyticity of the chain free energy and the absence of a phase transition in one dimension]
+Keep the notation of the previous exercise and put $D=\{(\beta,h):\beta>0,\ h\in\R\}$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove that $(K,\beta h)\mapsto\lambda_+$ extends to a holomorphic
+function without zeros on a connected open set $\mathcal U\subset\C^2$
+containing $\R^2$, and that $\abs{\lambda_-/\lambda_+}<1$ on $\mathcal U$
+after shrinking $\mathcal U$ to a neighbourhood of any compact subset of
+$\R^2$.
+\item Prove that on such a neighbourhood
+$N^{-1}\log Z_N=\log\lambda_++N^{-1}\log\bigl(1+(\lambda_-/\lambda_+)^N\bigr)$
+converges uniformly to $\log\lambda_+$, and deduce that every partial
+derivative of $N^{-1}\log Z_N$ in $(\beta,\beta h)$ converges uniformly on
+compact subsets of $D$ to the corresponding derivative of $\log\lambda_+$.
+Conclude that the limiting magnetization, susceptibility, internal energy,
+and specific heat are the derivatives of $f$ and are real analytic on $D$.
+\item Prove that $m(\beta,h)\to0$ as $h\to0$ for every $\beta\in(0,\infty)$,
+that $h\mapsto m(\beta,h)$ is real analytic and strictly increasing, and that
+the zero-field susceptibility is $\chi(\beta,0)=\beta e^{2K}$, finite for every
+$\beta<\infty$.
+\item Prove that for $N\ge3$ the finite-$N$ partition function
+$Z_N(K,\beta h)$ has no zero with $K\in\R$, $\beta h\in\R$, and that a zero
+with $K\in\R$ and $\beta h\in\C$ requires $\abs{\lambda_+}=\abs{\lambda_-}$,
+where $\lambda_\pm$ are the two roots of $\lambda^2-2e^K\cosh(\beta h)\lambda+2\sinh2K$
+(use $\lambda_+^N=-\lambda_-^N$).  Prove that
+$\abs{\lambda_+}=\abs{\lambda_-}$ forces $\operatorname{Re}\bigl(\overline{a}\sqrt b\bigr)=0$
+with $a=e^K\cosh\beta h$ and $b=e^{2K}\sinh^2\beta h+e^{-2K}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Spectral decomposition of the transfer matrix, two-point functions, and the correlation length]
+Keep the notation of the periodic chain and let $P_\pm$ be the spectral
+projections of $T$ onto its eigenlines, $T=\lambda_+P_++\lambda_-P_-$.  Let
+$\Sigma$ be the operator on $\C^{\{\pm1\}}$ of multiplication by the
+function $\sigma\mapsto\sigma$.
+\begin{enumerate}[label=(\alph*)]
+\item Prove, for $0\le r\le N$,
+\[
+ \langle\sigma_0\sigma_r\rangle_N=\frac{\Tr(\Sigma T^r\Sigma T^{N-r})}{\Tr T^N}
+ =\frac{\sum_{a,b\in\{\pm\}}\lambda_a^r\lambda_b^{N-r}\Tr(P_a\Sigma P_b\Sigma)}
+ {\lambda_+^N+\lambda_-^N}.
+\]
+\item Prove that $\Tr(P_+\Sigma P_+\Sigma)=\Tr(P_+\Sigma)^2$,
+$\Tr(P_+\Sigma P_-\Sigma)=\Tr(P_-\Sigma P_+\Sigma)\ge0$, and, with $r$
+fixed and $N\to\infty$,
+\[
+ \langle\sigma_0\sigma_r\rangle\to\Tr(P_+\Sigma)^2
+ +\Tr(P_+\Sigma P_-\Sigma)\,(\lambda_-/\lambda_+)^r,
+\]
+so that $\lim_N\langle\sigma_0;\sigma_r\rangle_N=\Tr(P_+\Sigma P_-\Sigma)\,e^{-r/\xi}$ with the
+correlation length
+\[
+ \xi=\frac1{\log(\lambda_+/\lambda_-)} .
+\]
+\item At $h=0$ prove $\lambda_\pm=2\cosh K,\ 2\sinh K$, $\Tr(P_+\Sigma)=0$,
+$\Tr(P_+\Sigma P_-\Sigma)=1$, and
+\[
+ \langle\sigma_0\sigma_r\rangle_N=\frac{t^r+t^{N-r}}{1+t^N},\qquad t=\tanh K,
+ \qquad \xi=-\frac1{\log\tanh K},
+\]
+and that $\xi\sim\tfrac12e^{2K}$ as $K\to\infty$ while $\xi\to0$ as $K\to0$.
+\item Prove that at $h=0$ the susceptibility of the section
+$\log Z$, cumulants, entropy, free energy satisfies
+$\chi=\beta\sum_{r\in\Z/N\Z}\langle\sigma_0\sigma_r\rangle_N$ and converges as
+$N\to\infty$ to $\beta\,(1+t)/(1-t)=\beta e^{2K}$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Transfer matrices on a strip: positivity and the simple leading eigenvalue]
+Let $L,N\ge3$ and let $\T_{N,L}=(\Z/N\Z)\times(\Z/L\Z)$ be the $N\times L$
+torus with nearest-neighbour edges.  Write a configuration as a sequence of
+rows $\sigma^{(1)},\dots,\sigma^{(N)}\in\{\pm1\}^{\Z/L\Z}$ and let
+$\mathcal H_L=\C^{\{\pm1\}^{\Z/L\Z}}\cong(\C^2)^{\otimes L}$ be the row
+space, the tensor factor at $j\in\Z/L\Z$ being $\C^{\{\pm1\}}$.  Define
+$U(\tau)=-J\sum_{j}\tau_j\tau_{j+1}-h\sum_j\tau_j$ (the row energy) and
+$W(\tau,\tau')=-J\sum_j\tau_j\tau'_j$ (the interaction of consecutive rows),
+and the transfer matrix $T_L$ on $\mathcal H_L$ by
+\[
+ \langle\tau|T_L|\tau'\rangle=\exp\Bigl(-\frac\beta2U(\tau)-\beta W(\tau,\tau')-\frac\beta2U(\tau')\Bigr) .
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Prove that the Ising Hamiltonian on $\T_{N,L}$ equals
+$\sum_{n}\bigl(U(\sigma^{(n)})+W(\sigma^{(n)},\sigma^{(n+1)})\bigr)$ and
+that $Z_{\T_{N,L}}=\Tr(T_L^N)$.
+\item Prove $T_L=V^{1/2}(T_{h=0})^{\otimes L}V^{1/2}$, where $V$ is the
+positive diagonal operator of multiplication by $e^{-\beta U}$ and
+$T_{h=0}$ is the chain transfer matrix at $h=0$ of the first exercise of this
+section.  Deduce that $T_L$ is symmetric with strictly positive entries and
+positive definite.
+\item Prove that $T_L$ commutes with the translation operator
+$(R\psi)(\tau)=\psi(\tau\circ(j\mapsto j+1))$ and, when $h=0$, with the spin
+reversal $(F\psi)(\tau)=\psi(-\tau)$.
+\item Let $A$ be a symmetric kernel on $\R^S$ for a finite set $S$,
+with $A(s,t)>0$ for all $s,t$, and let
+$\lambda_{\max}=\max\spec A$.  Prove: if $v$
+maximizes the Rayleigh quotient $\langle v,Av\rangle/\langle v,v\rangle$, then
+so does $\abs v$ (entrywise absolute value), hence $A\abs v=\lambda_{\max}\abs v$ and
+$\abs v$ has strictly positive entries; deduce that $\lambda_{\max}$ is a
+simple eigenvalue with an entrywise positive eigenvector, and that
+$\lambda_{\max}>\abs\lambda$ for every other eigenvalue $\lambda$.
+\item Conclude that the largest eigenvalue $\lambda_{\max}(L)$ of $T_L$ is
+simple and $\lim_{N\to\infty}N^{-1}\log Z_{\T_{N,L}}=\log\lambda_{\max}(L)$.
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}[Prediction: magnetization and calorimetry of independent spins and the Ising chain]
+Consider independent ions of spin $s$, with Zeeman energy
+$-g\mu_BB\sigma$, and the zero-field Ising chain
+$H=-J\sum_i\sigma_i\sigma_{i+1}$, $J>0$.
+Use $\beta=1/(k_BT)$ and $K=\beta J$.
+\begin{enumerate}[label=(\alph*)]
+\item Derive the moment per ion
+$M=g\mu_BsB_s(g\mu_BsB/(k_BT))$ and the zero-field
+susceptibility $(g\mu_B)^2s(s+1)/(3k_BT)$.
+For $g=2$ compute the saturation moments for
+$s=3/2,5/2,7/2$ and the slopes of the normalized
+magnetization curves against $B/T$.
+\item Derive the chain's specific heat and its peak,
+\[
+ \frac c{k_B}=K^2\operatorname{sech}^2K,\qquad
+ k_BT_{\max}=0.8336\ldots J,\qquad
+ c_{\max}=0.4392\ldots k_B,
+\]
+by proving uniqueness of the solution of $K\tanh K=1$.
+Obtain the high- and low-temperature asymptotics.
+\item From the chain entropy per spin
+$k_B[\log(2\cosh K)-K\tanh K]$ prove
+$\int_0^\infty c(T)\,\dd T/T=k_B\log2$.
+Calculate the predicted peak temperature for $J/k_B=9\,\mathrm K$,
+regarding this as a specified model parameter.
+\item Identify the measurements of magnetization, saturation,
+and heat capacity that test these formulas.
+For the independent-ion calculation state the assumptions of
+negligible exchange and crystal-field splitting relative
+to $k_BT$; for the chain state the absence of interchain
+exchange and the need to subtract lattice heat capacity.
+Use analyticity of the chain free energy to show that a
+finite-temperature ordering anomaly would require physics
+beyond this Hamiltonian.
+\end{enumerate}
+\end{exercise}
